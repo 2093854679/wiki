@@ -1,4 +1,4 @@
-# LLM Knowledge Base
+﻿# LLM Knowledge Base
 
 这是一个基于 Obsidian 的 LLM 知识库。
 
@@ -67,4 +67,18 @@ wiki/index.md -> BK Docs -> 芯片 hub -> 模块 -> raw 原文
 ```
 
 不要直接跳过导航去 grep `raw/`，先路由，再下钻。
+
+
+## 网站文档更新流程
+
+当网站内容更新、`raw/` 里已有页面被覆盖时，按这个顺序处理：
+
+```powershell
+python -m tools.kb ingest --status changed --type markdown
+python -m tools.kb index
+python -m tools.kb stats
+```
+
+如果站点结构、图片或目录也变了，先跑对应 crawler / cleanup / 图片本地化脚本，再执行上面的流程。  
+Beken 这类文档优先复用现有 crawler，`changed` 文件会被 `ingest` 识别出来；需要的话，再补 `wiki/summaries/` 或 `wiki/concepts/`。
 

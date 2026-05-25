@@ -175,3 +175,16 @@ This way queries never go to waste — the wiki grows with every question you as
 ## Templates
 Jinja2 templates in `tools/kb/templates/` define the structure for generated content.
 Use `python -m tools.kb render` to apply a template to data.
+
+## Website Update Flow
+
+When an external site updates and you mirror new content into `raw/`, use this flow:
+
+1. Re-run the site-specific crawler so the updated pages overwrite the same raw paths.
+2. If the site changed structure or images, run the matching cleanup / image-localization script first.
+3. Run `python -m tools.kb ingest --status changed --type markdown` to find changed markdown files.
+4. Update `wiki/summaries/` for higher-value overview pages, and `wiki/concepts/` for cross-cutting changes.
+5. Rebuild with `python -m tools.kb index`.
+6. Confirm with `python -m tools.kb stats`.
+
+For Beken docs, keep using the existing crawlers and cleanup scripts. If a raw file was already compiled, remember to update the manifest hash for that path after you finish handling it.
