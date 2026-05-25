@@ -1,6 +1,5 @@
 # flashdb Cli[](#flashdb-cli "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/flashdb/flashdb.html "../../../../../en/v1.5/examples/cli/flashdb/flashdb.html")
 
 
 ## 1、flashdb介绍[](#flashdb "永久链接至标题")

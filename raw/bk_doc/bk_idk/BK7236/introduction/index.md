@@ -1,12 +1,11 @@
 # 简介[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/introduction/index.html "../../../en/v2.0.1/introduction/index.html")
 
 
-- [简介](bk_overview.html "bk_overview.html")
+- [简介](bk_overview.md "bk_overview.md")
 
-- [版权声明](bk_licensing.html "bk_licensing.html")
+- [版权声明](bk_licensing.md "bk_licensing.md")
 
-- [相关资源](bk_resource.html "bk_resource.html")
+- [相关资源](bk_resource.md "bk_resource.md")
 
-- [开发者社区](bk_community.html "bk_community.html")
+- [开发者社区](bk_community.md "bk_community.md")

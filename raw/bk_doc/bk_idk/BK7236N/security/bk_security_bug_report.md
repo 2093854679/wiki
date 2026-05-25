@@ -1,6 +1,5 @@
 # 漏洞报告与披露[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_security_bug_report.html "../../../en/v2.2.1/security/bk_security_bug_report.html")
 
 
 ## 漏洞报告流程[](#id2 "永久链接至标题")

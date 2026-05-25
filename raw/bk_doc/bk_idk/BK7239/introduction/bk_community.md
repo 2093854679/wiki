@@ -1,6 +1,5 @@
 # 开发者社区[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/introduction/bk_community.html "../../../en/v2.2.1/introduction/bk_community.html")
 
 Armino 社区由三部分组成:
 

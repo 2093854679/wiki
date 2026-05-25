@@ -1,6 +1,5 @@
 # 分区修改的组成[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/partition_specification/bk_partition_files.html "../../../../en/v1.5/developer-guide/partition_specification/bk_partition_files.html")
 
 
 ## 一.分区修改的组成[](#id2 "永久链接至标题")

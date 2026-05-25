@@ -1,6 +1,5 @@
 # VIDEO AT CMD[](#video-at-cmd "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/video/video_at.html "../../../../../en/v1.5/examples/cli/video/video_at.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

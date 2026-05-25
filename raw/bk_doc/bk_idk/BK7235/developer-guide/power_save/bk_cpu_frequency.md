@@ -22,4 +22,3 @@ CPU主频最高可以达到320M，系统不支持运行到480M，可以通过分
 
 - CPU主频最高可以达到320M
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_cpu_frequency.html "../../../../en/v1.5/developer-guide/power_save/bk_cpu_frequency.html")

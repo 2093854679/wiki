@@ -1,6 +1,5 @@
 # AB分区位置无关的升级镜像路径[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_image_route_introduction.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_image_route_introduction.html")
 
 > 升级所需的镜像已自动化生成，镜像路径如下：
 

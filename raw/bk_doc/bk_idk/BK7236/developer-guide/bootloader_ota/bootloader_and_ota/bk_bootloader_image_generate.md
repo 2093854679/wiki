@@ -1,6 +1,5 @@
 # 四.Bootloader镜像文件生成[](#bootloader "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_image_generate.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_image_generate.html")
 
 
 - 1.直接编译生成bootloader.bin；具体编译步骤如下：

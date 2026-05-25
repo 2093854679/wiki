@@ -1,6 +1,5 @@
 # 文档生成[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/documentation/bk_doc_gen.html "../../../../en/v1.5/developer-guide/documentation/bk_doc_gen.html")
 
 
 ## 概述[](#id2 "永久链接至标题")

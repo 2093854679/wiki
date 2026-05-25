@@ -1,6 +1,5 @@
 # Display APIs[](#display-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_display.html "../../../../en/v1.5/api-reference/multi_media/bk_display.html")
 
 
 ## LCD Display Interface[](#lcd-display-interface "永久链接至标题")
@@ -57,7 +56,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_driver_init([lcd_clk_t](#_CPPv49lcd_clk_t "lcd_clk_t") clk)[](#_CPPv418bk_lcd_driver_init9lcd_clk_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_driver_init([lcd_clk_t](#_CPPv49lcd_clk_t "lcd_clk_t") clk)[](#_CPPv418bk_lcd_driver_init9lcd_clk_t "永久链接至目标")
 :   LCD API.
 
     This API select LCD module clk source
@@ -74,7 +73,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
     返回
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_init(uint16_t x_pixel, uint16_t y_pixel, pixel_format_t input_data_format)[](#_CPPv416bk_lcd_8080_init8uint16_t8uint16_t14pixel_format_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_init(uint16_t x_pixel, uint16_t y_pixel, pixel_format_t input_data_format)[](#_CPPv416bk_lcd_8080_init8uint16_t8uint16_t14pixel_format_t "永久链接至目标")
 :   This API init the 8080 lcd interface.
 
 
@@ -99,7 +98,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_deinit(void)[](#_CPPv418bk_lcd_8080_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_deinit(void)[](#_CPPv418bk_lcd_8080_deinitv "永久链接至目标")
 :   8080 lcd interface reg deinit
 
     ```
@@ -118,7 +117,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_pixel_config(uint16_t x_pixel, uint16_t y_pixel)[](#_CPPv419bk_lcd_pixel_config8uint16_t8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_pixel_config(uint16_t x_pixel, uint16_t y_pixel)[](#_CPPv419bk_lcd_pixel_config8uint16_t8uint16_t "永久链接至目标")
 :   This API config lcd display x size and y size.
 
     参数
@@ -132,7 +131,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_int_enable(bool is_sof_en, bool is_eof_en)[](#_CPPv422bk_lcd_8080_int_enablebb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_int_enable(bool is_sof_en, bool is_eof_en)[](#_CPPv422bk_lcd_8080_int_enablebb "永久链接至目标")
 :   This API config 8080 lcd interrupt.
 
 
@@ -150,7 +149,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_start_transfer(bool start)[](#_CPPv426bk_lcd_8080_start_transferb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_start_transfer(bool start)[](#_CPPv426bk_lcd_8080_start_transferb "永久链接至目标")
 :   This API start mcu 8080 lcd transfer data to display.
 
     参数
@@ -166,7 +165,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_deinit(void)[](#_CPPv417bk_lcd_rgb_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_deinit(void)[](#_CPPv417bk_lcd_rgb_deinitv "永久链接至目标")
 :   rgb lcd interface reg deinit
 
     ```
@@ -185,7 +184,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_display_en(bool en)[](#_CPPv421bk_lcd_rgb_display_enb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_display_en(bool en)[](#_CPPv421bk_lcd_rgb_display_enb "永久链接至目标")
 :   enable rgb lcd enable
 
     参数
@@ -201,7 +200,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_int_enable(bool is_sof_en, bool is_eof_en)[](#_CPPv421bk_lcd_rgb_int_enablebb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_int_enable(bool is_sof_en, bool is_eof_en)[](#_CPPv421bk_lcd_rgb_int_enablebb "永久链接至目标")
 :   This API config rgb lcd interrupt.
 
 
@@ -219,7 +218,7 @@ Figure 4. rgb lcd config flow[](#id5 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_isr_register([lcd_isr_t](#_CPPv49lcd_isr_t "lcd_isr_t") lcd_isr)[](#_CPPv419bk_lcd_isr_register9lcd_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_isr_register([lcd_isr_t](#_CPPv49lcd_isr_t "lcd_isr_t") lcd_isr)[](#_CPPv419bk_lcd_isr_register9lcd_isr_t "永久链接至目标")
 :   This API register lcd isr, user should check int status in isr function, and clear status.
 
     参数
@@ -238,7 +237,7 @@ uint32_t bk_lcd_int_status_get(void)[](#_CPPv421bk_lcd_int_status_getv "永�
     返回
     :   - status value.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_int_status_clear([lcd_int_type_t](#_CPPv414lcd_int_type_t "lcd_int_type_t") int_type)[](#_CPPv423bk_lcd_int_status_clear14lcd_int_type_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_int_status_clear([lcd_int_type_t](#_CPPv414lcd_int_type_t "lcd_int_type_t") int_type)[](#_CPPv423bk_lcd_int_status_clear14lcd_int_type_t "永久链接至目标")
 :   This API used to clr lcd int status.
 
     参数
@@ -249,7 +248,7 @@ uint32_t bk_lcd_int_status_get(void)[](#_CPPv421bk_lcd_int_status_getv "永�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_init([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, uint16_t x_pixel, uint16_t y_pixel, pixel_format_t input_data_format)[](#_CPPv415bk_lcd_rgb_init15lcd_device_id_t8uint16_t8uint16_t14pixel_format_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_rgb_init([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, uint16_t x_pixel, uint16_t y_pixel, pixel_format_t input_data_format)[](#_CPPv415bk_lcd_rgb_init15lcd_device_id_t8uint16_t8uint16_t14pixel_format_t "永久链接至目标")
 :   This API init the rgb lcd interface.
 
 
@@ -276,7 +275,7 @@ uint32_t bk_lcd_int_status_get(void)[](#_CPPv421bk_lcd_int_status_getv "永�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_send_cmd(uint8_t param_count, uint32_t command, uint32_t *param)[](#_CPPv420bk_lcd_8080_send_cmd7uint8_t8uint32_tP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_send_cmd(uint8_t param_count, uint32_t command, uint32_t *param)[](#_CPPv420bk_lcd_8080_send_cmd7uint8_t8uint32_tP8uint32_t "永久链接至目标")
 :   This API used send 8080 lcd init cmd.
 
     Usage example:
@@ -302,7 +301,7 @@ uint32_t bk_lcd_get_display_base_addr(void)[](#_CPPv428bk_lcd_get_display_bas
     返回
     :   lcd display addr
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_set_partical_display(bool en, uint16_t partial_clum_l, uint16_t partial_clum_r, uint16_t partial_line_l, uint16_t partial_line_r)[](#_CPPv427bk_lcd_set_partical_displayb8uint16_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_set_partical_display(bool en, uint16_t partial_clum_l, uint16_t partial_clum_r, uint16_t partial_line_l, uint16_t partial_line_r)[](#_CPPv427bk_lcd_set_partical_displayb8uint16_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
 :   This API used for display partical area.
 
     8080 Usage example:
@@ -324,7 +323,7 @@ uint32_t bk_lcd_get_display_base_addr(void)[](#_CPPv428bk_lcd_get_display_bas
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_ram_write(uint32_t cmd)[](#_CPPv421bk_lcd_8080_ram_write8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_8080_ram_write(uint32_t cmd)[](#_CPPv421bk_lcd_8080_ram_write8uint32_t "永久链接至目标")
 :   This API used for 8080 mcu lcd 0x2c/0x3c. ram write cmd send.
 
     返回
@@ -332,7 +331,7 @@ uint32_t bk_lcd_get_display_base_addr(void)[](#_CPPv428bk_lcd_get_display_bas
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_init(const [lcd_config_t](#_CPPv412lcd_config_t "lcd_config_t") *config)[](#_CPPv415lcd_driver_initPK12lcd_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_init(const [lcd_config_t](#_CPPv412lcd_config_t "lcd_config_t") *config)[](#_CPPv415lcd_driver_initPK12lcd_config_t "永久链接至目标")
 :   This API used for init lcd.
 
     Usage example: [lcd_config_t](#structlcd__config__t "#structlcd__config__t") lcd_config; lcd_config.device = get_lcd_device_by_id(LCD_DEVICE_ST7282); lcd_config.complete_callback = lcd_complete_callback; lcd_config.fmt = VUYY_DATA; lcd_config.pixel_x = 640; lcd_config.pixel_y = 480; lcd_driver_init(&lcd_config);
@@ -366,7 +365,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
     返回
     :   - devices number
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_backlight_init(uint8_t pwm_id, uint8_t percent)[](#_CPPv425lcd_driver_backlight_init7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_backlight_init(uint8_t pwm_id, uint8_t percent)[](#_CPPv425lcd_driver_backlight_init7uint8_t7uint8_t "永久链接至目标")
 :   this api used to init lcd backlight
 
     参数
@@ -380,7 +379,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_backlight_deinit(uint8_t pwm_id)[](#_CPPv427lcd_driver_backlight_deinit7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_backlight_deinit(uint8_t pwm_id)[](#_CPPv427lcd_driver_backlight_deinit7uint8_t "永久链接至目标")
 :   this api used to deinit lcd backlight
 
     参数
@@ -391,7 +390,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_set_backlight(uint8_t percent)[](#_CPPv424lcd_driver_set_backlight7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_set_backlight(uint8_t percent)[](#_CPPv424lcd_driver_set_backlight7uint8_t "永久链接至目标")
 :   this api used to set lcd backlight
 
     参数
@@ -402,7 +401,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_enable(void)[](#_CPPv425lcd_driver_display_enablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_enable(void)[](#_CPPv425lcd_driver_display_enablev "永久链接至目标")
 :   this api used to enable lcd display
 
     返回
@@ -410,7 +409,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_continue(void)[](#_CPPv427lcd_driver_display_continuev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_continue(void)[](#_CPPv427lcd_driver_display_continuev "永久链接至目标")
 :   this api used to clear eof int and diaplay continue
 
     返回
@@ -418,7 +417,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_set_display_base_addr(uint32_t disp_base_addr)[](#_CPPv432lcd_driver_set_display_base_addr8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_set_display_base_addr(uint32_t disp_base_addr)[](#_CPPv432lcd_driver_set_display_base_addr8uint32_t "永久链接至目标")
 :   this api used to set lcd display addr
 
     参数
@@ -429,7 +428,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_deinit(void)[](#_CPPv417lcd_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_deinit(void)[](#_CPPv417lcd_driver_deinitv "永久链接至目标")
 :   this api used to close lcd
 
     返回
@@ -437,7 +436,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_fill_color([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, [lcd_disp_framebuf_t](#_CPPv419lcd_disp_framebuf_t "lcd_disp_framebuf_t") *lcd_disp, uint32_t color)[](#_CPPv417bk_lcd_fill_color15lcd_device_id_tP19lcd_disp_framebuf_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_fill_color([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, [lcd_disp_framebuf_t](#_CPPv419lcd_disp_framebuf_t "lcd_disp_framebuf_t") *lcd_disp, uint32_t color)[](#_CPPv417bk_lcd_fill_color15lcd_device_id_tP19lcd_disp_framebuf_t8uint32_t "永久链接至目标")
 :   lcd fill color
 
     参数
@@ -448,7 +447,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_fill_data([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, [lcd_disp_framebuf_t](#_CPPv419lcd_disp_framebuf_t "lcd_disp_framebuf_t") *lcd_disp)[](#_CPPv416bk_lcd_fill_data15lcd_device_id_tP19lcd_disp_framebuf_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_fill_data([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, [lcd_disp_framebuf_t](#_CPPv419lcd_disp_framebuf_t "lcd_disp_framebuf_t") *lcd_disp)[](#_CPPv416bk_lcd_fill_data15lcd_device_id_tP19lcd_disp_framebuf_t "永久链接至目标")
 :   lcd fill data, adapt large amount of data transfer
 
     参数
@@ -459,7 +458,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_lcd_draw_point([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, uint16_t x, uint16_t y, uint16_t pixel)[](#_CPPv417bk_lcd_draw_point15lcd_device_id_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_lcd_draw_point([lcd_device_id_t](#_CPPv415lcd_device_id_t "lcd_device_id_t") id, uint16_t x, uint16_t y, uint16_t pixel)[](#_CPPv417bk_lcd_draw_point15lcd_device_id_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
 :   this api used to draw point or adapt small amount of data
 
     参数
@@ -470,7 +469,7 @@ uint32_t get_lcd_devices_num(void)[](#_CPPv419get_lcd_devices_numv "永久链
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_frame(frame_buffer_t *frame)[](#_CPPv424lcd_driver_display_frameP14frame_buffer_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_display_frame(frame_buffer_t *frame)[](#_CPPv424lcd_driver_display_frameP14frame_buffer_t "永久链接至目标")
 :   push lcd display frame
 
     参数
@@ -553,7 +552,7 @@ frame_buffer_t *lcd_driver_rotate_frame_ppi(frame_buffer_t *frame, media_ppi_t p
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_blend([lcd_blend_t](#_CPPv411lcd_blend_t "lcd_blend_t") *lcd_blend)[](#_CPPv416lcd_driver_blendP11lcd_blend_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_blend([lcd_blend_t](#_CPPv411lcd_blend_t "lcd_blend_t") *lcd_blend)[](#_CPPv416lcd_driver_blendP11lcd_blend_t "永久链接至目标")
 :   this api for lcd blend foreground logo
 
     参数
@@ -564,7 +563,7 @@ frame_buffer_t *lcd_driver_rotate_frame_ppi(frame_buffer_t *frame, media_ppi_t p
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_driver_font_blend([lcd_font_config_t](#_CPPv417lcd_font_config_t "lcd_font_config_t") *lcd_font)[](#_CPPv421lcd_driver_font_blendP17lcd_font_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_driver_font_blend([lcd_font_config_t](#_CPPv417lcd_font_config_t "lcd_font_config_t") *lcd_font)[](#_CPPv421lcd_driver_font_blendP17lcd_font_config_t "永久链接至目标")
 :   this api for lcd blend font
 
     参数
@@ -575,7 +574,7 @@ frame_buffer_t *lcd_driver_rotate_frame_ppi(frame_buffer_t *frame, media_ppi_t p
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_ldo_power_enable(uint8_t enable)[](#_CPPv420lcd_ldo_power_enable7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_ldo_power_enable(uint8_t enable)[](#_CPPv420lcd_ldo_power_enable7uint8_t "永久链接至目标")
 :   this api for lcd power
 
     参数
@@ -586,7 +585,7 @@ frame_buffer_t *lcd_driver_rotate_frame_ppi(frame_buffer_t *frame, media_ppi_t p
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") lcd_backlight_control_enable(uint8_t enable)[](#_CPPv428lcd_backlight_control_enable7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") lcd_backlight_control_enable(uint8_t enable)[](#_CPPv428lcd_backlight_control_enable7uint8_t "永久链接至目标")
 :   this api for lcd backlight control
 
     1. this function must enable lcd power, for api lcd_ldo_power_enable
@@ -688,7 +687,7 @@ struct lcd_device_t[](#_CPPv412lcd_device_t "永久链接至目标")
     void (*backlight_close)(void)[](#_CPPv4N12lcd_device_t15backlight_closeE "永久链接至目标")
     :   lcd device initial function
 
-    [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*lcd_off)(void)[](#_CPPv4N12lcd_device_t7lcd_offE "永久链接至目标")
+    [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*lcd_off)(void)[](#_CPPv4N12lcd_device_t7lcd_offE "永久链接至目标")
     :   lcd off
 
 struct lcd_config_t[](#_CPPv412lcd_config_t "永久链接至目标")

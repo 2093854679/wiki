@@ -1,6 +1,5 @@
 # power manager[](#power-manager "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/examples/platform/bk_pwr.html "../../../../en/v2.0.1/examples/platform/bk_pwr.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

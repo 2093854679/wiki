@@ -1,6 +1,5 @@
 # 语音通话demo[](#demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/voice_transfer_demo.html "../../../../en/v1.5/examples/audio/voice_transfer_demo.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

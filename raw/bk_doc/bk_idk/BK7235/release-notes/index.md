@@ -5,4 +5,4 @@ Armino 会周期性发布。发布周期依据 Armino 实际开发进展与需�
 Armino 源码仓库见 [GitHub repository](https://github.com/bekencorp/armino "https://github.com/bekencorp/armino").
 
 
-- [Armino 1.2.0](release-notes-1.0.html "release-notes-1.0.html")
+- [Armino 1.2.0](release-notes-1.0.md "release-notes-1.0.md")

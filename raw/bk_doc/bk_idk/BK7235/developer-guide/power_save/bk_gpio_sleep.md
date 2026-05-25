@@ -55,4 +55,3 @@
 
     - 2. 当系统中BT或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票。
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_gpio_sleep.html "../../../../en/v1.5/developer-guide/power_save/bk_gpio_sleep.html")

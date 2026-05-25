@@ -5,4 +5,3 @@
 
 //TODO
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_Lowpower_problem_analysis.html "../../../../en/v2.2.1/developer-guide/power_save/bk_Lowpower_problem_analysis.html")

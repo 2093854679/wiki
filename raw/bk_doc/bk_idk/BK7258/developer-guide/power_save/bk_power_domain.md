@@ -26,4 +26,3 @@
 
 Digital Core电源域下各个业务模块有自己单独的电源域。各个业务可以根据自己的工作场景来决定上电还是下电，这样功耗控制很灵活，不同的产品形态达到最优功耗。
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_power_domain.html "../../../../en/v2.0.1/developer-guide/power_save/bk_power_domain.html")

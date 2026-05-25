@@ -1,6 +1,5 @@
 # OS 抽象层[](#os "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/os_abstraction/index.html "../../../../en/v2.2.1/developer-guide/os_abstraction/index.html")
 
 
 ## OS 抽象层介绍[](#id1 "永久链接至标题")
@@ -21,6 +20,6 @@
 ## OS API详细信息[](#os-api "永久链接至标题")
 
 
-- [OS API](../../api-reference/system/os.html "../../api-reference/system/os.html")
+- [OS API](../../api-reference/system/os.md "../../api-reference/system/os.md")
 
-- [Posix API](../../api-reference/system/posix/index.html "../../api-reference/system/posix/index.html")
+- [Posix API](../../api-reference/system/posix/index.md "../../api-reference/system/posix/index.md")

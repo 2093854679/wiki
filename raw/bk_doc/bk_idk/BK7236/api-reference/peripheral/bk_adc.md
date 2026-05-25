@@ -51,7 +51,7 @@ Beken chip supports get every adc channel value function for user.
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_init(void)[](#_CPPv418bk_adc_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_init(void)[](#_CPPv418bk_adc_driver_initv "永久链接至目标")
 :   Init the ADC driver.
 
     This API init the resoure common to all ADC id:
@@ -68,7 +68,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_acquire(void)[](#_CPPv414bk_adc_acquirev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_acquire(void)[](#_CPPv414bk_adc_acquirev "永久链接至目标")
 :   lock the runing ADC channel
 
     This API lock ADC channel which is runing.
@@ -81,7 +81,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_release()[](#_CPPv414bk_adc_releasev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_release()[](#_CPPv414bk_adc_releasev "永久链接至目标")
 :   release the runing ADC channel
 
     This API release ADC channel which is runing.
@@ -94,7 +94,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_deinit(void)[](#_CPPv420bk_adc_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_deinit(void)[](#_CPPv420bk_adc_driver_deinitv "永久链接至目标")
 :   Deinit the ADC driver.
 
     This API free all resource related to ADC and power down all ADC.
@@ -104,7 +104,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_init([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv411bk_adc_init10adc_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_init([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv411bk_adc_init10adc_chan_t "永久链接至目标")
 :   Init the ADC.
 
     This API init the ADC:
@@ -130,7 +130,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_deinit([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") id)[](#_CPPv413bk_adc_deinit10adc_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_deinit([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") id)[](#_CPPv413bk_adc_deinit10adc_chan_t "永久链接至目标")
 :   Deinit the ADC id.
 
     This API deinit the ADC id:
@@ -160,7 +160,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_start(void)[](#_CPPv412bk_adc_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_start(void)[](#_CPPv412bk_adc_startv "永久链接至目标")
 :   Start the ADC.
 
     This API start adc:
@@ -175,7 +175,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_stop(void)[](#_CPPv411bk_adc_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_stop(void)[](#_CPPv411bk_adc_stopv "永久链接至目标")
 :   Stop the ADC.
 
     This API stop adc:
@@ -190,7 +190,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_read_raw(uint16_t *read_buf, uint32_t size, uint32_t timeout)[](#_CPPv415bk_adc_read_rawP8uint16_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_read_raw(uint16_t *read_buf, uint32_t size, uint32_t timeout)[](#_CPPv415bk_adc_read_rawP8uint16_t8uint32_t8uint32_t "永久链接至目标")
 :   Start read the raw ADC data in continuous mode.
 
 
@@ -217,7 +217,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_single_read(uint16_t *data)[](#_CPPv418bk_adc_single_readP8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_single_read(uint16_t *data)[](#_CPPv418bk_adc_single_readP8uint16_t "永久链接至目标")
 :   Start read the raw ADC data in single mode.
 
     参数
@@ -226,7 +226,7 @@ Beken chip supports get every adc channel value function for user.
     返回
     :   - BK_OK: success.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_read(uint16_t *data, uint32_t timeout)[](#_CPPv411bk_adc_readP8uint16_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_read(uint16_t *data, uint32_t timeout)[](#_CPPv411bk_adc_readP8uint16_t8uint32_t "永久链接至目标")
 :   Start read the average value of sampling data.
 
 
@@ -243,7 +243,7 @@ Beken chip supports get every adc channel value function for user.
 
     返回
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_register_isr([adc_isr_t](#_CPPv49adc_isr_t "adc_isr_t") isr, uint32_t param)[](#_CPPv419bk_adc_register_isr9adc_isr_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_register_isr([adc_isr_t](#_CPPv49adc_isr_t "adc_isr_t") isr, uint32_t param)[](#_CPPv419bk_adc_register_isr9adc_isr_t8uint32_t "永久链接至目标")
 :   Register the adc interrupt service routine.
 
     参数
@@ -258,7 +258,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_clk([adc_src_clk_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src_clk, uint32_t clk)[](#_CPPv414bk_adc_set_clk13adc_src_clk_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_clk([adc_src_clk_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src_clk, uint32_t clk)[](#_CPPv414bk_adc_set_clk13adc_src_clk_t8uint32_t "永久链接至目标")
 :   set ADC source clock and work frequence
 
     This API set adc clock source and frequence
@@ -275,7 +275,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_channel([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv418bk_adc_set_channel10adc_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_channel([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv418bk_adc_set_channel10adc_chan_t "永久链接至目标")
 :   set ADC work channel
 
     This API set adc work channel
@@ -290,7 +290,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_rate(uint32_t sample_rate)[](#_CPPv422bk_adc_set_sample_rate8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_rate(uint32_t sample_rate)[](#_CPPv422bk_adc_set_sample_rate8uint32_t "永久链接至目标")
 :   set ADC sample rate
 
     This API set adc work sample rate, period = (16 + sample_rate)*adc_clk mcu output 16 adc_clks every period
@@ -303,7 +303,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_filter(uint32_t filter)[](#_CPPv417bk_adc_set_filter8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_filter(uint32_t filter)[](#_CPPv417bk_adc_set_filter8uint32_t "永久链接至目标")
 :   set ADC filter
 
     This API set adc filter, the value default < 64, data output rate = period/(filter + 1)
@@ -316,7 +316,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_steady_time(uint32_t steady_ctrl)[](#_CPPv422bk_adc_set_steady_time8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_steady_time(uint32_t steady_ctrl)[](#_CPPv422bk_adc_set_steady_time8uint32_t "永久链接至目标")
 :   set ADC steady time
 
     This API set adc filter, adc wait (steady_ctrl +1)*8 adc_clks to send valid
@@ -329,7 +329,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_cnt(uint32_t cnt)[](#_CPPv421bk_adc_set_sample_cnt8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_cnt(uint32_t cnt)[](#_CPPv421bk_adc_set_sample_cnt8uint32_t "永久链接至目标")
 :   set ADC sample cnt
 
     This API sets ADC sample cnt per-interrupt, the ADC raises the interrupt when every time it samples number of cnt times. The maximum value of cnt is 32.
@@ -342,7 +342,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_saturate_mode([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") mode)[](#_CPPv424bk_adc_set_saturate_mode19adc_saturate_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_saturate_mode([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") mode)[](#_CPPv424bk_adc_set_saturate_mode19adc_saturate_mode_t "永久链接至目标")
 :   set adc saturate
 
     This API set adc saturate, auto process adc fifo data in cpu ,just get the data from reg ADC_DATA_16
@@ -355,7 +355,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_get_saturate([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") *mode)[](#_CPPv419bk_adc_get_saturateP19adc_saturate_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_get_saturate([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") *mode)[](#_CPPv419bk_adc_get_saturateP19adc_saturate_mode_t "永久链接至目标")
 :   get adc saturate
 
     This API get adc saturate
@@ -363,19 +363,19 @@ Beken chip supports get every adc channel value function for user.
     返回
     :   - adc_saturate_mode_t: adc saturate mode
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_enable_bypass_clalibration(void)[](#_CPPv433bk_adc_enable_bypass_clalibrationv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_enable_bypass_clalibration(void)[](#_CPPv433bk_adc_enable_bypass_clalibrationv "永久链接至目标")
 :   enable ADC bypass calibration
 
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_disable_bypass_clalibration(void)[](#_CPPv434bk_adc_disable_bypass_clalibrationv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_disable_bypass_clalibration(void)[](#_CPPv434bk_adc_disable_bypass_clalibrationv "永久链接至目标")
 :   disable ADC bypass calibration
 
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_config([adc_config_t](#_CPPv412adc_config_t "adc_config_t") *config)[](#_CPPv417bk_adc_set_configP12adc_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_config([adc_config_t](#_CPPv412adc_config_t "adc_config_t") *config)[](#_CPPv417bk_adc_set_configP12adc_config_t "永久链接至目标")
 :   adc set config
 
     This API config adc params
@@ -396,7 +396,7 @@ Beken chip supports get every adc channel value function for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_adc_set_mode([adc_mode_t](#_CPPv410adc_mode_t "adc_mode_t") adc_mode)[](#_CPPv415bk_adc_set_mode10adc_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_mode([adc_mode_t](#_CPPv410adc_mode_t "adc_mode_t") adc_mode)[](#_CPPv415bk_adc_set_mode10adc_mode_t "永久链接至目标")
 :   adc set mode
 
     This API config adc mode

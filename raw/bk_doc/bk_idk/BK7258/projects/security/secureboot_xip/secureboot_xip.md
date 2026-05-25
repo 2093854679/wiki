@@ -6,7 +6,7 @@
 
 ## Project Overview[](#project-overview "永久链接至标题")
 
-This project is used for demonstrating [Security Boot]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.html "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.html")), [Security Upgrade]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.html "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.html")).
+This project is used for demonstrating [Security Boot]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.md "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/security/bk_security_boot.md")), [Security Upgrade]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.md "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/ota/bk_security_ota.md")).
 
 
 **The security function of BK7236 is still under development and improvement, please note the following restrictions**
@@ -33,7 +33,7 @@ The security counter can be configured through app_security_counter in ota.csv u
 Note that the app_security_counter in ota.csv cannot be less than the app_security_counter value of the currently running program on the BK7236 development board,
 Otherwise, the upgrade cannot be successful. If the secure boot program has never been run on a development build, the app_security_counter value should be 0.
 
-About app_security_counter, please refer to [Security Configuration]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.html "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.html"))
+About app_security_counter, please refer to [Security Configuration]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.md "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/config_tools/bk_config_security.md"))
 
 
 #### Configure BL2 Log Level[](#configure-bl2-log-level "永久链接至标题")
@@ -47,7 +47,7 @@ Enter the following command in the Armino root directory to compile:
 
 > make bk7236 PROJECT=security/secureboot APP_VERSION=”v1.0”
 
-For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html")).
+For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md")).
 
 
 #### Build different APP version[](#build-different-app-version "永久链接至标题")

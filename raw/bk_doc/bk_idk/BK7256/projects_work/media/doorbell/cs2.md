@@ -1,6 +1,5 @@
 # 尚云P2P[](#p2p "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/projects_work/media/doorbell/cs2.html "../../../../../en/v1.5/projects_work/media/doorbell/cs2.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

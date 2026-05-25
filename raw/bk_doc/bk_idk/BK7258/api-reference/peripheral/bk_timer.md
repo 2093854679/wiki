@@ -1,6 +1,5 @@
 # Timer[](#timer "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_timer.html "../../../../en/v2.0.1/api-reference/peripheral/bk_timer.html")
 
 
 ## Timer API Status[](#timer-api-status "永久链接至标题")
@@ -28,7 +27,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_driver_init(void)[](#_CPPv420bk_timer_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_driver_init(void)[](#_CPPv420bk_timer_driver_initv "永久链接至目标")
 :   Init the timer driver.
 
     This API init the resoure common to all timer channels:
@@ -43,7 +42,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_driver_deinit(void)[](#_CPPv422bk_timer_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_driver_deinit(void)[](#_CPPv422bk_timer_driver_deinitv "永久链接至目标")
 :   Deinit the timer driver.
 
     This API free all resource related to timer and power down all timer channels.
@@ -53,7 +52,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_start([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint32_t time_ms, [timer_isr_t](#_CPPv411timer_isr_t "timer_isr_t") callback)[](#_CPPv414bk_timer_start10timer_id_t8uint32_t11timer_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_start([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint32_t time_ms, [timer_isr_t](#_CPPv411timer_isr_t "timer_isr_t") callback)[](#_CPPv414bk_timer_start10timer_id_t8uint32_t11timer_isr_t "永久链接至目标")
 :   Start the timer.
 
 
@@ -86,7 +85,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_start_without_callback([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint32_t time_ms)[](#_CPPv431bk_timer_start_without_callback10timer_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_start_without_callback([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint32_t time_ms)[](#_CPPv431bk_timer_start_without_callback10timer_id_t8uint32_t "永久链接至目标")
 :   Start the timer without set callback.
 
     参数
@@ -99,7 +98,7 @@
 
         - others: others errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_stop([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv413bk_timer_stop10timer_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_stop([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv413bk_timer_stop10timer_id_t "永久链接至目标")
 :   Stop the timer.
 
     参数
@@ -123,7 +122,7 @@ uint32_t bk_timer_get_cnt([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_i
     返回
     :   counter value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_enable([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv415bk_timer_enable10timer_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_enable([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv415bk_timer_enable10timer_id_t "永久链接至目标")
 :   Enable the timer.
 
     参数
@@ -134,7 +133,7 @@ uint32_t bk_timer_get_cnt([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_i
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_disable([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv416bk_timer_disable10timer_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_disable([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv416bk_timer_disable10timer_id_t "永久链接至目标")
 :   Disable the timer.
 
     参数
@@ -187,7 +186,7 @@ uint64_t bk_timer_get_time([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_
     返回
     :   the timer value in micro seconds
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_delay_with_callback([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint64_t time_us, [timer_isr_t](#_CPPv411timer_isr_t "timer_isr_t") callback)[](#_CPPv428bk_timer_delay_with_callback10timer_id_t8uint64_t11timer_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_delay_with_callback([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id, uint64_t time_us, [timer_isr_t](#_CPPv411timer_isr_t "timer_isr_t") callback)[](#_CPPv428bk_timer_delay_with_callback10timer_id_t8uint64_t11timer_isr_t "永久链接至目标")
 :   This function set the delay based on the current running counter, which is different from bk_timer_start.
 
     参数
@@ -202,7 +201,7 @@ uint64_t bk_timer_get_time([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_timer_cancel([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv415bk_timer_cancel10timer_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_timer_cancel([timer_id_t](#_CPPv410timer_id_t "timer_id_t") timer_id)[](#_CPPv415bk_timer_cancel10timer_id_t "永久链接至目标")
 :   Cancel the timer delay task, reset timer and set ISR to NULL, it will not disable the timer, which is different from bk_timer_stop.
 
     参数

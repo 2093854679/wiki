@@ -1,20 +1,38 @@
 # Wiki Index
 
-*Auto-generated index of {{ total_count }} articles — {{ summary_count }} summaries, {{ concept_count }} concepts.*
+*Auto-generated index of {{ total_count }} articles - {{ summary_count }} summaries, {{ concept_count }} concepts.*
 
 ---
+
+{% if groups %}
+## Raw Categories
+
+{% for group in groups %}
+### [{{ group.display_name }}](categories/{{ group.slug }}.md) ({{ group["items"] | length }})
+
+{% for item in group["items"][:5] %}
+- [{{ item.title }}]({{ item.path }}){% if item.tldr %} - {{ item.tldr }}{% endif %}
+
+{% endfor %}
+
+{% if group["items"] | length > 5 %}
+- ... and {{ group["items"] | length - 5 }} more
+
+{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Concepts ({{ concept_count }})
 
 {% for item in sections.concepts %}
-- [{{ item.title }}]({{ item.path }}){% if item.tldr %} — {{ item.tldr }}{% endif %}
+- [{{ item.title }}]({{ item.path }}){% if item.tldr %} - {{ item.tldr }}{% endif %}
 
 {% endfor %}
 
 ## Summaries ({{ summary_count }})
 
 {% for item in sections.summaries %}
-- [{{ item.title }}]({{ item.path }}){% if item.tldr %} — {{ item.tldr }}{% endif %}
+- [{{ item.title }}]({{ item.path }}){% if item.tldr %} - {{ item.tldr }}{% endif %}
 
 {% endfor %}
 
@@ -40,12 +58,15 @@
 
 {% set all_articles = {} %}
 {% for section_name, items in sections.items() %}
+{% if section_name != 'groups' %}
 {% for item in items %}
 {% set _ = all_articles.update({item.title: []}) %}
 {% endfor %}
+{% endif %}
 {% endfor %}
 
 {% for section_name, items in sections.items() %}
+{% if section_name != 'groups' %}
 {% for item in items %}
 {% for bl in item.backlinks %}
 {% if bl in all_articles %}
@@ -53,11 +74,12 @@
 {% endif %}
 {% endfor %}
 {% endfor %}
+{% endif %}
 {% endfor %}
 
 {% for title, linked_from in all_articles.items() %}
 {% if linked_from %}
-- [[{{ title }}]] ← referenced by: {{ linked_from[:5] | join(', ') }}{% if linked_from | length > 5 %} (+ {{ linked_from | length - 5 }} more){% endif %}
+- [[{{ title }}]] - referenced by: {{ linked_from[:5] | join(', ') }}{% if linked_from | length > 5 %} (+ {{ linked_from | length - 5 }} more){% endif %}
 
 {% endif %}
 {% endfor %}

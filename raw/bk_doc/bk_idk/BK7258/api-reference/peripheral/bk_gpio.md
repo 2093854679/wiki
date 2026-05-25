@@ -1,6 +1,5 @@
 # GPIO 使用指南[](#gpio "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_gpio.html "../../../../en/v2.0.1/api-reference/peripheral/bk_gpio.html")
 
 博通芯片支持丰富的 GPIO 引脚，不过有些GPIO引脚不能被应用程序所使用：
 
@@ -205,7 +204,7 @@ Figure 1. GPIO as wake-up source for DeepSleep or LowPower[](#id3 "永久链�
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_init(void)[](#_CPPv419bk_gpio_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_init(void)[](#_CPPv419bk_gpio_driver_initv "永久链接至目标")
 :   Init the GPIO driver.
 
     This API init the resoure common to all GPIO channels:
@@ -220,7 +219,7 @@ Figure 1. GPIO as wake-up source for DeepSleep or LowPower[](#id3 "永久链�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_deinit(void)[](#_CPPv421bk_gpio_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_deinit(void)[](#_CPPv421bk_gpio_driver_deinitv "永久链接至目标")
 :   Deinit the GPIO driver.
 
     This API free all resource related to GPIO and power down all GPIO channels.
@@ -238,7 +237,7 @@ void bk_gpio_set_value(gpio_id_t id, uint32_t v)[](#_CPPv417bk_gpio_set_value
 uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id_t "永久链接至目标")
 :   get GPIO config value.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_output(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_enable_output9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_output(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_enable_output9gpio_id_t "永久链接至目标")
 :   enable GPIO output mode
 
     返回
@@ -248,7 +247,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_output(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_disable_output9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_output(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_disable_output9gpio_id_t "永久链接至目标")
 :   disable GPIO output mode
 
     返回
@@ -258,7 +257,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_input(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_enable_input9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_input(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_enable_input9gpio_id_t "永久链接至目标")
 :   enable GPIO input mode
 
     返回
@@ -268,7 +267,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_input(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_disable_input9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_input(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_disable_input9gpio_id_t "永久链接至目标")
 :   disable GPIO input mode
 
     返回
@@ -278,7 +277,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_pull(gpio_id_t gpio_id)[](#_CPPv419bk_gpio_enable_pull9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_pull(gpio_id_t gpio_id)[](#_CPPv419bk_gpio_enable_pull9gpio_id_t "永久链接至目标")
 :   enable GPIO pull mode
 
     返回
@@ -288,7 +287,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_pull(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_disable_pull9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_pull(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_disable_pull9gpio_id_t "永久链接至目标")
 :   disable gpio pull mode
 
     返回
@@ -298,7 +297,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_up(gpio_id_t gpio_id)[](#_CPPv415bk_gpio_pull_up9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_up(gpio_id_t gpio_id)[](#_CPPv415bk_gpio_pull_up9gpio_id_t "永久链接至目标")
 :   set GPIO as pull up mode
 
     返回
@@ -308,7 +307,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_down(gpio_id_t gpio_id)[](#_CPPv417bk_gpio_pull_down9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_down(gpio_id_t gpio_id)[](#_CPPv417bk_gpio_pull_down9gpio_id_t "永久链接至目标")
 :   set GPIO as pull down mode
 
     返回
@@ -318,7 +317,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_config(gpio_id_t gpio_id, const gpio_config_t *config)[](#_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_config(gpio_id_t gpio_id, const gpio_config_t *config)[](#_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t "永久链接至目标")
 :   Config the GPIO mode.
 
     This API config GPIO’s mode
@@ -334,7 +333,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
     - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_high(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_set_output_high9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_high(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_set_output_high9gpio_id_t "永久链接至目标")
 :   Set the GPIO output high,.
 
     返回
@@ -346,7 +345,7 @@ uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_low(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_set_output_low9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_low(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_set_output_low9gpio_id_t "永久链接至目标")
 :   Set the GPIO output low,.
 
     返回
@@ -386,7 +385,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_interrupt_type(gpio_id_t gpio_id, gpio_int_type_t type)[](#_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_interrupt_type(gpio_id_t gpio_id, gpio_int_type_t type)[](#_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t "永久链接至目标")
 :   Config the GPIO intterrupt type mode when use gpio intterrupt mode,.
 
     This API config all GPIO channels’ intterrupt mode, the mode included in gpio_int_type_t.
@@ -400,7 +399,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_interrupt(gpio_id_t id)[](#_CPPv424bk_gpio_enable_interrupt9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_interrupt(gpio_id_t id)[](#_CPPv424bk_gpio_enable_interrupt9gpio_id_t "永久链接至目标")
 :   Enable GPIO intterrupt.
 
     返回
@@ -412,7 +411,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_interrupt(gpio_id_t id)[](#_CPPv425bk_gpio_disable_interrupt9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_interrupt(gpio_id_t id)[](#_CPPv425bk_gpio_disable_interrupt9gpio_id_t "永久链接至目标")
 :   Disable GPIO intterrupt.
 
     返回
@@ -422,7 +421,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_clear_interrupt(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_clear_interrupt9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_clear_interrupt(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_clear_interrupt9gpio_id_t "永久链接至目标")
 :   Clear GPIO intterrupt.
 
     返回
@@ -432,7 +431,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_register_isr(gpio_id_t id, [gpio_isr_t](#_CPPv410gpio_isr_t "gpio_isr_t") isr)[](#_CPPv420bk_gpio_register_isr9gpio_id_t10gpio_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_register_isr(gpio_id_t id, [gpio_isr_t](#_CPPv410gpio_isr_t "gpio_isr_t") isr)[](#_CPPv420bk_gpio_register_isr9gpio_id_t10gpio_isr_t "永久链接至目标")
 :   Register the interrupt service routine for GPIO channel.
 
     This API regist gpio isr callback function.
@@ -444,7 +443,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_unregister_isr(gpio_id_t id)[](#_CPPv422bk_gpio_unregister_isr9gpio_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_unregister_isr(gpio_id_t id)[](#_CPPv422bk_gpio_unregister_isr9gpio_id_t "永久链接至目标")
 :   Unregister the interrupt service routine for GPIO channel.
 
     This API deregist gpio isr callback function.
@@ -456,7 +455,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_save(uint32_t *gpio_cfg)[](#_CPPv416bk_gpio_reg_saveP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_save(uint32_t *gpio_cfg)[](#_CPPv416bk_gpio_reg_saveP8uint32_t "永久链接至目标")
 :   Register save all gpio reg value.
 
     This API save all gpio reg value function.
@@ -466,7 +465,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_restore(uint32_t *gpio_cfg)[](#_CPPv419bk_gpio_reg_restoreP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_restore(uint32_t *gpio_cfg)[](#_CPPv419bk_gpio_reg_restoreP8uint32_t "永久链接至目标")
 :   Register restore all gpio reg value.
 
     This API restore all gpio reg value function.
@@ -476,7 +475,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_enable(int64_t index, uint64_t type_l, uint64_t type_h)[](#_CPPv421bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_enable(int64_t index, uint64_t type_l, uint64_t type_h)[](#_CPPv421bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t "永久链接至目标")
 :   Register configue the gpio wakeup value.
 
     This API configue the gpio wakeup value function.
@@ -486,7 +485,7 @@ bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_g
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_interrupt_clear()[](#_CPPv430bk_gpio_wakeup_interrupt_clearv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_interrupt_clear()[](#_CPPv430bk_gpio_wakeup_interrupt_clearv "永久链接至目标")
 :   Register clear wake up interrupt.
 
     This API clear wake up interrupt function.

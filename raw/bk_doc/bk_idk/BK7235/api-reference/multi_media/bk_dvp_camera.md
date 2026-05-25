@@ -1,6 +1,5 @@
 # DVP_CAMERA APIs[](#dvp-camera-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_dvp_camera.html "../../../../en/v1.5/api-reference/multi_media/bk_dvp_camera.html")
 
 重要
 
@@ -50,7 +49,7 @@ DVP_CAMERA APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_driver_init([dvp_camera_config_t](#_CPPv419dvp_camera_config_t "dvp_camera_config_t") *config)[](#_CPPv425bk_dvp_camera_driver_initP19dvp_camera_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_driver_init([dvp_camera_config_t](#_CPPv419dvp_camera_config_t "dvp_camera_config_t") *config)[](#_CPPv425bk_dvp_camera_driver_initP19dvp_camera_config_t "永久链接至目标")
 :   Init the camera.
 
     This API will auto detect dvp sensor, and init sensor, jpeg module, i2c module, psram, dma, ect.
@@ -65,7 +64,7 @@ DVP_CAMERA APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_driver_deinit(void)[](#_CPPv427bk_dvp_camera_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_driver_deinit(void)[](#_CPPv427bk_dvp_camera_driver_deinitv "永久链接至目标")
 :   Deinit the camera.
 
     This API will deinit sensor, jpeg module, i2c module, psram, dma, ect.
@@ -85,7 +84,7 @@ DVP_CAMERA APIs:
 
         - NULL: current no sensor work.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_power_enable(uint8_t enable)[](#_CPPv426bk_dvp_camera_power_enable7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dvp_camera_power_enable(uint8_t enable)[](#_CPPv426bk_dvp_camera_power_enable7uint8_t "永久链接至目标")
 :   dvp power on
 
     This API called by user, before calling bk_dvp_driver_init, you should power on dvp

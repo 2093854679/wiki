@@ -1,6 +1,5 @@
 # 安全启动[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_security_boot.html "../../../en/v2.2.1/security/bk_security_boot.html")
 
 安全启动用于对要执行的程序进行校验，只有在确保程序合法且完整时下才允许启动系统，否则启动失败。
 安全启动是系统的安全基础。
@@ -166,7 +165,7 @@ flash_aes_key,73c7bf397f2ad6bf4e7403a7b965dc5ce0645df039c2d69c814ffb403183fb18
 
 ### S2 - 配置分区表[](#s2 "永久链接至标题")
 
-在分区表 partitions.csv 中配置安全启动分区，请参考 [安全启动模式分区配置](../developer-guide/config_tools/bk_config_partitions.html#bk-config-partitions-secureboot "../developer-guide/config_tools/bk_config_partitions.html#bk-config-partitions-secureboot")。
+在分区表 partitions.csv 中配置安全启动分区，请参考 [安全启动模式分区配置](../developer-guide/config_tools/bk_config_partitions.md#bk-config-partitions-secureboot "../developer-guide/config_tools/bk_config_partitions.md#bk-config-partitions-secureboot")。
 
 
 ### S3 - 安全配置[](#s3 "永久链接至标题")
@@ -178,7 +177,7 @@ flash_aes_key,73c7bf397f2ad6bf4e7403a7b965dc5ce0645df039c2d69c814ffb403183fb18
 >   并将 [步骤 S1](#bk-security-boot-flash-key "#bk-security-boot-flash-key") 中生成的 AES KEY 配置到 `flash_aes_key`。
 > - 将 [步骤 S1](#bk-security-boot-bl1-key "#bk-security-boot-bl1-key") 中生成的公/私钥文件配置到 `root_pubkey` 与 `root_privkey`。
 
-详情请参考 [安全配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security "../developer-guide/config_tools/bk_config_security.html#bk-config-security")。
+详情请参考 [安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security "../developer-guide/config_tools/bk_config_security.md#bk-config-security")。
 
 
 ### S4 - 配置 OTP[](#s4-otp "永久链接至标题")
@@ -189,7 +188,7 @@ flash_aes_key,73c7bf397f2ad6bf4e7403a7b965dc5ce0645df039c2d69c814ffb403183fb18
 > - BL1 安全启动公钥 HASH。
 > - BL2 安全启动公钥 HASH。
 
-请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse") 中方法来配置上述 OTP 项。
+请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse") 中方法来配置上述 OTP 项。
 
 
 ### S5 - 烧录版本[](#s5 "永久链接至标题")
@@ -199,7 +198,7 @@ flash_aes_key,73c7bf397f2ad6bf4e7403a7b965dc5ce0645df039c2d69c814ffb403183fb18
 
 ### S6 - 使能安全启动[](#s6 "永久链接至标题")
 
-当版本成功烧录后，可以使能安全启动与 FLASH 加密功能。请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse") 中方法来配置上述 OTP 项。
+当版本成功烧录后，可以使能安全启动与 FLASH 加密功能。请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse") 中方法来配置上述 OTP 项。
 
 重要
 

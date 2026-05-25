@@ -1,6 +1,5 @@
 # Pad[](#pad "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/projects_work/lvgl/pad/index.html "../../../../../en/v1.5/projects_work/lvgl/pad/index.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")
@@ -17,4 +16,4 @@
 
 ## 3 蓝牙a2dp source cli测试[](#a2dp-source-cli "永久链接至标题")
 
-> 请参考 [bluetooth工程:](../../bluetooth/central/index.html "../../bluetooth/central/index.html") a2dp source 测试过程
+> 请参考 [bluetooth工程:](../../bluetooth/central/index.md "../../bluetooth/central/index.md") a2dp source 测试过程

@@ -1,6 +1,5 @@
 # 安全升级[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/bootloader_ota/bk_security_ota.html "../../../../en/v2.0.1/developer-guide/bootloader_ota/bk_security_ota.html")
 
 
 ## 1 概述[](#id2 "永久链接至标题")

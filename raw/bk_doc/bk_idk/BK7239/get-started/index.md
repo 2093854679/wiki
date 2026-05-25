@@ -1,6 +1,5 @@
 # 快速入门[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/get-started/index.html "../../../en/v2.2.1/get-started/index.html")
 
 本文档以 BK7239 开发板为例，通过一个简单的示例项目向您展示:
 
@@ -103,9 +102,9 @@ github代码相对于gitlab有滞后性，如果您想获取最新的SDK代码�
 对于不熟悉Docker技术或因网络条件限制无法使用Docker环境的用户，我们也提供了基于脚本命令的本地编译部署方案。本地部署方案目前仅支持Linux系统下的编译。
 
 
-- [本地部署](env-manual.html "env-manual.html")
+- [本地部署](env-manual.md "env-manual.md")
 
-- [Docker部署](env-docker.html "env-docker.html")
+- [Docker部署](env-docker.md "env-docker.md")
 
 
 ## 配置工程[](#id5 "永久链接至标题")
@@ -129,7 +128,7 @@ github代码相对于gitlab有滞后性，如果您想获取最新的SDK代码�
 
 ```
 
-点击 [Kconfig 配置](../developer-guide/config_tools/bk_config_kconfig.html#bk-config-kconfig "../developer-guide/config_tools/bk_config_kconfig.html#bk-config-kconfig") 进一步了解 Armino 配置。
+点击 [Kconfig 配置](../developer-guide/config_tools/bk_config_kconfig.md#bk-config-kconfig "../developer-guide/config_tools/bk_config_kconfig.md#bk-config-kconfig") 进一步了解 Armino 配置。
 
 
 ## 新建工程[](#id6 "永久链接至标题")
@@ -169,7 +168,7 @@ BKFIL GUI[](#id10 "永久链接至图片")
 
 选择烧录串口 DL_UART0，点击 `烧录` 进行版本烧录, 烧录完成之后掉电重启设备。
 
-点击 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil") 进一步了解 Armino 烧录工具。
+点击 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil") 进一步了解 Armino 烧录工具。
 如果烧录过程无法获取设备，卡在 `Getting Bus...` 时，可以按一下重启键，恢复cpu状态。
 
 

@@ -1,6 +1,5 @@
 # 芯片参考手册[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v1.5/hw-reference/index.html "../../../en/v1.5/hw-reference/index.html")
 
 
 - [BK7235 技术规格书](http://docs.bekencorp.com/spec/BK7235/BK7235%C2%A0Datasheet.pdf "http://docs.bekencorp.com/spec/BK7235/BK7235%C2%A0Datasheet.pdf")

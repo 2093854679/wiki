@@ -1,6 +1,5 @@
 # I2S APIs[](#i2s-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_i2s.html "../../../../en/v1.5/api-reference/multi_media/bk_i2s.html")
 
 重要
 
@@ -161,7 +160,7 @@ I2S APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_driver_init(void)[](#_CPPv418bk_i2s_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_driver_init(void)[](#_CPPv418bk_i2s_driver_initv "永久链接至目标")
 :   Init i2s module driver.
 
     This API init i2s driver :
@@ -178,7 +177,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_driver_deinit(void)[](#_CPPv420bk_i2s_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_driver_deinit(void)[](#_CPPv420bk_i2s_driver_deinitv "永久链接至目标")
 :   Deinit i2s module driver.
 
     This API deinit i2s driver :
@@ -195,7 +194,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_init([i2s_gpio_group_id_t](#_CPPv419i2s_gpio_group_id_t "i2s_gpio_group_id_t") id, const [i2s_config_t](#_CPPv412i2s_config_t "i2s_config_t") *config)[](#_CPPv411bk_i2s_init19i2s_gpio_group_id_tPK12i2s_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_init([i2s_gpio_group_id_t](#_CPPv419i2s_gpio_group_id_t "i2s_gpio_group_id_t") id, const [i2s_config_t](#_CPPv412i2s_config_t "i2s_config_t") *config)[](#_CPPv411bk_i2s_init19i2s_gpio_group_id_tPK12i2s_config_t "永久链接至目标")
 :   Init i2s module.
 
     This API init the i2s module:
@@ -248,7 +247,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_deinit(void)[](#_CPPv413bk_i2s_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_deinit(void)[](#_CPPv413bk_i2s_deinitv "永久链接至目标")
 :   Deinit i2s module.
 
     This API deinit the i2s module:
@@ -261,7 +260,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_read_ready(uint32_t *read_flag)[](#_CPPv421bk_i2s_get_read_readyP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_read_ready(uint32_t *read_flag)[](#_CPPv421bk_i2s_get_read_readyP8uint32_t "永久链接至目标")
 :   Get the i2s Rx fifo status.
 
     This API get the i2s Rx fifo status that check whether the fifo data can be read
@@ -276,7 +275,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_write_ready(uint32_t *write_flag)[](#_CPPv422bk_i2s_get_write_readyP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_write_ready(uint32_t *write_flag)[](#_CPPv422bk_i2s_get_write_readyP8uint32_t "永久链接至目标")
 :   Get the i2s Tx fifo status.
 
     This API get the i2s Tx fifo status that check whether the fifo data can be write
@@ -291,7 +290,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_enable([i2s_en_t](#_CPPv48i2s_en_t "i2s_en_t") en_value)[](#_CPPv413bk_i2s_enable8i2s_en_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_enable([i2s_en_t](#_CPPv48i2s_en_t "i2s_en_t") en_value)[](#_CPPv413bk_i2s_enable8i2s_en_t "永久链接至目标")
 :   Enable i2s.
 
     This API enable i2s
@@ -306,7 +305,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_int_enable([i2s_isr_id_t](#_CPPv412i2s_isr_id_t "i2s_isr_id_t") int_id, uint32_t value)[](#_CPPv417bk_i2s_int_enable12i2s_isr_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_int_enable([i2s_isr_id_t](#_CPPv412i2s_isr_id_t "i2s_isr_id_t") int_id, uint32_t value)[](#_CPPv417bk_i2s_int_enable12i2s_isr_id_t8uint32_t "永久链接至目标")
 :   Config i2s interrupt.
 
     This API config i2s interrupt
@@ -323,7 +322,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_role([i2s_role_t](#_CPPv410i2s_role_t "i2s_role_t") role)[](#_CPPv415bk_i2s_set_role10i2s_role_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_role([i2s_role_t](#_CPPv410i2s_role_t "i2s_role_t") role)[](#_CPPv415bk_i2s_set_role10i2s_role_t "永久链接至目标")
 :   Config i2s work role.
 
     This API config i2s work role
@@ -338,7 +337,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_work_mode([i2s_work_mode_t](#_CPPv415i2s_work_mode_t "i2s_work_mode_t") work_mode)[](#_CPPv420bk_i2s_set_work_mode15i2s_work_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_work_mode([i2s_work_mode_t](#_CPPv415i2s_work_mode_t "i2s_work_mode_t") work_mode)[](#_CPPv420bk_i2s_set_work_mode15i2s_work_mode_t "永久链接至目标")
 :   Config i2s work mode.
 
     This API config i2s work mode
@@ -353,7 +352,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_lrck_invert([i2s_lrck_invert_en_t](#_CPPv420i2s_lrck_invert_en_t "i2s_lrck_invert_en_t") lrckrp)[](#_CPPv422bk_i2s_set_lrck_invert20i2s_lrck_invert_en_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_lrck_invert([i2s_lrck_invert_en_t](#_CPPv420i2s_lrck_invert_en_t "i2s_lrck_invert_en_t") lrckrp)[](#_CPPv422bk_i2s_set_lrck_invert20i2s_lrck_invert_en_t "永久链接至目标")
 :   Config i2s lrck invert.
 
     This API config i2s lrck invert
@@ -368,7 +367,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_sck_invert([i2s_sck_invert_en_t](#_CPPv419i2s_sck_invert_en_t "i2s_sck_invert_en_t") sck_invert)[](#_CPPv421bk_i2s_set_sck_invert19i2s_sck_invert_en_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_sck_invert([i2s_sck_invert_en_t](#_CPPv419i2s_sck_invert_en_t "i2s_sck_invert_en_t") sck_invert)[](#_CPPv421bk_i2s_set_sck_invert19i2s_sck_invert_en_t "永久链接至目标")
 :   Config i2s sck invert.
 
     This API config i2s sck invert
@@ -383,7 +382,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_lsb_first([i2s_lsb_first_en_t](#_CPPv418i2s_lsb_first_en_t "i2s_lsb_first_en_t") lsb_first)[](#_CPPv420bk_i2s_set_lsb_first18i2s_lsb_first_en_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_lsb_first([i2s_lsb_first_en_t](#_CPPv418i2s_lsb_first_en_t "i2s_lsb_first_en_t") lsb_first)[](#_CPPv420bk_i2s_set_lsb_first18i2s_lsb_first_en_t "永久链接至目标")
 :   Config i2s lsb first.
 
     This API config i2s lsb first
@@ -398,7 +397,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_sync_len(uint32_t sync_len)[](#_CPPv419bk_i2s_set_sync_len8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_sync_len(uint32_t sync_len)[](#_CPPv419bk_i2s_set_sync_len8uint32_t "永久链接至目标")
 :   Config i2s sync length.
 
     This API config i2s sync length
@@ -413,7 +412,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_data_len(uint32_t data_len)[](#_CPPv419bk_i2s_set_data_len8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_data_len(uint32_t data_len)[](#_CPPv419bk_i2s_set_data_len8uint32_t "永久链接至目标")
 :   Config i2s data length.
 
     This API config i2s data length
@@ -428,7 +427,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_pcm_dlen(uint32_t pcm_dlen)[](#_CPPv419bk_i2s_set_pcm_dlen8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_pcm_dlen(uint32_t pcm_dlen)[](#_CPPv419bk_i2s_set_pcm_dlen8uint32_t "永久链接至目标")
 :   Config i2s pcm D length of 2B+D.
 
     This API config i2s pcm D length of 2B+D
@@ -443,7 +442,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_store_mode([i2s_lrcom_store_mode_t](#_CPPv422i2s_lrcom_store_mode_t "i2s_lrcom_store_mode_t") store_mode)[](#_CPPv421bk_i2s_set_store_mode22i2s_lrcom_store_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_store_mode([i2s_lrcom_store_mode_t](#_CPPv422i2s_lrcom_store_mode_t "i2s_lrcom_store_mode_t") store_mode)[](#_CPPv421bk_i2s_set_store_mode22i2s_lrcom_store_mode_t "永久链接至目标")
 :   Config i2s store mode.
 
     This API config i2s store mode
@@ -464,7 +463,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_clear_rxfifo(void)[](#_CPPv419bk_i2s_clear_rxfifov "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_clear_rxfifo(void)[](#_CPPv419bk_i2s_clear_rxfifov "永久链接至目标")
 :   clear i2s rx fifo
 
     This API clear i2s rx fifo
@@ -476,7 +475,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_clear_txfifo(void)[](#_CPPv419bk_i2s_clear_txfifov "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_clear_txfifo(void)[](#_CPPv419bk_i2s_clear_txfifov "永久链接至目标")
 :   clear i2s tx fifo
 
     This API clear i2s tx fifo
@@ -488,7 +487,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_txint_level([i2s_txint_level_t](#_CPPv417i2s_txint_level_t "i2s_txint_level_t") txint_level)[](#_CPPv422bk_i2s_set_txint_level17i2s_txint_level_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_txint_level([i2s_txint_level_t](#_CPPv417i2s_txint_level_t "i2s_txint_level_t") txint_level)[](#_CPPv422bk_i2s_set_txint_level17i2s_txint_level_t "永久链接至目标")
 :   config i2s tx interrupt level
 
     This API config i2s tx interrupt level
@@ -503,7 +502,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_rxint_level([i2s_rxint_level_t](#_CPPv417i2s_rxint_level_t "i2s_rxint_level_t") rxint_level)[](#_CPPv422bk_i2s_set_rxint_level17i2s_rxint_level_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_rxint_level([i2s_rxint_level_t](#_CPPv417i2s_rxint_level_t "i2s_rxint_level_t") rxint_level)[](#_CPPv422bk_i2s_set_rxint_level17i2s_rxint_level_t "永久链接至目标")
 :   config i2s rx interrupt level
 
     This API config i2s rx interrupt level
@@ -518,7 +517,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_write_data(uint32_t channel_id, uint32_t *data_buf, uint32_t data_len)[](#_CPPv417bk_i2s_write_data8uint32_tP8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_write_data(uint32_t channel_id, uint32_t *data_buf, uint32_t data_len)[](#_CPPv417bk_i2s_write_data8uint32_tP8uint32_t8uint32_t "永久链接至目标")
 :   write data to i2s tx fifo
 
     This API write data to i2s tx fifo
@@ -621,7 +620,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_read_data(uint32_t *data_buf, uint32_t data_len)[](#_CPPv416bk_i2s_read_dataP8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_read_data(uint32_t *data_buf, uint32_t data_len)[](#_CPPv416bk_i2s_read_dataP8uint32_t8uint32_t "永久链接至目标")
 :   read data from i2s rx fifo
 
     This API read data from i2s rx fifo
@@ -681,7 +680,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_data_addr([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl_id, uint32_t *i2s_data_addr)[](#_CPPv420bk_i2s_get_data_addr16i2s_channel_id_tP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_get_data_addr([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl_id, uint32_t *i2s_data_addr)[](#_CPPv420bk_i2s_get_data_addr16i2s_channel_id_tP8uint32_t "永久链接至目标")
 :   get i2s data address
 
     This API get i2s data address
@@ -696,7 +695,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_samp_rate([i2s_samp_rate_t](#_CPPv415i2s_samp_rate_t "i2s_samp_rate_t") samp_rate)[](#_CPPv420bk_i2s_set_samp_rate15i2s_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_set_samp_rate([i2s_samp_rate_t](#_CPPv415i2s_samp_rate_t "i2s_samp_rate_t") samp_rate)[](#_CPPv420bk_i2s_set_samp_rate15i2s_samp_rate_t "永久链接至目标")
 :   config i2s sample rate
 
     This API config i2s sample rate
@@ -711,7 +710,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_register_i2s_isr([i2s_isr_id_t](#_CPPv412i2s_isr_id_t "i2s_isr_id_t") isr_id, [i2s_isr_t](#_CPPv49i2s_isr_t "i2s_isr_t") isr, void *param)[](#_CPPv423bk_i2s_register_i2s_isr12i2s_isr_id_t9i2s_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_register_i2s_isr([i2s_isr_id_t](#_CPPv412i2s_isr_id_t "i2s_isr_id_t") isr_id, [i2s_isr_t](#_CPPv49i2s_isr_t "i2s_isr_t") isr, void *param)[](#_CPPv423bk_i2s_register_i2s_isr12i2s_isr_id_t9i2s_isr_tPv "永久链接至目标")
 :   register i2s isr
 
     This API config register i2s isr
@@ -749,7 +748,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_chl_init([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl, [i2s_txrx_type_t](#_CPPv415i2s_txrx_type_t "i2s_txrx_type_t") type, uint32_t buff_size, [i2s_data_handle_cb](#_CPPv418i2s_data_handle_cb "i2s_data_handle_cb") data_handle_cb, RingBufferContext **rb)[](#_CPPv415bk_i2s_chl_init16i2s_channel_id_t15i2s_txrx_type_t8uint32_t18i2s_data_handle_cbPP17RingBufferContext "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_chl_init([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl, [i2s_txrx_type_t](#_CPPv415i2s_txrx_type_t "i2s_txrx_type_t") type, uint32_t buff_size, [i2s_data_handle_cb](#_CPPv418i2s_data_handle_cb "i2s_data_handle_cb") data_handle_cb, RingBufferContext **rb)[](#_CPPv415bk_i2s_chl_init16i2s_channel_id_t15i2s_txrx_type_t8uint32_t18i2s_data_handle_cbPP17RingBufferContext "永久链接至目标")
 :   init i2s channel to send or receive data by dma
 
     This API config dma to carry i2s data
@@ -764,7 +763,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_chl_deinit([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl, [i2s_txrx_type_t](#_CPPv415i2s_txrx_type_t "i2s_txrx_type_t") type)[](#_CPPv417bk_i2s_chl_deinit16i2s_channel_id_t15i2s_txrx_type_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_chl_deinit([i2s_channel_id_t](#_CPPv416i2s_channel_id_t "i2s_channel_id_t") chl, [i2s_txrx_type_t](#_CPPv415i2s_txrx_type_t "i2s_txrx_type_t") type)[](#_CPPv417bk_i2s_chl_deinit16i2s_channel_id_t15i2s_txrx_type_t "永久链接至目标")
 :   deinit i2s channel
 
     This API config dma to carry i2s data
@@ -779,7 +778,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_start(void)[](#_CPPv412bk_i2s_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_start(void)[](#_CPPv412bk_i2s_startv "永久链接至目标")
 :   start i2s
 
     This API start dma and i2s to send and receive data
@@ -819,7 +818,7 @@ I2S APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2s_stop(void)[](#_CPPv411bk_i2s_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2s_stop(void)[](#_CPPv411bk_i2s_stopv "永久链接至目标")
 :   stop i2s
 
     This API stop i2s and dma to carry i2s data

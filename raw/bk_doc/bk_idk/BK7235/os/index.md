@@ -1,12 +1,11 @@
 # OS 相关参考[](#os "永久链接至标题")
 
-[[English]](../../../en/v1.5/os/index.html "../../../en/v1.5/os/index.html")
 
 
-- [FreeRTOS](bk_freertos.html "bk_freertos.html")
+- [FreeRTOS](bk_freertos.md "bk_freertos.md")
 
-- [LiteOS](bk_liteos.html "bk_liteos.html")
+- [LiteOS](bk_liteos.md "bk_liteos.md")
 
-- [RT-Thread](bk_rtt.html "bk_rtt.html")
+- [RT-Thread](bk_rtt.md "bk_rtt.md")
 
-- [AliOS](bk_alios.html "bk_alios.html")
+- [AliOS](bk_alios.md "bk_alios.md")

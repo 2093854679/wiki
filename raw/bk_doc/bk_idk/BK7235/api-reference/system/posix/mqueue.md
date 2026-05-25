@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/mqueue.h>;
 > - 定义了系统消息队列相关的接口
 
-[[English]](../../../../../en/v1.5/api-reference/system/posix/mqueue.html "../../../../../en/v1.5/api-reference/system/posix/mqueue.html")
 
 
 ## Header File[](#header-file "永久链接至标题")
@@ -118,7 +117,7 @@ int mq_send([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, const char *msg_ptr, size_t ms
 
         - **-1** – - An error occurred. errno is also set.
 
-ssize_t mq_timedreceive([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio, const struct [timespec](time.html#_CPPv48timespec "timespec") *abstime)[](#_CPPv415mq_timedreceive5mqd_tPc6size_tPjPK8timespec "永久链接至目标")
+ssize_t mq_timedreceive([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio, const struct [timespec](time.md#_CPPv48timespec "timespec") *abstime)[](#_CPPv415mq_timedreceive5mqd_tPc6size_tPjPK8timespec "永久链接至目标")
 :   Receive a message from a message queue with timeout.
 
     [http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedreceive.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedreceive.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedreceive.html")
@@ -144,7 +143,7 @@ ssize_t mq_timedreceive([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, char *msg_ptr, siz
 
         - **-1** – - An error occurred. errno is also set.
 
-int mq_timedsend([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct [timespec](time.html#_CPPv48timespec "timespec") *abstime)[](#_CPPv412mq_timedsend5mqd_tPKc6size_tjPK8timespec "永久链接至目标")
+int mq_timedsend([mqd_t](#_CPPv45mqd_t "mqd_t") mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct [timespec](time.md#_CPPv48timespec "timespec") *abstime)[](#_CPPv412mq_timedsend5mqd_tPKc6size_tjPK8timespec "永久链接至目标")
 :   Send a message to a message queue with timeout.
 
     [http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedsend.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedsend.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_timedsend.html")

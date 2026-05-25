@@ -1,6 +1,5 @@
 # I2C[](#i2c "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/examples/peripheral/bk_i2c.html "../../../../en/v2.0.1/examples/peripheral/bk_i2c.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

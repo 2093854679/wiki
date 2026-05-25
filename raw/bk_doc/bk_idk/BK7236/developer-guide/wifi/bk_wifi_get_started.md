@@ -164,4 +164,3 @@ example:I(3658):STA got ip                     //获取IP地址
 
 客户编译命令需指定相应PROJECT和PROJECT_LIBS `make bk7236 PROJECT=examples/wifi/sta_connect PROJECT_LIBS=bk7236_app`
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_get_started.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_get_started.html")

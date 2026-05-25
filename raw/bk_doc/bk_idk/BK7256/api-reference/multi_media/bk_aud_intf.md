@@ -1,6 +1,5 @@
 # Aud_Intf APIs[](#aud-intf-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_aud_intf.html "../../../../en/v1.5/api-reference/multi_media/bk_aud_intf.html")
 
 重要
 
@@ -141,7 +140,7 @@ Voc APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_drv_init([aud_intf_drv_setup_t](#_CPPv420aud_intf_drv_setup_t "aud_intf_drv_setup_t") *setup)[](#_CPPv420bk_aud_intf_drv_initP20aud_intf_drv_setup_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_drv_init([aud_intf_drv_setup_t](#_CPPv420aud_intf_drv_setup_t "aud_intf_drv_setup_t") *setup)[](#_CPPv420bk_aud_intf_drv_initP20aud_intf_drv_setup_t "永久链接至目标")
 :   Init the AUD INTF driver.
 
     This API init the resoure common:
@@ -163,7 +162,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_drv_deinit(void)[](#_CPPv422bk_aud_intf_drv_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_drv_deinit(void)[](#_CPPv422bk_aud_intf_drv_deinitv "永久链接至目标")
 :   Deinit the AUD INTF driver.
 
     This API deinit the resoure common:
@@ -182,7 +181,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mode([aud_intf_work_mode_t](#_CPPv420aud_intf_work_mode_t "aud_intf_work_mode_t") work_mode)[](#_CPPv420bk_aud_intf_set_mode20aud_intf_work_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mode([aud_intf_work_mode_t](#_CPPv420aud_intf_work_mode_t "aud_intf_work_mode_t") work_mode)[](#_CPPv420bk_aud_intf_set_mode20aud_intf_work_mode_t "永久链接至目标")
 :   Set the AUD INTF work mode.
 
     This API cannot be called in mic and speaker callback.
@@ -195,7 +194,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_gain(uint8_t value)[](#_CPPv424bk_aud_intf_set_mic_gain7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_gain(uint8_t value)[](#_CPPv424bk_aud_intf_set_mic_gain7uint8_t "永久链接至目标")
 :   Set the mic gain.
 
     This API should be called when onboard mic has been initialized. And this API should not be called when UAC mic has been used. This API cannot be called in mic and speaker callback.
@@ -208,7 +207,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_gain(uint32_t value)[](#_CPPv424bk_aud_intf_set_spk_gain8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_gain(uint32_t value)[](#_CPPv424bk_aud_intf_set_spk_gain8uint32_t "永久链接至目标")
 :   Set the spk gain(volume)
 
     This API should be called when speaker has been initialized. And this API set board speaker gain and uac speaker volume. This API cannot be called in mic and speaker callback.
@@ -221,7 +220,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_aec_para([aud_intf_voc_aec_para_t](#_CPPv423aud_intf_voc_aec_para_t "aud_intf_voc_aec_para_t") aec_para, uint32_t value)[](#_CPPv424bk_aud_intf_set_aec_para23aud_intf_voc_aec_para_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_aec_para([aud_intf_voc_aec_para_t](#_CPPv423aud_intf_voc_aec_para_t "aud_intf_voc_aec_para_t") aec_para, uint32_t value)[](#_CPPv424bk_aud_intf_set_aec_para23aud_intf_voc_aec_para_t8uint32_t "永久链接至目标")
 :   Set the aec parameter.
 
     This API should be called when voice has been initialized and AEC is enable. This API cannot be called in mic and speaker callback.
@@ -236,7 +235,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_aec_para(void)[](#_CPPv424bk_aud_intf_get_aec_parav "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_aec_para(void)[](#_CPPv424bk_aud_intf_get_aec_parav "永久链接至目标")
 :   Get the aec parameter.
 
     This API should be called when voice has been initialized and AEC is enable. This API cannot be called in mic and speaker callback.
@@ -246,7 +245,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_init([aud_intf_mic_setup_t](#_CPPv420aud_intf_mic_setup_t "aud_intf_mic_setup_t") *mic_setup)[](#_CPPv420bk_aud_intf_mic_initP20aud_intf_mic_setup_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_init([aud_intf_mic_setup_t](#_CPPv420aud_intf_mic_setup_t "aud_intf_mic_setup_t") *mic_setup)[](#_CPPv420bk_aud_intf_mic_initP20aud_intf_mic_setup_t "永久链接至目标")
 :   Init the AUD INTF mic.
 
     This API init the resoure common:
@@ -286,7 +285,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_deinit(void)[](#_CPPv422bk_aud_intf_mic_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_deinit(void)[](#_CPPv422bk_aud_intf_mic_deinitv "永久链接至目标")
 :   Deinit the AUD INTF mic.
 
     This API deinit the resoure common:
@@ -307,7 +306,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_start(void)[](#_CPPv421bk_aud_intf_mic_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_start(void)[](#_CPPv421bk_aud_intf_mic_startv "永久链接至目标")
 :   Start the AUD INTF mic work.
 
     This API cannot be called in mic and speaker callback.
@@ -317,7 +316,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_pause(void)[](#_CPPv421bk_aud_intf_mic_pausev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_pause(void)[](#_CPPv421bk_aud_intf_mic_pausev "永久链接至目标")
 :   Pause the AUD INTF mic work.
 
     This API should be called after bk_aud_intf_mic_init. This API cannot be called in mic and speaker callback.
@@ -327,7 +326,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_stop(void)[](#_CPPv420bk_aud_intf_mic_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_mic_stop(void)[](#_CPPv420bk_aud_intf_mic_stopv "永久链接至目标")
 :   Stop the AUD INTF mic work.
 
     This API cannot be called in mic and speaker callback.
@@ -337,7 +336,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") mic_chl)[](#_CPPv423bk_aud_intf_set_mic_chl18aud_intf_mic_chl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") mic_chl)[](#_CPPv423bk_aud_intf_set_mic_chl18aud_intf_mic_chl_t "永久链接至目标")
 :   Set the AUD INTF mic channel.
 
     This API should be called after bk_aud_intf_mic_init. This API only support onboard mic, and not support UAC mic. This API cannot be called in mic and speaker callback.
@@ -350,7 +349,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_mic_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") *mic_chl)[](#_CPPv423bk_aud_intf_get_mic_chlP18aud_intf_mic_chl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_mic_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") *mic_chl)[](#_CPPv423bk_aud_intf_get_mic_chlP18aud_intf_mic_chl_t "永久链接至目标")
 :   Get the AUD INTF mic channel.
 
     This API should be called after bk_aud_intf_mic_init. This API only support onboard mic, and not support UAC mic. This API cannot be called in mic and speaker callback.
@@ -363,7 +362,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_samp_rate([aud_adc_samp_rate_t](bk_audio.html#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate)[](#_CPPv429bk_aud_intf_set_mic_samp_rate19aud_adc_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_mic_samp_rate([aud_adc_samp_rate_t](bk_audio.md#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate)[](#_CPPv429bk_aud_intf_set_mic_samp_rate19aud_adc_samp_rate_t "永久链接至目标")
 :   Set the AUD INTF mic sample rate.
 
     This API should be called after bk_aud_intf_mic_init. This API only support onboard mic, and not support UAC mic. This API cannot be called in mic and speaker callback.
@@ -376,7 +375,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_mic_samp_rate([aud_adc_samp_rate_t](bk_audio.html#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") *samp_rate)[](#_CPPv429bk_aud_intf_get_mic_samp_rateP19aud_adc_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_mic_samp_rate([aud_adc_samp_rate_t](bk_audio.md#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") *samp_rate)[](#_CPPv429bk_aud_intf_get_mic_samp_rateP19aud_adc_samp_rate_t "永久链接至目标")
 :   Get the AUD INTF mic sample rate.
 
     This API should be called after bk_aud_intf_mic_init. This API only support onboard mic, and not support UAC mic. This API cannot be called in mic and speaker callback.
@@ -389,7 +388,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_init([aud_intf_spk_setup_t](#_CPPv420aud_intf_spk_setup_t "aud_intf_spk_setup_t") *spk_setup)[](#_CPPv420bk_aud_intf_spk_initP20aud_intf_spk_setup_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_init([aud_intf_spk_setup_t](#_CPPv420aud_intf_spk_setup_t "aud_intf_spk_setup_t") *spk_setup)[](#_CPPv420bk_aud_intf_spk_initP20aud_intf_spk_setup_t "永久链接至目标")
 :   Init the AUD INTF speaker.
 
     This API init the resoure common:
@@ -429,7 +428,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_deinit(void)[](#_CPPv422bk_aud_intf_spk_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_deinit(void)[](#_CPPv422bk_aud_intf_spk_deinitv "永久链接至目标")
 :   Deinit the AUD INTF speaker.
 
     This API deinit the resoure common:
@@ -450,7 +449,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_start(void)[](#_CPPv421bk_aud_intf_spk_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_start(void)[](#_CPPv421bk_aud_intf_spk_startv "永久链接至目标")
 :   Start the AUD INTF speaker work.
 
     This API cannot be called in mic and speaker callback.
@@ -460,7 +459,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_pause(void)[](#_CPPv421bk_aud_intf_spk_pausev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_pause(void)[](#_CPPv421bk_aud_intf_spk_pausev "永久链接至目标")
 :   Pause the AUD INTF speaker work.
 
     This API cannot be called in mic and speaker callback.
@@ -470,7 +469,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_stop(void)[](#_CPPv420bk_aud_intf_spk_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_spk_stop(void)[](#_CPPv420bk_aud_intf_spk_stopv "永久链接至目标")
 :   Stop the AUD INTF speaker work.
 
     This API cannot be called in mic and speaker callback.
@@ -480,7 +479,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_chl([aud_intf_spk_chl_t](#_CPPv418aud_intf_spk_chl_t "aud_intf_spk_chl_t") spk_chl)[](#_CPPv423bk_aud_intf_set_spk_chl18aud_intf_spk_chl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_chl([aud_intf_spk_chl_t](#_CPPv418aud_intf_spk_chl_t "aud_intf_spk_chl_t") spk_chl)[](#_CPPv423bk_aud_intf_set_spk_chl18aud_intf_spk_chl_t "永久链接至目标")
 :   Set the AUD INTF speaker channel.
 
     This API should be called after bk_aud_intf_spk_init. This API only support onboard speaker, and not support UAC speaker. This API cannot be called in mic and speaker callback.
@@ -493,7 +492,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_spk_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") *spk_chl)[](#_CPPv423bk_aud_intf_get_spk_chlP18aud_intf_mic_chl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_spk_chl([aud_intf_mic_chl_t](#_CPPv418aud_intf_mic_chl_t "aud_intf_mic_chl_t") *spk_chl)[](#_CPPv423bk_aud_intf_get_spk_chlP18aud_intf_mic_chl_t "永久链接至目标")
 :   Get the AUD INTF speaker channel.
 
     This API should be called after bk_aud_intf_spk_init. This API only support onboard speaker, and not support UAC speaker. This API cannot be called in mic and speaker callback.
@@ -506,7 +505,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_samp_rate([aud_dac_samp_rate_t](bk_audio.html#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate)[](#_CPPv429bk_aud_intf_set_spk_samp_rate19aud_dac_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_set_spk_samp_rate([aud_dac_samp_rate_t](bk_audio.md#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate)[](#_CPPv429bk_aud_intf_set_spk_samp_rate19aud_dac_samp_rate_t "永久链接至目标")
 :   Set the AUD INTF speaker sample rate.
 
     This API should be called after bk_aud_intf_spk_init. This API only support onboard speaker, and not support UAC speaker. This API cannot be called in mic and speaker callback.
@@ -519,7 +518,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_spk_samp_rate([aud_dac_samp_rate_t](bk_audio.html#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") *samp_rate)[](#_CPPv429bk_aud_intf_get_spk_samp_rateP19aud_dac_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_get_spk_samp_rate([aud_dac_samp_rate_t](bk_audio.md#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") *samp_rate)[](#_CPPv429bk_aud_intf_get_spk_samp_rateP19aud_dac_samp_rate_t "永久链接至目标")
 :   Get the AUD INTF speaker sample rate.
 
     This API should be called after bk_aud_intf_spk_init. This API only support onboard speaker, and not support UAC speaker. This API cannot be called in mic and speaker callback.
@@ -532,7 +531,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_register_uac_connect_state_cb(void *cb)[](#_CPPv441bk_aud_intf_register_uac_connect_state_cbPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_register_uac_connect_state_cb(void *cb)[](#_CPPv441bk_aud_intf_register_uac_connect_state_cbPv "永久链接至目标")
 :   Register callback of uac abnormal disconnection and connection recovery.
 
     This API should be called after bk_aud_intf_spk_init. This API only support uac mic and uac speaker. This API cannot be called in mic and speaker callback.
@@ -545,7 +544,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_uac_auto_connect_ctrl(bool enable)[](#_CPPv433bk_aud_intf_uac_auto_connect_ctrlb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_uac_auto_connect_ctrl(bool enable)[](#_CPPv433bk_aud_intf_uac_auto_connect_ctrlb "永久链接至目标")
 :   Control uac automatical connect.
 
     If enable the feature, uac will automatic connect after uac abnormal disconnect. This API only support uac mic and uac speaker. This feature is enabled by default. This API cannot be called in mic and speaker callback.
@@ -563,7 +562,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_init([aud_intf_voc_setup_t](#_CPPv420aud_intf_voc_setup_t "aud_intf_voc_setup_t") setup)[](#_CPPv420bk_aud_intf_voc_init20aud_intf_voc_setup_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_init([aud_intf_voc_setup_t](#_CPPv420aud_intf_voc_setup_t "aud_intf_voc_setup_t") setup)[](#_CPPv420bk_aud_intf_voc_init20aud_intf_voc_setup_t "永久链接至目标")
 :   Init the AUD INTF voice.
 
     This API init the resoure common:
@@ -602,7 +601,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_deinit(void)[](#_CPPv422bk_aud_intf_voc_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_deinit(void)[](#_CPPv422bk_aud_intf_voc_deinitv "永久链接至目标")
 :   Deinit the AUD INTF voice.
 
     This API deinit the resoure common:
@@ -621,7 +620,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_start(void)[](#_CPPv421bk_aud_intf_voc_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_start(void)[](#_CPPv421bk_aud_intf_voc_startv "永久链接至目标")
 :   Start the AUD INTF voice work.
 
     This API cannot be called in mic and speaker callback.
@@ -631,7 +630,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_stop(void)[](#_CPPv420bk_aud_intf_voc_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_stop(void)[](#_CPPv420bk_aud_intf_voc_stopv "永久链接至目标")
 :   Stop the AUD INTF voice work.
 
     This API cannot be called in mic and speaker callback.
@@ -641,7 +640,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_mic_ctrl([aud_intf_voc_mic_ctrl_t](#_CPPv423aud_intf_voc_mic_ctrl_t "aud_intf_voc_mic_ctrl_t") mic_en)[](#_CPPv424bk_aud_intf_voc_mic_ctrl23aud_intf_voc_mic_ctrl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_mic_ctrl([aud_intf_voc_mic_ctrl_t](#_CPPv423aud_intf_voc_mic_ctrl_t "aud_intf_voc_mic_ctrl_t") mic_en)[](#_CPPv424bk_aud_intf_voc_mic_ctrl23aud_intf_voc_mic_ctrl_t "永久链接至目标")
 :   Control mic.
 
     This API should be called in voice work mode. This API cannot be called in mic and speaker callback.
@@ -659,7 +658,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_spk_ctrl([aud_intf_voc_spk_ctrl_t](#_CPPv423aud_intf_voc_spk_ctrl_t "aud_intf_voc_spk_ctrl_t") spk_en)[](#_CPPv424bk_aud_intf_voc_spk_ctrl23aud_intf_voc_spk_ctrl_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_spk_ctrl([aud_intf_voc_spk_ctrl_t](#_CPPv423aud_intf_voc_spk_ctrl_t "aud_intf_voc_spk_ctrl_t") spk_en)[](#_CPPv424bk_aud_intf_voc_spk_ctrl23aud_intf_voc_spk_ctrl_t "永久链接至目标")
 :   Control speaker.
 
     This API should be called in voice work mode. This API cannot be called in mic and speaker callback.
@@ -677,7 +676,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_aec_ctrl(bool aec_en)[](#_CPPv424bk_aud_intf_voc_aec_ctrlb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_aec_ctrl(bool aec_en)[](#_CPPv424bk_aud_intf_voc_aec_ctrlb "永久链接至目标")
 :   Control aec enable or disable.
 
     This API should be called in voice work mode. This API cannot be called in mic and speaker callback.
@@ -695,7 +694,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_write_spk_data(uint8_t *dac_buff, uint32_t size)[](#_CPPv426bk_aud_intf_write_spk_dataP7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_write_spk_data(uint8_t *dac_buff, uint32_t size)[](#_CPPv426bk_aud_intf_write_spk_dataP7uint8_t8uint32_t "永久链接至目标")
 :   Write the speaker data to audio dac.
 
     This API should be called in general and voice work mode. This API cannot be called in mic and speaker callback.
@@ -710,7 +709,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_tx_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv424bk_aud_intf_voc_tx_debug27aud_intf_dump_data_callback "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_tx_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv424bk_aud_intf_voc_tx_debug27aud_intf_dump_data_callback "永久链接至目标")
 :   register callback to dump tx data in voice work mode
 
     This API should be called in voice work mode. And audio transfer driver will call the callback to save data. This API cannot be called in mic and speaker callback.
@@ -723,7 +722,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_rx_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv424bk_aud_intf_voc_rx_debug27aud_intf_dump_data_callback "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_rx_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv424bk_aud_intf_voc_rx_debug27aud_intf_dump_data_callback "永久链接至目标")
 :   register callback to dump rx data in voice work mode
 
     This API should be called in voice work mode. And audio transfer driver will call the callback to save data. This API cannot be called in mic and speaker callback.
@@ -736,7 +735,7 @@ Voc APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_aec_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv425bk_aud_intf_voc_aec_debug27aud_intf_dump_data_callback "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_intf_voc_aec_debug([aud_intf_dump_data_callback](#_CPPv427aud_intf_dump_data_callback "aud_intf_dump_data_callback") dump_callback)[](#_CPPv425bk_aud_intf_voc_aec_debug27aud_intf_dump_data_callback "永久链接至目标")
 :   register callback to dump aec data(include mic data, ref data, and out data) in voice work mode
 
     This API should be called in voice work mode. And audio transfer driver will call the callback to save data. This API cannot be called in mic and speaker callback.
@@ -773,13 +772,13 @@ struct aud_intf_drv_setup_t[](#_CPPv420aud_intf_drv_setup_t "永久链接至�
     int (*aud_intf_tx_mic_data)(unsigned char *data, unsigned int size)[](#_CPPv4N20aud_intf_drv_setup_t20aud_intf_tx_mic_dataE "永久链接至目标")
     :   the api is called when collecting a frame mic packet data is complete
 
-    [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*aud_intf_rx_spk_data)(unsigned int size)[](#_CPPv4N20aud_intf_drv_setup_t20aud_intf_rx_spk_dataE "永久链接至目标")
+    [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*aud_intf_rx_spk_data)(unsigned int size)[](#_CPPv4N20aud_intf_drv_setup_t20aud_intf_rx_spk_dataE "永久链接至目标")
     :   the api is called when playing a frame speaker packet data is complete
 
 struct aud_intf_mic_setup_t[](#_CPPv420aud_intf_mic_setup_t "永久链接至目标")
 :   Public Members
 
-    [aud_adc_samp_rate_t](bk_audio.html#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate[](#_CPPv4N20aud_intf_mic_setup_t9samp_rateE "永久链接至目标")
+    [aud_adc_samp_rate_t](bk_audio.md#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate[](#_CPPv4N20aud_intf_mic_setup_t9samp_rateE "永久链接至目标")
     :   mic sample rate
 
     uint16_t frame_size[](#_CPPv4N20aud_intf_mic_setup_t10frame_sizeE "永久链接至目标")
@@ -791,13 +790,13 @@ struct aud_intf_mic_setup_t[](#_CPPv420aud_intf_mic_setup_t "永久链接至�
     [aud_intf_mic_type_t](#_CPPv419aud_intf_mic_type_t "aud_intf_mic_type_t") mic_type[](#_CPPv4N20aud_intf_mic_setup_t8mic_typeE "永久链接至目标")
     :   audio mic type: uac or microphone
 
-    [aud_adc_intf_mode_t](bk_audio.html#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") mic_mode[](#_CPPv4N20aud_intf_mic_setup_t8mic_modeE "永久链接至目标")
+    [aud_adc_intf_mode_t](bk_audio.md#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") mic_mode[](#_CPPv4N20aud_intf_mic_setup_t8mic_modeE "永久链接至目标")
     :   audio mic mode: signal_ended/differen
 
 struct aud_intf_spk_setup_t[](#_CPPv420aud_intf_spk_setup_t "永久链接至目标")
 :   Public Members
 
-    [aud_dac_samp_rate_t](bk_audio.html#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate[](#_CPPv4N20aud_intf_spk_setup_t9samp_rateE "永久链接至目标")
+    [aud_dac_samp_rate_t](bk_audio.md#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate[](#_CPPv4N20aud_intf_spk_setup_t9samp_rateE "永久链接至目标")
     :   speaker sample rate
 
     uint16_t frame_size[](#_CPPv4N20aud_intf_spk_setup_t10frame_sizeE "永久链接至目标")
@@ -806,7 +805,7 @@ struct aud_intf_spk_setup_t[](#_CPPv420aud_intf_spk_setup_t "永久链接至�
     uint8_t spk_gain[](#_CPPv4N20aud_intf_spk_setup_t8spk_gainE "永久链接至目标")
     :   audio dac gain: value range:0x0 ~ 0x3f, suggest:0x2d
 
-    [aud_dac_work_mode_t](bk_audio.html#_CPPv419aud_dac_work_mode_t "aud_dac_work_mode_t") work_mode[](#_CPPv4N20aud_intf_spk_setup_t9work_modeE "永久链接至目标")
+    [aud_dac_work_mode_t](bk_audio.md#_CPPv419aud_dac_work_mode_t "aud_dac_work_mode_t") work_mode[](#_CPPv4N20aud_intf_spk_setup_t9work_modeE "永久链接至目标")
     :   audio dac mode: signal_ended/differen
 
     [aud_intf_spk_type_t](#_CPPv419aud_intf_spk_type_t "aud_intf_spk_type_t") spk_type[](#_CPPv4N20aud_intf_spk_setup_t8spk_typeE "永久链接至目标")
@@ -851,7 +850,7 @@ struct aud_intf_voc_setup_t[](#_CPPv420aud_intf_voc_setup_t "永久链接至�
     uint16_t spk_gain[](#_CPPv4N20aud_intf_voc_setup_t8spk_gainE "永久链接至目标")
     :   spk gain: value range:0x0 ~ 0x3f, suggest:0x2d
 
-    [aud_dac_work_mode_t](bk_audio.html#_CPPv419aud_dac_work_mode_t "aud_dac_work_mode_t") spk_mode[](#_CPPv4N20aud_intf_voc_setup_t8spk_modeE "永久链接至目标")
+    [aud_dac_work_mode_t](bk_audio.md#_CPPv419aud_dac_work_mode_t "aud_dac_work_mode_t") spk_mode[](#_CPPv4N20aud_intf_voc_setup_t8spk_modeE "永久链接至目标")
     :   audio spk mode: signal_ended/differen
 
     [aud_intf_voc_mic_ctrl_t](#_CPPv423aud_intf_voc_mic_ctrl_t "aud_intf_voc_mic_ctrl_t") mic_en[](#_CPPv4N20aud_intf_voc_setup_t6mic_enE "永久链接至目标")
@@ -866,7 +865,7 @@ struct aud_intf_voc_setup_t[](#_CPPv420aud_intf_voc_setup_t "永久链接至�
     [aud_intf_spk_type_t](#_CPPv419aud_intf_spk_type_t "aud_intf_spk_type_t") spk_type[](#_CPPv4N20aud_intf_voc_setup_t8spk_typeE "永久链接至目标")
     :   audio speaker type: uac or speaker
 
-    [aud_adc_intf_mode_t](bk_audio.html#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") mic_mode[](#_CPPv4N20aud_intf_voc_setup_t8mic_modeE "永久链接至目标")
+    [aud_adc_intf_mode_t](bk_audio.md#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") mic_mode[](#_CPPv4N20aud_intf_voc_setup_t8mic_modeE "永久链接至目标")
     :   audio mic mode: signal_ended/differen
 
     uint8_t frame_num[](#_CPPv4N20aud_intf_voc_setup_t9frame_numE "永久链接至目标")
@@ -942,7 +941,7 @@ DEFAULT_AUD_INTF_VOC_SETUP_CONFIG()[](#c.DEFAULT_AUD_INTF_VOC_SETUP_CONFIG "�
 
 ### Type Definitions[](#type-definitions "永久链接至标题")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*aud_intf_dump_data_callback)(unsigned char *data, unsigned int size)[](#_CPPv427aud_intf_dump_data_callback "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*aud_intf_dump_data_callback)(unsigned char *data, unsigned int size)[](#_CPPv427aud_intf_dump_data_callback "永久链接至目标")
 
 
 ### Enumerations[](#enumerations "永久链接至标题")

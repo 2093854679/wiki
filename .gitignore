@@ -1,8 +1,9 @@
 **/__pycache__/
+.pytest_cache/
 *.pyc
 *.pyo
 *.log
-.kb_search.db
+tools/kb/cache/
 .DS_Store
 .tools/
 tools/web2md/logs/

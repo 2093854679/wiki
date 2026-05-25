@@ -1,6 +1,5 @@
 # Audio record demo[](#audio-record-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/aud_adc_to_tf_demo.html "../../../../en/v1.5/examples/audio/aud_adc_to_tf_demo.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

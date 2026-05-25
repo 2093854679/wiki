@@ -1,12 +1,11 @@
 # 用例指南[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/video/index.html "../../../../en/v1.5/examples/video/index.html")
 
 
-- [LCD Display](lcd/index.html "lcd/index.html")
+- [LCD Display](lcd/index.md "lcd/index.md")
 
-- [Camera](camera/index.html "camera/index.html")
+- [Camera](camera/index.md "camera/index.md")
 
-- [DMA2D](dma2d.html "dma2d.html")
+- [DMA2D](dma2d.md "dma2d.md")
 
-- [QR-Code Generator](qrcodegen.html "qrcodegen.html")
+- [QR-Code Generator](qrcodegen.md "qrcodegen.md")

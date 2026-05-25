@@ -1,6 +1,5 @@
 # 烧录工具 BKFIL[](#bkfil "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/config_tools/bk_tool_bkfil.html "../../../../en/v2.2.1/developer-guide/config_tools/bk_tool_bkfil.html")
 
 BKFIL 是 Beken FLASH Image Loader 的简称，是 Armino 官方烧录与配置工具。
 

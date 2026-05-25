@@ -3,7 +3,7 @@
 
 ## Project Overview[](#project-overview "永久链接至标题")
 
-This project is used for demonstrating [Wi-Fi Scan]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.html "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.html"))
+This project is used for demonstrating [Wi-Fi Scan]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.md "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/wifi/bk_wifi_scan.md"))
 
 > - This project shows Wi-Fi scan procedure, it scans the APs around and return the results.
 > - This project not only supports global scanning, but also can scan by specific SSID.
@@ -46,7 +46,7 @@ Enter the following command in the Armino root directory to compile:
 
 > make bk7236 PROJECT=examples/wifi/scan
 
-For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html")).
+For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md")).
 
 
 ### Connect UART[](#connect-uart "永久链接至标题")

@@ -1,6 +1,5 @@
 # 中断管理[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/peripheral/bk_interrupt.html "../../../../en/v2.0.1/developer-guide/peripheral/bk_interrupt.html")
 
 
 ## 概述[](#id2 "永久链接至标题")

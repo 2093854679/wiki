@@ -1,6 +1,5 @@
 # AB分区位置无关的hash功能验证流程介绍[](#abhash "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_hash_process_introduction.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_hash_process_introduction.html")
 
 通过hash算法来保证下载数据的完整性，hash功能验证流程分为以下两个步骤：
 

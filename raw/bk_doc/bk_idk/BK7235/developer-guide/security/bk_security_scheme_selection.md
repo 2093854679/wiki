@@ -1,6 +1,5 @@
 # 安全方案[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/security/bk_security_scheme_selection.html "../../../../en/v1.5/developer-guide/security/bk_security_scheme_selection.html")
 
 BK7256的安全方案支持secure boot、flash加解密、固件版本防回滚等功能，针对不同的安全需求，有以下三种场景可选择：
 

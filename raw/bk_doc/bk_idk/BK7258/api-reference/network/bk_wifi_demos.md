@@ -1,6 +1,5 @@
 # **Wi-Fi Getting_started**[](#wi-fi-getting-started "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/network/bk_wifi_demos.html "../../../../en/v2.0.1/api-reference/network/bk_wifi_demos.html")
 
 在 [example](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi") 中提供了几个独立的 Wi-Fi 驱动程序的 Demo，用户可以根据指导单独编译烧录后直接运行，后续还将继续补充更多的应用程序 Demo
 

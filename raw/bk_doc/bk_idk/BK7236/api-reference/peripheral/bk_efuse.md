@@ -22,7 +22,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_efuse_driver_init(void)[](#_CPPv420bk_efuse_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_efuse_driver_init(void)[](#_CPPv420bk_efuse_driver_initv "永久链接至目标")
 :   Init the EFUSE driver.
 
     This API init the resoure common:
@@ -39,7 +39,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_efuse_driver_deinit(void)[](#_CPPv422bk_efuse_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_efuse_driver_deinit(void)[](#_CPPv422bk_efuse_driver_deinitv "永久链接至目标")
 :   Deinit the EFUSE driver.
 
     This API free all resource related to EFUSE and disable EFUSE.
@@ -49,7 +49,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_efuse_write_byte(uint8_t addr, uint8_t data)[](#_CPPv419bk_efuse_write_byte7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_efuse_write_byte(uint8_t addr, uint8_t data)[](#_CPPv419bk_efuse_write_byte7uint8_t7uint8_t "永久链接至目标")
 :   Efuse write operation @Notice: Each efuse address area has specific usage, please apply the area from PM before write data to the efuse address.
 
     参数
@@ -70,7 +70,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_efuse_read_byte(uint8_t addr, uint8_t *data)[](#_CPPv418bk_efuse_read_byte7uint8_tP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_efuse_read_byte(uint8_t addr, uint8_t *data)[](#_CPPv418bk_efuse_read_byte7uint8_tP7uint8_t "永久链接至目标")
 :   Efuse read operation.
 
     参数

@@ -59,4 +59,3 @@ NETGEAR56                        6c:cd:d6:2c:10:2c    -50  1   WPA3-SAE
 
 ```
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_scan.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_scan.html")

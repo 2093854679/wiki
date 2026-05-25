@@ -1,6 +1,5 @@
 # **PHY cli命令**[](#phy-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/phy/phy_cli.html "../../../../../en/v2.2.1/examples/cli/phy/phy_cli.html")
 
 重要
 

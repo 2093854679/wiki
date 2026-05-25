@@ -52,4 +52,3 @@
 >   关闭：media_app_lvgl_close(void)
 >   ```
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_close_multimedia.html "../../../../en/v2.2.1/developer-guide/power_save/bk_close_multimedia.html")

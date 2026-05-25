@@ -1,6 +1,5 @@
 # AB分区位置无关的工程介绍[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_project_introduction.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_project_introduction.html")
 
 avdk根目录下的projects/customization/config_ab 为所提供的拥有AB位置无关升级的功能的工程。
 

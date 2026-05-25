@@ -1,6 +1,5 @@
 # Dual BT[](#dual-bt "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/bluetooth/dual_bt.html "../../../../en/v2.2.1/api-reference/bluetooth/dual_bt.html")
 
 重要
 
@@ -64,7 +63,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_register_callback([bk_bt_gap_cb_t](#_CPPv414bk_bt_gap_cb_t "bk_bt_gap_cb_t") callback)[](#_CPPv427bk_bt_gap_register_callback14bk_bt_gap_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_register_callback([bk_bt_gap_cb_t](#_CPPv414bk_bt_gap_cb_t "bk_bt_gap_cb_t") callback)[](#_CPPv427bk_bt_gap_register_callback14bk_bt_gap_cb_t "永久链接至目标")
 :   register callback function. This function should be called after bk_bluedroid_enable() completes successfully
 
     返回
@@ -72,7 +71,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_scan_mode(bk_bt_conn_mode_t c_mode, bk_bt_disc_mode_t d_mode)[](#_CPPv423bk_bt_gap_set_scan_mode17bk_bt_conn_mode_t17bk_bt_disc_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_scan_mode(bk_bt_conn_mode_t c_mode, bk_bt_disc_mode_t d_mode)[](#_CPPv423bk_bt_gap_set_scan_mode17bk_bt_conn_mode_t17bk_bt_disc_mode_t "永久链接至目标")
 :   Set discoverability and connectability mode for legacy bluetooth.
 
     参数
@@ -89,7 +88,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_scan_mode()[](#_CPPv423bk_bt_gap_get_scan_modev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_scan_mode()[](#_CPPv423bk_bt_gap_get_scan_modev "永久链接至目标")
 :   Get discoverability and connectability mode of legacy bluetooth.
 
     返回
@@ -101,7 +100,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_start_discovery([bk_bt_inq_mode_t](#_CPPv416bk_bt_inq_mode_t "bk_bt_inq_mode_t") mode, uint8_t inq_len, uint8_t num_rsps)[](#_CPPv425bk_bt_gap_start_discovery16bk_bt_inq_mode_t7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_start_discovery([bk_bt_inq_mode_t](#_CPPv416bk_bt_inq_mode_t "bk_bt_inq_mode_t") mode, uint8_t inq_len, uint8_t num_rsps)[](#_CPPv425bk_bt_gap_start_discovery16bk_bt_inq_mode_t7uint8_t7uint8_t "永久链接至目标")
 :   This function starts Inquiry and Name Discovery. When Inquiry is halted and cached results do not contain device name, then Name Discovery will connect to the peer target to get the device name. bk_bt_gap_cb_t will be called with BK_BT_GAP_DISC_STATE_CHANGED_EVT when Inquriry is started or Name Discovery is completed. bk_bt_gap_cb_t will be called with BK_BT_GAP_DISC_RES_EVT each time the two types of discovery results are got.
 
     参数
@@ -122,7 +121,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_cancel_discovery(void)[](#_CPPv426bk_bt_gap_cancel_discoveryv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_cancel_discovery(void)[](#_CPPv426bk_bt_gap_cancel_discoveryv "永久链接至目标")
 :   Cancel Inquiry and Name Discovery. bk_bt_gap_cb_t will be called with BK_BT_GAP_DISC_STATE_CHANGED_EVT if Inquiry or Name Discovery is cancelled by calling this function.
 
     返回
@@ -132,7 +131,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_remote_services([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda)[](#_CPPv429bk_bt_gap_get_remote_services12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_remote_services([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda)[](#_CPPv429bk_bt_gap_get_remote_services12bk_bd_addr_t "永久链接至目标")
 :   Start SDP to get remote services. bk_bt_gap_cb_t will be called with BK_BT_GAP_RMT_SRVCS_EVT after service discovery ends.
 
     返回
@@ -142,7 +141,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_remote_service_record([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, [bk_bt_uuid_t](dual_ble.html#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid)[](#_CPPv435bk_bt_gap_get_remote_service_record12bk_bd_addr_tP12bk_bt_uuid_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_remote_service_record([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, [bk_bt_uuid_t](dual_ble.md#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid)[](#_CPPv435bk_bt_gap_get_remote_service_record12bk_bd_addr_tP12bk_bt_uuid_t "永久链接至目标")
 :   Start SDP to look up the service matching uuid on the remote device.
 
     ```
@@ -156,7 +155,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_config_eir_data([bk_bt_eir_data_t](#_CPPv416bk_bt_eir_data_t "bk_bt_eir_data_t") *eir_data)[](#_CPPv425bk_bt_gap_config_eir_dataP16bk_bt_eir_data_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_config_eir_data([bk_bt_eir_data_t](#_CPPv416bk_bt_eir_data_t "bk_bt_eir_data_t") *eir_data)[](#_CPPv425bk_bt_gap_config_eir_dataP16bk_bt_eir_data_t "永久链接至目标")
 :   This function is called to config EIR data.
 
     ```
@@ -175,7 +174,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_cod([bk_bt_cod_t](#_CPPv411bk_bt_cod_t "bk_bt_cod_t") cod, [bk_bt_cod_mode_t](#_CPPv416bk_bt_cod_mode_t "bk_bt_cod_mode_t") mode)[](#_CPPv417bk_bt_gap_set_cod11bk_bt_cod_t16bk_bt_cod_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_cod([bk_bt_cod_t](#_CPPv411bk_bt_cod_t "bk_bt_cod_t") cod, [bk_bt_cod_mode_t](#_CPPv416bk_bt_cod_mode_t "bk_bt_cod_mode_t") mode)[](#_CPPv417bk_bt_gap_set_cod11bk_bt_cod_t16bk_bt_cod_mode_t "永久链接至目标")
 :   This function is called to set class of device. The structure bk_bt_gap_cb_t will be called with BK_BT_GAP_SET_COD_EVT after set COD ends. Some profile have special restrictions on class of device, changes may cause these profile do not work.
 
     参数
@@ -192,7 +191,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_read_rssi_delta([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_addr)[](#_CPPv425bk_bt_gap_read_rssi_delta12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_read_rssi_delta([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_addr)[](#_CPPv425bk_bt_gap_read_rssi_delta12bk_bd_addr_t "永久链接至目标")
 :   This function is called to read RSSI delta by address after connected. The RSSI value returned by BK_BT_GAP_READ_RSSI_DELTA_EVT.
 
     参数
@@ -203,7 +202,7 @@ Similar as most popular BT driver, the Beken BT driver is implemented as event d
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_remove_bond_device([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv428bk_bt_gap_remove_bond_device12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_remove_bond_device([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv428bk_bt_gap_remove_bond_device12bk_bd_addr_t "永久链接至目标")
 :   Removes a device from the security database list of peer device.
 
     参数
@@ -224,11 +223,11 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - BK_FAIL : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_bond_device_list(int *dev_num, [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") *dev_list)[](#_CPPv430bk_bt_gap_get_bond_device_listPiP12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_get_bond_device_list(int *dev_num, [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") *dev_list)[](#_CPPv430bk_bt_gap_get_bond_device_listPiP12bk_bd_addr_t "永久链接至目标")
 :   Get the device from the security database list of peer device. It will return the device bonded information immediately.
 
     参数
-    :   - **dev_num** – **[inout]** Indicate the dev_list array(buffer) size as input. If dev_num is large enough, it means the actual number as output. Suggest that dev_num value equal to [bk_ble_get_bond_device_num()](dual_ble.html#group__dm__gap__defines__v1_1ga197bcd6bbaf7eabfddabce66be9fad92 "dual_ble.html#group__dm__gap__defines__v1_1ga197bcd6bbaf7eabfddabce66be9fad92").
+    :   - **dev_num** – **[inout]** Indicate the dev_list array(buffer) size as input. If dev_num is large enough, it means the actual number as output. Suggest that dev_num value equal to [bk_ble_get_bond_device_num()](dual_ble.md#group__dm__gap__defines__v1_1ga197bcd6bbaf7eabfddabce66be9fad92 "dual_ble.md#group__dm__gap__defines__v1_1ga197bcd6bbaf7eabfddabce66be9fad92").
 
         - **dev_list** – **[out]** an array(buffer) of `bk_bd_addr_t` type. Use for storing the bonded devices address. The dev_list should be allocated by who call this API.
 
@@ -239,7 +238,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - BK_FAIL: others
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_pin([bk_bt_pin_type_t](#_CPPv416bk_bt_pin_type_t "bk_bt_pin_type_t") pin_type, uint8_t pin_code_len, [bk_bt_pin_code_t](#_CPPv416bk_bt_pin_code_t "bk_bt_pin_code_t") pin_code)[](#_CPPv417bk_bt_gap_set_pin16bk_bt_pin_type_t7uint8_t16bk_bt_pin_code_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_pin([bk_bt_pin_type_t](#_CPPv416bk_bt_pin_type_t "bk_bt_pin_type_t") pin_type, uint8_t pin_code_len, [bk_bt_pin_code_t](#_CPPv416bk_bt_pin_code_t "bk_bt_pin_code_t") pin_code)[](#_CPPv417bk_bt_gap_set_pin16bk_bt_pin_type_t7uint8_t16bk_bt_pin_code_t "永久链接至目标")
 :   Set pin type and default pin code for legacy pairing.
 
     参数
@@ -257,7 +256,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_pin_reply([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint8_t pin_code_len, [bk_bt_pin_code_t](#_CPPv416bk_bt_pin_code_t "bk_bt_pin_code_t") pin_code)[](#_CPPv419bk_bt_gap_pin_reply12bk_bd_addr_tb7uint8_t16bk_bt_pin_code_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_pin_reply([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint8_t pin_code_len, [bk_bt_pin_code_t](#_CPPv416bk_bt_pin_code_t "bk_bt_pin_code_t") pin_code)[](#_CPPv419bk_bt_gap_pin_reply12bk_bd_addr_tb7uint8_t16bk_bt_pin_code_t "永久链接至目标")
 :   Reply the pin_code to the peer device for legacy pairing when BK_BT_GAP_PIN_REQ_EVT is coming.
 
     参数
@@ -277,7 +276,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_security_param([bk_bt_sp_param_t](#_CPPv416bk_bt_sp_param_t "bk_bt_sp_param_t") param_type, void *value, uint8_t len)[](#_CPPv428bk_bt_gap_set_security_param16bk_bt_sp_param_tPv7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_security_param([bk_bt_sp_param_t](#_CPPv416bk_bt_sp_param_t "bk_bt_sp_param_t") param_type, void *value, uint8_t len)[](#_CPPv428bk_bt_gap_set_security_param16bk_bt_sp_param_tPv7uint8_t "永久链接至目标")
 :   Set a GAP security parameter value. Overrides the default value.
 
     参数
@@ -295,7 +294,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_ssp_passkey_reply([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint32_t passkey)[](#_CPPv427bk_bt_gap_ssp_passkey_reply12bk_bd_addr_tb8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_ssp_passkey_reply([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint32_t passkey)[](#_CPPv427bk_bt_gap_ssp_passkey_reply12bk_bd_addr_tb8uint32_t "永久链接至目标")
 :   Reply the key value to the peer device in the legacy connection stage.
 
     参数
@@ -313,7 +312,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_ssp_confirm_reply([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv427bk_bt_gap_ssp_confirm_reply12bk_bd_addr_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_ssp_confirm_reply([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv427bk_bt_gap_ssp_confirm_reply12bk_bd_addr_tb "永久链接至目标")
 :   Reply the confirm value to the peer device in the legacy connection stage.
 
     参数
@@ -329,7 +328,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_afh_channels([bk_bt_gap_afh_channels](#_CPPv422bk_bt_gap_afh_channels "bk_bt_gap_afh_channels") channels)[](#_CPPv426bk_bt_gap_set_afh_channels22bk_bt_gap_afh_channels "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_afh_channels([bk_bt_gap_afh_channels](#_CPPv422bk_bt_gap_afh_channels "bk_bt_gap_afh_channels") channels)[](#_CPPv426bk_bt_gap_set_afh_channels22bk_bt_gap_afh_channels "永久链接至目标")
 :   Set the AFH channels.
 
     参数
@@ -343,7 +342,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_read_remote_name([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda)[](#_CPPv426bk_bt_gap_read_remote_name12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_read_remote_name([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda)[](#_CPPv426bk_bt_gap_read_remote_name12bk_bd_addr_t "永久链接至目标")
 :   Read the remote device name.
 
     参数
@@ -357,7 +356,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_connect([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t allow_role_switch)[](#_CPPv417bk_bt_gap_connect12bk_bd_addr_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_connect([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t allow_role_switch)[](#_CPPv417bk_bt_gap_connect12bk_bd_addr_t7uint8_t "永久链接至目标")
 :   Connect the remote device.
 
     参数
@@ -373,7 +372,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_disconnect([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t reason)[](#_CPPv420bk_bt_gap_disconnect12bk_bd_addr_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_disconnect([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t reason)[](#_CPPv420bk_bt_gap_disconnect12bk_bd_addr_t7uint8_t "永久链接至目标")
 :   Disconnect the remote device.
 
     参数
@@ -389,7 +388,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - other : failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_create_conn_cancel(uint8_t *addr)[](#_CPPv428bk_bt_gap_create_conn_cancelP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_create_conn_cancel(uint8_t *addr)[](#_CPPv428bk_bt_gap_create_conn_cancelP7uint8_t "永久链接至目标")
 :   This API can be used to request cancellation of the ongoing connection creation process.
 
     参数
@@ -403,7 +402,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
                      - others: fail
         ```
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_set_page_timeout(uint16_t timeout)[](#_CPPv426bk_bt_gap_set_page_timeout8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_set_page_timeout(uint16_t timeout)[](#_CPPv426bk_bt_gap_set_page_timeout8uint16_t "永久链接至目标")
 :   This api can be used to set the value for the Page_Timeout configuration parameter.
 
     参数
@@ -414,7 +413,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_set_page_scan_activity(uint16_t interval, uint16_t window)[](#_CPPv432bk_bt_gap_set_page_scan_activity8uint16_t8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_set_page_scan_activity(uint16_t interval, uint16_t window)[](#_CPPv432bk_bt_gap_set_page_scan_activity8uint16_t8uint16_t "永久链接至目标")
 :   This api can be used to set the value for the Page_Scan_Interval and Page_Scan_Window configuration parameters.
 
     参数
@@ -427,7 +426,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_authentication_request(uint8_t *addr)[](#_CPPv432bk_bt_gap_authentication_requestP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_gap_authentication_request(uint8_t *addr)[](#_CPPv432bk_bt_gap_authentication_requestP7uint8_t "永久链接至目标")
 :   This api can be used to start authentication request.
 
     参数
@@ -438,7 +437,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_auto_sniff_policy([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, uint32_t sec, [bk_bt_gap_sniff_config](#_CPPv422bk_bt_gap_sniff_config "bk_bt_gap_sniff_config") *config)[](#_CPPv431bk_bt_gap_set_auto_sniff_policy12bk_bd_addr_t8uint32_tP22bk_bt_gap_sniff_config "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_set_auto_sniff_policy([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, uint32_t sec, [bk_bt_gap_sniff_config](#_CPPv422bk_bt_gap_sniff_config "bk_bt_gap_sniff_config") *config)[](#_CPPv431bk_bt_gap_set_auto_sniff_policy12bk_bd_addr_t8uint32_tP22bk_bt_gap_sniff_config "永久链接至目标")
 :   Set auto enter sniff policy. bk_bt_gap_cb_t will be called with BK_BT_GAP_SET_AUTO_SNIFF_CMPL_EVT after service discovery ends.
 
     参数
@@ -462,7 +461,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
 ### Functions[](#id2 "永久链接至标题")
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_register_callback([bk_bt_a2dp_cb_t](#_CPPv415bk_bt_a2dp_cb_t "bk_bt_a2dp_cb_t") callback)[](#_CPPv428bk_bt_a2dp_register_callback15bk_bt_a2dp_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_register_callback([bk_bt_a2dp_cb_t](#_CPPv415bk_bt_a2dp_cb_t "bk_bt_a2dp_cb_t") callback)[](#_CPPv428bk_bt_a2dp_register_callback15bk_bt_a2dp_cb_t "永久链接至目标")
 :   Register application callback function to A2DP module. used by both A2DP source and sink.
 
     参数
@@ -473,7 +472,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_init(void)[](#_CPPv422bk_bt_a2dp_source_initv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_init(void)[](#_CPPv422bk_bt_a2dp_source_initv "永久链接至目标")
 :   Initialize the bluetooth A2DP source module. A2DP can work independently.
 
 
@@ -485,7 +484,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_deinit(void)[](#_CPPv424bk_bt_a2dp_source_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_deinit(void)[](#_CPPv424bk_bt_a2dp_source_deinitv "永久链接至目标")
 :   De-initialize for A2DP source module. This function should be called only after bk_bt_a2dp_source_init() completes successfully, and BK_A2DP_PROF_STATE_EVT will reported to APP layer.
 
     返回
@@ -493,7 +492,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_data_callback([bk_a2dp_source_data_cb_t](#_CPPv424bk_a2dp_source_data_cb_t "bk_a2dp_source_data_cb_t") callback)[](#_CPPv437bk_a2dp_source_register_data_callback24bk_a2dp_source_data_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_data_callback([bk_a2dp_source_data_cb_t](#_CPPv424bk_a2dp_source_data_cb_t "bk_a2dp_source_data_cb_t") callback)[](#_CPPv437bk_a2dp_source_register_data_callback24bk_a2dp_source_data_cb_t "永久链接至目标")
 :   Register A2DP source data input function. For now, the input should be PCM data stream.
 
     参数
@@ -504,7 +503,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_set_pcm_data_format(uint32_t sample_rate, uint8_t bit_depth, uint8_t channel_count)[](#_CPPv434bk_a2dp_source_set_pcm_data_format8uint32_t7uint8_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_set_pcm_data_format(uint32_t sample_rate, uint8_t bit_depth, uint8_t channel_count)[](#_CPPv434bk_a2dp_source_set_pcm_data_format8uint32_t7uint8_t7uint8_t "永久链接至目标")
 :   set a2dp source data format
 
     参数
@@ -519,7 +518,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_pcm_encode_callback([bk_a2dp_source_pcm_encode_cb_t](#_CPPv430bk_a2dp_source_pcm_encode_cb_t "bk_a2dp_source_pcm_encode_cb_t") cb)[](#_CPPv443bk_a2dp_source_register_pcm_encode_callback30bk_a2dp_source_pcm_encode_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_pcm_encode_callback([bk_a2dp_source_pcm_encode_cb_t](#_CPPv430bk_a2dp_source_pcm_encode_cb_t "bk_a2dp_source_pcm_encode_cb_t") cb)[](#_CPPv443bk_a2dp_source_register_pcm_encode_callback30bk_a2dp_source_pcm_encode_cb_t "永久链接至目标")
 :   register pcm encode callback.
 
     参数
@@ -530,7 +529,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_pcm_resample_callback([bk_a2dp_source_pcm_resample_cb_t](#_CPPv432bk_a2dp_source_pcm_resample_cb_t "bk_a2dp_source_pcm_resample_cb_t") cb)[](#_CPPv445bk_a2dp_source_register_pcm_resample_callback32bk_a2dp_source_pcm_resample_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_a2dp_source_register_pcm_resample_callback([bk_a2dp_source_pcm_resample_cb_t](#_CPPv432bk_a2dp_source_pcm_resample_cb_t "bk_a2dp_source_pcm_resample_cb_t") cb)[](#_CPPv445bk_a2dp_source_register_pcm_resample_callback32bk_a2dp_source_pcm_resample_cb_t "永久链接至目标")
 :   register pcm resample callback, will be used if input pcm is not match a2dp negotiation, see BK_A2DP_AUDIO_SOURCE_CFG_EVT.
 
     参数
@@ -541,7 +540,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_connect(uint8_t *addr)[](#_CPPv425bk_bt_a2dp_source_connectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_connect(uint8_t *addr)[](#_CPPv425bk_bt_a2dp_source_connectP7uint8_t "永久链接至目标")
 :   Connect to remote A2DP sink device. This API must be called after bk_bt_a2dp_source_init()
 
     参数
@@ -552,7 +551,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_disconnect(uint8_t *addr)[](#_CPPv428bk_bt_a2dp_source_disconnectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_source_disconnect(uint8_t *addr)[](#_CPPv428bk_bt_a2dp_source_disconnectP7uint8_t "永久链接至目标")
 :   Disconnect from the remote A2DP sink device. This API must be called after bk_bt_a2dp_source_init()
 
     参数
@@ -566,7 +565,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
                      - others: fail
         ```
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_a2dp_media_ctrl([bk_a2dp_media_ctrl_t](#_CPPv420bk_a2dp_media_ctrl_t "bk_a2dp_media_ctrl_t") ctrl)[](#_CPPv418bk_a2dp_media_ctrl20bk_a2dp_media_ctrl_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_a2dp_media_ctrl([bk_a2dp_media_ctrl_t](#_CPPv420bk_a2dp_media_ctrl_t "bk_a2dp_media_ctrl_t") ctrl)[](#_CPPv418bk_a2dp_media_ctrl20bk_a2dp_media_ctrl_t "永久链接至目标")
 :   Media control commands. This API can be used for both A2DP sink and must be called after bk_bt_a2dp_source_init()
 
 
@@ -581,7 +580,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_init(uint8_t aac_supported)[](#_CPPv420bk_bt_a2dp_sink_init7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_init(uint8_t aac_supported)[](#_CPPv420bk_bt_a2dp_sink_init7uint8_t "永久链接至目标")
 :   Initialize the bluetooth A2DP sink module.
 
     参数
@@ -592,7 +591,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_deinit(void)[](#_CPPv422bk_bt_a2dp_sink_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_deinit(void)[](#_CPPv422bk_bt_a2dp_sink_deinitv "永久链接至目标")
 :   De-initialize for A2DP sink module. This function should be called only after bk_bt_a2dp_sink_init() completes successfully, and BK_A2DP_PROF_STATE_EVT will reported to APP layer.
 
     返回
@@ -600,7 +599,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_register_data_callback([bk_bt_sink_data_cb_t](#_CPPv420bk_bt_sink_data_cb_t "bk_bt_sink_data_cb_t") callback)[](#_CPPv438bk_bt_a2dp_sink_register_data_callback20bk_bt_sink_data_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_register_data_callback([bk_bt_sink_data_cb_t](#_CPPv420bk_bt_sink_data_cb_t "bk_bt_sink_data_cb_t") callback)[](#_CPPv438bk_bt_a2dp_sink_register_data_callback20bk_bt_sink_data_cb_t "永久链接至目标")
 :   Register A2DP sink data output function;.
 
     参数
@@ -611,7 +610,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_connect(uint8_t *remote_bda)[](#_CPPv423bk_bt_a2dp_sink_connectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_connect(uint8_t *remote_bda)[](#_CPPv423bk_bt_a2dp_sink_connectP7uint8_t "永久链接至目标")
 :   Connect to remote bluetooth A2DP source device. This API must be called after bk_bt_a2dp_sink_init().
 
     参数
@@ -622,7 +621,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_disconnect(uint8_t *remote_bda)[](#_CPPv426bk_bt_a2dp_sink_disconnectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_disconnect(uint8_t *remote_bda)[](#_CPPv426bk_bt_a2dp_sink_disconnectP7uint8_t "永久链接至目标")
 :   Disconnect from the remote A2DP source device. This API must be called after bk_bt_a2dp_sink_init().
 
     参数
@@ -633,7 +632,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_set_delay_value(uint16_t delay_value)[](#_CPPv431bk_bt_a2dp_sink_set_delay_value8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_set_delay_value(uint16_t delay_value)[](#_CPPv431bk_bt_a2dp_sink_set_delay_value8uint16_t "永久链接至目标")
 :   Set delay reporting value.This API must be called after bk_bt_a2dp_sink_init().
 
     参数
@@ -644,7 +643,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_get_delay_value(void)[](#_CPPv431bk_bt_a2dp_sink_get_delay_valuev "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_a2dp_sink_get_delay_value(void)[](#_CPPv431bk_bt_a2dp_sink_get_delay_valuev "永久链接至目标")
 :   Get delay reporting value. This API must be called after bk_bt_a2dp_sink_init().
 
     返回
@@ -661,7 +660,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
 ### Functions[](#id4 "永久链接至标题")
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_init(void)[](#_CPPv419bk_bt_avrcp_ct_initv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_init(void)[](#_CPPv419bk_bt_avrcp_ct_initv "永久链接至目标")
 :   Initialize the bluetooth AVRCP controller module.
 
     返回
@@ -669,7 +668,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_deinit(void)[](#_CPPv421bk_bt_avrcp_ct_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_deinit(void)[](#_CPPv421bk_bt_avrcp_ct_deinitv "永久链接至目标")
 :   Deinitialize the bluetooth AVRCP controller module.
 
     返回
@@ -677,7 +676,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_register_callback([bk_avrcp_ct_cb_t](#_CPPv416bk_avrcp_ct_cb_t "bk_avrcp_ct_cb_t") callback)[](#_CPPv432bk_bt_avrcp_ct_register_callback16bk_avrcp_ct_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_register_callback([bk_avrcp_ct_cb_t](#_CPPv416bk_avrcp_ct_cb_t "bk_avrcp_ct_cb_t") callback)[](#_CPPv432bk_bt_avrcp_ct_register_callback16bk_avrcp_ct_cb_t "永久链接至目标")
 :   Register application callbacks to AVRCP module.
 
     参数
@@ -688,7 +687,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_get_rn_capabilities_cmd(uint8_t *remote_bda)[](#_CPPv443bk_bt_avrcp_ct_send_get_rn_capabilities_cmdP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_get_rn_capabilities_cmd(uint8_t *remote_bda)[](#_CPPv443bk_bt_avrcp_ct_send_get_rn_capabilities_cmdP7uint8_t "永久链接至目标")
 :   Send GetCapabilities PDU to AVRCP target to retrieve remote device’s supported notification event_ids. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -699,7 +698,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_register_notification_cmd(uint8_t *remote_bda, uint8_t event_id, uint32_t event_parameter)[](#_CPPv445bk_bt_avrcp_ct_send_register_notification_cmdP7uint8_t7uint8_t8uint32_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_register_notification_cmd(uint8_t *remote_bda, uint8_t event_id, uint32_t event_parameter)[](#_CPPv445bk_bt_avrcp_ct_send_register_notification_cmdP7uint8_t7uint8_t8uint32_t "永久链接至目标")
 :   Send register notification command to AVRCP target. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -714,7 +713,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_passthrough_cmd(uint8_t *remote_bda, uint8_t key_code, uint8_t key_state)[](#_CPPv435bk_bt_avrcp_ct_send_passthrough_cmdP7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_passthrough_cmd(uint8_t *remote_bda, uint8_t key_code, uint8_t key_state)[](#_CPPv435bk_bt_avrcp_ct_send_passthrough_cmdP7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   Send passthrough command to AVRCP target. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -729,7 +728,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_absolute_volume_cmd(uint8_t *remote_bda, uint8_t volume)[](#_CPPv439bk_bt_avrcp_ct_send_absolute_volume_cmdP7uint8_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_absolute_volume_cmd(uint8_t *remote_bda, uint8_t volume)[](#_CPPv439bk_bt_avrcp_ct_send_absolute_volume_cmdP7uint8_t7uint8_t "永久链接至目标")
 :   Send set absolute volume command to AVRCP target. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -742,7 +741,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_set_player_app_setting_cmd(uint8_t *remote_bda, uint8_t attr_id, uint8_t value_id)[](#_CPPv446bk_bt_avrcp_ct_send_set_player_app_setting_cmdP7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_set_player_app_setting_cmd(uint8_t *remote_bda, uint8_t attr_id, uint8_t value_id)[](#_CPPv446bk_bt_avrcp_ct_send_set_player_app_setting_cmdP7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   Send player application settings command to AVRCP target. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -757,7 +756,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_get_elem_attribute_cmd(uint8_t *remote_bda, uint32_t media_attr_id_mask)[](#_CPPv442bk_bt_avrcp_ct_send_get_elem_attribute_cmdP7uint8_t8uint32_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_ct_send_get_elem_attribute_cmd(uint8_t *remote_bda, uint32_t media_attr_id_mask)[](#_CPPv442bk_bt_avrcp_ct_send_get_elem_attribute_cmdP7uint8_t8uint32_t "永久链接至目标")
 :   Send get media attr command to AVRCP target. This function should be called after BK_AVRCP_CT_CONNECTION_STATE_EVT is received and AVRCP connection is established.
 
     参数
@@ -770,7 +769,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_init(void)[](#_CPPv419bk_bt_avrcp_tg_initv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_init(void)[](#_CPPv419bk_bt_avrcp_tg_initv "永久链接至目标")
 :   Initialize the bluetooth AVRCP target module.
 
     返回
@@ -778,7 +777,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_deinit(void)[](#_CPPv421bk_bt_avrcp_tg_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_deinit(void)[](#_CPPv421bk_bt_avrcp_tg_deinitv "永久链接至目标")
 :   Deinitialize the bluetooth AVRCP target module.
 
     返回
@@ -786,7 +785,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_register_callback([bk_avrcp_tg_cb_t](#_CPPv416bk_avrcp_tg_cb_t "bk_avrcp_tg_cb_t") callback)[](#_CPPv432bk_bt_avrcp_tg_register_callback16bk_avrcp_tg_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_register_callback([bk_avrcp_tg_cb_t](#_CPPv416bk_avrcp_tg_cb_t "bk_avrcp_tg_cb_t") callback)[](#_CPPv432bk_bt_avrcp_tg_register_callback16bk_avrcp_tg_cb_t "永久链接至目标")
 :   Register application callbacks to AVRCP target module.
 
     参数
@@ -797,7 +796,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_get_rn_evt_cap([bk_avrcp_rn_cap_api_method_t](#_CPPv428bk_avrcp_rn_cap_api_method_t "bk_avrcp_rn_cap_api_method_t") cap, [bk_avrcp_rn_evt_cap_mask_t](#_CPPv426bk_avrcp_rn_evt_cap_mask_t "bk_avrcp_rn_evt_cap_mask_t") *evt_set)[](#_CPPv429bk_bt_avrcp_tg_get_rn_evt_cap28bk_avrcp_rn_cap_api_method_tP26bk_avrcp_rn_evt_cap_mask_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_get_rn_evt_cap([bk_avrcp_rn_cap_api_method_t](#_CPPv428bk_avrcp_rn_cap_api_method_t "bk_avrcp_rn_cap_api_method_t") cap, [bk_avrcp_rn_evt_cap_mask_t](#_CPPv426bk_avrcp_rn_evt_cap_mask_t "bk_avrcp_rn_evt_cap_mask_t") *evt_set)[](#_CPPv429bk_bt_avrcp_tg_get_rn_evt_cap28bk_avrcp_rn_cap_api_method_tP26bk_avrcp_rn_evt_cap_mask_t "永久链接至目标")
 :   Get the requested event notification capabilies on local AVRC target. The capability is returned in a bit mask representation in evt_set. This function should be called after bk_avrcp_tg_init().
 
     For capability type “BK_AVRCP_RN_CAP_API_METHOD_ALLOWED, the retrieved event set is constant and it covers all of the notification events that can possibly be supported with current implementation.
@@ -809,7 +808,7 @@ int bk_bt_gap_get_bond_device_num(void)[](#_CPPv429bk_bt_gap_get_bond_device_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_set_rn_evt_cap(const [bk_avrcp_rn_evt_cap_mask_t](#_CPPv426bk_avrcp_rn_evt_cap_mask_t "bk_avrcp_rn_evt_cap_mask_t") *evt_set)[](#_CPPv429bk_bt_avrcp_tg_set_rn_evt_capPK26bk_avrcp_rn_evt_cap_mask_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_set_rn_evt_cap(const [bk_avrcp_rn_evt_cap_mask_t](#_CPPv426bk_avrcp_rn_evt_cap_mask_t "bk_avrcp_rn_evt_cap_mask_t") *evt_set)[](#_CPPv429bk_bt_avrcp_tg_set_rn_evt_capPK26bk_avrcp_rn_evt_cap_mask_t "永久链接至目标")
 :   Set the event notification capabilities on local AVRCP target. The capability is given in a bit mask representation in evt_set and must be a subset of allowed event IDs with current implementation. This function should be called after bk_avrcp_tg_init().
 
     返回
@@ -832,7 +831,7 @@ bool bk_bt_avrcp_rn_evt_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_
     返回
     :   For operation BK_AVRCP_BIT_MASK_OP_SET or BK_AVRCP_BIT_MASK_OP_CLEAR, return true for a successful operation, otherwise return false.
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_send_rn_rsp(uint8_t *addr, [bk_avrcp_rn_event_ids_t](#_CPPv423bk_avrcp_rn_event_ids_t "bk_avrcp_rn_event_ids_t") event_id, [bk_avrcp_rn_rsp_t](#_CPPv417bk_avrcp_rn_rsp_t "bk_avrcp_rn_rsp_t") rsp, [bk_avrcp_rn_param_t](#_CPPv419bk_avrcp_rn_param_t "bk_avrcp_rn_param_t") *param)[](#_CPPv426bk_bt_avrcp_tg_send_rn_rspP7uint8_t23bk_avrcp_rn_event_ids_t17bk_avrcp_rn_rsp_tP19bk_avrcp_rn_param_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_send_rn_rsp(uint8_t *addr, [bk_avrcp_rn_event_ids_t](#_CPPv423bk_avrcp_rn_event_ids_t "bk_avrcp_rn_event_ids_t") event_id, [bk_avrcp_rn_rsp_t](#_CPPv417bk_avrcp_rn_rsp_t "bk_avrcp_rn_rsp_t") rsp, [bk_avrcp_rn_param_t](#_CPPv419bk_avrcp_rn_param_t "bk_avrcp_rn_param_t") *param)[](#_CPPv426bk_bt_avrcp_tg_send_rn_rspP7uint8_t23bk_avrcp_rn_event_ids_t17bk_avrcp_rn_rsp_tP19bk_avrcp_rn_param_t "永久链接至目标")
 :   Send RegisterNotification Response to remote AVRCP controller. Local event notification capability can be set using bk_avrcp_tg_set_rn_evt_cap(), in a bit mask representation in evt_set. This function should be called after bk_avrcp_tg_init().
 
     参数
@@ -849,7 +848,7 @@ bool bk_bt_avrcp_rn_evt_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_get_psth_cmd_filter([bk_avrcp_psth_filter_t](#_CPPv422bk_avrcp_psth_filter_t "bk_avrcp_psth_filter_t") filter, [bk_avrcp_psth_bit_mask_t](#_CPPv424bk_avrcp_psth_bit_mask_t "bk_avrcp_psth_bit_mask_t") *cmd_set)[](#_CPPv434bk_bt_avrcp_tg_get_psth_cmd_filter22bk_avrcp_psth_filter_tP24bk_avrcp_psth_bit_mask_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_get_psth_cmd_filter([bk_avrcp_psth_filter_t](#_CPPv422bk_avrcp_psth_filter_t "bk_avrcp_psth_filter_t") filter, [bk_avrcp_psth_bit_mask_t](#_CPPv424bk_avrcp_psth_bit_mask_t "bk_avrcp_psth_bit_mask_t") *cmd_set)[](#_CPPv434bk_bt_avrcp_tg_get_psth_cmd_filter22bk_avrcp_psth_filter_tP24bk_avrcp_psth_bit_mask_t "永久链接至目标")
 :   Get the current filter of remote passthrough commands on AVRC target. Filter is given by filter type and bit mask for the passthrough commands. This function should be called after [bk_bt_avrcp_tg_init()](#group__dm__avrcp_1ga0f43a498c80b739f64c0bd8e8750e851 "#group__dm__avrcp_1ga0f43a498c80b739f64c0bd8e8750e851"). For filter type BK_AVRCP_PSTH_FILTER_METHOD_ALLOWED, the retrieved command set is constant and it covers all of the passthrough commands that can possibly be supported. For filter type BK_AVRCP_PSTH_FILTER_METHOD_CURRENT_ENABLE, the retrieved command set covers the passthrough commands selected to be supported according to current configuration. The configuration can be changed using [bk_bt_avrcp_tg_set_psth_cmd_filter()](#group__dm__avrcp_1ga4f02fd8c38fd08c72e06a633cfdca1ad "#group__dm__avrcp_1ga4f02fd8c38fd08c72e06a633cfdca1ad").
 
     返回
@@ -857,7 +856,7 @@ bool bk_bt_avrcp_rn_evt_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_set_psth_cmd_filter([bk_avrcp_psth_filter_t](#_CPPv422bk_avrcp_psth_filter_t "bk_avrcp_psth_filter_t") filter, const [bk_avrcp_psth_bit_mask_t](#_CPPv424bk_avrcp_psth_bit_mask_t "bk_avrcp_psth_bit_mask_t") *cmd_set)[](#_CPPv434bk_bt_avrcp_tg_set_psth_cmd_filter22bk_avrcp_psth_filter_tPK24bk_avrcp_psth_bit_mask_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_tg_set_psth_cmd_filter([bk_avrcp_psth_filter_t](#_CPPv422bk_avrcp_psth_filter_t "bk_avrcp_psth_filter_t") filter, const [bk_avrcp_psth_bit_mask_t](#_CPPv424bk_avrcp_psth_bit_mask_t "bk_avrcp_psth_bit_mask_t") *cmd_set)[](#_CPPv434bk_bt_avrcp_tg_set_psth_cmd_filter22bk_avrcp_psth_filter_tPK24bk_avrcp_psth_bit_mask_t "永久链接至目标")
 :   Set the filter of remote passthrough commands on AVRC target. Filter is given by filter type and bit mask for the passthrough commands. This function should be called after [bk_bt_avrcp_tg_init()](#group__dm__avrcp_1ga0f43a498c80b739f64c0bd8e8750e851 "#group__dm__avrcp_1ga0f43a498c80b739f64c0bd8e8750e851").
 
     If filter type is BK_AVRCP_PSTH_FILTER_METHOD_ALLOWED, the passthrough commands which are set “1” as given in cmd_set will generate BK_AVRCP_CT_PASSTHROUGH_RSP_EVT callback event and are auto-accepted in the protocol stack, other commands are replied with response type “NOT IMPLEMENTED” (8). The set of supported commands should be a subset of allowed command set. The allowed command set can be retrieved using [bk_bt_avrcp_tg_get_psth_cmd_filter()](#group__dm__avrcp_1ga0b28fe5943a876887a6175eb3fe8b747 "#group__dm__avrcp_1ga0b28fe5943a876887a6175eb3fe8b747") with filter type “BK_AVRCP_PSTH_FILTER_METHOD_CURRENT_ENABLE”.
@@ -882,7 +881,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
     返回
     :   For operation BK_AVRCP_BIT_MASK_OP_SET or BK_AVRCP_BIT_MASK_OP_CLEAR, return true for a successful operation, otherwise return false. For operation BK_AVRCP_BIT_MASK_OP_TEST, return true if the corresponding bit is set, otherwise false.
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_connect(uint8_t *remote_bda)[](#_CPPv419bk_bt_avrcp_connectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_avrcp_connect(uint8_t *remote_bda)[](#_CPPv419bk_bt_avrcp_connectP7uint8_t "永久链接至目标")
 :   Connect to remote bluetooth AVRCP. This API must be called after [bk_bt_avrcp_ct_init()](#group__dm__avrcp_1ga05f83b873d0086a261259a7523ea3e0f "#group__dm__avrcp_1ga05f83b873d0086a261259a7523ea3e0f") or bk_bt_avrcp_tg_init.
 
     参数
@@ -902,7 +901,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
 ### Functions[](#id6 "永久链接至标题")
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_register_callback([bk_bt_hf_client_cb_t](#_CPPv420bk_bt_hf_client_cb_t "bk_bt_hf_client_cb_t") callback)[](#_CPPv433bk_bt_hf_client_register_callback20bk_bt_hf_client_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_register_callback([bk_bt_hf_client_cb_t](#_CPPv420bk_bt_hf_client_cb_t "bk_bt_hf_client_cb_t") callback)[](#_CPPv433bk_bt_hf_client_register_callback20bk_bt_hf_client_cb_t "永久链接至目标")
 :   Register application callback function to HFP client module.
 
     参数
@@ -913,7 +912,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_init(uint8_t msbc_supported)[](#_CPPv420bk_bt_hf_client_init7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_init(uint8_t msbc_supported)[](#_CPPv420bk_bt_hf_client_init7uint8_t "永久链接至目标")
 :   Initialize the bluetooth HFP client module.
 
     参数
@@ -924,7 +923,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_deinit(void)[](#_CPPv422bk_bt_hf_client_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_deinit(void)[](#_CPPv422bk_bt_hf_client_deinitv "永久链接至目标")
 :   De-initialize for HFP client module.
 
     返回
@@ -932,7 +931,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_register_data_callback([bk_bt_hf_client_data_cb_t](#_CPPv425bk_bt_hf_client_data_cb_t "bk_bt_hf_client_data_cb_t") callback)[](#_CPPv438bk_bt_hf_client_register_data_callback25bk_bt_hf_client_data_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_register_data_callback([bk_bt_hf_client_data_cb_t](#_CPPv425bk_bt_hf_client_data_cb_t "bk_bt_hf_client_data_cb_t") callback)[](#_CPPv438bk_bt_hf_client_register_data_callback25bk_bt_hf_client_data_cb_t "永久链接至目标")
 :   Register HFP client data input function;.
 
     参数
@@ -943,7 +942,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_voice_out_write(uint8_t *remote_bda, uint8_t *buf, uint16_t len)[](#_CPPv431bk_bt_hf_client_voice_out_writeP7uint8_tP7uint8_t8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_voice_out_write(uint8_t *remote_bda, uint8_t *buf, uint16_t len)[](#_CPPv431bk_bt_hf_client_voice_out_writeP7uint8_tP7uint8_t8uint16_t "永久链接至目标")
 :   Send voice data to HFP AG;.
 
     参数
@@ -958,7 +957,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_connect(uint8_t *remote_bda)[](#_CPPv423bk_bt_hf_client_connectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_connect(uint8_t *remote_bda)[](#_CPPv423bk_bt_hf_client_connectP7uint8_t "永久链接至目标")
 :   Establish a Service Level Connection to remote bluetooth HFP audio gateway(AG) device. This function must be called after bk_bt_hf_client_init().
 
     参数
@@ -969,7 +968,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_disconnect(uint8_t *remote_bda)[](#_CPPv426bk_bt_hf_client_disconnectP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_disconnect(uint8_t *remote_bda)[](#_CPPv426bk_bt_hf_client_disconnectP7uint8_t "永久链接至目标")
 :   Disconnect from the remote HFP audio gateway. This function must be called after bk_bt_hf_client_init().
 
     参数
@@ -980,7 +979,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_connect_audio(uint8_t *remote_bda)[](#_CPPv429bk_bt_hf_client_connect_audioP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_connect_audio(uint8_t *remote_bda)[](#_CPPv429bk_bt_hf_client_connect_audioP7uint8_t "永久链接至目标")
 :   Create audio connection with remote HFP AG. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -991,7 +990,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_disconnect_audio(uint8_t *remote_bda)[](#_CPPv432bk_bt_hf_client_disconnect_audioP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_disconnect_audio(uint8_t *remote_bda)[](#_CPPv432bk_bt_hf_client_disconnect_audioP7uint8_t "永久链接至目标")
 :   Release the established audio connection with remote HFP AG. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1002,7 +1001,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_start_voice_recognition(uint8_t *remote_bda)[](#_CPPv439bk_bt_hf_client_start_voice_recognitionP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_start_voice_recognition(uint8_t *remote_bda)[](#_CPPv439bk_bt_hf_client_start_voice_recognitionP7uint8_t "永久链接至目标")
 :   Enable voice recognition in the AG. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1013,7 +1012,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_stop_voice_recognition(uint8_t *remote_bda)[](#_CPPv438bk_bt_hf_client_stop_voice_recognitionP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_stop_voice_recognition(uint8_t *remote_bda)[](#_CPPv438bk_bt_hf_client_stop_voice_recognitionP7uint8_t "永久链接至目标")
 :   Disable voice recognition in the AG. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1024,7 +1023,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_volume_update(uint8_t *remote_bda, [bk_hf_volume_control_target_t](#_CPPv429bk_hf_volume_control_target_t "bk_hf_volume_control_target_t") type, uint8_t volume)[](#_CPPv429bk_bt_hf_client_volume_updateP7uint8_t29bk_hf_volume_control_target_t7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_volume_update(uint8_t *remote_bda, [bk_hf_volume_control_target_t](#_CPPv429bk_hf_volume_control_target_t "bk_hf_volume_control_target_t") type, uint8_t volume)[](#_CPPv429bk_bt_hf_client_volume_updateP7uint8_t29bk_hf_volume_control_target_t7uint8_t "永久链接至目标")
 :   Volume synchronization with AG. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1039,7 +1038,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_dial(uint8_t *remote_bda, const char *number)[](#_CPPv420bk_bt_hf_client_dialP7uint8_tPKc "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_dial(uint8_t *remote_bda, const char *number)[](#_CPPv420bk_bt_hf_client_dialP7uint8_tPKc "永久链接至目标")
 :   Place a call with a specified number, if number is NULL, last called number is called. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1052,7 +1051,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_dial_memory(uint8_t *remote_bda, int location)[](#_CPPv427bk_bt_hf_client_dial_memoryP7uint8_ti "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_dial_memory(uint8_t *remote_bda, int location)[](#_CPPv427bk_bt_hf_client_dial_memoryP7uint8_ti "永久链接至目标")
 :   Place a call with number specified by location(speed dial). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1065,7 +1064,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_chld_cmd(uint8_t *remote_bda, [bk_hf_chld_type_t](#_CPPv417bk_hf_chld_type_t "bk_hf_chld_type_t") chld)[](#_CPPv429bk_bt_hf_client_send_chld_cmdP7uint8_t17bk_hf_chld_type_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_chld_cmd(uint8_t *remote_bda, [bk_hf_chld_type_t](#_CPPv417bk_hf_chld_type_t "bk_hf_chld_type_t") chld)[](#_CPPv429bk_bt_hf_client_send_chld_cmdP7uint8_t17bk_hf_chld_type_t "永久链接至目标")
 :   Send call hold and multiparty commands(Use AT+CHLD). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1078,7 +1077,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_btrh_cmd(uint8_t *remote_bda, [bk_hf_btrh_cmd_t](#_CPPv416bk_hf_btrh_cmd_t "bk_hf_btrh_cmd_t") btrh)[](#_CPPv429bk_bt_hf_client_send_btrh_cmdP7uint8_t16bk_hf_btrh_cmd_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_btrh_cmd(uint8_t *remote_bda, [bk_hf_btrh_cmd_t](#_CPPv416bk_hf_btrh_cmd_t "bk_hf_btrh_cmd_t") btrh)[](#_CPPv429bk_bt_hf_client_send_btrh_cmdP7uint8_t16bk_hf_btrh_cmd_t "永久链接至目标")
 :   Send response and hold action command(Send AT+BTRH command) As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1091,7 +1090,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_answer_call(uint8_t *remote_bda)[](#_CPPv427bk_bt_hf_client_answer_callP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_answer_call(uint8_t *remote_bda)[](#_CPPv427bk_bt_hf_client_answer_callP7uint8_t "永久链接至目标")
 :   Answer an incoming call(send ATA command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1102,7 +1101,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_reject_call(uint8_t *remote_bda)[](#_CPPv427bk_bt_hf_client_reject_callP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_reject_call(uint8_t *remote_bda)[](#_CPPv427bk_bt_hf_client_reject_callP7uint8_t "永久链接至目标")
 :   Reject an incoming call(send AT+CHUP command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1113,7 +1112,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_query_current_calls(uint8_t *remote_bda)[](#_CPPv435bk_bt_hf_client_query_current_callsP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_query_current_calls(uint8_t *remote_bda)[](#_CPPv435bk_bt_hf_client_query_current_callsP7uint8_t "永久链接至目标")
 :   Query list of current calls in AG(send AT+CLCC command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1124,7 +1123,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_query_current_operator_name(uint8_t *remote_bda)[](#_CPPv443bk_bt_hf_client_query_current_operator_nameP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_query_current_operator_name(uint8_t *remote_bda)[](#_CPPv443bk_bt_hf_client_query_current_operator_nameP7uint8_t "永久链接至目标")
 :   Query the name of currently selected network operator in AG(use AT+COPS commands). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1135,7 +1134,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_retrieve_subscriber_info(uint8_t *remote_bda)[](#_CPPv440bk_bt_hf_client_retrieve_subscriber_infoP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_retrieve_subscriber_info(uint8_t *remote_bda)[](#_CPPv440bk_bt_hf_client_retrieve_subscriber_infoP7uint8_t "永久链接至目标")
 :   Get subscriber information number from AG(send AT+CNUM command) As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1146,7 +1145,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_dtmf(uint8_t *remote_bda, const char *code)[](#_CPPv425bk_bt_hf_client_send_dtmfP7uint8_tPKc "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_dtmf(uint8_t *remote_bda, const char *code)[](#_CPPv425bk_bt_hf_client_send_dtmfP7uint8_tPKc "永久链接至目标")
 :   Transmit DTMF codes during an ongoing call(use AT+VTS commands) As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1159,7 +1158,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_request_last_voice_tag_number(uint8_t *remote_bda)[](#_CPPv445bk_bt_hf_client_request_last_voice_tag_numberP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_request_last_voice_tag_number(uint8_t *remote_bda)[](#_CPPv445bk_bt_hf_client_request_last_voice_tag_numberP7uint8_t "永久链接至目标")
 :   Request a phone number from AG corresponding to last voice tag recorded (send AT+BINP command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1170,7 +1169,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_nrec(uint8_t *remote_bda)[](#_CPPv425bk_bt_hf_client_send_nrecP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_nrec(uint8_t *remote_bda)[](#_CPPv425bk_bt_hf_client_send_nrecP7uint8_t "永久链接至目标")
 :   Disable echo cancellation and noise reduction in the AG (use AT+NREC=0 command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1181,7 +1180,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_redial(uint8_t *remote_bda)[](#_CPPv422bk_bt_hf_client_redialP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_redial(uint8_t *remote_bda)[](#_CPPv422bk_bt_hf_client_redialP7uint8_t "永久链接至目标")
 :   This API allows user to redial the last number dialed (use AT+BLDN command). As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1192,7 +1191,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - others: fail
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_custom_cmd(uint8_t *remote_bda, const char *atcmd)[](#_CPPv431bk_bt_hf_client_send_custom_cmdP7uint8_tPKc "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_hf_client_send_custom_cmd(uint8_t *remote_bda, const char *atcmd)[](#_CPPv431bk_bt_hf_client_send_custom_cmdP7uint8_tPKc "永久链接至目标")
 :   This API allows user to send custom AT Command. As a precondition to use this API, Service Level Connection shall exist with AG.
 
     参数
@@ -1214,7 +1213,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
 ### Functions[](#id8 "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_register_callback([bk_hd_cb_t](#_CPPv410bk_hd_cb_t "bk_hd_cb_t") callback)[](#_CPPv434bk_bt_hid_device_register_callback10bk_hd_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_register_callback([bk_hd_cb_t](#_CPPv410bk_hd_cb_t "bk_hd_cb_t") callback)[](#_CPPv434bk_bt_hid_device_register_callback10bk_hd_cb_t "永久链接至目标")
 :   This function is called to init callbacks with HID device module.
 
     参数
@@ -1225,7 +1224,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_init(void)[](#_CPPv421bk_bt_hid_device_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_init(void)[](#_CPPv421bk_bt_hid_device_initv "永久链接至目标")
 :   Initializes HIDD interface. This function should be called after bk_bluedroid_init() and bk_bluedroid_enable() success, and should be called after bk_bt_hid_device_register_callback. When the operation is complete, the callback function will be called with BK_HIDD_INIT_EVT.
 
     返回
@@ -1233,7 +1232,7 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_deinit(void)[](#_CPPv423bk_bt_hid_device_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_deinit(void)[](#_CPPv423bk_bt_hid_device_deinitv "永久链接至目标")
 :   De-initializes HIDD interface. This function should be called after bk_bluedroid_init() and bk_bluedroid_enable() success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_DEINIT_EVT.
 
     返回
@@ -1241,8 +1240,8 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_register_app([bk_hidd_app_param_t](#_CPPv419bk_hidd_app_param_t "bk_hidd_app_param_t") *app_param)[](#_CPPv429bk_bt_hid_device_register_appP19bk_hidd_app_param_t "永久链接至目标")
-:   Registers HIDD parameters with SDP and sets l2cap Quality of Service. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_REGISTER_APP_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_register_app([bk_hidd_app_param_t](#_CPPv419bk_hidd_app_param_t "bk_hidd_app_param_t") *app_param)[](#_CPPv429bk_bt_hid_device_register_appP19bk_hidd_app_param_t "永久链接至目标")
+:   Registers HIDD parameters with SDP and sets l2cap Quality of Service. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_REGISTER_APP_EVT.
 
     参数
     :   **app_param** – **[in]** HIDD parameters
@@ -1252,16 +1251,16 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_unregister_app(void)[](#_CPPv431bk_bt_hid_device_unregister_appv "永久链接至目标")
-:   Removes HIDD parameters from SDP and resets l2cap Quality of Service. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_UNREGISTER_APP_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_unregister_app(void)[](#_CPPv431bk_bt_hid_device_unregister_appv "永久链接至目标")
+:   Removes HIDD parameters from SDP and resets l2cap Quality of Service. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_UNREGISTER_APP_EVT.
 
     返回
     :   - BK_OK: success
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_connect([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv424bk_bt_hid_device_connect12bk_bd_addr_t "永久链接至目标")
-:   Connects to the peer HID Host with virtual cable. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_OPEN_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_connect([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv424bk_bt_hid_device_connect12bk_bd_addr_t "永久链接至目标")
+:   Connects to the peer HID Host with virtual cable. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_OPEN_EVT.
 
     参数
     :   **bd_addr** – **[in]** Remote host bluetooth device address.
@@ -1271,8 +1270,8 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_disconnect(void)[](#_CPPv427bk_bt_hid_device_disconnectv "永久链接至目标")
-:   Disconnects from the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_CLOSE_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_disconnect(void)[](#_CPPv427bk_bt_hid_device_disconnectv "永久链接至目标")
+:   Disconnects from the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_CLOSE_EVT.
 
     备注
 
@@ -1283,8 +1282,8 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_send_report(uint16_t len, uint8_t *data)[](#_CPPv428bk_bt_hid_device_send_report8uint16_tP7uint8_t "永久链接至目标")
-:   Sends HID report to the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_SEND_REPORT_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_send_report(uint16_t len, uint8_t *data)[](#_CPPv428bk_bt_hid_device_send_report8uint16_tP7uint8_t "永久链接至目标")
+:   Sends HID report to the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_SEND_REPORT_EVT.
 
     参数
     :   - **len** – **[in]** length of report
@@ -1296,8 +1295,8 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_send_response(uint8_t message_type, uint8_t res_status, uint16_t len, uint8_t *data)[](#_CPPv430bk_bt_hid_device_send_response7uint8_t7uint8_t8uint16_tP7uint8_t "永久链接至目标")
-:   Sends HID Handshake with error info for invalid set_report to the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_REPORT_ERR_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_send_response(uint8_t message_type, uint8_t res_status, uint16_t len, uint8_t *data)[](#_CPPv430bk_bt_hid_device_send_response7uint8_t7uint8_t8uint16_tP7uint8_t "永久链接至目标")
+:   Sends HID Handshake with error info for invalid set_report to the currently connected HID Host. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_REPORT_ERR_EVT.
 
     参数
     :   - **message_type** – **[in]** type of hid message
@@ -1313,8 +1312,8 @@ bool bk_bt_avrcp_psth_bit_mask_operation([bk_avrcp_bit_mask_op_t](#_CPPv422bk_av
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_virtual_cable_unplug(void)[](#_CPPv437bk_bt_hid_device_virtual_cable_unplugv "永久链接至目标")
-:   Remove the virtually cabled device. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_VC_UNPLUG_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_device_virtual_cable_unplug(void)[](#_CPPv437bk_bt_hid_device_virtual_cable_unplugv "永久链接至目标")
+:   Remove the virtually cabled device. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_device_init(). When the operation is complete, the callback function will be called with BK_HIDD_VC_UNPLUG_EVT.
 
     备注
 
@@ -1507,7 +1506,7 @@ union bk_hidd_cb_param_t[](#_CPPv418bk_hidd_cb_param_t "永久链接至目标
         [bk_hidd_connection_state_t](#_CPPv426bk_hidd_connection_state_t "bk_hidd_connection_state_t") conn_status[](#_CPPv4N18bk_hidd_cb_param_t19hidd_open_evt_param11conn_statusE "永久链接至目标")
         :   connection status
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidd_cb_param_t19hidd_open_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidd_cb_param_t19hidd_open_evt_param7bd_addrE "永久链接至目标")
         :   host address
 
     struct hidd_register_app_evt_param[](#_CPPv4N18bk_hidd_cb_param_t27hidd_register_app_evt_paramE "永久链接至目标")
@@ -1523,7 +1522,7 @@ union bk_hidd_cb_param_t[](#_CPPv418bk_hidd_cb_param_t "永久链接至目标
         bool in_use[](#_CPPv4N18bk_hidd_cb_param_t27hidd_register_app_evt_param6in_useE "永久链接至目标")
         :   indicate whether use virtual cable plug host address
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidd_cb_param_t27hidd_register_app_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidd_cb_param_t27hidd_register_app_evt_param7bd_addrE "永久链接至目标")
         :   host address
 
     struct hidd_report_err_evt_param[](#_CPPv4N18bk_hidd_cb_param_t25hidd_report_err_evt_paramE "永久链接至目标")
@@ -1985,7 +1984,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
 ### Functions[](#id10 "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_register_callback([bk_hh_cb_t](#_CPPv410bk_hh_cb_t "bk_hh_cb_t") callback)[](#_CPPv432bk_bt_hid_host_register_callback10bk_hh_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_register_callback([bk_hh_cb_t](#_CPPv410bk_hh_cb_t "bk_hh_cb_t") callback)[](#_CPPv432bk_bt_hid_host_register_callback10bk_hh_cb_t "永久链接至目标")
 :   This function is called to init callbacks with HID host module.
 
     参数
@@ -1996,16 +1995,16 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_init(void)[](#_CPPv419bk_bt_hid_host_initv "永久链接至目标")
-:   This function initializes HID host. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_host_register_callback(). When the operation is complete the callback function will be called with BK_HIDH_INIT_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_init(void)[](#_CPPv419bk_bt_hid_host_initv "永久链接至目标")
+:   This function initializes HID host. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_host_register_callback(). When the operation is complete the callback function will be called with BK_HIDH_INIT_EVT.
 
     返回
     :   - BK_OK: success
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_deinit(void)[](#_CPPv421bk_bt_hid_host_deinitv "永久链接至目标")
-:   Closes the interface. This function should be called after [bk_bluetooth_init()](dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.html#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_host_init(). When the operation is complete the callback function will be called with BK_HIDH_DEINIT_EVT.
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_deinit(void)[](#_CPPv421bk_bt_hid_host_deinitv "永久链接至目标")
+:   Closes the interface. This function should be called after [bk_bluetooth_init()](dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2 "dual_ble.md#group__dm__bluetooth_1ga577c57a04b4b4589adfb5736442015a2") success, and should be called after bk_bt_hid_host_init(). When the operation is complete the callback function will be called with BK_HIDH_DEINIT_EVT.
 
     返回
     :   - BK_OK: success
@@ -2013,7 +2012,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_connect([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_bt_hid_host_connect12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_connect([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_bt_hid_host_connect12bk_bd_addr_t "永久链接至目标")
 :   Connect to HID device. When the operation is complete the callback function will be called with BK_HIDH_OPEN_EVT.
 
     参数
@@ -2025,7 +2024,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_disconnect([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv425bk_bt_hid_host_disconnect12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_disconnect([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv425bk_bt_hid_host_disconnect12bk_bd_addr_t "永久链接至目标")
 :   Disconnect from HID device. When the operation is complete the callback function will be called with BK_HIDH_CLOSE_EVT.
 
     参数
@@ -2037,7 +2036,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_virtual_cable_unplug([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv435bk_bt_hid_host_virtual_cable_unplug12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_virtual_cable_unplug([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv435bk_bt_hid_host_virtual_cable_unplug12bk_bd_addr_t "永久链接至目标")
 :   Virtual UnPlug (VUP) the specified HID device. When the operation is complete the callback function will be called with BK_HIDH_VC_UNPLUG_EVT.
 
     参数
@@ -2049,7 +2048,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_info([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_hid_info_t](#_CPPv418bk_hidh_hid_info_t "bk_hidh_hid_info_t") *hid_info)[](#_CPPv423bk_bt_hid_host_set_info12bk_bd_addr_tP18bk_hidh_hid_info_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_info([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_hid_info_t](#_CPPv418bk_hidh_hid_info_t "bk_hidh_hid_info_t") *hid_info)[](#_CPPv423bk_bt_hid_host_set_info12bk_bd_addr_tP18bk_hidh_hid_info_t "永久链接至目标")
 :   Set the HID device descriptor for the specified HID device. When the operation is complete the callback function will be called with BK_HIDH_SET_INFO_EVT.
 
     参数
@@ -2063,7 +2062,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_get_protocol([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv427bk_bt_hid_host_get_protocol12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_get_protocol([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv427bk_bt_hid_host_get_protocol12bk_bd_addr_t "永久链接至目标")
 :   Get the HID proto mode. When the operation is complete the callback function will be called with BK_HIDH_GET_PROTO_EVT.
 
     参数
@@ -2074,7 +2073,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_protocol([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_protocol_mode_t](#_CPPv423bk_hidh_protocol_mode_t "bk_hidh_protocol_mode_t") protocol_mode)[](#_CPPv427bk_bt_hid_host_set_protocol12bk_bd_addr_t23bk_hidh_protocol_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_protocol([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_protocol_mode_t](#_CPPv423bk_hidh_protocol_mode_t "bk_hidh_protocol_mode_t") protocol_mode)[](#_CPPv427bk_bt_hid_host_set_protocol12bk_bd_addr_t23bk_hidh_protocol_mode_t "永久链接至目标")
 :   Set the HID proto mode. When the operation is complete the callback function will be called with BK_HIDH_SET_PROTO_EVT.
 
     参数
@@ -2087,7 +2086,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_get_report([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_report_type_t](#_CPPv421bk_hidh_report_type_t "bk_hidh_report_type_t") report_type, uint8_t report_id, int buffer_size)[](#_CPPv425bk_bt_hid_host_get_report12bk_bd_addr_t21bk_hidh_report_type_t7uint8_ti "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_get_report([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_report_type_t](#_CPPv421bk_hidh_report_type_t "bk_hidh_report_type_t") report_type, uint8_t report_id, int buffer_size)[](#_CPPv425bk_bt_hid_host_get_report12bk_bd_addr_t21bk_hidh_report_type_t7uint8_ti "永久链接至目标")
 :   Send a GET_REPORT to HID device. When the operation is complete the callback function will be called with BK_HIDH_GET_RPT_EVT.
 
     参数
@@ -2105,7 +2104,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_report([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_report_type_t](#_CPPv421bk_hidh_report_type_t "bk_hidh_report_type_t") report_type, uint8_t *report, size_t len)[](#_CPPv425bk_bt_hid_host_set_report12bk_bd_addr_t21bk_hidh_report_type_tP7uint8_t6size_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_set_report([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_hidh_report_type_t](#_CPPv421bk_hidh_report_type_t "bk_hidh_report_type_t") report_type, uint8_t *report, size_t len)[](#_CPPv425bk_bt_hid_host_set_report12bk_bd_addr_t21bk_hidh_report_type_tP7uint8_t6size_t "永久链接至目标")
 :   Send a SET_REPORT to HID device. When the operation is complete the callback function will be called with BK_HIDH_SET_RPT_EVT.
 
     参数
@@ -2123,7 +2122,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_send_data([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, uint8_t *data, size_t len)[](#_CPPv424bk_bt_hid_host_send_data12bk_bd_addr_tP7uint8_t6size_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_send_data([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, uint8_t *data, size_t len)[](#_CPPv424bk_bt_hid_host_send_data12bk_bd_addr_tP7uint8_t6size_t "永久链接至目标")
 :   Send data to HID device. When the operation is complete the callback function will be called with BK_HIDH_DATA_EVT.
 
     参数
@@ -2139,7 +2138,7 @@ enum bk_hidd_status_t[](#_CPPv416bk_hidd_status_t "永久链接至目标")
 
         - other: failed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_sdp_dscp([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv423bk_bt_hid_host_sdp_dscp12bk_bd_addr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_hid_host_sdp_dscp([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv423bk_bt_hid_host_sdp_dscp12bk_bd_addr_t "永久链接至目标")
 :   Start SDP. When the operation is complete the callback function will be called with BK_HIDH_SDP_DSCP_EVT.
 
     参数
@@ -2219,7 +2218,7 @@ union bk_hidh_cb_param_t[](#_CPPv418bk_hidh_cb_param_t "永久链接至目标
         uint8_t handle[](#_CPPv4N18bk_hidh_cb_param_t22hidh_add_dev_evt_param6handleE "永久链接至目标")
         :   device handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t22hidh_add_dev_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t22hidh_add_dev_evt_param7bd_addrE "永久链接至目标")
         :   device address
 
     struct hidh_close_evt_param[](#_CPPv4N18bk_hidh_cb_param_t20hidh_close_evt_paramE "永久链接至目标")
@@ -2388,7 +2387,7 @@ union bk_hidh_cb_param_t[](#_CPPv418bk_hidh_cb_param_t "永久链接至目标
         uint8_t handle[](#_CPPv4N18bk_hidh_cb_param_t19hidh_open_evt_param6handleE "永久链接至目标")
         :   device handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t19hidh_open_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t19hidh_open_evt_param7bd_addrE "永久链接至目标")
         :   device address
 
     struct hidh_rmv_dev_evt_param[](#_CPPv4N18bk_hidh_cb_param_t22hidh_rmv_dev_evt_paramE "永久链接至目标")
@@ -2404,7 +2403,7 @@ union bk_hidh_cb_param_t[](#_CPPv418bk_hidh_cb_param_t "永久链接至目标
         uint8_t handle[](#_CPPv4N18bk_hidh_cb_param_t22hidh_rmv_dev_evt_param6handleE "永久链接至目标")
         :   device handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t22hidh_rmv_dev_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t22hidh_rmv_dev_evt_param7bd_addrE "永久链接至目标")
         :   device address
 
     struct hidh_send_data_evt_param[](#_CPPv4N18bk_hidh_cb_param_t24hidh_send_data_evt_paramE "永久链接至目标")
@@ -2436,7 +2435,7 @@ union bk_hidh_cb_param_t[](#_CPPv418bk_hidh_cb_param_t "永久链接至目标
         uint8_t handle[](#_CPPv4N18bk_hidh_cb_param_t23hidh_set_info_evt_param6handleE "永久链接至目标")
         :   device handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t23hidh_set_info_evt_param7bd_addrE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr[](#_CPPv4N18bk_hidh_cb_param_t23hidh_set_info_evt_param7bd_addrE "永久链接至目标")
         :   device address
 
     struct hidh_set_proto_evt_param[](#_CPPv4N18bk_hidh_cb_param_t24hidh_set_proto_evt_paramE "永久链接至目标")
@@ -2757,7 +2756,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
 ### Functions[](#id17 "永久链接至标题")
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_register_callback([bk_bt_l2cap_cb_t](#_CPPv416bk_bt_l2cap_cb_t "bk_bt_l2cap_cb_t") callback)[](#_CPPv429bk_bt_l2cap_register_callback16bk_bt_l2cap_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_register_callback([bk_bt_l2cap_cb_t](#_CPPv416bk_bt_l2cap_cb_t "bk_bt_l2cap_cb_t") callback)[](#_CPPv429bk_bt_l2cap_register_callback16bk_bt_l2cap_cb_t "永久链接至目标")
 :   This function is called to init callbacks with L2CAP module.
 
     参数
@@ -2768,7 +2767,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_init(void)[](#_CPPv416bk_bt_l2cap_initv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_init(void)[](#_CPPv416bk_bt_l2cap_initv "永久链接至目标")
 :   This function is called to init L2CAP module. When the operation is completed, the callback function will be called with BK_BT_L2CAP_INIT_EVT. This function should be called after bk_bluedroid_enable() completes successfully.
 
     返回
@@ -2776,7 +2775,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_deinit(void)[](#_CPPv418bk_bt_l2cap_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_deinit(void)[](#_CPPv418bk_bt_l2cap_deinitv "永久链接至目标")
 :   This function is called to uninit l2cap module. The operation will close all active L2CAP connection first, then the callback function will be called with BK_BT_L2CAP_CLOSE_EVT, and the number of BK_BT_L2CAP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback function will be called with BK_BT_L2CAP_UNINIT_EVT. This function should be called after bk_bt_l2cap_init() completes successfully.
 
     返回
@@ -2784,7 +2783,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_connect([bk_bt_l2cap_cntl_flags_t](#_CPPv424bk_bt_l2cap_cntl_flags_t "bk_bt_l2cap_cntl_flags_t") cntl_flag, uint16_t remote_psm, [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") peer_bd_addr)[](#_CPPv419bk_bt_l2cap_connect24bk_bt_l2cap_cntl_flags_t8uint16_t12bk_bd_addr_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_connect([bk_bt_l2cap_cntl_flags_t](#_CPPv424bk_bt_l2cap_cntl_flags_t "bk_bt_l2cap_cntl_flags_t") cntl_flag, uint16_t remote_psm, [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") peer_bd_addr)[](#_CPPv419bk_bt_l2cap_connect24bk_bt_l2cap_cntl_flags_t8uint16_t12bk_bd_addr_t "永久链接至目标")
 :   This function makes an L2CAP connection to a remote BD Address. When the connection is initiated or failed to initiate, the callback is called with BK_BT_L2CAP_CL_INIT_EVT. When the connection is established or failed, the callback is called with BK_BT_L2CAP_OPEN_EVT. This function must be called after bk_bt_l2cap_init() successful and before bk_bt_l2cap_deinit().
 
     参数
@@ -2799,7 +2798,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_start_srv([bk_bt_l2cap_cntl_flags_t](#_CPPv424bk_bt_l2cap_cntl_flags_t "bk_bt_l2cap_cntl_flags_t") cntl_flag, uint16_t local_psm)[](#_CPPv421bk_bt_l2cap_start_srv24bk_bt_l2cap_cntl_flags_t8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_start_srv([bk_bt_l2cap_cntl_flags_t](#_CPPv424bk_bt_l2cap_cntl_flags_t "bk_bt_l2cap_cntl_flags_t") cntl_flag, uint16_t local_psm)[](#_CPPv421bk_bt_l2cap_start_srv24bk_bt_l2cap_cntl_flags_t8uint16_t "永久链接至目标")
 :   This function create a L2CAP server and starts listening for an L2CAP connection request from a remote Bluetooth device. When the server is started successfully, the callback is called with BK_BT_L2CAP_START_EVT. When the connection is established, the callback is called with BK_BT_L2CAP_OPEN_EVT. This function must be called after bk_bt_l2cap_init() successful and before bk_bt_l2cap_deinit().
 
     参数
@@ -2812,7 +2811,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_stop_all_srv(void)[](#_CPPv424bk_bt_l2cap_stop_all_srvv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_stop_all_srv(void)[](#_CPPv424bk_bt_l2cap_stop_all_srvv "永久链接至目标")
 :   This function stops all L2CAP servers. The operation will close all active L2CAP connection first, then the callback function will be called with BK_BT_L2CAP_CLOSE_EVT, and the number of BK_BT_L2CAP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback is called with BK_BT_L2CAP_SRV_STOP_EVT. This function must be called after bk_bt_l2cap_init() successful and before bk_bt_l2cap_deinit().
 
     返回
@@ -2820,7 +2819,7 @@ enum bk_hidh_dev_app_id_t[](#_CPPv420bk_hidh_dev_app_id_t "永久链接至目
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_stop_srv(uint16_t local_psm)[](#_CPPv420bk_bt_l2cap_stop_srv8uint16_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_bt_l2cap_stop_srv(uint16_t local_psm)[](#_CPPv420bk_bt_l2cap_stop_srv8uint16_t "永久链接至目标")
 :   This function stops a specific L2CAP server. The operation will close all active L2CAP connection first on the specific L2CAP server, then the callback function will be called with BK_BT_L2CAP_CLOSE_EVT, and the number of BK_BT_L2CAP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback is called with BK_BT_L2CAP_SRV_STOP_EVT. This function must be called after bk_bt_l2cap_init() successful and before bk_bt_l2cap_deinit().
 
     参数
@@ -2835,9 +2834,9 @@ int bk_bt_l2cap_read(int fd, void *data, uint16_t size)[](#_CPPv416bk_bt_l2ca
 
 int bk_bt_l2cap_write(int fd, const void *data, uint16_t size)[](#_CPPv417bk_bt_l2cap_writeiPKv8uint16_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_l2cap_close(int fd)[](#_CPPv417bk_bt_l2cap_closei "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_l2cap_close(int fd)[](#_CPPv417bk_bt_l2cap_closei "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_l2cap_set_data_callback([bk_bt_l2cap_data_cb_t](#_CPPv421bk_bt_l2cap_data_cb_t "bk_bt_l2cap_data_cb_t") callback)[](#_CPPv429bk_bt_l2cap_set_data_callback21bk_bt_l2cap_data_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_l2cap_set_data_callback([bk_bt_l2cap_data_cb_t](#_CPPv421bk_bt_l2cap_data_cb_t "bk_bt_l2cap_data_cb_t") callback)[](#_CPPv429bk_bt_l2cap_set_data_callback21bk_bt_l2cap_data_cb_t "永久链接至目标")
 
 
 ### Unions[](#id18 "永久链接至标题")
@@ -2931,7 +2930,7 @@ union bk_bt_l2cap_cb_param_t[](#_CPPv422bk_bt_l2cap_cb_param_t "永久链接�
         int fd[](#_CPPv4N22bk_bt_l2cap_cb_param_t20l2cap_open_evt_param2fdE "永久链接至目标")
         :   File descriptor, lcid
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N22bk_bt_l2cap_cb_param_t20l2cap_open_evt_param7rem_bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N22bk_bt_l2cap_cb_param_t20l2cap_open_evt_param7rem_bdaE "永久链接至目标")
         :   The peer address
 
         int32_t tx_mtu[](#_CPPv4N22bk_bt_l2cap_cb_param_t20l2cap_open_evt_param6tx_mtuE "永久链接至目标")
@@ -3090,7 +3089,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
 ### Functions[](#id23 "永久链接至标题")
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_register_callback([bk_spp_cb_t](#_CPPv411bk_spp_cb_t "bk_spp_cb_t") callback)[](#_CPPv424bk_spp_register_callback11bk_spp_cb_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_register_callback([bk_spp_cb_t](#_CPPv411bk_spp_cb_t "bk_spp_cb_t") callback)[](#_CPPv424bk_spp_register_callback11bk_spp_cb_t "永久链接至目标")
 :   This function is called to init callbacks with SPP module.
 
     参数
@@ -3101,7 +3100,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_init()[](#_CPPv411bk_spp_initv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_init()[](#_CPPv411bk_spp_initv "永久链接至目标")
 :   This function is called to init SPP module. When the operation is completed, the callback function will be called with BK_SPP_INIT_EVT. This function should be called after bk_bluedroid_enable() completes successfully.
 
     返回
@@ -3109,7 +3108,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_deinit(void)[](#_CPPv413bk_spp_deinitv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_deinit(void)[](#_CPPv413bk_spp_deinitv "永久链接至目标")
 :   This function is called to uninit SPP module. The operation will close all active SPP connection first, then the callback function will be called with BK_SPP_CLOSE_EVT, and the number of BK_SPP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback function will be called with BK_SPP_UNINIT_EVT. This function should be called after bk_spp_init()/bk_spp_enhanced_init() completes successfully.
 
     返回
@@ -3117,7 +3116,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_start_discovery([bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_spp_start_discovery12bk_bd_addr_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_start_discovery([bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_spp_start_discovery12bk_bd_addr_t "永久链接至目标")
 :   This function is called to performs service discovery for the services provided by the given peer device. When the operation is completed, the callback function will be called with BK_SPP_DISCOVERY_COMP_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     参数
@@ -3128,7 +3127,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_connect([bk_spp_role_t](#_CPPv413bk_spp_role_t "bk_spp_role_t") role, uint8_t remote_scn, uint8_t *peer_bd_addr)[](#_CPPv414bk_spp_connect13bk_spp_role_t7uint8_tP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_connect([bk_spp_role_t](#_CPPv413bk_spp_role_t "bk_spp_role_t") role, uint8_t remote_scn, uint8_t *peer_bd_addr)[](#_CPPv414bk_spp_connect13bk_spp_role_t7uint8_tP7uint8_t "永久链接至目标")
 :   This function makes an SPP connection to a remote BD Address. When the connection is initiated or failed to initiate, the callback is called with BK_SPP_CL_INIT_EVT. When the connection is established or failed, the callback is called with BK_SPP_OPEN_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     参数
@@ -3143,7 +3142,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_disconnect(uint32_t handle)[](#_CPPv417bk_spp_disconnect8uint32_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_disconnect(uint32_t handle)[](#_CPPv417bk_spp_disconnect8uint32_t "永久链接至目标")
 :   This function closes an SPP connection. When the operation is completed, the callback function will be called with BK_SPP_CLOSE_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     参数
@@ -3154,7 +3153,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_start_srv([bk_spp_role_t](#_CPPv413bk_spp_role_t "bk_spp_role_t") role, uint8_t local_scn, const char *name)[](#_CPPv416bk_spp_start_srv13bk_spp_role_t7uint8_tPKc "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_start_srv([bk_spp_role_t](#_CPPv413bk_spp_role_t "bk_spp_role_t") role, uint8_t local_scn, const char *name)[](#_CPPv416bk_spp_start_srv13bk_spp_role_t7uint8_tPKc "永久链接至目标")
 :   This function create a SPP server and starts listening for an SPP connection request from a remote Bluetooth device. When the server is started successfully, the callback is called with BK_SPP_START_EVT. When the connection is established, the callback is called with BK_SPP_SRV_OPEN_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     参数
@@ -3169,7 +3168,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_stop_srv(void)[](#_CPPv415bk_spp_stop_srvv "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_stop_srv(void)[](#_CPPv415bk_spp_stop_srvv "永久链接至目标")
 :   This function stops all SPP servers. The operation will close all active SPP connection first, then the callback function will be called with BK_SPP_CLOSE_EVT, and the number of BK_SPP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback is called with BK_SPP_SRV_STOP_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     返回
@@ -3177,7 +3176,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_stop_srv_scn(uint8_t scn)[](#_CPPv419bk_spp_stop_srv_scn7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_stop_srv_scn(uint8_t scn)[](#_CPPv419bk_spp_stop_srv_scn7uint8_t "永久链接至目标")
 :   This function stops a specific SPP server. The operation will close all active SPP connection first on the specific SPP server, then the callback function will be called with BK_SPP_CLOSE_EVT, and the number of BK_SPP_CLOSE_EVT is equal to the number of connection. When the operation is completed, the callback is called with BK_SPP_SRV_STOP_EVT. This function must be called after bk_spp_init()/bk_spp_enhanced_init() successful and before bk_spp_deinit().
 
     参数
@@ -3188,7 +3187,7 @@ enum bk_bt_l2cap_cb_event_t[](#_CPPv422bk_bt_l2cap_cb_event_t "永久链接�
 
         - other: failed
 
-[bt_err_t](dual_ble.html#_CPPv48bt_err_t "bt_err_t") bk_spp_write(uint32_t handle, int len, uint8_t *p_data)[](#_CPPv412bk_spp_write8uint32_tiP7uint8_t "永久链接至目标")
+[bt_err_t](dual_ble.md#_CPPv48bt_err_t "bt_err_t") bk_spp_write(uint32_t handle, int len, uint8_t *p_data)[](#_CPPv412bk_spp_write8uint32_tiP7uint8_t "永久链接至目标")
 :   This function is used to write data, only for BK_SPP_MODE_CB. When this function need to be called repeatedly, it is strongly recommended to call this function again after the previous event BK_SPP_WRITE_EVT is received and the parameter ‘cong’ is equal to false. If the previous event BK_SPP_WRITE_EVT with parameter ‘cong’ is equal to true, the function can only be called again when the event BK_SPP_CONG_EVT with parameter ‘cong’ equal to false is received. This function must be called after an connection between initiator and acceptor has been established.
 
     参数
@@ -3333,7 +3332,7 @@ union bk_spp_cb_param_t[](#_CPPv417bk_spp_cb_param_t "永久链接至目标")
         uint32_t handle[](#_CPPv4N17bk_spp_cb_param_t18spp_open_evt_param6handleE "永久链接至目标")
         :   The connection handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N17bk_spp_cb_param_t18spp_open_evt_param7rem_bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N17bk_spp_cb_param_t18spp_open_evt_param7rem_bdaE "永久链接至目标")
         :   The peer address
 
     struct spp_srv_open_evt_param[](#_CPPv4N17bk_spp_cb_param_t22spp_srv_open_evt_paramE "永久链接至目标")
@@ -3349,7 +3348,7 @@ union bk_spp_cb_param_t[](#_CPPv417bk_spp_cb_param_t "永久链接至目标")
         uint32_t handle[](#_CPPv4N17bk_spp_cb_param_t22spp_srv_open_evt_param6handleE "永久链接至目标")
         :   The connection handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N17bk_spp_cb_param_t22spp_srv_open_evt_param7rem_bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rem_bda[](#_CPPv4N17bk_spp_cb_param_t22spp_srv_open_evt_param7rem_bdaE "永久链接至目标")
         :   The peer address
 
     struct spp_srv_stop_evt_param[](#_CPPv4N17bk_spp_cb_param_t22spp_srv_stop_evt_paramE "永久链接至目标")
@@ -5469,13 +5468,13 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param4statE "永久链接至目标")
         :   ACL connection status
 
         uint16_t handle[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param6handleE "永久链接至目标")
         :   ACL connection handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         uint32_t cod[](#_CPPv4N20bk_bt_gap_cb_param_t24acl_conn_cmpl_stat_param3codE "永久链接至目标")
@@ -5488,13 +5487,13 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") reason[](#_CPPv4N20bk_bt_gap_cb_param_t27acl_disconn_cmpl_stat_param6reasonE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") reason[](#_CPPv4N20bk_bt_gap_cb_param_t27acl_disconn_cmpl_stat_param6reasonE "永久链接至目标")
         :   ACL disconnection reason
 
         uint16_t handle[](#_CPPv4N20bk_bt_gap_cb_param_t27acl_disconn_cmpl_stat_param6handleE "永久链接至目标")
         :   ACL connection handle
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t27acl_disconn_cmpl_stat_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t27acl_disconn_cmpl_stat_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
     struct auth_cmpl_param[](#_CPPv4N20bk_bt_gap_cb_param_t15auth_cmpl_paramE "永久链接至目标")
@@ -5504,10 +5503,10 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15auth_cmpl_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15auth_cmpl_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t15auth_cmpl_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t15auth_cmpl_param4statE "永久链接至目标")
         :   authentication complete status
 
     struct auto_sniff_cmpl_param[](#_CPPv4N20bk_bt_gap_cb_param_t21auto_sniff_cmpl_paramE "永久链接至目标")
@@ -5517,9 +5516,9 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t21auto_sniff_cmpl_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t21auto_sniff_cmpl_param3bdaE "永久链接至目标")
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") result[](#_CPPv4N20bk_bt_gap_cb_param_t21auto_sniff_cmpl_param6resultE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") result[](#_CPPv4N20bk_bt_gap_cb_param_t21auto_sniff_cmpl_param6resultE "永久链接至目标")
         :   peer addr
 
     struct bt_remove_bond_dev_cmpl_evt_param[](#_CPPv4N20bk_bt_gap_cb_param_t33bt_remove_bond_dev_cmpl_evt_paramE "永久链接至目标")
@@ -5529,10 +5528,10 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t33bt_remove_bond_dev_cmpl_evt_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t33bt_remove_bond_dev_cmpl_evt_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") status[](#_CPPv4N20bk_bt_gap_cb_param_t33bt_remove_bond_dev_cmpl_evt_param6statusE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") status[](#_CPPv4N20bk_bt_gap_cb_param_t33bt_remove_bond_dev_cmpl_evt_param6statusE "永久链接至目标")
         :   Indicate the remove bond device operation success status
 
     struct cfm_req_param[](#_CPPv4N20bk_bt_gap_cb_param_t13cfm_req_paramE "永久链接至目标")
@@ -5542,7 +5541,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13cfm_req_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13cfm_req_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         uint32_t num_val[](#_CPPv4N20bk_bt_gap_cb_param_t13cfm_req_param7num_valE "永久链接至目标")
@@ -5555,7 +5554,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t21config_eir_data_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t21config_eir_data_param4statE "永久链接至目标")
         :   config EIR status: BK_BT_STATUS_SUCCESS: config success BK_BT_STATUS_EIR_TOO_LARGE: the EIR data is more than 240B. The EIR may not contain the whole data. others: failed
 
         uint8_t eir_type_num[](#_CPPv4N20bk_bt_gap_cb_param_t21config_eir_data_param12eir_type_numE "永久链接至目标")
@@ -5571,7 +5570,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14disc_res_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14disc_res_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         int num_prop[](#_CPPv4N20bk_bt_gap_cb_param_t14disc_res_param8num_propE "永久链接至目标")
@@ -5597,7 +5596,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15key_notif_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15key_notif_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         uint32_t passkey[](#_CPPv4N20bk_bt_gap_cb_param_t15key_notif_param7passkeyE "永久链接至目标")
@@ -5610,7 +5609,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13key_req_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13key_req_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
     struct link_key_notif_param[](#_CPPv4N20bk_bt_gap_cb_param_t20link_key_notif_paramE "永久链接至目标")
@@ -5620,7 +5619,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t20link_key_notif_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t20link_key_notif_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         uint8_t link_key[16][](#_CPPv4N20bk_bt_gap_cb_param_t20link_key_notif_param8link_keyE "永久链接至目标")
@@ -5633,7 +5632,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t18link_key_req_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t18link_key_req_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
     struct mode_chg_param[](#_CPPv4N20bk_bt_gap_cb_param_t14mode_chg_paramE "永久链接至目标")
@@ -5643,7 +5642,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14mode_chg_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14mode_chg_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         [bk_bt_pm_mode_t](#_CPPv415bk_bt_pm_mode_t "bk_bt_pm_mode_t") mode[](#_CPPv4N20bk_bt_gap_cb_param_t14mode_chg_param4modeE "永久链接至目标")
@@ -5656,7 +5655,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13pin_req_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t13pin_req_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         bool min_16_digit[](#_CPPv4N20bk_bt_gap_cb_param_t13pin_req_param12min_16_digitE "永久链接至目标")
@@ -5669,10 +5668,10 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t14qos_cmpl_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t14qos_cmpl_param4statE "永久链接至目标")
         :   QoS status
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14qos_cmpl_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t14qos_cmpl_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
         uint32_t t_poll[](#_CPPv4N20bk_bt_gap_cb_param_t14qos_cmpl_param6t_pollE "永久链接至目标")
@@ -5685,13 +5684,13 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t19read_rmt_name_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t19read_rmt_name_param4statE "永久链接至目标")
         :   read Remote Name status
 
         uint8_t rmt_name[BK_BT_GAP_MAX_BDNAME_LEN + 1][](#_CPPv4N20bk_bt_gap_cb_param_t19read_rmt_name_param8rmt_nameE "永久链接至目标")
         :   Remote device name
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t19read_rmt_name_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t19read_rmt_name_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
     struct read_rssi_delta_param[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_paramE "永久链接至目标")
@@ -5701,10 +5700,10 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_param4statE "永久链接至目标")
         :   read rssi status
 
         int8_t rssi_delta[](#_CPPv4N20bk_bt_gap_cb_param_t21read_rssi_delta_param10rssi_deltaE "永久链接至目标")
@@ -5717,10 +5716,10 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t18rmt_srvc_rec_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t18rmt_srvc_rec_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t18rmt_srvc_rec_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t18rmt_srvc_rec_param4statE "永久链接至目标")
         :   service search status
 
     struct rmt_srvcs_param[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_paramE "永久链接至目标")
@@ -5730,16 +5729,16 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bd_addr_t](dual_ble.html#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param3bdaE "永久链接至目标")
+        [bk_bd_addr_t](dual_ble.md#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bda[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param3bdaE "永久链接至目标")
         :   remote bluetooth device address
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param4statE "永久链接至目标")
         :   service search status
 
         int num_uuids[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param9num_uuidsE "永久链接至目标")
         :   number of UUID in uuid_list
 
-        [bk_bt_uuid_t](dual_ble.html#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid_list[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param9uuid_listE "永久链接至目标")
+        [bk_bt_uuid_t](dual_ble.md#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid_list[](#_CPPv4N20bk_bt_gap_cb_param_t15rmt_srvcs_param9uuid_listE "永久链接至目标")
         :   list of service UUIDs of remote device
 
     struct set_afh_channels_param[](#_CPPv4N20bk_bt_gap_cb_param_t22set_afh_channels_paramE "永久链接至目标")
@@ -5749,7 +5748,7 @@ union bk_bt_gap_cb_param_t[](#_CPPv420bk_bt_gap_cb_param_t "永久链接至�
 
         Public Members
 
-        [bk_bt_status_t](dual_ble.html#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t22set_afh_channels_param4statE "永久链接至目标")
+        [bk_bt_status_t](dual_ble.md#_CPPv414bk_bt_status_t "bk_bt_status_t") stat[](#_CPPv4N20bk_bt_gap_cb_param_t22set_afh_channels_param4statE "永久链接至目标")
         :   set AFH channel status
 
 
@@ -6205,4 +6204,4 @@ enum bk_bt_inq_mode_t[](#_CPPv416bk_bt_inq_mode_t "永久链接至目标")
 
 ## Reference link[](#reference-link "永久链接至标题")
 
-> [API Reference :](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") Introduced the Bluetooth API interface
+> [API Reference :](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") Introduced the Bluetooth API interface

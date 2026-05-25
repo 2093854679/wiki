@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/errno.h>;
 > - 定义了posix接口的错误返回值
 
-[[English]](../../../../../en/v1.5/api-reference/system/posix/errno.html "../../../../../en/v1.5/api-reference/system/posix/errno.html")
 
 
 ## Header File[](#header-file "永久链接至标题")

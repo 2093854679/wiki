@@ -2,7 +2,6 @@
 
 移植于RT-Thread的webclient开源组件
 
-[[English]](../../../../en/v2.0.1/developer-guide/http/index.html "../../../../en/v2.0.1/developer-guide/http/index.html")
 
 
 ## 源码路径[](#id1 "永久链接至标题")

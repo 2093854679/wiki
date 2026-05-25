@@ -1,6 +1,5 @@
 # 内存与性能[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/memory_perf/index.html "../../../../en/v1.5/developer-guide/memory_perf/index.html")
 
 
 # 1、内存概述[](#id2 "永久链接至标题")

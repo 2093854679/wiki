@@ -1,6 +1,5 @@
 # DVP Cli[](#dvp-cli "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/video/dvp.html "../../../../../en/v1.5/examples/cli/video/dvp.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

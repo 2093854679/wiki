@@ -1,6 +1,5 @@
 # WDT[](#wdt "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/peripheral/bk_wdt.html "../../../../en/v1.5/api-reference/peripheral/bk_wdt.html")
 
 
 ## WDT API Status[](#wdt-api-status "永久链接至标题")
@@ -25,7 +24,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wdt_driver_init(void)[](#_CPPv418bk_wdt_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wdt_driver_init(void)[](#_CPPv418bk_wdt_driver_initv "永久链接至目标")
 :   Init the WDT driver.
 
     This API init the resoure common:
@@ -42,7 +41,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wdt_driver_deinit(void)[](#_CPPv420bk_wdt_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wdt_driver_deinit(void)[](#_CPPv420bk_wdt_driver_deinitv "永久链接至目标")
 :   Deinit the WDT driver.
 
     This API free all resource related to WDT and power down WDT.
@@ -52,7 +51,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wdt_start(uint32_t timeout_ms)[](#_CPPv412bk_wdt_start8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wdt_start(uint32_t timeout_ms)[](#_CPPv412bk_wdt_start8uint32_t "永久链接至目标")
 :   Start the WDT.
 
     This API start the WDT:
@@ -74,7 +73,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wdt_stop(void)[](#_CPPv411bk_wdt_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wdt_stop(void)[](#_CPPv411bk_wdt_stopv "永久链接至目标")
 :   Stop the WDT.
 
     This API stop the WDT:
@@ -89,7 +88,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wdt_feed(void)[](#_CPPv411bk_wdt_feedv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wdt_feed(void)[](#_CPPv411bk_wdt_feedv "永久链接至目标")
 :   Feed the WDT.
 
     返回

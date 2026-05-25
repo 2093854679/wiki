@@ -1,6 +1,5 @@
 # BK7256 AB分区_OTA介绍[](#bk7256-ab-ota "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/bootloader/bk_ab_partiiton_ota.html "../../../../en/v1.5/developer-guide/bootloader/bk_ab_partiiton_ota.html")
 
 
 ## 一、概述[](#id1 "永久链接至标题")

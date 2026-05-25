@@ -1,6 +1,5 @@
 # AB分区位置无关OTA介绍[](#abota "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_ota_overview.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_ota_overview.html")
 
 
 ## 一、概述[](#id1 "永久链接至标题")

@@ -1,6 +1,5 @@
 # FFT APIs[](#fft-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_fft.html "../../../../en/v1.5/api-reference/multi_media/bk_fft.html")
 
 重要
 
@@ -62,7 +61,7 @@ bool bk_fft_is_busy(void)[](#_CPPv414bk_fft_is_busyv "永久链接至目标")
 
         - FALSE: fft is not busying
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_fft_enable([fft_input_t](#_CPPv411fft_input_t "fft_input_t") *fft_conf)[](#_CPPv413bk_fft_enableP11fft_input_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_fft_enable([fft_input_t](#_CPPv411fft_input_t "fft_input_t") *fft_conf)[](#_CPPv413bk_fft_enableP11fft_input_t "永久链接至目标")
 :   Enable fft module to process fft/ifft function.
 
     This API process fft/ifft function :
@@ -107,7 +106,7 @@ bool bk_fft_is_busy(void)[](#_CPPv414bk_fft_is_busyv "永久链接至目标")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_fft_driver_init(void)[](#_CPPv418bk_fft_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_fft_driver_init(void)[](#_CPPv418bk_fft_driver_initv "永久链接至目标")
 :   Init fft module driver.
 
     This API init fft driver :
@@ -122,7 +121,7 @@ bool bk_fft_is_busy(void)[](#_CPPv414bk_fft_is_busyv "永久链接至目标")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_fft_driver_deinit(void)[](#_CPPv420bk_fft_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_fft_driver_deinit(void)[](#_CPPv420bk_fft_driver_deinitv "永久链接至目标")
 :   Deinit fft module driver.
 
     This API deinit fft driver :
@@ -137,7 +136,7 @@ bool bk_fft_is_busy(void)[](#_CPPv414bk_fft_is_busyv "永久链接至目标")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_fft_output_read(int16_t *i_output, int16_t *q_output, uint32_t size)[](#_CPPv418bk_fft_output_readP7int16_tP7int16_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_fft_output_read(int16_t *i_output, int16_t *q_output, uint32_t size)[](#_CPPv418bk_fft_output_readP7int16_tP7int16_t8uint32_t "永久链接至目标")
 :   Read fft data.
 
     This API read fft data after processing complete

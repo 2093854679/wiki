@@ -29,4 +29,3 @@ SDK支持的Wi-Fi相关的cli命令如下表：
 | -c -u | DUT作为Client, -u表示UDP |
 | -stop | 停止 |
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html")

@@ -1,6 +1,5 @@
 # 系统状态机说明[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_fsm.html "../../../../en/v1.5/developer-guide/power_save/bk_fsm.html")
 
 ![../../_images/pm_pcm.png](../../_images/pm_pcm.png)
 

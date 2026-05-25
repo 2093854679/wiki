@@ -1,6 +1,5 @@
 # G711A编解码，向量测试demo[](#g711a-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/G711A_demo.html "../../../../en/v1.5/examples/audio/G711A_demo.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

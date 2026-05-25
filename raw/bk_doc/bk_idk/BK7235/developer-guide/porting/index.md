@@ -1,6 +1,5 @@
 # OS移植介绍[](#os "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/porting/index.html "../../../../en/v1.5/developer-guide/porting/index.html")
 
 本章节以BK7256 RISC-V架构鸿蒙OS移植为例
 

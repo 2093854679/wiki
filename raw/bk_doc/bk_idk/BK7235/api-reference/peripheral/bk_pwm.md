@@ -1,6 +1,5 @@
 # PWM[](#pwm "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/peripheral/bk_pwm.html "../../../../en/v1.5/api-reference/peripheral/bk_pwm.html")
 
 
 ## PWM API Status[](#pwm-api-status "永久链接至标题")
@@ -96,7 +95,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_driver_init(void)[](#_CPPv418bk_pwm_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_driver_init(void)[](#_CPPv418bk_pwm_driver_initv "永久链接至目标")
 :   Init the PWM driver.
 
     This API init the resoure common to all PWM channels:
@@ -113,7 +112,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_driver_deinit(void)[](#_CPPv420bk_pwm_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_driver_deinit(void)[](#_CPPv420bk_pwm_driver_deinitv "永久链接至目标")
 :   Deinit the PWM driver.
 
     This API free all resource related to PWM and power down all PWM channels.
@@ -123,7 +122,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_init([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, const [pwm_init_config_t](#_CPPv417pwm_init_config_t "pwm_init_config_t") *config)[](#_CPPv411bk_pwm_init10pwm_chan_tPK17pwm_init_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_init([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, const [pwm_init_config_t](#_CPPv417pwm_init_config_t "pwm_init_config_t") *config)[](#_CPPv411bk_pwm_init10pwm_chan_tPK17pwm_init_config_t "永久链接至目标")
 :   Init the PWM channel.
 
     This API init the PWM channel:
@@ -152,7 +151,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_deinit([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv413bk_pwm_deinit10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_deinit([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv413bk_pwm_deinit10pwm_chan_t "永久链接至目标")
 :   Deinit a PWM channel.
 
     This API deinit the PWM channel:
@@ -169,7 +168,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_start([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv412bk_pwm_start10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_start([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv412bk_pwm_start10pwm_chan_t "永久链接至目标")
 :   Stop a PWM channel.
 
     This API init the resoure common to all PWM channels:
@@ -184,7 +183,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_stop([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv411bk_pwm_stop10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_stop([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv411bk_pwm_stop10pwm_chan_t "永久链接至目标")
 :   Stop a PWM channel.
 
     This API init the resoure common to all PWM channels:
@@ -199,7 +198,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_period_duty([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, [pwm_period_duty_config_t](#_CPPv424pwm_period_duty_config_t "pwm_period_duty_config_t") *config)[](#_CPPv422bk_pwm_set_period_duty10pwm_chan_tP24pwm_period_duty_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_period_duty([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, [pwm_period_duty_config_t](#_CPPv424pwm_period_duty_config_t "pwm_period_duty_config_t") *config)[](#_CPPv422bk_pwm_set_period_duty10pwm_chan_tP24pwm_period_duty_config_t "永久链接至目标")
 :   Configure the PWM period and duty cycle.
 
     This API is used to configure the period and duty time. The unit is cycle of PWM channel clock, since the PWM channel clock is default to 26M, the unit is 1/26M (1/26 000 000) seconds.
@@ -314,7 +313,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_init_signal_low([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv426bk_pwm_set_init_signal_low10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_init_signal_low([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv426bk_pwm_set_init_signal_low10pwm_chan_t "永久链接至目标")
 :   Set the initial signal to low.
 
     Set the initial signal level of the first duty which is indicated by duty_cycle.
@@ -332,7 +331,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_init_signal_high([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv427bk_pwm_set_init_signal_high10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_init_signal_high([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv427bk_pwm_set_init_signal_high10pwm_chan_t "永久链接至目标")
 :   Set the initial signal to high.
 
     Set the initial signal level of the first duty which is indicated by duty_cycle.
@@ -350,7 +349,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_register_isr([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, [pwm_isr_t](#_CPPv49pwm_isr_t "pwm_isr_t") isr)[](#_CPPv419bk_pwm_register_isr10pwm_chan_t9pwm_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_register_isr([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, [pwm_isr_t](#_CPPv49pwm_isr_t "pwm_isr_t") isr)[](#_CPPv419bk_pwm_register_isr10pwm_chan_t9pwm_isr_t "永久链接至目标")
 :   Register the interrupt service routine for PWM channel.
 
 
@@ -366,7 +365,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_enable_interrupt([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv423bk_pwm_enable_interrupt10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_enable_interrupt([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv423bk_pwm_enable_interrupt10pwm_chan_t "永久链接至目标")
 :   Enable interrupt of PWM channel.
 
     The PWM channel interrupt is disabled by default when starting the channel by [bk_pwm_start()](#group__bk__api__pwm_1gad7adc69069f8645766d1056d7ff2f919 "#group__bk__api__pwm_1gad7adc69069f8645766d1056d7ff2f919") or [bk_pwm_group_start()](#group__bk__api__pwm_1gaf87327843711c56cab915f02b42a602a "#group__bk__api__pwm_1gaf87327843711c56cab915f02b42a602a"), while it’s enabled by default when starting the channel by [bk_pwm_capture_start()](#group__bk__api__pwm_1gaa8d1d9cee6831f6f03360a2fa3d3915a "#group__bk__api__pwm_1gaa8d1d9cee6831f6f03360a2fa3d3915a").
@@ -390,7 +389,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_disable_interrupt([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv424bk_pwm_disable_interrupt10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_disable_interrupt([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv424bk_pwm_disable_interrupt10pwm_chan_t "永久链接至目标")
 :   Disable interrupt of PWM channel.
 
     Stop the interrupt of any PWM channel, regardless whether the channel is in PWM mode, or PWM capture mode, or PWM group mode.
@@ -411,7 +410,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_init(const [pwm_group_init_config_t](#_CPPv423pwm_group_init_config_t "pwm_group_init_config_t") *config, [pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") *group)[](#_CPPv417bk_pwm_group_initPK23pwm_group_init_config_tP11pwm_group_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_init(const [pwm_group_init_config_t](#_CPPv423pwm_group_init_config_t "pwm_group_init_config_t") *config, [pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") *group)[](#_CPPv417bk_pwm_group_initPK23pwm_group_init_config_tP11pwm_group_t "永久链接至目标")
 :   Init the PWM group.
 
     This API init the PWM group. The PWM group is a channel pair that has following attributes:
@@ -472,7 +471,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_deinit([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv419bk_pwm_group_deinit11pwm_group_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_deinit([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv419bk_pwm_group_deinit11pwm_group_t "永久链接至目标")
 :   Deinit a PWM group.
 
     This API stops and powers down channels in a PWM group.
@@ -489,7 +488,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_set_config([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group, const [pwm_group_config_t](#_CPPv418pwm_group_config_t "pwm_group_config_t") *config)[](#_CPPv423bk_pwm_group_set_config11pwm_group_tPK18pwm_group_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_set_config([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group, const [pwm_group_config_t](#_CPPv418pwm_group_config_t "pwm_group_config_t") *config)[](#_CPPv423bk_pwm_group_set_config11pwm_group_tPK18pwm_group_config_t "永久链接至目标")
 :   Configure the PWM group.
 
     Configure the duty and period of a PWM group, for duty/period relationship refer to [bk_pwm_group_init()](#group__bk__api__pwm_1gab3f68971d07e8e7f589b57f1eda510e7 "#group__bk__api__pwm_1gab3f68971d07e8e7f589b57f1eda510e7").
@@ -516,7 +515,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_start([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv418bk_pwm_group_start11pwm_group_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_start([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv418bk_pwm_group_start11pwm_group_t "永久链接至目标")
 :   Start the PWM group.
 
     参数
@@ -529,7 +528,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_stop([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv417bk_pwm_group_stop11pwm_group_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_group_stop([pwm_group_t](#_CPPv411pwm_group_t "pwm_group_t") group)[](#_CPPv417bk_pwm_group_stop11pwm_group_t "永久链接至目标")
 :   Stop the PWM group.
 
     参数
@@ -542,7 +541,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_init([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, const [pwm_capture_init_config_t](#_CPPv425pwm_capture_init_config_t "pwm_capture_init_config_t") *config)[](#_CPPv419bk_pwm_capture_init10pwm_chan_tPK25pwm_capture_init_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_init([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan, const [pwm_capture_init_config_t](#_CPPv425pwm_capture_init_config_t "pwm_capture_init_config_t") *config)[](#_CPPv419bk_pwm_capture_init10pwm_chan_tPK25pwm_capture_init_config_t "永久链接至目标")
 :   Init the PWM capture.
 
     The PWM capture can calculate the cycles between two different edges, currently we support following mode:
@@ -579,7 +578,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_deinit([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv421bk_pwm_capture_deinit10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_deinit([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv421bk_pwm_capture_deinit10pwm_chan_t "永久链接至目标")
 :   Deinit the PWM capture.
 
     参数
@@ -594,7 +593,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_start([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv420bk_pwm_capture_start10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_start([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv420bk_pwm_capture_start10pwm_chan_t "永久链接至目标")
 :   Start the PWM capture.
 
     参数
@@ -609,7 +608,7 @@ value. We can call bk_pwm_set_gpio() to change it after the init API is called.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_stop([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv419bk_pwm_capture_stop10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_capture_stop([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv419bk_pwm_capture_stop10pwm_chan_t "永久链接至目标")
 :   Stop the PWM capture.
 
     参数
@@ -637,7 +636,7 @@ uint32_t bk_pwm_capture_get_value([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t")
     返回
     :   capture value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_mode_timer([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv421bk_pwm_set_mode_timer10pwm_chan_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pwm_set_mode_timer([pwm_chan_t](#_CPPv410pwm_chan_t "pwm_chan_t") chan)[](#_CPPv421bk_pwm_set_mode_timer10pwm_chan_t "永久链接至目标")
 :   Set pwm channel as timer mode.
 
 

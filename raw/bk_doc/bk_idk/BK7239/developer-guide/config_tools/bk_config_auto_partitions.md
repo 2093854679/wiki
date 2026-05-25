@@ -1,6 +1,5 @@
 # 自动化分区配置[](#bk-config-auto-partitions "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/config_tools/bk_config_auto_partitions.html "../../../../en/v2.2.1/developer-guide/config_tools/bk_config_auto_partitions.html")
 
 备注
 

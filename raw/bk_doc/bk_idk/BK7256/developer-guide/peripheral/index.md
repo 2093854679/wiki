@@ -1,24 +1,23 @@
 # 外设[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/peripheral/index.html "../../../../en/v1.5/developer-guide/peripheral/index.html")
 
 
-- [DMA](bk_dma.html "bk_dma.html")
+- [DMA](bk_dma.md "bk_dma.md")
 
-- [ICU](bk_interrupt.html "bk_interrupt.html")
+- [ICU](bk_interrupt.md "bk_interrupt.md")
 
-- [PMW](bk_pwm.html "bk_pwm.html")
+- [PMW](bk_pwm.md "bk_pwm.md")
 
-- [TRNG](bk_trng.html "bk_trng.html")
+- [TRNG](bk_trng.md "bk_trng.md")
 
-- [SARADC](bk_adc.html "bk_adc.html")
+- [SARADC](bk_adc.md "bk_adc.md")
 
-- [SPI](bk_spi.html "bk_spi.html")
+- [SPI](bk_spi.md "bk_spi.md")
 
-- [UART](bk_uart.html "bk_uart.html")
+- [UART](bk_uart.md "bk_uart.md")
 
-- [WDT](bk_wdt.html "bk_wdt.html")
+- [WDT](bk_wdt.md "bk_wdt.md")
 
-- [I2C](bk_i2c.html "bk_i2c.html")
+- [I2C](bk_i2c.md "bk_i2c.md")
 
-- [UVC&UAC](bk_uvc_uac.html "bk_uvc_uac.html")
+- [UVC&UAC](bk_uvc_uac.md "bk_uvc_uac.md")

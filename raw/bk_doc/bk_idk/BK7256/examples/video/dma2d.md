@@ -1,6 +1,5 @@
 # DMA2D[](#dma2d "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/video/dma2d.html "../../../../en/v1.5/examples/video/dma2d.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

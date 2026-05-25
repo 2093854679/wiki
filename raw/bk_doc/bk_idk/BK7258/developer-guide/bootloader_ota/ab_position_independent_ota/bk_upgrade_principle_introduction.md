@@ -1,6 +1,5 @@
 # AB分区位置无关升级原理[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_principle_introduction.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_principle_introduction.html")
 
 > - 当APP(应用程序)运行在A分区并进行OTA（Over-the-AirTechnology）升级时，
 >   :   - 根据分区表将升级固件从服务器下载分区B，下载成功之后,进行reboot。

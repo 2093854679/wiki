@@ -1,6 +1,5 @@
 # BK-RLK Multi-media demo[](#bk-rlk-multi-media-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/projects_work/wifi/bk_rlk_media.html "../../../../en/v1.5/projects_work/wifi/bk_rlk_media.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")
@@ -108,8 +107,8 @@ Figure 4. Server端环境搭建[](#id9 "永久链接至图片")
 
 ## 5 参考链接[](#id4 "永久链接至标题")
 
-> [API参考:](../../api-reference/wifi/bk_wifi.html "../../api-reference/wifi/bk_wifi.html") 介绍了BK-RLK API接口
+> [API参考:](../../api-reference/wifi/bk_wifi.md "../../api-reference/wifi/bk_wifi.md") 介绍了BK-RLK API接口
 >
-> [开发者指南:](../../developer-guide/wifi/bk_rlk.html "../../developer-guide/wifi/bk_rlk.html") 介绍了BK-RLK使用指南
+> [开发者指南:](../../developer-guide/wifi/bk_rlk.md "../../developer-guide/wifi/bk_rlk.md") 介绍了BK-RLK使用指南
 >
-> [BK-RLK工程:](../../projects_work/wifi/bk_rlk_media.html "../../projects_work/wifi/bk_rlk_media.html") 介绍了BK-RLK相关工程
+> [BK-RLK工程:](../../projects_work/wifi/bk_rlk_media.md "../../projects_work/wifi/bk_rlk_media.md") 介绍了BK-RLK相关工程

@@ -1,6 +1,5 @@
 # **Platform cli命令**[](#platform-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/platform/plt_cli.html "../../../../../en/v2.2.1/examples/cli/platform/plt_cli.html")
 
 重要
 

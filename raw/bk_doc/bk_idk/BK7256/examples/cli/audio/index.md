@@ -1,18 +1,17 @@
 # 音频Cli[](#cli "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/audio/index.html "../../../../../en/v1.5/examples/cli/audio/index.html")
 
 
-- [AUDIO](audio.html "audio.html")
+- [AUDIO](audio.md "audio.md")
 
-- [AEC](aec.html "aec.html")
+- [AEC](aec.md "aec.md")
 
-- [EQ](eq.html "eq.html")
+- [EQ](eq.md "eq.md")
 
-- [G711](g711.html "g711.html")
+- [G711](g711.md "g711.md")
 
-- [MP3](mp3.html "mp3.html")
+- [MP3](mp3.md "mp3.md")
 
-- [SBC_DEC](sbc_dec.html "sbc_dec.html")
+- [SBC_DEC](sbc_dec.md "sbc_dec.md")
 
-- [I2S](i2s.html "i2s.html")
+- [I2S](i2s.md "i2s.md")

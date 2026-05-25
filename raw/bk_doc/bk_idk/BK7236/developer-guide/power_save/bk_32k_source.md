@@ -80,4 +80,3 @@ pm_lpo_src_e bk_pm_lpo_src_get()
 
 pm_lpo_src_e bk_clk_32k_customer_config_get();
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_32k_source.html "../../../../en/v2.0.1/developer-guide/power_save/bk_32k_source.html")

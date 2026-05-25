@@ -1,6 +1,5 @@
 # AB分区位置无关的升级流程介绍[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_process_introduction.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_process_introduction.html")
 
 > AB分区位置无关的升级流程分为三部分：升级镜像下载流程；Bootloader确认升级镜像完整性流程；APP确认最终运行分区(有的客户需求，最终执行哪个分区由他们决定，由宏控制，如果客户不反馈，执行默认跳转分区）。升级的过程中涉及三个flag标志位：均保存在flash某个4K空间内（当前位置在0x3FD000）。
 

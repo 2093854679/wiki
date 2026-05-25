@@ -1,13 +1,12 @@
 # EFUSE[](#efuse "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_security_efuse.html "../../../en/v2.2.1/security/bk_security_efuse.html")
 
 
 ## 概述[](#id1 "永久链接至标题")
 
 EFUSE (Electrically Programming Efuse) 用于配置 BK7236N 中与安全相关的特性，只能由 0 配置成 1，无法由 1 配置成 0。
 
-BK7236N EFUSE 共有 4x8 共 32 Bits, 在安全启动使能前，可以通过 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil") 配置，详情请参考 [EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse")。
+BK7236N EFUSE 共有 4x8 共 32 Bits, 在安全启动使能前，可以通过 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil") 配置，详情请参考 [EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse")。
 
 | 位 | 名字 | 描述 |
 | --- | --- | --- |
@@ -39,9 +38,9 @@ EFUSE 中有两位与安全启动使能相关：
 > - [BIT(0)](#efuse-bit0 "#efuse-bit0") - 使能安全启动。仅在 [BIT(3)](#efuse-bit3 "#efuse-bit3") 设置成 1（安全启动模式）时有效，表示是否使能安全启动。
 
 当 [BIT(0)](#efuse-bit0 "#efuse-bit0") 置 0 时，表示安全启动未使能，此时 BL1 认为 IMAGE 中的公钥合法，即不会使用 IMAGE 中的公钥与 OTP 中的
-[BL1 ROTPK HASH](bk_security_otp.html#otp-bl1-rotpk-hash "bk_security_otp.html#otp-bl1-rotpk-hash") 做比对，仅做 IMAGE 完整性验证。这时 OTP 中即使不配置公钥 HASH 系统依然能启动。
+[BL1 ROTPK HASH](bk_security_otp.md#otp-bl1-rotpk-hash "bk_security_otp.md#otp-bl1-rotpk-hash") 做比对，仅做 IMAGE 完整性验证。这时 OTP 中即使不配置公钥 HASH 系统依然能启动。
 
-当 [BIT(0)](#efuse-bit0 "#efuse-bit0") 置 1 时，表示安全启动使能，要求 OTP 中必须配置 [BL1 ROTPK HASH](bk_security_otp.html#otp-bl1-rotpk-hash "bk_security_otp.html#otp-bl1-rotpk-hash")，否则启动失败。
+当 [BIT(0)](#efuse-bit0 "#efuse-bit0") 置 1 时，表示安全启动使能，要求 OTP 中必须配置 [BL1 ROTPK HASH](bk_security_otp.md#otp-bl1-rotpk-hash "bk_security_otp.md#otp-bl1-rotpk-hash")，否则启动失败。
 
 重要
 
@@ -126,7 +125,7 @@ BIT(4) 用于使能/关闭安全启动高频模式。
 BIT(5) 用于控制 BootROM 中关闭判断语句的随机延迟:
 
 > - 0 表示随机延时关闭。
-> - 1 表示开启。当随机延时开启时，BL1 在调用关键函数前，都会做一个随机 delay，通过这种机制减缓 [故障注入攻击](bk_security_fih.html#fault-injection-attack "bk_security_fih.html#fault-injection-attack") 带来的影响。
+> - 1 表示开启。当随机延时开启时，BL1 在调用关键函数前，都会做一个随机 delay，通过这种机制减缓 [故障注入攻击](bk_security_fih.md#fault-injection-attack "bk_security_fih.md#fault-injection-attack") 带来的影响。
 
 备注
 
@@ -152,7 +151,7 @@ BIT(6) 用于配置 BL1 验签完成之后的跳转到 Bootloader 的方式:
 
 ### BIT(20) - attack NMI[](#bit-20-attack-nmi "永久链接至标题")
 
-BIT(20) 用于配置在检测到 [故障注入攻击](bk_security_fih.html#fault-injection-attack "bk_security_fih.html#fault-injection-attack") 之后是否产生 NMI 异常：
+BIT(20) 用于配置在检测到 [故障注入攻击](bk_security_fih.md#fault-injection-attack "bk_security_fih.md#fault-injection-attack") 之后是否产生 NMI 异常：
 
 > - 0 - BL1 不会进行硬件层面的故障注入攻击检测。
 > - 1 - BL1 进行硬件层面的故障注入攻击检测，当检测到攻击时产生 NMI 异常。
@@ -181,7 +180,7 @@ BIT(21) 用于禁用 SPI 到 AHB 通道：
 BIT(29) 用于使能 FLASH AES 加密：
 
 > - 0 - FLASH AES 加密不使能。
-> - 1 - FLASH AES 加密使能。此必需要配置 [FASH AES KEY](bk_security_otp.html#otp-flash-aes-key "bk_security_otp.html#otp-flash-aes-key")。
+> - 1 - FLASH AES 加密使能。此必需要配置 [FASH AES KEY](bk_security_otp.md#otp-flash-aes-key "bk_security_otp.md#otp-flash-aes-key")。
 
 
 ### BIT(30) - spi download disable[](#bit-30-spi-download-disable "永久链接至标题")
@@ -205,7 +204,7 @@ BIT(29) 用于使能 FLASH AES 加密：
 BIT(31) 用于控制 CPU 调试口的开关:
 
 > - 0 - CPU 调试开启，BK7236N 支持 SWD 调试。
-> - 1 - CPU 调试关闭。此时，必须通过 [安全调试](bk_security_debug.html#security-secure-debug "bk_security_debug.html#security-secure-debug") 才能使能 CPU 调试功能。
+> - 1 - CPU 调试关闭。此时，必须通过 [安全调试](bk_security_debug.md#security-secure-debug "bk_security_debug.md#security-secure-debug") 才能使能 CPU 调试功能。
 
 重要
 

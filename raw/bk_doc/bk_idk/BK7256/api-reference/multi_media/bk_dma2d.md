@@ -1,6 +1,5 @@
 # DMA2D APIs[](#dma2d-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_dma2d.html "../../../../en/v1.5/api-reference/multi_media/bk_dma2d.html")
 
 
 ## DMA2D Interface[](#dma2d-interface "永久链接至标题")
@@ -76,7 +75,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_driver_init(void)[](#_CPPv420bk_dma2d_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_driver_init(void)[](#_CPPv420bk_dma2d_driver_initv "永久链接至目标")
 :   initializes the DMA2D system and peripheral registers
 
     ```
@@ -96,7 +95,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_init([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d)[](#_CPPv413bk_dma2d_initP14dma2d_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_init([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d)[](#_CPPv413bk_dma2d_initP14dma2d_config_t "永久链接至目标")
 :   config dma2d work mode/ data format/ offset etc.
 
     Usage example:
@@ -123,7 +122,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_driver_deinit(void)[](#_CPPv422bk_dma2d_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_driver_deinit(void)[](#_CPPv422bk_dma2d_driver_deinitv "永久链接至目标")
 :   Deinitializes the DMA2D peripheral registers to their default reset values.
 
     ```
@@ -136,7 +135,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_layer_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t layer_idx)[](#_CPPv421bk_dma2d_layer_configP14dma2d_config_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_layer_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t layer_idx)[](#_CPPv421bk_dma2d_layer_configP14dma2d_config_t8uint32_t "永久链接至目标")
 :   Configure the DMA2D background or foreground Layer include layer offset, color mode, alpha value etc.
 
     Usage example:
@@ -172,7 +171,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_start_transfer([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t pdata, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv423bk_dma2d_start_transferP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_start_transfer([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t pdata, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv423bk_dma2d_start_transferP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
 :   Start the DMA2D Transfer when you use (bk_dma2d_driver_init) and (bk_dma2d_layer_config) API, then use this API start dma2d work.
 
 
@@ -211,7 +210,7 @@ Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_start_blending([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t fg_addr, uint32_t bg_addr, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv423bk_dma2d_start_blendingP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_start_blending([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t fg_addr, uint32_t bg_addr, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv423bk_dma2d_start_blendingP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
 :   Start the multi-source DMA2D Transfer. start foreground layer and background layer blending.
 
     Usage example:
@@ -263,7 +262,7 @@ bool bk_dma2d_is_transfer_busy(void)[](#_CPPv425bk_dma2d_is_transfer_busyv "�
 
         - return 1 dma2d is work or transfer not done
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_int_enable([dma2d_int_type_t](#_CPPv416dma2d_int_type_t "dma2d_int_type_t") int_type, bool enable)[](#_CPPv419bk_dma2d_int_enable16dma2d_int_type_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_int_enable([dma2d_int_type_t](#_CPPv416dma2d_int_type_t "dma2d_int_type_t") int_type, bool enable)[](#_CPPv419bk_dma2d_int_enable16dma2d_int_type_tb "永久链接至目标")
 :   dma2d int enable.
 
     Usage example:
@@ -323,7 +322,7 @@ uint32_t bk_dma2d_int_status_get(void)[](#_CPPv423bk_dma2d_int_status_getv "�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_int_status_clear([dma2d_int_status_t](#_CPPv418dma2d_int_status_t "dma2d_int_status_t") int_status)[](#_CPPv425bk_dma2d_int_status_clear18dma2d_int_status_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_int_status_clear([dma2d_int_status_t](#_CPPv418dma2d_int_status_t "dma2d_int_status_t") int_status)[](#_CPPv425bk_dma2d_int_status_clear18dma2d_int_status_t "永久链接至目标")
 :   clear dma2d int status
 
     参数
@@ -334,7 +333,7 @@ uint32_t bk_dma2d_int_status_get(void)[](#_CPPv423bk_dma2d_int_status_getv "�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_isr_register([dma2d_isr_t](#_CPPv411dma2d_isr_t "dma2d_isr_t") dma2d_isr)[](#_CPPv421bk_dma2d_isr_register11dma2d_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_isr_register([dma2d_isr_t](#_CPPv411dma2d_isr_t "dma2d_isr_t") dma2d_isr)[](#_CPPv421bk_dma2d_isr_register11dma2d_isr_t "永久链接至目标")
 :   register dma2d cpu int isr
 
     参数
@@ -343,7 +342,7 @@ uint32_t bk_dma2d_int_status_get(void)[](#_CPPv423bk_dma2d_int_status_getv "�
     Return values
     :   **bk_err_t** – status
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma2d_blend([dma2d_blend_t](#_CPPv413dma2d_blend_t "dma2d_blend_t") *dma2d_blend)[](#_CPPv414bk_dma2d_blendP13dma2d_blend_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma2d_blend([dma2d_blend_t](#_CPPv413dma2d_blend_t "dma2d_blend_t") *dma2d_blend)[](#_CPPv414bk_dma2d_blendP13dma2d_blend_t "永久链接至目标")
 :   config dma2d blend
 
     参数
@@ -365,7 +364,7 @@ void bk_dma2d_memcpy_or_pixel_convert([dma2d_memcpy_pfc_t](#_CPPv418dma2d_memcpy
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") dma2d_fill([dma2d_fill_t](#_CPPv412dma2d_fill_t "dma2d_fill_t") *fill)[](#_CPPv410dma2d_fillP12dma2d_fill_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") dma2d_fill([dma2d_fill_t](#_CPPv412dma2d_fill_t "dma2d_fill_t") *fill)[](#_CPPv410dma2d_fillP12dma2d_fill_t "永久链接至目标")
 :   config dma2d fill color
 
     参数
@@ -376,7 +375,7 @@ void bk_dma2d_memcpy_or_pixel_convert([dma2d_memcpy_pfc_t](#_CPPv418dma2d_memcpy
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") dma2d_start_transfer(void)[](#_CPPv420dma2d_start_transferv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") dma2d_start_transfer(void)[](#_CPPv420dma2d_start_transferv "永久链接至目标")
 :   start dma2d transfer
 
     返回

@@ -1,6 +1,5 @@
 # Docker部署[](#docker "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/get-started/env-docker.html "../../../en/v2.2.1/get-started/env-docker.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

@@ -1,6 +1,5 @@
 # POSIX APIs[](#posix-apis "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/api-reference/system/posix/index.html "../../../../../en/v2.0.1/api-reference/system/posix/index.html")
 
 
 ## POSIX APIs 介绍[](#id1 "永久链接至标题")
@@ -16,22 +15,22 @@
 - 可以在components/bk_rtos/freertos/posix/freertos_impl/include/portable/bk/FreeRTOS_POSIX_portable.h中自定义相关配置。
 
 
-- [unistd接口](unistd.html "unistd.html")
+- [unistd接口](unistd.md "unistd.md")
 
-- [utils接口](utils.html "utils.html")
+- [utils接口](utils.md "utils.md")
 
-- [errno接口](errno.html "errno.html")
+- [errno接口](errno.md "errno.md")
 
-- [fcntl接口](fcntl.html "fcntl.html")
+- [fcntl接口](fcntl.md "fcntl.md")
 
-- [signal接口](signal.html "signal.html")
+- [signal接口](signal.md "signal.md")
 
-- [mqueue接口](mqueue.html "mqueue.html")
+- [mqueue接口](mqueue.md "mqueue.md")
 
-- [pthread接口](pthread.html "pthread.html")
+- [pthread接口](pthread.md "pthread.md")
 
-- [sched接口](sched.html "sched.html")
+- [sched接口](sched.md "sched.md")
 
-- [semaphore接口](semaphore.html "semaphore.html")
+- [semaphore接口](semaphore.md "semaphore.md")
 
-- [time接口](time.html "time.html")
+- [time接口](time.md "time.md")

@@ -1,6 +1,5 @@
 # DMA 使用指南[](#dma "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/peripheral/bk_dma.html "../../../../en/v2.2.1/developer-guide/peripheral/bk_dma.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

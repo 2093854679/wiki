@@ -1,6 +1,5 @@
 # 事件机制[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/system/bk_event.html "../../../../en/v1.5/api-reference/system/bk_event.html")
 
 
 ## Header File[](#header-file "永久链接至标题")
@@ -11,7 +10,7 @@
 
 ## Functions[](#functions "永久链接至标题")
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_register_cb([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, [event_cb_t](#_CPPv410event_cb_t "event_cb_t") event_cb, void *event_cb_arg)[](#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_register_cb([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, [event_cb_t](#_CPPv410event_cb_t "event_cb_t") event_cb, void *event_cb_arg)[](#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "永久链接至目标")
 :   Register event callback.
 
     参数
@@ -40,7 +39,7 @@
 
         - Others: Fail
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_unregister_cb([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, [event_cb_t](#_CPPv410event_cb_t "event_cb_t") event_cb)[](#_CPPv422bk_event_unregister_cb14event_module_ti10event_cb_t "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_unregister_cb([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, [event_cb_t](#_CPPv410event_cb_t "event_cb_t") event_cb)[](#_CPPv422bk_event_unregister_cb14event_module_ti10event_cb_t "永久链接至目标")
 :   Unregister a callback.
 
     This function can be used to unregister a callback so that it no longer gets called during dispatch.
@@ -69,7 +68,7 @@
 
         - Others: Fail
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_post([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, void *event_data, size_t event_data_size, uint32_t timeout)[](#_CPPv413bk_event_post14event_module_tiPv6size_t8uint32_t "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_post([event_module_t](#_CPPv414event_module_t "event_module_t") event_module_id, int event_id, void *event_data, size_t event_data_size, uint32_t timeout)[](#_CPPv413bk_event_post14event_module_tiPv6size_t8uint32_t "永久链接至目标")
 :   Posts an event to the event task.
 
     参数
@@ -98,7 +97,7 @@
 
         - Others: Fail
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_init(void)[](#_CPPv413bk_event_initv "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_init(void)[](#_CPPv413bk_event_initv "永久链接至目标")
 :   Init the event module.
 
     This API initializes the event queue and create the event task.
@@ -114,7 +113,7 @@
 
         - Others: Fail
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_deinit(void)[](#_CPPv415bk_event_deinitv "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_deinit(void)[](#_CPPv415bk_event_deinitv "永久链接至目标")
 :   Deinit the event module.
 
     This API destroy the event queue and delete the event task.
@@ -126,7 +125,7 @@
 
         - Others: Fail
 
-[bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") bk_event_dump(void)[](#_CPPv413bk_event_dumpv "永久链接至目标")
+[bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") bk_event_dump(void)[](#_CPPv413bk_event_dumpv "永久链接至目标")
 :   Dump all registered event callback.
 
 
@@ -188,12 +187,12 @@ EVENT_ID_ALL[](#c.EVENT_ID_ALL "永久链接至目标")
 
 ## Type Definitions[](#type-definitions "永久链接至标题")
 
-typedef [bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") (*event_cb_t)(void *arg, [event_module_t](#_CPPv414event_module_t "event_module_t") event_module, int event_id, void *event_data)[](#_CPPv410event_cb_t "永久链接至目标")
+typedef [bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") (*event_cb_t)(void *arg, [event_module_t](#_CPPv414event_module_t "event_module_t") event_module, int event_id, void *event_data)[](#_CPPv410event_cb_t "永久链接至目标")
 :   Event callback.
 
     The event callback get called when related event dispatched.
 
-typedef [bk_err_t](os.html#_CPPv48bk_err_t "bk_err_t") (*event_callback_t)(void *arg, [event_module_t](#_CPPv414event_module_t "event_module_t") event_module, int event_id, void *event_data)[](#_CPPv416event_callback_t "永久链接至目标")
+typedef [bk_err_t](os.md#_CPPv48bk_err_t "bk_err_t") (*event_callback_t)(void *arg, [event_module_t](#_CPPv414event_module_t "event_module_t") event_module, int event_id, void *event_data)[](#_CPPv416event_callback_t "永久链接至目标")
 
 
 ## Enumerations[](#enumerations "永久链接至标题")

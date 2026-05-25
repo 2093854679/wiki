@@ -1,6 +1,5 @@
 # Lan UDP/TCP[](#lan-udp-tcp "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/projects_work/media/doorbell/local_area_net.html "../../../../../en/v1.5/projects_work/media/doorbell/local_area_net.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

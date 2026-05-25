@@ -1,6 +1,5 @@
 # Bootloader和常规Ota简介[](#bootloaderota "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_brief_introduction.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_brief_introduction.html")
 
 
 ## 一.概述[](#id1 "永久链接至标题")

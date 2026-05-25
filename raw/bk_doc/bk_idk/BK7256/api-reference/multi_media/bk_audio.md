@@ -1,6 +1,5 @@
 # Audio APIs[](#audio-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_audio.html "../../../../en/v1.5/api-reference/multi_media/bk_audio.html")
 
 重要
 
@@ -105,7 +104,7 @@ Eq APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_driver_init(void)[](#_CPPv418bk_aud_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_driver_init(void)[](#_CPPv418bk_aud_driver_initv "永久链接至目标")
 :   Init the AUD driver.
 
     This API init the resoure common:
@@ -126,7 +125,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_driver_deinit(void)[](#_CPPv420bk_aud_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_driver_deinit(void)[](#_CPPv420bk_aud_driver_deinitv "永久链接至目标")
 :   Deinit the AUD driver.
 
     This API free all resource related to AUD, power down AUD and mic.
@@ -136,7 +135,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_adc_init([aud_adc_work_mode_t](#_CPPv419aud_adc_work_mode_t "aud_adc_work_mode_t") adc_work_mode, const [aud_adc_config_t](#_CPPv416aud_adc_config_t "aud_adc_config_t") *adc_config, const [aud_dtmf_config_t](#_CPPv417aud_dtmf_config_t "aud_dtmf_config_t") *dtmf_config)[](#_CPPv415bk_aud_adc_init19aud_adc_work_mode_tPK16aud_adc_config_tPK17aud_dtmf_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_adc_init([aud_adc_work_mode_t](#_CPPv419aud_adc_work_mode_t "aud_adc_work_mode_t") adc_work_mode, const [aud_adc_config_t](#_CPPv416aud_adc_config_t "aud_adc_config_t") *adc_config, const [aud_dtmf_config_t](#_CPPv417aud_dtmf_config_t "aud_dtmf_config_t") *dtmf_config)[](#_CPPv415bk_aud_adc_init19aud_adc_work_mode_tPK16aud_adc_config_tPK17aud_dtmf_config_t "永久链接至目标")
 :   Init the adc module of audio.
 
     This API init the adc module:
@@ -168,7 +167,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_adc_deinit(void)[](#_CPPv417bk_aud_adc_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_adc_deinit(void)[](#_CPPv417bk_aud_adc_deinitv "永久链接至目标")
 :   Deinit adc module.
 
     This API deinit the adc module of audio:
@@ -181,7 +180,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_adc_samp_rate([aud_adc_samp_rate_t](#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate)[](#_CPPv424bk_aud_set_adc_samp_rate19aud_adc_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_adc_samp_rate([aud_adc_samp_rate_t](#_CPPv419aud_adc_samp_rate_t "aud_adc_samp_rate_t") samp_rate)[](#_CPPv424bk_aud_set_adc_samp_rate19aud_adc_samp_rate_t "永久链接至目标")
 :   Set the sample rate in adc work mode.
 
     参数
@@ -194,7 +193,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_adc_gain(uint32_t value)[](#_CPPv419bk_aud_set_adc_gain8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_adc_gain(uint32_t value)[](#_CPPv419bk_aud_set_adc_gain8uint32_t "永久链接至目标")
 :   Set the adc gain in adc work mode.
 
     参数
@@ -207,7 +206,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_mic_chl([aud_mic_enable_t](#_CPPv416aud_mic_enable_t "aud_mic_enable_t") mic_chl)[](#_CPPv418bk_aud_set_mic_chl16aud_mic_enable_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_mic_chl([aud_mic_enable_t](#_CPPv416aud_mic_enable_t "aud_mic_enable_t") mic_chl)[](#_CPPv418bk_aud_set_mic_chl16aud_mic_enable_t "永久链接至目标")
 :   Set the adc gain in adc work mode.
 
     参数
@@ -220,7 +219,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_mic_intf_mode([aud_mic_id_t](#_CPPv412aud_mic_id_t "aud_mic_id_t") mic_id, [aud_adc_intf_mode_t](#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") intf_mode)[](#_CPPv424bk_aud_set_mic_intf_mode12aud_mic_id_t19aud_adc_intf_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_mic_intf_mode([aud_mic_id_t](#_CPPv412aud_mic_id_t "aud_mic_id_t") mic_id, [aud_adc_intf_mode_t](#_CPPv419aud_adc_intf_mode_t "aud_adc_intf_mode_t") intf_mode)[](#_CPPv424bk_aud_set_mic_intf_mode12aud_mic_id_t19aud_adc_intf_mode_t "永久链接至目标")
 :   Set the mic external interface mode in adc work mode.
 
     参数
@@ -235,7 +234,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_fifo_addr(uint32_t *adc_fifo_addr)[](#_CPPv424bk_aud_get_adc_fifo_addrP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_fifo_addr(uint32_t *adc_fifo_addr)[](#_CPPv424bk_aud_get_adc_fifo_addrP8uint32_t "永久链接至目标")
 :   Get the adc fifo address in adc work mode.
 
     参数
@@ -248,7 +247,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_fifo_addr(uint32_t *dtmf_fifo_addr)[](#_CPPv425bk_aud_get_dtmf_fifo_addrP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_fifo_addr(uint32_t *dtmf_fifo_addr)[](#_CPPv425bk_aud_get_dtmf_fifo_addrP8uint32_t "永久链接至目标")
 :   Get the dtmf fifo address in adc work mode.
 
     参数
@@ -261,7 +260,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dac_fifo_addr(uint32_t *dac_fifo_addr)[](#_CPPv424bk_aud_get_dac_fifo_addrP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dac_fifo_addr(uint32_t *dac_fifo_addr)[](#_CPPv424bk_aud_get_dac_fifo_addrP8uint32_t "永久链接至目标")
 :   Get the dac fifo address.
 
     参数
@@ -274,7 +273,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_status(uint32_t *adc_status)[](#_CPPv421bk_aud_get_adc_statusP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_status(uint32_t *adc_status)[](#_CPPv421bk_aud_get_adc_statusP8uint32_t "永久链接至目标")
 :   Get the adc status information in adc work mode.
 
     This API get the adc status of adc work mode:
@@ -292,7 +291,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_status(uint32_t *dtmf_status)[](#_CPPv422bk_aud_get_dtmf_statusP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_status(uint32_t *dtmf_status)[](#_CPPv422bk_aud_get_dtmf_statusP8uint32_t "永久链接至目标")
 :   Get the dtmf status information in dtmf work mode.
 
     This API get the adc status of dtmf work mode:
@@ -310,7 +309,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_enable_adc_int(void)[](#_CPPv421bk_aud_enable_adc_intv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_enable_adc_int(void)[](#_CPPv421bk_aud_enable_adc_intv "永久链接至目标")
 :   Enable adc interrupt.
 
     This API enable adc interrupt:
@@ -327,7 +326,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_disable_adc_int(void)[](#_CPPv422bk_aud_disable_adc_intv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_disable_adc_int(void)[](#_CPPv422bk_aud_disable_adc_intv "永久链接至目标")
 :   Disable adc interrupt.
 
     This API disable adc interrupt:
@@ -344,7 +343,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_start_adc(void)[](#_CPPv416bk_aud_start_adcv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_start_adc(void)[](#_CPPv416bk_aud_start_adcv "永久链接至目标")
 :   Start adc.
 
     This API start adc:
@@ -415,7 +414,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_stop_adc(void)[](#_CPPv415bk_aud_stop_adcv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_stop_adc(void)[](#_CPPv415bk_aud_stop_adcv "永久链接至目标")
 :   Stop adc.
 
     This API stop adc:
@@ -434,7 +433,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_fifo_data(uint32_t *adc_data)[](#_CPPv424bk_aud_get_adc_fifo_dataP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_adc_fifo_data(uint32_t *adc_data)[](#_CPPv424bk_aud_get_adc_fifo_dataP8uint32_t "永久链接至目标")
 :   Get adc data.
 
     This API get adc fifo data
@@ -448,7 +447,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_fifo_data(uint32_t *dtmf_data)[](#_CPPv425bk_aud_get_dtmf_fifo_dataP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dtmf_fifo_data(uint32_t *dtmf_data)[](#_CPPv425bk_aud_get_dtmf_fifo_dataP8uint32_t "永久链接至目标")
 :   Get dtmf data.
 
     This API get dtmf fifo data
@@ -465,7 +464,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_init(const [aud_dac_config_t](#_CPPv416aud_dac_config_t "aud_dac_config_t") *dac_config)[](#_CPPv415bk_aud_dac_initPK16aud_dac_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_init(const [aud_dac_config_t](#_CPPv416aud_dac_config_t "aud_dac_config_t") *dac_config)[](#_CPPv415bk_aud_dac_initPK16aud_dac_config_t "永久链接至目标")
 :   Init the dac module of audio.
 
     This API init the dac module:
@@ -483,7 +482,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_deinit(void)[](#_CPPv417bk_aud_dac_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_deinit(void)[](#_CPPv417bk_aud_dac_deinitv "永久链接至目标")
 :   Deinit dac module of audio.
 
     This API deinit the dac module:
@@ -497,7 +496,7 @@ Eq APIs:
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_samp_rate([aud_dac_samp_rate_t](#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate)[](#_CPPv424bk_aud_set_dac_samp_rate19aud_dac_samp_rate_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_samp_rate([aud_dac_samp_rate_t](#_CPPv419aud_dac_samp_rate_t "aud_dac_samp_rate_t") samp_rate)[](#_CPPv424bk_aud_set_dac_samp_rate19aud_dac_samp_rate_t "永久链接至目标")
 :   Set the dac sample rate.
 
     This API set the dac sample rate value.
@@ -510,7 +509,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_gain(uint32_t value)[](#_CPPv419bk_aud_set_dac_gain8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_gain(uint32_t value)[](#_CPPv419bk_aud_set_dac_gain8uint32_t "永久链接至目标")
 :   Set the dac gain.
 
     参数
@@ -523,7 +522,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_chl([aud_dac_chl_enable_t](#_CPPv420aud_dac_chl_enable_t "aud_dac_chl_enable_t") dac_chl)[](#_CPPv418bk_aud_set_dac_chl20aud_dac_chl_enable_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_set_dac_chl([aud_dac_chl_enable_t](#_CPPv420aud_dac_chl_enable_t "aud_dac_chl_enable_t") dac_chl)[](#_CPPv418bk_aud_set_dac_chl20aud_dac_chl_enable_t "永久链接至目标")
 :   Set the dac channel.
 
     参数
@@ -536,7 +535,7 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_enable_dac_int(void)[](#_CPPv421bk_aud_enable_dac_intv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_enable_dac_int(void)[](#_CPPv421bk_aud_enable_dac_intv "永久链接至目标")
 :   Enable dac interrupt.
 
     This API enable dac interrupt:
@@ -549,7 +548,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_disable_dac_int(void)[](#_CPPv422bk_aud_disable_dac_intv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_disable_dac_int(void)[](#_CPPv422bk_aud_disable_dac_intv "永久链接至目标")
 :   Disable dac interrupt.
 
     This API disable dac interrupt:
@@ -562,7 +561,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dac_status(uint32_t *dac_status)[](#_CPPv421bk_aud_get_dac_statusP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_get_dac_status(uint32_t *dac_status)[](#_CPPv421bk_aud_get_dac_statusP8uint32_t "永久链接至目标")
 :   Get the dac status information.
 
     This API get the dac fifo status.
@@ -579,7 +578,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_start_dac(void)[](#_CPPv416bk_aud_start_dacv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_start_dac(void)[](#_CPPv416bk_aud_start_dacv "永久链接至目标")
 :   Start dac.
 
     This API start dac function.
@@ -592,7 +591,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_stop_dac(void)[](#_CPPv415bk_aud_stop_dacv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_stop_dac(void)[](#_CPPv415bk_aud_stop_dacv "永久链接至目标")
 :   Stop dac.
 
     This API stop dac function.
@@ -605,7 +604,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_eq_init(const [aud_eq_config_t](#_CPPv415aud_eq_config_t "aud_eq_config_t") *eq_config)[](#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_eq_init(const [aud_eq_config_t](#_CPPv415aud_eq_config_t "aud_eq_config_t") *eq_config)[](#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "永久链接至目标")
 :   Init the eq module of audio.
 
     This API init the eq module:
@@ -623,7 +622,7 @@ Eq APIs:
 
         - BK_ERR_AUD_NOT_INIT: audio driver is not init
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_eq_deinit([aud_eq_config_t](#_CPPv415aud_eq_config_t "aud_eq_config_t") *eq_config)[](#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_eq_deinit([aud_eq_config_t](#_CPPv415aud_eq_config_t "aud_eq_config_t") *eq_config)[](#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "永久链接至目标")
 :   Deinit the eq module of audio.
 
     This API deinit the eq module:
@@ -639,7 +638,7 @@ Eq APIs:
 
         - BK_ERR_NULL_PARAM: config is NULL
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_register_aud_isr([aud_isr_id_t](#_CPPv412aud_isr_id_t "aud_isr_id_t") isr_id, [aud_isr_t](#_CPPv49aud_isr_t "aud_isr_t") isr, void *param)[](#_CPPv423bk_aud_register_aud_isr12aud_isr_id_t9aud_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_register_aud_isr([aud_isr_id_t](#_CPPv412aud_isr_id_t "aud_isr_id_t") isr_id, [aud_isr_t](#_CPPv49aud_isr_t "aud_isr_t") isr, void *param)[](#_CPPv423bk_aud_register_aud_isr12aud_isr_id_t9aud_isr_tPv "永久链接至目标")
 :   Register audio isr.
 
     This API register audio isr:
@@ -689,11 +688,11 @@ Eq APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_dwa_bypass_control(uint8_t value)[](#_CPPv429bk_aud_dac_dwa_bypass_control7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_dwa_bypass_control(uint8_t value)[](#_CPPv429bk_aud_dac_dwa_bypass_control7uint8_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_set_ana_gain(uint8_t value)[](#_CPPv423bk_aud_dac_set_ana_gain7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_set_ana_gain(uint8_t value)[](#_CPPv423bk_aud_dac_set_ana_gain7uint8_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_get_ana_gain(uint32_t *gain)[](#_CPPv423bk_aud_dac_get_ana_gainP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_aud_dac_get_ana_gain(uint32_t *gain)[](#_CPPv423bk_aud_dac_get_ana_gainP8uint32_t "永久链接至目标")
 
 
 ## API Typedefs[](#api-typedefs "永久链接至标题")

@@ -1,20 +1,19 @@
 # API 参考[](#api "永久链接至标题")
 
-[[English]](../../../en/v1.5/api-reference/index.html "../../../en/v1.5/api-reference/index.html")
 
 
-- [概述](api_overview.html "api_overview.html")
+- [概述](api_overview.md "api_overview.md")
 
-- [蓝牙](bluetooth/index.html "bluetooth/index.html")
+- [蓝牙](bluetooth/index.md "bluetooth/index.md")
 
-- [Wi-Fi](wifi/index.html "wifi/index.html")
+- [Wi-Fi](wifi/index.md "wifi/index.md")
 
-- [网络](tcpip/index.html "tcpip/index.html")
+- [网络](tcpip/index.md "tcpip/index.md")
 
-- [外设](peripheral/index.html "peripheral/index.html")
+- [外设](peripheral/index.md "peripheral/index.md")
 
-- [系统](system/index.html "system/index.html")
+- [系统](system/index.md "system/index.md")
 
-- [多媒体](multi_media/index.html "multi_media/index.html")
+- [多媒体](multi_media/index.md "multi_media/index.md")
 
-- [低功耗与电源管理](pm/index.html "pm/index.html")
+- [低功耗与电源管理](pm/index.md "pm/index.md")

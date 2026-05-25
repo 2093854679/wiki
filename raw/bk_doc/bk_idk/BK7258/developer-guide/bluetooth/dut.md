@@ -1,6 +1,5 @@
 # DUT[](#dut "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/bluetooth/dut.html "../../../../en/v2.0.1/developer-guide/bluetooth/dut.html")
 
 
 ## 1 概述[](#id1 "永久链接至标题")
@@ -92,8 +91,8 @@
 
 ## 3 参考链接[](#id4 "永久链接至标题")
 
-> [API参考:](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") 介绍了蓝牙API接口
+> [API参考:](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") 介绍了蓝牙API接口
 >
-> [开发者指南:](../../developer-guide/bluetooth/index.html "../../developer-guide/bluetooth/index.html") 介绍了蓝牙常用使用场景
+> [开发者指南:](../../developer-guide/bluetooth/index.md "../../developer-guide/bluetooth/index.md") 介绍了蓝牙常用使用场景
 >
-> [蓝牙工程:](../../projects/bluetooth/bluetooth.html "../../projects/bluetooth/bluetooth.html") 介绍了蓝牙相关工程
+> [蓝牙工程:](../../projects/bluetooth/bluetooth.md "../../projects/bluetooth/bluetooth.md") 介绍了蓝牙相关工程

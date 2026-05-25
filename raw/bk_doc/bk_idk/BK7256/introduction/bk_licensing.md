@@ -1,6 +1,5 @@
 # Copyrights and Licenses[](#copyrights-and-licenses "永久链接至标题")
 
-[[English]](../../../en/v1.5/introduction/bk_licensing.html "../../../en/v1.5/introduction/bk_licensing.html")
 
 
 ## Software Copyrights[](#software-copyrights "永久链接至标题")
@@ -22,4 +21,4 @@ Detail info, you can get from: [https://docs.bekencorp.com/copyright/armino/copy
 ### Documentation[](#documentation "永久链接至标题")
 
 
-- HTML version of the [Armino Programming Guide](../index.html "../index.html") uses the Sphinx theme [sphinx_rtd_theme](https://github.com/readthedocs/sphinx_rtd_theme "https://github.com/readthedocs/sphinx_rtd_theme"), which is Copyright (c) 2013-2020 Dave Snider, Read the Docs, Inc. It’s licensed under MIT license.
+- HTML version of the [Armino Programming Guide](../index.md "../index.md") uses the Sphinx theme [sphinx_rtd_theme](https://github.com/readthedocs/sphinx_rtd_theme "https://github.com/readthedocs/sphinx_rtd_theme"), which is Copyright (c) 2013-2020 Dave Snider, Read the Docs, Inc. It’s licensed under MIT license.

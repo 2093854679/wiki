@@ -1,10 +1,9 @@
 # 蓝牙[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/bluetooth/index.html "../../../../en/v1.5/examples/bluetooth/index.html")
 
 
-- [蓝牙配网](ble_boarding_demo.html "ble_boarding_demo.html")
+- [蓝牙配网](ble_boarding_demo.md "ble_boarding_demo.md")
 
-- [DUT](dut.html "dut.html")
+- [DUT](dut.md "dut.md")
 
-- [BLE吞吐(gatt notify)](ble_throughput.html "ble_throughput.html")
+- [BLE吞吐(gatt notify)](ble_throughput.md "ble_throughput.md")

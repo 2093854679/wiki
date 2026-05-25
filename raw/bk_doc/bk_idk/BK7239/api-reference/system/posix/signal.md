@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/signal.h>;
 > - 定义了系统信号相关的接口
 
-[[English]](../../../../../en/v2.2.1/api-reference/system/posix/signal.html "../../../../../en/v2.2.1/api-reference/system/posix/signal.html")
 
 
 ## Header File[](#header-file "永久链接至标题")

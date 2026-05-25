@@ -1,6 +1,5 @@
 # Dual BLE APIs[](#dual-ble-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/bluetooth/dual_ble.html "../../../../en/v2.2.1/api-reference/bluetooth/dual_ble.html")
 
 重要
 
@@ -175,7 +174,7 @@ err = bk_ble_gap_connect(&param);
 
 ### Functions[](#functions "永久链接至标题")
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_register_callback([bk_ble_gap_cb_t](#_CPPv415bk_ble_gap_cb_t "bk_ble_gap_cb_t") callback)[](#_CPPv428bk_ble_gap_register_callback15bk_ble_gap_cb_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_register_callback([bk_ble_gap_cb_t](#_CPPv415bk_ble_gap_cb_t "bk_ble_gap_cb_t") callback)[](#_CPPv428bk_ble_gap_register_callback15bk_ble_gap_cb_t "永久链接至目标")
 :   This function is called to occur gap event, such as scan result.
 
     参数
@@ -186,7 +185,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_update_conn_params([bk_ble_conn_update_params_t](#_CPPv427bk_ble_conn_update_params_t "bk_ble_conn_update_params_t") *params)[](#_CPPv429bk_ble_gap_update_conn_paramsP27bk_ble_conn_update_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_update_conn_params([bk_ble_conn_update_params_t](#_CPPv427bk_ble_conn_update_params_t "bk_ble_conn_update_params_t") *params)[](#_CPPv429bk_ble_gap_update_conn_paramsP27bk_ble_conn_update_params_t "永久链接至目标")
 :   Update connection parameters, can only be used when connection is up.
 
     参数
@@ -197,7 +196,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_pkt_data_len([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_device, uint16_t tx_data_length)[](#_CPPv427bk_ble_gap_set_pkt_data_len12bk_bd_addr_t8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_pkt_data_len([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_device, uint16_t tx_data_length)[](#_CPPv427bk_ble_gap_set_pkt_data_len12bk_bd_addr_t8uint16_t "永久链接至目标")
 :   This function is to set maximum LE data packet size.
 
     参数
@@ -210,7 +209,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_rand_addr([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rand_addr)[](#_CPPv424bk_ble_gap_set_rand_addr12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_rand_addr([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rand_addr)[](#_CPPv424bk_ble_gap_set_rand_addr12bk_bd_addr_t "永久链接至目标")
 :   This function sets the static Random Address and Non-Resolvable Private Address for the application.
 
     参数
@@ -221,7 +220,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_config_local_privacy(bool privacy_enable)[](#_CPPv431bk_ble_gap_config_local_privacyb "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_config_local_privacy(bool privacy_enable)[](#_CPPv431bk_ble_gap_config_local_privacyb "永久链接至目标")
 :   Enable/disable privacy on the local device.
 
     参数
@@ -232,7 +231,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_config_local_icon(uint16_t icon)[](#_CPPv428bk_ble_gap_config_local_icon8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_config_local_icon(uint16_t icon)[](#_CPPv428bk_ble_gap_config_local_icon8uint16_t "永久链接至目标")
 :   set local gap appearance icon
 
     参数
@@ -243,7 +242,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_update_whitelist(bool add_remove, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, [bk_ble_wl_addr_type_t](#_CPPv421bk_ble_wl_addr_type_t "bk_ble_wl_addr_type_t") wl_addr_type)[](#_CPPv427bk_ble_gap_update_whitelistb12bk_bd_addr_t21bk_ble_wl_addr_type_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_update_whitelist(bool add_remove, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_bda, [bk_ble_wl_addr_type_t](#_CPPv421bk_ble_wl_addr_type_t "bk_ble_wl_addr_type_t") wl_addr_type)[](#_CPPv427bk_ble_gap_update_whitelistb12bk_bd_addr_t21bk_ble_wl_addr_type_t "永久链接至目标")
 :   Add or remove device from white list.
 
     参数
@@ -258,7 +257,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_clear_whitelist(void)[](#_CPPv426bk_ble_gap_clear_whitelistv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_clear_whitelist(void)[](#_CPPv426bk_ble_gap_clear_whitelistv "永久链接至目标")
 :   Clear all white list.
 
     返回
@@ -266,7 +265,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_whitelist_size(uint16_t *length)[](#_CPPv429bk_ble_gap_get_whitelist_sizeP8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_whitelist_size(uint16_t *length)[](#_CPPv429bk_ble_gap_get_whitelist_sizeP8uint16_t "永久链接至目标")
 :   Get the whitelist size in the controller.
 
     参数
@@ -277,7 +276,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_device_name(const char *name)[](#_CPPv426bk_ble_gap_set_device_namePKc "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_device_name(const char *name)[](#_CPPv426bk_ble_gap_set_device_namePKc "永久链接至目标")
 :   Set device name to the local device.
 
     参数
@@ -288,7 +287,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_device_name(char *name, uint32_t *size)[](#_CPPv426bk_ble_gap_get_device_namePcP8uint32_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_device_name(char *name, uint32_t *size)[](#_CPPv426bk_ble_gap_get_device_namePcP8uint32_t "永久链接至目标")
 :   Get device name of the local device.
 
     参数
@@ -301,7 +300,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_local_used_addr([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") local_used_addr, uint8_t *addr_type)[](#_CPPv430bk_ble_gap_get_local_used_addr12bk_bd_addr_tP7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_get_local_used_addr([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") local_used_addr, uint8_t *addr_type)[](#_CPPv430bk_ble_gap_get_local_used_addr12bk_bd_addr_tP7uint8_t "永久链接至目标")
 :   This function is called to get local used address and address type. uint8_t *bk_bt_dev_get_address(void) get the public address.
 
     参数
@@ -315,7 +314,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_read_rssi([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_addr)[](#_CPPv420bk_ble_gap_read_rssi12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_read_rssi([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_addr)[](#_CPPv420bk_ble_gap_read_rssi12bk_bd_addr_t "永久链接至目标")
 :   This function is called to read the RSSI of remote device. The address of link policy results are returned in the gap callback function with BK_GAP_BLE_READ_RSSI_COMPLETE_EVT event.
 
     参数
@@ -326,7 +325,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_security_param([bk_ble_sm_param_t](#_CPPv417bk_ble_sm_param_t "bk_ble_sm_param_t") param_type, void *value, uint8_t len)[](#_CPPv429bk_ble_gap_set_security_param17bk_ble_sm_param_tPv7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_security_param([bk_ble_sm_param_t](#_CPPv417bk_ble_sm_param_t "bk_ble_sm_param_t") param_type, void *value, uint8_t len)[](#_CPPv429bk_ble_gap_set_security_param17bk_ble_sm_param_tPv7uint8_t "永久链接至目标")
 :   Set a GAP security parameter value. Overrides the default value.
 
     ```
@@ -361,7 +360,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_security_rsp([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv423bk_ble_gap_security_rsp12bk_bd_addr_tb "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_security_rsp([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv423bk_ble_gap_security_rsp12bk_bd_addr_tb "永久链接至目标")
 :   Grant security request access.
 
     参数
@@ -375,7 +374,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_encryption([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_ble_sec_act_t](#_CPPv416bk_ble_sec_act_t "bk_ble_sec_act_t") sec_act)[](#_CPPv421bk_ble_set_encryption12bk_bd_addr_t16bk_ble_sec_act_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_encryption([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_ble_sec_act_t](#_CPPv416bk_ble_sec_act_t "bk_ble_sec_act_t") sec_act)[](#_CPPv421bk_ble_set_encryption12bk_bd_addr_t16bk_ble_sec_act_t "永久链接至目标")
 :   Set a gap parameter value. Use this function to change the default GAP parameter values.
 
     参数
@@ -389,7 +388,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_passkey_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint32_t passkey)[](#_CPPv420bk_ble_passkey_reply12bk_bd_addr_tb8uint32_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_passkey_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, uint32_t passkey)[](#_CPPv420bk_ble_passkey_reply12bk_bd_addr_tb8uint32_t "永久链接至目标")
 :   Reply the key value to the peer device in the legacy connection stage.
 
     参数
@@ -405,7 +404,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_confirm_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv420bk_ble_confirm_reply12bk_bd_addr_tb "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_confirm_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept)[](#_CPPv420bk_ble_confirm_reply12bk_bd_addr_tb "永久链接至目标")
 :   Reply the confirm value to the peer device in the secure connection stage.
 
     参数
@@ -419,7 +418,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_pair_key_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, [bk_ble_key_type_t](#_CPPv417bk_ble_key_type_t "bk_ble_key_type_t") type, void *data, uint32_t len)[](#_CPPv421bk_ble_pair_key_reply12bk_bd_addr_tb17bk_ble_key_type_tPv8uint32_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_pair_key_reply([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, bool accept, [bk_ble_key_type_t](#_CPPv417bk_ble_key_type_t "bk_ble_key_type_t") type, void *data, uint32_t len)[](#_CPPv421bk_ble_pair_key_reply12bk_bd_addr_tb17bk_ble_key_type_tPv8uint32_t "永久链接至目标")
 :   Reply the save key.
 
     参数
@@ -439,7 +438,7 @@ err = bk_ble_gap_connect(&param);
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_remove_bond_device([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv425bk_ble_remove_bond_device12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_remove_bond_device([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv425bk_ble_remove_bond_device12bk_bd_addr_t "永久链接至目标")
 :   Removes a device from the security database list of peer device. It manages unpairing event while connected.
 
     参数
@@ -460,7 +459,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - BK_FAIL : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_get_bond_device_list(int *dev_num, [bk_ble_bond_dev_t](#_CPPv417bk_ble_bond_dev_t "bk_ble_bond_dev_t") *dev_list)[](#_CPPv427bk_ble_get_bond_device_listPiP17bk_ble_bond_dev_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_get_bond_device_list(int *dev_num, [bk_ble_bond_dev_t](#_CPPv417bk_ble_bond_dev_t "bk_ble_bond_dev_t") *dev_list)[](#_CPPv427bk_ble_get_bond_device_listPiP17bk_ble_bond_dev_t "永久链接至目标")
 :   Get the device from the security database list of peer device. It will return the device bonded information immediately.
 
     参数
@@ -474,7 +473,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_connect([bk_gap_create_conn_params_t](#_CPPv427bk_gap_create_conn_params_t "bk_gap_create_conn_params_t") *param)[](#_CPPv418bk_ble_gap_connectP27bk_gap_create_conn_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_connect([bk_gap_create_conn_params_t](#_CPPv427bk_gap_create_conn_params_t "bk_gap_create_conn_params_t") *param)[](#_CPPv418bk_ble_gap_connectP27bk_gap_create_conn_params_t "永久链接至目标")
 :   This function is to connect the physical connection of the peer device.
 
 
@@ -506,7 +505,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_disconnect([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_device)[](#_CPPv421bk_ble_gap_disconnect12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_disconnect([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") remote_device)[](#_CPPv421bk_ble_gap_disconnect12bk_bd_addr_t "永久链接至目标")
 :   This function is to disconnect the physical connection of the peer device.
 
     参数
@@ -518,7 +517,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_cancel_connect(void)[](#_CPPv425bk_ble_gap_cancel_connectv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_cancel_connect(void)[](#_CPPv425bk_ble_gap_cancel_connectv "永久链接至目标")
 :   This function is to cancel the physical connection that have not connect completed.
 
     返回
@@ -527,7 +526,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_get_current_conn_params([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_gap_conn_params_t](#_CPPv420bk_gap_conn_params_t "bk_gap_conn_params_t") *conn_params)[](#_CPPv430bk_ble_get_current_conn_params12bk_bd_addr_tP20bk_gap_conn_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_get_current_conn_params([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_gap_conn_params_t](#_CPPv420bk_gap_conn_params_t "bk_gap_conn_params_t") *conn_params)[](#_CPPv430bk_ble_get_current_conn_params12bk_bd_addr_tP20bk_gap_conn_params_t "永久链接至目标")
 :   This function is called to read the connection parameters information of the device.
 
     参数
@@ -541,7 +540,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_gap_ble_set_channels([bk_ble_gap_channels](#_CPPv419bk_ble_gap_channels "bk_ble_gap_channels") channels)[](#_CPPv423bk_gap_ble_set_channels19bk_ble_gap_channels "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_gap_ble_set_channels([bk_ble_gap_channels](#_CPPv419bk_ble_gap_channels "bk_ble_gap_channels") channels)[](#_CPPv423bk_gap_ble_set_channels19bk_ble_gap_channels "永久链接至目标")
 :   BLE set channels.
 
     参数
@@ -555,7 +554,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_read_phy([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv419bk_ble_gap_read_phy12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_read_phy([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv419bk_ble_gap_read_phy12bk_bd_addr_t "永久链接至目标")
 :   This function is used to read the current transmitter PHY and receiver PHY on the connection identified by remote address.
 
     参数
@@ -567,7 +566,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_preferred_default_phy([bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") tx_phy_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") rx_phy_mask)[](#_CPPv436bk_ble_gap_set_preferred_default_phy21bk_ble_gap_phy_mask_t21bk_ble_gap_phy_mask_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_preferred_default_phy([bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") tx_phy_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") rx_phy_mask)[](#_CPPv436bk_ble_gap_set_preferred_default_phy21bk_ble_gap_phy_mask_t21bk_ble_gap_phy_mask_t "永久链接至目标")
 :   This function is used to allows the Host to specify its preferred values for the transmitter PHY and receiver PHY to be used for all subsequent connections over the LE transport.
 
     参数
@@ -581,7 +580,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_preferred_phy([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_ble_gap_all_phys_t](#_CPPv421bk_ble_gap_all_phys_t "bk_ble_gap_all_phys_t") all_phys_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") tx_phy_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") rx_phy_mask, [bk_ble_gap_prefer_phy_options_t](#_CPPv431bk_ble_gap_prefer_phy_options_t "bk_ble_gap_prefer_phy_options_t") phy_options)[](#_CPPv428bk_ble_gap_set_preferred_phy12bk_bd_addr_t21bk_ble_gap_all_phys_t21bk_ble_gap_phy_mask_t21bk_ble_gap_phy_mask_t31bk_ble_gap_prefer_phy_options_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_preferred_phy([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr, [bk_ble_gap_all_phys_t](#_CPPv421bk_ble_gap_all_phys_t "bk_ble_gap_all_phys_t") all_phys_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") tx_phy_mask, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") rx_phy_mask, [bk_ble_gap_prefer_phy_options_t](#_CPPv431bk_ble_gap_prefer_phy_options_t "bk_ble_gap_prefer_phy_options_t") phy_options)[](#_CPPv428bk_ble_gap_set_preferred_phy12bk_bd_addr_t21bk_ble_gap_all_phys_t21bk_ble_gap_phy_mask_t21bk_ble_gap_phy_mask_t31bk_ble_gap_prefer_phy_options_t "永久链接至目标")
 :   This function is used to set the PHY preferences for the connection identified by the remote address. The Controller might not be able to make the change (e.g. because the peer does not support the requested PHY) or may decide that the current PHY is preferable.
 
     参数
@@ -601,7 +600,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_rand_addr(uint8_t instance, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rand_addr)[](#_CPPv428bk_ble_gap_set_adv_rand_addr7uint8_t12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_rand_addr(uint8_t instance, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") rand_addr)[](#_CPPv428bk_ble_gap_set_adv_rand_addr7uint8_t12bk_bd_addr_t "永久链接至目标")
 :   This function is used by the Host to set the random device address specified by the Random_Address parameter.
 
     参数
@@ -615,7 +614,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_params(uint8_t instance, const [bk_ble_gap_ext_adv_params_t](#_CPPv427bk_ble_gap_ext_adv_params_t "bk_ble_gap_ext_adv_params_t") *params)[](#_CPPv425bk_ble_gap_set_adv_params7uint8_tPK27bk_ble_gap_ext_adv_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_params(uint8_t instance, const [bk_ble_gap_ext_adv_params_t](#_CPPv427bk_ble_gap_ext_adv_params_t "bk_ble_gap_ext_adv_params_t") *params)[](#_CPPv425bk_ble_gap_set_adv_params7uint8_tPK27bk_ble_gap_ext_adv_params_t "永久链接至目标")
 :   This function is used by the Host to set the advertising parameters.
 
 
@@ -649,7 +648,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_data([bk_ble_adv_data_t](#_CPPv417bk_ble_adv_data_t "bk_ble_adv_data_t") *adv_data)[](#_CPPv423bk_ble_gap_set_adv_dataP17bk_ble_adv_data_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_data([bk_ble_adv_data_t](#_CPPv417bk_ble_adv_data_t "bk_ble_adv_data_t") *adv_data)[](#_CPPv423bk_ble_gap_set_adv_dataP17bk_ble_adv_data_t "永久链接至目标")
 :   This function is used to set the data used in advertising PDUs that have a data field.
 
     参数
@@ -665,7 +664,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_data_raw(uint8_t instance, uint16_t length, const uint8_t *data)[](#_CPPv427bk_ble_gap_set_adv_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_adv_data_raw(uint8_t instance, uint16_t length, const uint8_t *data)[](#_CPPv427bk_ble_gap_set_adv_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
 :   This function is used to set the data used in advertising PDUs that have a data field.
 
     参数
@@ -681,7 +680,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_scan_rsp_data_raw(uint8_t instance, uint16_t length, const uint8_t *scan_rsp_data)[](#_CPPv432bk_ble_gap_set_scan_rsp_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_scan_rsp_data_raw(uint8_t instance, uint16_t length, const uint8_t *scan_rsp_data)[](#_CPPv432bk_ble_gap_set_scan_rsp_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
 :   This function is used to provide scan response data used in scanning response PDUs.
 
     参数
@@ -697,7 +696,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_start(uint8_t num_adv, const [bk_ble_gap_ext_adv_t](#_CPPv420bk_ble_gap_ext_adv_t "bk_ble_gap_ext_adv_t") *ext_adv)[](#_CPPv420bk_ble_gap_adv_start7uint8_tPK20bk_ble_gap_ext_adv_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_start(uint8_t num_adv, const [bk_ble_gap_ext_adv_t](#_CPPv420bk_ble_gap_ext_adv_t "bk_ble_gap_ext_adv_t") *ext_adv)[](#_CPPv420bk_ble_gap_adv_start7uint8_tPK20bk_ble_gap_ext_adv_t "永久链接至目标")
 :   This function is used to request the Controller to enable one or more advertising sets using the advertising sets identified by the instance parameter.
 
     参数
@@ -711,7 +710,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_stop(uint8_t num_adv, const uint8_t *ext_adv_inst)[](#_CPPv419bk_ble_gap_adv_stop7uint8_tPK7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_stop(uint8_t num_adv, const uint8_t *ext_adv_inst)[](#_CPPv419bk_ble_gap_adv_stop7uint8_tPK7uint8_t "永久链接至目标")
 :   This function is used to request the Controller to disable one or more advertising sets using the advertising sets identified by the instance parameter.
 
     参数
@@ -725,7 +724,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_set_remove(uint8_t instance)[](#_CPPv425bk_ble_gap_adv_set_remove7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_set_remove(uint8_t instance)[](#_CPPv425bk_ble_gap_adv_set_remove7uint8_t "永久链接至目标")
 :   This function is used to remove an advertising set from the Controller.
 
     参数
@@ -737,7 +736,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_set_clear(void)[](#_CPPv424bk_ble_gap_adv_set_clearv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_adv_set_clear(void)[](#_CPPv424bk_ble_gap_adv_set_clearv "永久链接至目标")
 :   This function is used to remove all existing advertising sets from the Controller.
 
     返回
@@ -746,7 +745,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_periodic_adv_params(uint8_t instance, const [bk_ble_gap_periodic_adv_params_t](#_CPPv432bk_ble_gap_periodic_adv_params_t "bk_ble_gap_periodic_adv_params_t") *params)[](#_CPPv434bk_ble_gap_set_periodic_adv_params7uint8_tPK32bk_ble_gap_periodic_adv_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_periodic_adv_params(uint8_t instance, const [bk_ble_gap_periodic_adv_params_t](#_CPPv432bk_ble_gap_periodic_adv_params_t "bk_ble_gap_periodic_adv_params_t") *params)[](#_CPPv434bk_ble_gap_set_periodic_adv_params7uint8_tPK32bk_ble_gap_periodic_adv_params_t "永久链接至目标")
 :   This function is used by the Host to set the parameters for periodic advertising.
 
     参数
@@ -760,7 +759,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_periodic_adv_data_raw(uint8_t instance, uint16_t length, const uint8_t *data)[](#_CPPv436bk_ble_gap_set_periodic_adv_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_periodic_adv_data_raw(uint8_t instance, uint16_t length, const uint8_t *data)[](#_CPPv436bk_ble_gap_set_periodic_adv_data_raw7uint8_t8uint16_tPK7uint8_t "永久链接至目标")
 :   This function is used to set the data used in periodic advertising PDUs.
 
     参数
@@ -776,7 +775,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_start(uint8_t instance)[](#_CPPv429bk_ble_gap_periodic_adv_start7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_start(uint8_t instance)[](#_CPPv429bk_ble_gap_periodic_adv_start7uint8_t "永久链接至目标")
 :   This function is used to request the Controller to enable the periodic advertising for the advertising set specified.
 
     参数
@@ -788,7 +787,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_stop(uint8_t instance)[](#_CPPv428bk_ble_gap_periodic_adv_stop7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_stop(uint8_t instance)[](#_CPPv428bk_ble_gap_periodic_adv_stop7uint8_t "永久链接至目标")
 :   This function is used to request the Controller to disable the periodic advertising for the advertising set specified.
 
     参数
@@ -800,7 +799,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_create_sync(const [bk_ble_gap_periodic_adv_sync_params_t](#_CPPv437bk_ble_gap_periodic_adv_sync_params_t "bk_ble_gap_periodic_adv_sync_params_t") *params)[](#_CPPv435bk_ble_gap_periodic_adv_create_syncPK37bk_ble_gap_periodic_adv_sync_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_create_sync(const [bk_ble_gap_periodic_adv_sync_params_t](#_CPPv437bk_ble_gap_periodic_adv_sync_params_t "bk_ble_gap_periodic_adv_sync_params_t") *params)[](#_CPPv435bk_ble_gap_periodic_adv_create_syncPK37bk_ble_gap_periodic_adv_sync_params_t "永久链接至目标")
 :   This function is used to synchronize with periodic advertising from an advertiser and begin receiving periodic advertising packets.
 
     参数
@@ -812,7 +811,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_sync_cancel(void)[](#_CPPv435bk_ble_gap_periodic_adv_sync_cancelv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_sync_cancel(void)[](#_CPPv435bk_ble_gap_periodic_adv_sync_cancelv "永久链接至目标")
 :   This function is used to cancel the LE_Periodic_Advertising_Create_Sync command while it is pending.
 
     返回
@@ -821,7 +820,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_sync_terminate(uint16_t sync_handle)[](#_CPPv438bk_ble_gap_periodic_adv_sync_terminate8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_sync_terminate(uint16_t sync_handle)[](#_CPPv438bk_ble_gap_periodic_adv_sync_terminate8uint16_t "永久链接至目标")
 :   This function is used to stop reception of the periodic advertising identified by the Sync Handle parameter.
 
     参数
@@ -833,7 +832,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_add_dev_to_list([bk_ble_addr_type_t](#_CPPv418bk_ble_addr_type_t "bk_ble_addr_type_t") addr_type, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t sid)[](#_CPPv439bk_ble_gap_periodic_adv_add_dev_to_list18bk_ble_addr_type_t12bk_bd_addr_t7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_add_dev_to_list([bk_ble_addr_type_t](#_CPPv418bk_ble_addr_type_t "bk_ble_addr_type_t") addr_type, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t sid)[](#_CPPv439bk_ble_gap_periodic_adv_add_dev_to_list18bk_ble_addr_type_t12bk_bd_addr_t7uint8_t "永久链接至目标")
 :   This function is used to add a single device to the Periodic Advertiser list stored in the Controller.
 
     参数
@@ -849,7 +848,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_remove_dev_from_list([bk_ble_addr_type_t](#_CPPv418bk_ble_addr_type_t "bk_ble_addr_type_t") addr_type, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t sid)[](#_CPPv444bk_ble_gap_periodic_adv_remove_dev_from_list18bk_ble_addr_type_t12bk_bd_addr_t7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_remove_dev_from_list([bk_ble_addr_type_t](#_CPPv418bk_ble_addr_type_t "bk_ble_addr_type_t") addr_type, [bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, uint8_t sid)[](#_CPPv444bk_ble_gap_periodic_adv_remove_dev_from_list18bk_ble_addr_type_t12bk_bd_addr_t7uint8_t "永久链接至目标")
 :   This function is used to remove one device from the list of Periodic Advertisers stored in the Controller. Removals from the Periodic Advertisers List take effect immediately.
 
     参数
@@ -865,7 +864,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_clear_dev(void)[](#_CPPv433bk_ble_gap_periodic_adv_clear_devv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_periodic_adv_clear_dev(void)[](#_CPPv433bk_ble_gap_periodic_adv_clear_devv "永久链接至目标")
 :   This function is used to remove all devices from the list of Periodic Advertisers in the Controller.
 
     返回
@@ -874,7 +873,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_scan_params(const [bk_ble_ext_scan_params_t](#_CPPv424bk_ble_ext_scan_params_t "bk_ble_ext_scan_params_t") *params)[](#_CPPv426bk_ble_gap_set_scan_paramsPK24bk_ble_ext_scan_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_set_scan_params(const [bk_ble_ext_scan_params_t](#_CPPv424bk_ble_ext_scan_params_t "bk_ble_ext_scan_params_t") *params)[](#_CPPv426bk_ble_gap_set_scan_paramsPK24bk_ble_ext_scan_params_t "永久链接至目标")
 :   This function is used to set the extended scan parameters to be used on the advertising channels.
 
     参数
@@ -886,7 +885,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_start_scan(uint32_t duration, uint16_t period)[](#_CPPv421bk_ble_gap_start_scan8uint32_t8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_start_scan(uint32_t duration, uint16_t period)[](#_CPPv421bk_ble_gap_start_scan8uint32_t8uint16_t "永久链接至目标")
 :   This function is used to enable scanning.
 
     参数
@@ -900,7 +899,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_stop_scan(void)[](#_CPPv420bk_ble_gap_stop_scanv "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_stop_scan(void)[](#_CPPv420bk_ble_gap_stop_scanv "永久链接至目标")
 :   This function is used to disable scanning.
 
     返回
@@ -909,7 +908,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_prefer_connect_params_set([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") phy_mask, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_1m_conn_params, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_2m_conn_params, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_coded_conn_params)[](#_CPPv436bk_ble_gap_prefer_connect_params_set12bk_bd_addr_t21bk_ble_gap_phy_mask_tPK24bk_ble_gap_conn_params_tPK24bk_ble_gap_conn_params_tPK24bk_ble_gap_conn_params_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_prefer_connect_params_set([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") addr, [bk_ble_gap_phy_mask_t](#_CPPv421bk_ble_gap_phy_mask_t "bk_ble_gap_phy_mask_t") phy_mask, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_1m_conn_params, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_2m_conn_params, const [bk_ble_gap_conn_params_t](#_CPPv424bk_ble_gap_conn_params_t "bk_ble_gap_conn_params_t") *phy_coded_conn_params)[](#_CPPv436bk_ble_gap_prefer_connect_params_set12bk_bd_addr_t21bk_ble_gap_phy_mask_tPK24bk_ble_gap_conn_params_tPK24bk_ble_gap_conn_params_tPK24bk_ble_gap_conn_params_t "永久链接至目标")
 :   This function is used to set aux connection parameters.
 
     参数
@@ -929,7 +928,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_create_bond([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_ble_gap_create_bond12bk_bd_addr_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_create_bond([bk_bd_addr_t](#_CPPv412bk_bd_addr_t "bk_bd_addr_t") bd_addr)[](#_CPPv422bk_ble_gap_create_bond12bk_bd_addr_t "永久链接至目标")
 :   This function is used to create bond to peer, this function must used after connected.
 
     参数
@@ -941,7 +940,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_bond_dev_list_operation([bk_gap_bond_dev_list_operation_t](#_CPPv432bk_gap_bond_dev_list_operation_t "bk_gap_bond_dev_list_operation_t") op, [bk_ble_bond_dev_t](#_CPPv417bk_ble_bond_dev_t "bk_ble_bond_dev_t") *device)[](#_CPPv434bk_ble_gap_bond_dev_list_operation32bk_gap_bond_dev_list_operation_tP17bk_ble_bond_dev_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_bond_dev_list_operation([bk_gap_bond_dev_list_operation_t](#_CPPv432bk_gap_bond_dev_list_operation_t "bk_gap_bond_dev_list_operation_t") op, [bk_ble_bond_dev_t](#_CPPv417bk_ble_bond_dev_t "bk_ble_bond_dev_t") *device)[](#_CPPv434bk_ble_gap_bond_dev_list_operation32bk_gap_bond_dev_list_operation_tP17bk_ble_bond_dev_t "永久链接至目标")
 :   This function is used to add, remove or clean bond dev info. BK_BLE_GAP_BOND_DEV_LIST_OPERATEION_COMPLETE_EVT evt will report when completed.
 
 
@@ -967,7 +966,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_generate_rpa(uint8_t *irk)[](#_CPPv423bk_ble_gap_generate_rpaP7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gap_generate_rpa(uint8_t *irk)[](#_CPPv423bk_ble_gap_generate_rpaP7uint8_t "永久链接至目标")
 :   This function is used to generate rpa. BK_BLE_GAP_GENERATE_RPA_COMPLETE_EVT evt will report when completed.
 
     参数
@@ -988,7 +987,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
 ### Functions[](#id2 "永久链接至标题")
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_register_callback([bk_gattc_cb_t](#_CPPv413bk_gattc_cb_t "bk_gattc_cb_t") callback)[](#_CPPv430bk_ble_gattc_register_callback13bk_gattc_cb_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_register_callback([bk_gattc_cb_t](#_CPPv413bk_gattc_cb_t "bk_gattc_cb_t") callback)[](#_CPPv430bk_ble_gattc_register_callback13bk_gattc_cb_t "永久链接至目标")
 :   This function is called to register application callbacks with GATTC module.
 
     参数
@@ -999,7 +998,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_app_register(uint16_t app_id)[](#_CPPv425bk_ble_gattc_app_register8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_app_register(uint16_t app_id)[](#_CPPv425bk_ble_gattc_app_register8uint16_t "永久链接至目标")
 :   This function is called to register application callbacks with GATTC module.
 
     参数
@@ -1010,7 +1009,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_app_unregister([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if)[](#_CPPv427bk_ble_gattc_app_unregister12bk_gatt_if_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_app_unregister([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if)[](#_CPPv427bk_ble_gattc_app_unregister12bk_gatt_if_t "永久链接至目标")
 :   This function is called to unregister an application from GATTC module.
 
     参数
@@ -1021,7 +1020,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_send_mtu_req([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id)[](#_CPPv425bk_ble_gattc_send_mtu_req12bk_gatt_if_t8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_send_mtu_req([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id)[](#_CPPv425bk_ble_gattc_send_mtu_req12bk_gatt_if_t8uint16_t "永久链接至目标")
 :   Configure the MTU size in the GATT channel. This can be done only once per connection. Before using, use [bk_ble_gatt_set_local_mtu()](#group__dm__gatt__common__functions__v1_1ga07d73be77fe528eeaa17df45fb6d4efe "#group__dm__gatt__common__functions__v1_1ga07d73be77fe528eeaa17df45fb6d4efe") to configure the local MTU size.
 
     参数
@@ -1034,7 +1033,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_char([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv422bk_ble_gattc_read_char12bk_gatt_if_t8uint16_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_char([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv422bk_ble_gattc_read_char12bk_gatt_if_t8uint16_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to read a service’s characteristics of the given characteristic handle.
 
     参数
@@ -1051,7 +1050,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_by_type([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t start_handle, uint16_t end_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv425bk_ble_gattc_read_by_type12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP12bk_bt_uuid_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_by_type([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t start_handle, uint16_t end_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *uuid, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv425bk_ble_gattc_read_by_type12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP12bk_bt_uuid_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to read a service’s characteristics of the given characteristic UUID.
 
     参数
@@ -1072,7 +1071,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_multiple([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, [bk_gattc_multi_t](#_CPPv416bk_gattc_multi_t "bk_gattc_multi_t") *read_multi, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv426bk_ble_gattc_read_multiple12bk_gatt_if_t8uint16_tP16bk_gattc_multi_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_multiple([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, [bk_gattc_multi_t](#_CPPv416bk_gattc_multi_t "bk_gattc_multi_t") *read_multi, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv426bk_ble_gattc_read_multiple12bk_gatt_if_t8uint16_tP16bk_gattc_multi_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to read multiple characteristic or characteristic descriptors.
 
     参数
@@ -1089,7 +1088,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv428bk_ble_gattc_read_char_descr12bk_gatt_if_t8uint16_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv428bk_ble_gattc_read_char_descr12bk_gatt_if_t8uint16_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to read a characteristics descriptor.
 
     参数
@@ -1106,7 +1105,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write_char([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t value_len, uint8_t *value, [bk_gatt_write_type_t](#_CPPv420bk_gatt_write_type_t "bk_gatt_write_type_t") write_type, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv423bk_ble_gattc_write_char12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_t20bk_gatt_write_type_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write_char([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t value_len, uint8_t *value, [bk_gatt_write_type_t](#_CPPv420bk_gatt_write_type_t "bk_gatt_write_type_t") write_type, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv423bk_ble_gattc_write_char12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_t20bk_gatt_write_type_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to write characteristic value.
 
     参数
@@ -1129,7 +1128,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t value_len, uint8_t *value, [bk_gatt_write_type_t](#_CPPv420bk_gatt_write_type_t "bk_gatt_write_type_t") write_type, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv429bk_ble_gattc_write_char_descr12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_t20bk_gatt_write_type_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t value_len, uint8_t *value, [bk_gatt_write_type_t](#_CPPv420bk_gatt_write_type_t "bk_gatt_write_type_t") write_type, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv429bk_ble_gattc_write_char_descr12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_t20bk_gatt_write_type_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to write characteristic descriptor value.
 
     参数
@@ -1152,7 +1151,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_prepare_write([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t offset, uint16_t value_len, uint8_t *value, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv426bk_ble_gattc_prepare_write12bk_gatt_if_t8uint16_t8uint16_t8uint16_t8uint16_tP7uint8_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_prepare_write([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t offset, uint16_t value_len, uint8_t *value, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv426bk_ble_gattc_prepare_write12bk_gatt_if_t8uint16_t8uint16_t8uint16_t8uint16_tP7uint8_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to prepare write a characteristic value.
 
     参数
@@ -1175,7 +1174,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_prepare_write_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t offset, uint16_t value_len, uint8_t *value, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv437bk_ble_gattc_prepare_write_char_descr12bk_gatt_if_t8uint16_t8uint16_t8uint16_t8uint16_tP7uint8_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_prepare_write_char_descr([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, uint16_t handle, uint16_t offset, uint16_t value_len, uint8_t *value, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv437bk_ble_gattc_prepare_write_char_descr12bk_gatt_if_t8uint16_t8uint16_t8uint16_t8uint16_tP7uint8_t18bk_gatt_auth_req_t "永久链接至目标")
 :   This function is called to prepare write a characteristic descriptor value.
 
     参数
@@ -1198,7 +1197,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_execute_write([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, bool is_execute)[](#_CPPv426bk_ble_gattc_execute_write12bk_gatt_if_t8uint16_tb "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_execute_write([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, bool is_execute)[](#_CPPv426bk_ble_gattc_execute_write12bk_gatt_if_t8uint16_tb "永久链接至目标")
 :   This function is called to execute write a prepare write sequence.
 
     参数
@@ -1213,7 +1212,7 @@ int bk_ble_get_bond_device_num(void)[](#_CPPv426bk_ble_get_bond_device_numv "
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_discover([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv421bk_ble_gattc_discover12bk_gatt_if_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_discover([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gattc_if, uint16_t conn_id, [bk_gatt_auth_req_t](#_CPPv418bk_gatt_auth_req_t "bk_gatt_auth_req_t") auth_req)[](#_CPPv421bk_ble_gattc_discover12bk_gatt_if_t8uint16_t18bk_gatt_auth_req_t "永久链接至目标")
 :   Triggle a discovery of the remote device.
 
     参数
@@ -1630,7 +1629,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
 ### Functions[](#id4 "永久链接至标题")
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_register_callback([bk_gatts_cb_t](#_CPPv413bk_gatts_cb_t "bk_gatts_cb_t") callback)[](#_CPPv430bk_ble_gatts_register_callback13bk_gatts_cb_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_register_callback([bk_gatts_cb_t](#_CPPv413bk_gatts_cb_t "bk_gatts_cb_t") callback)[](#_CPPv430bk_ble_gatts_register_callback13bk_gatts_cb_t "永久链接至目标")
 :   This function is called to register application callbacks with BTA GATTS module.
 
     参数
@@ -1641,7 +1640,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_app_register(uint16_t app_id)[](#_CPPv425bk_ble_gatts_app_register8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_app_register(uint16_t app_id)[](#_CPPv425bk_ble_gatts_app_register8uint16_t "永久链接至目标")
 :   This function is called to register application identifier.
 
     参数
@@ -1652,7 +1651,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_app_unregister([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if)[](#_CPPv427bk_ble_gatts_app_unregister12bk_gatt_if_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_app_unregister([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if)[](#_CPPv427bk_ble_gatts_app_unregister12bk_gatt_if_t "永久链接至目标")
 :   unregister with GATT Server.
 
     参数
@@ -1663,7 +1662,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_create_service([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, [bk_gatt_srvc_id_t](#_CPPv417bk_gatt_srvc_id_t "bk_gatt_srvc_id_t") *service_id, uint16_t num_handle)[](#_CPPv427bk_ble_gatts_create_service12bk_gatt_if_tP17bk_gatt_srvc_id_t8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_create_service([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, [bk_gatt_srvc_id_t](#_CPPv417bk_gatt_srvc_id_t "bk_gatt_srvc_id_t") *service_id, uint16_t num_handle)[](#_CPPv427bk_ble_gatts_create_service12bk_gatt_if_tP17bk_gatt_srvc_id_t8uint16_t "永久链接至目标")
 :   Create a service. When service creation is done, a callback event BK_GATTS_CREATE_EVT is called to report status and service ID to the profile. The service ID obtained in the callback function needs to be used when adding included service and characteristics/descriptors into the service.
 
     参数
@@ -1678,7 +1677,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_create_attr_tab(const [bk_gatts_attr_db_t](#_CPPv418bk_gatts_attr_db_t "bk_gatts_attr_db_t") *gatts_attr_db, [bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t count, uint32_t max_attr_count)[](#_CPPv428bk_ble_gatts_create_attr_tabPK18bk_gatts_attr_db_t12bk_gatt_if_t8uint16_t8uint32_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_create_attr_tab(const [bk_gatts_attr_db_t](#_CPPv418bk_gatts_attr_db_t "bk_gatts_attr_db_t") *gatts_attr_db, [bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t count, uint32_t max_attr_count)[](#_CPPv428bk_ble_gatts_create_attr_tabPK18bk_gatts_attr_db_t12bk_gatt_if_t8uint16_t8uint32_t "永久链接至目标")
 :   Create a service attribute tab. Only one service once.
 
     参数
@@ -1695,7 +1694,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_add_char(uint16_t service_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *char_uuid, [bk_gatt_perm_t](#_CPPv414bk_gatt_perm_t "bk_gatt_perm_t") perm, [bk_gatt_char_prop_t](#_CPPv419bk_gatt_char_prop_t "bk_gatt_char_prop_t") property, [bk_attr_value_t](#_CPPv415bk_attr_value_t "bk_attr_value_t") *char_val, [bk_attr_control_t](#_CPPv417bk_attr_control_t "bk_attr_control_t") *control)[](#_CPPv421bk_ble_gatts_add_char8uint16_tP12bk_bt_uuid_t14bk_gatt_perm_t19bk_gatt_char_prop_tP15bk_attr_value_tP17bk_attr_control_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_add_char(uint16_t service_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *char_uuid, [bk_gatt_perm_t](#_CPPv414bk_gatt_perm_t "bk_gatt_perm_t") perm, [bk_gatt_char_prop_t](#_CPPv419bk_gatt_char_prop_t "bk_gatt_char_prop_t") property, [bk_attr_value_t](#_CPPv415bk_attr_value_t "bk_attr_value_t") *char_val, [bk_attr_control_t](#_CPPv417bk_attr_control_t "bk_attr_control_t") *control)[](#_CPPv421bk_ble_gatts_add_char8uint16_tP12bk_bt_uuid_t14bk_gatt_perm_t19bk_gatt_char_prop_tP15bk_attr_value_tP17bk_attr_control_t "永久链接至目标")
 :   This function is called to add a characteristic into a service.
 
     参数
@@ -1716,7 +1715,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_add_char_descr(uint16_t service_handle, uint16_t char_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *descr_uuid, [bk_gatt_perm_t](#_CPPv414bk_gatt_perm_t "bk_gatt_perm_t") perm, [bk_attr_value_t](#_CPPv415bk_attr_value_t "bk_attr_value_t") *char_descr_val, [bk_attr_control_t](#_CPPv417bk_attr_control_t "bk_attr_control_t") *control)[](#_CPPv427bk_ble_gatts_add_char_descr8uint16_t8uint16_tP12bk_bt_uuid_t14bk_gatt_perm_tP15bk_attr_value_tP17bk_attr_control_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_add_char_descr(uint16_t service_handle, uint16_t char_handle, [bk_bt_uuid_t](#_CPPv412bk_bt_uuid_t "bk_bt_uuid_t") *descr_uuid, [bk_gatt_perm_t](#_CPPv414bk_gatt_perm_t "bk_gatt_perm_t") perm, [bk_attr_value_t](#_CPPv415bk_attr_value_t "bk_attr_value_t") *char_descr_val, [bk_attr_control_t](#_CPPv417bk_attr_control_t "bk_attr_control_t") *control)[](#_CPPv427bk_ble_gatts_add_char_descr8uint16_t8uint16_tP12bk_bt_uuid_t14bk_gatt_perm_tP15bk_attr_value_tP17bk_attr_control_t "永久链接至目标")
 :   This function is called to add characteristic descriptor. When it’s done, a callback event BK_GATTS_ADD_DESCR_EVT is called to report the status and an ID number for this descriptor.
 
     参数
@@ -1739,7 +1738,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_start_service(uint16_t service_attr_handle)[](#_CPPv426bk_ble_gatts_start_service8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_start_service(uint16_t service_attr_handle)[](#_CPPv426bk_ble_gatts_start_service8uint16_t "永久链接至目标")
 :   This function is called to start a service.
 
     参数
@@ -1750,7 +1749,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_stop_service(uint16_t service_attr_handle)[](#_CPPv425bk_ble_gatts_stop_service8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_stop_service(uint16_t service_attr_handle)[](#_CPPv425bk_ble_gatts_stop_service8uint16_t "永久链接至目标")
 :   This function is called to stop a service.
 
     参数
@@ -1761,7 +1760,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_indicate([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint16_t attr_handle, uint16_t value_len, uint8_t *value, bool need_confirm)[](#_CPPv426bk_ble_gatts_send_indicate12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_tb "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_indicate([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint16_t attr_handle, uint16_t value_len, uint8_t *value, bool need_confirm)[](#_CPPv426bk_ble_gatts_send_indicate12bk_gatt_if_t8uint16_t8uint16_t8uint16_tP7uint8_tb "永久链接至目标")
 :   Send indicate or notify to GATT client. Set param need_confirm as false will send notification, otherwise indication.
 
     参数
@@ -1782,7 +1781,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_response([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint32_t trans_id, [bk_gatt_status_t](#_CPPv416bk_gatt_status_t "bk_gatt_status_t") status, [bk_gatt_rsp_t](#_CPPv413bk_gatt_rsp_t "bk_gatt_rsp_t") *rsp)[](#_CPPv426bk_ble_gatts_send_response12bk_gatt_if_t8uint16_t8uint32_t16bk_gatt_status_tP13bk_gatt_rsp_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_response([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint32_t trans_id, [bk_gatt_status_t](#_CPPv416bk_gatt_status_t "bk_gatt_status_t") status, [bk_gatt_rsp_t](#_CPPv413bk_gatt_rsp_t "bk_gatt_rsp_t") *rsp)[](#_CPPv426bk_ble_gatts_send_response12bk_gatt_if_t8uint16_t8uint32_t16bk_gatt_status_tP13bk_gatt_rsp_t "永久链接至目标")
 :   This function is called to send a response to a request.
 
     参数
@@ -1801,7 +1800,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_set_attr_value(uint16_t attr_handle, uint16_t length, const uint8_t *value)[](#_CPPv427bk_ble_gatts_set_attr_value8uint16_t8uint16_tPK7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_set_attr_value(uint16_t attr_handle, uint16_t length, const uint8_t *value)[](#_CPPv427bk_ble_gatts_set_attr_value8uint16_t8uint16_tPK7uint8_t "永久链接至目标")
 :   This function is called to set the attribute value by the application.
 
     参数
@@ -1816,7 +1815,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_get_attr_value(uint16_t attr_handle, uint16_t *length, uint8_t **value)[](#_CPPv427bk_ble_gatts_get_attr_value8uint16_tP8uint16_tPP7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_get_attr_value(uint16_t attr_handle, uint16_t *length, uint8_t **value)[](#_CPPv427bk_ble_gatts_get_attr_value8uint16_tP8uint16_tPP7uint8_t "永久链接至目标")
 :   Retrieve attribute value.
 
     参数
@@ -1831,7 +1830,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_service_change_indicate([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint8_t all_connected)[](#_CPPv441bk_ble_gatts_send_service_change_indicate12bk_gatt_if_t8uint16_t7uint8_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_send_service_change_indicate([bk_gatt_if_t](#_CPPv412bk_gatt_if_t "bk_gatt_if_t") gatts_if, uint16_t conn_id, uint8_t all_connected)[](#_CPPv441bk_ble_gatts_send_service_change_indicate12bk_gatt_if_t8uint16_t7uint8_t "永久链接至目标")
 :   Send service change indicate.
 
     参数
@@ -1846,7 +1845,7 @@ enum bk_gattc_cb_event_t[](#_CPPv419bk_gattc_cb_event_t "永久链接至目�
 
         - other : failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_char_property_operation([bk_gatts_char_property_bit_mask_op_t](#_CPPv436bk_gatts_char_property_bit_mask_op_t "bk_gatts_char_property_bit_mask_op_t") op, uint16_t attr_handle, uint16_t *io)[](#_CPPv436bk_ble_gatts_char_property_operation36bk_gatts_char_property_bit_mask_op_t8uint16_tP8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatts_char_property_operation([bk_gatts_char_property_bit_mask_op_t](#_CPPv436bk_gatts_char_property_bit_mask_op_t "bk_gatts_char_property_bit_mask_op_t") op, uint16_t attr_handle, uint16_t *io)[](#_CPPv436bk_ble_gatts_char_property_operation36bk_gatts_char_property_bit_mask_op_t8uint16_tP8uint16_t "永久链接至目标")
 :   Get or set characteristic property.
 
     参数
@@ -2345,7 +2344,7 @@ enum bk_gatts_char_property_bit_mask_op_t[](#_CPPv436bk_gatts_char_property_b
 
 ### Functions[](#id9 "永久链接至标题")
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_set_local_mtu(uint16_t mtu)[](#_CPPv425bk_ble_gatt_set_local_mtu8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_set_local_mtu(uint16_t mtu)[](#_CPPv425bk_ble_gatt_set_local_mtu8uint16_t "永久链接至目标")
 :   This function is called to set local MTU, the function is called before BLE connection.
 
     参数
@@ -2356,7 +2355,7 @@ enum bk_gatts_char_property_bit_mask_op_t[](#_CPPv436bk_gatts_char_property_b
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_get_hci_handle_from_gatt_conn_id(uint16_t gatt_conn_id, uint16_t *hci_handle)[](#_CPPv439bk_ble_get_hci_handle_from_gatt_conn_id8uint16_tP8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_get_hci_handle_from_gatt_conn_id(uint16_t gatt_conn_id, uint16_t *hci_handle)[](#_CPPv439bk_ble_get_hci_handle_from_gatt_conn_id8uint16_tP8uint16_t "永久链接至目标")
 :   This function is use to get hci_handle from gatt conn id,.
 
 
@@ -2373,7 +2372,7 @@ enum bk_gatts_char_property_bit_mask_op_t[](#_CPPv436bk_gatts_char_property_b
 
         - other: failed
 
-[ble_err_t](single_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_get_gatt_conn_id_from_hci_handle(uint16_t hci_handle, uint16_t *gatt_conn_id)[](#_CPPv439bk_ble_get_gatt_conn_id_from_hci_handle8uint16_tP8uint16_t "永久链接至目标")
+[ble_err_t](single_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_get_gatt_conn_id_from_hci_handle(uint16_t hci_handle, uint16_t *gatt_conn_id)[](#_CPPv439bk_ble_get_gatt_conn_id_from_hci_handle8uint16_tP8uint16_t "永久链接至目标")
 :   This function is use to get gatt conn id from hci_handle,.
 
 
@@ -5550,7 +5549,7 @@ BK_BD_ADDR_LEN[](#c.BK_BD_ADDR_LEN "永久链接至目标")
 
 ### Type Definitions[](#id25 "永久链接至标题")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
 :   ble api return enum
 
 typedef int bt_err_t[](#_CPPv48bt_err_t "永久链接至目标")
@@ -5804,4 +5803,4 @@ enum bk_ble_wl_addr_type_t[](#_CPPv421bk_ble_wl_addr_type_t "永久链接至�
 
 ## Reference link[](#reference-link "永久链接至标题")
 
-> [API Reference :](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") Introduced the Bluetooth API interface
+> [API Reference :](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") Introduced the Bluetooth API interface

@@ -1,6 +1,5 @@
 # **OTA cli命令**[](#ota-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/ota/ota_cli.html "../../../../../en/v2.2.1/examples/cli/ota/ota_cli.html")
 
 重要
 

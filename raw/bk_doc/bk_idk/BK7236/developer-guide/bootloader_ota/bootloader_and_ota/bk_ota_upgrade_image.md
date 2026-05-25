@@ -1,6 +1,5 @@
 # 五.Bootloader升级固件相关info[](#bootloaderinfo "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_ota_upgrade_image.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_ota_upgrade_image.html")
 
 
 - 1.升级固件制作有两种方式：

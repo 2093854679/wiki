@@ -1,6 +1,5 @@
 # **SD Card cli命令**[](#sd-card-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/sd_card/sd_cli.html "../../../../../en/v2.2.1/examples/cli/sd_card/sd_cli.html")
 
 重要
 

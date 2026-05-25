@@ -1,8 +1,7 @@
 # 蓝牙Cli[](#cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/bluetooth/index.html "../../../../../en/v2.2.1/examples/cli/bluetooth/index.html")
 
 
-- [BLE](ble.html "ble.html")
+- [BLE](ble.md "ble.md")
 
-- [BT](bt.html "bt.html")
+- [BT](bt.md "bt.md")

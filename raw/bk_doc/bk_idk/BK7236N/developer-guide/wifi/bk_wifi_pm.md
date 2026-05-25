@@ -73,4 +73,3 @@ CONFIG_MM_PS_BASED_ON_LISTEN_INTERVAL=y
 
 待完成.
 
-[[English]](../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_pm.html "../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_pm.html")

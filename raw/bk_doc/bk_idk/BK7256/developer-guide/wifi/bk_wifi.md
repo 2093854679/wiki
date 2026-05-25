@@ -164,4 +164,3 @@ mac c8478caabbcc
 
 ```
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi.html")

@@ -1,6 +1,5 @@
 # OTA 配置[](#ota "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_ota.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_ota.html")
 
 OTA 主要用于配置打包与防版本降级攻击的安全计数器。
 
@@ -17,7 +16,7 @@ OTA 配置表为 CSV 文件，下面为一个配置示例：
 
 分区表固定为四列：
 
-> - `Bin` - 必选项，表示可执行进进制文件名字。对于特定进进制文件 xx.bin，其对应的 OTA 分区名字为 secondary_xx，参考 [分区命名规则](bk_config_partitions.html#bk-config-partitions-table "bk_config_partitions.html#bk-config-partitions-table")。
+> - `Bin` - 必选项，表示可执行进进制文件名字。对于特定进进制文件 xx.bin，其对应的 OTA 分区名字为 secondary_xx，参考 [分区命名规则](bk_config_partitions.md#bk-config-partitions-table "bk_config_partitions.md#bk-config-partitions-table")。
 > - `Version` - 可选项，一般不需要配置。
 > - `SecurityCounter` - 可选项，表示版本安全计数器。安全启动使能时必须配置，用于防止版本降级攻击。安全启动验证版本合法之后
 >   会读取该值，与 OTP/NV 中的安全计数器作比较，仅当升级版本的安全计数器不小于 OTP/NV 中的值时才允许启动。

@@ -1,6 +1,6 @@
 # WiFi provisioning over BLE[](#wifi-provisioning-over-ble "永久链接至标题")
 
-[[中文]](../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.html "../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.html")
+[[中文]](../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.md "../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.md")
 
 
 ## 1. Overview[](#overview "永久链接至标题")

@@ -1,6 +1,6 @@
 # 面试记录
 
-> **Source:** 博坦面试.md, 博通集成实习面试.md, 邦普面试.md
+> **Source:** [博坦面试.md](../../raw/Study_Note/06-职业发展/面试记录/博坦面试.md), [博通集成实习面试.md](../../raw/Study_Note/06-职业发展/面试记录/博通集成实习面试.md), [邦普面试.md](../../raw/Study_Note/06-职业发展/面试记录/邦普面试.md)
 > **TLDR:** 三场嵌入式面试的QA实录——博坦（TCP握手/I2C/OTA/FreeRTOS栈/端序）、博通集成（项目经验/静态变量/.bss段/短路求值）、邦普（SDK对比/I2C细节/OTA Flash分区/调试方法）。
 
 ## Key Points

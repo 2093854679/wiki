@@ -1,6 +1,5 @@
 # 物联网方案[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/projects/iot/index.html "../../../../en/v1.5/projects/iot/index.html")
 
 
 ## 芯片功能[](#id2 "永久链接至标题")

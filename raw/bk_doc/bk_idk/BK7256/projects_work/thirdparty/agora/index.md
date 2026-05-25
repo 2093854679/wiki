@@ -1,6 +1,5 @@
 # 声网Agora-iot-sdk demo[](#agora-iot-sdk-demo "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/projects_work/thirdparty/agora/index.html "../../../../../en/v1.5/projects_work/thirdparty/agora/index.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")
@@ -131,7 +130,7 @@ demo中图传部分代码基于 `media` 组件开发，通过配置 `media_app_c
 
 ## 7、参考链接[](#id6 "永久链接至标题")
 
-> [agora开发指南](../../../developer-guide/agora/index.html "../../../developer-guide/agora/index.html")
+> [agora开发指南](../../../developer-guide/agora/index.md "../../../developer-guide/agora/index.md")
 >
 > 声网参考文档：[https://docs.agora.io/cn/Agora%20Platform/manage_projects?platform=Android](https://docs.agora.io/cn/Agora%20Platform/manage_projects?platform=Android "https://docs.agora.io/cn/Agora%20Platform/manage_projects?platform=Android")
 >

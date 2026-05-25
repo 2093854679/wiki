@@ -1,6 +1,5 @@
 # QSPI[](#qspi "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_qspi.html "../../../../en/v2.0.1/api-reference/peripheral/bk_qspi.html")
 
 
 ## QSPI API Reference[](#qspi-api-reference "永久链接至标题")
@@ -14,7 +13,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_driver_init(void)[](#_CPPv419bk_qspi_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_driver_init(void)[](#_CPPv419bk_qspi_driver_initv "永久链接至目标")
 :   Init the QSPI driver.
 
     This API init the resoure common:
@@ -31,7 +30,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_driver_deinit(void)[](#_CPPv421bk_qspi_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_driver_deinit(void)[](#_CPPv421bk_qspi_driver_deinitv "永久链接至目标")
 :   Deinit the QSPI driver.
 
     This API free all resource related to QSPI and disable QSPI.
@@ -41,7 +40,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_init([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const [qspi_config_t](#_CPPv413qspi_config_t "qspi_config_t") *config)[](#_CPPv412bk_qspi_init9qspi_id_tPK13qspi_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_init([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const [qspi_config_t](#_CPPv413qspi_config_t "qspi_config_t") *config)[](#_CPPv412bk_qspi_init9qspi_id_tPK13qspi_config_t "永久链接至目标")
 :   Init the QSPI.
 
     This API init the QSPI:
@@ -67,7 +66,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_deinit([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv414bk_qspi_deinit9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_deinit([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv414bk_qspi_deinit9qspi_id_t "永久链接至目标")
 :   Deinit the QSPI.
 
     This API deinit the QSPI:
@@ -82,7 +81,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_command([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const [qspi_cmd_t](#_CPPv410qspi_cmd_t "qspi_cmd_t") *cmd)[](#_CPPv415bk_qspi_command9qspi_id_tPK10qspi_cmd_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_command([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const [qspi_cmd_t](#_CPPv410qspi_cmd_t "qspi_cmd_t") *cmd)[](#_CPPv415bk_qspi_command9qspi_id_tPK10qspi_cmd_t "永久链接至目标")
 :   Init the QSPI command.
 
     参数
@@ -93,7 +92,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const void *data, uint32_t size)[](#_CPPv413bk_qspi_write9qspi_id_tPKv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, const void *data, uint32_t size)[](#_CPPv413bk_qspi_write9qspi_id_tPKv8uint32_t "永久链接至目标")
 :   QSPI indirect mode write.
 
     参数
@@ -108,7 +107,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, void *data, uint32_t size)[](#_CPPv412bk_qspi_read9qspi_id_tPv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, void *data, uint32_t size)[](#_CPPv412bk_qspi_read9qspi_id_tPv8uint32_t "永久链接至目标")
 :   QSPI indirect mode read.
 
     参数
@@ -123,7 +122,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_register_tx_isr([qspi_isr_t](#_CPPv410qspi_isr_t "qspi_isr_t") isr, void *param)[](#_CPPv423bk_qspi_register_tx_isr10qspi_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_register_tx_isr([qspi_isr_t](#_CPPv410qspi_isr_t "qspi_isr_t") isr, void *param)[](#_CPPv423bk_qspi_register_tx_isr10qspi_isr_tPv "永久链接至目标")
 :   Register the TX interrupt service routine for QSPI.
 
     参数
@@ -136,7 +135,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_register_rx_isr([qspi_isr_t](#_CPPv410qspi_isr_t "qspi_isr_t") isr, void *param)[](#_CPPv423bk_qspi_register_rx_isr10qspi_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_register_rx_isr([qspi_isr_t](#_CPPv410qspi_isr_t "qspi_isr_t") isr, void *param)[](#_CPPv423bk_qspi_register_rx_isr10qspi_isr_tPv "永久链接至目标")
 :   Register the RX interrupt service routine for QSPI.
 
     参数
@@ -161,7 +160,7 @@
 
 ### Functions[](#id2 "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_init([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv418bk_qspi_psram_init9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_init([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv418bk_qspi_psram_init9qspi_id_t "永久链接至目标")
 :   Init the QSPI psram.
 
     返回
@@ -171,7 +170,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_deinit([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv420bk_qspi_psram_deinit9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_deinit([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv420bk_qspi_psram_deinit9qspi_id_t "永久链接至目标")
 :   Deinit the QSPI psram.
 
     返回
@@ -181,7 +180,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_enter_quad_mode([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv429bk_qspi_psram_enter_quad_mode9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_enter_quad_mode([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv429bk_qspi_psram_enter_quad_mode9qspi_id_t "永久链接至目标")
 :   QSPI psram enter quad mode.
 
     返回
@@ -189,7 +188,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_exit_quad_mode([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv428bk_qspi_psram_exit_quad_mode9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_exit_quad_mode([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv428bk_qspi_psram_exit_quad_mode9qspi_id_t "永久链接至目标")
 :   QSPI psram exit quad mode.
 
     返回
@@ -197,7 +196,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_quad_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv424bk_qspi_psram_quad_write9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_quad_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv424bk_qspi_psram_quad_write9qspi_id_t "永久链接至目标")
 :   QSPI psram init quad write.
 
     返回
@@ -205,7 +204,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_single_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv426bk_qspi_psram_single_write9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_single_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv426bk_qspi_psram_single_write9qspi_id_t "永久链接至目标")
 :   QSPI psram init single write.
 
     返回
@@ -213,7 +212,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_quad_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv423bk_qspi_psram_quad_read9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_quad_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv423bk_qspi_psram_quad_read9qspi_id_t "永久链接至目标")
 :   QSPI psram init quad read.
 
     返回
@@ -221,7 +220,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_single_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv425bk_qspi_psram_single_read9qspi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_single_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id)[](#_CPPv425bk_qspi_psram_single_read9qspi_id_t "永久链接至目标")
 :   QSPI psram init single read.
 
     返回
@@ -229,7 +228,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, uint32_t base_addr, const void *data, uint32_t size)[](#_CPPv419bk_qspi_psram_write9qspi_id_t8uint32_tPKv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_write([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, uint32_t base_addr, const void *data, uint32_t size)[](#_CPPv419bk_qspi_psram_write9qspi_id_t8uint32_tPKv8uint32_t "永久链接至目标")
 :   QSPI psram write data.
 
     参数
@@ -244,7 +243,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, uint32_t base_addr, void *data, uint32_t size)[](#_CPPv418bk_qspi_psram_read9qspi_id_t8uint32_tPv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_qspi_psram_read([qspi_id_t](#_CPPv49qspi_id_t "qspi_id_t") id, uint32_t base_addr, void *data, uint32_t size)[](#_CPPv418bk_qspi_psram_read9qspi_id_t8uint32_tPv8uint32_t "永久链接至目标")
 :   QSPI psram read data.
 
     参数

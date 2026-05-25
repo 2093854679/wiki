@@ -11,6 +11,7 @@ from .llm import get_config
 class SearchEngine:
     def __init__(self, db_path: Path):
         self.db_path = db_path
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_db()
 
     def _init_db(self):
@@ -26,11 +27,11 @@ class SearchEngine:
         with sqlite3.connect(str(self.db_path)) as conn:
             conn.execute("DELETE FROM documents")
             for md in wiki_dir.rglob("*.md"):
-                if md.name == "index.md":
+                rel = str(md.relative_to(wiki_dir)).replace("\\", "/")
+                if md.name == "index.md" or rel.startswith("categories/"):
                     continue
                 try:
                     text = md.read_text(encoding="utf-8")
-                    rel = str(md.relative_to(wiki_dir)).replace("\\", "/")
                     title = rel
                     for line in text.splitlines():
                         line = line.strip()

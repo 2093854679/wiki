@@ -1,6 +1,5 @@
 # 快速入门[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v1.5/get-started/index.html "../../../en/v1.5/get-started/index.html")
 
 本文档以 BK7235 开发板为例，通过一个简单的示例项目向您展示
 

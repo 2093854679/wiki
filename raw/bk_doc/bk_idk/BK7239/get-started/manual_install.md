@@ -1,6 +1,5 @@
 # 手动安装[](#manual-install "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/get-started/manual_install.html "../../../en/v2.2.1/get-started/manual_install.html")
 
 
 ## 安装步骤[](#id2 "永久链接至标题")

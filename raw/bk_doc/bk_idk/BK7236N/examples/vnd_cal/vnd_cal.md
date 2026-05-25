@@ -1,6 +1,5 @@
 # VND_CAL[](#vnd-cal "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/examples/vnd_cal/vnd_cal.html "../../../../en/v2.2.1/examples/vnd_cal/vnd_cal.html")
 
 
 ## 1、概述[](#id1 "永久链接至标题")

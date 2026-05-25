@@ -1,6 +1,5 @@
 # 设置RTC作为唤醒源-系统进入深度,超深度睡眠以及低压睡眠配置说明[](#rtc "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_rtc_sleep.html "../../../../en/v2.2.1/developer-guide/power_save/bk_rtc_sleep.html")
 
 
 ## RTC-深度睡眠调用函数和调用顺序说明[](#id1 "永久链接至标题")

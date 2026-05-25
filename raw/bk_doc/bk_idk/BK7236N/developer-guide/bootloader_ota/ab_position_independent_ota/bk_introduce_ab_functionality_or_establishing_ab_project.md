@@ -1,6 +1,5 @@
 # 增加AB分区功能或建立AB工程的介绍[](#abab "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_introduce_ab_functionality_or_establishing_ab_project.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_introduce_ab_functionality_or_establishing_ab_project.html")
 
 > 一、在新工程中增加AB功能或新建AB工程的修改主要分为以下几点：
 >

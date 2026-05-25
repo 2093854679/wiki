@@ -43,7 +43,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_gpio_init([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv418bk_touch_gpio_init15touch_channel_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_gpio_init([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv418bk_touch_gpio_init15touch_channel_t "永久链接至目标")
 :   Init the touch gpio pin.
 
     This API init the GPIO pin corresponding to touch channel:
@@ -65,7 +65,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_enable([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv415bk_touch_enable15touch_channel_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_enable([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv415bk_touch_enable15touch_channel_t "永久链接至目标")
 :   enable touch function
 
     This API enable the touch function:
@@ -83,7 +83,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_disable(void)[](#_CPPv416bk_touch_disablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_disable(void)[](#_CPPv416bk_touch_disablev "永久链接至目标")
 :   disable touch function
 
     This API disable the touch function:
@@ -97,7 +97,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_config(const [touch_config_t](#_CPPv414touch_config_t "touch_config_t") *touch_config)[](#_CPPv415bk_touch_configPK14touch_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_config(const [touch_config_t](#_CPPv414touch_config_t "touch_config_t") *touch_config)[](#_CPPv415bk_touch_configPK14touch_config_t "永久链接至目标")
 :   config touch function
 
     This API config the touch function:
@@ -125,7 +125,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_calibration_start(void)[](#_CPPv426bk_touch_calibration_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_calibration_start(void)[](#_CPPv426bk_touch_calibration_startv "永久链接至目标")
 :   start calibrating touch channel
 
     This API start calibrating the touch channel that selected.
@@ -136,7 +136,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_scan_mode_enable(uint32_t enable)[](#_CPPv425bk_touch_scan_mode_enable8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_scan_mode_enable(uint32_t enable)[](#_CPPv425bk_touch_scan_mode_enable8uint32_t "永久链接至目标")
 :   enable/disable scan mode of touch channel
 
     This API enable or disable the scan mode of touch channel.
@@ -147,7 +147,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_adc_mode_enable(uint32_t enable)[](#_CPPv424bk_touch_adc_mode_enable8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_adc_mode_enable(uint32_t enable)[](#_CPPv424bk_touch_adc_mode_enable8uint32_t "永久链接至目标")
 :   enable/disable adc mode of touch channel
 
     This API enable or disable the adc mode of touch channel.
@@ -158,7 +158,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_manul_mode_enable(uint32_t calib_value)[](#_CPPv426bk_touch_manul_mode_enable8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_manul_mode_enable(uint32_t calib_value)[](#_CPPv426bk_touch_manul_mode_enable8uint32_t "永久链接至目标")
 :   enable manul calibration mode of touch channel
 
     This API enable the manul calibration mode of touch channel:
@@ -174,7 +174,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_manul_mode_disable(void)[](#_CPPv427bk_touch_manul_mode_disablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_manul_mode_disable(void)[](#_CPPv427bk_touch_manul_mode_disablev "永久链接至目标")
 :   disable manul calibration mode of touch channel
 
     This API disable the manul calibration mode of touch channel
@@ -185,7 +185,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_scan_mode_multi_channl_set([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv435bk_touch_scan_mode_multi_channl_set15touch_channel_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_scan_mode_multi_channl_set([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id)[](#_CPPv435bk_touch_scan_mode_multi_channl_set15touch_channel_t "永久链接至目标")
 :   set multi channels that need to scan
 
     This API set multi channels that need to scan
@@ -196,7 +196,7 @@ Touch User Guide Flow[](#id3 "永久链接至图片")
     返回
     :   - BK_OK: succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_int_enable([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id, uint32_t enable)[](#_CPPv419bk_touch_int_enable15touch_channel_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_int_enable([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id, uint32_t enable)[](#_CPPv419bk_touch_int_enable15touch_channel_t8uint32_t "永久链接至目标")
 :   enable/disable touch channel interrupt
 
     This API enable or disable the touch channel interrupt:
@@ -237,7 +237,7 @@ uint32_t bk_touch_get_touch_status(void)[](#_CPPv425bk_touch_get_touch_status
     返回
     :   - touch_status: the touch status of every channel. One bit corresponding to one channel. 1 —— the channel is touched; 0 —— the channel is idle.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_digital_tube_init(void)[](#_CPPv426bk_touch_digital_tube_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_digital_tube_init(void)[](#_CPPv426bk_touch_digital_tube_initv "永久链接至目标")
 :   init the digital tube of touch
 
     This API init the digital tube:
@@ -281,7 +281,7 @@ uint32_t bk_touch_wakeup_channel_get(void)[](#_CPPv427bk_touch_wakeup_channel
     返回
     :   - s_touch_wakeup_channel: the channel number of touch
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_pm_init(void)[](#_CPPv416bk_touch_pm_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_pm_init(void)[](#_CPPv416bk_touch_pm_initv "永久链接至目标")
 :   Register touch low voltage and deepsleep config.
 
     This API register touch low voltage and deepsleep config
@@ -294,7 +294,7 @@ uint32_t bk_touch_wakeup_channel_get(void)[](#_CPPv427bk_touch_wakeup_channel
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_touch_register_touch_isr([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id, [touch_isr_t](#_CPPv411touch_isr_t "touch_isr_t") isr, void *param)[](#_CPPv427bk_touch_register_touch_isr15touch_channel_t11touch_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_touch_register_touch_isr([touch_channel_t](#_CPPv415touch_channel_t "touch_channel_t") touch_id, [touch_isr_t](#_CPPv411touch_isr_t "touch_isr_t") isr, void *param)[](#_CPPv427bk_touch_register_touch_isr15touch_channel_t11touch_isr_tPv "永久链接至目标")
 :   Register touch isr.
 
     This API register touch isr

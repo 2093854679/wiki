@@ -1,6 +1,5 @@
 # FLASH[](#flash "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/peripheral/bk_flash.html "../../../../en/v1.5/api-reference/peripheral/bk_flash.html")
 
 
 ## FLASH API Status[](#flash-api-status "永久链接至标题")
@@ -36,7 +35,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_driver_init(void)[](#_CPPv420bk_flash_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_driver_init(void)[](#_CPPv420bk_flash_driver_initv "永久链接至目标")
 :   Init the flash driver.
 
     This API init the resoure common:
@@ -53,7 +52,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_driver_deinit(void)[](#_CPPv422bk_flash_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_driver_deinit(void)[](#_CPPv422bk_flash_driver_deinitv "永久链接至目标")
 :   Deinit the flash driver.
 
     This API free all resource related to flash and disable flash.
@@ -63,7 +62,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_set_line_mode([flash_line_mode_t](#_CPPv417flash_line_mode_t "flash_line_mode_t") line_mode)[](#_CPPv422bk_flash_set_line_mode17flash_line_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_set_line_mode([flash_line_mode_t](#_CPPv417flash_line_mode_t "flash_line_mode_t") line_mode)[](#_CPPv422bk_flash_set_line_mode17flash_line_mode_t "永久链接至目标")
 :   Set flash line mode.
 
     参数
@@ -86,7 +85,7 @@ uint32_t bk_flash_get_id(void)[](#_CPPv415bk_flash_get_idv "永久链接至�
     返回
     :   flash line mode
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_set_clk_dpll(void)[](#_CPPv421bk_flash_set_clk_dpllv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_set_clk_dpll(void)[](#_CPPv421bk_flash_set_clk_dpllv "永久链接至目标")
 :   Set flash clock dpll.
 
     返回
@@ -94,7 +93,7 @@ uint32_t bk_flash_get_id(void)[](#_CPPv415bk_flash_get_idv "永久链接至�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_set_clk_dco(void)[](#_CPPv420bk_flash_set_clk_dcov "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_set_clk_dco(void)[](#_CPPv420bk_flash_set_clk_dcov "永久链接至目标")
 :   Set flash clock dco.
 
     返回
@@ -102,7 +101,7 @@ uint32_t bk_flash_get_id(void)[](#_CPPv415bk_flash_get_idv "永久链接至�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_write_enable(void)[](#_CPPv421bk_flash_write_enablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_write_enable(void)[](#_CPPv421bk_flash_write_enablev "永久链接至目标")
 :   Enable flash write.
 
     返回
@@ -110,7 +109,7 @@ uint32_t bk_flash_get_id(void)[](#_CPPv415bk_flash_get_idv "永久链接至�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_write_disable(void)[](#_CPPv422bk_flash_write_disablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_write_disable(void)[](#_CPPv422bk_flash_write_disablev "永久链接至目标")
 :   Disable flash write.
 
     返回
@@ -118,7 +117,7 @@ uint32_t bk_flash_get_id(void)[](#_CPPv415bk_flash_get_idv "永久链接至�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_set_protect_type([flash_protect_type_t](#_CPPv420flash_protect_type_t "flash_protect_type_t") type)[](#_CPPv425bk_flash_set_protect_type20flash_protect_type_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_set_protect_type([flash_protect_type_t](#_CPPv420flash_protect_type_t "flash_protect_type_t") type)[](#_CPPv425bk_flash_set_protect_type20flash_protect_type_t "永久链接至目标")
 :   Set flash protect type.
 
     参数
@@ -141,7 +140,7 @@ uint16_t bk_flash_read_status_reg(void)[](#_CPPv424bk_flash_read_status_regv 
     返回
     :   the flash status register value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_write_status_reg(uint16_t status_reg_data)[](#_CPPv425bk_flash_write_status_reg8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_write_status_reg(uint16_t status_reg_data)[](#_CPPv425bk_flash_write_status_reg8uint16_t "永久链接至目标")
 :   Set flash status register value.
 
     参数
@@ -152,7 +151,7 @@ uint16_t bk_flash_read_status_reg(void)[](#_CPPv424bk_flash_read_status_regv 
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_erase_sector(uint32_t address)[](#_CPPv421bk_flash_erase_sector8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_erase_sector(uint32_t address)[](#_CPPv421bk_flash_erase_sector8uint32_t "永久链接至目标")
 :   Erase a sector of flash, use flash command 0x20.
 
     参数
@@ -165,7 +164,7 @@ uint16_t bk_flash_read_status_reg(void)[](#_CPPv424bk_flash_read_status_regv 
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_write_bytes(uint32_t address, const uint8_t *user_buf, uint32_t size)[](#_CPPv420bk_flash_write_bytes8uint32_tPK7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_write_bytes(uint32_t address, const uint8_t *user_buf, uint32_t size)[](#_CPPv420bk_flash_write_bytes8uint32_tPK7uint8_t8uint32_t "永久链接至目标")
 :   Write data to flash.
 
     参数
@@ -182,7 +181,7 @@ uint16_t bk_flash_read_status_reg(void)[](#_CPPv424bk_flash_read_status_regv 
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_read_bytes(uint32_t address, uint8_t *user_buf, uint32_t size)[](#_CPPv419bk_flash_read_bytes8uint32_tP7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_read_bytes(uint32_t address, uint8_t *user_buf, uint32_t size)[](#_CPPv419bk_flash_read_bytes8uint32_tP7uint8_t8uint32_t "永久链接至目标")
 :   Read data from flash.
 
     参数
@@ -199,7 +198,7 @@ uint16_t bk_flash_read_status_reg(void)[](#_CPPv424bk_flash_read_status_regv 
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_read_word(uint32_t address, uint32_t *user_buf, uint32_t size)[](#_CPPv418bk_flash_read_word8uint32_tP8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_read_word(uint32_t address, uint32_t *user_buf, uint32_t size)[](#_CPPv418bk_flash_read_word8uint32_tP8uint32_t8uint32_t "永久链接至目标")
 :   Read data from flas.
 
     参数
@@ -228,7 +227,7 @@ uint32_t bk_flash_get_current_total_size(void)[](#_CPPv431bk_flash_get_curren
     返回
     :   the flash total size
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_register_ps_suspend_callback([flash_ps_callback_t](#_CPPv419flash_ps_callback_t "flash_ps_callback_t") ps_suspend_cb)[](#_CPPv437bk_flash_register_ps_suspend_callback19flash_ps_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_register_ps_suspend_callback([flash_ps_callback_t](#_CPPv419flash_ps_callback_t "flash_ps_callback_t") ps_suspend_cb)[](#_CPPv437bk_flash_register_ps_suspend_callback19flash_ps_callback_t "永久链接至目标")
 :   Register flash power save suspend callback.
 
     参数
@@ -239,7 +238,7 @@ uint32_t bk_flash_get_current_total_size(void)[](#_CPPv431bk_flash_get_curren
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_register_ps_resume_callback([flash_ps_callback_t](#_CPPv419flash_ps_callback_t "flash_ps_callback_t") ps_resume_cb)[](#_CPPv436bk_flash_register_ps_resume_callback19flash_ps_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_register_ps_resume_callback([flash_ps_callback_t](#_CPPv419flash_ps_callback_t "flash_ps_callback_t") ps_resume_cb)[](#_CPPv436bk_flash_register_ps_resume_callback19flash_ps_callback_t "永久链接至目标")
 :   Register flash power save resume callback.
 
     参数
@@ -250,7 +249,7 @@ uint32_t bk_flash_get_current_total_size(void)[](#_CPPv431bk_flash_get_curren
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_clk_switch(uint32_t flash_speed_type, uint32_t modules)[](#_CPPv419bk_flash_clk_switch8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_clk_switch(uint32_t flash_speed_type, uint32_t modules)[](#_CPPv419bk_flash_clk_switch8uint32_t8uint32_t "永久链接至目标")
 :   Modify flash speed type.
 
     参数
@@ -263,7 +262,7 @@ uint32_t bk_flash_get_current_total_size(void)[](#_CPPv431bk_flash_get_curren
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_register_wait_cb([flash_wait_callback_t](#_CPPv421flash_wait_callback_t "flash_wait_callback_t") wait_cb)[](#_CPPv425bk_flash_register_wait_cb21flash_wait_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_register_wait_cb([flash_wait_callback_t](#_CPPv421flash_wait_callback_t "flash_wait_callback_t") wait_cb)[](#_CPPv425bk_flash_register_wait_cb21flash_wait_callback_t "永久链接至目标")
 :   register a callback to be called when flash is busy waiting. WARNING/NOTES:
 
     ```
@@ -281,7 +280,7 @@ uint32_t bk_flash_get_current_total_size(void)[](#_CPPv431bk_flash_get_curren
 
         - others: registered too many(>4) wait_cb to flash.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_unregister_wait_cb([flash_wait_callback_t](#_CPPv421flash_wait_callback_t "flash_wait_callback_t") wait_cb)[](#_CPPv427bk_flash_unregister_wait_cb21flash_wait_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_unregister_wait_cb([flash_wait_callback_t](#_CPPv421flash_wait_callback_t "flash_wait_callback_t") wait_cb)[](#_CPPv427bk_flash_unregister_wait_cb21flash_wait_callback_t "永久链接至目标")
 :   unregister the wait_cb from flash waiting.
 
     参数

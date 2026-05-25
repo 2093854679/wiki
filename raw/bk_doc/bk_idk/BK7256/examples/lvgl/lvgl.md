@@ -1,6 +1,5 @@
 # LVGL[](#lvgl "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/lvgl/lvgl.html "../../../../en/v1.5/examples/lvgl/lvgl.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

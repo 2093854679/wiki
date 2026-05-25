@@ -1,6 +1,5 @@
 # Dual BLE APIs[](#dual-ble-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/bluetooth/dual_ble.html "../../../../en/v2.2.1/api-reference/bluetooth/dual_ble.html")
 
 重要
 
@@ -5550,7 +5549,7 @@ BK_BD_ADDR_LEN[](#c.BK_BD_ADDR_LEN "永久链接至目标")
 
 ### Type Definitions[](#id25 "永久链接至标题")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
 :   ble api return enum
 
 typedef int bt_err_t[](#_CPPv48bt_err_t "永久链接至目标")
@@ -5804,4 +5803,4 @@ enum bk_ble_wl_addr_type_t[](#_CPPv421bk_ble_wl_addr_type_t "永久链接至�
 
 ## Reference link[](#reference-link "永久链接至标题")
 
-> [API Reference :](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") Introduced the Bluetooth API interface
+> [API Reference :](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") Introduced the Bluetooth API interface

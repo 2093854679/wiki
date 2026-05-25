@@ -1,6 +1,5 @@
 # 三．up_bootloader简介[](#up-bootloader "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_up_bootloader_and_ota.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_up_bootloader_and_ota.html")
 
 
 - 1.up_bootloader作用：

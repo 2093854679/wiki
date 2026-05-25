@@ -1,6 +1,5 @@
 # AB分区位置无关的优势[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_advantage_introduction.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_advantage_introduction.html")
 
 > 有传统OTA进行对比有两个优势：
 >

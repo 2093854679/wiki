@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/semaphore.h>;
 > - 定义了系统信号量相关的接口
 
-[[English]](../../../../../en/v2.2.1/api-reference/system/posix/semaphore.html "../../../../../en/v2.2.1/api-reference/system/posix/semaphore.html")
 
 
 ## Header File[](#header-file "永久链接至标题")
@@ -74,7 +73,7 @@ int sem_post([sem_t](#_CPPv45sem_t "sem_t") *sem)[](#_CPPv48sem_postP5sem_t "
     Return values
     :   **0** – - upon successful completion
 
-int sem_timedwait([sem_t](#_CPPv45sem_t "sem_t") *sem, const struct [timespec](time.html#_CPPv48timespec "timespec") *abstime)[](#_CPPv413sem_timedwaitP5sem_tPK8timespec "永久链接至目标")
+int sem_timedwait([sem_t](#_CPPv45sem_t "sem_t") *sem, const struct [timespec](time.md#_CPPv48timespec "timespec") *abstime)[](#_CPPv413sem_timedwaitP5sem_tPK8timespec "永久链接至目标")
 :   Lock a semaphore with timeout.
 
     @sideeffect Possible errno values

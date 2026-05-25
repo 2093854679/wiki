@@ -1,6 +1,5 @@
 # I2S 使用指南[](#i2s "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/peripheral/bk_i2s.html "../../../../en/v2.0.1/developer-guide/peripheral/bk_i2s.html")
 
 
 ## 概述[](#id1 "永久链接至标题")
@@ -249,8 +248,8 @@ bk_i2s_start();
 
 ## 参考链接[](#id5 "永久链接至标题")
 
-> [API 参考 :](../../api-reference/peripheral/bk_i2s.html "../../api-reference/peripheral/bk_i2s.html") 介绍I2S API接口
+> [API 参考 :](../../api-reference/peripheral/bk_i2s.md "../../api-reference/peripheral/bk_i2s.md") 介绍I2S API接口
 >
-> [用户开发指南 :](../../developer-guide/peripheral/bk_i2s.html "../../developer-guide/peripheral/bk_i2s.html") 介绍I2S调试开发流程
+> [用户开发指南 :](../../developer-guide/peripheral/bk_i2s.md "../../developer-guide/peripheral/bk_i2s.md") 介绍I2S调试开发流程
 >
-> [示例 :](../../examples/peripheral/bk_i2s.html "../../examples/peripheral/bk_i2s.html") 介绍I2S测试demo的使用
+> [示例 :](../../examples/peripheral/bk_i2s.md "../../examples/peripheral/bk_i2s.md") 介绍I2S测试demo的使用

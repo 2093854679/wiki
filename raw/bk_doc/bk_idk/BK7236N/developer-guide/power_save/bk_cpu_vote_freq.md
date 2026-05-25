@@ -58,4 +58,3 @@ pm_cpu_freq_e bk_pm_current_max_cpu_freq_get()
 
 投频使用的dev_id和使用完之后的dev_id需要一样，不然会引起错误。使用前可以搜索,确认DEV_ID是其他模块没有其他业务使用
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_cpu_vote_freq.html "../../../../en/v2.2.1/developer-guide/power_save/bk_cpu_vote_freq.html")

@@ -1,6 +1,5 @@
 # OS API[](#os-api "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/system/os.html "../../../../en/v2.2.1/api-reference/system/os.html")
 
 > - OS抽象层主要为了适配Armino平台不同的操作系统
 > - 对于不同的操作系统，OS抽象层对外提供一套统一的接口

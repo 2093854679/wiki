@@ -1,6 +1,5 @@
 # BT Cli[](#bt-cli "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/bluetooth/bt.html "../../../../../en/v1.5/examples/cli/bluetooth/bt.html")
 
 
 ## 1. 功能概述[](#id1 "永久链接至标题")

@@ -1,6 +1,5 @@
 # **Power Manager cli命令**[](#power-manager-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/pm/pm_cli.html "../../../../../en/v2.2.1/examples/cli/pm/pm_cli.html")
 
 重要
 

@@ -1,6 +1,5 @@
 # 低功耗蓝牙(BLE)[](#ble "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/bluetooth/bk_ble.html "../../../../en/v1.5/developer-guide/bluetooth/bk_ble.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

@@ -1,6 +1,5 @@
 # PWM[](#pwm "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/peripheral/bk_pwm.html "../../../../en/v2.2.1/developer-guide/peripheral/bk_pwm.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

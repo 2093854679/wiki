@@ -1,6 +1,5 @@
 # 低功耗蓝牙(BLE)[](#ble "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/bluetooth/bk_ble.html "../../../../en/v1.5/developer-guide/bluetooth/bk_ble.html")
 
 
 ## 概述[](#id1 "永久链接至标题")
@@ -343,10 +342,10 @@ err = bk_ble_disconnect(conn_idx, ble_at_cmd);
 
 ## 参考链接[](#id10 "永久链接至标题")
 
-> [API参考:](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") 介绍了蓝牙API接口
+> [API参考:](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") 介绍了蓝牙API接口
 >
-> [开发者指南:](../../developer-guide/bluetooth/index.html "../../developer-guide/bluetooth/index.html") 介绍了蓝牙常用使用场景
+> [开发者指南:](../../developer-guide/bluetooth/index.md "../../developer-guide/bluetooth/index.md") 介绍了蓝牙常用使用场景
 >
-> [样例演示:](../../examples/bluetooth/index.html "../../examples/bluetooth/index.html") 介绍了蓝牙样例使用和操作
+> [样例演示:](../../examples/bluetooth/index.md "../../examples/bluetooth/index.md") 介绍了蓝牙样例使用和操作
 >
-> [蓝牙工程:](../../projects_work/bluetooth/index.html "../../projects_work/bluetooth/index.html") 介绍了蓝牙相关工程
+> [蓝牙工程:](../../projects_work/bluetooth/index.md "../../projects_work/bluetooth/index.md") 介绍了蓝牙相关工程

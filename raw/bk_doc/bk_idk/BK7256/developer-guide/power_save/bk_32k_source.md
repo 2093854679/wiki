@@ -1,6 +1,5 @@
 # 32K时钟源[](#k "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_32k_source.html "../../../../en/v1.5/developer-guide/power_save/bk_32k_source.html")
 
 
 ## 32k的时钟源说明[](#id1 "永久链接至标题")

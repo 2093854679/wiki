@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/pthread.h>;
 > - 定义了系统任务创建，销毁等相关的接口
 
-[[English]](../../../../../en/v2.0.1/api-reference/system/posix/pthread.html "../../../../../en/v2.0.1/api-reference/system/posix/pthread.html")
 
 
 ## Header File[](#header-file "永久链接至标题")
@@ -34,7 +33,7 @@ int pthread_attr_getdetachstate(const pthread_attr_t *attr, int *detachstate)[�
     Return values
     :   **0** – - Upon successful completion.
 
-int pthread_attr_getschedparam(const pthread_attr_t *attr, struct [sched_param](sched.html#_CPPv411sched_param "sched_param") *param)[](#_CPPv426pthread_attr_getschedparamPK14pthread_attr_tP11sched_param "永久链接至目标")
+int pthread_attr_getschedparam(const pthread_attr_t *attr, struct [sched_param](sched.md#_CPPv411sched_param "sched_param") *param)[](#_CPPv426pthread_attr_getschedparamPK14pthread_attr_tP11sched_param "永久链接至目标")
 :   Get schedparam attribute.
 
     参见
@@ -63,7 +62,7 @@ int pthread_attr_init(pthread_attr_t *attr)[](#_CPPv417pthread_attr_initP14pt
 
     备注
 
-    Currently, only stack size, [sched_param](sched.html#structsched__param "sched.html#structsched__param"), and detach state attributes are supported. Also see pthread_attr_get*() and pthread_attr_set*().
+    Currently, only stack size, [sched_param](sched.md#structsched__param "sched.md#structsched__param"), and detach state attributes are supported. Also see pthread_attr_get*() and pthread_attr_set*().
 
     Return values
     :   **0** – - Upon successful completion.
@@ -80,7 +79,7 @@ int pthread_attr_setdetachstate(pthread_attr_t *attr, int detachstate)[](#_CP
 
         - **EINVAL** – - The value of detachstate is not valid. Currently, supported detach states are &#8212; PTHREAD_CREATE_DETACHED and PTHREAD_CREATE_JOINABLE.
 
-int pthread_attr_setschedparam(pthread_attr_t *attr, const struct [sched_param](sched.html#_CPPv411sched_param "sched_param") *param)[](#_CPPv426pthread_attr_setschedparamP14pthread_attr_tPK11sched_param "永久链接至目标")
+int pthread_attr_setschedparam(pthread_attr_t *attr, const struct [sched_param](sched.md#_CPPv411sched_param "sched_param") *param)[](#_CPPv426pthread_attr_setschedparamP14pthread_attr_tPK11sched_param "永久链接至目标")
 :   Set schedparam attribute.
 
     参见
@@ -224,7 +223,7 @@ int pthread_cond_signal(pthread_cond_t *cond)[](#_CPPv419pthread_cond_signalP
     Return values
     :   **0** – - Upon successful completion.
 
-int pthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex, const struct [timespec](time.html#_CPPv48timespec "timespec") *abstime)[](#_CPPv422pthread_cond_timedwaitP14pthread_cond_tP15pthread_mutex_tPK8timespec "永久链接至目标")
+int pthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex, const struct [timespec](time.md#_CPPv48timespec "timespec") *abstime)[](#_CPPv422pthread_cond_timedwaitP14pthread_cond_tP15pthread_mutex_tPK8timespec "永久链接至目标")
 :   Wait on a condition with a timeout.
 
     参见
@@ -270,7 +269,7 @@ void pthread_exit(void *value_ptr)[](#_CPPv412pthread_exitPv "永久链接至
     Return values
     :   **void** – - this function cannot return to its caller.
 
-int pthread_getschedparam(pthread_t thread, int *policy, struct [sched_param](sched.html#_CPPv411sched_param "sched_param") *param)[](#_CPPv421pthread_getschedparam9pthread_tPiP11sched_param "永久链接至目标")
+int pthread_getschedparam(pthread_t thread, int *policy, struct [sched_param](sched.md#_CPPv411sched_param "sched_param") *param)[](#_CPPv421pthread_getschedparam9pthread_tPiP11sched_param "永久链接至目标")
 :   Dynamic thread scheduling parameters access.
 
     参见
@@ -338,7 +337,7 @@ int pthread_mutex_lock(pthread_mutex_t *mutex)[](#_CPPv418pthread_mutex_lockP
 
         - **EDEADLK** – - The mutex type is PTHREAD_MUTEX_ERRORCHECK and the current thread already owns the mutex.
 
-int pthread_mutex_timedlock(pthread_mutex_t *mutex, const struct [timespec](time.html#_CPPv48timespec "timespec") *abstime)[](#_CPPv423pthread_mutex_timedlockP15pthread_mutex_tPK8timespec "永久链接至目标")
+int pthread_mutex_timedlock(pthread_mutex_t *mutex, const struct [timespec](time.md#_CPPv48timespec "timespec") *abstime)[](#_CPPv423pthread_mutex_timedlockP15pthread_mutex_tPK8timespec "永久链接至目标")
 :   Lock a mutex with timeout.
 
     参见
@@ -438,7 +437,7 @@ pthread_t pthread_self(void)[](#_CPPv412pthread_selfv "永久链接至目标"
     Return values
     :   **the** – thread ID of the calling thread.
 
-int pthread_setschedparam(pthread_t thread, int policy, const struct [sched_param](sched.html#_CPPv411sched_param "sched_param") *param)[](#_CPPv421pthread_setschedparam9pthread_tiPK11sched_param "永久链接至目标")
+int pthread_setschedparam(pthread_t thread, int policy, const struct [sched_param](sched.md#_CPPv411sched_param "sched_param") *param)[](#_CPPv421pthread_setschedparam9pthread_tiPK11sched_param "永久链接至目标")
 :   Dynamic thread scheduling parameters access.
 
     参见

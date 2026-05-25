@@ -1,6 +1,5 @@
 # DM BT APIs[](#dm-bt-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/bluetooth/dm_bt.html "../../../../en/v1.5/api-reference/bluetooth/dm_bt.html")
 
 重要
 
@@ -105,7 +104,7 @@ bt_err_t bk_bt_gap_set_local_name(uint8_t *name, uint8_t len)[](#_CPPv424bk_b
 
         - others: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_start_discovery([bk_bt_inq_mode_t](#_CPPv416bk_bt_inq_mode_t "bk_bt_inq_mode_t") mode, uint8_t inq_len, uint8_t num_rsps)[](#_CPPv425bk_bt_gap_start_discovery16bk_bt_inq_mode_t7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_bt_gap_start_discovery([bk_bt_inq_mode_t](#_CPPv416bk_bt_inq_mode_t "bk_bt_inq_mode_t") mode, uint8_t inq_len, uint8_t num_rsps)[](#_CPPv425bk_bt_gap_start_discovery16bk_bt_inq_mode_t7uint8_t7uint8_t "永久链接至目标")
 :   This function starts Inquiry and Name Discovery. This function should be called after esp_bluedroid_enable() completes successfully. When Inquiry is halted and cached results do not contain device name, then Name Discovery will connect to the peer target to get the device name. bk_bt_gap_cb_t will be called with BK_DM_BT_GAP_DISC_STATE_CHANGED_EVT when Inquiry is started or Name Discovery is completed. bk_bt_gap_cb_t will be called with BK_DM_BT_GAP_DISC_RES_EVT each time the two types of discovery results are got.
 
     参数
@@ -366,7 +365,7 @@ bt_err_t bk_bt_a2dp_source_init(void)[](#_CPPv422bk_bt_a2dp_source_initv "永
 
         - others: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_a2dp_source_register_data_callback([bk_a2dp_source_data_cb_t](#_CPPv424bk_a2dp_source_data_cb_t "bk_a2dp_source_data_cb_t") callback)[](#_CPPv437bk_a2dp_source_register_data_callback24bk_a2dp_source_data_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_a2dp_source_register_data_callback([bk_a2dp_source_data_cb_t](#_CPPv424bk_a2dp_source_data_cb_t "bk_a2dp_source_data_cb_t") callback)[](#_CPPv437bk_a2dp_source_register_data_callback24bk_a2dp_source_data_cb_t "永久链接至目标")
 :   Register A2DP source data input function. For now, the input should be PCM data stream.
 
     参数
@@ -377,7 +376,7 @@ bt_err_t bk_bt_a2dp_source_init(void)[](#_CPPv422bk_bt_a2dp_source_initv "永
 
         - others: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_a2dp_source_set_pcm_data_format(uint32_t sample_rate, uint8_t bit_depth, uint8_t channel_count)[](#_CPPv434bk_a2dp_source_set_pcm_data_format8uint32_t7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_a2dp_source_set_pcm_data_format(uint32_t sample_rate, uint8_t bit_depth, uint8_t channel_count)[](#_CPPv434bk_a2dp_source_set_pcm_data_format8uint32_t7uint8_t7uint8_t "永久链接至目标")
 :   set a2dp source data format
 
     参数
@@ -1159,7 +1158,7 @@ enum bt_event_enum_t[](#_CPPv415bt_event_enum_t "永久链接至目标")
     :   recv cb when pair success and get link key, param [bk_bt_linkkey_storage_t](#structbk__bt__linkkey__storage__t "#structbk__bt__linkkey__storage__t")
 
     enumerator BK_DM_BT_EVENT_LINKKEY_REQ[](#_CPPv4N15bt_event_enum_t26BK_DM_BT_EVENT_LINKKEY_REQE "永久链接至目标")
-    :   recv cb when peer need user to input link key, param [bd_addr_t](ble.html#structbd__addr__t "ble.html#structbd__addr__t")
+    :   recv cb when peer need user to input link key, param [bd_addr_t](ble.md#structbd__addr__t "ble.md#structbd__addr__t")
 
         Device discovery result event, param [bk_bt_gap_cb_param_t](#unionbk__bt__gap__cb__param__t "#unionbk__bt__gap__cb__param__t")
 

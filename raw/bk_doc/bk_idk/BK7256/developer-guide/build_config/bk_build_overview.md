@@ -1,6 +1,5 @@
 # 构建概述[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/build_config/bk_build_overview.html "../../../../en/v1.5/developer-guide/build_config/bk_build_overview.html")
 
 
 ## 基本概念[](#id2 "永久链接至标题")

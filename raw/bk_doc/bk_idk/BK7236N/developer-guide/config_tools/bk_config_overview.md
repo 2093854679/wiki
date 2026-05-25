@@ -1,6 +1,5 @@
 # 系统配置[](#bk-config-overview "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/config_tools/bk_config_overview.html "../../../../en/v2.2.1/developer-guide/config_tools/bk_config_overview.html")
 
 Armino 系统配置主要指 Kconfig 配置，分区配置，安全配置等，处理过程如下图所示：
 
@@ -18,16 +17,16 @@ Armino 系统配置主要指 Kconfig 配置，分区配置，安全配置等，�
 
 Armino 支持下述几种配置文件：
 
-> - Kconfig - 组件配置，生成 sdkconfig.h。详情请参考 [Kconfig 配置](bk_config_kconfig.html#bk-config-kconfig "bk_config_kconfig.html#bk-config-kconfig")。
+> - Kconfig - 组件配置，生成 sdkconfig.h。详情请参考 [Kconfig 配置](bk_config_kconfig.md#bk-config-kconfig "bk_config_kconfig.md#bk-config-kconfig")。
 > - csv - CSV 格式配置文件，包括:
 >
->   - partitions.csv - 分区配置表，用于生成 partitions_gen.h。详情请参考 [分区配置](bk_config_partitions.html#bk-config-partitions "bk_config_partitions.html#bk-config-partitions")。
->   - mpc.csv - 安全块外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.html#bk-config-security "bk_config_security.html#bk-config-security")。
->   - ppc.csv - 安全外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.html#bk-config-security "bk_config_security.html#bk-config-security")。
->   - gpio.csv - 外设与 GPIO 映射表，结合 ppc.csv 一起生成 GPIO 安全属性。详情请参考 [安全配置](bk_config_security.html#bk-config-security "bk_config_security.html#bk-config-security")。
->   - security.csv - 安全配置，用于生成 security.h 与 otp_efuse_otp.json，也用于打包处理。详情请参考 [安全配置](bk_config_security.html#bk-config-security "bk_config_security.html#bk-config-security")。。
->   - ota.csv - 安全 OTA 配置，用于配置 OTA 策略，版本安全计数器等。详情请参考 [安全配置](bk_config_ota.html#bk-config-ota "bk_config_ota.html#bk-config-ota")。
-> - key - 配置安全相关的 KEY，如 FLASH AES KEY，安全启动公钥对等。详情请参考 [安全配置](bk_config_security.html#bk-config-security "bk_config_security.html#bk-config-security")。
+>   - partitions.csv - 分区配置表，用于生成 partitions_gen.h。详情请参考 [分区配置](bk_config_partitions.md#bk-config-partitions "bk_config_partitions.md#bk-config-partitions")。
+>   - mpc.csv - 安全块外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
+>   - ppc.csv - 安全外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
+>   - gpio.csv - 外设与 GPIO 映射表，结合 ppc.csv 一起生成 GPIO 安全属性。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
+>   - security.csv - 安全配置，用于生成 security.h 与 otp_efuse_otp.json，也用于打包处理。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。。
+>   - ota.csv - 安全 OTA 配置，用于配置 OTA 策略，版本安全计数器等。详情请参考 [安全配置](bk_config_ota.md#bk-config-ota "bk_config_ota.md#bk-config-ota")。
+> - key - 配置安全相关的 KEY，如 FLASH AES KEY，安全启动公钥对等。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
 
 
 ## 文件部署[](#id3 "永久链接至标题")

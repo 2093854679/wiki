@@ -1,9 +1,8 @@
 # USB[](#usb "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_usb.html "../../../../en/v2.0.1/api-reference/peripheral/bk_usb.html")
 
 
-- [USB Host UVC+UAC](usb/bk_usbh_uvc_uac.html "usb/bk_usbh_uvc_uac.html")
+- [USB Host UVC+UAC](usb/bk_usbh_uvc_uac.md "usb/bk_usbh_uvc_uac.md")
 
 
 ## USB 简介[](#id1 "永久链接至标题")
@@ -109,7 +108,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_init(void)[](#_CPPv418bk_usb_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_init(void)[](#_CPPv418bk_usb_driver_initv "永久链接至目标")
 :   USB Driver initialization.
 
     Register the adaptation layer and pass the function pointers used by the closed source library. Register the current USB Class type to be supported, and it can be uninstalled and reinitialized during execution. But be sure to do so before calling other interfaces.
@@ -126,7 +125,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_deinit(void)[](#_CPPv420bk_usb_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_deinit(void)[](#_CPPv420bk_usb_driver_deinitv "永久链接至目标")
 :   USB Driver uninstallation.
 
     Turn off the USB main interrupt switch Unregister Total Interrupt Handling Function Unregistered Class Driver
@@ -138,7 +137,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_power_ops(uint32_t gpio_id, bool ops)[](#_CPPv416bk_usb_power_ops8uint32_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_power_ops(uint32_t gpio_id, bool ops)[](#_CPPv416bk_usb_power_ops8uint32_tb "永久链接至目标")
 :   Pin controlled USB Vbus.
 
     This API controls VBUS for USB:
@@ -155,7 +154,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_open(uint32_t usb_mode)[](#_CPPv411bk_usb_open8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_open(uint32_t usb_mode)[](#_CPPv411bk_usb_open8uint32_t "永久链接至目标")
 :   open the USB
 
     This API configure the resoure common to USB:
@@ -174,7 +173,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_close(void)[](#_CPPv412bk_usb_closev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_close(void)[](#_CPPv412bk_usb_closev "永久链接至目标")
 :   close the USB
 
     This API release USB resources:
@@ -191,7 +190,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_init(void)[](#_CPPv428bk_usb_control_transfer_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_init(void)[](#_CPPv428bk_usb_control_transfer_initv "永久链接至目标")
 :   Initializes the control transfer request resource.
 
     返回
@@ -199,7 +198,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_deinit(void)[](#_CPPv430bk_usb_control_transfer_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_deinit(void)[](#_CPPv430bk_usb_control_transfer_deinitv "永久链接至目标")
 :   Unmount control transfer to release resource.
 
     返回
@@ -207,7 +206,7 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer([s_usb_device_request](#_CPPv420s_usb_device_request "s_usb_device_request") *pSetup, [s_usb_transfer_buffer_info](#_CPPv426s_usb_transfer_buffer_info "s_usb_transfer_buffer_info") *buffer_info)[](#_CPPv423bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer([s_usb_device_request](#_CPPv420s_usb_device_request "s_usb_device_request") *pSetup, [s_usb_transfer_buffer_info](#_CPPv426s_usb_transfer_buffer_info "s_usb_transfer_buffer_info") *buffer_info)[](#_CPPv423bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info "永久链接至目标")
 :   Control command and data interface fucntion to be passed.
 
     This API is used to send commands and transfer data:
@@ -244,7 +243,7 @@ bool bk_usb_get_device_connect_status(void)[](#_CPPv432bk_usb_get_device_conn
 
         - FALSE: disconnect
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_check_device_supported([E_USB_DEVICE_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") usb_dev)[](#_CPPv429bk_usb_check_device_supported14E_USB_DEVICE_T "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_check_device_supported([E_USB_DEVICE_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") usb_dev)[](#_CPPv429bk_usb_check_device_supported14E_USB_DEVICE_T "永久链接至目标")
 :   Check if the corresponding device class is supported.
 
     返回
@@ -252,7 +251,7 @@ bool bk_usb_get_device_connect_status(void)[](#_CPPv432bk_usb_get_device_conn
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_get_device_descriptor(struct [usb_device_descriptor_t](#_CPPv423usb_device_descriptor_t "usb_device_descriptor_t") *dev_descriptor)[](#_CPPv428bk_usb_get_device_descriptorP23usb_device_descriptor_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_get_device_descriptor(struct [usb_device_descriptor_t](#_CPPv423usb_device_descriptor_t "usb_device_descriptor_t") *dev_descriptor)[](#_CPPv428bk_usb_get_device_descriptorP23usb_device_descriptor_t "永久链接至目标")
 :   Obtain device descriptor.
 
     dev_descriptor: uint8_t bLength; Descriptor size in bytes = 18 uint8_t bDescriptorType; DEVICE descriptor type = 1 uint16_t bcdUSB; USB spec in BCD, e.g. 0x0200 uint8_t bDeviceClass; Class code, if 0 see interface uint8_t bDeviceSubClass; Sub-Class code, 0 if class = 0 uint8_t bDeviceProtocol; Protocol, if 0 see interface uint8_t bMaxPacketSize0; Endpoint 0 max. size uint16_t idVendor; Vendor ID per USB-IF uint16_t idProduct; Product ID per manufacture uint16_t bcdDevice; Device release # in BCD uint8_t iManufacturer; Index to manufacturer string uint8_t iProduct; Index to product string uint8_t iSerialNumber; Index to serial number string uint8_t bNumConfigurations; Number of possible configurations

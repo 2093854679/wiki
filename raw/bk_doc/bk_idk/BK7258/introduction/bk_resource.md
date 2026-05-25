@@ -1,6 +1,5 @@
 # 相关资源[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/introduction/bk_resource.html "../../../en/v2.0.1/introduction/bk_resource.html")
 
 下面是更多与 Armino 相关资源与链接：
 

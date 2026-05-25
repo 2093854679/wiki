@@ -1,6 +1,5 @@
 # FLASH AES 加密与 CRC[](#flash-aes-crc "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_flash_aes.html "../../../en/v2.2.1/security/bk_flash_aes.html")
 
 ![8](../_images/security_flash.svg)
 
@@ -42,8 +41,8 @@
 
 要使用 FLASH AES 加密功能，需做下述配置：
 
-> - security.csv 中使能并配置 AES KEY，请参考 [安全配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security "../developer-guide/config_tools/bk_config_security.html#bk-config-security")。
-> - EFUSE 中使能 FLASH AES 功能，并将 KEY 部署到 OTP 中，请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.html#bk-config-otp-efuse")。
+> - security.csv 中使能并配置 AES KEY，请参考 [安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security "../developer-guide/config_tools/bk_config_security.md#bk-config-security")。
+> - EFUSE 中使能 FLASH AES 功能，并将 KEY 部署到 OTP 中，请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse")。
 
 重要
 

@@ -9,6 +9,7 @@ from .linter import cmd_lint
 from .indexer import cmd_index
 from .search_engine import cmd_search
 from .server import cmd_serve
+from .renderer import cmd_render
 
 
 @click.group()
@@ -29,6 +30,7 @@ main.add_command(cmd_lint, name="lint")
 main.add_command(cmd_index, name="index")
 main.add_command(cmd_search, name="search")
 main.add_command(cmd_serve, name="serve")
+main.add_command(cmd_render, name="render")
 
 # stats is inline since it's simple
 @main.command("stats")
@@ -43,7 +45,10 @@ def cmd_stats():
         click.echo("Wiki directory not found. Run 'kb compile' first.")
         return
 
-    md_files = list(wiki.rglob("*.md"))
+    md_files = [
+        p for p in wiki.rglob("*.md")
+        if p.name != "index.md" and "categories" not in p.parts
+    ]
     total_words = 0
     for f in md_files:
         try:

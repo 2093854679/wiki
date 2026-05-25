@@ -1,6 +1,5 @@
 # Armino Wi-Fi说明[](#armino-wi-fi "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi.html")
 
 
 ## Armino Wi-Fi功能列表[](#id1 "永久链接至标题")
@@ -166,4 +165,3 @@ mac c8478caabbcc
 
 ```
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi.html")

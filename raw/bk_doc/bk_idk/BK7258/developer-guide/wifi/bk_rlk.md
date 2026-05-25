@@ -1,6 +1,5 @@
 # Armino Wi-Fi BK-RLK 使用指南[](#armino-wi-fi-bk-rlk "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_rlk.html "../../../../en/v2.0.1/developer-guide/wifi/bk_rlk.html")
 
 
 ## BK-RLK 概述[](#bk-rlk "永久链接至标题")
@@ -96,6 +95,6 @@ BK-RLK 其它通信参数配置：
 
 > BK-RLK 具体API接口，参考demo示例以及具体操作说明可以参考以下路径：
 >
-> > [API参考:](../../api-reference/network/bk_wifi.html "../../api-reference/network/bk_wifi.html") 介绍了BK-RLK API接口
+> > [API参考:](../../api-reference/network/bk_wifi.md "../../api-reference/network/bk_wifi.md") 介绍了BK-RLK API接口
 > >
 > > [BK-RLK工程:](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/wifi/bk_rlk_media.html "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/wifi/bk_rlk_media.html") 介绍了BK-RLK相关工程

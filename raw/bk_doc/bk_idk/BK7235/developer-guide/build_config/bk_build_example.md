@@ -1,6 +1,5 @@
 # 示例[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/build_config/bk_build_example.html "../../../../en/v1.5/developer-guide/build_config/bk_build_example.html")
 
 
 ## 001 - 最小项目[](#build-project-demo "永久链接至标题")

@@ -1,6 +1,5 @@
 # **NETIF APIs**[](#netif-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/network/bk_netif.html "../../../../en/v2.0.1/api-reference/network/bk_netif.html")
 
 
 ## **Netif API Reference**[](#netif-api-reference "永久链接至标题")
@@ -14,7 +13,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_init(void)[](#_CPPv413bk_netif_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_init(void)[](#_CPPv413bk_netif_initv "永久链接至目标")
 :   Initialize the TCP/IP stack.
 
 
@@ -26,7 +25,7 @@
 
         - BK_FAIL: otherwise
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_set_ip4_config([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx, const [netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") *config)[](#_CPPv423bk_netif_set_ip4_config10netif_if_tPK18netif_ip4_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_set_ip4_config([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx, const [netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") *config)[](#_CPPv423bk_netif_set_ip4_config10netif_if_tPK18netif_ip4_config_t "永久链接至目标")
 :   Set netif interface’s IP4 address information.
 
     This function is mainly used to set a static IP on an interface.
@@ -59,7 +58,7 @@
 
         - BK_ERR_NULL_PARAM: config is NULL
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_get_ip4_config([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx, [netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") *config)[](#_CPPv423bk_netif_get_ip4_config10netif_if_tP18netif_ip4_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_get_ip4_config([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx, [netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") *config)[](#_CPPv423bk_netif_get_ip4_config10netif_if_tP18netif_ip4_config_t "永久链接至目标")
 :   Get netif interface’s IP address information.
 
     If the interface is up, IP information is read directly from the TCP/IP stack. If the interface is down, the API just return all 0 information
@@ -76,7 +75,7 @@
 
         - BK_ERR_NULL_PARAM: config is NULL
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_get_ip6_addr_info([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx)[](#_CPPv426bk_netif_get_ip6_addr_info10netif_if_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_get_ip6_addr_info([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx)[](#_CPPv426bk_netif_get_ip6_addr_info10netif_if_t "永久链接至目标")
 :   Get netif interface’s IP6 address information.
 
     If the interface is up, IP6 information is read directly from the TCP/IP stack. If the interface is down, the API just return all 0 information
@@ -91,12 +90,12 @@
 
         - BK_ERR_NULL_PARAM: config is NULL
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_dhcpc_start([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx)[](#_CPPv420bk_netif_dhcpc_start10netif_if_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_dhcpc_start([netif_if_t](#_CPPv410netif_if_t "netif_if_t") ifx)[](#_CPPv420bk_netif_dhcpc_start10netif_if_t "永久链接至目标")
 :   Start the DHCP client for specified interface.
 
     If this API is called, the interface will get the IP address via DHCP.
 
-    If the interface is has a static IP and is already up, we need to stop the interface (for STA, call [bk_wifi_sta_stop()](bk_wifi.html#group__bk__api__wifi__v2_1ga6f40eb9305ae390f7d777d652197894b "bk_wifi.html#group__bk__api__wifi__v2_1ga6f40eb9305ae390f7d777d652197894b") or [bk_wifi_sta_disconnect()](bk_wifi.html#group__bk__api__wifi__v2_1gae00bc75a589a66a378037c5adb05bc11 "bk_wifi.html#group__bk__api__wifi__v2_1gae00bc75a589a66a378037c5adb05bc11") to stop the interface) before this API is called, or restart the interface after this API is called.
+    If the interface is has a static IP and is already up, we need to stop the interface (for STA, call [bk_wifi_sta_stop()](bk_wifi.md#group__bk__api__wifi__v2_1ga6f40eb9305ae390f7d777d652197894b "bk_wifi.md#group__bk__api__wifi__v2_1ga6f40eb9305ae390f7d777d652197894b") or [bk_wifi_sta_disconnect()](bk_wifi.md#group__bk__api__wifi__v2_1gae00bc75a589a66a378037c5adb05bc11 "bk_wifi.md#group__bk__api__wifi__v2_1gae00bc75a589a66a378037c5adb05bc11") to stop the interface) before this API is called, or restart the interface after this API is called.
 
     参数
     :   **ifx** – netif interface ID, currently only support NETIF_IF_STA.
@@ -106,7 +105,7 @@
 
         - BK_ERR_NETIF_IF: invalid netif interface ID
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_netif_static_ip([netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") static_ip4_config)[](#_CPPv418bk_netif_static_ip18netif_ip4_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_netif_static_ip([netif_ip4_config_t](#_CPPv418netif_ip4_config_t "netif_ip4_config_t") static_ip4_config)[](#_CPPv418bk_netif_static_ip18netif_ip4_config_t "永久链接至目标")
 :   this function is only for the interface of NETIF_IF_STA to set a static IP .
 
     call back this function in netif_wifi_event_cb()(in components/bk_netif/bk_netif.c) when case EVENT_WIFI_STA_CONNECTED, and pass the param static_ip4_config includes ip, mask, gateway and dns for your static IP config. example: switch (event_id) { case EVENT_WIFI_STA_CONNECTED: #if CONFIG_LWIP bk_netif_static_ip(static_ip4_config); sta_ip_start(); #endif

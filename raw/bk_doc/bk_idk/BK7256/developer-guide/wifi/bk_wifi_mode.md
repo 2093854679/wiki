@@ -158,4 +158,3 @@ net p2p enable
 
 P2P功能开发需求请联系BEKEN技术支持团队
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_mode.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_mode.html")

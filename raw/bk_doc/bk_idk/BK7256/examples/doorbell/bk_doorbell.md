@@ -1,6 +1,5 @@
 # DOORBELL[](#doorbell "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/doorbell/bk_doorbell.html "../../../../en/v1.5/examples/doorbell/bk_doorbell.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

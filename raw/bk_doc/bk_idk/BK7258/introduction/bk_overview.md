@@ -1,6 +1,5 @@
 # 概述[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/introduction/bk_overview.html "../../../en/v2.0.1/introduction/bk_overview.html")
 
 Armino 为博通集成（BEKEN）新一代智能物联网（AIoT）软件开发框架，旨在协助开发者基于 BEKEN 芯片平台快速开发智能物联网产品，满足用户对BT/Wi-Fi/低功耗/多媒体等方面的需求。
 当前 Armino 所支持的芯片包括 BK7231N，BK7258，BK7237等。

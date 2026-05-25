@@ -1,56 +1,55 @@
 # User and Developer Guide[](#user-and-developer-guide "永久链接至标题")
 
-[[English]](../../../en/v1.5/developer-guide/index.html "../../../en/v1.5/developer-guide/index.html")
 
 
-- [软件架构与分层](architecture/index.html "architecture/index.html")
+- [软件架构与分层](architecture/index.md "architecture/index.md")
 
-- [构建与配置](build_config/index.html "build_config/index.html")
+- [构建与配置](build_config/index.md "build_config/index.md")
 
-- [系统安全](security/index.html "security/index.html")
+- [系统安全](security/index.md "security/index.md")
 
-- [低功耗与电源管理](power_save/index.html "power_save/index.html")
+- [低功耗与电源管理](power_save/index.md "power_save/index.md")
 
-- [内存与性能](memory_perf/index.html "memory_perf/index.html")
+- [内存与性能](memory_perf/index.md "memory_perf/index.md")
 
-- [1、内存概述](memory_perf/index.html#id2 "memory_perf/index.html#id2")
+- [1、内存概述](memory_perf/index.md#id2 "memory_perf/index.md#id2")
 
-- [2、PSRAM概述](memory_perf/index.html#psram "memory_perf/index.html#psram")
+- [2、PSRAM概述](memory_perf/index.md#psram "memory_perf/index.md#psram")
 
-- [3. PSRAM 划分](memory_perf/index.html#id3 "memory_perf/index.html#id3")
+- [3. PSRAM 划分](memory_perf/index.md#id3 "memory_perf/index.md#id3")
 
-- [设备管理框架](driver_model/index.html "driver_model/index.html")
+- [设备管理框架](driver_model/index.md "driver_model/index.md")
 
-- [外设与驱动](peripheral/index.html "peripheral/index.html")
+- [外设与驱动](peripheral/index.md "peripheral/index.md")
 
-- [事件机制](event/index.html "event/index.html")
+- [事件机制](event/index.md "event/index.md")
 
-- [出错与日志](error_log/index.html "error_log/index.html")
+- [出错与日志](error_log/index.md "error_log/index.md")
 
-- [系统调试](debug_trace/index.html "debug_trace/index.html")
+- [系统调试](debug_trace/index.md "debug_trace/index.md")
 
-- [Wi-Fi](wifi/index.html "wifi/index.html")
+- [Wi-Fi](wifi/index.md "wifi/index.md")
 
-- [Bluetooth](bluetooth/index.html "bluetooth/index.html")
+- [Bluetooth](bluetooth/index.md "bluetooth/index.md")
 
-- [HTTP](http/index.html "http/index.html")
+- [HTTP](http/index.md "http/index.md")
 
-- [OS 抽象层](os_abstraction/index.html "os_abstraction/index.html")
+- [OS 抽象层](os_abstraction/index.md "os_abstraction/index.md")
 
-- [OS 移植指南](porting/index.html "porting/index.html")
+- [OS 移植指南](porting/index.md "porting/index.md")
 
-- [Bootloader和OTA](bootloader/index.html "bootloader/index.html")
+- [Bootloader和OTA](bootloader/index.md "bootloader/index.md")
 
-- [特定芯片相关指南](boards/index.html "boards/index.html")
+- [特定芯片相关指南](boards/index.md "boards/index.md")
 
-- [特定 CPU 相关指南](cpu/index.html "cpu/index.html")
+- [特定 CPU 相关指南](cpu/index.md "cpu/index.md")
 
-- [用例编写](examples/index.html "examples/index.html")
+- [用例编写](examples/index.md "examples/index.md")
 
-- [文档系统](documentation/index.html "documentation/index.html")
+- [文档系统](documentation/index.md "documentation/index.md")
 
-- [分区规范](partition_specification/index.html "partition_specification/index.html")
+- [分区规范](partition_specification/index.md "partition_specification/index.md")
 
-- [声网开发指南](agora/index.html "agora/index.html")
+- [声网开发指南](agora/index.md "agora/index.md")
 
-- [华镇语音识别开发指南](wanson_asr/index.html "wanson_asr/index.html")
+- [华镇语音识别开发指南](wanson_asr/index.md "wanson_asr/index.md")

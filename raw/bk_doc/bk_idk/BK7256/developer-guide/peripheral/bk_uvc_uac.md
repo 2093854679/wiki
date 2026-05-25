@@ -1,6 +1,5 @@
 # UVC&UAC使用指南[](#uvc-uac "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/peripheral/bk_uvc_uac.html "../../../../en/v1.5/developer-guide/peripheral/bk_uvc_uac.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

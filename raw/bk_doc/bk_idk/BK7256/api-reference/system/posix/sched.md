@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/sched.h>;
 > - 定义了系统调度相关的接口
 
-[[English]](../../../../../en/v1.5/api-reference/system/posix/sched.html "../../../../../en/v1.5/api-reference/system/posix/sched.html")
 
 
 ## Header File[](#header-file "永久链接至标题")

@@ -1,12 +1,11 @@
 # 蓝牙[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/bluetooth/index.html "../../../../en/v1.5/api-reference/bluetooth/index.html")
 
 
-- [BLE](ble.html "ble.html")
+- [BLE](ble.md "ble.md")
 
-- [BT](bt.html "bt.html")
+- [BT](bt.md "bt.md")
 
-- [DM_BLE](dm_ble.html "dm_ble.html")
+- [DM_BLE](dm_ble.md "dm_ble.md")
 
-- [DM_BT](dm_bt.html "dm_bt.html")
+- [DM_BT](dm_bt.md "dm_bt.md")

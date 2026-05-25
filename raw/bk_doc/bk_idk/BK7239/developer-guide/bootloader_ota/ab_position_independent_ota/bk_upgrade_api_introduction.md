@@ -1,6 +1,5 @@
 # AB分区位置无关的升级性格接口介绍[](#ab "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_api_introduction.html "../../../../../en/v2.2.1/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_api_introduction.html")
 
 
 - 1 获取当前的执行分区；

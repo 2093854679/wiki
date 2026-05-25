@@ -1,6 +1,5 @@
 # USB Host UVC+UAC[](#usb-host-uvc-uac "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/api-reference/peripheral/usb/bk_usbh_uvc_uac.html "../../../../../en/v2.0.1/api-reference/peripheral/usb/bk_usbh_uvc_uac.html")
 
 uvc_uac_api_common是BK7258的 USB UVC + UAC 主机驱动程序，支持从 USB 设备读取/写入/控制多媒体流。当前最多同时支持 1 路摄像头 + 1 路麦克风 + 1 路播放器数据流。
 具体的综合使用示例，请参考avdk多媒体代码，谢谢。
@@ -109,7 +108,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uvc_uac_register_callback([bk_uvc_uac_app_callback](../bk_usb.html#_CPPv423bk_uvc_uac_app_callback "bk_uvc_uac_app_callback") *uvc_uac_all_cb)[](#_CPPv428bk_uvc_uac_register_callbackP23bk_uvc_uac_app_callback "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uvc_uac_register_callback([bk_uvc_uac_app_callback](../bk_usb.md#_CPPv423bk_uvc_uac_app_callback "bk_uvc_uac_app_callback") *uvc_uac_all_cb)[](#_CPPv428bk_uvc_uac_register_callbackP23bk_uvc_uac_app_callback "永久链接至目标")
 :   Registering the callback function for UVC and UAC fusion devices.
 
     Register the corresponding callback function based on the structure, and be sure to fill in the specific type to facilitate the management of the callback function parameter: uvc_uac_all_cb E_USB_DEVICE_T dev; FUNCPTR uvc_uac_connect_cb; FUNCPTR uvc_uac_disconnect_cb;
@@ -119,7 +118,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_connect_callback(void *param)[](#_CPPv436bk_usb_uvc_register_connect_callbackPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_connect_callback(void *param)[](#_CPPv436bk_usb_uvc_register_connect_callbackPv "永久链接至目标")
 :   UVC connect the callback function registration function registration.
 
     This API connect the callback:
@@ -136,7 +135,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_disconnect_callback(void *param)[](#_CPPv439bk_usb_uvc_register_disconnect_callbackPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_disconnect_callback(void *param)[](#_CPPv439bk_usb_uvc_register_disconnect_callbackPv "永久链接至目标")
 :   UVC disconnect the callback function registration function registration.
 
     This API disconnect the callback:
@@ -153,31 +152,31 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_get_param([bk_uvc_device_brief_info_t](../bk_usb.html#_CPPv426bk_uvc_device_brief_info_t "bk_uvc_device_brief_info_t") *uvc_device_info)[](#_CPPv420bk_usb_uvc_get_paramP26bk_uvc_device_brief_info_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_get_param([bk_uvc_device_brief_info_t](../bk_usb.md#_CPPv426bk_uvc_device_brief_info_t "bk_uvc_device_brief_info_t") *uvc_device_info)[](#_CPPv420bk_usb_uvc_get_paramP26bk_uvc_device_brief_info_t "永久链接至目标")
 :   Obtain UVC relate parameters.
 
     Including basic parameters,VID PID FORMAT FRAME EndPoint
 
-    parameter: uvc_device_info uint16_t vendor_id; uint16_t product_id; [bk_uvc_format_index](../bk_usb.html#structbk__uvc__format__index "../bk_usb.html#structbk__uvc__format__index") format_index; [bk_uvc_all_frame](../bk_usb.html#structbk__uvc__all__frame "../bk_usb.html#structbk__uvc__all__frame") all_frame; uint32_t endpoints_num; struct [s_bk_usb_endpoint_descriptor](../bk_usb.html#structs__bk__usb__endpoint__descriptor "../bk_usb.html#structs__bk__usb__endpoint__descriptor") *ep_desc;
+    parameter: uvc_device_info uint16_t vendor_id; uint16_t product_id; [bk_uvc_format_index](../bk_usb.md#structbk__uvc__format__index "../bk_usb.md#structbk__uvc__format__index") format_index; [bk_uvc_all_frame](../bk_usb.md#structbk__uvc__all__frame "../bk_usb.md#structbk__uvc__all__frame") all_frame; uint32_t endpoints_num; struct [s_bk_usb_endpoint_descriptor](../bk_usb.md#structs__bk__usb__endpoint__descriptor "../bk_usb.md#structs__bk__usb__endpoint__descriptor") *ep_desc;
 
     返回
     :   - BK_OK: succeed
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_set_param([bk_uvc_config_t](../bk_usb.html#_CPPv415bk_uvc_config_t "bk_uvc_config_t") *uvc_config)[](#_CPPv420bk_usb_uvc_set_paramP15bk_uvc_config_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_set_param([bk_uvc_config_t](../bk_usb.md#_CPPv415bk_uvc_config_t "bk_uvc_config_t") *uvc_config)[](#_CPPv420bk_usb_uvc_set_paramP15bk_uvc_config_t "永久链接至目标")
 :   Configure the basic parameters for starting UVC.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
 
-    parameter: uvc_config uint16_t vendor_id; uint16_t product_id; uint16_t width; uint16_t height; uint32_t fps; uint16_t frame_index; uint16_t format_index; struct [s_bk_usb_endpoint_descriptor](../bk_usb.html#structs__bk__usb__endpoint__descriptor "../bk_usb.html#structs__bk__usb__endpoint__descriptor") *ep_desc;
+    parameter: uvc_config uint16_t vendor_id; uint16_t product_id; uint16_t width; uint16_t height; uint32_t fps; uint16_t frame_index; uint16_t format_index; struct [s_bk_usb_endpoint_descriptor](../bk_usb.md#structs__bk__usb__endpoint__descriptor "../bk_usb.md#structs__bk__usb__endpoint__descriptor") *ep_desc;
 
     返回
     :   - BK_OK: succeed
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_transfer_buffer_ops(void *ops)[](#_CPPv439bk_usb_uvc_register_transfer_buffer_opsPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_register_transfer_buffer_ops(void *ops)[](#_CPPv439bk_usb_uvc_register_transfer_buffer_opsPv "永久链接至目标")
 :   Start UVC stream transmission.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
@@ -189,7 +188,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uvc_start(void)[](#_CPPv412bk_uvc_startv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uvc_start(void)[](#_CPPv412bk_uvc_startv "永久链接至目标")
 :   Start UVC stream transmission.
 
     USB video camera data transfer starts:
@@ -206,9 +205,9 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uvc_dual_start(void)[](#_CPPv417bk_uvc_dual_startv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uvc_dual_start(void)[](#_CPPv417bk_uvc_dual_startv "永久链接至目标")
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uvc_stop(void)[](#_CPPv411bk_uvc_stopv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uvc_stop(void)[](#_CPPv411bk_uvc_stopv "永久链接至目标")
 :   Stop UVC stream transmission.
 
     USB video camera data transfer stops:
@@ -223,9 +222,9 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uvc_dual_stop(void)[](#_CPPv416bk_uvc_dual_stopv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uvc_dual_stop(void)[](#_CPPv416bk_uvc_dual_stopv "永久链接至目标")
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_check_support_attribute(uint32_t attribute)[](#_CPPv434bk_usb_uvc_check_support_attribute8uint32_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_check_support_attribute(uint32_t attribute)[](#_CPPv434bk_usb_uvc_check_support_attribute8uint32_t "永久链接至目标")
 :   Check whether the attribute configuration is supported.
 
     After connecting the UVC device, determine whether the attribute operation is supported by calling this API:
@@ -242,7 +241,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_attribute_op([E_USB_ATTRIBUTE_OP](../bk_usb.html#_CPPv418E_USB_ATTRIBUTE_OP "E_USB_ATTRIBUTE_OP") ops, uint32_t attribute, uint32_t *param)[](#_CPPv423bk_usb_uvc_attribute_op18E_USB_ATTRIBUTE_OP8uint32_tP8uint32_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uvc_attribute_op([E_USB_ATTRIBUTE_OP](../bk_usb.md#_CPPv418E_USB_ATTRIBUTE_OP "E_USB_ATTRIBUTE_OP") ops, uint32_t attribute, uint32_t *param)[](#_CPPv423bk_usb_uvc_attribute_op18E_USB_ATTRIBUTE_OP8uint32_tP8uint32_t "永久链接至目标")
 :   Set camera attributes values.
 
     This API set/get camera attributes values:
@@ -267,7 +266,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_connect_callback(void *param)[](#_CPPv436bk_usb_uac_register_connect_callbackPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_connect_callback(void *param)[](#_CPPv436bk_usb_uac_register_connect_callbackPv "永久链接至目标")
 :   UAC connect the callback function registration function registration.
 
     This API disconnect the callback:
@@ -284,7 +283,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_disconnect_callback(void *param)[](#_CPPv439bk_usb_uac_register_disconnect_callbackPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_disconnect_callback(void *param)[](#_CPPv439bk_usb_uac_register_disconnect_callbackPv "永久链接至目标")
 :   UAC disconnect the callback function registration function registration.
 
     This API disconnect the callback:
@@ -301,7 +300,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_get_param([bk_uac_device_brief_info_t](../bk_usb.html#_CPPv426bk_uac_device_brief_info_t "bk_uac_device_brief_info_t") *uac_device_info)[](#_CPPv420bk_usb_uac_get_paramP26bk_uac_device_brief_info_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_get_param([bk_uac_device_brief_info_t](../bk_usb.md#_CPPv426bk_uac_device_brief_info_t "bk_uac_device_brief_info_t") *uac_device_info)[](#_CPPv420bk_usb_uac_get_paramP26bk_uac_device_brief_info_t "永久链接至目标")
 :   Obtain UAC relate parameters.
 
     Including basic parameters,VID PID mic_samples_frequence spk_samples_frequence
@@ -313,7 +312,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_param([bk_uac_config_t](../bk_usb.html#_CPPv415bk_uac_config_t "bk_uac_config_t") *uac_config)[](#_CPPv420bk_usb_uac_set_paramP15bk_uac_config_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_param([bk_uac_config_t](../bk_usb.md#_CPPv415bk_uac_config_t "bk_uac_config_t") *uac_config)[](#_CPPv420bk_usb_uac_set_paramP15bk_uac_config_t "永久链接至目标")
 :   Configure the basic parameters for starting UAC.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
@@ -325,7 +324,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_mic_param([bk_uac_mic_config_t](../bk_usb.html#_CPPv419bk_uac_mic_config_t "bk_uac_mic_config_t") *uac_mic_config)[](#_CPPv424bk_usb_uac_set_mic_paramP19bk_uac_mic_config_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_mic_param([bk_uac_mic_config_t](../bk_usb.md#_CPPv419bk_uac_mic_config_t "bk_uac_mic_config_t") *uac_mic_config)[](#_CPPv424bk_usb_uac_set_mic_paramP19bk_uac_mic_config_t "永久链接至目标")
 :   Configure the basic parameters for starting Mic.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
@@ -337,7 +336,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_spk_param([bk_uac_spk_config_t](../bk_usb.html#_CPPv419bk_uac_spk_config_t "bk_uac_spk_config_t") *uac_spk_config)[](#_CPPv424bk_usb_uac_set_spk_paramP19bk_uac_spk_config_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_set_spk_param([bk_uac_spk_config_t](../bk_usb.md#_CPPv419bk_uac_spk_config_t "bk_uac_spk_config_t") *uac_spk_config)[](#_CPPv424bk_usb_uac_set_spk_paramP19bk_uac_spk_config_t "永久链接至目标")
 :   Configure the basic parameters for starting Speaker.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
@@ -349,7 +348,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_transfer_buffer_ops(void *ops)[](#_CPPv439bk_usb_uac_register_transfer_buffer_opsPv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_register_transfer_buffer_ops(void *ops)[](#_CPPv439bk_usb_uac_register_transfer_buffer_opsPv "永久链接至目标")
 :   Start UVC stream transmission.
 
     Execute the command according to the configured parameters, please fill in the parameters correctly. Prevent parameter requirements that cannot be executed
@@ -361,7 +360,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uac_start_mic(void)[](#_CPPv416bk_uac_start_micv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uac_start_mic(void)[](#_CPPv416bk_uac_start_micv "永久链接至目标")
 :   Start UAC mic stream transmission.
 
     USB audio data transfer starts:
@@ -378,7 +377,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uac_stop_mic(void)[](#_CPPv415bk_uac_stop_micv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uac_stop_mic(void)[](#_CPPv415bk_uac_stop_micv "永久链接至目标")
 :   Stop UAC mic stream transmission.
 
     USB audio data transfer stops:
@@ -393,7 +392,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uac_start_speaker(void)[](#_CPPv420bk_uac_start_speakerv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uac_start_speaker(void)[](#_CPPv420bk_uac_start_speakerv "永久链接至目标")
 :   Start UAC speaker stream transmission.
 
     USB audio data transfer starts:
@@ -410,7 +409,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uac_stop_speaker(void)[](#_CPPv419bk_uac_stop_speakerv "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uac_stop_speaker(void)[](#_CPPv419bk_uac_stop_speakerv "永久链接至目标")
 :   Stop UAC speaker stream transmission.
 
     USB audio data transfer stops:
@@ -425,7 +424,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_check_support_attribute(uint32_t attribute)[](#_CPPv434bk_usb_uac_check_support_attribute8uint32_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_check_support_attribute(uint32_t attribute)[](#_CPPv434bk_usb_uac_check_support_attribute8uint32_t "永久链接至目标")
 :   Check whether the attribute configuration is supported.
 
     After connecting the UAC device, determine whether the attribute operation is supported by calling this API:
@@ -442,7 +441,7 @@ UAC SPK Stop[](#id16 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_attribute_op([E_USB_ATTRIBUTE_OP](../bk_usb.html#_CPPv418E_USB_ATTRIBUTE_OP "E_USB_ATTRIBUTE_OP") ops, uint32_t attribute, uint32_t *param)[](#_CPPv423bk_usb_uac_attribute_op18E_USB_ATTRIBUTE_OP8uint32_tP8uint32_t "永久链接至目标")
+[bk_err_t](../../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_uac_attribute_op([E_USB_ATTRIBUTE_OP](../bk_usb.md#_CPPv418E_USB_ATTRIBUTE_OP "E_USB_ATTRIBUTE_OP") ops, uint32_t attribute, uint32_t *param)[](#_CPPv423bk_usb_uac_attribute_op18E_USB_ATTRIBUTE_OP8uint32_tP8uint32_t "永久链接至目标")
 :   Set camera attributes values.
 
     This API set/get camera attributes values:

@@ -1,6 +1,5 @@
 # 开发者社区[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v1.5/introduction/bk_community.html "../../../en/v1.5/introduction/bk_community.html")
 
 
 ## Github 社区[](#github "永久链接至标题")

@@ -288,4 +288,3 @@ sudo wireshark
 
 抓取无线空口包并检查，是否包含 11ax 信标帧，如果可以正常解析，安装成功。
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_capture.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_capture.html")

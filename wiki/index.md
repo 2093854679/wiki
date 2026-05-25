@@ -1,202 +1,294 @@
 # Wiki Index
 
-*Auto-generated index of 61 articles — 52 summaries, 7 concepts.*
+*Auto-generated index of 67 articles - 58 summaries, 9 concepts.*
 
 ---
 
-## Concepts (7)
 
+## Raw Categories
 
-- [ARM Cortex-M嵌入式开发基础](concepts/arm-cortex-m-embedded-fundamentals.md) — > **TLDR:** ARM Cortex-M嵌入式开发的三层基础：硬件层（寄存器R0-R15、CPSR、异常模式）、启动层（上电→SP初始化→SystemInit→数据搬移→main）和链接层（分散加载LR/ER、map文件分析、内存布局）。
 
+### [BK Docs](categories/bk-doc.md) (6)
 
-- [C语言核心知识体系](concepts/c-language-core-system.md) — > **TLDR:** C语言的三大支柱——内存模型（栈/堆/全局区/代码段）、指针体系（多级指针/函数指针/数组指针）和编译链接（预处理→编译→汇编→链接）；掌握这三块即掌握C语言本质。
 
+- [ARMINO 开发框架概述](summaries/bk/bk-armino-overview.md) - > **TLDR:** ARMINO 是博通集成(Beken)的新一代 AIoT 软件开发框架，基于 CMake+Kconfig，支持 BK7235/7236/7236N/7239 多芯片平台，提供 WiFi/BT/低功耗/多媒体/安全启动的全功能 IoT 开发环境。
 
-- [嵌入式外设通信协议全景对比](concepts/embedded-communication-protocols.md) — > **TLDR:** I2C、SPI、UART三大基础串行总线各有适用场景：I2C适合多设备低速（2线、有地址、带应答）、SPI适合高速全双工（4线、无地址、主控全权）、UART适合点对点异步（2线、无时钟、最简洁）。加上TCP形成从板级到网络的完整通信栈。
 
+- [BK Bootloader & OTA 升级](summaries/bk/bk-bootloader-ota.md) - > **TLDR:** BK7236/7236N/7239 支持 A/B 分区无位置依赖 OTA 升级方案——双固件分区轮流升级、Hash 完整性校验、回滚保护、安全 OTA 签名验证；同时支持传统单分区 Bootloader 方案。
 
-- [嵌入式软件设计模式](concepts/embedded-software-design-patterns.md) — > **TLDR:** 嵌入式软件架构中实现低耦合高内聚的三种核心设计模式——模块注册（IoC控制反转，从Switch-Case到链接器静态注册的演进）、接口聚合（硬件抽象层，含函数指针的结构体统一访问入口）和发布/订阅（事件驱动，时空解耦）。
 
+- [BK 低功耗与电源管理](summaries/bk/bk-low-power.md) - > **TLDR:** BK 芯片低功耗方案涵盖时钟管理、CPU 变频、RTC 深度睡眠、WiFi DTIM 保活和多媒体关断——通过 32K 时钟源选择、FSM 状态机、GPIO/Touch 唤醒实现从微安级到毫安级的动态功耗调节。
 
-- [FreeRTOS内核机制全景](concepts/freertos-kernel-mechanisms.md) — > **TLDR:** FreeRTOS内核的四大核心机制——任务管理（TCB+优先级+状态切换）、调度器（SysTick+ PendSV+上下文切换）、IPC（消息队列+信号量+互斥量）和内存管理（heap_1到heap_5五种方案）。
 
+- [BK Matter 开发框架概述](summaries/bk/bk-matter-overview.md) - > **TLDR:** BK Matter 是博通集成基于 CSA Matter 协议的应用层框架，运行于 BK7235/BK7236/BK7256/BK7258 之上，提供统一的 Matter 设备类型开发、配网、安全通信和多生态接入能力。
 
-- [物联网通信协议全景](concepts/iot-communication-protocols.md) — > **TLDR:** 从板级总线到云端的完整 IoT 通信协议栈——板级用 I2C/SPI/UART、传输层选 WebSocket 或 MQTT+UDP、应用层统一用 MCP（JSON-RPC 2.0）实现设备能力发现和远程调用。
 
+- [BK 安全框架](summaries/bk/bk-security-framework.md) - > **TLDR:** BK 芯片五层安全体系——Secure Boot(启动链校验)、Flash AES(固件加密)、eFuse/OTP(硬件密钥)、LCS(生命周期管理)、FIH(抗故障注入)；支持安全 OTA 升级和完整的证书管理流程。
 
-- [WiFi网络技术栈](concepts/wifi-networking-stack.md) — > **TLDR:** 嵌入式WiFi开发的完整技术栈：从802.11物理层帧结构、连接与安全（扫描→认证→关联→四次握手）、IP层（lwIP/TCP/UDP）、到应用层（MQTT/HTTP/AT指令）和调试工具（Omnipeek/Wireshark抓包分析）。
 
 
 
-## Summaries (52)
+- ... and 1 more
 
 
-- [ARM寄存器 R0-R15详解](summaries/arm-registers.md) — > **TLDR:** ARM处理器37个寄存器（31通用+6状态）的完整功能说明：R0-R15的用途、CPSR/SPSR状态寄存器、不同处理器模式下的寄存器映射、ATPCS调用约定。
 
+### [Study Note](categories/study-note.md) (42)
 
-- [bin & map文件分析](summaries/bin-map-analysis.md) — > **TLDR:** 编译产出的.bin和.map文件解读方法——通过map文件分析代码/数据/符号的空间分布，定位内存溢出和优化目标。
 
+- [ARM寄存器 R0-R15详解](summaries/arm-registers.md) - > **TLDR:** ARM处理器37个寄存器（31通用+6状态）的完整功能说明：R0-R15的用途、CPSR/SPSR状态寄存器、不同处理器模式下的寄存器映射、ATPCS调用约定。
 
-- [BK7236 CLI & API参考](summaries/bk7236-cli-api-reference.md) — > **TLDR:** BK7236 ARMINO SDK的CLI命令和API速查手册——覆盖WiFi、BLE、GPIO、UART、SPI、I2C、PWM、ADC、DMA、电源管理、安全启动和属性库的完整接口参考。
 
+- [bin & map文件分析](summaries/bin-map-analysis.md) - > **TLDR:** 编译产出的.bin和.map文件解读方法——通过map文件分析代码/数据/符号的空间分布，定位内存溢出和优化目标。
 
-- [BLE协议概述](summaries/ble-protocol-overview.md) — > **TLDR:** BLE（蓝牙低功耗）协议栈分层架构——PHY/LL/HCI/GAP/L2CAP/SMP/ATT/GATT；核心概念包括GAP角色（Peripheral/Central）和GATT数据模型（Service/Characteristic/UUID）。
 
+- [BK7236 CLI & API参考](summaries/bk/bk7236-cli-api-reference.md) - > **TLDR:** BK7236 ARMINO SDK的CLI命令和API速查手册——覆盖WiFi、BLE、GPIO、UART、SPI、I2C、PWM、ADC、DMA、电源管理、安全启动和属性库的完整接口参考。
 
-- [BluFi 配网（集成 esp-wifi-connect）](summaries/blufi-wifi-provisioning.md) — > **TLDR:** 通过 BLE BluFi 协议实现 ESP32 Wi-Fi 配网——手机 App 通过蓝牙发送 Wi-Fi 凭证，设备写入 NVS 后自动连接；需在 menuconfig 中关闭 Hotspot 配网避免冲突。
 
+- [BLE协议概述](summaries/ble-protocol-overview.md) - > **TLDR:** BLE（蓝牙低功耗）协议栈分层架构——PHY/LL/HCI/GAP/L2CAP/SMP/ATT/GATT；核心概念包括GAP角色（Peripheral/Central）和GATT数据模型（Service/Characteristic/UUID）。
 
-- [源代码、目标文件、可执行文件、静态库、动态库](summaries/c-compilation-pipeline.md) — > **TLDR:** C语言编译链接全流程：预处理→编译→汇编→链接，以及静态库(.a/.lib)和动态库(.so/.dll)的原理、制作和使用。
 
+- [源代码、目标文件、可执行文件、静态库、动态库](summaries/c-compilation-pipeline.md) - > **TLDR:** C语言编译链接全流程：预处理→编译→汇编→链接，以及静态库(.a/.lib)和动态库(.so/.dll)的原理、制作和使用。
 
-- [函数指针](summaries/c-function-pointers.md) — > **TLDR:** 函数指针本质是指向代码段函数入口地址的指针变量，用于实现回调、OOP模拟和动态行为绑定。
 
 
-- [C语言基础语法](summaries/c-language-basics.md) — > **TLDR:** 系统梳理C语言20个核心语法点：数据类型、变量、常量、数组、函数、控制语句、结构体、指针、函数指针与回调、字符串、内存管理、预处理、typedef、枚举、联合体、位域、位操作、关键字、可变参数及高级模式（泛型/OOP模拟）。
 
+- ... and 37 more
 
-- [C语言内存管理](summaries/c-memory-management.md) — > **TLDR:** C语言内存模型：栈/堆/全局区/代码段的划分、malloc/free的使用与常见陷阱、内存泄漏和野指针的防范。
 
 
-- [C语言命名规范](summaries/c-naming-conventions.md) — > **TLDR:** C语言项目命名规范总览——变量、函数、类型、宏、文件的命名规则与最佳实践，强调代码可读性和一致性。
+### [Desktop Pet](categories/desktop-pet.md) (10)
 
 
-- [栈（Stack）详解](summaries/c-stack-mechanism.md) — > **TLDR:** 栈是LIFO的后进先出数据结构，程序执行的核心内存区域，支撑函数调用、参数传递、局部变量分配和返回地址保存。
+- [BluFi 配网（集成 esp-wifi-connect）](summaries/blufi-wifi-provisioning.md) - > **TLDR:** 通过 BLE BluFi 协议实现 ESP32 Wi-Fi 配网——手机 App 通过蓝牙发送 Wi-Fi 凭证，设备写入 NVS 后自动连接；需在 menuconfig 中关闭 Hotspot 配网避免冲突。
 
 
-- [CMake构建系统](summaries/cmake-build-system.md) — > **TLDR:** CMake跨平台构建系统教程——从基础的`CMakeLists.txt`编写，到库的创建和链接、接口需求传递、条件编译和安装导出。
+- [小智AI自定义开发板指南](summaries/custom-board-guide.md) - > **TLDR:** 为小智AI创建自定义开发板的完整步骤——目录结构（xxx_board.cc/config.h/config.json）、板级初始化（I2C/SPI/Display/Audio/Buttons）、Kconfig 和 CMakeLists 集成、编译打包。
 
 
-- [CRC循环冗余校验](summaries/crc-checksum.md) — > **TLDR:** CRC用模2除法（异或运算）在数据帧后附加校验码，接收端验证余数是否为0来判断数据完整性。多项式选择决定检错能力，广泛应用于网络通信和存储校验。
+- [代码风格指南（clang-format）](summaries/desktop-pet-code-style.md) - > **TLDR:** 项目使用 clang-format + Google C++ 风格统一代码格式，4 空格缩进、100 字符行宽、Attach 大括号风格；VSCode/CLion 均可集成。
 
 
-- [Cursor嵌入式编码规则](summaries/cursor-embedded-rules.md) — > **TLDR:** Cursor AI辅助嵌入式开发的规则体系——5个专用规则文件覆盖驱动开发、固件开发、编码规范、硬件接口和中断优化，实现AI生成代码的质量控制。
+- [桌面宠物项目文档合集](summaries/desktop-pet-docs.md) - > **TLDR:** 智能桌面萌宠（Desktop Pet）项目的完整开发文档——涵盖 SD 卡 BMP 读取、WiFi 配网、GIF 播放、固件体积对比、UI 设计、宠物交互、养成系统、Web 服务、MCP 集成、闹钟/充电动画等 18 个子系统。
 
 
-- [小智AI自定义开发板指南](summaries/custom-board-guide.md) — > **TLDR:** 为小智AI创建自定义开发板的完整步骤——目录结构（xxx_board.cc/config.h/config.json）、板级初始化（I2C/SPI/Display/Audio/Buttons）、Kconfig 和 CMakeLists 集成、编译打包。
+- [桌面宠物任务拓扑与通信](summaries/desktop-pet-task-topology.md) - > **TLDR:** FreeRTOS 12 类任务的优先级拓扑图——音频(P6/P5) > 显示(P4) > 按键/传感器(P3) > UI刷新(P2) > 网络服务(P1)；事件驱动+消息队列的模块间通信架构。
 
 
-- [代码风格指南（clang-format）](summaries/desktop-pet-code-style.md) — > **TLDR:** 项目使用 clang-format + Google C++ 风格统一代码格式，4 空格缩进、100 字符行宽、Attach 大括号风格；VSCode/CLion 均可集成。
 
 
-- [桌面宠物项目文档合集](summaries/desktop-pet-docs.md) — > **TLDR:** 智能桌面萌宠（Desktop Pet）项目的完整开发文档——涵盖 SD 卡 BMP 读取、WiFi 配网、GIF 播放、固件体积对比、UI 设计、宠物交互、养成系统、Web 服务、MCP 集成、闹钟/充电动画等 18 个子系统。
+- ... and 5 more
 
 
-- [桌面宠物任务拓扑与通信](summaries/desktop-pet-task-topology.md) — > **TLDR:** FreeRTOS 12 类任务的优先级拓扑图——音频(P6/P5) > 显示(P4) > 按键/传感器(P3) > UI刷新(P2) > 网络服务(P1)；事件驱动+消息队列的模块间通信架构。
 
 
-- [嵌入式面经](summaries/embedded-interview-prep.md) — > **TLDR:** 嵌入式软件岗位面试题全集——覆盖C语言（struct对齐/volatile/static/内存管理）、RTOS（FreeRTOS移植/上下文切换/优先级反转/互斥量vs信号量）、通信协议（I2C/CAN/SPI/WiFi）、系统架构和开发工具（GDB/CMake/Makefile/OTA）。
 
+## Concepts (9)
 
-- [嵌入式设计模式：模块注册机制](summaries/embedded-registration-patterns.md) — > **TLDR:** 四层递进的模块注册机制——从Switch-Case硬编码到列表式、动态注册式、链接器驱动的静态注册式，再到发布/订阅事件驱动模式，展示嵌入式软件架构的解耦演进之路。
 
+- [ARM Cortex-M嵌入式开发基础](concepts/arm-cortex-m-embedded-fundamentals.md) - > **TLDR:** ARM Cortex-M嵌入式开发的三层基础：硬件层（寄存器R0-R15、CPSR、异常模式）、启动层（上电→SP初始化→SystemInit→数据搬移→main）和链接层（分散加载LR/ER、map文件分析、内存布局）。
 
-- [FreeRTOS数据结构 — 链表](summaries/freertos-data-structures.md) — > **TLDR:** FreeRTOS核心数据结构——双向循环链表（ListItem_t/List_t），用根节点+有序插入实现任务就绪列表、延时列表和事件列表的高效管理。
 
+- [BK ARMINO 开发框架](concepts/bk-armino-framework.md) - > **TLDR:** ARMINO 是博通集成(Beken)的新一代 AIoT 软件开发框架，基于 CMake+Kconfig 构建系统，支持多芯片(BK7235/7236/7236N/7239)、多 RTOS(FreeRTOS/AliOS/LiteOS/RT-Thread)、WiFi+BT+低功耗+多媒体+安全启动的全功能 IoT 开发平台。
 
-- [FreeRTOS深度分析](summaries/freertos-deep-dive.md) — > **TLDR:** FreeRTOS内核源码深度剖析——任务优先级管理（链表操作与TCB切换）、调度器启动、Tick与延时唤醒、FromISR机制、五种内存管理方案（heap_1-heap_5）和RISC-V移植（上下文保存与恢复）。
 
+- [BK WiFi-BLE 共存与功耗权衡](concepts/bk-wifi-ble-coexistence.md) - > **TLDR:** BK7235/7236 的 WiFi 和 BLE 是独立驱动，可以同时运行。PM 模块通过独立休眠投票机制协调两者——只有当 WiFi 和 BLE 都投票睡眠后 MCU 才进入低电压模式。同时开启意味着 MCU 更难深度睡眠，不需要 BLE 时应关闭以降功耗。
 
-- [FreeRTOS工程创建](summaries/freertos-project-setup.md) — > **TLDR:** 从裸机到FreeRTOS的工程搭建：MDK项目配置、启动文件适配（解决堆栈符号错误）、裸机/前后台/多任务三种系统架构对比。
 
+- [C语言核心知识体系](concepts/c-language-core-system.md) - > **TLDR:** C语言的三大支柱——内存模型（栈/堆/全局区/代码段）、指针体系（多级指针/函数指针/数组指针）和编译链接（预处理→编译→汇编→链接）；掌握这三块即掌握C语言本质。
 
-- [Git版本控制](summaries/git-basics.md) — > **TLDR:** Git常用工作流和命令速查——仓库管理、分支操作、提交规范、合并与变基、日志查看、暂存与重置、标签管理。
 
+- [嵌入式外设通信协议全景对比](concepts/embedded-communication-protocols.md) - > **TLDR:** I2C、SPI、UART三大基础串行总线各有适用场景：I2C适合多设备低速（2线、有地址、带应答）、SPI适合高速全双工（4线、无地址、主控全权）、UART适合点对点异步（2线、无时钟、最简洁）。加上TCP形成从板级到网络的完整通信栈。
 
-- [黄国航 学习文档记录](summaries/huang-learning-log.md) — > **TLDR:** BK7236芯片实习期间的学习日志——包括四阶段学习计划、日常工作记录（SOFTAP配网/TCP AT指令/DTIM10保活）、CLI命令速查、项目开发规范和问题记录。
 
+- [嵌入式软件设计模式](concepts/embedded-software-design-patterns.md) - > **TLDR:** 嵌入式软件架构中实现低耦合高内聚的三种核心设计模式——模块注册（IoC控制反转，从Switch-Case到链接器静态注册的演进）、接口聚合（硬件抽象层，含函数指针的结构体统一访问入口）和发布/订阅（事件驱动，时空解耦）。
 
-- [I2C通信协议](summaries/i2c-protocol.md) — > **TLDR:** I2C是两线制（SCL+SDA）同步半双工串行总线，支持多主多从、100kHz-3.4MHz速率、7/10位地址、开漏+上拉的线与逻辑、硬件仲裁和时钟拉伸机制。
 
+- [FreeRTOS内核机制全景](concepts/freertos-kernel-mechanisms.md) - > **TLDR:** FreeRTOS内核的四大核心机制——任务管理（TCB+优先级+状态切换）、调度器（SysTick+ PendSV+上下文切换）、IPC（消息队列+信号量+互斥量）和内存管理（heap_1到heap_5五种方案）。
 
-- [一周熟悉与开发计划](summaries/internship-plan.md) — > **TLDR:** 嵌入式实习前两周的详细计划——Phase 1（6天熟悉芯片SDK/外设/协议栈/文件系统/构建系统）过渡到Phase 2（5个task开发：SOFTAP配网、TCP AT指令、DTIM10保活、SPI通信、HTTP上传）。
 
+- [物联网通信协议全景](concepts/iot-communication-protocols.md) - > **TLDR:** 从板级总线到云端的完整 IoT 通信协议栈——板级用 I2C/SPI/UART、传输层选 WebSocket 或 MQTT+UDP、应用层统一用 MCP（JSON-RPC 2.0）实现设备能力发现和远程调用。
 
-- [面试记录](summaries/interview-records.md) — > **TLDR:** 三场嵌入式面试的QA实录——博坦（TCP握手/I2C/OTA/FreeRTOS栈/端序）、博通集成（项目经验/静态变量/.bss段/短路求值）、邦普（SDK对比/I2C细节/OTA Flash分区/调试方法）。
 
+- [WiFi网络技术栈](concepts/wifi-networking-stack.md) - > **TLDR:** 嵌入式WiFi开发的完整技术栈：从802.11物理层帧结构、连接与安全（扫描→认证→关联→四次握手）、IP层（lwIP/TCP/UDP）、到应用层（MQTT/HTTP/AT指令）和调试工具（Omnipeek/Wireshark抓包分析）。
 
-- [中断函数中使用延时和printf的问题](summaries/isr-delay-printf-issue.md) — > **TLDR:** 中断服务程序（ISR）中调用阻塞函数（delay/printf）的危害——中断延迟增大、系统卡死、堆栈溢出；正确的做法是用标志位+主循环或任务处理。
 
 
-- [加载区LR和执行区ER](summaries/lr-er-load-execute-regions.md) — > **TLDR:** ARM分散加载机制——Load Region（LR，加载域）是程序在ROM中的存储位置，Execute Region（ER，执行域）是运行时在RAM中的执行位置；链接器脚本控制LR到ER的映射和自动搬移。
+## Summaries (58)
 
 
-- [MCP (Model Context Protocol) 交互流程](summaries/mcp-protocol.md) — > **TLDR:** MCP 协议用于后台 API 与 ESP32 设备之间的标准化通信——基于 JSON-RPC 2.0，通过 `initialize`→`tools/list`→`tools/call` 流程实现设备能力发现和远程调用。
+- [ARM寄存器 R0-R15详解](summaries/arm-registers.md) - > **TLDR:** ARM处理器37个寄存器（31通用+6状态）的完整功能说明：R0-R15的用途、CPSR/SPSR状态寄存器、不同处理器模式下的寄存器映射、ATPCS调用约定。
 
 
-- [MCP 物联网控制用法](summaries/mcp-usage.md) — > **TLDR:** 通过 MCP 协议的 `tools/call` 实现对 ESP32 设备的物联网控制——工具注册、参数定义、JSON-RPC 调用示例。
+- [bin & map文件分析](summaries/bin-map-analysis.md) - > **TLDR:** 编译产出的.bin和.map文件解读方法——通过map文件分析代码/数据/符号的空间分布，定位内存溢出和优化目标。
 
 
-- [MCU启动流程](summaries/mcu-startup-flow.md) — > **TLDR:** ARM Cortex-M上电后的完整启动序列：复位→SP/PC初始化→SystemInit→__main（数据段搬移+BSS清零）→main()。理解启动流程是嵌入式底层开发的基础。
+- [ARMINO 开发框架概述](summaries/bk/bk-armino-overview.md) - > **TLDR:** ARMINO 是博通集成(Beken)的新一代 AIoT 软件开发框架，基于 CMake+Kconfig，支持 BK7235/7236/7236N/7239 多芯片平台，提供 WiFi/BT/低功耗/多媒体/安全启动的全功能 IoT 开发环境。
 
 
-- [MQTT + UDP 混合通信协议](summaries/mqtt-udp-protocol.md) — > **TLDR:** 双通道设计——MQTT 负责控制消息和 JSON 交换，UDP 负责加密实时音频传输（AES-CTR）；序列号防重放，MQTT 断线自动重连。
+- [BK Bootloader & OTA 升级](summaries/bk/bk-bootloader-ota.md) - > **TLDR:** BK7236/7236N/7239 支持 A/B 分区无位置依赖 OTA 升级方案——双固件分区轮流升级、Hash 完整性校验、回滚保护、安全 OTA 签名验证；同时支持传统单分区 Bootloader 方案。
 
 
-- [OV-Watch代码风格学习](summaries/ovwatch-code-style.md) — > **TLDR:** 基于接口聚合的硬件中间层设计——为每类硬件定义包含函数指针的接口结构体，用总结构体`HW_InterfaceTypeDef`聚合所有设备接口，实现UI/业务与BSP解耦。
+- [BK 低功耗与电源管理](summaries/bk/bk-low-power.md) - > **TLDR:** BK 芯片低功耗方案涵盖时钟管理、CPU 变频、RTC 深度睡眠、WiFi DTIM 保活和多媒体关断——通过 32K 时钟源选择、FSM 状态机、GPIO/Touch 唤醒实现从微安级到毫安级的动态功耗调节。
 
 
-- [PID控制原理](summaries/pid-control.md) — > **TLDR:** PID是最经典的控制算法——比例(P)响应当前误差、积分(I)消除稳态误差、微分(D)预判趋势抑制超调；核心是三个参数的整定和离散化实现。
+- [BK Matter 开发框架概述](summaries/bk/bk-matter-overview.md) - > **TLDR:** BK Matter 是博通集成基于 CSA Matter 协议的应用层框架，运行于 BK7235/BK7236/BK7256/BK7258 之上，提供统一的 Matter 设备类型开发、配网、安全通信和多生态接入能力。
 
 
-- [PWM脉宽调制](summaries/pwm-overview.md) — > **TLDR:** PWM通过调节方波的占空比（高电平时间/周期）来控制模拟量输出，广泛应用于电机调速、LED调光、舵机控制和音频输出。
+- [BK 安全框架](summaries/bk/bk-security-framework.md) - > **TLDR:** BK 芯片五层安全体系——Secure Boot(启动链校验)、Flash AES(固件加密)、eFuse/OTP(硬件密钥)、LCS(生命周期管理)、FIH(抗故障注入)；支持安全 OTA 升级和完整的证书管理流程。
 
 
-- [Python3学习笔记](summaries/python3-study-notes.md) — > **TLDR:** Python3系统学习笔记，涵盖解释器安装、基本语法、数据类型、控制流、函数（参数传递/闭包/装饰器/生成器/迭代器）、数据结构（列表/字典/集合/元组）、模块和包管理。
+- [BK WiFi API v2.0](summaries/bk/bk-wifi-api-v2.md) - > **TLDR:** BK WiFi 驱动 v2.0 是事件驱动架构，支持 STA/AP/Monitor 三种接口独立运行，提供 Common/Interface/Module 三类 API；配置结构体预留字段必须清零保证向前兼容，回调中不应执行繁重操作。
 
 
-- [SPI通信协议](summaries/spi-protocol.md) — > **TLDR:** SPI是四线制（SCLK/MISO/MOSI/CS）全双工同步串行总线，高速（可达数十MHz）、无应答、单主多从，通过时钟极性和相位（CPOL/CPHA）配置四种工作模式。
+- [BK7236 CLI & API参考](summaries/bk/bk7236-cli-api-reference.md) - > **TLDR:** BK7236 ARMINO SDK的CLI命令和API速查手册——覆盖WiFi、BLE、GPIO、UART、SPI、I2C、PWM、ADC、DMA、电源管理、安全启动和属性库的完整接口参考。
 
 
-- [5个实习Task开发记录](summaries/task-development-records.md) — > **TLDR:** BK7236平台5个实习任务的完整开发文档——SOFTAP配网、TCP UART AT指令、WiFi DTIM10 TCP保活、SPI主从通信、HTTP文件上传；每项包含需求分析、技术设计、代码实现和测试要点。
+- [BLE协议概述](summaries/ble-protocol-overview.md) - > **TLDR:** BLE（蓝牙低功耗）协议栈分层架构——PHY/LL/HCI/GAP/L2CAP/SMP/ATT/GATT；核心概念包括GAP角色（Peripheral/Central）和GATT数据模型（Service/Characteristic/UUID）。
 
 
-- [TCP协议基础](summaries/tcp-protocol-basics.md) — > **TLDR:** TCP是面向连接的可靠传输协议，通过三次握手建立连接、四次挥手断开、序列号/确认号保证可靠、滑动窗口控制流量、拥塞控制适应网络。
+- [BluFi 配网（集成 esp-wifi-connect）](summaries/blufi-wifi-provisioning.md) - > **TLDR:** 通过 BLE BluFi 协议实现 ESP32 Wi-Fi 配网——手机 App 通过蓝牙发送 Wi-Fi 凭证，设备写入 NVS 后自动连接；需在 menuconfig 中关闭 Hotspot 配网避免冲突。
 
 
-- [TIM定时器](summaries/tim-timer-overview.md) — > **TLDR:** MCU定时器外设的全面介绍：基本定时、输入捕获（测频/测脉宽）、输出比较/PWM、编码器模式、定时器级联和中断/DMA配合。
+- [源代码、目标文件、可执行文件、静态库、动态库](summaries/c-compilation-pipeline.md) - > **TLDR:** C语言编译链接全流程：预处理→编译→汇编→链接，以及静态库(.a/.lib)和动态库(.so/.dll)的原理、制作和使用。
 
 
-- [Typora画图（Mermaid）](summaries/typora-mermaid-diagrams.md) — > **TLDR:** Typora通过Mermaid代码块支持流程图、时序图、类图、状态图、甘特图和饼图，渲染后可直接导出为图片或PDF。
+- [函数指针](summaries/c-function-pointers.md) - > **TLDR:** 函数指针本质是指向代码段函数入口地址的指针变量，用于实现回调、OOP模拟和动态行为绑定。
 
 
-- [UART串口通信](summaries/uart-protocol.md) — > **TLDR:** UART是异步串行通信协议，两根线（TX/RX），无时钟信号，通过约定波特率和帧格式（起始位+数据位+校验位+停止位）实现数据交换，是最基础、最广泛使用的嵌入式通信方式。
+- [C语言基础语法](summaries/c-language-basics.md) - > **TLDR:** 系统梳理C语言20个核心语法点：数据类型、变量、常量、数组、函数、控制语句、结构体、指针、函数指针与回调、字符串、内存管理、预处理、typedef、枚举、联合体、位域、位操作、关键字、可变参数及高级模式（泛型/OOP模拟）。
 
 
-- [串口接收代码实现](summaries/uart-receive-code.md) — > **TLDR:** STM32 UART接收的完整代码实现：HAL库中断接收、DMA+空闲中断不定长接收、环形缓冲区、超时判断、协议解析框架。
+- [C语言内存管理](summaries/c-memory-management.md) - > **TLDR:** C语言内存模型：栈/堆/全局区/代码段的划分、malloc/free的使用与常见陷阱、内存泄漏和野指针的防范。
 
 
-- [OV-Watch RTOS任务架构](summaries/watch-rtos-architecture.md) — > **TLDR:** OV-Watch智能手表的完整FreeRTOS任务和消息队列架构——9个任务（8级优先级）、6个消息队列、10+定时器协作，实现Active/Idle/Stop三种运行模式的自动切换。
+- [C语言命名规范](summaries/c-naming-conventions.md) - > **TLDR:** C语言项目命名规范总览——变量、函数、类型、宏、文件的命名规则与最佳实践，强调代码可读性和一致性。
 
 
-- [WebSocket 通信协议](summaries/websocket-protocol.md) — > **TLDR:** 设备与服务器通过 WebSocket 进行全双工通信——JSON 文本帧承载控制消息（Hello/Listen/STT/TTS/MCP），二进制帧承载 Opus 音频流；支持 3 种二进制协议版本。
+- [栈（Stack）详解](summaries/c-stack-mechanism.md) - > **TLDR:** 栈是LIFO的后进先出数据结构，程序执行的核心内存区域，支撑函数调用、参数传递、局部变量分配和返回地址保存。
 
 
-- [WiFi 802.11基础](summaries/wifi-basics.md) — > **TLDR:** WiFi 802.11协议栈全景——从五层模型到帧结构、连接流程、安全机制、QoS、帧聚合、漫游和WPA3/SAE，嵌入式WiFi开发的完整知识地图。
+- [CMake构建系统](summaries/cmake-build-system.md) - > **TLDR:** CMake跨平台构建系统教程——从基础的`CMakeLists.txt`编写，到库的创建和链接、接口需求传递、条件编译和安装导出。
 
 
-- [WiFi四次握手详解](summaries/wifi-four-way-handshake.md) — > **TLDR:** WPA/WPA2安全连接的核心流程——4次EAPOL握手完成ANonce/SNonce交换并生成PTK和GTK；涵盖了密钥层次结构、报文结构、抓包分析和SDK代码实现。
+- [CRC循环冗余校验](summaries/crc-checksum.md) - > **TLDR:** CRC用模2除法（异或运算）在数据帧后附加校验码，接收端验证余数是否为0来判断数据完整性。多项式选择决定检错能力，广泛应用于网络通信和存储校验。
 
 
-- [Wi-Fi抓包方法总结](summaries/wifi-packet-capture.md) — > **TLDR:** Wi-Fi抓包两种方案——空中抓包用Omnipeek+专用无线网卡捕获802.11帧，有线端抓包用交换机端口镜像+Wireshark捕获WLAN口数据；含信道配置、解密密钥设置和分析技巧。
+- [Cursor嵌入式编码规则](summaries/cursor-embedded-rules.md) - > **TLDR:** Cursor AI辅助嵌入式开发的规则体系——5个专用规则文件覆盖驱动开发、固件开发、编码规范、硬件接口和中断优化，实现AI生成代码的质量控制。
 
 
-- [WSL2 ESP-IDF 开发完整指南](summaries/wsl2-esp-idf-setup.md) — > **TLDR:** WSL2 下 ESP-IDF 开发环境的完整搭建指南——从 WSL/Ubuntu 安装、ESP-IDF 克隆与工具链配置、USB 设备映射（usbipd）、到 VS Code/Cursor 集成和编译烧录。
+- [小智AI自定义开发板指南](summaries/custom-board-guide.md) - > **TLDR:** 为小智AI创建自定义开发板的完整步骤——目录结构（xxx_board.cc/config.h/config.json）、板级初始化（I2C/SPI/Display/Audio/Buttons）、Kconfig 和 CMakeLists 集成、编译打包。
 
 
-- [小智AI机器人 — 代码框架](summaries/xiaozhi-ai-framework.md) — > **TLDR:** 小智AI是基于ESP32的开源嵌入式AI项目，采用ESP-IDF构建系统，包含多板卡硬件抽象层、OTA升级、MQTT/WebSocket协议栈和多语言资源管理。
+- [代码风格指南（clang-format）](summaries/desktop-pet-code-style.md) - > **TLDR:** 项目使用 clang-format + Google C++ 风格统一代码格式，4 空格缩进、100 字符行宽、Attach 大括号风格；VSCode/CLion 均可集成。
 
 
+- [桌面宠物项目文档合集](summaries/desktop-pet-docs.md) - > **TLDR:** 智能桌面萌宠（Desktop Pet）项目的完整开发文档——涵盖 SD 卡 BMP 读取、WiFi 配网、GIF 播放、固件体积对比、UI 设计、宠物交互、养成系统、Web 服务、MCP 集成、闹钟/充电动画等 18 个子系统。
 
 
-## Outputs (2)
+- [桌面宠物任务拓扑与通信](summaries/desktop-pet-task-topology.md) - > **TLDR:** FreeRTOS 12 类任务的优先级拓扑图——音频(P6/P5) > 显示(P4) > 按键/传感器(P3) > UI刷新(P2) > 网络服务(P1)；事件驱动+消息队列的模块间通信架构。
 
 
-- [BK_IDK 文档抓取记录](outputs/bk-idk-web2md-crawl.md)
+- [嵌入式面经](summaries/embedded-interview-prep.md) - > **TLDR:** 嵌入式软件岗位面试题全集——覆盖C语言（struct对齐/volatile/static/内存管理）、RTOS（FreeRTOS移植/上下文切换/优先级反转/互斥量vs信号量）、通信协议（I2C/CAN/SPI/WiFi）、系统架构和开发工具（GDB/CMake/Makefile/OTA）。
 
 
-- [工程介绍](outputs/project-overview.md)
+- [嵌入式设计模式：模块注册机制](summaries/embedded-registration-patterns.md) - > **TLDR:** 四层递进的模块注册机制——从Switch-Case硬编码到列表式、动态注册式、链接器驱动的静态注册式，再到发布/订阅事件驱动模式，展示嵌入式软件架构的解耦演进之路。
+
+
+- [FreeRTOS数据结构 — 链表](summaries/freertos-data-structures.md) - > **TLDR:** FreeRTOS核心数据结构——双向循环链表（ListItem_t/List_t），用根节点+有序插入实现任务就绪列表、延时列表和事件列表的高效管理。
+
+
+- [FreeRTOS深度分析](summaries/freertos-deep-dive.md) - > **TLDR:** FreeRTOS内核源码深度剖析——任务优先级管理（链表操作与TCB切换）、调度器启动、Tick与延时唤醒、FromISR机制、五种内存管理方案（heap_1-heap_5）和RISC-V移植（上下文保存与恢复）。
+
+
+- [FreeRTOS工程创建](summaries/freertos-project-setup.md) - > **TLDR:** 从裸机到FreeRTOS的工程搭建：MDK项目配置、启动文件适配（解决堆栈符号错误）、裸机/前后台/多任务三种系统架构对比。
+
+
+- [Git版本控制](summaries/git-basics.md) - > **TLDR:** Git常用工作流和命令速查——仓库管理、分支操作、提交规范、合并与变基、日志查看、暂存与重置、标签管理。
+
+
+- [黄国航 学习文档记录](summaries/huang-learning-log.md) - > **TLDR:** BK7236芯片实习期间的学习日志——包括四阶段学习计划、日常工作记录（SOFTAP配网/TCP AT指令/DTIM10保活）、CLI命令速查、项目开发规范和问题记录。
+
+
+- [I2C通信协议](summaries/i2c-protocol.md) - > **TLDR:** I2C是两线制（SCL+SDA）同步半双工串行总线，支持多主多从、100kHz-3.4MHz速率、7/10位地址、开漏+上拉的线与逻辑、硬件仲裁和时钟拉伸机制。
+
+
+- [一周熟悉与开发计划](summaries/internship-plan.md) - > **TLDR:** 嵌入式实习前两周的详细计划——Phase 1（6天熟悉芯片SDK/外设/协议栈/文件系统/构建系统）过渡到Phase 2（5个task开发：SOFTAP配网、TCP AT指令、DTIM10保活、SPI通信、HTTP上传）。
+
+
+- [面试记录](summaries/interview-records.md) - > **TLDR:** 三场嵌入式面试的QA实录——博坦（TCP握手/I2C/OTA/FreeRTOS栈/端序）、博通集成（项目经验/静态变量/.bss段/短路求值）、邦普（SDK对比/I2C细节/OTA Flash分区/调试方法）。
+
+
+- [中断函数中使用延时和printf的问题](summaries/isr-delay-printf-issue.md) - > **TLDR:** 中断服务程序（ISR）中调用阻塞函数（delay/printf）的危害——中断延迟增大、系统卡死、堆栈溢出；正确的做法是用标志位+主循环或任务处理。
+
+
+- [加载区LR和执行区ER](summaries/lr-er-load-execute-regions.md) - > **TLDR:** ARM分散加载机制——Load Region（LR，加载域）是程序在ROM中的存储位置，Execute Region（ER，执行域）是运行时在RAM中的执行位置；链接器脚本控制LR到ER的映射和自动搬移。
+
+
+- [MCP (Model Context Protocol) 交互流程](summaries/mcp-protocol.md) - > **TLDR:** MCP 协议用于后台 API 与 ESP32 设备之间的标准化通信——基于 JSON-RPC 2.0，通过 `initialize`→`tools/list`→`tools/call` 流程实现设备能力发现和远程调用。
+
+
+- [MCP 物联网控制用法](summaries/mcp-usage.md) - > **TLDR:** 通过 MCP 协议的 `tools/call` 实现对 ESP32 设备的物联网控制——工具注册、参数定义、JSON-RPC 调用示例。
+
+
+- [MCU启动流程](summaries/mcu-startup-flow.md) - > **TLDR:** ARM Cortex-M上电后的完整启动序列：复位→SP/PC初始化→SystemInit→__main（数据段搬移+BSS清零）→main()。理解启动流程是嵌入式底层开发的基础。
+
+
+- [MQTT + UDP 混合通信协议](summaries/mqtt-udp-protocol.md) - > **TLDR:** 双通道设计——MQTT 负责控制消息和 JSON 交换，UDP 负责加密实时音频传输（AES-CTR）；序列号防重放，MQTT 断线自动重连。
+
+
+- [OV-Watch代码风格学习](summaries/ovwatch-code-style.md) - > **TLDR:** 基于接口聚合的硬件中间层设计——为每类硬件定义包含函数指针的接口结构体，用总结构体`HW_InterfaceTypeDef`聚合所有设备接口，实现UI/业务与BSP解耦。
+
+
+- [PID控制原理](summaries/pid-control.md) - > **TLDR:** PID是最经典的控制算法——比例(P)响应当前误差、积分(I)消除稳态误差、微分(D)预判趋势抑制超调；核心是三个参数的整定和离散化实现。
+
+
+- [PWM脉宽调制](summaries/pwm-overview.md) - > **TLDR:** PWM通过调节方波的占空比（高电平时间/周期）来控制模拟量输出，广泛应用于电机调速、LED调光、舵机控制和音频输出。
+
+
+- [Python3学习笔记](summaries/python3-study-notes.md) - > **TLDR:** Python3系统学习笔记，涵盖解释器安装、基本语法、数据类型、控制流、函数（参数传递/闭包/装饰器/生成器/迭代器）、数据结构（列表/字典/集合/元组）、模块和包管理。
+
+
+- [SPI通信协议](summaries/spi-protocol.md) - > **TLDR:** SPI是四线制（SCLK/MISO/MOSI/CS）全双工同步串行总线，高速（可达数十MHz）、无应答、单主多从，通过时钟极性和相位（CPOL/CPHA）配置四种工作模式。
+
+
+- [5个实习Task开发记录](summaries/task-development-records.md) - > **TLDR:** BK7236平台5个实习任务的完整开发文档——SOFTAP配网、TCP UART AT指令、WiFi DTIM10 TCP保活、SPI主从通信、HTTP文件上传；每项包含需求分析、技术设计、代码实现和测试要点。
+
+
+- [TCP协议基础](summaries/tcp-protocol-basics.md) - > **TLDR:** TCP是面向连接的可靠传输协议，通过三次握手建立连接、四次挥手断开、序列号/确认号保证可靠、滑动窗口控制流量、拥塞控制适应网络。
+
+
+- [TIM定时器](summaries/tim-timer-overview.md) - > **TLDR:** MCU定时器外设的全面介绍：基本定时、输入捕获（测频/测脉宽）、输出比较/PWM、编码器模式、定时器级联和中断/DMA配合。
+
+
+- [Typora画图（Mermaid）](summaries/typora-mermaid-diagrams.md) - > **TLDR:** Typora通过Mermaid代码块支持流程图、时序图、类图、状态图、甘特图和饼图，渲染后可直接导出为图片或PDF。
+
+
+- [UART串口通信](summaries/uart-protocol.md) - > **TLDR:** UART是异步串行通信协议，两根线（TX/RX），无时钟信号，通过约定波特率和帧格式（起始位+数据位+校验位+停止位）实现数据交换，是最基础、最广泛使用的嵌入式通信方式。
+
+
+- [串口接收代码实现](summaries/uart-receive-code.md) - > **TLDR:** STM32 UART接收的完整代码实现：HAL库中断接收、DMA+空闲中断不定长接收、环形缓冲区、超时判断、协议解析框架。
+
+
+- [OV-Watch RTOS任务架构](summaries/watch-rtos-architecture.md) - > **TLDR:** OV-Watch智能手表的完整FreeRTOS任务和消息队列架构——9个任务（8级优先级）、6个消息队列、10+定时器协作，实现Active/Idle/Stop三种运行模式的自动切换。
+
+
+- [WebSocket 通信协议](summaries/websocket-protocol.md) - > **TLDR:** 设备与服务器通过 WebSocket 进行全双工通信——JSON 文本帧承载控制消息（Hello/Listen/STT/TTS/MCP），二进制帧承载 Opus 音频流；支持 3 种二进制协议版本。
+
+
+- [WiFi 802.11基础](summaries/wifi-basics.md) - > **TLDR:** WiFi 802.11协议栈全景——从五层模型到帧结构、连接流程、安全机制、QoS、帧聚合、漫游和WPA3/SAE，嵌入式WiFi开发的完整知识地图。
+
+
+- [WiFi四次握手详解](summaries/wifi-four-way-handshake.md) - > **TLDR:** WPA/WPA2安全连接的核心流程——4次EAPOL握手完成ANonce/SNonce交换并生成PTK和GTK；涵盖了密钥层次结构、报文结构、抓包分析和SDK代码实现。
+
+
+- [Wi-Fi抓包方法总结](summaries/wifi-packet-capture.md) - > **TLDR:** Wi-Fi抓包两种方案——空中抓包用Omnipeek+专用无线网卡捕获802.11帧，有线端抓包用交换机端口镜像+Wireshark捕获WLAN口数据；含信道配置、解密密钥设置和分析技巧。
+
+
+- [WSL2 ESP-IDF 开发完整指南](summaries/wsl2-esp-idf-setup.md) - > **TLDR:** WSL2 下 ESP-IDF 开发环境的完整搭建指南——从 WSL/Ubuntu 安装、ESP-IDF 克隆与工具链配置、USB 设备映射（usbipd）、到 VS Code/Cursor 集成和编译烧录。
+
+
+- [小智AI机器人 — 代码框架](summaries/xiaozhi-ai-framework.md) - > **TLDR:** 小智AI是基于ESP32的开源嵌入式AI项目，采用ESP-IDF构建系统，包含多板卡硬件抽象层、OTA升级、MQTT/WebSocket协议栈和多语言资源管理。
+
 
 
 
@@ -204,6 +296,98 @@
 
 
 ## Backlink Graph
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

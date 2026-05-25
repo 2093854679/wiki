@@ -1,6 +1,5 @@
 # FLASH PARTITION[](#flash-partition "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_flash_partition.html "../../../../en/v2.0.1/api-reference/peripheral/bk_flash_partition.html")
 
 
 ## FLASH PARTITION API Status[](#flash-partition-api-status "永久链接至标题")
@@ -33,7 +32,7 @@
     返回
     :   bk flash logic partition struct
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_erase([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint32_t offset, uint32_t size)[](#_CPPv424bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_erase([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint32_t offset, uint32_t size)[](#_CPPv424bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t "永久链接至目标")
 :   Erase an area on a Flash logical partition.
 
     备注
@@ -52,7 +51,7 @@
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_write([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv424bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_write([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv424bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Write data to an area on a Flash logical partition.
 
     参数
@@ -69,7 +68,7 @@
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_read([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint8_t *out_buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv423bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_read([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint8_t *out_buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv423bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Read data from an area on a Flash to data buffer in RAM.
 
     参数
@@ -86,7 +85,7 @@
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spec_flash_write_bytes([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *user_buf, uint32_t size, uint32_t offset)[](#_CPPv425bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spec_flash_write_bytes([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *user_buf, uint32_t size, uint32_t offset)[](#_CPPv425bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Write data to flash (only operating 4k flash space)
 
     参数

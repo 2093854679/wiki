@@ -1,6 +1,5 @@
 # DAC TF卡播放PCM数据demo[](#dac-tfpcmdemo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/aud_tf_to_dac_demo.html "../../../../en/v1.5/examples/audio/aud_tf_to_dac_demo.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

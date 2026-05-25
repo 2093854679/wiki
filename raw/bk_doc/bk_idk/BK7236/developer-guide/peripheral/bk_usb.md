@@ -1,6 +1,5 @@
 # USB 使用指南[](#usb "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/peripheral/bk_usb.html "../../../../en/v2.0.1/developer-guide/peripheral/bk_usb.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

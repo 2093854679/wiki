@@ -34,6 +34,21 @@ def _slug_from_path(file_path: str) -> str:
     return p.stem.replace(" ", "-").lower()
 
 
+def _source_metadata(file_path: str) -> dict[str, str]:
+    """Derive stable source metadata from a raw file path."""
+    parts = [p for p in Path(file_path).parts if p not in ("", ".")]
+    root = parts[0] if parts else "Other"
+    if root.lower() == "bk_doc":
+        section = parts[2] if len(parts) > 2 else (parts[1] if len(parts) > 1 else "")
+    else:
+        section = parts[1] if len(parts) > 1 else ""
+
+    return {
+        "source_root": root,
+        "source_section": section,
+    }
+
+
 def compile_summary(raw_dir: Path, file_info: dict, cfg: dict) -> str:
     """Generate a summary of a single raw document."""
     fpath = Path(file_info["absolute_path"])
@@ -56,7 +71,18 @@ Write a summary (max {cfg['compiler']['summary_max_words']} words) with:
 
 Output as a markdown article. Title: {_slug_from_path(file_info['path'])}"""
 
-    return complete(prompt, system=SYSTEM_PROMPT)
+    summary = complete(prompt, system=SYSTEM_PROMPT).strip()
+    meta = _source_metadata(file_info["path"])
+    frontmatter = [
+        "---",
+        f"source_path: {json.dumps(file_info['path'], ensure_ascii=False)}",
+        f"source_root: {json.dumps(meta['source_root'], ensure_ascii=False)}",
+        f"source_section: {json.dumps(meta['source_section'], ensure_ascii=False)}",
+        f"compiled_at: {json.dumps(datetime.now(timezone.utc).isoformat(), ensure_ascii=False)}",
+        "---",
+        "",
+    ]
+    return "\n".join(frontmatter) + summary + "\n"
 
 
 def extract_concepts(raw_dir: Path, new_summaries: list[dict], existing_concepts: list[str], cfg: dict) -> list[dict]:

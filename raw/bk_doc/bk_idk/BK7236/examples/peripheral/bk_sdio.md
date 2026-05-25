@@ -1,6 +1,5 @@
 # fatfs文件系统和SD卡读写[](#fatfssd "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/examples/peripheral/bk_sdio.html "../../../../en/v2.0.1/examples/peripheral/bk_sdio.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

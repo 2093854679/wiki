@@ -1,6 +1,5 @@
 # Single BLE APIs[](#single-ble-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/bluetooth/single_ble.html "../../../../en/v2.2.1/api-reference/bluetooth/single_ble.html")
 
 重要
 
@@ -212,7 +211,7 @@ bk_ble_init_start_conn(con_idx, ble_at_cmd)
 
 ### Functions[](#functions "永久链接至标题")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_db(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv416bk_ble_create_dbP13bk_ble_db_cfg "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_db(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv416bk_ble_create_dbP13bk_ble_db_cfg "永久链接至目标")
 :   Register a gatt service.
 
     User example: First we must build test_service_db test_service_db is a database for att, which used in ble discovery. reading writing and other operation is used on a att database.
@@ -372,7 +371,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     返回
     :   - length: the length of device name
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_advertising(uint8_t actv_idx, [ble_adv_param_t](#_CPPv415ble_adv_param_t "ble_adv_param_t") *adv_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_advertising(uint8_t actv_idx, [ble_adv_param_t](#_CPPv415ble_adv_param_t "ble_adv_param_t") *adv_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t "永久链接至目标")
 :   Create a ble advertising activity.
 
     User example:
@@ -411,7 +410,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_start_advertising(uint8_t actv_idx, uint16 duration, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_start_advertising(uint8_t actv_idx, uint16 duration, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t "永久链接至目标")
 :   Start a ble advertising.
 
 
@@ -435,7 +434,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Stop the advertising that has been started.
 
 
@@ -457,7 +456,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Delete the advertising that has been created.
 
 
@@ -479,7 +478,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_adv_data(uint8_t actv_idx, uint8_t *adv_buff, uint8_t adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_adv_data(uint8_t actv_idx, uint8_t *adv_buff, uint8_t adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Set the advertising data.
 
     User example:
@@ -512,7 +511,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_scan_rsp_data(uint8_t actv_idx, uint8_t *scan_buff, uint8_t scan_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_scan_rsp_data(uint8_t actv_idx, uint8_t *scan_buff, uint8_t scan_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Set the scan response data.
 
     User example:
@@ -549,7 +548,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_per_adv_data(uint8_t actv_idx, uint8_t *per_adv_buff, uint8_t per_adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_per_adv_data(uint8_t actv_idx, uint8_t *per_adv_buff, uint8_t per_adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Set the periodic advertising data.
 
     User example:
@@ -582,7 +581,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_adv_random_addr(uint8_t actv_idx, uint8_t *addr, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv426bk_ble_set_adv_random_addr7uint8_tP7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_adv_random_addr(uint8_t actv_idx, uint8_t *addr, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv426bk_ble_set_adv_random_addr7uint8_tP7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Set the adv random addr.
 
 
@@ -606,7 +605,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_read_phy(uint8_t conn_idx)[](#_CPPv415bk_ble_read_phy7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_read_phy(uint8_t conn_idx)[](#_CPPv415bk_ble_read_phy7uint8_t "永久链接至目标")
 :   Read the phy of connection device.
 
     User example:
@@ -627,7 +626,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_phy(uint8_t conn_idx, [ble_set_phy_t](#_CPPv413ble_set_phy_t "ble_set_phy_t") *phy_info)[](#_CPPv414bk_ble_set_phy7uint8_tP13ble_set_phy_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_phy(uint8_t conn_idx, [ble_set_phy_t](#_CPPv413ble_set_phy_t "ble_set_phy_t") *phy_info)[](#_CPPv414bk_ble_set_phy7uint8_tP13ble_set_phy_t "永久链接至目标")
 :   Set the phy of connection device.
 
     User example:
@@ -653,7 +652,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_update_param(uint8_t conn_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param)[](#_CPPv419bk_ble_update_param7uint8_tP16ble_conn_param_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_update_param(uint8_t conn_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param)[](#_CPPv419bk_ble_update_param7uint8_tP16ble_conn_param_t "永久链接至目标")
 :   Update connection parameters.
 
 
@@ -671,7 +670,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_disconnect(uint8_t conn_idx)[](#_CPPv417bk_ble_disconnect7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_disconnect(uint8_t conn_idx)[](#_CPPv417bk_ble_disconnect7uint8_t "永久链接至目标")
 :   Disconnect a ble connection.
 
 
@@ -686,7 +685,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_mtu_change(uint8_t conn_idx)[](#_CPPv422bk_ble_gatt_mtu_change7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_mtu_change(uint8_t conn_idx)[](#_CPPv422bk_ble_gatt_mtu_change7uint8_t "永久链接至目标")
 :   Exchange MTU.
 
 
@@ -701,7 +700,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_max_mtu(uint16_t max_mtu)[](#_CPPv418bk_ble_set_max_mtu8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_max_mtu(uint16_t max_mtu)[](#_CPPv418bk_ble_set_max_mtu8uint16_t "永久链接至目标")
 :   Set maximal Exchange MTU.
 
 
@@ -716,7 +715,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_scaning(uint8_t actv_idx, [ble_scan_param_t](#_CPPv416ble_scan_param_t "ble_scan_param_t") *scan_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_scaning(uint8_t actv_idx, [ble_scan_param_t](#_CPPv416ble_scan_param_t "ble_scan_param_t") *scan_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t "永久链接至目标")
 :   Create a ble scan activity.
 
     User exzample:
@@ -748,7 +747,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv420bk_ble_start_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv420bk_ble_start_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Start a ble scan.
 
 
@@ -774,9 +773,9 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning_ex(uint8_t actv_idx, uint8_t filt_duplicate, uint16_t duration, uint16_t period, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning_ex(uint8_t actv_idx, uint8_t filt_duplicate, uint16_t duration, uint16_t period, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t "永久链接至目标")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Stop the scan that has been started.
 
 
@@ -798,7 +797,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Delete the scan that has been created.
 
 
@@ -820,7 +819,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_init(uint8_t con_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv418bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_init(uint8_t con_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv418bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t "永久链接至目标")
 :   Create a activity for initiating a connection.
 
     User example:
@@ -852,7 +851,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_init_start_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv422bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_init_start_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv422bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Initiate a connection.
 
 
@@ -878,7 +877,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_init_stop_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_init_stop_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
 :   Stop a connection.
 
 
@@ -900,7 +899,7 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_init_set_connect_dev_addr(uint8_t connidx, [bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *bdaddr, uint8_t addr_type)[](#_CPPv432bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_init_set_connect_dev_addr(uint8_t connidx, [bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *bdaddr, uint8_t addr_type)[](#_CPPv432bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t "永久链接至目标")
 :   Set the address of the device to be connected.
 
 
@@ -928,13 +927,13 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_start_periodic_sync(uint8_t actv_idx, [ble_periodic_param_t](#_CPPv420ble_periodic_param_t "ble_periodic_param_t") *param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv426bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_start_periodic_sync(uint8_t actv_idx, [ble_periodic_param_t](#_CPPv420ble_periodic_param_t "ble_periodic_param_t") *param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv426bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t "永久链接至目标")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
 
 uint8_t bk_ble_get_idle_actv_idx_handle(void)[](#_CPPv431bk_ble_get_idle_actv_idx_handlev "永久链接至目标")
 :   Get an idle activity.
@@ -980,7 +979,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
 
         - 0: this device is disconnected
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_get_mac(uint8_t *mac)[](#_CPPv414bk_ble_get_macP7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_get_mac(uint8_t *mac)[](#_CPPv414bk_ble_get_macP7uint8_t "永久链接至目标")
 :   get ble mac addr,this api is deprecated,please use bk_bluetooth_get_address
 
 
@@ -992,7 +991,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_send_noti_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv422bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_send_noti_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv422bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   As slaver, send a notification of an attribute’s value.
 
     参数
@@ -1012,7 +1011,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_send_ind_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv421bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_send_ind_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv421bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   As slaver, send an indication of an attribute’s value.
 
     参数
@@ -1032,7 +1031,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_reg_hci_recv_callback([ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") evt_cb, [ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") acl_cb)[](#_CPPv428bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_reg_hci_recv_callback([ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") evt_cb, [ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") acl_cb)[](#_CPPv428bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb "永久链接至目标")
 :   reg hci recv callback
 
 
@@ -1050,7 +1049,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_to_controller(uint8_t type, uint8_t *buf, uint16_t len)[](#_CPPv424bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_to_controller(uint8_t type, uint8_t *buf, uint16_t len)[](#_CPPv424bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t "永久链接至目标")
 :   send hci to controller.
 
 
@@ -1068,7 +1067,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
     返回
     :   - BK_ERR_BLE_SUCCESS: succeed
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_cmd_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_cmd_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t "永久链接至目标")
 :   send hci cmd to controller.
 
 
@@ -1084,7 +1083,7 @@ uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *con
     返回
     :   - BK_ERR_BLE_SUCCESS: succeed
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_acl_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_acl_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t "永久链接至目标")
 :   send hci acl to controller.
 
 
@@ -1108,7 +1107,7 @@ uint8_t bk_ble_if_support_central(uint8_t *count)[](#_CPPv425bk_ble_if_suppor
 
 uint8_t bk_ble_get_env_state(void)[](#_CPPv420bk_ble_get_env_statev "永久链接至目标")
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_set_task_stack_size(uint16_t size)[](#_CPPv426bk_ble_set_task_stack_size8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_set_task_stack_size(uint16_t size)[](#_CPPv426bk_ble_set_task_stack_size8uint16_t "永久链接至目标")
 
 void bk_ble_register_app_sdp_charac_callback([app_sdp_charac_callback](#_CPPv423app_sdp_charac_callback "app_sdp_charac_callback") cb)[](#_CPPv439bk_ble_register_app_sdp_charac_callback23app_sdp_charac_callback "永久链接至目标")
 
@@ -1130,7 +1129,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_write_value(uint8_t con_idx, uint16_t att_handle, uint16_t len, uint8_t *data)[](#_CPPv423bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_write_value(uint8_t con_idx, uint16_t att_handle, uint16_t len, uint8_t *data)[](#_CPPv423bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
 :   As master, write attribute value.
 
     参数
@@ -1148,7 +1147,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_read_response_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv426bk_ble_read_response_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_read_response_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv426bk_ble_read_response_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   As slaver, send response value.
 
     参数
@@ -1168,7 +1167,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_sec_send_auth_mode(uint8_t con_idx, uint8_t mode, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv425bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_sec_send_auth_mode(uint8_t con_idx, uint8_t mode, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv425bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   As master, configure attribute value.
 
     参数
@@ -1188,7 +1187,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_sec_send_auth_mode_ext(uint8_t con_idx, uint8_t mode, uint8_t iocap, uint8_t sec_req, uint8_t oob, uint8_t initiator_key_distr, uint8_t responder_key_distr)[](#_CPPv429bk_ble_sec_send_auth_mode_ext7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_sec_send_auth_mode_ext(uint8_t con_idx, uint8_t mode, uint8_t iocap, uint8_t sec_req, uint8_t oob, uint8_t initiator_key_distr, uint8_t responder_key_distr)[](#_CPPv429bk_ble_sec_send_auth_mode_ext7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   As master, configure auth mode param.
 
     参数
@@ -1212,17 +1211,17 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_init(void)[](#_CPPv411bk_ble_initv "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_init(void)[](#_CPPv411bk_ble_initv "永久链接至目标")
 :   ble init function,this api is deprecated,please use bk_bluetooth_init.
 
     Param
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_deinit(void)[](#_CPPv413bk_ble_deinitv "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_deinit(void)[](#_CPPv413bk_ble_deinitv "永久链接至目标")
 :   ble deinit function,this api is deprecated,please use bk_bluetooth_deinit.
 
     Param
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_service(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv421bk_ble_delete_serviceP13bk_ble_db_cfg "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_service(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv421bk_ble_delete_serviceP13bk_ble_db_cfg "永久链接至目标")
 :   Unregister a gatt service.
 
     User example:
@@ -1247,7 +1246,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_att_read(uint8_t con_idx, uint16_t att_handle)[](#_CPPv415bk_ble_att_read7uint8_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_att_read(uint8_t con_idx, uint16_t att_handle)[](#_CPPv415bk_ble_att_read7uint8_t8uint16_t "永久链接至目标")
 :   As master, read attribute value, the result is reported in the callback registered through bk_ble_register_app_sdp_charac_callback.
 
     参数
@@ -1261,7 +1260,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_bond(uint8_t con_idx, uint8_t auth, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv418bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_bond(uint8_t con_idx, uint8_t auth, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv418bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   start authentication the link
 
 
@@ -1285,7 +1284,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_create_bond_ext(uint8_t con_idx, uint8_t auth, uint8_t iocap, uint8_t sec_req, uint8_t oob, uint8_t initiator_key_distr, uint8_t responder_key_distr)[](#_CPPv422bk_ble_create_bond_ext7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_create_bond_ext(uint8_t con_idx, uint8_t auth, uint8_t iocap, uint8_t sec_req, uint8_t oob, uint8_t initiator_key_distr, uint8_t responder_key_distr)[](#_CPPv422bk_ble_create_bond_ext7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   create bond
 
 
@@ -1313,7 +1312,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_passkey_send(uint8_t con_idx, uint8_t accept, uint32_t passkey)[](#_CPPv419bk_ble_passkey_send7uint8_t7uint8_t8uint32_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_passkey_send(uint8_t con_idx, uint8_t accept, uint32_t passkey)[](#_CPPv419bk_ble_passkey_send7uint8_t7uint8_t8uint32_t "永久链接至目标")
 :   send passkey when pairing
 
     参数
@@ -1329,7 +1328,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_number_compare_send(uint8_t con_idx, uint8_t accept)[](#_CPPv426bk_ble_number_compare_send7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_number_compare_send(uint8_t con_idx, uint8_t accept)[](#_CPPv426bk_ble_number_compare_send7uint8_t7uint8_t "永久链接至目标")
 :   send number compare accept when pairing
 
     参数
@@ -1343,7 +1342,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_read_rssi(uint8_t conn_idx)[](#_CPPv416bk_ble_read_rssi7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_read_rssi(uint8_t conn_idx)[](#_CPPv416bk_ble_read_rssi7uint8_t "永久链接至目标")
 :   Read the rssi of connection device. The result will report in callback registered through bk_ble_set_notice_cb with evt BLE_5_READ_RSSI_CMPL_EVENT, and param is [ble_read_rssi_rsp_t](#structble__read__rssi__rsp__t "#structble__read__rssi__rsp__t") *.
 
     User example:
@@ -1364,7 +1363,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_config_local_appearance(uint16_t appearance)[](#_CPPv430bk_ble_config_local_appearance8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_config_local_appearance(uint16_t appearance)[](#_CPPv430bk_ble_config_local_appearance8uint16_t "永久链接至目标")
 :   set local gap appearance
 
     参数
@@ -1375,7 +1374,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: other errors.
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv431bk_ble_discover_primary_service7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv431bk_ble_discover_primary_service7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   Discover peer primary service. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_PRI_SERVICE_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_PRI_SERVICE_RSP.
 
     参数
@@ -1389,7 +1388,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint16_t uuid)[](#_CPPv439bk_ble_discover_primary_service_by_uuid7uint8_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint16_t uuid)[](#_CPPv439bk_ble_discover_primary_service_by_uuid7uint8_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
 :   Discover peer primary service. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_PRI_SERVICE_BY_UUID_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_PRI_SERVICE_BY_UUID_RSP.
 
     参数
@@ -1401,7 +1400,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
     返回
     :   - BK_ERR_BLE_SUCCESS: succeed
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service_by_128uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid)[](#_CPPv442bk_ble_discover_primary_service_by_128uuid7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_primary_service_by_128uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid)[](#_CPPv442bk_ble_discover_primary_service_by_128uuid7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
 :   Discover peer primary service. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_PRI_SERVICE_BY_128_UUID_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_PRI_SERVICE_BY_128_UUID_RSP. bk_ble_read_rssi(conn_idx);.
 
     参数
@@ -1417,7 +1416,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
     返回
     :   - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv430bk_ble_discover_characteristic7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv430bk_ble_discover_characteristic7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   Discover peer characteristic. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_CHAR_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_CHAR_RSP.
 
     参数
@@ -1433,7 +1432,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint16_t uuid)[](#_CPPv438bk_ble_discover_characteristic_by_uuid7uint8_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint16_t uuid)[](#_CPPv438bk_ble_discover_characteristic_by_uuid7uint8_t8uint16_t8uint16_t8uint16_t "永久链接至目标")
 :   Discover peer characteristic. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_CHAR_BY_UUID_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_CHAR_BY_UUID_RSP.
 
     参数
@@ -1449,7 +1448,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_by_128uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid)[](#_CPPv441bk_ble_discover_characteristic_by_128uuid7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_by_128uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid)[](#_CPPv441bk_ble_discover_characteristic_by_128uuid7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
 :   Discover peer characteristic. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_CHAR_BY_128_UUID_RSP. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_CHAR_BY_128_UUID_RSP.
 
     参数
@@ -1463,7 +1462,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
     返回
     :   - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_descriptor(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv441bk_ble_discover_characteristic_descriptor7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_discover_characteristic_descriptor(uint8_t conn_id, uint16_t sh, uint16_t eh)[](#_CPPv441bk_ble_discover_characteristic_descriptor7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   Discover peer characteristic descriptor. The result is report in the callback registered through bk_ble_register_app_sdp_common_callback, and evt is MST_TYPE_DISCOVER_CHAR_DESC. When completed, callback will report MST_TYPE_DISCOVER_COMPLETED with [ble_descover_complete_inf](#structble__descover__complete__inf "#structble__descover__complete__inf") and MST_TYPE_DISCOVER_CHAR_DESC.
 
     参数
@@ -1479,7 +1478,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read(uint8_t con_idx, uint16_t att_handle, uint16_t offset)[](#_CPPv417bk_ble_gattc_read7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read(uint8_t con_idx, uint16_t att_handle, uint16_t offset)[](#_CPPv417bk_ble_gattc_read7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   As master, read attribute value, the result is reported in the callback registered through bk_ble_register_app_sdp_charac_callback.
 
     参数
@@ -1495,7 +1494,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid, uint8_t uuid_len)[](#_CPPv425bk_ble_gattc_read_by_uuid7uint8_t8uint16_t8uint16_tP7uint8_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_read_by_uuid(uint8_t conn_id, uint16_t sh, uint16_t eh, uint8_t *uuid, uint8_t uuid_len)[](#_CPPv425bk_ble_gattc_read_by_uuid7uint8_t8uint16_t8uint16_tP7uint8_t7uint8_t "永久链接至目标")
 :   As master, read attribute value, the result is reported in the callback registered through bk_ble_register_app_sdp_charac_callback.
 
     参数
@@ -1515,7 +1514,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write(uint8_t con_idx, uint16_t att_handle, uint8_t *data, uint16_t len, uint8_t is_write_cmd)[](#_CPPv418bk_ble_gattc_write7uint8_t8uint16_tP7uint8_t8uint16_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_gattc_write(uint8_t con_idx, uint16_t att_handle, uint8_t *data, uint16_t len, uint8_t is_write_cmd)[](#_CPPv418bk_ble_gattc_write7uint8_t8uint16_tP7uint8_t8uint16_t7uint8_t "永久链接至目标")
 :   As master, write attribute value.
 
     参数
@@ -1535,12 +1534,12 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_clear_white_list(void)[](#_CPPv423bk_ble_clear_white_listv "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_clear_white_list(void)[](#_CPPv423bk_ble_clear_white_listv "永久链接至目标")
 :   clear the white list.
 
     Param
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_add_devices_to_while_list([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *addr, uint8_t addr_type)[](#_CPPv432bk_ble_add_devices_to_while_listP9bd_addr_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_add_devices_to_while_list([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *addr, uint8_t addr_type)[](#_CPPv432bk_ble_add_devices_to_while_listP9bd_addr_t7uint8_t "永久链接至目标")
 :   Add a device to the while list.
 
     参数
@@ -1554,7 +1553,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_remove_devices_from_while_list([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *addr, uint8_t addr_type)[](#_CPPv437bk_ble_remove_devices_from_while_listP9bd_addr_t7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_remove_devices_from_while_list([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *addr, uint8_t addr_type)[](#_CPPv437bk_ble_remove_devices_from_while_listP9bd_addr_t7uint8_t "永久链接至目标")
 :   Remove a device from the while list.
 
     参数
@@ -1568,7 +1567,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_tx_power_set(float pwr_gain)[](#_CPPv419bk_ble_tx_power_setf "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_tx_power_set(float pwr_gain)[](#_CPPv419bk_ble_tx_power_setf "永久链接至目标")
 :   Set tx power.
 
     参数
@@ -1579,7 +1578,7 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
 
         - others: fail
 
-[ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") bk_ble_authorization_reply(uint8_t con_idx, uint16_t prf_id, uint16_t att_idx, uint8_t type, uint8_t accept, uint32_t len, uint8_t *buf)[](#_CPPv426bk_ble_authorization_reply7uint8_t8uint16_t8uint16_t7uint8_t7uint8_t8uint32_tP7uint8_t "永久链接至目标")
+[ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") bk_ble_authorization_reply(uint8_t con_idx, uint16_t prf_id, uint16_t att_idx, uint8_t type, uint8_t accept, uint32_t len, uint8_t *buf)[](#_CPPv426bk_ble_authorization_reply7uint8_t8uint16_t8uint16_t7uint8_t7uint8_t8uint32_tP7uint8_t "永久链接至目标")
 :   As slaver, respond to a read/write user authorization request.If the attribute is configured with authorization flag (see enum [bk_ble_authorization_flag](#group__bk__ble__api__v1_1ga9527a3c790b83c4cdc4757218cbf4f18 "#group__bk__ble__api__v1_1ga9527a3c790b83c4cdc4757218cbf4f18")),the BLE_5_AUTHOR_READ_EVENT/BLE_5_AUTHOR_WRITE_EVENT will be reported, then this api can be used to reply.
 
     参数
@@ -1696,7 +1695,7 @@ struct ble_cmd_param_t[](#_CPPv415ble_cmd_param_t "永久链接至目标")
     uint8_t cmd_idx[](#_CPPv4N15ble_cmd_param_t7cmd_idxE "永久链接至目标")
     :   actv_idx
 
-    [ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") status[](#_CPPv4N15ble_cmd_param_t6statusE "永久链接至目标")
+    [ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") status[](#_CPPv4N15ble_cmd_param_t6statusE "永久链接至目标")
     :   The status for this command
 
 struct ble_att_info_req_t[](#_CPPv418ble_att_info_req_t "永久链接至目标")
@@ -2255,7 +2254,7 @@ BK_BLE_PERM_GET(perm, access)[](#c.BK_BLE_PERM_GET "永久链接至目标")
 
 ### Type Definitions[](#type-definitions "永久链接至标题")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") ble_err_t
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble_err_t
 :   ble api return enum
 
 typedef void (*app_sdp_callback)(unsigned char conidx, uint16_t chars_val_hdl, unsigned char uuid_len, unsigned char *uuid)[](#_CPPv416app_sdp_callback "永久链接至目标")
@@ -2312,7 +2311,7 @@ typedef void (*ble_notice_cb_t)([ble_notice_t](#_CPPv412ble_notice_t "ble_notice
 
         - param: param
 
-typedef [ble_err_t](dual_ble.html#_CPPv49ble_err_t "ble_err_t") (*ble_hci_to_host_cb)(uint8_t *buf, uint16_t len)[](#_CPPv418ble_hci_to_host_cb "永久链接至目标")
+typedef [ble_err_t](dual_ble.md#_CPPv49ble_err_t "ble_err_t") (*ble_hci_to_host_cb)(uint8_t *buf, uint16_t len)[](#_CPPv418ble_hci_to_host_cb "永久链接至目标")
 :   for hci callback.
 
     stack report evt, acl to upper
@@ -3262,8 +3261,8 @@ enum gap_key_distr[](#_CPPv413gap_key_distr "永久链接至目标")
 
 ## Reference link[](#reference-link "永久链接至标题")
 
-> [API Reference :](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") Introduced the Bluetooth API interface
+> [API Reference :](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") Introduced the Bluetooth API interface
 >
-> [User and Developer Guide :](../../developer-guide/bluetooth/index.html "../../developer-guide/bluetooth/index.html") Introduced common usage scenarios of Bluetooth
+> [User and Developer Guide :](../../developer-guide/bluetooth/index.md "../../developer-guide/bluetooth/index.md") Introduced common usage scenarios of Bluetooth
 >
-> [Samples and Demos:](../../examples/bluetooth/index.html "../../examples/bluetooth/index.html") Introduced the use and operation of Bluetooth samples
+> [Samples and Demos:](../../examples/bluetooth/index.md "../../examples/bluetooth/index.md") Introduced the use and operation of Bluetooth samples

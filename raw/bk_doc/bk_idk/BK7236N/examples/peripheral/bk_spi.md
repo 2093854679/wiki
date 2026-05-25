@@ -1,6 +1,5 @@
 # spi[](#spi "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/examples/peripheral/bk_spi.html "../../../../en/v2.2.1/examples/peripheral/bk_spi.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

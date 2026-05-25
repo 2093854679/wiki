@@ -1,6 +1,5 @@
 # 系统日志[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/error_log/bk_log.html "../../../../en/v2.0.1/developer-guide/error_log/bk_log.html")
 
 本文档主要介绍Armino平台BK7258多CPU log机制
 

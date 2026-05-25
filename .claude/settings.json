@@ -1,3 +1,8 @@
 {
-  "dangerouslySkipPermissions": true
+  "dangerouslySkipPermissions": true,
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/48527/AppData/Local/Temp/**)"
+    ]
+  }
 }

@@ -6,7 +6,7 @@
 
 ---
 
-> - 1.异常后，发送pm_debug 8命令抓取log,根据前面log分析步骤 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") ，分析哪几个模块没有投票等,如果能快速找出问题，则解决。
+> - 1.异常后，发送pm_debug 8命令抓取log,根据前面log分析步骤 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") ，分析哪几个模块没有投票等,如果能快速找出问题，则解决。
 >
 >   > 备注：如果不好发pm_debug 8命令，可以在进入低压失败的时候，调用以下函数，抓取log:
 >   > :   - 1. pm_debug_ctrl(8);
@@ -27,7 +27,7 @@
 
 > - 1.首先确认是否是当前PCB上额外挂载的外设模块，没有下电导致功耗高。
 > - 2.首先下载原版SDK，通过选择RTC唤醒方式，发命令的方式进入低压睡眠或者deepsleep(命令可以参考文档中样例演示->平台-> power manager中示例)，对比功耗差异。
-> - 3.通过通过发送pm_debug 8,查看log中“pm power and pmu state[0x202a25e8][0x7d000272] ”和根据log分析 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") 。
+> - 3.通过通过发送pm_debug 8,查看log中“pm power and pmu state[0x202a25e8][0x7d000272] ”和根据log分析 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") 。
 >
 >   解析0x202a25e8：以下为每bit对应的电源(0:表示该power domain是开启的; 1:表示该power domain是关闭的)。
 >   0x7d000272：以上值的最后2bit表示32K时钟源,0:表示26M时钟分下来的32k; 1:表示外部32k时钟; 2:表示内部的ROSC时钟。
@@ -70,4 +70,3 @@
 > - 1.需要使用唤醒源唤醒处于睡眠中(低压(sleep mode)或者deep sleep)的系统, 唤醒的前提是系统成功进入了低压或者deep sleep睡眠状态
 > - 2.如果唤醒失败，可以通过测量电流的方式确认是否成功进入了低压或者deep sleep睡眠状态。低压睡眠时底电流小于100uA左右,deep sleep时底电流小于25uA左右。
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_lowpower_checklist.html "../../../../en/v2.0.1/developer-guide/power_save/bk_lowpower_checklist.html")

@@ -1,6 +1,5 @@
 # 安全配置[](#bk-config-security "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_security.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_security.html")
 
 
 ## 通用安全配置[](#bk-config-security-security "永久链接至标题")
@@ -142,7 +141,7 @@ gpio_dev.csv 的目的是用于确保外设安全属性与其关联的 GPIO 属�
 > - `Size` - 必选项。配置块大小。必须按设备块大小对齐。
 > - `Secure` - 可选项。配置块安全属性，未配置时值为 False。
 
-关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../../security/bk_security_overview.html#bk-security-overview-mpc "../../security/bk_security_overview.html#bk-security-overview-mpc")。
+关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../../security/bk_security_overview.md#bk-security-overview-mpc "../../security/bk_security_overview.md#bk-security-overview-mpc")。
 
 备注
 
@@ -152,7 +151,7 @@ gpio_dev.csv 的目的是用于确保外设安全属性与其关联的 GPIO 属�
 ### FLASH 安全属性配置[](#flash "永久链接至标题")
 
 在 mpc.csv 配置表中，FLASH 配置较为特殊，因为它包含指令口与数据口的配置。FLASH 指令口/数据口配置分别使用 FLASH_CODE/FLASH_DATA
-表示设备名，配置时一律使用物理地址。关于 FLASH 地址请参考 [FLASH 安全](../../security/bk_flash_aes.html#bk-security-flash-aes-crc "../../security/bk_flash_aes.html#bk-security-flash-aes-crc")。
+表示设备名，配置时一律使用物理地址。关于 FLASH 地址请参考 [FLASH 安全](../../security/bk_flash_aes.md#bk-security-flash-aes-crc "../../security/bk_flash_aes.md#bk-security-flash-aes-crc")。
 
 重要
 

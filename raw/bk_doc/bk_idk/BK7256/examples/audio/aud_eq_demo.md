@@ -1,6 +1,5 @@
 # EQ demo[](#eq-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/aud_eq_demo.html "../../../../en/v1.5/examples/audio/aud_eq_demo.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")
@@ -88,8 +87,8 @@ typedef struct {
 
 具体的EQ功能主要调用以下两个API来实现EQ的使用和释放。
 
-> - [`bk_aud_eq_init()`](../../api-reference/multi_media/bk_audio.html#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "bk_aud_eq_init") - init the eq module of audio
-> - [`bk_aud_eq_deinit()`](../../api-reference/multi_media/bk_audio.html#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "bk_aud_eq_deinit") - deinit the eq module of audio
+> - [`bk_aud_eq_init()`](../../api-reference/multi_media/bk_audio.md#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "bk_aud_eq_init") - init the eq module of audio
+> - [`bk_aud_eq_deinit()`](../../api-reference/multi_media/bk_audio.md#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "bk_aud_eq_deinit") - deinit the eq module of audio
 
 demo主要代码如下所示：
 

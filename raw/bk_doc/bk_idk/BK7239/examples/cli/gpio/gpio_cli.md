@@ -1,6 +1,5 @@
 # **GPIO cli命令**[](#gpio-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/gpio/gpio_cli.html "../../../../../en/v2.2.1/examples/cli/gpio/gpio_cli.html")
 
 重要
 

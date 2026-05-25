@@ -1,6 +1,5 @@
 # AEC APIs[](#aec-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_aec.html "../../../../en/v1.5/api-reference/multi_media/bk_aec.html")
 
 重要
 

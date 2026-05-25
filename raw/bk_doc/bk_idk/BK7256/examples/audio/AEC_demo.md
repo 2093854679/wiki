@@ -1,6 +1,5 @@
 # AEC回声消除，向量测试demo[](#aec-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/AEC_demo.html "../../../../en/v1.5/examples/audio/AEC_demo.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

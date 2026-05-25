@@ -75,4 +75,3 @@ OmniPeek是功能强大的网络分析工具,对于初学者也能轻松上手,�
 
 ![../../_images/decrypt.png](../../_images/decrypt.png)
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_capture.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_capture.html")

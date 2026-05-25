@@ -1,6 +1,5 @@
 # 分区修改规范[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/partition_specification/bk_partition_usermenu.html "../../../../en/v1.5/developer-guide/partition_specification/bk_partition_usermenu.html")
 
 
 ## 一.物理地址与逻辑地址的关系介绍[](#id2 "永久链接至标题")

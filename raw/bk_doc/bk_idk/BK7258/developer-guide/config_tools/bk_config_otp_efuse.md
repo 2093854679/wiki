@@ -1,6 +1,5 @@
 # OTP/EFUSE 配置[](#otp-efuse "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_otp_efuse.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_otp_efuse.html")
 
 
 ## OTP[](#otp "永久链接至标题")

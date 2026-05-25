@@ -1,6 +1,6 @@
 # 5个实习Task开发记录
 
-> **Source:** 5 task/*.md files
+> **Source:** [SOFTAP配网开发.md](../../raw/Study_Note/06-职业发展/实习记录/my_doc/task/SOFTAP配网开发.md), [TCP_UART_AT指令开发.md](../../raw/Study_Note/06-职业发展/实习记录/my_doc/task/TCP_UART_AT指令开发.md), [WIFI_DTIM10_TCP保活开发.md](../../raw/Study_Note/06-职业发展/实习记录/my_doc/task/WIFI_DTIM10_TCP保活开发.md), [SPI主从通信开发.md](../../raw/Study_Note/06-职业发展/实习记录/my_doc/task/SPI主从通信开发.md), [HTTP上传文件开发.md](../../raw/Study_Note/06-职业发展/实习记录/my_doc/task/HTTP上传文件开发.md)
 > **TLDR:** BK7236平台5个实习任务的完整开发文档——SOFTAP配网、TCP UART AT指令、WiFi DTIM10 TCP保活、SPI主从通信、HTTP文件上传；每项包含需求分析、技术设计、代码实现和测试要点。
 
 ## Key Points

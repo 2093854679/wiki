@@ -51,4 +51,3 @@ bk_pm_lpo_src_set(pm_lpo_src_e lpo_src)
 
 pm_lpo_src_e bk_pm_lpo_src_get()
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_32k_source.html "../../../../en/v2.2.1/developer-guide/power_save/bk_32k_source.html")

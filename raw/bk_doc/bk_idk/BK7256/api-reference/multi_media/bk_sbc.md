@@ -1,6 +1,5 @@
 # SBC APIs[](#sbc-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_sbc.html "../../../../en/v1.5/api-reference/multi_media/bk_sbc.html")
 
 重要
 
@@ -64,7 +63,7 @@ Common APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_frame_decode([sbcdecodercontext_t](#_CPPv419sbcdecodercontext_t "sbcdecodercontext_t") *sbc, const uint8_t *data, uint32_t length)[](#_CPPv427bk_sbc_decoder_frame_decodeP19sbcdecodercontext_tPK7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_frame_decode([sbcdecodercontext_t](#_CPPv419sbcdecodercontext_t "sbcdecodercontext_t") *sbc, const uint8_t *data, uint32_t length)[](#_CPPv427bk_sbc_decoder_frame_decodeP19sbcdecodercontext_tPK7uint8_t8uint32_t "永久链接至目标")
 :   SBC decoder decode one frame.
 
     This API decode one frame by sbc decoder.
@@ -95,7 +94,7 @@ Common APIs:
     返回
     :   - consumed: buffer length by decoder if no error ocurs, else error code (always small than 0) will be return.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_bit_allocation([sbccommoncontext_t](#_CPPv418sbccommoncontext_t "sbccommoncontext_t") *sbc)[](#_CPPv429bk_sbc_decoder_bit_allocationP18sbccommoncontext_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_bit_allocation([sbccommoncontext_t](#_CPPv418sbccommoncontext_t "sbccommoncontext_t") *sbc)[](#_CPPv429bk_sbc_decoder_bit_allocationP18sbccommoncontext_t "永久链接至目标")
 :   SBC bit allocation calculate for both encoder and decoder.
 
     This API calculate sbc bit allocation.
@@ -108,7 +107,7 @@ Common APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_init([sbcdecodercontext_t](#_CPPv419sbcdecodercontext_t "sbcdecodercontext_t") *sbc)[](#_CPPv419bk_sbc_decoder_initP19sbcdecodercontext_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_init([sbcdecodercontext_t](#_CPPv419sbcdecodercontext_t "sbcdecodercontext_t") *sbc)[](#_CPPv419bk_sbc_decoder_initP19sbcdecodercontext_t "永久链接至目标")
 :   SBC decoder initialize.
 
     This API init the sbc decoder function.
@@ -121,7 +120,7 @@ Common APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_deinit(void)[](#_CPPv421bk_sbc_decoder_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_deinit(void)[](#_CPPv421bk_sbc_decoder_deinitv "永久链接至目标")
 :   SBC decoder deinit.
 
     This API deinit the sbc decoder function.
@@ -134,7 +133,7 @@ Common APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_interrupt_enable(bool enable)[](#_CPPv431bk_sbc_decoder_interrupt_enableb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_interrupt_enable(bool enable)[](#_CPPv431bk_sbc_decoder_interrupt_enableb "永久链接至目标")
 :   enable/disable sbc interrupt
 
     This API enable or disable sbc interrupt:
@@ -152,7 +151,7 @@ Common APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_support_msbc(bool enable)[](#_CPPv427bk_sbc_decoder_support_msbcb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_support_msbc(bool enable)[](#_CPPv427bk_sbc_decoder_support_msbcb "永久链接至目标")
 :   enable/disable msbc decoder
 
     This API enable/disable msbc decoder.
@@ -165,7 +164,7 @@ Common APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_register_sbc_isr([sbc_decoder_isr_t](#_CPPv417sbc_decoder_isr_t "sbc_decoder_isr_t") isr, void *param)[](#_CPPv431bk_sbc_decoder_register_sbc_isr17sbc_decoder_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_sbc_decoder_register_sbc_isr([sbc_decoder_isr_t](#_CPPv417sbc_decoder_isr_t "sbc_decoder_isr_t") isr, void *param)[](#_CPPv431bk_sbc_decoder_register_sbc_isr17sbc_decoder_isr_tPv "永久链接至目标")
 :   Register sbc decoder isr.
 
     This API register sbc decoder isr.

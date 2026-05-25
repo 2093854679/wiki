@@ -1,6 +1,5 @@
 # JPEGENC APIs[](#jpegenc-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_jpegenc.html "../../../../en/v1.5/api-reference/multi_media/bk_jpegenc.html")
 
 重要
 
@@ -62,7 +61,7 @@ JPEGENC APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_driver_init(void)[](#_CPPv423bk_jpeg_enc_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_driver_init(void)[](#_CPPv423bk_jpeg_enc_driver_initv "永久链接至目标")
 :   Init the jpeg encode driver.
 
     This API init the resoure common:
@@ -83,7 +82,7 @@ JPEGENC APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_driver_deinit(void)[](#_CPPv425bk_jpeg_enc_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_driver_deinit(void)[](#_CPPv425bk_jpeg_enc_driver_deinitv "永久链接至目标")
 :   Deinit the jpegenc driver.
 
     This API free all resource related to jpegenc and disable jpegenc.
@@ -97,7 +96,7 @@ JPEGENC APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_init(const jpeg_config_t *config)[](#_CPPv416bk_jpeg_enc_initPK13jpeg_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_init(const jpeg_config_t *config)[](#_CPPv416bk_jpeg_enc_initPK13jpeg_config_t "永久链接至目标")
 :   Init the jpeg encode.
 
     This API init the jpegenc
@@ -146,7 +145,7 @@ JPEGENC APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_deinit(void)[](#_CPPv418bk_jpeg_enc_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_deinit(void)[](#_CPPv418bk_jpeg_enc_deinitv "永久链接至目标")
 :   Deinit the jpeg.
 
     This API stop jpeg encode, close jpeg gpio, power off jpeg module at last.
@@ -160,7 +159,7 @@ JPEGENC APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_enable(uint8_t enable, uint8_t mode)[](#_CPPv422bk_jpeg_enc_set_enable7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_enable(uint8_t enable, uint8_t mode)[](#_CPPv422bk_jpeg_enc_set_enable7uint8_t7uint8_t "永久链接至目标")
 :   set jpegenc enable
 
     This API will set jpegenc work enable/disable.
@@ -181,7 +180,7 @@ JPEGENC APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_yuv_fmt_sel(uint32_t value)[](#_CPPv423bk_jpeg_enc_yuv_fmt_sel8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_yuv_fmt_sel(uint32_t value)[](#_CPPv423bk_jpeg_enc_yuv_fmt_sel8uint32_t "永久链接至目标")
 :   yuv format select
 
     This API will set yuv output format.
@@ -206,7 +205,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_register_isr(jpeg_isr_type_t type_id, [jpeg_isr_t](#_CPPv410jpeg_isr_t "jpeg_isr_t") isr, void *param)[](#_CPPv424bk_jpeg_enc_register_isr15jpeg_isr_type_t10jpeg_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_register_isr(jpeg_isr_type_t type_id, [jpeg_isr_t](#_CPPv410jpeg_isr_t "jpeg_isr_t") isr, void *param)[](#_CPPv424bk_jpeg_enc_register_isr15jpeg_isr_type_t10jpeg_isr_tPv "永久链接至目标")
 :   register frame end isr
 
     This API will register jpeg encode isr function, need user defined.The isr function will execute when the isr be triggered.
@@ -239,7 +238,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_gpio_enable(uint8_t enable, [jpeg_gpio_mode_t](#_CPPv416jpeg_gpio_mode_t "jpeg_gpio_mode_t") mode)[](#_CPPv427bk_jpeg_enc_set_gpio_enable7uint8_t16jpeg_gpio_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_gpio_enable(uint8_t enable, [jpeg_gpio_mode_t](#_CPPv416jpeg_gpio_mode_t "jpeg_gpio_mode_t") mode)[](#_CPPv427bk_jpeg_enc_set_gpio_enable7uint8_t16jpeg_gpio_mode_t "永久链接至目标")
 :   set jpeg gpio function
 
     This API will operate jpeg gpio
@@ -254,7 +253,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_get_fifo_addr(uint32_t *fifo_addr)[](#_CPPv425bk_jpeg_enc_get_fifo_addrP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_get_fifo_addr(uint32_t *fifo_addr)[](#_CPPv425bk_jpeg_enc_get_fifo_addrP8uint32_t "永久链接至目标")
 :   get jpeg enc fifo addr
 
     This API will get jpeg encode fifo addr in param
@@ -271,7 +270,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_auxs(uint32_t cksel, uint32_t ckdiv)[](#_CPPv420bk_jpeg_enc_set_auxs8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_set_auxs(uint32_t cksel, uint32_t ckdiv)[](#_CPPv420bk_jpeg_enc_set_auxs8uint32_t8uint32_t "永久链接至目标")
 :   set mclk output
 
     This API will use for camera config
@@ -288,7 +287,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_mclk_enable(void)[](#_CPPv423bk_jpeg_enc_mclk_enablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_mclk_enable(void)[](#_CPPv423bk_jpeg_enc_mclk_enablev "永久链接至目标")
 :   set jpeg module mclk enable
 
     This API will set jpeg mclk output for sensor
@@ -300,7 +299,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_partial_display_init(const jpeg_partial_offset_config_t *offset_config)[](#_CPPv432bk_jpeg_enc_partial_display_initPK28jpeg_partial_offset_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_partial_display_init(const jpeg_partial_offset_config_t *offset_config)[](#_CPPv432bk_jpeg_enc_partial_display_initPK28jpeg_partial_offset_config_t "永久链接至目标")
 :   partial display init
 
     This API will use for partial display configure of jpeg encode
@@ -313,7 +312,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_partial_display_deinit(void)[](#_CPPv434bk_jpeg_enc_partial_display_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_partial_display_deinit(void)[](#_CPPv434bk_jpeg_enc_partial_display_deinitv "永久链接至目标")
 :   partial display deinit
 
     This API will use for partial display deinit
@@ -323,7 +322,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_set_em_base_addr(uint8_t *address)[](#_CPPv424bk_jpeg_set_em_base_addrP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_set_em_base_addr(uint8_t *address)[](#_CPPv424bk_jpeg_set_em_base_addrP7uint8_t "永久链接至目标")
 :   jpeg em base set
 
     This API will use for jpeg em base address, 64KB memory align.
@@ -336,7 +335,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_encode_config(uint8_t enable, uint16_t up_size, uint16_t low_size)[](#_CPPv425bk_jpeg_enc_encode_config7uint8_t8uint16_t8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_encode_config(uint8_t enable, uint16_t up_size, uint16_t low_size)[](#_CPPv425bk_jpeg_enc_encode_config7uint8_t8uint16_t8uint16_t "永久链接至目标")
 :   jpeg encode enable encode auto contrl
 
     This API will use for enable/disable for auto encode size. only valid in jpeh encode mode
@@ -353,7 +352,7 @@ uint32_t bk_jpeg_enc_get_frame_size(void)[](#_CPPv426bk_jpeg_enc_get_frame_si
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_mode_switch(jpeg_config_t *config)[](#_CPPv423bk_jpeg_enc_mode_switchP13jpeg_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_enc_mode_switch(jpeg_config_t *config)[](#_CPPv423bk_jpeg_enc_mode_switchP13jpeg_config_t "永久链接至目标")
 :   jpeg encode mode and yuv mode switch
 
     This API will use for switch jpeg mode

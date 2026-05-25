@@ -1,26 +1,25 @@
 # 外设[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/peripheral/index.html "../../../../en/v2.0.1/developer-guide/peripheral/index.html")
 
 
-- [DMA](bk_dma.html "bk_dma.html")
+- [DMA](bk_dma.md "bk_dma.md")
 
-- [ICU](bk_interrupt.html "bk_interrupt.html")
+- [ICU](bk_interrupt.md "bk_interrupt.md")
 
-- [PWM](bk_pwm.html "bk_pwm.html")
+- [PWM](bk_pwm.md "bk_pwm.md")
 
-- [TRNG](bk_trng.html "bk_trng.html")
+- [TRNG](bk_trng.md "bk_trng.md")
 
-- [SARADC](bk_adc.html "bk_adc.html")
+- [SARADC](bk_adc.md "bk_adc.md")
 
-- [SPI](bk_spi.html "bk_spi.html")
+- [SPI](bk_spi.md "bk_spi.md")
 
-- [UART](bk_uart.html "bk_uart.html")
+- [UART](bk_uart.md "bk_uart.md")
 
-- [WDT](bk_wdt.html "bk_wdt.html")
+- [WDT](bk_wdt.md "bk_wdt.md")
 
-- [I2C](bk_i2c.html "bk_i2c.html")
+- [I2C](bk_i2c.md "bk_i2c.md")
 
-- [USB](bk_usb.html "bk_usb.html")
+- [USB](bk_usb.md "bk_usb.md")
 
-- [I2S](bk_i2s.html "bk_i2s.html")
+- [I2S](bk_i2s.md "bk_i2s.md")

@@ -1,6 +1,5 @@
 # 常见问题[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/build_config/bk_build_faq.html "../../../../en/v2.2.1/developer-guide/build_config/bk_build_faq.html")
 
 
 ## 001 - 使用CONFIG宏控制组件注册[](#config "永久链接至标题")

@@ -1,6 +1,5 @@
 # MEDIA Cli[](#media-cli "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/cli/video/media.html "../../../../../en/v1.5/examples/cli/video/media.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

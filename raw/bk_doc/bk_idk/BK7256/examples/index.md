@@ -1,26 +1,25 @@
 # 用例指南[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v1.5/examples/index.html "../../../en/v1.5/examples/index.html")
 
 
-- [视频](video/index.html "video/index.html")
+- [视频](video/index.md "video/index.md")
 
-- [音频](audio/index.html "audio/index.html")
+- [音频](audio/index.md "audio/index.md")
 
-- [蓝牙](bluetooth/index.html "bluetooth/index.html")
+- [蓝牙](bluetooth/index.md "bluetooth/index.md")
 
-- [门铃](doorbell/index.html "doorbell/index.html")
+- [门铃](doorbell/index.md "doorbell/index.md")
 
-- [命令](cli/index.html "cli/index.html")
+- [命令](cli/index.md "cli/index.md")
 
-- [外设](peripheral/index.html "peripheral/index.html")
+- [外设](peripheral/index.md "peripheral/index.md")
 
-- [平台](platform/index.html "platform/index.html")
+- [平台](platform/index.md "platform/index.md")
 
-- [LVGL](lvgl/lvgl.html "lvgl/lvgl.html")
+- [LVGL](lvgl/lvgl.md "lvgl/lvgl.md")
 
-- [尚云P2P](cs2_p2p/index.html "cs2_p2p/index.html")
+- [尚云P2P](cs2_p2p/index.md "cs2_p2p/index.md")
 
-- [wifi](wifi/index.html "wifi/index.html")
+- [wifi](wifi/index.md "wifi/index.md")
 
-- [VND_CAL](vnd_cal/vnd_cal.html "vnd_cal/vnd_cal.html")
+- [VND_CAL](vnd_cal/vnd_cal.md "vnd_cal/vnd_cal.md")

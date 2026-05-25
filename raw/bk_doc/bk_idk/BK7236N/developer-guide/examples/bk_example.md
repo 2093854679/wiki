@@ -1,6 +1,5 @@
 # 用例编写[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/examples/bk_example.html "../../../../en/v2.2.1/developer-guide/examples/bk_example.html")
 
 $ARMINO_PATH/examples 目录下存放 ARMINO 用例，用例用于:
 

@@ -1,6 +1,5 @@
 # 出错处理[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/error_log/bk_err.html "../../../../en/v2.0.1/developer-guide/error_log/bk_err.html")
 
 及时发现与检测程序的错误是一个强健应用程序的基本要求。本节主要讲述 SDK API 错误码定义以及应用程序检测错误码方式。
 

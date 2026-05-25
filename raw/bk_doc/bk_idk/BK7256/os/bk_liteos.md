@@ -1,6 +1,5 @@
 # LiteOS-M 内核[](#liteos-m "永久链接至标题")
 
-[[English]](../../../en/v1.5/os/bk_liteos.html "../../../en/v1.5/os/bk_liteos.html")
 
 
 ## LiteOS-M 简介[](#id1 "永久链接至标题")

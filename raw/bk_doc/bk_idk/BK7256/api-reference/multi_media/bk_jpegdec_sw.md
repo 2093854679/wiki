@@ -1,6 +1,5 @@
 # JPEGDEC APIs[](#jpegdec-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_jpegdec_sw.html "../../../../en/v1.5/api-reference/multi_media/bk_jpegdec_sw.html")
 
 重要
 
@@ -36,7 +35,7 @@ JPEGDEC APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_init(void)[](#_CPPv419bk_jpeg_dec_sw_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_init(void)[](#_CPPv419bk_jpeg_dec_sw_initv "永久链接至目标")
 :   JPEG_DEC APIs Version 1.0.
 
     Init the jpeg_dec
@@ -62,7 +61,7 @@ JPEGDEC APIs:
 
         - other: errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_deinit(void)[](#_CPPv421bk_jpeg_dec_sw_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_deinit(void)[](#_CPPv421bk_jpeg_dec_sw_deinitv "永久链接至目标")
 :   Deinit the jpeg_dec.
 
     This API deinit the jpeg_dec
@@ -81,7 +80,7 @@ JPEGDEC APIs:
 
         - other: errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_start(uint32_t frame_size, uint8_t *src_buf, uint8_t *dst_buf, [sw_jpeg_dec_res_t](#_CPPv417sw_jpeg_dec_res_t "sw_jpeg_dec_res_t") *result)[](#_CPPv420bk_jpeg_dec_sw_start8uint32_tP7uint8_tP7uint8_tP17sw_jpeg_dec_res_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_sw_start(uint32_t frame_size, uint8_t *src_buf, uint8_t *dst_buf, [sw_jpeg_dec_res_t](#_CPPv417sw_jpeg_dec_res_t "sw_jpeg_dec_res_t") *result)[](#_CPPv420bk_jpeg_dec_sw_start8uint32_tP7uint8_tP7uint8_tP17sw_jpeg_dec_res_t "永久链接至目标")
 :   jpeg_decoder_fun
 
     This API jpeg_decoder_fun
@@ -103,7 +102,7 @@ JPEGDEC APIs:
 
         - other: errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_get_img_info(uint32_t frame_size, uint8_t *src_buf, [sw_jpeg_dec_res_t](#_CPPv417sw_jpeg_dec_res_t "sw_jpeg_dec_res_t") *result)[](#_CPPv420bk_jpeg_get_img_info8uint32_tP7uint8_tP17sw_jpeg_dec_res_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_get_img_info(uint32_t frame_size, uint8_t *src_buf, [sw_jpeg_dec_res_t](#_CPPv417sw_jpeg_dec_res_t "sw_jpeg_dec_res_t") *result)[](#_CPPv420bk_jpeg_get_img_info8uint32_tP7uint8_tP17sw_jpeg_dec_res_t "永久链接至目标")
 :   jpeg_decoder_fun
 
     This API is used to get img width and size

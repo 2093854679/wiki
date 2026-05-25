@@ -1,6 +1,5 @@
 # MP3 APIs[](#mp3-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_mp3.html "../../../../en/v1.5/api-reference/multi_media/bk_mp3.html")
 
 重要
 

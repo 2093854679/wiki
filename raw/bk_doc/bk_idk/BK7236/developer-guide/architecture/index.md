@@ -1,6 +1,5 @@
 # 软件架构[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/architecture/index.html "../../../../en/v2.0.1/developer-guide/architecture/index.html")
 
 
 ## 概述[](#id2 "永久链接至标题")

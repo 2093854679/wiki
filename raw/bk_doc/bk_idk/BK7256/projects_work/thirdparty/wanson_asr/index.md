@@ -1,6 +1,5 @@
 # 华镇语音识别工程[](#id1 "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/projects_work/thirdparty/wanson_asr/index.html "../../../../../en/v1.5/projects_work/thirdparty/wanson_asr/index.html")
 
 
 ## 1、功能概述[](#id2 "永久链接至标题")
@@ -65,7 +64,7 @@ project编译指令： `make bk7256 PROJECT=thirdparty/wanson_asr`
 
 ## 5、参考链接[](#id5 "永久链接至标题")
 
-> [wanson—asr开发指南](../../../developer-guide/wanson_asr/index.html "../../../developer-guide/wanson_asr/index.html")
+> [wanson—asr开发指南](../../../developer-guide/wanson_asr/index.md "../../../developer-guide/wanson_asr/index.md")
 
 
 ## 6. 上海华镇电子科技有限公司[](#id6 "永久链接至标题")

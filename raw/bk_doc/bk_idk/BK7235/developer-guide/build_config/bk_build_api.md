@@ -1,6 +1,5 @@
 # 构建 API[](#api "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/build_config/bk_build_api.html "../../../../en/v1.5/developer-guide/build_config/bk_build_api.html")
 
 
 ## 构建 API[](#id1 "永久链接至标题")

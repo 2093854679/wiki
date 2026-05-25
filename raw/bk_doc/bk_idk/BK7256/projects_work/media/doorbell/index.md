@@ -4,9 +4,8 @@
 | --- | --- | --- | --- |
 | BK7256 | Y | Y | Y |
 
-[[English]](../../../../../en/v1.5/projects_work/media/doorbell/index.html "../../../../../en/v1.5/projects_work/media/doorbell/index.html")
 
 
-- [局域网UDP/TCP](local_area_net.html "local_area_net.html")
+- [局域网UDP/TCP](local_area_net.md "local_area_net.md")
 
-- [尚云P2P](cs2.html "cs2.html")
+- [尚云P2P](cs2.md "cs2.md")

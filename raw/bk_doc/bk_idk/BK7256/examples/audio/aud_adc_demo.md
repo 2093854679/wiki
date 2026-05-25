@@ -1,6 +1,5 @@
 # ADC/DAC软件回环demo[](#adc-dacdemo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/aud_adc_demo.html "../../../../en/v1.5/examples/audio/aud_adc_demo.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

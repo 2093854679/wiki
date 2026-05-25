@@ -1,6 +1,5 @@
 # 使用外部32K[](#k "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_use_extern32K.html "../../../../en/v2.0.1/developer-guide/power_save/bk_use_extern32K.html")
 
 
 ## 开启外部32K时钟源方法[](#id1 "永久链接至标题")

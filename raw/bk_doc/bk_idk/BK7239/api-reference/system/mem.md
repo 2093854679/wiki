@@ -1,6 +1,5 @@
 # MEMORY API[](#memory-api "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/system/mem.html "../../../../en/v2.2.1/api-reference/system/mem.html")
 
 > - OS抽象层对所有的内存申请以及释放接口都做了封装
 

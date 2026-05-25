@@ -1,6 +1,5 @@
 # 概述[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/security/bk_security_overview.html "../../../../en/v1.5/developer-guide/security/bk_security_overview.html")
 
 物联网设备安全是一个十分重要的方面，为增强设备的安全性，BK7235的安全方案实现了secure boot、flash加解密、固件版本防回滚等功能，保证了固件（包括bootlaoder和app固件）的完整性、合法性和机密性。
 
@@ -73,7 +72,7 @@ eFuse大部分被固件和系统控制分配使用，未使用部分不提供给
 
 重要
 
-OTP bank0提供给客户使用，通过配置表进行配置后使用BKFIL工具写入，配置方法见 [bk_OTP_and_eFuse_usermenu](bk_OTP_and_eFuse_usermenu.html "bk_OTP_and_eFuse_usermenu.html")
+OTP bank0提供给客户使用，通过配置表进行配置后使用BKFIL工具写入，配置方法见 [bk_OTP_and_eFuse_usermenu](bk_OTP_and_eFuse_usermenu.md "bk_OTP_and_eFuse_usermenu.md")
 
 
 ### bank0：[](#bank0 "永久链接至标题")
@@ -115,4 +114,4 @@ bk130模块内部使用和管理
 
 ## OTP和eFuse的配置及读写方法：[](#otpefuse "永久链接至标题")
 
-OTP和eFuse均为一次性存储器件，建议使用BKFIL工具进行写入，配置及读写步骤见 [OTP和eFuse的配置及读写方法](bk_OTP_and_eFuse_usermenu.html "bk_OTP_and_eFuse_usermenu.html")。
+OTP和eFuse均为一次性存储器件，建议使用BKFIL工具进行写入，配置及读写步骤见 [OTP和eFuse的配置及读写方法](bk_OTP_and_eFuse_usermenu.md "bk_OTP_and_eFuse_usermenu.md")。

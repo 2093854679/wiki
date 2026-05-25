@@ -1,6 +1,5 @@
 # 非AB方案的Bootloader与OTA简介[](#abbootloaderota "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/bootloader/bk_bootloader_usermenu.html "../../../../en/v1.5/developer-guide/bootloader/bk_bootloader_usermenu.html")
 
 
 ## 一.概述[](#id1 "永久链接至标题")

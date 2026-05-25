@@ -1,6 +1,5 @@
 # **Wi-Fi 问题定位指南**[](#wi-fi "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_debug.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_debug.html")
 
 
 ## **概述**[](#id1 "永久链接至标题")

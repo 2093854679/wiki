@@ -1,6 +1,5 @@
 # 系统调试[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/debug_trace/index.html "../../../../en/v2.0.1/developer-guide/debug_trace/index.html")
 
 
 ## Armino平台BK7236系统调试命令[](#arminobk7236 "永久链接至标题")

@@ -1,6 +1,5 @@
 # 二．l_bootloader简介[](#l-bootloader "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_l_bootloader.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_l_bootloader.html")
 
 l_bootloader：主要是uart下载功能，流程图如上图2所示。
 

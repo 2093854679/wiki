@@ -1,6 +1,5 @@
 # UART[](#uart "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_uart.html "../../../../en/v2.0.1/api-reference/peripheral/bk_uart.html")
 
 
 ## UART API Status[](#uart-api-status "永久链接至标题")
@@ -64,7 +63,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_driver_init(void)[](#_CPPv419bk_uart_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_driver_init(void)[](#_CPPv419bk_uart_driver_initv "永久链接至目标")
 :   Init the UART driver.
 
     This API init the resoure common to all UART id:
@@ -81,7 +80,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_driver_deinit(void)[](#_CPPv421bk_uart_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_driver_deinit(void)[](#_CPPv421bk_uart_driver_deinitv "永久链接至目标")
 :   Deinit the UART driver.
 
     This API free all resource related to UART and power down all UART id.
@@ -113,7 +112,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - 0: rx dma is disabled
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_init([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, const [uart_config_t](#_CPPv413uart_config_t "uart_config_t") *config)[](#_CPPv412bk_uart_init9uart_id_tPK13uart_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_init([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, const [uart_config_t](#_CPPv413uart_config_t "uart_config_t") *config)[](#_CPPv412bk_uart_init9uart_id_tPK13uart_config_t "永久链接至目标")
 :   Init the UART id.
 
     This API init the UART id:
@@ -147,7 +146,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_deinit([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv414bk_uart_deinit9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_deinit([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv414bk_uart_deinit9uart_id_t "永久链接至目标")
 :   Deinit the UART id.
 
     This API deinit the UART id:
@@ -169,7 +168,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_baud_rate([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint32_t baud_rate)[](#_CPPv421bk_uart_set_baud_rate9uart_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_baud_rate([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint32_t baud_rate)[](#_CPPv421bk_uart_set_baud_rate9uart_id_t8uint32_t "永久链接至目标")
 :   Set the UART baud rate.
 
     参数
@@ -182,7 +181,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_data_bits([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_data_bits_t](#_CPPv416uart_data_bits_t "uart_data_bits_t") data_bits)[](#_CPPv421bk_uart_set_data_bits9uart_id_t16uart_data_bits_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_data_bits([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_data_bits_t](#_CPPv416uart_data_bits_t "uart_data_bits_t") data_bits)[](#_CPPv421bk_uart_set_data_bits9uart_id_t16uart_data_bits_t "永久链接至目标")
 :   Set the UART data bits.
 
     参数
@@ -195,7 +194,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_stop_bits([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_stop_bits_t](#_CPPv416uart_stop_bits_t "uart_stop_bits_t") stop_bits)[](#_CPPv421bk_uart_set_stop_bits9uart_id_t16uart_stop_bits_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_stop_bits([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_stop_bits_t](#_CPPv416uart_stop_bits_t "uart_stop_bits_t") stop_bits)[](#_CPPv421bk_uart_set_stop_bits9uart_id_t16uart_stop_bits_t "永久链接至目标")
 :   Set the UART stop bits.
 
     参数
@@ -208,7 +207,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_parity([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_parity_t](#_CPPv413uart_parity_t "uart_parity_t") partiy)[](#_CPPv418bk_uart_set_parity9uart_id_t13uart_parity_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_parity([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_parity_t](#_CPPv413uart_parity_t "uart_parity_t") partiy)[](#_CPPv418bk_uart_set_parity9uart_id_t13uart_parity_t "永久链接至目标")
 :   Set the UART partiy.
 
     参数
@@ -221,7 +220,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_hw_flow_ctrl([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t rx_threshold)[](#_CPPv424bk_uart_set_hw_flow_ctrl9uart_id_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_hw_flow_ctrl([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t rx_threshold)[](#_CPPv424bk_uart_set_hw_flow_ctrl9uart_id_t7uint8_t "永久链接至目标")
 :   Set the UART hardware flow control.
 
     参数
@@ -234,7 +233,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_rx_full_threshold([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t threshold)[](#_CPPv429bk_uart_set_rx_full_threshold9uart_id_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_rx_full_threshold([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t threshold)[](#_CPPv429bk_uart_set_rx_full_threshold9uart_id_t7uint8_t "永久链接至目标")
 :   Set the UART threshold value for RX fifo full.
 
     参数
@@ -247,7 +246,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_tx_empty_threshold([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t threshold)[](#_CPPv430bk_uart_set_tx_empty_threshold9uart_id_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_tx_empty_threshold([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint8_t threshold)[](#_CPPv430bk_uart_set_tx_empty_threshold9uart_id_t7uint8_t "永久链接至目标")
 :   Set the UART threshold value for TX fifo empty.
 
     参数
@@ -260,7 +259,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_rx_timeout([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_rx_stop_detect_time_t](#_CPPv426uart_rx_stop_detect_time_t "uart_rx_stop_detect_time_t") timeout_thresh)[](#_CPPv422bk_uart_set_rx_timeout9uart_id_t26uart_rx_stop_detect_time_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_rx_timeout([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_rx_stop_detect_time_t](#_CPPv426uart_rx_stop_detect_time_t "uart_rx_stop_detect_time_t") timeout_thresh)[](#_CPPv422bk_uart_set_rx_timeout9uart_id_t26uart_rx_stop_detect_time_t "永久链接至目标")
 :   Set the UART threshold timeout for receive data, unit is bit.
 
     UART finish receiving data when the periods is more than timeout threshold. If the time is expired, the UART_RX_STOP_END interrupt is triggered.
@@ -275,7 +274,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_hw_flow_ctrl([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_hw_flow_ctrl9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_hw_flow_ctrl([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_hw_flow_ctrl9uart_id_t "永久链接至目标")
 :   Disable the UART hardware flow control.
 
     参数
@@ -286,7 +285,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_tx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv427bk_uart_enable_tx_interrupt9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_tx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv427bk_uart_enable_tx_interrupt9uart_id_t "永久链接至目标")
 :   Enable TX interrupt of UART id.
 
     参数
@@ -297,7 +296,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_tx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_tx_interrupt9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_tx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_tx_interrupt9uart_id_t "永久链接至目标")
 :   Disable TX interrupt of UART id.
 
     参数
@@ -308,7 +307,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_rx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv427bk_uart_enable_rx_interrupt9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_rx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv427bk_uart_enable_rx_interrupt9uart_id_t "永久链接至目标")
 :   Enable RX interrupt of UART id.
 
     参数
@@ -319,7 +318,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_rx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_rx_interrupt9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_rx_interrupt([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv428bk_uart_disable_rx_interrupt9uart_id_t "永久链接至目标")
 :   Disable RX interrupt of UART id.
 
     参数
@@ -330,7 +329,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_register_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv423bk_uart_register_rx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_register_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv423bk_uart_register_rx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
 :   Register the RX interrupt service routine for UART id.
 
     参数
@@ -345,7 +344,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_register_tx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv423bk_uart_register_tx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_register_tx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv423bk_uart_register_tx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
 :   Register the TX interrupt service routine for UART id.
 
     参数
@@ -360,7 +359,7 @@ int bk_uart_is_rx_dma_enabled([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_write_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, const void *data, uint32_t size)[](#_CPPv419bk_uart_write_bytes9uart_id_tPKv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_write_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, const void *data, uint32_t size)[](#_CPPv419bk_uart_write_bytes9uart_id_tPKv8uint32_t "永久链接至目标")
 :   Send data to the UART port from a given buffer and length.
 
     参数
@@ -398,7 +397,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others (>=0): The number of bytes read from UART FIFO
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_rx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv418bk_uart_disable_rx9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_rx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv418bk_uart_disable_rx9uart_id_t "永久链接至目标")
 :   Disable UART TX pin and set as GPIO.
 
     参数
@@ -409,7 +408,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_tx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv418bk_uart_disable_tx9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_tx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv418bk_uart_disable_tx9uart_id_t "永久链接至目标")
 :   Disable UART TX pin and set as GPIO.
 
     参数
@@ -420,7 +419,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_enable_rx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, bool enable)[](#_CPPv421bk_uart_set_enable_rx9uart_id_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_enable_rx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, bool enable)[](#_CPPv421bk_uart_set_enable_rx9uart_id_tb "永久链接至目标")
 :   Just set UART RX enable/disable, doesn’t set pin.
 
     参数
@@ -433,7 +432,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_set_enable_tx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, bool enable)[](#_CPPv421bk_uart_set_enable_tx9uart_id_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_set_enable_tx([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, bool enable)[](#_CPPv421bk_uart_set_enable_tx9uart_id_tb "永久链接至目标")
 :   Just set UART TX enable/disable, doesn’t set pin.
 
     参数
@@ -446,7 +445,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_isr_set_priority([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint32_t int_priority)[](#_CPPv424bk_uart_isr_set_priority9uart_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_isr_set_priority([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, uint32_t int_priority)[](#_CPPv424bk_uart_isr_set_priority9uart_id_t8uint32_t "永久链接至目标")
 :   Set UART interrupt priority.
 
     参数
@@ -459,7 +458,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_sw_fifo([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv422bk_uart_enable_sw_fifo9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_enable_sw_fifo([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv422bk_uart_enable_sw_fifo9uart_id_t "永久链接至目标")
 :   Enable UART software fifo.
 
     参数
@@ -470,7 +469,7 @@ int bk_uart_read_bytes([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, void *data
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_sw_fifo([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv423bk_uart_disable_sw_fifo9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_disable_sw_fifo([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv423bk_uart_disable_sw_fifo9uart_id_t "永久链接至目标")
 :   Disable UART software fifo.
 
     参数
@@ -487,7 +486,7 @@ uint32_t bk_uart_get_ate_detect_gpio(void)[](#_CPPv427bk_uart_get_ate_detect_
     返回
     :   the ate detect gpio pin
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_take_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv419bk_uart_take_rx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_take_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id, [uart_isr_t](#_CPPv410uart_isr_t "uart_isr_t") isr, void *param)[](#_CPPv419bk_uart_take_rx_isr9uart_id_t10uart_isr_tPv "永久链接至目标")
 :   Register uart rx isr and disable software fifo.
 
     参数
@@ -502,7 +501,7 @@ uint32_t bk_uart_get_ate_detect_gpio(void)[](#_CPPv427bk_uart_get_ate_detect_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_recover_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv422bk_uart_recover_rx_isr9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_recover_rx_isr([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv422bk_uart_recover_rx_isr9uart_id_t "永久链接至目标")
 :   Recover uart rx isr.
 
     参数
@@ -524,7 +523,7 @@ bool bk_uart_is_tx_over([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CP
 
         - false: uart tx not over
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_uart_pm_backup([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv417bk_uart_pm_backup9uart_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_uart_pm_backup([uart_id_t](#_CPPv49uart_id_t "uart_id_t") id)[](#_CPPv417bk_uart_pm_backup9uart_id_t "永久链接至目标")
 :   Backup uart config.
 
     参数

@@ -1,6 +1,5 @@
 # 本地部署[](#env-manual "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/get-started/env-manual.html "../../../en/v2.2.1/get-started/env-manual.html")
 
 
 ## 构建编译环境[](#id2 "永久链接至标题")
@@ -25,7 +24,7 @@ Armino 编译环境要求Ubuntu 20.04 LTS 版本及以上，Centos 7版本及以
 
 - 手动安装：
 
-  > 手动安装请参考 [链接](manual_install.html#manual-install "manual_install.html#manual-install")
+  > 手动安装请参考 [链接](manual_install.md#manual-install "manual_install.md#manual-install")
 
 备注
 
@@ -52,4 +51,4 @@ make bk7236n
 您可以通过 PROJECT 参数来编译 projects 下其他工程，如 make bk7236n PROJECT=security/secureboot
 可以编译 projects/security/secureboot 工程。
 
-更多编译相关命令请参考 [链接](../developer-guide/build_config/bk_build_overview.html#bk-build-overview "../developer-guide/build_config/bk_build_overview.html#bk-build-overview")
+更多编译相关命令请参考 [链接](../developer-guide/build_config/bk_build_overview.md#bk-build-overview "../developer-guide/build_config/bk_build_overview.md#bk-build-overview")

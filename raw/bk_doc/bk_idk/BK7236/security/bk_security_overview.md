@@ -1,6 +1,5 @@
 # 安全概述[](#bk-security-overview "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/security/bk_security_overview.html "../../../en/v2.0.1/security/bk_security_overview.html")
 
 
 ## 硬件安全架构[](#id2 "永久链接至标题")
@@ -71,7 +70,7 @@ PPC 是 BK7236 SoC 外设安全控制中心，它配置外设的 S/NS 和 P/NP �
 | NS | S | N |
 | NS | NS | **Y** |
 
-PPC 设备安全属性配置请参考 [PPC 外设配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security-ppc "../developer-guide/config_tools/bk_config_security.html#bk-config-security-ppc")。
+PPC 设备安全属性配置请参考 [PPC 外设配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security-ppc "../developer-guide/config_tools/bk_config_security.md#bk-config-security-ppc")。
 
 
 ### MPC 控制 - 块内存安全访问[](#mpc "永久链接至标题")
@@ -110,7 +109,7 @@ BK7236 下述设备可通过 MPC 按块配置其安全属性：
 | NS | NS | S | N |
 | NS | NS | NS | **Y** |
 
-MPC 设备安全属性配置请参考 [MPC 外设配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc")。
+MPC 设备安全属性配置请参考 [MPC 外设配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc")。
 
 
 ### AHB 主设备访问规则[](#ahb "永久链接至标题")
@@ -159,7 +158,7 @@ SPI/QSPI 外接片外设备访问由 SPI/QSPI 安全属性决定。
 
 FLASH 指令口访问规则请参考块设备访问规则。
 
-FLASH 安全属性配置请参考 [FLASH 安全配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc")。
+FLASH 安全属性配置请参考 [FLASH 安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc")。
 
 
 ### DMA 安全访问[](#dma "永久链接至标题")
@@ -173,7 +172,7 @@ DMA 属于 S/NS Aware 的，其安全访问规则如下：
 | NS | NS | NS | NS | **Y** |
 | NS |  |  |  | N |
 
-DMA 安全属性配置请参考 [DMA 安全配置](../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.html#bk-config-security-mpc")。
+DMA 安全属性配置请参考 [DMA 安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc "../developer-guide/config_tools/bk_config_security.md#bk-config-security-mpc")。
 
 
 ## 软件安全架构[](#id3 "永久链接至标题")

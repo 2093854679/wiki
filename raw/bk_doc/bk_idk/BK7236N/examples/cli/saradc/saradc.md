@@ -1,6 +1,5 @@
 # SARADC Cli[](#saradc-cli "永久链接至标题")
 
-[[English]](../../../../../en/v2.2.1/examples/cli/saradc/saradc.html "../../../../../en/v2.2.1/examples/cli/saradc/saradc.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

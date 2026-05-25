@@ -1,6 +1,5 @@
 # H/W 参考文档[](#h-w "永久链接至标题")
 
-[[English]](../../../en/v1.5/hw-reference/index.html "../../../en/v1.5/hw-reference/index.html")
 
 
 ## 芯片及硬件文档[](#id1 "永久链接至标题")

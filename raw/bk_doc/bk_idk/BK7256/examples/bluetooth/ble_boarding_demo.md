@@ -1,6 +1,5 @@
 # 蓝牙配网[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/bluetooth/ble_boarding_demo.html "../../../../en/v1.5/examples/bluetooth/ble_boarding_demo.html")
 
 
 ## 概述[](#id2 "永久链接至标题")
@@ -77,10 +76,10 @@ if (actv_idx == AT_BLE_MAX_ACTV) {
 
 ## 参考链接[](#id7 "永久链接至标题")
 
-> [API参考:](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") 介绍了蓝牙API接口
+> [API参考:](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") 介绍了蓝牙API接口
 >
-> [开发者指南:](../../developer-guide/bluetooth/index.html "../../developer-guide/bluetooth/index.html") 介绍了蓝牙常用使用场景
+> [开发者指南:](../../developer-guide/bluetooth/index.md "../../developer-guide/bluetooth/index.md") 介绍了蓝牙常用使用场景
 >
-> [样例演示:](../../examples/bluetooth/index.html "../../examples/bluetooth/index.html") 介绍了蓝牙样例使用和操作
+> [样例演示:](../../examples/bluetooth/index.md "../../examples/bluetooth/index.md") 介绍了蓝牙样例使用和操作
 >
-> [蓝牙工程:](../../projects_work/bluetooth/index.html "../../projects_work/bluetooth/index.html") 介绍了蓝牙相关工程
+> [蓝牙工程:](../../projects_work/bluetooth/index.md "../../projects_work/bluetooth/index.md") 介绍了蓝牙相关工程

@@ -173,4 +173,3 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > b)以上问题的解决方案：
 > Audio,video模块需要在进deepsleep之前，调用各自模块的接口关闭audio,video。
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_Lowpower_problem_analysis.html "../../../../en/v1.5/developer-guide/power_save/bk_Lowpower_problem_analysis.html")

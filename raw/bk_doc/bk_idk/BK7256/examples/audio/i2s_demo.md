@@ -1,6 +1,5 @@
 # I2S demo[](#i2s-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/audio/i2s_demo.html "../../../../en/v1.5/examples/audio/i2s_demo.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

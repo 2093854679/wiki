@@ -1,6 +1,5 @@
 # Wi-Fi Cli命令指南[](#wi-fi-cli "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html")
 
 为方便客户快速了解SDK以及开发调试，SDK集成了一些Wi-Fi基本操作指令
 
@@ -31,4 +30,3 @@ SDK支持的Wi-Fi相关的cli命令如下表：
 | -c -u | DUT作为Client, -u表示UDP |
 | -stop | 停止 |
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_cli.html")

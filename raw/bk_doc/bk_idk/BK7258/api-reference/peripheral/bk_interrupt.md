@@ -1,6 +1,5 @@
 # Interrupt Control Unit[](#interrupt-control-unit "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_interrupt.html "../../../../en/v2.0.1/api-reference/peripheral/bk_interrupt.html")
 
 Beken chip supports interrupt service function registe for user.
 
@@ -28,7 +27,7 @@ Beken chip supports interrupt service function registe for user.
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_init(void)[](#_CPPv418bk_icu_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_init(void)[](#_CPPv418bk_icu_driver_initv "永久链接至目标")
 :   Init the ICU driver.
 
     This API init the icu modules :
@@ -43,7 +42,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_deinit(void)[](#_CPPv420bk_icu_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_deinit(void)[](#_CPPv420bk_icu_driver_deinitv "永久链接至目标")
 :   deinit the ICU driver
 
     This API deinit the icu module
@@ -55,7 +54,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_int_isr_register([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") dev, int_group_isr_t isr, void *arg)[](#_CPPv419bk_int_isr_register13icu_int_src_t15int_group_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_isr_register([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") dev, int_group_isr_t isr, void *arg)[](#_CPPv419bk_int_isr_register13icu_int_src_t15int_group_isr_tPv "永久链接至目标")
 :   register interrupt service handler
 
 
@@ -76,7 +75,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_int_isr_unregister([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src)[](#_CPPv421bk_int_isr_unregister13icu_int_src_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_isr_unregister([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src)[](#_CPPv421bk_int_isr_unregister13icu_int_src_t "永久链接至目标")
 :   unregister interrupt service handler
 
     参数
@@ -89,7 +88,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_int_set_priority([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src, uint32_t int_priority)[](#_CPPv419bk_int_set_priority13icu_int_src_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_set_priority([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src, uint32_t int_priority)[](#_CPPv419bk_int_set_priority13icu_int_src_t8uint32_t "永久链接至目标")
 :   set/change interrupt priority
 
     Every interrupt source has a two-level priority, the group priority and the priority. The interrupt source has higher group priority will be schedule first. The interrupt sources has higher priority will be schedule first if they has the same group priority.
@@ -108,7 +107,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_int_set_group(void)[](#_CPPv416bk_int_set_groupv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_set_group(void)[](#_CPPv416bk_int_set_groupv "永久链接至目标")
 :   set the interrupt group priority
 
     Every interrupt source has a two-level priority, the group priority and the priority. The interrupt source has higher group priority will be schedule first. The interrupt sources has higher priority will be schedule first if they has the same group priority.
@@ -126,7 +125,7 @@ Beken chip supports interrupt service function registe for user.
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_int_register_mac_ps_callback([int_mac_ps_callback_t](#_CPPv421int_mac_ps_callback_t "int_mac_ps_callback_t") mac_ps_cb)[](#_CPPv431bk_int_register_mac_ps_callback21int_mac_ps_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_register_mac_ps_callback([int_mac_ps_callback_t](#_CPPv421int_mac_ps_callback_t "int_mac_ps_callback_t") mac_ps_cb)[](#_CPPv431bk_int_register_mac_ps_callback21int_mac_ps_callback_t "永久链接至目标")
 :   Register callback for mac ps.
 
     参数

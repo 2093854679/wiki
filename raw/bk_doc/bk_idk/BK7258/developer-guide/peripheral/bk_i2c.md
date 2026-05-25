@@ -1,6 +1,5 @@
 # I2C 使用指南[](#i2c "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/peripheral/bk_i2c.html "../../../../en/v2.0.1/developer-guide/peripheral/bk_i2c.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

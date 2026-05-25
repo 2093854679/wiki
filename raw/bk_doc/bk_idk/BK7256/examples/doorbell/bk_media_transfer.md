@@ -1,6 +1,5 @@
 # MEDIA_TRA[](#media-tra "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/doorbell/bk_media_transfer.html "../../../../en/v1.5/examples/doorbell/bk_media_transfer.html")
 
 
 ## 1 功能概述[](#id1 "永久链接至标题")

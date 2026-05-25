@@ -1,6 +1,5 @@
 # Mailbox[](#mailbox "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_mailbox.html "../../../../en/v2.0.1/api-reference/peripheral/bk_mailbox.html")
 
 
 ## Mailbox API Status[](#mailbox-api-status "永久链接至标题")
@@ -33,7 +32,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_init(void)[](#_CPPv415bk_mailbox_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_init(void)[](#_CPPv415bk_mailbox_initv "永久链接至目标")
 :   Init the MAILBOX driver.
 
     This API init the resoure common to all MAILBOXs:
@@ -50,7 +49,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_deinit(void)[](#_CPPv417bk_mailbox_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_deinit(void)[](#_CPPv417bk_mailbox_deinitv "永久链接至目标")
 :   Deinit the MAILBOX driver.
 
     This API free all resource related to MAILBOX.
@@ -60,7 +59,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_set_param([mailbox_data_t](#_CPPv414mailbox_data_t "mailbox_data_t") *data, uint32_t p0, uint32_t p1, uint32_t p2, uint32_t p3)[](#_CPPv420bk_mailbox_set_paramP14mailbox_data_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_set_param([mailbox_data_t](#_CPPv414mailbox_data_t "mailbox_data_t") *data, uint32_t p0, uint32_t p1, uint32_t p2, uint32_t p3)[](#_CPPv420bk_mailbox_set_paramP14mailbox_data_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
 :   Configure the MAILBOX cmd and data.
 
     This API is used to configure data. Write parameters to variables as required by the structure, [mailbox_data_t](#structmailbox__data__t "#structmailbox__data__t").
@@ -72,7 +71,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_recv_callback_register([mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst, [mailbox_callback_t](#_CPPv418mailbox_callback_t "mailbox_callback_t") callback)[](#_CPPv433bk_mailbox_recv_callback_register18mailbox_endpoint_t18mailbox_endpoint_t18mailbox_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_recv_callback_register([mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst, [mailbox_callback_t](#_CPPv418mailbox_callback_t "mailbox_callback_t") callback)[](#_CPPv433bk_mailbox_recv_callback_register18mailbox_endpoint_t18mailbox_endpoint_t18mailbox_callback_t "永久链接至目标")
 :   Register the callback function for MAILBOX.
 
 
@@ -94,7 +93,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_recv_callback_unregister([mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst)[](#_CPPv435bk_mailbox_recv_callback_unregister18mailbox_endpoint_t18mailbox_endpoint_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_recv_callback_unregister([mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst)[](#_CPPv435bk_mailbox_recv_callback_unregister18mailbox_endpoint_t18mailbox_endpoint_t "永久链接至目标")
 :   Unregister the callback function for MAILBOX.
 
 
@@ -115,7 +114,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_mailbox_send([mailbox_data_t](#_CPPv414mailbox_data_t "mailbox_data_t") *data, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst, void *arg)[](#_CPPv415bk_mailbox_sendP14mailbox_data_t18mailbox_endpoint_t18mailbox_endpoint_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_mailbox_send([mailbox_data_t](#_CPPv414mailbox_data_t "mailbox_data_t") *data, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") src, [mailbox_endpoint_t](#_CPPv418mailbox_endpoint_t "mailbox_endpoint_t") dst, void *arg)[](#_CPPv415bk_mailbox_sendP14mailbox_data_t18mailbox_endpoint_t18mailbox_endpoint_tPv "永久链接至目标")
 :   Unregister the callback function for MAILBOX.
 
     example: The current code runs in CPU0 and send data to CPU1.

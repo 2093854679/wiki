@@ -1,6 +1,5 @@
 # 安全功能应用指南[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/security/bk_security_usermenu.html "../../../../en/v1.5/developer-guide/security/bk_security_usermenu.html")
 
 
 ## 一、工具下载[](#id2 "永久链接至标题")
@@ -344,7 +343,7 @@ AES-XTS模式加密结果与被加密文件的地址相关，在需要手动单�
 
 生成的密钥对文件和flash加密密钥文件，除了用于生成安全镜像，还需要烧写到芯片的OTP中。
 
-将3.1节生成的 [ecdsa384.c](#id12 "#id12") 中的publickey和3.3节生成的 [aes_encrypt_key.json](#id19 "#id19") 中的aes_key、OTA_key、OTA_IV拷贝到otp_efuse_config.json的安全数据配置区，方法见 [OTP和eFuse的配置及读写方法](bk_OTP_and_eFuse_usermenu.html "bk_OTP_and_eFuse_usermenu.html") 中安全数据配置区参数说明。
+将3.1节生成的 [ecdsa384.c](#id12 "#id12") 中的publickey和3.3节生成的 [aes_encrypt_key.json](#id19 "#id19") 中的aes_key、OTA_key、OTA_IV拷贝到otp_efuse_config.json的安全数据配置区，方法见 [OTP和eFuse的配置及读写方法](bk_OTP_and_eFuse_usermenu.md "bk_OTP_and_eFuse_usermenu.md") 中安全数据配置区参数说明。
 
 BKFIL.exe会根据配置文件otp_efuse_config.json，将其中的签名的公钥、加密的密钥烧写到OTP中，并根据eFuse的配置来使能安全功能。
 

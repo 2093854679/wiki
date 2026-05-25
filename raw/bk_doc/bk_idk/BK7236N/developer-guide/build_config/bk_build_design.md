@@ -1,6 +1,5 @@
 # 构建实现[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/build_config/bk_build_design.html "../../../../en/v2.2.1/developer-guide/build_config/bk_build_design.html")
 
 
 ## 设计思路[](#id2 "永久链接至标题")

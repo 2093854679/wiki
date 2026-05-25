@@ -1,6 +1,5 @@
 # FreeRTOS[](#freertos "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/os/bk_freertos.html "../../../en/v2.0.1/os/bk_freertos.html")
 
 
 ## FreeRTOS简介[](#id1 "永久链接至标题")

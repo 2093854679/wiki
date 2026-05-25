@@ -1,8 +1,7 @@
 # Bluetooth[](#bluetooth "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/bluetooth/index.html "../../../../en/v2.0.1/api-reference/bluetooth/index.html")
 
 
-- [BLE](ble.html "ble.html")
+- [BLE](ble.md "ble.md")
 
-- [BT](bt.html "bt.html")
+- [BT](bt.md "bt.md")

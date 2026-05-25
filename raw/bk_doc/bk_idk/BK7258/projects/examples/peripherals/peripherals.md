@@ -1,12 +1,12 @@
 # Peripherals[](#peripherals "永久链接至标题")
 
 
-- [ADC Example](adc/adc.html "adc/adc.html")
+- [ADC Example](adc/adc.md "adc/adc.md")
 
-- [I2c](i2c/i2c.html "i2c/i2c.html")
+- [I2c](i2c/i2c.md "i2c/i2c.md")
 
-- [SPI](spi/spi.html "spi/spi.html")
+- [SPI](spi/spi.md "spi/spi.md")
 
-- [Timer](timer/timer.html "timer/timer.html")
+- [Timer](timer/timer.md "timer/timer.md")
 
-- [UART](uart/uart.html "uart/uart.html")
+- [UART](uart/uart.md "uart/uart.md")

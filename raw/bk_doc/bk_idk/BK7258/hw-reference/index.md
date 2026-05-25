@@ -1,6 +1,5 @@
 # 芯片参考手册[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/hw-reference/index.html "../../../en/v2.0.1/hw-reference/index.html")
 
 
 - [BK7258 技术规格书](https://docs.bekencorp.com/spec/BK7258/BK7258%C2%A0Datasheet.pdf "https://docs.bekencorp.com/spec/BK7258/BK7258%C2%A0Datasheet.pdf")

@@ -34,9 +34,9 @@ def cmd_render(template, data_file, output_file, inline_data):
         dp = Path(data_file)
         if dp.suffix in (".yaml", ".yml"):
             import yaml
-            data = yaml.safe_load(dp.read_text(encoding="utf-8"))
+            data = yaml.safe_load(dp.read_text(encoding="utf-8-sig"))
         else:
-            data = json.loads(dp.read_text(encoding="utf-8"))
+            data = json.loads(dp.read_text(encoding="utf-8-sig"))
     elif inline_data:
         data = json.loads(inline_data)
     else:

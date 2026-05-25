@@ -1,6 +1,5 @@
 # 声网(agora)开发指南[](#agora "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/agora/index.html "../../../../en/v1.5/developer-guide/agora/index.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")
@@ -125,4 +124,4 @@ void agora_rtc_user_notify_msg_handle(agora_rtc_msg_t *p_msg)
 
 ## 参考链接[](#id4 "永久链接至标题")
 
-> [声网(agora)工程](../../projects_work/thirdparty/agora/index.html "../../projects_work/thirdparty/agora/index.html")
+> [声网(agora)工程](../../projects_work/thirdparty/agora/index.md "../../projects_work/thirdparty/agora/index.md")

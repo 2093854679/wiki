@@ -1,8 +1,7 @@
 # Kconfig 配置[](#kconfig "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_kconfig.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_kconfig.html")
 
-本节介绍 Armino Kconfig 使用过程中常见问题。关于 Kconfig 配置示例可参考 [Kconfig 配置示例](../build_config/bk_build_example.html#id30 "../build_config/bk_build_example.html#id30")。
+本节介绍 Armino Kconfig 使用过程中常见问题。关于 Kconfig 配置示例可参考 [Kconfig 配置示例](../build_config/bk_build_example.md#id30 "../build_config/bk_build_example.md#id30")。
 
 
 ## Kconfig 配置文件[](#id1 "永久链接至标题")
@@ -111,4 +110,4 @@ Armino 不支持 menuconfig 配置，因此，当通过配置修改文件更改�
 ## CMakeLists.txt 中使用 Kconfig[](#cmakelists-txt-kconfig "永久链接至标题")
 
 在 CMakeLists.txt 中可直接使用 Kconfig 中定义的配置项，唯一要注意的问题不要将
-armino_component_register() 放在任何配置条件中，可参考 [通过 Kconfig 禁用组件](../build_config/bk_build_example.html#build-kconfig-disable-component "../build_config/bk_build_example.html#build-kconfig-disable-component")。
+armino_component_register() 放在任何配置条件中，可参考 [通过 Kconfig 禁用组件](../build_config/bk_build_example.md#build-kconfig-disable-component "../build_config/bk_build_example.md#build-kconfig-disable-component")。

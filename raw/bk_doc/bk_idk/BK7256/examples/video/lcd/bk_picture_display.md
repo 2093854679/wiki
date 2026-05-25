@@ -1,6 +1,5 @@
 # LCD RGB Display JPEG[](#lcd-rgb-display-jpeg "永久链接至标题")
 
-[[English]](../../../../../en/v1.5/examples/video/lcd/bk_picture_display.html "../../../../../en/v1.5/examples/video/lcd/bk_picture_display.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")

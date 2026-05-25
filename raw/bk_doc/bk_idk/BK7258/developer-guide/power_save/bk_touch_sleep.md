@@ -57,4 +57,3 @@
 
 - 3. 追求最优功耗时，当系统开启音频，视频，LCD，CPU1，CPU2后，进入低压睡眠前需要把音频，视频，LCD，CPU1,CPU2先关闭，再进入睡眠。
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_touch_sleep.html "../../../../en/v2.0.1/developer-guide/power_save/bk_touch_sleep.html")

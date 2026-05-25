@@ -1,6 +1,5 @@
 # DMA[](#dma "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/bk_dma.html "../../../../en/v2.0.1/api-reference/peripheral/bk_dma.html")
 
 
 ## DMA API Status[](#dma-api-status "永久链接至标题")
@@ -60,7 +59,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_driver_init(void)[](#_CPPv418bk_dma_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_driver_init(void)[](#_CPPv418bk_dma_driver_initv "永久链接至目标")
 :   Init the DMA driver.
 
     This API init the resoure common to all dma channels:
@@ -75,7 +74,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_driver_deinit(void)[](#_CPPv420bk_dma_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_driver_deinit(void)[](#_CPPv420bk_dma_driver_deinitv "永久链接至目标")
 :   Deinit the DMA driver.
 
     This API free all resource related to dma and power down all dma channels.
@@ -106,7 +105,7 @@
 
         - > DMA_ID_MAX: no free DMA channel.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_free(u16 user_id, [dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411bk_dma_free3u168dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_free(u16 user_id, [dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411bk_dma_free3u168dma_id_t "永久链接至目标")
 :   Free the DMA channel.
 
 
@@ -138,7 +137,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - u32: high u16 is the CPU_ID, low 16 bits is the applicant_id.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_init([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, const [dma_config_t](#_CPPv412dma_config_t "dma_config_t") *config)[](#_CPPv411bk_dma_init8dma_id_tPK12dma_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_init([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, const [dma_config_t](#_CPPv412dma_config_t "dma_config_t") *config)[](#_CPPv411bk_dma_init8dma_id_tPK12dma_config_t "永久链接至目标")
 :   Init the DMA channel.
 
 
@@ -163,7 +162,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_deinit([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv413bk_dma_deinit8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_deinit([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv413bk_dma_deinit8dma_id_t "永久链接至目标")
 :   Deinit a DMA channel.
 
     This API deinit the DMA channel:
@@ -178,7 +177,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_start([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv412bk_dma_start8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_start([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv412bk_dma_start8dma_id_t "永久链接至目标")
 :   Start a DMA channel.
 
     参数
@@ -189,7 +188,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_stop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411bk_dma_stop8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_stop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411bk_dma_stop8dma_id_t "永久链接至目标")
 :   Stop a DMA channel.
 
     参数
@@ -200,7 +199,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_write([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, const uint8_t *data, uint32_t size)[](#_CPPv412bk_dma_write8dma_id_tPK7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_write([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, const uint8_t *data, uint32_t size)[](#_CPPv412bk_dma_write8dma_id_tPK7uint8_t8uint32_t "永久链接至目标")
 :   Transfer data from memory to peripheral.
 
     参数
@@ -215,7 +214,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_read([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint8_t *data, uint32_t size)[](#_CPPv411bk_dma_read8dma_id_tP7uint8_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_read([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint8_t *data, uint32_t size)[](#_CPPv411bk_dma_read8dma_id_tP7uint8_t8uint32_t "永久链接至目标")
 :   Transfer data from peripheral to memory.
 
     参数
@@ -230,7 +229,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv430bk_dma_enable_finish_interrupt8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv430bk_dma_enable_finish_interrupt8dma_id_t "永久链接至目标")
 :   Enable DMA finish intterrup.
 
     @NOTES before enable interrupt, please confirm have called bk_dma_register_isr.
@@ -243,7 +242,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv431bk_dma_disable_finish_interrupt8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv431bk_dma_disable_finish_interrupt8dma_id_t "永久链接至目标")
 :   Disable DMA finish intterrup.
 
     参数
@@ -254,7 +253,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_half_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv435bk_dma_enable_half_finish_interrupt8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_half_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv435bk_dma_enable_half_finish_interrupt8dma_id_t "永久链接至目标")
 :   Enable DMA half finish intterrup.
 
     @NOTES before enable interrupt, please confirm have called bk_dma_register_isr.
@@ -267,7 +266,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_half_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv436bk_dma_disable_half_finish_interrupt8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_half_finish_interrupt([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv436bk_dma_disable_half_finish_interrupt8dma_id_t "永久链接至目标")
 :   Disable DMA half finish intterrup.
 
     参数
@@ -278,7 +277,7 @@ uint32_t bk_dma_user([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv411b
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_register_isr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, [dma_isr_t](#_CPPv49dma_isr_t "dma_isr_t") half_finish_isr, [dma_isr_t](#_CPPv49dma_isr_t "dma_isr_t") finish_isr)[](#_CPPv419bk_dma_register_isr8dma_id_t9dma_isr_t9dma_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_register_isr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, [dma_isr_t](#_CPPv49dma_isr_t "dma_isr_t") half_finish_isr, [dma_isr_t](#_CPPv49dma_isr_t "dma_isr_t") finish_isr)[](#_CPPv419bk_dma_register_isr8dma_id_t9dma_isr_t9dma_isr_t "永久链接至目标")
 :   Register the interrupt service routine for DMA channel.
 
     This API regist dma isr callback function.
@@ -304,7 +303,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
     返回
     :   - max len: how many bytes can be copy by DMA in one round.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_set_transfer_len([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t tran_len)[](#_CPPv423bk_dma_set_transfer_len8dma_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_set_transfer_len([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t tran_len)[](#_CPPv423bk_dma_set_transfer_len8dma_id_t8uint32_t "永久链接至目标")
 :   Set DMA transfer length.
 
     参数
@@ -317,7 +316,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_set_src_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr, uint32_t end_addr)[](#_CPPv419bk_dma_set_src_addr8dma_id_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_set_src_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr, uint32_t end_addr)[](#_CPPv419bk_dma_set_src_addr8dma_id_t8uint32_t8uint32_t "永久链接至目标")
 :   Set DMA source address.
 
 
@@ -336,7 +335,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_set_src_start_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr)[](#_CPPv425bk_dma_set_src_start_addr8dma_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_set_src_start_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr)[](#_CPPv425bk_dma_set_src_start_addr8dma_id_t8uint32_t "永久链接至目标")
 :   Set DMA source start address.
 
     参数
@@ -349,7 +348,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_set_dest_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr, uint32_t end_addr)[](#_CPPv420bk_dma_set_dest_addr8dma_id_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_set_dest_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr, uint32_t end_addr)[](#_CPPv420bk_dma_set_dest_addr8dma_id_t8uint32_t8uint32_t "永久链接至目标")
 :   Set DMA dest address.
 
 
@@ -368,7 +367,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_set_dest_start_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr)[](#_CPPv426bk_dma_set_dest_start_addr8dma_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_set_dest_start_addr([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id, uint32_t start_addr)[](#_CPPv426bk_dma_set_dest_start_addr8dma_id_t8uint32_t "永久链接至目标")
 :   Set DMA dest start address.
 
     参数
@@ -381,7 +380,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_src_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv431bk_dma_enable_src_addr_increase8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_src_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv431bk_dma_enable_src_addr_increase8dma_id_t "永久链接至目标")
 :   Enable DMA source address increase.
 
     参数
@@ -392,7 +391,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_src_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv432bk_dma_disable_src_addr_increase8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_src_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv432bk_dma_disable_src_addr_increase8dma_id_t "永久链接至目标")
 :   Disable DMA source address increase.
 
     参数
@@ -403,7 +402,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_src_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv427bk_dma_enable_src_addr_loop8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_src_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv427bk_dma_enable_src_addr_loop8dma_id_t "永久链接至目标")
 :   Enable DMA source address loop.
 
     参数
@@ -414,7 +413,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_src_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv428bk_dma_disable_src_addr_loop8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_src_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv428bk_dma_disable_src_addr_loop8dma_id_t "永久链接至目标")
 :   Disable DMA source address loop.
 
     参数
@@ -425,7 +424,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_dest_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv432bk_dma_enable_dest_addr_increase8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_dest_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv432bk_dma_enable_dest_addr_increase8dma_id_t "永久链接至目标")
 :   Enable DMA dest address increase.
 
     参数
@@ -436,7 +435,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_dest_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv433bk_dma_disable_dest_addr_increase8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_dest_addr_increase([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv433bk_dma_disable_dest_addr_increase8dma_id_t "永久链接至目标")
 :   Disable DMA dest address increase.
 
     参数
@@ -447,7 +446,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_dest_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv428bk_dma_enable_dest_addr_loop8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_enable_dest_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv428bk_dma_enable_dest_addr_loop8dma_id_t "永久链接至目标")
 :   Enable DMA dest address loop.
 
     参数
@@ -458,7 +457,7 @@ uint32_t bk_dma_get_transfer_len_max([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_dest_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv429bk_dma_disable_dest_addr_loop8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_disable_dest_addr_loop([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv429bk_dma_disable_dest_addr_loop8dma_id_t "永久链接至目标")
 :   Disable DMA dest address loop.
 
     参数
@@ -489,7 +488,7 @@ uint32_t bk_dma_get_enable_status([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[�
 
         - others: Channel busy state.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_dma_flush_src_buffer([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv423bk_dma_flush_src_buffer8dma_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_dma_flush_src_buffer([dma_id_t](#_CPPv48dma_id_t "dma_id_t") id)[](#_CPPv423bk_dma_flush_src_buffer8dma_id_t "永久链接至目标")
 :   flush reserved data in dma internal buffer I.E:If source data width is not 4bytes, and data size isn’t 4bytes align, but dest data width is 4bytes, then maybe 1~3 bytes data reserved in dma internal buffer, then the left 1~3 bytes data not copy to dest address.
 
     参数

@@ -60,4 +60,3 @@
 
 - 可以根据业务需要，使用不同的DPLL分频时钟来节省功耗
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_clock.html "../../../../en/v1.5/developer-guide/power_save/bk_clock.html")

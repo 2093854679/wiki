@@ -1,6 +1,5 @@
 # VIDEO_TRANSFER APIs[](#video-transfer-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_video_transfer.html "../../../../en/v1.5/api-reference/multi_media/bk_video_transfer.html")
 
 重要
 
@@ -38,7 +37,7 @@ VIDEO_TRANSFER APIs:
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_init([video_setup_t](#_CPPv413video_setup_t "video_setup_t") *setup_cfg)[](#_CPPv422bk_video_transfer_initP13video_setup_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_init([video_setup_t](#_CPPv413video_setup_t "video_setup_t") *setup_cfg)[](#_CPPv422bk_video_transfer_initP13video_setup_t "永久链接至目标")
 :   video transfer init
 
     This API will create video thread, init msg queue, and excute camera init
@@ -51,7 +50,7 @@ VIDEO_TRANSFER APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_deinit(void)[](#_CPPv424bk_video_transfer_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_deinit(void)[](#_CPPv424bk_video_transfer_deinitv "永久链接至目标")
 :   video transfer deinit
 
     This API will quit video thread, and free all reasource
@@ -61,7 +60,7 @@ VIDEO_TRANSFER APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_buffer_open(media_camera_device_t *device)[](#_CPPv420bk_video_buffer_openP21media_camera_device_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_buffer_open(media_camera_device_t *device)[](#_CPPv420bk_video_buffer_openP21media_camera_device_t "永久链接至目标")
 :   set video transfer param
 
     This API will open video tranfer data_buffer, and star transfer
@@ -78,7 +77,7 @@ VIDEO_TRANSFER APIs:
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_buffer_close(void)[](#_CPPv421bk_video_buffer_closev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_buffer_close(void)[](#_CPPv421bk_video_buffer_closev "永久链接至目标")
 :   set video buffer close
 
     This API will deinit video tranfer, stop transfer video data
@@ -119,7 +118,7 @@ uint32_t bk_video_buffer_read_frame(uint8_t *buf, uint32_t buf_len, int *err_cod
 
         - other: frame_length.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_stop(void)[](#_CPPv422bk_video_transfer_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_stop(void)[](#_CPPv422bk_video_transfer_stopv "永久链接至目标")
 :   read video buffer frame
 
     This API will stop camera, but not free malloc memory for transfer
@@ -129,7 +128,7 @@ uint32_t bk_video_buffer_read_frame(uint8_t *buf, uint32_t buf_len, int *err_cod
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_start(void)[](#_CPPv423bk_video_transfer_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_video_transfer_start(void)[](#_CPPv423bk_video_transfer_startv "永久链接至目标")
 :   read video buffer frame
 
     This API will start camera after stopping camera
@@ -253,7 +252,7 @@ struct video_header_t[](#_CPPv414video_header_t "永久链接至目标")
 struct video_buff_t[](#_CPPv412video_buff_t "永久链接至目标")
 :   Public Members
 
-    [beken_semaphore_t](../system/os.html#_CPPv417beken_semaphore_t "beken_semaphore_t") aready_semaphore[](#_CPPv4N12video_buff_t16aready_semaphoreE "永久链接至目标")
+    [beken_semaphore_t](../system/os.md#_CPPv417beken_semaphore_t "beken_semaphore_t") aready_semaphore[](#_CPPv4N12video_buff_t16aready_semaphoreE "永久链接至目标")
     :   the video data receive complete
 
     uint8_t *buf_base[](#_CPPv4N12video_buff_t8buf_baseE "永久链接至目标")

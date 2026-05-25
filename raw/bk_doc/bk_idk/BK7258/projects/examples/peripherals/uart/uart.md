@@ -6,7 +6,7 @@
 
 ## Project Overview[](#project-overview "永久链接至标题")
 
-This project is used for demonstrating [peripheral URAT]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.html "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.html")).
+This project is used for demonstrating [peripheral URAT]([https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.html](https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.md "https://docs.bekencorp.com/armino/bk7236/en/latest/developer-guide/peripheral/bk_uart.md")).
 
 **The security function of BK7236 is still under development and improvement, please note the following restrictions**
 
@@ -52,7 +52,7 @@ Enter the following command in the Armino root directory to compile:
 
 > make bk7236 PROJECT=examples/peripherals/uart
 
-For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html")).
+For preparations such as toolchain installation, please refer to [Quick Start]([https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.html](https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md "https://docs.bekencorp.com/armino/bk7236/en/latest/get-started/index.md")).
 
 
 ### Flash all-app.bin[](#flash-all-app-bin "永久链接至标题")

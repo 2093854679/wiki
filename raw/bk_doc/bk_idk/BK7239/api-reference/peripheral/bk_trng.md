@@ -23,7 +23,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_trng_driver_init(void)[](#_CPPv419bk_trng_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_trng_driver_init(void)[](#_CPPv419bk_trng_driver_initv "永久链接至目标")
 :   Init the TRNG driver.
 
     This API init the resoure common:
@@ -40,7 +40,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_trng_driver_deinit(void)[](#_CPPv421bk_trng_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_trng_driver_deinit(void)[](#_CPPv421bk_trng_driver_deinitv "永久链接至目标")
 :   Deinit the TRNG driver.
 
     This API free all resource related to TRNG and disable TRNG.
@@ -50,7 +50,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_trng_start(void)[](#_CPPv413bk_trng_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_trng_start(void)[](#_CPPv413bk_trng_startv "永久链接至目标")
 :   Start the TRNG.
 
     返回
@@ -60,7 +60,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_trng_stop(void)[](#_CPPv412bk_trng_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_trng_stop(void)[](#_CPPv412bk_trng_stopv "永久链接至目标")
 :   Stop the TRNG.
 
     返回

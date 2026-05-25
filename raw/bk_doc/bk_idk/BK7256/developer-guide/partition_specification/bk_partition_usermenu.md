@@ -1,6 +1,5 @@
 # 分区修改规范[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/partition_specification/bk_partition_usermenu.html "../../../../en/v1.5/developer-guide/partition_specification/bk_partition_usermenu.html")
 
 
 ## 一．分区表制作(vnd_flash.c)[](#vnd-flash-c "永久链接至标题")

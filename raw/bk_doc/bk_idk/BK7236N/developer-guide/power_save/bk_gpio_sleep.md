@@ -82,4 +82,3 @@ GPIO_INT_TYPE_HIGH_LEVEL: 高电平唤醒;
 
 - 3. 追求最优功耗时，当系统开启音频，视频，LCD，CPU1，CPU2后，进入低压睡眠前需要把音频，视频，LCD，CPU1,CPU2先关闭，再进入睡眠。
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_gpio_sleep.html "../../../../en/v2.2.1/developer-guide/power_save/bk_gpio_sleep.html")

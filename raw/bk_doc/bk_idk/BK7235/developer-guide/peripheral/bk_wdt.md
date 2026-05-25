@@ -1,6 +1,5 @@
 # WDT 使用指南[](#wdt "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/peripheral/bk_wdt.html "../../../../en/v1.5/developer-guide/peripheral/bk_wdt.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

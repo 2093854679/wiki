@@ -6,8 +6,8 @@ paths:
   summaries_dir: wiki/summaries
   concepts_dir: wiki/concepts
   outputs_dir: wiki/outputs
-  manifest_file: .kb_manifest.json
-  search_db: .kb_search.db
+  manifest_file: tools/kb/cache/.kb_manifest.json
+  search_db: tools/kb/cache/search.db
   static_dir: tools/kb/static
   templates_dir: tools/kb/templates
 

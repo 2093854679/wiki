@@ -56,7 +56,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_driver_init(void)[](#_CPPv418bk_spi_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_driver_init(void)[](#_CPPv418bk_spi_driver_initv "永久链接至目标")
 :   Init the SPI driver.
 
     This API init the resoure common:
@@ -73,7 +73,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_driver_deinit(void)[](#_CPPv420bk_spi_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_driver_deinit(void)[](#_CPPv420bk_spi_driver_deinitv "永久链接至目标")
 :   Deinit the SPI driver.
 
     This API free all resource related to SPI and disable SPI.
@@ -83,7 +83,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_init([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const [spi_config_t](#_CPPv412spi_config_t "spi_config_t") *config)[](#_CPPv411bk_spi_init8spi_id_tPK12spi_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_init([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const [spi_config_t](#_CPPv412spi_config_t "spi_config_t") *config)[](#_CPPv411bk_spi_init8spi_id_tPK12spi_config_t "永久链接至目标")
 :   Init the SPI id.
 
     This API init the SPI id:
@@ -115,7 +115,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_deinit([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_deinit8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_deinit([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_deinit8spi_id_t "永久链接至目标")
 :   Deinit the SPI id.
 
     This API deinit the SPI id:
@@ -135,7 +135,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_mode([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_mode_t](#_CPPv410spi_mode_t "spi_mode_t") mode)[](#_CPPv415bk_spi_set_mode8spi_id_t10spi_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_mode([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_mode_t](#_CPPv410spi_mode_t "spi_mode_t") mode)[](#_CPPv415bk_spi_set_mode8spi_id_t10spi_mode_t "永久链接至目标")
 :   Set the SPI mode.
 
     参数
@@ -148,7 +148,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_bit_width([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_bit_width_t](#_CPPv415spi_bit_width_t "spi_bit_width_t") bit_width)[](#_CPPv420bk_spi_set_bit_width8spi_id_t15spi_bit_width_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_bit_width([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_bit_width_t](#_CPPv415spi_bit_width_t "spi_bit_width_t") bit_width)[](#_CPPv420bk_spi_set_bit_width8spi_id_t15spi_bit_width_t "永久链接至目标")
 :   Set the SPI bit width.
 
     参数
@@ -161,7 +161,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_wire_mode([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_wire_mode_t](#_CPPv415spi_wire_mode_t "spi_wire_mode_t") wire_mode)[](#_CPPv420bk_spi_set_wire_mode8spi_id_t15spi_wire_mode_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_wire_mode([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_wire_mode_t](#_CPPv415spi_wire_mode_t "spi_wire_mode_t") wire_mode)[](#_CPPv420bk_spi_set_wire_mode8spi_id_t15spi_wire_mode_t "永久链接至目标")
 :   Set the SPI wire mode.
 
     参数
@@ -174,7 +174,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_baud_rate([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, uint32_t baud_rate)[](#_CPPv420bk_spi_set_baud_rate8spi_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_baud_rate([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, uint32_t baud_rate)[](#_CPPv420bk_spi_set_baud_rate8spi_id_t8uint32_t "永久链接至目标")
 :   Set the SPI baud rate.
 
     参数
@@ -187,7 +187,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_bit_order([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_bit_order_t](#_CPPv415spi_bit_order_t "spi_bit_order_t") bit_order)[](#_CPPv420bk_spi_set_bit_order8spi_id_t15spi_bit_order_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_bit_order([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_bit_order_t](#_CPPv415spi_bit_order_t "spi_bit_order_t") bit_order)[](#_CPPv420bk_spi_set_bit_order8spi_id_t15spi_bit_order_t "永久链接至目标")
 :   Set the SPI bit order.
 
     参数
@@ -200,17 +200,17 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_set_role([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_role_t](#_CPPv410spi_role_t "spi_role_t") role)[](#_CPPv415bk_spi_set_role8spi_id_t10spi_role_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_set_role([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_role_t](#_CPPv410spi_role_t "spi_role_t") role)[](#_CPPv415bk_spi_set_role8spi_id_t10spi_role_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_clear_tx_fifo([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv420bk_spi_clear_tx_fifo8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_clear_tx_fifo([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv420bk_spi_clear_tx_fifo8spi_id_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_clear_rx_fifo([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv420bk_spi_clear_rx_fifo8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_clear_rx_fifo([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv420bk_spi_clear_rx_fifo8spi_id_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_clr_tx([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_clr_tx8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_clr_tx([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_clr_tx8spi_id_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_clr_rx([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_clr_rx8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_clr_rx([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv413bk_spi_clr_rx8spi_id_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_register_rx_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv422bk_spi_register_rx_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_register_rx_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv422bk_spi_register_rx_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
 :   Register the RX interrupt service routine for SPI id.
 
     参数
@@ -225,7 +225,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_register_tx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv429bk_spi_register_tx_finish_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_register_tx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv429bk_spi_register_tx_finish_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
 :   Register the TX finish interrupt service routine for SPI id.
 
     参数
@@ -240,7 +240,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_write_bytes([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *data, uint32_t size)[](#_CPPv418bk_spi_write_bytes8spi_id_tPKv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_write_bytes([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *data, uint32_t size)[](#_CPPv418bk_spi_write_bytes8spi_id_tPKv8uint32_t "永久链接至目标")
 :   Send data to the SPI port from a given buffer and length.
 
     参数
@@ -261,7 +261,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_read_bytes([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, void *data, uint32_t size)[](#_CPPv417bk_spi_read_bytes8spi_id_tPv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_read_bytes([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, void *data, uint32_t size)[](#_CPPv417bk_spi_read_bytes8spi_id_tPv8uint32_t "永久链接至目标")
 :   SPI read bytes from SPI buffer.
 
     参数
@@ -282,7 +282,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_transmit([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *tx_data, uint32_t tx_size, void *rx_data, uint32_t rx_size)[](#_CPPv415bk_spi_transmit8spi_id_tPKv8uint32_tPv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_transmit([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *tx_data, uint32_t tx_size, void *rx_data, uint32_t rx_size)[](#_CPPv415bk_spi_transmit8spi_id_tPKv8uint32_tPv8uint32_t "永久链接至目标")
 :   SPI write and read bytes.
 
     参数
@@ -309,7 +309,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_register_rx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv429bk_spi_register_rx_finish_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_register_rx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, [spi_isr_t](#_CPPv49spi_isr_t "spi_isr_t") isr, void *param)[](#_CPPv429bk_spi_register_rx_finish_isr8spi_id_t9spi_isr_tPv "永久链接至目标")
 :   Register the RX finish interrupt service routine for SPI id.
 
     参数
@@ -324,7 +324,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_rx_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv424bk_spi_unregister_rx_isr8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_rx_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv424bk_spi_unregister_rx_isr8spi_id_t "永久链接至目标")
 :   Unregister the RX interrupt service routine for SPI id.
 
     参数
@@ -335,7 +335,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_rx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv431bk_spi_unregister_rx_finish_isr8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_rx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv431bk_spi_unregister_rx_finish_isr8spi_id_t "永久链接至目标")
 :   Unregister the RX finish interrupt service routine for SPI id.
 
     参数
@@ -346,7 +346,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_tx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv431bk_spi_unregister_tx_finish_isr8spi_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_unregister_tx_finish_isr([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id)[](#_CPPv431bk_spi_unregister_tx_finish_isr8spi_id_t "永久链接至目标")
 :   Unregister the TX finish interrupt service routine for SPI id.
 
     参数
@@ -357,7 +357,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_write_bytes_async([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *data, uint32_t size)[](#_CPPv424bk_spi_write_bytes_async8spi_id_tPKv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_write_bytes_async([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, const void *data, uint32_t size)[](#_CPPv424bk_spi_write_bytes_async8spi_id_tPKv8uint32_t "永久链接至目标")
 :   Send data to the SPI port from a given buffer and length in async mode.
 
     参数
@@ -378,7 +378,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_spi_read_bytes_async([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, void *data, uint32_t size)[](#_CPPv423bk_spi_read_bytes_async8spi_id_tPv8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spi_read_bytes_async([spi_id_t](#_CPPv48spi_id_t "spi_id_t") id, void *data, uint32_t size)[](#_CPPv423bk_spi_read_bytes_async8spi_id_tPv8uint32_t "永久链接至目标")
 :   SPI read bytes from SPI buffer in async mode.
 
     参数
@@ -417,13 +417,13 @@ struct spi_int_config_t[](#_CPPv416spi_int_config_t "永久链接至目标")
     [spi_id_t](#_CPPv48spi_id_t "spi_id_t") id[](#_CPPv4N16spi_int_config_t2idE "永久链接至目标")
     :   SPI id
 
-    [icu_int_src_t](bk_interrupt.html#_CPPv413icu_int_src_t "icu_int_src_t") int_src[](#_CPPv4N16spi_int_config_t7int_srcE "永久链接至目标")
+    [icu_int_src_t](bk_interrupt.md#_CPPv413icu_int_src_t "icu_int_src_t") int_src[](#_CPPv4N16spi_int_config_t7int_srcE "永久链接至目标")
     :   int source
 
     int_group_isr_t isr[](#_CPPv4N16spi_int_config_t3isrE "永久链接至目标")
     :   isr function
 
-    [dma_dev_t](bk_dma.html#_CPPv49dma_dev_t "dma_dev_t") dma_dev[](#_CPPv4N16spi_int_config_t7dma_devE "永久链接至目标")
+    [dma_dev_t](bk_dma.md#_CPPv49dma_dev_t "dma_dev_t") dma_dev[](#_CPPv4N16spi_int_config_t7dma_devE "永久链接至目标")
     :   dma device
 
 

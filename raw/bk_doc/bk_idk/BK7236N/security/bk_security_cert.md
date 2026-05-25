@@ -1,6 +1,5 @@
 # 安全认证[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_security_cert.html "../../../en/v2.2.1/security/bk_security_cert.html")
 
 重要
 

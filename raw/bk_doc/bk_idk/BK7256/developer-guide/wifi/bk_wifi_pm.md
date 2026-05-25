@@ -69,4 +69,3 @@ CLI命令方式：set_interval X （1：DTIM1 3:DTIM3 10:DTIM10）
 
 待完成.
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_pm.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_pm.html")

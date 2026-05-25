@@ -1,6 +1,5 @@
 # **Armino Wi-Fi音视频传输使用指南**[](#armino-wi-fi "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_multimedia.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi_multimedia.html")
 
 
 ## **概述**[](#id1 "永久链接至标题")
@@ -86,7 +85,7 @@ bk_err_t bk_wifi_get_video_quality_config(uint8_t *quality);
 
 > > Wi-Fi 音视频传输具体API接口介绍说明请参阅如下链接：
 >
-> - [`bk_wifi_set_wifi_media_mode()`](../../api-reference/network/bk_wifi.html#_CPPv427bk_wifi_set_wifi_media_modeb "bk_wifi_set_wifi_media_mode")
-> - [`bk_wifi_set_video_quality()`](../../api-reference/network/bk_wifi.html#_CPPv425bk_wifi_set_video_quality7uint8_t "bk_wifi_set_video_quality")
-> - [`bk_wifi_get_video_quality_config()`](../../api-reference/network/bk_wifi.html#_CPPv432bk_wifi_get_video_quality_configP7uint8_t "bk_wifi_get_video_quality_config")
-> - [`bk_wifi_get_wifi_media_mode_config()`](../../api-reference/network/bk_wifi.html#_CPPv434bk_wifi_get_wifi_media_mode_configPb "bk_wifi_get_wifi_media_mode_config")
+> - [`bk_wifi_set_wifi_media_mode()`](../../api-reference/network/bk_wifi.md#_CPPv427bk_wifi_set_wifi_media_modeb "bk_wifi_set_wifi_media_mode")
+> - [`bk_wifi_set_video_quality()`](../../api-reference/network/bk_wifi.md#_CPPv425bk_wifi_set_video_quality7uint8_t "bk_wifi_set_video_quality")
+> - [`bk_wifi_get_video_quality_config()`](../../api-reference/network/bk_wifi.md#_CPPv432bk_wifi_get_video_quality_configP7uint8_t "bk_wifi_get_video_quality_config")
+> - [`bk_wifi_get_wifi_media_mode_config()`](../../api-reference/network/bk_wifi.md#_CPPv434bk_wifi_get_wifi_media_mode_configPb "bk_wifi_get_wifi_media_mode_config")

@@ -1,6 +1,5 @@
 # **Wi-Fi AT命令**[](#wi-fi-at "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_at.html "../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_at.html")
 
 重要
 

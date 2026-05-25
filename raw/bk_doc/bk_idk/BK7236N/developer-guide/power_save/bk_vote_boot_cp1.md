@@ -59,10 +59,9 @@
 
 ## 如何查看启动CPU1是否成功或者关闭CPU1哪些模块投下电的票[](#id5 "永久链接至标题")
 
-> - 可以发送pm_debug 8命令，通过log分析“pm_cp1_ctrl_state:0x0”字段，详细参考 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") 。
+> - 可以发送pm_debug 8命令，通过log分析“pm_cp1_ctrl_state:0x0”字段，详细参考 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") 。
 
 备注
 
 启动CPU1使用的module名字和使用完关闭CPU1的module名字需要一样，如果不一样，启动和关闭模块不对称，会出现不符合预期的。
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_vote_boot_cp1.html "../../../../en/v2.2.1/developer-guide/power_save/bk_vote_boot_cp1.html")

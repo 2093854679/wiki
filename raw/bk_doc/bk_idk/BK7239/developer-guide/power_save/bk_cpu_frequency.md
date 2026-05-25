@@ -20,4 +20,3 @@ F = 480M / (1+N), N from 0 to 15
 
 - 可以根据业务需要动态的切频率来达到最优功耗,CPU主频切换相对来说比较复杂，SDK内部来实现。
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_cpu_frequency.html "../../../../en/v2.2.1/developer-guide/power_save/bk_cpu_frequency.html")

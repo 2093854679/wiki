@@ -57,4 +57,3 @@ touch初始化的cli command例如：
 > - 1. BT和WIFI的票，BT和WIFI模块内部进入睡眠后自己投上，SDK内部做好，应用程序不用关注
 > - 2. 当系统中BT或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票。
 
-[[English]](../../../../en/v1.5/developer-guide/power_save/bk_touch_sleep.html "../../../../en/v1.5/developer-guide/power_save/bk_touch_sleep.html")

@@ -1,6 +1,5 @@
 # DUT[](#dut "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/bluetooth/dut.html "../../../../en/v1.5/examples/bluetooth/dut.html")
 
 
 ## 概述[](#id1 "永久链接至标题")

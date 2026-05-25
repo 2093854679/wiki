@@ -1,6 +1,5 @@
 # 快速入门[](#id1 "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/get-started/index.html "../../../en/v2.0.1/get-started/index.html")
 
 本文档以 BK7258 开发板为例，通过一个简单的示例项目向您展示:
 
@@ -14,7 +13,7 @@
 
 硬件：
 
-> - BK7258 开发板( [开发板简介](bk7258.html#bk7258 "bk7258.html#bk7258") ， [购买链接](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338 "https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338") )；
+> - BK7258 开发板( [开发板简介](bk7258.md#bk7258 "bk7258.md#bk7258") ， [购买链接](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338 "https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338") )；
 > - 串口烧录工具；
 > - PC；
 
@@ -85,9 +84,9 @@ github代码相对于gitlab有滞后性 。gitlab只针对企业用户开放，�
 对于不熟悉Docker技术或因网络条件限制无法使用Docker环境的用户，我们也提供了基于脚本命令的本地编译部署方案。本地部署方案目前仅支持Linux系统下的编译。
 
 
-- [本地部署](env-manual.html "env-manual.html")
+- [本地部署](env-manual.md "env-manual.md")
 
-- [Docker部署](env-docker.html "env-docker.html")
+- [Docker部署](env-docker.md "env-docker.md")
 
 
 ## 配置工程[](#wifi-menuconfig "永久链接至标题")
@@ -167,7 +166,7 @@ BKFIL GUI[](#id10 "永久链接至图片")
 
 选择烧录串口 DL_UART0，点击 `烧录` 进行版本烧录, 烧录完成之后掉电重启设备。
 
-点击 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.html#bk-tool-bkfil") 进一步了解 Armino 烧录工具。
+点击 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil") 进一步了解 Armino 烧录工具。
 
 
 ## 串口 Log 及 Command Line[](#log-command-line "永久链接至标题")

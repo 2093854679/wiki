@@ -1,6 +1,5 @@
 # **Wi-Fi APIs**[](#wi-fi-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/network/bk_wifi.html "../../../../en/v2.0.1/api-reference/network/bk_wifi.html")
 
 重要
 
@@ -200,7 +199,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_init(const [wifi_init_config_t](#_CPPv418wifi_init_config_t "wifi_init_config_t") *init_config)[](#_CPPv412bk_wifi_initPK18wifi_init_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_init(const [wifi_init_config_t](#_CPPv418wifi_init_config_t "wifi_init_config_t") *init_config)[](#_CPPv412bk_wifi_initPK18wifi_init_config_t "永久链接至目标")
 :   This API initializes the WiFi driver, e.g. creating task for supplicant, allocating resource for low level WiFi driver etc.
 
     Usage example:
@@ -223,7 +222,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_deinit(void)[](#_CPPv414bk_wifi_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_deinit(void)[](#_CPPv414bk_wifi_deinitv "永久链接至目标")
 :   Deinit the BK WiFi driver.
 
     This API free all resources related to WiFi.
@@ -239,7 +238,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_start(void)[](#_CPPv417bk_wifi_sta_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_start(void)[](#_CPPv417bk_wifi_sta_startv "永久链接至目标")
 :   Start the BK STA.
 
     This API init the resoure specific to BK STA, e.g. init STA specific globals, init the supplicant and STA specific WiFi driver etc.
@@ -269,7 +268,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_stop(void)[](#_CPPv416bk_wifi_sta_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_stop(void)[](#_CPPv416bk_wifi_sta_stopv "永久链接至目标")
 :   Stop the BK STA.
 
 
@@ -281,7 +280,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - BK_FAIL: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_stop(void)[](#_CPPv417bk_wifi_scan_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_stop(void)[](#_CPPv417bk_wifi_scan_stopv "永久链接至目标")
 :   Stop the pure scan operation.
 
 
@@ -293,7 +292,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - BK_FAIL: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_set_config(const [wifi_sta_config_t](#_CPPv417wifi_sta_config_t "wifi_sta_config_t") *sta_config)[](#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_set_config(const [wifi_sta_config_t](#_CPPv417wifi_sta_config_t "wifi_sta_config_t") *sta_config)[](#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "永久链接至目标")
 :   Config the BK STA.
 
     This API configures the basic configurations of the BK STA, it should be called before we call [bk_wifi_sta_start()](#group__bk__api__wifi__v2_1gaaf144e78b9438143e21f7c75e8c23ecf "#group__bk__api__wifi__v2_1gaaf144e78b9438143e21f7c75e8c23ecf") to start the BK STA. It can also be used to update the configuration after the BK STA is started.
@@ -339,7 +338,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_config([wifi_sta_config_t](#_CPPv417wifi_sta_config_t "wifi_sta_config_t") *sta_config)[](#_CPPv422bk_wifi_sta_get_configP17wifi_sta_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_config([wifi_sta_config_t](#_CPPv417wifi_sta_config_t "wifi_sta_config_t") *sta_config)[](#_CPPv422bk_wifi_sta_get_configP17wifi_sta_config_t "永久链接至目标")
 :   Get the configuration of the BK STA.
 
     参数
@@ -354,7 +353,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_linkstate_with_reason([wifi_linkstate_reason_t](#_CPPv423wifi_linkstate_reason_t "wifi_linkstate_reason_t") *info)[](#_CPPv437bk_wifi_sta_get_linkstate_with_reasonP23wifi_linkstate_reason_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_linkstate_with_reason([wifi_linkstate_reason_t](#_CPPv423wifi_linkstate_reason_t "wifi_linkstate_reason_t") *info)[](#_CPPv437bk_wifi_sta_get_linkstate_with_reasonP23wifi_linkstate_reason_t "永久链接至目标")
 :   Get the WiFi station state of the BK STA.
 
 
@@ -377,7 +376,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_link_status([wifi_link_status_t](#_CPPv418wifi_link_status_t "wifi_link_status_t") *link_status)[](#_CPPv427bk_wifi_sta_get_link_statusP18wifi_link_status_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_link_status([wifi_link_status_t](#_CPPv418wifi_link_status_t "wifi_link_status_t") *link_status)[](#_CPPv427bk_wifi_sta_get_link_statusP18wifi_link_status_t "永久链接至目标")
 :   Get the WiFi link info of the BK STA.
 
     Get the actual WiFi link status of the BK STA.
@@ -407,7 +406,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_connect(void)[](#_CPPv419bk_wifi_sta_connectv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_connect(void)[](#_CPPv419bk_wifi_sta_connectv "永久链接至目标")
 :   Connect the BK STA to the AP.
 
 
@@ -435,7 +434,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other failures.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_disconnect(void)[](#_CPPv422bk_wifi_sta_disconnectv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_disconnect(void)[](#_CPPv422bk_wifi_sta_disconnectv "永久链接至目标")
 :   Disconnect the WiFi connection of the BK STA.
 
 
@@ -447,7 +446,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other failures.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_start(const [wifi_scan_config_t](#_CPPv418wifi_scan_config_t "wifi_scan_config_t") *scan_config)[](#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_start(const [wifi_scan_config_t](#_CPPv418wifi_scan_config_t "wifi_scan_config_t") *scan_config)[](#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "永久链接至目标")
 :   Start a scan.
 
     This API notifies the WiFi driver to start a scan, the event EVENT_WIFI_SCAN_DONE will be raised if the scan is completed. General steps to use this API:
@@ -509,7 +508,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other failures.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_get_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "wifi_scan_result_t") *scan_result)[](#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_get_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "wifi_scan_result_t") *scan_result)[](#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "永久链接至目标")
 :   Get the scan result.
 
     Usage example:
@@ -541,7 +540,7 @@ Similar as most popular WiFi driver, the Beken WiFi driver is implemented as eve
 
         - others: other failures
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_dump_result(const [wifi_scan_result_t](#_CPPv418wifi_scan_result_t "wifi_scan_result_t") *scan_result)[](#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_scan_dump_result(const [wifi_scan_result_t](#_CPPv418wifi_scan_result_t "wifi_scan_result_t") *scan_result)[](#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "永久链接至目标")
 :   Dump the scan result.
 
     参数
@@ -565,7 +564,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   - BK_OK: always succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_add_vendor_ie(uint8_t frame, uint8_t *vsie, uint8_t len)[](#_CPPv425bk_wifi_sta_add_vendor_ie7uint8_tP7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_add_vendor_ie(uint8_t frame, uint8_t *vsie, uint8_t len)[](#_CPPv425bk_wifi_sta_add_vendor_ie7uint8_tP7uint8_t7uint8_t "永久链接至目标")
 :   Add/Update/Del STA’s Vendor Specific IE **before** connect to AP.
 
 
@@ -582,11 +581,11 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_update_vendor_ie(uint8_t frame, uint8_t *vsie, uint8_t len)[](#_CPPv428bk_wifi_sta_update_vendor_ie7uint8_tP7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_update_vendor_ie(uint8_t frame, uint8_t *vsie, uint8_t len)[](#_CPPv428bk_wifi_sta_update_vendor_ie7uint8_tP7uint8_t7uint8_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_del_vendor_ie(uint8_t frame)[](#_CPPv425bk_wifi_sta_del_vendor_ie7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_del_vendor_ie(uint8_t frame)[](#_CPPv425bk_wifi_sta_del_vendor_ie7uint8_t "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_start(void)[](#_CPPv416bk_wifi_ap_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_start(void)[](#_CPPv416bk_wifi_ap_startv "永久链接至目标")
 :   Start the BK AP.
 
     This API init the resoure specific to BK AP, e.g. init BK AP specific globals, init the hostapd and AP specific WiFi driver etc.
@@ -616,7 +615,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_stop(void)[](#_CPPv415bk_wifi_ap_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_stop(void)[](#_CPPv415bk_wifi_ap_stopv "永久链接至目标")
 :   Stop the BK AP.
 
     返回
@@ -626,7 +625,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_set_config(const [wifi_ap_config_t](#_CPPv416wifi_ap_config_t "wifi_ap_config_t") *ap_config)[](#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_set_config(const [wifi_ap_config_t](#_CPPv416wifi_ap_config_t "wifi_ap_config_t") *ap_config)[](#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "永久链接至目标")
 :   Config the BK AP.
 
     Usage example:
@@ -653,7 +652,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_config([wifi_ap_config_t](#_CPPv416wifi_ap_config_t "wifi_ap_config_t") *ap_config)[](#_CPPv421bk_wifi_ap_get_configP16wifi_ap_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_config([wifi_ap_config_t](#_CPPv416wifi_ap_config_t "wifi_ap_config_t") *ap_config)[](#_CPPv421bk_wifi_ap_get_configP16wifi_ap_config_t "永久链接至目标")
 :   Get the configuration of the BK AP.
 
     参数
@@ -666,7 +665,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_sta_list([wlan_ap_stas_t](#_CPPv414wlan_ap_stas_t "wlan_ap_stas_t") *stas)[](#_CPPv423bk_wifi_ap_get_sta_listP14wlan_ap_stas_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_sta_list([wlan_ap_stas_t](#_CPPv414wlan_ap_stas_t "wlan_ap_stas_t") *stas)[](#_CPPv423bk_wifi_ap_get_sta_listP14wlan_ap_stas_t "永久链接至目标")
 :   Get the STAs connected to BK AP.
 
 
@@ -681,7 +680,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_calculate_pmk(const char *ssid, const char *pwd, char *pmk)[](#_CPPv421bk_wifi_calculate_pmkPKcPKcPc "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_calculate_pmk(const char *ssid, const char *pwd, char *pmk)[](#_CPPv421bk_wifi_calculate_pmkPKcPKcPc "永久链接至目标")
 :   Calculate softap’s Pmk when softap is starts.
 
     参数
@@ -696,7 +695,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_add_vendor_ie(void *buf, uint8_t len)[](#_CPPv424bk_wifi_ap_add_vendor_iePv7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_add_vendor_ie(void *buf, uint8_t len)[](#_CPPv424bk_wifi_ap_add_vendor_iePv7uint8_t "永久链接至目标")
 :   Add softap’s Vendor Specific IE when softap is running.
 
 
@@ -713,7 +712,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_del_vendor_ie(void)[](#_CPPv424bk_wifi_ap_del_vendor_iev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_del_vendor_ie(void)[](#_CPPv424bk_wifi_ap_del_vendor_iev "永久链接至目标")
 :   Delete softap’s Vendor Specific IE when softap is running.
 
 
@@ -725,7 +724,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_update_hidden_cap(bool flag)[](#_CPPv428bk_wifi_ap_update_hidden_capb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_update_hidden_cap(bool flag)[](#_CPPv428bk_wifi_ap_update_hidden_capb "永久链接至目标")
 :   Update softap’s Hidden Ssid Capaility when softap is running.
 
 
@@ -742,7 +741,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
     返回
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_start(void)[](#_CPPv421bk_wifi_monitor_startv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_start(void)[](#_CPPv421bk_wifi_monitor_startv "永久链接至目标")
 :   Start the monitor.
 
 
@@ -758,7 +757,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_stop(void)[](#_CPPv420bk_wifi_monitor_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_stop(void)[](#_CPPv420bk_wifi_monitor_stopv "永久链接至目标")
 :   Stop the monitor.
 
     返回
@@ -766,7 +765,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_set_config(const [wifi_monitor_config_t](#_CPPv421wifi_monitor_config_t "wifi_monitor_config_t") *monitor_config)[](#_CPPv426bk_wifi_monitor_set_configPK21wifi_monitor_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_set_config(const [wifi_monitor_config_t](#_CPPv421wifi_monitor_config_t "wifi_monitor_config_t") *monitor_config)[](#_CPPv426bk_wifi_monitor_set_configPK21wifi_monitor_config_t "永久链接至目标")
 :   Configure the monitor.
 
     参数
@@ -777,7 +776,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_get_config([wifi_monitor_config_t](#_CPPv421wifi_monitor_config_t "wifi_monitor_config_t") *monitor_config)[](#_CPPv426bk_wifi_monitor_get_configP21wifi_monitor_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_get_config([wifi_monitor_config_t](#_CPPv421wifi_monitor_config_t "wifi_monitor_config_t") *monitor_config)[](#_CPPv426bk_wifi_monitor_get_configP21wifi_monitor_config_t "永久链接至目标")
 :   Get the configuration of the monitor.
 
     参数
@@ -788,7 +787,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_register_cb(const [wifi_monitor_cb_t](#_CPPv417wifi_monitor_cb_t "wifi_monitor_cb_t") monitor_cb)[](#_CPPv427bk_wifi_monitor_register_cbK17wifi_monitor_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_register_cb(const [wifi_monitor_cb_t](#_CPPv417wifi_monitor_cb_t "wifi_monitor_cb_t") monitor_cb)[](#_CPPv427bk_wifi_monitor_register_cbK17wifi_monitor_cb_t "永久链接至目标")
 :   Register the user callback of monitor.
 
     参数
@@ -799,7 +798,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_set_channel(const [wifi_channel_t](#_CPPv414wifi_channel_t "wifi_channel_t") *chan)[](#_CPPv427bk_wifi_monitor_set_channelPK14wifi_channel_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_set_channel(const [wifi_channel_t](#_CPPv414wifi_channel_t "wifi_channel_t") *chan)[](#_CPPv427bk_wifi_monitor_set_channelPK14wifi_channel_t "永久链接至目标")
 :   Set monitor channel.
 
 
@@ -826,7 +825,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_resume(void)[](#_CPPv422bk_wifi_monitor_resumev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_resume(void)[](#_CPPv422bk_wifi_monitor_resumev "永久链接至目标")
 :   resume the monitor to wakeup Wi-Fi from sleep mode
 
     返回
@@ -834,7 +833,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_suspend(void)[](#_CPPv423bk_wifi_monitor_suspendv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_monitor_suspend(void)[](#_CPPv423bk_wifi_monitor_suspendv "永久链接至目标")
 :   suspend the monitor to allow Wi-Fi can goto sleep mode
 
     返回
@@ -842,7 +841,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_twt_setup(uint8_t setup_type, uint16_t mantissa, uint8_t min_twt)[](#_CPPv417bk_wifi_twt_setup7uint8_t8uint16_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_twt_setup(uint8_t setup_type, uint16_t mantissa, uint8_t min_twt)[](#_CPPv417bk_wifi_twt_setup7uint8_t8uint16_t7uint8_t "永久链接至目标")
 :   twt set up
 
     参数
@@ -857,7 +856,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_twt_teardown(void)[](#_CPPv420bk_wifi_twt_teardownv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_twt_teardown(void)[](#_CPPv420bk_wifi_twt_teardownv "永久链接至目标")
 :   twt tear down
 
     返回
@@ -865,7 +864,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_set_config(const [wifi_filter_config_t](#_CPPv420wifi_filter_config_t "wifi_filter_config_t") *filter_config)[](#_CPPv425bk_wifi_filter_set_configPK20wifi_filter_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_set_config(const [wifi_filter_config_t](#_CPPv420wifi_filter_config_t "wifi_filter_config_t") *filter_config)[](#_CPPv425bk_wifi_filter_set_configPK20wifi_filter_config_t "永久链接至目标")
 :   Set the filter configuration.
 
     The filter is used to configure what kind of management packets can be received by the filter callback registered by [bk_wifi_filter_register_cb()](#group__bk__api__wifi__v2_1ga0276b4fd054e03c62f79e0b52b1870c0 "#group__bk__api__wifi__v2_1ga0276b4fd054e03c62f79e0b52b1870c0").
@@ -921,7 +920,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_get_config([wifi_filter_config_t](#_CPPv420wifi_filter_config_t "wifi_filter_config_t") *filter_config)[](#_CPPv425bk_wifi_filter_get_configP20wifi_filter_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_get_config([wifi_filter_config_t](#_CPPv420wifi_filter_config_t "wifi_filter_config_t") *filter_config)[](#_CPPv425bk_wifi_filter_get_configP20wifi_filter_config_t "永久链接至目标")
 :   Get the filter configuration.
 
     参数
@@ -932,7 +931,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_register_cb(const [wifi_filter_cb_t](#_CPPv416wifi_filter_cb_t "wifi_filter_cb_t") filter_cb)[](#_CPPv426bk_wifi_filter_register_cbK16wifi_filter_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_filter_register_cb(const [wifi_filter_cb_t](#_CPPv416wifi_filter_cb_t "wifi_filter_cb_t") filter_cb)[](#_CPPv426bk_wifi_filter_register_cbK16wifi_filter_cb_t "永久链接至目标")
 :   Register the filter user callback.
 
 
@@ -963,7 +962,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_mac(uint8_t *mac)[](#_CPPv419bk_wifi_sta_get_macP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_get_mac(uint8_t *mac)[](#_CPPv419bk_wifi_sta_get_macP7uint8_t "永久链接至目标")
 :   Get the MAC of BK STA.
 
 
@@ -982,7 +981,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_mac(uint8_t *mac)[](#_CPPv418bk_wifi_ap_get_macP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_get_mac(uint8_t *mac)[](#_CPPv418bk_wifi_ap_get_macP7uint8_t "永久链接至目标")
 :   Get the MAC of BK AP.
 
 
@@ -1001,7 +1000,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_raw(uint8_t *buffer, int len)[](#_CPPv416bk_wifi_send_rawP7uint8_ti "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_raw(uint8_t *buffer, int len)[](#_CPPv416bk_wifi_send_rawP7uint8_ti "永久链接至目标")
 :   Send raw 802.11 frame.
 
 
@@ -1030,7 +1029,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_raw_ex([wifi_raw_tx_info_t](#_CPPv418wifi_raw_tx_info_t "wifi_raw_tx_info_t") *raw_tx, void *cb, void *param)[](#_CPPv419bk_wifi_send_raw_exP18wifi_raw_tx_info_tPvPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_raw_ex([wifi_raw_tx_info_t](#_CPPv418wifi_raw_tx_info_t "wifi_raw_tx_info_t") *raw_tx, void *cb, void *param)[](#_CPPv419bk_wifi_send_raw_exP18wifi_raw_tx_info_tPvPv "永久链接至目标")
 :   Send raw 802.11 frame.
 
 
@@ -1061,7 +1060,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_tx_raw_ex([wifi_raw_tx_info_t](#_CPPv418wifi_raw_tx_info_t "wifi_raw_tx_info_t") *raw_tx, void *cb, void *param)[](#_CPPv422bk_wifi_send_tx_raw_exP18wifi_raw_tx_info_tPvPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_tx_raw_ex([wifi_raw_tx_info_t](#_CPPv418wifi_raw_tx_info_t "wifi_raw_tx_info_t") *raw_tx, void *cb, void *param)[](#_CPPv422bk_wifi_send_tx_raw_exP18wifi_raw_tx_info_tPvPv "永久链接至目标")
 :   Send raw 802.11 tx frame.
 
 
@@ -1092,7 +1091,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_rate_power(uint32_t rate, uint32_t power)[](#_CPPv429bk_wifi_set_tx_raw_rate_power8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_rate_power(uint32_t rate, uint32_t power)[](#_CPPv429bk_wifi_set_tx_raw_rate_power8uint32_t8uint32_t "永久链接至目标")
 :   Update raw 802.11 frame TX rate and power.
 
     参数
@@ -1105,7 +1104,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_ac(uint8_t ac)[](#_CPPv421bk_wifi_set_tx_raw_ac7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_ac(uint8_t ac)[](#_CPPv421bk_wifi_set_tx_raw_ac7uint8_t "永久链接至目标")
 :   Update raw 802.11 frame TX AC.
 
     参数
@@ -1116,7 +1115,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_timeout(uint16_t timeout_ms)[](#_CPPv426bk_wifi_set_tx_raw_timeout8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_raw_timeout(uint16_t timeout_ms)[](#_CPPv426bk_wifi_set_tx_raw_timeout8uint16_t "永久链接至目标")
 :   Update raw 802.11 frame TX timeout.
 
     参数
@@ -1127,7 +1126,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_wifi_media_mode(bool flag)[](#_CPPv427bk_wifi_set_wifi_media_modeb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_wifi_media_mode(bool flag)[](#_CPPv427bk_wifi_set_wifi_media_modeb "永久链接至目标")
 :   Configure wifi multimedia mode when the multimedia is running.
 
     This API is used to configure multimedia mode of Wi-Fi. Multimedia mode can enchance video fluency and make a better experience of video.
@@ -1152,7 +1151,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_video_quality(uint8_t quality)[](#_CPPv425bk_wifi_set_video_quality7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_video_quality(uint8_t quality)[](#_CPPv425bk_wifi_set_video_quality7uint8_t "永久链接至目标")
 :   Configure video quality when the video is running.
 
     This API is used to configure video quality.There are three mode to choose:
@@ -1185,7 +1184,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_video_quality_config(uint8_t *quality)[](#_CPPv432bk_wifi_get_video_quality_configP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_video_quality_config(uint8_t *quality)[](#_CPPv432bk_wifi_get_video_quality_configP7uint8_t "永久链接至目标")
 :   get video quality configuration
 
     参数
@@ -1198,7 +1197,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_wifi_media_mode_config(bool *flag)[](#_CPPv434bk_wifi_get_wifi_media_mode_configPb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_wifi_media_mode_config(bool *flag)[](#_CPPv434bk_wifi_get_wifi_media_mode_configPb "永久链接至目标")
 :   get wifi media mode configuration
 
     参数
@@ -1211,7 +1210,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_raw_ac(uint8_t *ac)[](#_CPPv421bk_wifi_get_tx_raw_acP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_raw_ac(uint8_t *ac)[](#_CPPv421bk_wifi_get_tx_raw_acP7uint8_t "永久链接至目标")
 :   get tx raw ac info
 
     参数
@@ -1222,7 +1221,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_raw_timeout(uint16_t *time)[](#_CPPv426bk_wifi_get_tx_raw_timeoutP8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_raw_timeout(uint16_t *time)[](#_CPPv426bk_wifi_get_tx_raw_timeoutP8uint16_t "永久链接至目标")
 :   get tx raw timeout info
 
     参数
@@ -1233,7 +1232,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_min_rsv_mem(uint16_t mem_bytes)[](#_CPPv423bk_wifi_set_min_rsv_mem8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_min_rsv_mem(uint16_t mem_bytes)[](#_CPPv423bk_wifi_set_min_rsv_mem8uint16_t "永久链接至目标")
 :   Update the minimux heap memory size that Wi-Fi should reserve.
 
 
@@ -1256,7 +1255,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_min_rsv_mem(uint16_t *mem_bytes)[](#_CPPv423bk_wifi_get_min_rsv_memP8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_min_rsv_mem(uint16_t *mem_bytes)[](#_CPPv423bk_wifi_get_min_rsv_memP8uint16_t "永久链接至目标")
 :   Get the minimux heap memory size that Wi-Fi currently creserves.
 
     参数
@@ -1267,7 +1266,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_max_msdu_cnt(uint16_t max_cnt)[](#_CPPv427bk_wifi_set_tx_max_msdu_cnt8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_max_msdu_cnt(uint16_t max_cnt)[](#_CPPv427bk_wifi_set_tx_max_msdu_cnt8uint16_t "永久链接至目标")
 :   Update the maximum MSDU count that Wi-Fi could handle.
 
     参数
@@ -1278,7 +1277,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_max_msdu_cnt(uint16_t *max_cnt)[](#_CPPv427bk_wifi_get_tx_max_msdu_cntP8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_max_msdu_cnt(uint16_t *max_cnt)[](#_CPPv427bk_wifi_get_tx_max_msdu_cntP8uint16_t "永久链接至目标")
 :   Get the maximum MSDU count configuration that Wi-Fi could handle.
 
     参数
@@ -1289,7 +1288,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_data_rty_num(uint8_t rty_num)[](#_CPPv424bk_wifi_set_data_rty_num7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_data_rty_num(uint8_t rty_num)[](#_CPPv424bk_wifi_set_data_rty_num7uint8_t "永久链接至目标")
 :   Set data frame retry numbers.
 
     参数
@@ -1300,7 +1299,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_data_rty_num(uint32_t *rty_num)[](#_CPPv424bk_wifi_get_data_rty_numP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_data_rty_num(uint32_t *rty_num)[](#_CPPv424bk_wifi_get_data_rty_numP8uint32_t "永久链接至目标")
 :   Get data frame retry numbers.
 
     参数
@@ -1311,7 +1310,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_mgmt_rty_num(uint8_t rty_num)[](#_CPPv424bk_wifi_set_mgmt_rty_num7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_mgmt_rty_num(uint8_t rty_num)[](#_CPPv424bk_wifi_set_mgmt_rty_num7uint8_t "永久链接至目标")
 :   Set management frame retry numbers.
 
     参数
@@ -1322,7 +1321,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_mgmt_rty_num(uint32_t *rty_num)[](#_CPPv424bk_wifi_get_mgmt_rty_numP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_mgmt_rty_num(uint32_t *rty_num)[](#_CPPv424bk_wifi_get_mgmt_rty_numP8uint32_t "永久链接至目标")
 :   Get management frame retry numbers.
 
     参数
@@ -1333,7 +1332,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_capa_config([wifi_capability_t](#_CPPv417wifi_capability_t "wifi_capability_t") capa_id, uint32_t capa_val)[](#_CPPv419bk_wifi_capa_config17wifi_capability_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_capa_config([wifi_capability_t](#_CPPv417wifi_capability_t "wifi_capability_t") capa_id, uint32_t capa_val)[](#_CPPv419bk_wifi_capa_config17wifi_capability_t8uint32_t "永久链接至目标")
 :   Update Wi-Fi capability configuration.
 
     This API is used to change some Wi-Fi capability configuration, please refer to wifi_capability_t to get the capability that has been supported.
@@ -1360,7 +1359,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_country(const [wifi_country_t](#_CPPv414wifi_country_t "wifi_country_t") *country)[](#_CPPv419bk_wifi_set_countryPK14wifi_country_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_country(const [wifi_country_t](#_CPPv414wifi_country_t "wifi_country_t") *country)[](#_CPPv419bk_wifi_set_countryPK14wifi_country_t "永久链接至目标")
 :   configure country info
 
 
@@ -1397,7 +1396,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - BK_ERR_PARAM: invalid argument
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_country([wifi_country_t](#_CPPv414wifi_country_t "wifi_country_t") *country)[](#_CPPv419bk_wifi_get_countryP14wifi_country_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_country([wifi_country_t](#_CPPv414wifi_country_t "wifi_country_t") *country)[](#_CPPv419bk_wifi_get_countryP14wifi_country_t "永久链接至目标")
 :   get the current country info
 
     参数
@@ -1410,7 +1409,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - BK_ERR_PARAM: invalid argument
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_pm_enable(void)[](#_CPPv421bk_wifi_sta_pm_enablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_pm_enable(void)[](#_CPPv421bk_wifi_sta_pm_enablev "永久链接至目标")
 :   enable wifi sta power management
 
     返回
@@ -1418,7 +1417,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_pm_disable(void)[](#_CPPv422bk_wifi_sta_pm_disablev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_sta_pm_disable(void)[](#_CPPv422bk_wifi_sta_pm_disablev "永久链接至目标")
 :   disable wifi sta power management
 
     返回
@@ -1426,7 +1425,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_channel(void)[](#_CPPv419bk_wifi_get_channelv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_channel(void)[](#_CPPv419bk_wifi_get_channelv "永久链接至目标")
 :   get current channel ID
 
     参数
@@ -1437,7 +1436,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_mac_address(char *mac)[](#_CPPv423bk_wifi_set_mac_addressPc "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_mac_address(char *mac)[](#_CPPv423bk_wifi_set_mac_addressPc "永久链接至目标")
 :   Set Wi-Fi MAC addresses.
 
     The given MAC address will become the station MAC address.The AP MAC address (i.e BSSID) will be the same MAC address but with the local bit set.
@@ -1459,7 +1458,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
          - others: real error, used for future.
         ```
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_manual_cal_rfcali_status(void)[](#_CPPv432bk_wifi_manual_cal_rfcali_statusv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_manual_cal_rfcali_status(void)[](#_CPPv432bk_wifi_manual_cal_rfcali_statusv "永久链接至目标")
 :   Get Wi-Fi Calibration status.
 
     返回
@@ -1467,13 +1466,13 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
 
         - others: real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_vif_probe_req_frame_cb_register(void *cb)[](#_CPPv442bk_wifi_ap_vif_probe_req_frame_cb_registerPv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ap_vif_probe_req_frame_cb_register(void *cb)[](#_CPPv442bk_wifi_ap_vif_probe_req_frame_cb_registerPv "永久链接至目标")
 :   Register a cb of probe request for ap.
 
     参数
     :   **cb** – callback function of probe request to register
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_listen_interval_req(uint8_t interval)[](#_CPPv432bk_wifi_send_listen_interval_req7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_listen_interval_req(uint8_t interval)[](#_CPPv432bk_wifi_send_listen_interval_req7uint8_t "永久链接至目标")
 :   Set listen interval.
 
     参数
@@ -1482,7 +1481,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_listen_interval(uint8_t *listen_interval)[](#_CPPv427bk_wifi_get_listen_intervalP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_listen_interval(uint8_t *listen_interval)[](#_CPPv427bk_wifi_get_listen_intervalP7uint8_t "永久链接至目标")
 :   Get listen interval.
 
     参数
@@ -1491,7 +1490,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -0: not set listen interval -others:return the configure listen interval value.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_arp_set_rate_req(uint16_t arp_tx_rate)[](#_CPPv429bk_wifi_send_arp_set_rate_req8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_arp_set_rate_req(uint16_t arp_tx_rate)[](#_CPPv429bk_wifi_send_arp_set_rate_req8uint16_t "永久链接至目标")
 :   Set arp tx rate.
 
     参数
@@ -1500,7 +1499,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_bcn_loss_int_req(uint8_t interval, uint8_t repeat_num)[](#_CPPv429bk_wifi_send_bcn_loss_int_req7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_send_bcn_loss_int_req(uint8_t interval, uint8_t repeat_num)[](#_CPPv429bk_wifi_send_bcn_loss_int_req7uint8_t7uint8_t "永久链接至目标")
 :   When beacon loss occurs,use beacon loss interval.
 
     参数
@@ -1511,7 +1510,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_loss_time(uint8_t wait_cnt, uint8_t wake_cnt)[](#_CPPv425bk_wifi_set_bcn_loss_time7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_loss_time(uint8_t wait_cnt, uint8_t wake_cnt)[](#_CPPv425bk_wifi_set_bcn_loss_time7uint8_t7uint8_t "永久链接至目标")
 :   When beacon loss occurs,use bcn loss time.
 
     @usage example:(10s no beacon frame received(normal reception for the first 5s,ps off for the next 5s),disconnect from the router) DTIM10:wait_cnt = 5,wake_cnt = 50 DTIM1 :wait_cnt = 50,wake_cnt = 50
@@ -1524,7 +1523,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_miss_time(uint8_t bcnmiss_time)[](#_CPPv425bk_wifi_set_bcn_miss_time7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_miss_time(uint8_t bcnmiss_time)[](#_CPPv425bk_wifi_set_bcn_miss_time7uint8_t "永久链接至目标")
 :   configure beacon miss time.
 
     bcnmiss_time: bcnmiss_time not receive the beacon,disconnected from the router;unit: second
@@ -1534,7 +1533,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_recv_win(uint8_t default_win, uint8_t max_win, uint8_t step)[](#_CPPv424bk_wifi_set_bcn_recv_win7uint8_t7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_bcn_recv_win(uint8_t default_win, uint8_t max_win, uint8_t step)[](#_CPPv424bk_wifi_set_bcn_recv_win7uint8_t7uint8_t7uint8_t "永久链接至目标")
 :   set beacon receive window.
 
     参数
@@ -1547,7 +1546,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_support_wifi_mode(uint8_t *support_mode)[](#_CPPv429bk_wifi_get_support_wifi_modeP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_support_wifi_mode(uint8_t *support_mode)[](#_CPPv429bk_wifi_get_support_wifi_modeP7uint8_t "永久链接至目标")
 :   Get wifi support mode.
 
     参数
@@ -1556,7 +1555,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -2: support wifi6(HE) -1: support wifi4(HT) -0: support others(11n/g)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_arp_reply_config(uint8_t flag, uint8_t arp_period)[](#_CPPv428bk_wifi_set_arp_reply_config7uint8_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_arp_reply_config(uint8_t flag, uint8_t arp_period)[](#_CPPv428bk_wifi_set_arp_reply_config7uint8_t7uint8_t "永久链接至目标")
 :   configure arp reply.
 
     flag: indicates whether to send arp reply actively,but not respond to arp request,or use default value
@@ -1575,7 +1574,7 @@ void bk_wifi_scan_free_result([wifi_scan_result_t](#_CPPv418wifi_scan_result_t "
     返回
     :   -BK_OK: on success -others:real error, used for future.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_statistic_info([wifi_statistics_info_t](#_CPPv422wifi_statistics_info_t "wifi_statistics_info_t") *wifiinfo)[](#_CPPv426bk_wifi_get_statistic_infoP22wifi_statistics_info_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_statistic_info([wifi_statistics_info_t](#_CPPv422wifi_statistics_info_t "wifi_statistics_info_t") *wifiinfo)[](#_CPPv426bk_wifi_get_statistic_infoP22wifi_statistics_info_t "永久链接至目标")
 :   Get wifi statistic info.
 
     参数
@@ -1623,7 +1622,7 @@ void bk_wlan_phy_close_cca(void)[](#_CPPv421bk_wlan_phy_close_ccav "永久链
 
 void bk_wlan_phy_show_cca(void)[](#_CPPv420bk_wlan_phy_show_ccav "永久链接至目标")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ftm_start(const [wifi_ftm_config_t](#_CPPv417wifi_ftm_config_t "wifi_ftm_config_t") *config, [wifi_ftm_results_t](#_CPPv418wifi_ftm_results_t "wifi_ftm_results_t") *ftm_results)[](#_CPPv417bk_wifi_ftm_startPK17wifi_ftm_config_tP18wifi_ftm_results_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ftm_start(const [wifi_ftm_config_t](#_CPPv417wifi_ftm_config_t "wifi_ftm_config_t") *config, [wifi_ftm_results_t](#_CPPv418wifi_ftm_results_t "wifi_ftm_results_t") *ftm_results)[](#_CPPv417bk_wifi_ftm_startPK17wifi_ftm_config_tP18wifi_ftm_results_t "永久链接至目标")
 :   Start a fine timing measurement (FTM)
 
     This API notifies the WiFi driver to start a fine timing measurement, and get the ftm results.
@@ -1644,7 +1643,7 @@ void bk_wlan_phy_show_cca(void)[](#_CPPv420bk_wlan_phy_show_ccav "永久链�
 
         - others: other failures.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_ftm_dump_result(const [wifi_ftm_results_t](#_CPPv418wifi_ftm_results_t "wifi_ftm_results_t") *ftm_results)[](#_CPPv423bk_wifi_ftm_dump_resultPK18wifi_ftm_results_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_ftm_dump_result(const [wifi_ftm_results_t](#_CPPv418wifi_ftm_results_t "wifi_ftm_results_t") *ftm_results)[](#_CPPv423bk_wifi_ftm_dump_resultPK18wifi_ftm_results_t "永久链接至目标")
 :   Dump the ftm results.
 
 
@@ -1701,7 +1700,7 @@ void bk_wifi_set_ap_channel(uint8_t channel)[](#_CPPv422bk_wifi_set_ap_channe
     返回
     :   - void: always succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_block_bcmc_en(uint8_t config)[](#_CPPv425bk_wifi_set_block_bcmc_en7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_block_bcmc_en(uint8_t config)[](#_CPPv425bk_wifi_set_block_bcmc_en7uint8_t "永久链接至目标")
 :   Enable Wi-Fi rx block broadcast and multicast frame.
 
     This API could enable Wi-Fi rx block broadcast and multicast frame.
@@ -1721,7 +1720,7 @@ bool bk_wifi_get_block_bcmc_en(void)[](#_CPPv425bk_wifi_get_block_bcmc_env "�
     返回
     :   - enable status
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_ani_en(bool enable)[](#_CPPv418bk_wifi_set_ani_enb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_ani_en(bool enable)[](#_CPPv418bk_wifi_set_ani_enb "永久链接至目标")
 :   Enable Wi-Fi microwave anti-interference policy.
 
     This API could enable Wi-Fi microwave anti-interference policy.
@@ -1773,7 +1772,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
     返回
     :   - void: always succeed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_stats(uint8_t mode, struct [tx_stats_t](#_CPPv410tx_stats_t "tx_stats_t") *tx_stats)[](#_CPPv420bk_wifi_get_tx_stats7uint8_tP10tx_stats_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_stats(uint8_t mode, struct [tx_stats_t](#_CPPv410tx_stats_t "tx_stats_t") *tx_stats)[](#_CPPv420bk_wifi_get_tx_stats7uint8_tP10tx_stats_t "永久链接至目标")
 :   Get tx stats.
 
     ```
@@ -1790,7 +1789,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
     返回
     :   - tx_stats:tx statistics
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_power([wifi_standard](#_CPPv413wifi_standard "wifi_standard") standard, float *powerdBm)[](#_CPPv420bk_wifi_get_tx_power13wifi_standardPf "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_tx_power([wifi_standard](#_CPPv413wifi_standard "wifi_standard") standard, float *powerdBm)[](#_CPPv420bk_wifi_get_tx_power13wifi_standardPf "永久链接至目标")
 :   Fetch 802.11 TX power by standards.
 
     参数
@@ -1803,7 +1802,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_power([wifi_standard](#_CPPv413wifi_standard "wifi_standard") standard, float powerdBm)[](#_CPPv420bk_wifi_set_tx_power13wifi_standardf "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_set_tx_power([wifi_standard](#_CPPv413wifi_standard "wifi_standard") standard, float powerdBm)[](#_CPPv420bk_wifi_set_tx_power13wifi_standardf "永久链接至目标")
 :   Update 802.11 TX power by standards.
 
     参数
@@ -1816,7 +1815,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - otherwise: fail
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_vendor_ie_cb(void *vsie_cb, uint32_t vendor_type, uint8_t oui_len)[](#_CPPv424bk_wifi_get_vendor_ie_cbPv8uint32_t7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_wifi_get_vendor_ie_cb(void *vsie_cb, uint32_t vendor_type, uint8_t oui_len)[](#_CPPv424bk_wifi_get_vendor_ie_cbPv8uint32_t7uint8_t "永久链接至目标")
 
 
 ### Header File[](#id1 "永久链接至标题")
@@ -1827,7 +1826,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
 ### Functions[](#id2 "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_init(void)[](#_CPPv411bk_rlk_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_init(void)[](#_CPPv411bk_rlk_initv "永久链接至目标")
 :   Initialize Raw Link function.
 
     返回
@@ -1835,7 +1834,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_deinit(void)[](#_CPPv413bk_rlk_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_deinit(void)[](#_CPPv413bk_rlk_deinitv "永久链接至目标")
 :   De-Initialize Raw Link function.
 
     返回
@@ -1843,7 +1842,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_register_recv_cb([bk_rlk_recv_cb_t](#_CPPv416bk_rlk_recv_cb_t "bk_rlk_recv_cb_t") cb)[](#_CPPv423bk_rlk_register_recv_cb16bk_rlk_recv_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_register_recv_cb([bk_rlk_recv_cb_t](#_CPPv416bk_rlk_recv_cb_t "bk_rlk_recv_cb_t") cb)[](#_CPPv423bk_rlk_register_recv_cb16bk_rlk_recv_cb_t "永久链接至目标")
 :   Register callback function of receiving Raw Link data.
 
     参数
@@ -1856,7 +1855,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_ungister_recv_cb(void)[](#_CPPv423bk_rlk_ungister_recv_cbv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_ungister_recv_cb(void)[](#_CPPv423bk_rlk_ungister_recv_cbv "永久链接至目标")
 :   Unregister callback function of receiving Raw Link data.
 
     返回
@@ -1866,7 +1865,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_register_send_cb([bk_rlk_send_cb_t](#_CPPv416bk_rlk_send_cb_t "bk_rlk_send_cb_t") cb)[](#_CPPv423bk_rlk_register_send_cb16bk_rlk_send_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_register_send_cb([bk_rlk_send_cb_t](#_CPPv416bk_rlk_send_cb_t "bk_rlk_send_cb_t") cb)[](#_CPPv423bk_rlk_register_send_cb16bk_rlk_send_cb_t "永久链接至目标")
 :   Register callback function of sending BK RLK data.
 
     参数
@@ -1877,7 +1876,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_INIT : Raw Link is not initialized
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_unregister_send_cb(void)[](#_CPPv425bk_rlk_unregister_send_cbv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_unregister_send_cb(void)[](#_CPPv425bk_rlk_unregister_send_cbv "永久链接至目标")
 :   Unregister callback function of sending Raw Link data.
 
     返回
@@ -1885,7 +1884,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_INIT : Raw Link is not initialized
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_channel(uint8_t chan)[](#_CPPv418bk_rlk_set_channel7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_channel(uint8_t chan)[](#_CPPv418bk_rlk_set_channel7uint8_t "永久链接至目标")
 :   Set BK Raw Link channel.
 
 
@@ -1908,7 +1907,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others: other errors
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_send(const uint8_t *peer_mac_addr, const void *data, size_t len)[](#_CPPv411bk_rlk_sendPK7uint8_tPKv6size_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_send(const uint8_t *peer_mac_addr, const void *data, size_t len)[](#_CPPv411bk_rlk_sendPK7uint8_tPKv6size_t "永久链接至目标")
 :   Send BK Raw Links data.
 
 
@@ -1935,7 +1934,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_FOUND : peer is not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_send_ex(const uint8_t *peer_mac_addr, const [bk_rlk_config_info_t](#_CPPv420bk_rlk_config_info_t "bk_rlk_config_info_t") *rlk_tx)[](#_CPPv414bk_rlk_send_exPK7uint8_tPK20bk_rlk_config_info_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_send_ex(const uint8_t *peer_mac_addr, const [bk_rlk_config_info_t](#_CPPv420bk_rlk_config_info_t "bk_rlk_config_info_t") *rlk_tx)[](#_CPPv414bk_rlk_send_exPK7uint8_tPK20bk_rlk_config_info_t "永久链接至目标")
 :   Send Raw Links data.
 
 
@@ -1964,7 +1963,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_FOUND : peer is not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_send_by_oui(const uint8_t *peer_mac_addr, const void *data, size_t len, uint8_t mac_type, uint8_t *oui)[](#_CPPv418bk_rlk_send_by_ouiPK7uint8_tPKv6size_t7uint8_tP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_send_by_oui(const uint8_t *peer_mac_addr, const void *data, size_t len, uint8_t mac_type, uint8_t *oui)[](#_CPPv418bk_rlk_send_by_ouiPK7uint8_tPKv6size_t7uint8_tP7uint8_t "永久链接至目标")
 :   Send BK Raw Links data.
 
 
@@ -1995,7 +1994,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_FOUND : peer is not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_add_peer(const [bk_rlk_peer_info_t](#_CPPv418bk_rlk_peer_info_t "bk_rlk_peer_info_t") *peer)[](#_CPPv415bk_rlk_add_peerPK18bk_rlk_peer_info_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_add_peer(const [bk_rlk_peer_info_t](#_CPPv418bk_rlk_peer_info_t "bk_rlk_peer_info_t") *peer)[](#_CPPv415bk_rlk_add_peerPK18bk_rlk_peer_info_t "永久链接至目标")
 :   Add a peer to peer list.
 
     参数
@@ -2012,7 +2011,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_IS_EXIST : peer has existed
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_del_peer(const uint8_t *peer_mac_addr)[](#_CPPv415bk_rlk_del_peerPK7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_del_peer(const uint8_t *peer_mac_addr)[](#_CPPv415bk_rlk_del_peerPK7uint8_t "永久链接至目标")
 :   Delete a peer from peer list.
 
     参数
@@ -2025,7 +2024,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_FOUND : peer is not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_get_peer(const uint8_t *peer_mac_addr, [bk_rlk_peer_info_t](#_CPPv418bk_rlk_peer_info_t "bk_rlk_peer_info_t") *peer)[](#_CPPv415bk_rlk_get_peerPK7uint8_tP18bk_rlk_peer_info_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_get_peer(const uint8_t *peer_mac_addr, [bk_rlk_peer_info_t](#_CPPv418bk_rlk_peer_info_t "bk_rlk_peer_info_t") *peer)[](#_CPPv415bk_rlk_get_peerPK7uint8_tP18bk_rlk_peer_info_t "永久链接至目标")
 :   Get a peer whose MAC address matches peer_addr from peer list.
 
     参数
@@ -2040,7 +2039,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_NOT_FOUND : peer is not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_is_peer_exist(const uint8_t *peer_mac_addr)[](#_CPPv420bk_rlk_is_peer_existPK7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_is_peer_exist(const uint8_t *peer_mac_addr)[](#_CPPv420bk_rlk_is_peer_existPK7uint8_t "永久链接至目标")
 :   Peer exists or not.
 
     参数
@@ -2051,7 +2050,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : peer not exists
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_get_peer_num(uint32_t *total_num)[](#_CPPv419bk_rlk_get_peer_numP8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_get_peer_num(uint32_t *total_num)[](#_CPPv419bk_rlk_get_peer_numP8uint32_t "永久链接至目标")
 :   Get the number of peers.
 
     参数
@@ -2062,7 +2061,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - BK_ERR_RLK_NOT_INIT : Raw Link is not initialized
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_ac(uint8_t ac)[](#_CPPv416bk_rlk_set_tx_ac7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_ac(uint8_t ac)[](#_CPPv416bk_rlk_set_tx_ac7uint8_t "永久链接至目标")
 :   Set BK Raw Link TX AC.
 
     参数
@@ -2073,7 +2072,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Set TX AC error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_timeout_ms(uint16_t timeout_ms)[](#_CPPv424bk_rlk_set_tx_timeout_ms8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_timeout_ms(uint16_t timeout_ms)[](#_CPPv424bk_rlk_set_tx_timeout_ms8uint16_t "永久链接至目标")
 :   Set BK Raw Link TX timeout.
 
     参数
@@ -2084,7 +2083,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Set TX timeout error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_power(uint32_t power)[](#_CPPv419bk_rlk_set_tx_power8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_power(uint32_t power)[](#_CPPv419bk_rlk_set_tx_power8uint32_t "永久链接至目标")
 :   Set BK Raw Link TX power.
 
     参数
@@ -2095,7 +2094,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Set TX power error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_rate(uint32_t rate)[](#_CPPv418bk_rlk_set_tx_rate8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_rate(uint32_t rate)[](#_CPPv418bk_rlk_set_tx_rate8uint32_t "永久链接至目标")
 :   Set BK Raw Link TX rate.
 
     参数
@@ -2106,7 +2105,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Set TX rate error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_retry_cnt(uint32_t retry_cnt)[](#_CPPv423bk_rlk_set_tx_retry_cnt8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_set_tx_retry_cnt(uint32_t retry_cnt)[](#_CPPv423bk_rlk_set_tx_retry_cnt8uint32_t "永久链接至目标")
 :   Set BK Raw Link TX retry count.
 
     参数
@@ -2117,7 +2116,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Set TX rate error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_sleep(void)[](#_CPPv412bk_rlk_sleepv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_sleep(void)[](#_CPPv412bk_rlk_sleepv "永久链接至目标")
 :   Let Raw Link goto sleep mode to reduce power consumption.
 
     参数
@@ -2128,7 +2127,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Raw Link failed to sleep
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_wakeup(void)[](#_CPPv413bk_rlk_wakeupv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_wakeup(void)[](#_CPPv413bk_rlk_wakeupv "永久链接至目标")
 :   wakeup Raw Link
 
     参数
@@ -2139,7 +2138,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Failed to wakeup raw link
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_add_white_list(uint8_t mac_type, uint8_t *oui)[](#_CPPv421bk_rlk_add_white_list7uint8_tP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_add_white_list(uint8_t mac_type, uint8_t *oui)[](#_CPPv421bk_rlk_add_white_list7uint8_tP7uint8_t "永久链接至目标")
 :   Raw Link add white list.
 
     参数
@@ -2152,7 +2151,7 @@ void bk_wifi_get_noise_floor(uint8_t *noise_floor)[](#_CPPv423bk_wifi_get_noi
 
         - others : Failed to add white list
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_rlk_del_white_list(uint8_t mac_type, uint8_t *oui)[](#_CPPv421bk_rlk_del_white_list7uint8_tP7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_rlk_del_white_list(uint8_t mac_type, uint8_t *oui)[](#_CPPv421bk_rlk_del_white_list7uint8_tP7uint8_t "永久链接至目标")
 :   Raw Link delete white list.
 
     参数
@@ -2243,7 +2242,7 @@ typedef struct [bk_rlk_config_info](#_CPPv418bk_rlk_config_info "bk_rlk_config_i
 typedef struct [bk_rlk_recv_info](#_CPPv416bk_rlk_recv_info "bk_rlk_recv_info") bk_rlk_recv_info_t[](#_CPPv418bk_rlk_recv_info_t "永久链接至目标")
 :   BK RLK Receive packet information.
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*bk_rlk_recv_cb_t)([bk_rlk_recv_info_t](#_CPPv418bk_rlk_recv_info_t "bk_rlk_recv_info_t") *rx_info)[](#_CPPv416bk_rlk_recv_cb_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*bk_rlk_recv_cb_t)([bk_rlk_recv_info_t](#_CPPv418bk_rlk_recv_info_t "bk_rlk_recv_info_t") *rx_info)[](#_CPPv416bk_rlk_recv_cb_t "永久链接至目标")
 :   Callback function of receiving BK Raw Link data.
 
 
@@ -2253,7 +2252,7 @@ typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*bk_rlk_recv_c
     Param rx_info
     :   received BK Raw Link packet information
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*bk_rlk_send_cb_t)(const uint8_t *peer_mac_addr, [bk_rlk_send_status_t](#_CPPv420bk_rlk_send_status_t "bk_rlk_send_status_t") status)[](#_CPPv416bk_rlk_send_cb_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*bk_rlk_send_cb_t)(const uint8_t *peer_mac_addr, [bk_rlk_send_status_t](#_CPPv420bk_rlk_send_status_t "bk_rlk_send_status_t") status)[](#_CPPv416bk_rlk_send_cb_t "永久链接至目标")
 :   Callback function of sending BK Raw Link data.
 
     Param peer_mac_addr
@@ -2899,7 +2898,7 @@ typedef struct [wlan_ap_vsie](#_CPPv412wlan_ap_vsie "wlan_ap_vsie") wlan_ap_vsie
 typedef struct [wlan_sta_vsie](#_CPPv413wlan_sta_vsie "wlan_sta_vsie") wlan_sta_vsie_t[](#_CPPv415wlan_sta_vsie_t "永久链接至目标")
 :   STA vendor IEs for (re)assoc, scan, p2p, p2p go, etc. Dynamic change STA’s vendor specific IEs.
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*wifi_monitor_cb_t)(const uint8_t *frame, uint32_t len, const [wifi_frame_info_t](#_CPPv417wifi_frame_info_t "wifi_frame_info_t") *frame_info)[](#_CPPv417wifi_monitor_cb_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*wifi_monitor_cb_t)(const uint8_t *frame, uint32_t len, const [wifi_frame_info_t](#_CPPv417wifi_frame_info_t "wifi_frame_info_t") *frame_info)[](#_CPPv417wifi_monitor_cb_t "永久链接至目标")
 :   Monitor callback to receive frames relayed by WiFi driver.
 
 
@@ -2910,7 +2909,7 @@ typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*wifi_monitor_
     **Attention**
     :   2. Don’t do too much work in the callback because the callback is called in context of WiFi core thread, too much work may impact the performance of WiFi.
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*wifi_filter_cb_t)(const uint8_t *frame, uint32_t len, const [wifi_frame_info_t](#_CPPv417wifi_frame_info_t "wifi_frame_info_t") *frame_info)[](#_CPPv416wifi_filter_cb_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*wifi_filter_cb_t)(const uint8_t *frame, uint32_t len, const [wifi_frame_info_t](#_CPPv417wifi_frame_info_t "wifi_frame_info_t") *frame_info)[](#_CPPv416wifi_filter_cb_t "永久链接至目标")
 :   Filter callback to receive frames relayed by WiFi driver.
 
 
@@ -2923,7 +2922,7 @@ typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*wifi_filter_c
 
 typedef void (*wifi_csi_cb_t)([wifi_csi_info_t](#_CPPv415wifi_csi_info_t "wifi_csi_info_t") **info, uint8_t flag)[](#_CPPv413wifi_csi_cb_t "永久链接至目标")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*wifi_get_vsie_cb_t)(void *vendor_ie, uint8_t frame_type)[](#_CPPv418wifi_get_vsie_cb_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*wifi_get_vsie_cb_t)(void *vendor_ie, uint8_t frame_type)[](#_CPPv418wifi_get_vsie_cb_t "永久链接至目标")
 :   wifi get vsie cb interface
 
     Param void*

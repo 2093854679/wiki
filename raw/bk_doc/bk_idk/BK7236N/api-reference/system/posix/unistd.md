@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/unistd.h>;
 > - 定义了系统sleep相关的接口
 
-[[English]](../../../../../en/v2.2.1/api-reference/system/posix/unistd.html "../../../../../en/v2.2.1/api-reference/system/posix/unistd.html")
 
 
 ## Header File[](#header-file "永久链接至标题")

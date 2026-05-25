@@ -1,6 +1,5 @@
 # OTP和eFuse的配置及读写方法[](#otpefuse "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/security/bk_OTP_and_eFuse_usermenu.html "../../../../en/v1.5/developer-guide/security/bk_OTP_and_eFuse_usermenu.html")
 
 OTP和eFuse需要使用配置表（example:[`otp_efuse_config.json`](../../_downloads/1b85bc21feaf883a99bb2e9edf04c071/otp_efuse_config.json "../../_downloads/1b85bc21feaf883a99bb2e9edf04c071/otp_efuse_config.json")）进行数据配置后，通过BKFIL工具进行读写。
 

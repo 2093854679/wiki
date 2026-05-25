@@ -127,4 +127,3 @@ create iperf_udp_s, tcb=30024cf0, stack=[30031ce0-30032ce0:4096], prio=5
 
 - 特殊AP的兼容性问题
 
-[[English]](../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_iperf.html "../../../../en/v2.2.1/developer-guide/wifi/bk_wifi_iperf.html")

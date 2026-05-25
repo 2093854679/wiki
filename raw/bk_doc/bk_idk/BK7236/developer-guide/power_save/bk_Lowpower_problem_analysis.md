@@ -403,4 +403,3 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 >       - b.确认测试环境，温度高低压功耗也会变高。
 >       - c.WIFI保活功耗高，则首先确认底电流是否符合预期，然后确认WIFI开窗时长是否符合预期，WIFI接收电流是否符合预期。WIFI发包周期是否频繁，DTIM的值是否符合预期。
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_Lowpower_problem_analysis.html "../../../../en/v2.0.1/developer-guide/power_save/bk_Lowpower_problem_analysis.html")

@@ -1,42 +1,41 @@
 # 外设[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/api-reference/peripheral/index.html "../../../../en/v2.0.1/api-reference/peripheral/index.html")
 
 
-- [DMA](bk_dma.html "bk_dma.html")
+- [DMA](bk_dma.md "bk_dma.md")
 
-- [EFUSE](bk_efuse.html "bk_efuse.html")
+- [EFUSE](bk_efuse.md "bk_efuse.md")
 
-- [GPIO](bk_gpio.html "bk_gpio.html")
+- [GPIO](bk_gpio.md "bk_gpio.md")
 
-- [ICU](bk_interrupt.html "bk_interrupt.html")
+- [ICU](bk_interrupt.md "bk_interrupt.md")
 
-- [Mailbox](bk_mailbox.html "bk_mailbox.html")
+- [Mailbox](bk_mailbox.md "bk_mailbox.md")
 
-- [PWM](bk_pwm.html "bk_pwm.html")
+- [PWM](bk_pwm.md "bk_pwm.md")
 
-- [SARADC](bk_adc.html "bk_adc.html")
+- [SARADC](bk_adc.md "bk_adc.md")
 
-- [SPI](bk_spi.html "bk_spi.html")
+- [SPI](bk_spi.md "bk_spi.md")
 
-- [QSPI](bk_qspi.html "bk_qspi.html")
+- [QSPI](bk_qspi.md "bk_qspi.md")
 
-- [Timer](bk_timer.html "bk_timer.html")
+- [Timer](bk_timer.md "bk_timer.md")
 
-- [TRNG](bk_trng.html "bk_trng.html")
+- [TRNG](bk_trng.md "bk_trng.md")
 
-- [UART](bk_uart.html "bk_uart.html")
+- [UART](bk_uart.md "bk_uart.md")
 
-- [USB](bk_usb.html "bk_usb.html")
+- [USB](bk_usb.md "bk_usb.md")
 
-- [WDT](bk_wdt.html "bk_wdt.html")
+- [WDT](bk_wdt.md "bk_wdt.md")
 
-- [I2C](bk_i2c.html "bk_i2c.html")
+- [I2C](bk_i2c.md "bk_i2c.md")
 
-- [TOUCH](bk_touch.html "bk_touch.html")
+- [TOUCH](bk_touch.md "bk_touch.md")
 
-- [FLASH](bk_flash.html "bk_flash.html")
+- [FLASH](bk_flash.md "bk_flash.md")
 
-- [FLASH_PARTITION](bk_flash_partition.html "bk_flash_partition.html")
+- [FLASH_PARTITION](bk_flash_partition.md "bk_flash_partition.md")
 
-- [I2S](bk_i2s.html "bk_i2s.html")
+- [I2S](bk_i2s.md "bk_i2s.md")

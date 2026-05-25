@@ -1,6 +1,5 @@
 # BLE APIs[](#ble-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/bluetooth/ble.html "../../../../en/v1.5/api-reference/bluetooth/ble.html")
 
 重要
 
@@ -1771,7 +1770,7 @@ BK_BLE_PERM_GET(perm, access)[](#c.BK_BLE_PERM_GET "永久链接至目标")
 
 ### Type Definitions[](#type-definitions "永久链接至标题")
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
 :   ble api return enum
 
 typedef void (*app_sdp_callback)(unsigned char conidx, uint16_t chars_val_hdl, unsigned char uuid_len, unsigned char *uuid)[](#_CPPv416app_sdp_callback "永久链接至目标")
@@ -2555,10 +2554,10 @@ enum gap_oob[](#_CPPv47gap_oob "永久链接至目标")
 
 ## Reference link[](#reference-link "永久链接至标题")
 
-> [API Reference :](../../api-reference/bluetooth/index.html "../../api-reference/bluetooth/index.html") Introduced the Bluetooth API interface
+> [API Reference :](../../api-reference/bluetooth/index.md "../../api-reference/bluetooth/index.md") Introduced the Bluetooth API interface
 >
-> [User and Developer Guide :](../../developer-guide/bluetooth/index.html "../../developer-guide/bluetooth/index.html") Introduced common usage scenarios of Bluetooth
+> [User and Developer Guide :](../../developer-guide/bluetooth/index.md "../../developer-guide/bluetooth/index.md") Introduced common usage scenarios of Bluetooth
 >
-> [Samples and Demos:](../../examples/bluetooth/index.html "../../examples/bluetooth/index.html") Introduced the use and operation of Bluetooth samples
+> [Samples and Demos:](../../examples/bluetooth/index.md "../../examples/bluetooth/index.md") Introduced the use and operation of Bluetooth samples
 >
-> [Bluetooth Project:](../../projects_work/bluetooth/index.html "../../projects_work/bluetooth/index.html") Introduced Bluetooth related Project
+> [Bluetooth Project:](../../projects_work/bluetooth/index.md "../../projects_work/bluetooth/index.md") Introduced Bluetooth related Project

@@ -1,6 +1,5 @@
 # 系统状态机说明[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/power_save/bk_fsm.html "../../../../en/v2.0.1/developer-guide/power_save/bk_fsm.html")
 
 ![../../_images/pm_pcm2.png](../../_images/pm_pcm2.png)
 
@@ -46,7 +45,7 @@
 >   - 2.满足了进入低压的票（BT和WIFI进入sleep；多媒体关闭；APP的票置上；以及使用的低压都值上）。
 > - 当唤醒信号触发后，系统退出低压状态，AON,VDDDIG电压会升到正常电压。
 > - 处于低压状态下，以下唤醒源(GPIO,RTC,Touch,WIFI,BT)可以让系统退出低压。注意：WIFI,BT进入低压是根据WIFI，BT的业务场景来投票进入，投票比较特殊（SDK内部做好，应用程序不用关注），但是应用程序进入低压前需要把上层业务关闭。
-> - 该模式下32K的时钟源可以根据自己业务的场景选择，时钟源可以参考 [时钟说明](bk_clock.html "bk_clock.html") 。
+> - 该模式下32K的时钟源可以根据自己业务的场景选择，时钟源可以参考 [时钟说明](bk_clock.md "bk_clock.md") 。
 > - 为了达到最优功耗，不需要的模块，进入低压前请关闭，退出低压后，可以再开启。
 
 
@@ -95,7 +94,7 @@
 >   - 1.RTOS没有任务需要处理时，系统进入IDLE任务中;
 >   - 2.满足了进入低压的票（BT和WIFI进入sleep,多媒体关闭，APP的票等票置上）
 >
->   如果进入低压失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") 。
+>   如果进入低压失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") 。
 
 
 ## 深度睡眠(deep sleep)说明[](#id4 "永久链接至标题")
@@ -109,7 +108,7 @@
 >   - 1.RTOS没有任务需要处理时，系统进入IDLE任务中;
 >   - 2.满足了进入深度睡眠的票（BT和WIFI进入sleep,多媒体关闭票置上）
 >
->   > 如果进入深度睡眠失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") 。
+>   > 如果进入深度睡眠失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") 。
 
 
 ## 超级深度睡眠(super deep sleep(shut down))说明[](#super-deep-sleep-shut-down "永久链接至标题")
@@ -124,7 +123,7 @@
 >     - 1.RTOS没有任务需要处理时，系统进入IDLE任务中;
 >     - 2.满足了进入超级深度睡眠的票（BT和WIFI进入sleep,多媒体关闭票置上）
 >
->     如果进入超级深度睡眠失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.html "bk_Lowpower_problem_analysis.html") 。
+>     如果进入超级深度睡眠失败，可以参考 [低功耗问题分析](bk_Lowpower_problem_analysis.md "bk_Lowpower_problem_analysis.md") 。
 
 
 ## 超级深度睡眠(super deep sleep)和深度睡眠的差异[](#super-deep-sleep "永久链接至标题")

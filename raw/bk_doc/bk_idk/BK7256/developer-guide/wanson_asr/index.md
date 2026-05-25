@@ -1,6 +1,5 @@
 # 华镇语音识别(wanson_asr)开发指南[](#wanson-asr "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/wanson_asr/index.html "../../../../en/v1.5/developer-guide/wanson_asr/index.html")
 
 
 ## 1、功能概述[](#id1 "永久链接至标题")
@@ -70,4 +69,4 @@ bk_aud_intf_mic_start();
 
 ## 参考链接[](#id4 "永久链接至标题")
 
-> [华镇离线语音识别(wanson_asr)工程](../../projects_work/thirdparty/wanson_asr/index.html "../../projects_work/thirdparty/wanson_asr/index.html")
+> [华镇离线语音识别(wanson_asr)工程](../../projects_work/thirdparty/wanson_asr/index.md "../../projects_work/thirdparty/wanson_asr/index.md")

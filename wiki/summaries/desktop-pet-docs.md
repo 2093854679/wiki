@@ -1,6 +1,6 @@
 # 桌面宠物项目文档合集
 
-> **Source:** doc/02-19 multiple files
+> **Source:** [doc/*.md](../../raw/智能桌面萌宠项目笔记/doc/) — 18 篇子文档合集
 > **TLDR:** 智能桌面萌宠（Desktop Pet）项目的完整开发文档——涵盖 SD 卡 BMP 读取、WiFi 配网、GIF 播放、固件体积对比、UI 设计、宠物交互、养成系统、Web 服务、MCP 集成、闹钟/充电动画等 18 个子系统。
 
 ## 各模块要点

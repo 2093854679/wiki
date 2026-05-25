@@ -1,6 +1,5 @@
 # OTA 配置[](#ota "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/developer-guide/config_tools/bk_config_ota.html "../../../../en/v2.2.1/developer-guide/config_tools/bk_config_ota.html")
 
 OTA 用于配置 OTA 策略与防版本降级攻击的安全计数器。
 
@@ -24,7 +23,7 @@ OTA 配置表为 CSV 文件，下面为一个配置示例：
 
 ## OTA 升级策略与其对应的分区要求[](#bk-config-ota-strategy "永久链接至标题")
 
-下面将为您说明基于 MCUBOOT 的三种升级策略,请参考分区配置文档 [分区表](bk_config_partitions.html#bk-config-partitions-table "bk_config_partitions.html#bk-config-partitions-table") 一起理解。
+下面将为您说明基于 MCUBOOT 的三种升级策略,请参考分区配置文档 [分区表](bk_config_partitions.md#bk-config-partitions-table "bk_config_partitions.md#bk-config-partitions-table") 一起理解。
 
 
 ### SWAP[](#swap "永久链接至标题")

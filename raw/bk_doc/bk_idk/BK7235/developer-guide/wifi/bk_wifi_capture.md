@@ -1,6 +1,5 @@
 # Wi-Fi 抓包使用说明[](#wi-fi "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_capture.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_capture.html")
 
 
 ## 卓越的网络分析工具-OmniPeek[](#omnipeek "永久链接至标题")
@@ -77,4 +76,3 @@ OmniPeek是功能强大的网络分析工具,对于初学者也能轻松上手,�
 
 ![../../_images/decrypt.png](../../_images/decrypt.png)
 
-[[English]](../../../../en/v1.5/developer-guide/wifi/bk_wifi_capture.html "../../../../en/v1.5/developer-guide/wifi/bk_wifi_capture.html")

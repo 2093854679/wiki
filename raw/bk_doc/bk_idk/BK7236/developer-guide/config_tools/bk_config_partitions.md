@@ -1,6 +1,5 @@
 # 分区配置[](#bk-config-partitions "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_partitions.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_partitions.html")
 
 备注
 

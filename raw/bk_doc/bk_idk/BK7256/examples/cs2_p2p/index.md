@@ -1,6 +1,5 @@
 # CS2(尚云)P2P demo[](#cs2-p2p-demo "永久链接至标题")
 
-[[English]](../../../../en/v1.5/examples/cs2_p2p/index.html "../../../../en/v1.5/examples/cs2_p2p/index.html")
 
 
 ## 1. 功能概述[](#id1 "永久链接至标题")

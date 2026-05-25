@@ -90,8 +90,8 @@ Armino Wi-Fi 都有定义好的返回值，即错误代码。这些错误代码�
 
 Armino Wi-Fi 编程模型[](#id58 "永久链接至图片")
 
-Wi-Fi 驱动程序作为和上层代码（如 TCP/IP 协议栈、Application Task、Cli command等）的隔离组件，通常由用户应用程序代码负责调用 [Armino Wi-Fi 驱动程序 APIs](../../api-reference/network/bk_wifi.html "../../api-reference/network/bk_wifi.html") 来初始化 Wi-Fi 并进行相应的配置，Wi-Fi 驱动程序接收并处理 API 请求的数据，并将相关事件通知到应用程序处理
-Armino Wi-Fi 事件处理是在 [armino event 库](../event/bk_event.html "../event/bk_event.html") 基础上进行的。Armino SDK 中事件机制主要通过一个专门的事件任务来实现，应用程序可以使用 [`bk_event_register_cb()`](../../api-reference/system/bk_event.html#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "bk_event_register_cb") 中的回调函数来处理这些事件。除此之外，[BK NETIF 组件](../../api-reference/network/bk_netif.html "../../api-reference/network/bk_netif.html") 也负责处理一些 Wi-Fi 事件，比如当 Wi-Fi station 连接至一个 AP 时，BK NETIF 会触发 [EVENT_NETIF_GOT_IP4](#event-netif-got-ip4 "#event-netif-got-ip4") 或者 [EVENT_NETIF_DHCP_TIMEOUT](#event-netif-dhcp-timeout "#event-netif-dhcp-timeout")
+Wi-Fi 驱动程序作为和上层代码（如 TCP/IP 协议栈、Application Task、Cli command等）的隔离组件，通常由用户应用程序代码负责调用 [Armino Wi-Fi 驱动程序 APIs](../../api-reference/network/bk_wifi.md "../../api-reference/network/bk_wifi.md") 来初始化 Wi-Fi 并进行相应的配置，Wi-Fi 驱动程序接收并处理 API 请求的数据，并将相关事件通知到应用程序处理
+Armino Wi-Fi 事件处理是在 [armino event 库](../event/bk_event.md "../event/bk_event.md") 基础上进行的。Armino SDK 中事件机制主要通过一个专门的事件任务来实现，应用程序可以使用 [`bk_event_register_cb()`](../../api-reference/system/bk_event.md#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "bk_event_register_cb") 中的回调函数来处理这些事件。除此之外，[BK NETIF 组件](../../api-reference/network/bk_netif.md "../../api-reference/network/bk_netif.md") 也负责处理一些 Wi-Fi 事件，比如当 Wi-Fi station 连接至一个 AP 时，BK NETIF 会触发 [EVENT_NETIF_GOT_IP4](#event-netif-got-ip4 "#event-netif-got-ip4") 或者 [EVENT_NETIF_DHCP_TIMEOUT](#event-netif-dhcp-timeout "#event-netif-dhcp-timeout")
 
 
 ## **Armino Wi-Fi事件描述**[](#id9 "永久链接至标题")
@@ -99,26 +99,26 @@ Armino Wi-Fi 事件处理是在 [armino event 库](../event/bk_event.html "../ev
 
 ### **EVENT_WIFI_SCAN_DONE**[](#event-wifi-scan-done "永久链接至标题")
 
-扫描完成事件，由 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.html#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 函数触发，一般在以下情况产生：
+扫描完成事件，由 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 函数触发，一般在以下情况产生：
 
 
 - 扫描已经完成，比如 Wi-Fi 已经扫描到目标 SSID 或者 全部信道扫描完毕
 
-- 当前扫描执行因函数 [`bk_wifi_scan_stop()`](../../api-reference/network/bk_wifi.html#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") 而终止
+- 当前扫描执行因函数 [`bk_wifi_scan_stop()`](../../api-reference/network/bk_wifi.md#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") 而终止
 
 以下情况下，将不会产生扫描完成事件：
 
 
 - 当前扫描被终止
 
-- 当前扫描是由函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.html#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 发起
+- 当前扫描是由函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.md#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 发起
 
-Armino SDK 为方便客户快速了解 Wi-Fi scan 相关流程，在 [example](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi") 创建了 Wi-Fi Scan Demo，客户只需按照 [Wi-Fi Scan Demo](../../api-reference/network/bk_wifi_demos.html#wi-fi-scan-demo "../../api-reference/network/bk_wifi_demos.html#wi-fi-scan-demo") 中的指引，完成 Wi-Fi Scan 的操作。或者参考 [Armino Wi-Fi 扫描](#id18 "#id18") 中的描述
+Armino SDK 为方便客户快速了解 Wi-Fi scan 相关流程，在 [example](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi") 创建了 Wi-Fi Scan Demo，客户只需按照 [Wi-Fi Scan Demo](../../api-reference/network/bk_wifi_demos.md#wi-fi-scan-demo "../../api-reference/network/bk_wifi_demos.md#wi-fi-scan-demo") 中的指引，完成 Wi-Fi Scan 的操作。或者参考 [Armino Wi-Fi 扫描](#id18 "#id18") 中的描述
 
 
 ### **EVENT_WIFI_STA_CONNECTED**[](#event-wifi-sta-connected "永久链接至标题")
 
-station 连接目标 AP 成功的事件，如果调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.html#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 后接收到返回值 BK_OK，并置上连接成功标志位 `WIFI_STA_CONNECTED_BIT`，则产生此连接事件。应用程序在接收到此事件后，根据应用场景决定是否启动 DHCP 客户端。如果应用程序启动 DHCP 客户端，在获取到 IP 地址之后即可开始接收和发送数据
+station 连接目标 AP 成功的事件，如果调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.md#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 后接收到返回值 BK_OK，并置上连接成功标志位 `WIFI_STA_CONNECTED_BIT`，则产生此连接事件。应用程序在接收到此事件后，根据应用场景决定是否启动 DHCP 客户端。如果应用程序启动 DHCP 客户端，在获取到 IP 地址之后即可开始接收和发送数据
 
 
 ### **EVENT_WIFI_STA_DISCONNECTED**[](#event-wifi-sta-disconnected "永久链接至标题")
@@ -126,9 +126,9 @@ station 连接目标 AP 成功的事件，如果调用函数 [`bk_wifi_sta_conne
 此事件一般在以下情况下发生：
 
 
-- 调用函数 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.html#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") 或者 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 且此时，Wi-Fi station 已经成功连接 AP
+- 调用函数 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.md#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") 或者 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 且此时，Wi-Fi station 已经成功连接 AP
 
-- 调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.html#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect")，但是 Wi-Fi 驱动程序因为某些原因未能成功连接 AP，比如：未能扫描到目标 AP、密码错误导致认证超时等
+- 调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.md#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect")，但是 Wi-Fi 驱动程序因为某些原因未能成功连接 AP，比如：未能扫描到目标 AP、密码错误导致认证超时等
 
 - Wi-Fi 连接成功后因为某些原因导致中断，比如：路由器掉电导致 station 连续丢失 N 个 Beacon、AP 主动删除 station、其他特殊情况等
 
@@ -170,7 +170,7 @@ DHCP 客户端启动后，会默认开始一个定时器，当在定时器（20s
 此事件一般由以下几种情况触发：
 
 
-- 应用程序通过调用函数 [`bk_wifi_ap_stop()`](../../api-reference/network/bk_wifi.html#_CPPv415bk_wifi_ap_stopv "bk_wifi_ap_stop") 主动断开 station 连接
+- 应用程序通过调用函数 [`bk_wifi_ap_stop()`](../../api-reference/network/bk_wifi.md#_CPPv415bk_wifi_ap_stopv "bk_wifi_ap_stop") 主动断开 station 连接
 
 - Wi-Fi 驱动程序因为某些原因断开 station 连接，比如：AP 在 5 分钟内没有接收到接入 station 的任何数据
 
@@ -191,34 +191,34 @@ Armino Wi-Fi station 模式示例[](#id59 "永久链接至图片")
 ### **1. Wi-Fi 初始化阶段**[](#id11 "永久链接至标题")
 
 
-- 1.1：主任务通过调用函数 [`bk_event_init()`](../../api-reference/system/bk_event.html#_CPPv413bk_event_initv "bk_event_init") 创建事件任务并初始化时间队列。请注意，事件任务初始化应该放在 Wi-Fi/BLE 初始化之前
+- 1.1：主任务通过调用函数 [`bk_event_init()`](../../api-reference/system/bk_event.md#_CPPv413bk_event_initv "bk_event_init") 创建事件任务并初始化时间队列。请注意，事件任务初始化应该放在 Wi-Fi/BLE 初始化之前
 
-- 1.2：主任务通过调用函数 [`bk_netif_init()`](../../api-reference/network/bk_netif.html#_CPPv413bk_netif_initv "bk_netif_init") 创建 Lwip 核心任务，并初始化 Lwip 相关工作
+- 1.2：主任务通过调用函数 [`bk_netif_init()`](../../api-reference/network/bk_netif.md#_CPPv413bk_netif_initv "bk_netif_init") 创建 Lwip 核心任务，并初始化 Lwip 相关工作
 
-- 1.3：主任务通过调用函数 [`bk_wifi_init()`](../../api-reference/network/bk_wifi.html#_CPPv412bk_wifi_initPK18wifi_init_config_t "bk_wifi_init") 创建 Wi-Fi 驱动程序任务，并初始化 Wi-Fi 驱动程序，其中包括：底层 MAC 软件、射频参数、wpa_supplicant 等
+- 1.3：主任务通过调用函数 [`bk_wifi_init()`](../../api-reference/network/bk_wifi.md#_CPPv412bk_wifi_initPK18wifi_init_config_t "bk_wifi_init") 创建 Wi-Fi 驱动程序任务，并初始化 Wi-Fi 驱动程序，其中包括：底层 MAC 软件、射频参数、wpa_supplicant 等
 
 - 1.4：主任务通过调用系统 API 创建应用程序任务
 
-建议按照上述介绍的 Wi-Fi 初始化顺序，详情可以参阅基于上述初始化顺序的 Demo 程序 [Wi-Fi Get Started](../../api-reference/network/bk_wifi_demos.html "../../api-reference/network/bk_wifi_demos.html")
+建议按照上述介绍的 Wi-Fi 初始化顺序，详情可以参阅基于上述初始化顺序的 Demo 程序 [Wi-Fi Get Started](../../api-reference/network/bk_wifi_demos.md "../../api-reference/network/bk_wifi_demos.md")
 
 
 ### **2. Wi-Fi 配置阶段**[](#id12 "永久链接至标题")
 
-Wi-Fi 驱动程序初始化完成后，可以进入到配置阶段。该场景下，Armino Wi-Fi 驱动程序处于 station 模式（默认）。应用程序可以调用函数 [`bk_wifi_sta_set_config()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") 进行入参配置，一般情况下，用户只需要传入目标 AP 的名称和密码。请注意，该函数必须在函数 [`bk_wifi_sta_start()`](../../api-reference/network/bk_wifi.html#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") 开启 Armino Wi-Fi station 之前调用。更详细的介绍可以访问 [wifi.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h") 或者 [Armino Wi-Fi 配置](#id39 "#id39")
+Wi-Fi 驱动程序初始化完成后，可以进入到配置阶段。该场景下，Armino Wi-Fi 驱动程序处于 station 模式（默认）。应用程序可以调用函数 [`bk_wifi_sta_set_config()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") 进行入参配置，一般情况下，用户只需要传入目标 AP 的名称和密码。请注意，该函数必须在函数 [`bk_wifi_sta_start()`](../../api-reference/network/bk_wifi.md#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") 开启 Armino Wi-Fi station 之前调用。更详细的介绍可以访问 [wifi.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h") 或者 [Armino Wi-Fi 配置](#id39 "#id39")
 
 
 ### **3. Wi-Fi 启动阶段**[](#id13 "永久链接至标题")
 
 
-- 3.1：调用函数 [`bk_wifi_sta_start()`](../../api-reference/network/bk_wifi.html#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") 开启 Wi-Fi 驱动程序
+- 3.1：调用函数 [`bk_wifi_sta_start()`](../../api-reference/network/bk_wifi.md#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") 开启 Wi-Fi 驱动程序
 
-- 3.2：调用该函数前，必须确保参数已经配置成功，否则返回 `BK_ERR_WIFI_STA_NOT_CONFIG`；如果当前当前 station 已经启动，调用该函数时会直接返回 `BK_OK`。如果想重新加载 Wi-Fi 驱动程序，建议先调用 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.html#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop")，然后再调用该函数。相关 API 介绍及使用方法可以参考 [wifi.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h") ，API 返回值可以参阅 [Armino Wi-Fi API 错误码](#armino-wi-fi-api "#armino-wi-fi-api")
+- 3.2：调用该函数前，必须确保参数已经配置成功，否则返回 `BK_ERR_WIFI_STA_NOT_CONFIG`；如果当前当前 station 已经启动，调用该函数时会直接返回 `BK_OK`。如果想重新加载 Wi-Fi 驱动程序，建议先调用 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.md#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop")，然后再调用该函数。相关 API 介绍及使用方法可以参考 [wifi.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi.h") ，API 返回值可以参阅 [Armino Wi-Fi API 错误码](#armino-wi-fi-api "#armino-wi-fi-api")
 
 
 ### **4. Wi-Fi 连接阶段**[](#id15 "永久链接至标题")
 
 
-- 4.1：调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.html#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 后，Armino Wi-Fi 驱动程序将启动内部扫描、连接流程
+- 4.1：调用函数 [`bk_wifi_sta_connect()`](../../api-reference/network/bk_wifi.md#_CPPv419bk_wifi_sta_connectv "bk_wifi_sta_connect") 后，Armino Wi-Fi 驱动程序将启动内部扫描、连接流程
 
 - 4.2：开始扫描并成功发现目标 AP ，上报 [EVENT_WIFI_SCAN_DONE](#event-wifi-scan-done "#event-wifi-scan-done") 事件
 
@@ -248,9 +248,9 @@ Wi-Fi 驱动程序初始化完成后，可以进入到配置阶段。该场景�
 ### **7. Wi-Fi 清理阶段**[](#id17 "永久链接至标题")
 
 
-- 7.1：调用函数 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 断开 Wi-Fi station 连接
+- 7.1：调用函数 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 断开 Wi-Fi station 连接
 
-- 7.2：调用函数 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.html#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") 终止 Wi-Fi 驱动程序，并释放相关的资源
+- 7.2：调用函数 [`bk_wifi_sta_stop()`](../../api-reference/network/bk_wifi.md#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") 终止 Wi-Fi 驱动程序，并释放相关的资源
 
 
 ## **Armino Wi-Fi AP 一般情况**[](#armino-wi-fi-ap "永久链接至标题")
@@ -272,24 +272,24 @@ Armino Wi-Fi AP 模式示例[](#id60 "永久链接至图片")
 
 #### **开启扫描**[](#id20 "永久链接至标题")
 
-函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.html#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 调用 Wi-Fi 驱动程序开始扫描，当扫描完成后，上报 EVENT_WIFI_SCAN_DONE 事件，具体步骤可以参考如下：
+函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 调用 Wi-Fi 驱动程序开始扫描，当扫描完成后，上报 EVENT_WIFI_SCAN_DONE 事件，具体步骤可以参考如下：
 
 
-- 准备扫描完成回调函数，回调函数可以参考 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.html#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 和 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result")
+- 准备扫描完成回调函数，回调函数可以参考 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.md#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 和 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result")
 
-- 调用事件注册函数注册扫描完成事件回调，参考 [`bk_event_register_cb()`](../../api-reference/system/bk_event.html#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "bk_event_register_cb")
+- 调用事件注册函数注册扫描完成事件回调，参考 [`bk_event_register_cb()`](../../api-reference/system/bk_event.md#_CPPv420bk_event_register_cb14event_module_ti10event_cb_tPv "bk_event_register_cb")
 
 - 调用上述开始扫描函数，开启扫描
 
 
 #### **停止扫描**[](#id21 "永久链接至标题")
 
-调用函数 [`bk_wifi_scan_stop()`](../../api-reference/network/bk_wifi.html#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") 停止 Wi-Fi 驱动程序扫描，作用与 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 类似，但是该函数可能同步释放一些资源
+调用函数 [`bk_wifi_scan_stop()`](../../api-reference/network/bk_wifi.md#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") 停止 Wi-Fi 驱动程序扫描，作用与 [`bk_wifi_sta_disconnect()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_disconnectv "bk_wifi_sta_disconnect") 类似，但是该函数可能同步释放一些资源
 
 
 #### **获取扫描结果**[](#id22 "永久链接至标题")
 
-调用函数 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.html#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 获取扫描热点结果，一般返回值有以下几种：
+调用函数 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.md#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 获取扫描热点结果，一般返回值有以下几种：
 
 
 - BK_OK：扫描成功
@@ -303,12 +303,12 @@ Armino Wi-Fi AP 模式示例[](#id60 "永久链接至图片")
 备注
 
 1、调用者不需要单独申请内存，该API内会根据扫描结果申请内存
-2、不要忘记调用 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放资源
+2、不要忘记调用 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放资源
 
 
 #### **输出扫描结果**[](#id23 "永久链接至标题")
 
-函数 [`bk_wifi_scan_dump_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") 用于打印输出扫描到的热点信息，返回值有两种：
+函数 [`bk_wifi_scan_dump_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") 用于打印输出扫描到的热点信息，返回值有两种：
 
 
 - BK_OK：打印成功
@@ -318,7 +318,7 @@ Armino Wi-Fi AP 模式示例[](#id60 "永久链接至图片")
 
 #### **释放扫描结果**[](#id24 "永久链接至标题")
 
-调用 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放申请扫描结果内存
+调用 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放申请扫描结果内存
 
 
 ### **Armino Wi-Fi 扫描类型**[](#id25 "永久链接至标题")
@@ -334,13 +334,13 @@ Beken Wi-Fi 驱动程序支持在任意模式下进行扫描
 
 ### **Armino Wi-Fi 扫描配置**[](#id26 "永久链接至标题")
 
-扫描信息通过函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.html#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 配置，当前仅支持配置 **SSID** ，其余信息保持默认配置，暂不开放修改。下表详细描述了 `wifi_scan_config_t` 各字段信息
+扫描信息通过函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 配置，当前仅支持配置 **SSID** ，其余信息保持默认配置，暂不开放修改。下表详细描述了 `wifi_scan_config_t` 各字段信息
 
 | **字段** | **描述** |
 | --- | --- |
 | SSID | 如果该字段不为NULL，则仅可扫描到具有相同SSID的AP |
 
-调用函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.html#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 开启扫描的默认配置信息如下：
+调用函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 开启扫描的默认配置信息如下：
 
 | **默认配置** |
 | --- |
@@ -360,7 +360,7 @@ Armino 全信道主动扫描流程[](#id61 "永久链接至图片")
 
 #### **扫描配置阶段**[](#id28 "永久链接至标题")
 
-调用函数 [`bk_wifi_set_country()`](../../api-reference/network/bk_wifi.html#_CPPv419bk_wifi_set_countryPK14wifi_country_t "bk_wifi_set_country") 配置国家/地区信息，请参阅 [Armino Wi-Fi 国家/地区代码](#id45 "#id45") 。该过程可选，如果不调用，则使用默认国家/地区信息，当前默认为 CN。函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.html#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 配置扫描信息可以参考 [Armino Wi-Fi 扫描配置](#id26 "#id26")
+调用函数 [`bk_wifi_set_country()`](../../api-reference/network/bk_wifi.md#_CPPv419bk_wifi_set_countryPK14wifi_country_t "bk_wifi_set_country") 配置国家/地区信息，请参阅 [Armino Wi-Fi 国家/地区代码](#id45 "#id45") 。该过程可选，如果不调用，则使用默认国家/地区信息，当前默认为 CN。函数 [`bk_wifi_scan_start()`](../../api-reference/network/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") 配置扫描信息可以参考 [Armino Wi-Fi 扫描配置](#id26 "#id26")
 
 
 #### **Wi-Fi 驱动程序内部扫描阶段**[](#id29 "永久链接至标题")
@@ -370,7 +370,7 @@ Armino Wi-Fi 驱动程序顺序执行扫描，依次从信道 1 切换到信道 
 
 #### **扫描完成后事件处理阶段**[](#id30 "永久链接至标题")
 
-当所有信道扫描全部完成后，将产生 [EVENT_WIFI_SCAN_DONE](#event-wifi-scan-done "#event-wifi-scan-done") 事件，此后应用程序可以调用 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.html#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 获取扫描结果，通过 [`bk_wifi_scan_dump_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") 打印扫描结果，最后再通过 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.html#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放扫描结果
+当所有信道扫描全部完成后，将产生 [EVENT_WIFI_SCAN_DONE](#event-wifi-scan-done "#event-wifi-scan-done") 事件，此后应用程序可以调用 [`bk_wifi_scan_get_result()`](../../api-reference/network/bk_wifi.md#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") 获取扫描结果，通过 [`bk_wifi_scan_dump_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") 打印扫描结果，最后再通过 [`bk_wifi_scan_free_result()`](../../api-reference/network/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") 释放扫描结果
 
 
 ## **Armino Wi-Fi Station 连接场景**[](#id31 "永久链接至标题")
@@ -508,13 +508,13 @@ Armion Wi-Fi Station 连接场景示例[](#id62 "永久链接至图片")
 
 | **模式** | **描述** |
 | --- | --- |
-| CONFIG_ROLE_AP | AP 模式：在此模式下，[`bk_wifi_ap_set_config()`](../../api-reference/network/bk_wifi.html#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") 将初始化 AP 的 相关配置，如 SSID、Password、加密方式等； 然后调用 [`bk_wifi_ap_start()`](../../api-reference/network/bk_wifi.html#_CPPv416bk_wifi_ap_startv "bk_wifi_ap_start") 开启 AP 准备收发 Wi-Fi 数据 |
+| CONFIG_ROLE_AP | AP 模式：在此模式下，[`bk_wifi_ap_set_config()`](../../api-reference/network/bk_wifi.md#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") 将初始化 AP 的 相关配置，如 SSID、Password、加密方式等； 然后调用 [`bk_wifi_ap_start()`](../../api-reference/network/bk_wifi.md#_CPPv416bk_wifi_ap_startv "bk_wifi_ap_start") 开启 AP 准备收发 Wi-Fi 数据 |
 | CONFIG_ROLE_STA | station 模式: 详情可以参考 [Armino Wi-Fi station 一般情况](#armino-wi-fi-station "#armino-wi-fi-station") |
 
 
 ### **Armino Station 基本配置**[](#armino-station "永久链接至标题")
 
-客户应用程序通过调用 API [`bk_wifi_sta_set_config()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") 来配置 Armino Wi-Fi station，下面罗列一些常见的参数。
+客户应用程序通过调用 API [`bk_wifi_sta_set_config()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") 来配置 Armino Wi-Fi station，下面罗列一些常见的参数。
 这些参数的定义请参阅 [wifi_types.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi_types.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi_types.h")
 
 | **字段** | **描述** |
@@ -528,7 +528,7 @@ Armion Wi-Fi Station 连接场景示例[](#id62 "永久链接至图片")
 
 ### **Armino AP 基本配置**[](#armino-ap "永久链接至标题")
 
-客户应用程序在开启 AP 模式前，需调用函数 [`bk_wifi_ap_set_config()`](../../api-reference/network/bk_wifi.html#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") 来配置 AP 的基本参数，下表罗列了一些常见的参数
+客户应用程序在开启 AP 模式前，需调用函数 [`bk_wifi_ap_set_config()`](../../api-reference/network/bk_wifi.md#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") 来配置 AP 的基本参数，下表罗列了一些常见的参数
 您也可以参阅 [wifi_types.h](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi_types.h "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/include/modules/wifi_types.h")
 
 | **字段** | **描述** |
@@ -558,9 +558,9 @@ Armion Wi-Fi Station 连接场景示例[](#id62 "永久链接至图片")
 
 modem-sleep 模式包含默认节能模式和递进节能模式。在默认节能模式下，每个 DTIM 间隔，station 都将唤醒并接收 beacon。递进模式下，每个监听间隔，station 都将唤醒以接收 beacon。可以设置该监听间隔长于 AP 的 DTIM 周期。在 DTIM 期间内，station 可能处于睡眠状态，广播数据会丢失。如果监听间隔较长，则可以节省更多功耗，但广播数据更容易丢失
 
-初始化 Wi-Fi 驱动程序后，modem-sleep 进入默认节能模式。调用函数 [`bk_wifi_send_listen_interval_req()`](../../api-reference/network/bk_wifi.html#_CPPv432bk_wifi_send_listen_interval_req7uint8_t "bk_wifi_send_listen_interval_req") 可配置 modem-sleep 递进节能模式。 **递进节能模式可能存在丢失广播包的风险，请客户根据应用自行设置**
+初始化 Wi-Fi 驱动程序后，modem-sleep 进入默认节能模式。调用函数 [`bk_wifi_send_listen_interval_req()`](../../api-reference/network/bk_wifi.md#_CPPv432bk_wifi_send_listen_interval_req7uint8_t "bk_wifi_send_listen_interval_req") 可配置 modem-sleep 递进节能模式。 **递进节能模式可能存在丢失广播包的风险，请客户根据应用自行设置**
 
-调用函数 [`bk_wifi_sta_pm_disable()`](../../api-reference/network/bk_wifi.html#_CPPv422bk_wifi_sta_pm_disablev "bk_wifi_sta_pm_disable") 可以完全禁用 modem-sleep 模式。关闭 modem-sleep 会增加功耗，但同时可以最大限度减少实时接收 Wi-Fi 数据的延迟。函数 [`bk_wifi_sta_pm_enable()`](../../api-reference/network/bk_wifi.html#_CPPv421bk_wifi_sta_pm_enablev "bk_wifi_sta_pm_enable") 用来使能 modem-sleep 模式
+调用函数 [`bk_wifi_sta_pm_disable()`](../../api-reference/network/bk_wifi.md#_CPPv422bk_wifi_sta_pm_disablev "bk_wifi_sta_pm_disable") 可以完全禁用 modem-sleep 模式。关闭 modem-sleep 会增加功耗，但同时可以最大限度减少实时接收 Wi-Fi 数据的延迟。函数 [`bk_wifi_sta_pm_enable()`](../../api-reference/network/bk_wifi.md#_CPPv421bk_wifi_sta_pm_enablev "bk_wifi_sta_pm_enable") 用来使能 modem-sleep 模式
 
 
 ### **Armino Wi-Fi AP 睡眠**[](#id48 "永久链接至标题")
@@ -570,7 +570,7 @@ modem-sleep 模式包含默认节能模式和递进节能模式。在默认节�
 
 ### **station 收发数据下的睡眠管理**[](#station "永久链接至标题")
 
-station 在休眠的任何时间点均可以被唤醒主动发数据，同时会在 beacon 接收点通过指示来主动接收数据。函数 [`bk_wifi_set_td_active_percent()`](../../api-reference/network/bk_wifi.html#_CPPv429bk_wifi_set_td_active_percent7uint8_t "bk_wifi_set_td_active_percent") 用来配置两个参数，如未配置，则使用默认值
+station 在休眠的任何时间点均可以被唤醒主动发数据，同时会在 beacon 接收点通过指示来主动接收数据。函数 [`bk_wifi_set_td_active_percent()`](../../api-reference/network/bk_wifi.md#_CPPv429bk_wifi_set_td_active_percent7uint8_t "bk_wifi_set_td_active_percent") 用来配置两个参数，如未配置，则使用默认值
 
 
 - interval 表示，本次收包或者发包所工作的时长
@@ -739,7 +739,7 @@ IPv6 TCP_MSS 范围： 1220<= TCP_mSS <= 1440
 
 ## **Armino Wi-Fi Menuconfig**[](#armino-wi-fi-menuconfig "永久链接至标题")
 
-Armino SDK 支持 menuconfig 配置功能编译选项，您也可以直接修改 [bk7258.defconfig](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/middleware/soc/bk7258/bk7258.defconfig "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/middleware/soc/bk7258/bk7258.defconfig") ，两者作用相同。关于 menuconfig 使用，请参考 [配置工程](../../get-started/index.html#wifi-menuconfig "../../get-started/index.html#wifi-menuconfig")
+Armino SDK 支持 menuconfig 配置功能编译选项，您也可以直接修改 [bk7258.defconfig](https://gitlab.bekencorp.com/wifi/armino/-/blob/main/middleware/soc/bk7258/bk7258.defconfig "https://gitlab.bekencorp.com/wifi/armino/-/blob/main/middleware/soc/bk7258/bk7258.defconfig") ，两者作用相同。关于 menuconfig 使用，请参考 [配置工程](../../get-started/index.md#wifi-menuconfig "../../get-started/index.md#wifi-menuconfig")
 
 
 ## 如何使用 Armino Wi-Fi 低功耗模式[](#id53 "永久链接至标题")
@@ -811,7 +811,7 @@ Armino Wi-Fi MAC 地址存在 flash 分区（0x3ff000）的前 6 个字节，涉
 | CONFIG_RANDOM_MAC_ADDR | 随机生成 MAC 地址，当 flash 分区(0x3ff000)前六个字节为空时，随 机生成并写入。该 MAC 地址会符合 BEKEN 命令规则，即前三个 字节为 **C8:47:8C** | y |
 | CONFIG_BK_MAC_ADDR_CHECK | 判断设置的 MAC 地址是否符合 BEKEN 命令规则，即前三个字节为 **C8:47:8C**。配置默认打开，如客户使用自己 MAC 地址规则，只需在 bk7258.defconfig 中置为 n | y |
 
-为方便客户了解 Armino Wi-Fi MAC 地址的使用规则，下表中列出了可能的 MAC 地址宏功能组合，针对客户应用中可能遇到的一些问题，客户可以根据自己的产品定义进行相应的宏定义设计。 Armino Wi-Fi MAC 地址命令使用规则请参考 [Wi-Fi AT命令集](bk_wifi_at.html "bk_wifi_at.html")
+为方便客户了解 Armino Wi-Fi MAC 地址的使用规则，下表中列出了可能的 MAC 地址宏功能组合，针对客户应用中可能遇到的一些问题，客户可以根据自己的产品定义进行相应的宏定义设计。 Armino Wi-Fi MAC 地址命令使用规则请参考 [Wi-Fi AT命令集](bk_wifi_at.md "bk_wifi_at.md")
 
 | 使用示例 | 预期结果 |
 | --- | --- |
@@ -822,6 +822,5 @@ Armino Wi-Fi MAC 地址存在 flash 分区（0x3ff000）的前 6 个字节，涉
 
 ## **Armino Wi-Fi 故障定位**[](#id57 "永久链接至标题")
 
-无线网络问题，一般需要空口包协助分析，详情请参见 [BEKEN Wi-Fi 抓包指南](bk_wifi_capture.html "bk_wifi_capture.html")
+无线网络问题，一般需要空口包协助分析，详情请参见 [BEKEN Wi-Fi 抓包指南](bk_wifi_capture.md "bk_wifi_capture.md")
 
-[[English]](../../../../en/v2.0.1/developer-guide/wifi/bk_wifi.html "../../../../en/v2.0.1/developer-guide/wifi/bk_wifi.html")

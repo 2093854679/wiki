@@ -1,6 +1,5 @@
 # 防故障注入攻击[](#fault-injection-attack "永久链接至标题")
 
-[[English]](../../../en/v2.0.1/security/bk_security_fih.html "../../../en/v2.0.1/security/bk_security_fih.html")
 
 
 ## 概述[](#id2 "永久链接至标题")

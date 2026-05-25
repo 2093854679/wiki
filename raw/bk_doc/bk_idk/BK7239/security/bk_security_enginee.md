@@ -1,6 +1,5 @@
 # 安全引擎[](#security-enginee "永久链接至标题")
 
-[[English]](../../../en/v2.2.1/security/bk_security_enginee.html "../../../en/v2.2.1/security/bk_security_enginee.html")
 
 
 ## 概述[](#id2 "永久链接至标题")

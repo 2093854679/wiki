@@ -1,6 +1,5 @@
 # 系统日志[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v1.5/developer-guide/error_log/bk_log.html "../../../../en/v1.5/developer-guide/error_log/bk_log.html")
 
 本文档主要介绍Armino平台BK7256双核log机制
 

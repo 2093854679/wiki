@@ -1,6 +1,5 @@
 # 六.Bootloader.bin的镜像更新说明[](#bootloader-bin "永久链接至标题")
 
-[[English]](../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_imag_update.html "../../../../../en/v2.0.1/developer-guide/bootloader_ota/bootloader_and_ota/bk_bootloader_imag_update.html")
 
 
 - 1.为了优化bootloader.bin镜像的版本发布，从tag:v2.0.1.8版本开始：bootloader镜像的打包路径发生改变，由原先的默认路径middleware/boards/更改为components/bk_libs目录下。

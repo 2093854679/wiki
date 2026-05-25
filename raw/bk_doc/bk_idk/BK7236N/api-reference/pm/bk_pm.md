@@ -1,6 +1,5 @@
 # PM APIs[](#pm-apis "永久链接至标题")
 
-[[English]](../../../../en/v2.2.1/api-reference/pm/bk_pm.html "../../../../en/v2.2.1/api-reference/pm/bk_pm.html")
 
 重要
 
@@ -94,7 +93,7 @@ pm interface detail
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_send_msg([pm_ap_core_msg_t](#_CPPv416pm_ap_core_msg_t "pm_ap_core_msg_t") *msg)[](#_CPPv414bk_pm_send_msgP16pm_ap_core_msg_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_send_msg([pm_ap_core_msg_t](#_CPPv416pm_ap_core_msg_t "pm_ap_core_msg_t") *msg)[](#_CPPv414bk_pm_send_msgP16pm_ap_core_msg_t "永久链接至目标")
 :   send message to pm thread for enter deepsleep or low voltage
 
 
@@ -109,7 +108,7 @@ pm interface detail
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_thread_main(void)[](#_CPPv414pm_thread_mainv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") pm_thread_main(void)[](#_CPPv414pm_thread_mainv "永久链接至目标")
 :   start pm thread
 
 
@@ -124,7 +123,7 @@ pm interface detail
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_register([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback, void *arg, uint8_t priority)[](#_CPPv433bk_pm_pre_sleep_callback_register16sleep_callback_tPv7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_register([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback, void *arg, uint8_t priority)[](#_CPPv433bk_pm_pre_sleep_callback_register16sleep_callback_tPv7uint8_t "永久链接至目标")
 :   Register a pre-sleep callback with execution priority.
 
     This callback will be called BEFORE the system enters sleep mode. Callbacks are executed in priority order (0=first, 255=last).
@@ -154,7 +153,7 @@ pm interface detail
     返回
     :   0 Success -1 Invalid callback (NULL pointer) -2 Out of memory
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_unregister([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback)[](#_CPPv435bk_pm_pre_sleep_callback_unregister16sleep_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_unregister([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback)[](#_CPPv435bk_pm_pre_sleep_callback_unregister16sleep_callback_t "永久链接至目标")
 :   Unregister a pre-sleep callback.
 
     Memory: Frees 12 bytes Time complexity: O(n) where n is number of registered callbacks
@@ -167,7 +166,7 @@ pm interface detail
     返回
     :   0 Success -1 Invalid callback (NULL pointer) -2 Callback not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_execute(void)[](#_CPPv432bk_pm_pre_sleep_callback_executev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_pre_sleep_callback_execute(void)[](#_CPPv432bk_pm_pre_sleep_callback_executev "永久链接至目标")
 :   Execute all pre-sleep callbacks.
 
     This function is called automatically by the PM system before entering sleep. Application modules should NOT call this directly.
@@ -179,7 +178,7 @@ pm interface detail
 
     Time complexity: O(n)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_register([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback, void *arg, uint8_t priority)[](#_CPPv434bk_pm_post_sleep_callback_register16sleep_callback_tPv7uint8_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_register([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback, void *arg, uint8_t priority)[](#_CPPv434bk_pm_post_sleep_callback_register16sleep_callback_tPv7uint8_t "永久链接至目标")
 :   Register a post-sleep (wakeup) callback with execution priority.
 
     This callback will be called AFTER the system wakes up from sleep. Callbacks are executed in priority order (0=first, 255=last).
@@ -207,7 +206,7 @@ pm interface detail
     返回
     :   0 Success -1 Invalid callback (NULL pointer) -2 Out of memory
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_unregister([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback)[](#_CPPv436bk_pm_post_sleep_callback_unregister16sleep_callback_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_unregister([sleep_callback_t](#_CPPv416sleep_callback_t "sleep_callback_t") callback)[](#_CPPv436bk_pm_post_sleep_callback_unregister16sleep_callback_t "永久链接至目标")
 :   Unregister a post-sleep callback.
 
     Memory: Frees 12 bytes Time complexity: O(n)
@@ -220,7 +219,7 @@ pm interface detail
     返回
     :   0 Success -1 Invalid callback (NULL pointer) -2 Callback not found
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_execute(void)[](#_CPPv433bk_pm_post_sleep_callback_executev "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_post_sleep_callback_execute(void)[](#_CPPv433bk_pm_post_sleep_callback_executev "永久链接至目标")
 :   Execute all post-sleep callbacks.
 
     This function is called automatically by the PM system after waking up. Application modules should NOT call this directly.
@@ -229,7 +228,7 @@ pm interface detail
 
     Time complexity: O(n)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_wakeup_reason_set(uint64_t wakeup_irq)[](#_CPPv429bk_pm_sleep_wakeup_reason_set8uint64_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_wakeup_reason_set(uint64_t wakeup_irq)[](#_CPPv429bk_pm_sleep_wakeup_reason_set8uint64_t "永久链接至目标")
 :   set and save wakeup source of exiting sleep
 
     set and save wakeup source of exiting sleep
@@ -246,7 +245,7 @@ pm interface detail
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_wakeup_reason_clear()[](#_CPPv431bk_pm_sleep_wakeup_reason_clearv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_wakeup_reason_clear()[](#_CPPv431bk_pm_sleep_wakeup_reason_clearv "永久链接至目标")
 :   clear wakeup source of exiting sleep process
 
     clear wakeup source of exit sleep
@@ -278,7 +277,7 @@ pm interface detail
     返回
     :   - wakeup source(refer to icu_int_src_t in int_types.h)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_clear_deep_sleep_modules_config(pm_power_module_name_e module_name)[](#_CPPv437bk_pm_clear_deep_sleep_modules_config22pm_power_module_name_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_clear_deep_sleep_modules_config(pm_power_module_name_e module_name)[](#_CPPv437bk_pm_clear_deep_sleep_modules_config22pm_power_module_name_e "永久链接至目标")
 :   clear deep sleep module config
 
     clear deep sleep module config
@@ -339,7 +338,7 @@ uint32_t bk_pm_get_audio_vote_pwr_state()[](#_CPPv430bk_pm_get_audio_vote_pwr
     返回
     :   - the audio vote power state(refer to the enum:power_sub_module_name_audp_e)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_check_enter_lv_time_out(void)[](#_CPPv429bk_pm_check_enter_lv_time_outv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_check_enter_lv_time_out(void)[](#_CPPv429bk_pm_check_enter_lv_time_outv "永久链接至目标")
 :   check whether enter low voltage sleep mode time out
 
     check whether enter low voltage sleep mode time out
@@ -356,7 +355,7 @@ uint32_t bk_pm_get_audio_vote_pwr_state()[](#_CPPv430bk_pm_get_audio_vote_pwr
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_enter_lv_time_out_register_callback([pm_enter_lv_timeout_cb_t](#_CPPv424pm_enter_lv_timeout_cb_t "pm_enter_lv_timeout_cb_t") *lv_timeout_cb)[](#_CPPv441bk_pm_enter_lv_time_out_register_callbackP24pm_enter_lv_timeout_cb_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_enter_lv_time_out_register_callback([pm_enter_lv_timeout_cb_t](#_CPPv424pm_enter_lv_timeout_cb_t "pm_enter_lv_timeout_cb_t") *lv_timeout_cb)[](#_CPPv441bk_pm_enter_lv_time_out_register_callbackP24pm_enter_lv_timeout_cb_t "永久链接至目标")
 :   register enter low voltage sleep mode time out callback
 
     register enter low voltage sleep mode time out callback
@@ -373,7 +372,7 @@ uint32_t bk_pm_get_audio_vote_pwr_state()[](#_CPPv430bk_pm_get_audio_vote_pwr
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_module_lv_sleep_state_clear([pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") module)[](#_CPPv433bk_pm_module_lv_sleep_state_clear11pm_dev_id_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_module_lv_sleep_state_clear([pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") module)[](#_CPPv433bk_pm_module_lv_sleep_state_clear11pm_dev_id_e "永久链接至目标")
 :   clear the lv sleep state
 
     clear the lv sleep state
@@ -390,7 +389,7 @@ uint32_t bk_pm_get_audio_vote_pwr_state()[](#_CPPv430bk_pm_get_audio_vote_pwr
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_module_lv_sleep_state_set(void)[](#_CPPv431bk_pm_module_lv_sleep_state_setv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_module_lv_sleep_state_set(void)[](#_CPPv431bk_pm_module_lv_sleep_state_setv "永久链接至目标")
 :   set the lv sleep state
 
     set the lv sleep state
@@ -437,7 +436,7 @@ pm_wakeup_source_e bk_pm_deep_sleep_wakeup_source_get(void)[](#_CPPv434bk_pm_
     返回
     :   - wakeup source(0x0:WAKEUP SOURCE OF GPIO;0x1:WAKEUP SOURCE OF RTC;0x2:WAKEUP SOURCE OF WIFI OR BT;0x4:WAKEUP SOURCE OF TOUCHED;0x5:NONE WAKEUP_SOURCE)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_exit_low_vol_wakeup_source_clear(void)[](#_CPPv438bk_pm_exit_low_vol_wakeup_source_clearv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_exit_low_vol_wakeup_source_clear(void)[](#_CPPv438bk_pm_exit_low_vol_wakeup_source_clearv "永久链接至目标")
 :   clear wakeup source of exiting low voltage process
 
     clear wakeup source of exit low voltage
@@ -454,7 +453,7 @@ pm_wakeup_source_e bk_pm_deep_sleep_wakeup_source_get(void)[](#_CPPv434bk_pm_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_exit_low_vol_wakeup_source_set(void)[](#_CPPv436bk_pm_exit_low_vol_wakeup_source_setv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_exit_low_vol_wakeup_source_set(void)[](#_CPPv436bk_pm_exit_low_vol_wakeup_source_setv "永久链接至目标")
 :   set and save wakeup source of exiting low voltage
 
     set and save wakeup source of exiting low voltage
@@ -501,7 +500,7 @@ pm_wakeup_source_e bk_pm_exit_low_vol_wakeup_source_get(void)[](#_CPPv436bk_p
     返回
     :   - memory auto power down flag(PM_MEM_AUTO_CTRL_DISABLE:disable memory auto power down feature ;PM_MEM_AUTO_CTRL_ENABLE:enable memory auto power down feature)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_mem_auto_power_down_state_set([pm_mem_auto_ctrl_e](#_CPPv418pm_mem_auto_ctrl_e "pm_mem_auto_ctrl_e") value)[](#_CPPv435bk_pm_mem_auto_power_down_state_set18pm_mem_auto_ctrl_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_mem_auto_power_down_state_set([pm_mem_auto_ctrl_e](#_CPPv418pm_mem_auto_ctrl_e "pm_mem_auto_ctrl_e") value)[](#_CPPv435bk_pm_mem_auto_power_down_state_set18pm_mem_auto_ctrl_e "永久链接至目标")
 :   memory auto power down flag set
 
     set memory auto power down flag
@@ -533,7 +532,7 @@ uint32_t bk_pm_cp1_auto_power_down_state_get(void)[](#_CPPv435bk_pm_cp1_auto_
     返回
     :   - cp1 auto power down flag(0x0:close cp1 auto power down feature ;0x1:open cp1 auto power down feature)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_cp1_auto_power_down_state_set(uint32_t value)[](#_CPPv435bk_pm_cp1_auto_power_down_state_set8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_cp1_auto_power_down_state_set(uint32_t value)[](#_CPPv435bk_pm_cp1_auto_power_down_state_set8uint32_t "永久链接至目标")
 :   cp1 auto power down flag set
 
     set cp1 auto power down flag
@@ -565,7 +564,7 @@ uint32_t bk_pm_cp1_boot_flag_get(void)[](#_CPPv423bk_pm_cp1_boot_flag_getv "�
     返回
     :   - the flag of cpu1 boot flag (0x0:cpu1 not boot ready;0x1:cpu1 boot ready)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_rosc_calibration([pm_rosc_cali_mode_e](#_CPPv419pm_rosc_cali_mode_e "pm_rosc_cali_mode_e") rosc_cali_mode, uint32_t cali_interval)[](#_CPPv422bk_pm_rosc_calibration19pm_rosc_cali_mode_e8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_rosc_calibration([pm_rosc_cali_mode_e](#_CPPv419pm_rosc_cali_mode_e "pm_rosc_cali_mode_e") rosc_cali_mode, uint32_t cali_interval)[](#_CPPv422bk_pm_rosc_calibration19pm_rosc_cali_mode_e8uint32_t "永久链接至目标")
 :   rosc calibration
 
     rosc calibration
@@ -582,7 +581,7 @@ uint32_t bk_pm_cp1_boot_flag_get(void)[](#_CPPv423bk_pm_cp1_boot_flag_getv "�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_external_ldo_ctrl(uint32_t value)[](#_CPPv423bk_pm_external_ldo_ctrl8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_external_ldo_ctrl(uint32_t value)[](#_CPPv423bk_pm_external_ldo_ctrl8uint32_t "永久链接至目标")
 :   using the gpio to control the external ldo
 
     control the external ldo
@@ -680,7 +679,7 @@ uint32_t bk_pm_wakeup_from_lowvol_consume_time_get(void)[](#_CPPv441bk_pm_wak
     返回
     :   - the consume time of wakeup from lowvol
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_register_cb([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode, [pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") dev_id, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *enter_config, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *exit_config)[](#_CPPv423bk_pm_sleep_register_cb15pm_sleep_mode_e11pm_dev_id_eP12pm_cb_conf_tP12pm_cb_conf_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_register_cb([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode, [pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") dev_id, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *enter_config, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *exit_config)[](#_CPPv423bk_pm_sleep_register_cb15pm_sleep_mode_e11pm_dev_id_eP12pm_cb_conf_tP12pm_cb_conf_t "永久链接至目标")
 :   register sleep mode(low voltage and deepsleep) config
 
     register sleep config(include callback function and parameter)
@@ -697,7 +696,7 @@ uint32_t bk_pm_wakeup_from_lowvol_consume_time_get(void)[](#_CPPv441bk_pm_wak
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_unregister_cb([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode, [pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") dev_id, bool enter_cb, bool exit_cb)[](#_CPPv425bk_pm_sleep_unregister_cb15pm_sleep_mode_e11pm_dev_id_ebb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_unregister_cb([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode, [pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") dev_id, bool enter_cb, bool exit_cb)[](#_CPPv425bk_pm_sleep_unregister_cb15pm_sleep_mode_e11pm_dev_id_ebb "永久链接至目标")
 :   unregister sleep mode(low voltage and deepsleep) config
 
     unregister sleep config(include callback function and parameter)
@@ -714,7 +713,7 @@ uint32_t bk_pm_wakeup_from_lowvol_consume_time_get(void)[](#_CPPv441bk_pm_wak
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_light_sleep_register_cb([pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *enter_config, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *exit_config)[](#_CPPv429bk_pm_light_sleep_register_cbP12pm_cb_conf_tP12pm_cb_conf_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_light_sleep_register_cb([pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *enter_config, [pm_cb_conf_t](#_CPPv412pm_cb_conf_t "pm_cb_conf_t") *exit_config)[](#_CPPv429bk_pm_light_sleep_register_cbP12pm_cb_conf_tP12pm_cb_conf_t "永久链接至目标")
 :   register light sleep config
 
     register light sleep config(include callback function and parameter)
@@ -731,7 +730,7 @@ uint32_t bk_pm_wakeup_from_lowvol_consume_time_get(void)[](#_CPPv441bk_pm_wak
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_light_sleep_unregister_cb(bool enter_cb, bool exit_cb)[](#_CPPv431bk_pm_light_sleep_unregister_cbbb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_light_sleep_unregister_cb(bool enter_cb, bool exit_cb)[](#_CPPv431bk_pm_light_sleep_unregister_cbbb "永久链接至目标")
 :   unregister light sleep callback
 
     unregister light sleep callback(enter light sleep callback and exit light sleep callback)
@@ -808,7 +807,7 @@ int32_t bk_pm_module_power_state_get(pm_power_module_name_e module)[](#_CPPv4
     返回
     :   - get the current max and used cpu frequency
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_cpu_freq([pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") module, [pm_cpu_freq_e](#_CPPv413pm_cpu_freq_e "pm_cpu_freq_e") cpu_freq)[](#_CPPv426bk_pm_module_vote_cpu_freq11pm_dev_id_e13pm_cpu_freq_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_cpu_freq([pm_dev_id_e](#_CPPv411pm_dev_id_e "pm_dev_id_e") module, [pm_cpu_freq_e](#_CPPv413pm_cpu_freq_e "pm_cpu_freq_e") cpu_freq)[](#_CPPv426bk_pm_module_vote_cpu_freq11pm_dev_id_e13pm_cpu_freq_e "永久链接至目标")
 :   vote cpu frequency
 
     select the cpu frequency
@@ -825,7 +824,7 @@ int32_t bk_pm_module_power_state_get(pm_power_module_name_e module)[](#_CPPv4
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_clock_ctrl(pm_dev_clk_e module, [pm_dev_clk_pwr_e](#_CPPv416pm_dev_clk_pwr_e "pm_dev_clk_pwr_e") clock_state)[](#_CPPv416bk_pm_clock_ctrl12pm_dev_clk_e16pm_dev_clk_pwr_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_clock_ctrl(pm_dev_clk_e module, [pm_dev_clk_pwr_e](#_CPPv416pm_dev_clk_pwr_e "pm_dev_clk_pwr_e") clock_state)[](#_CPPv416bk_pm_clock_ctrl12pm_dev_clk_e16pm_dev_clk_pwr_e "永久链接至目标")
 :   clock ctrl
 
     enable or disable dev clock
@@ -842,7 +841,7 @@ int32_t bk_pm_module_power_state_get(pm_power_module_name_e module)[](#_CPPv4
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_lp_vol_set(uint32_t lp_vol)[](#_CPPv416bk_pm_lp_vol_set8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_lp_vol_set(uint32_t lp_vol)[](#_CPPv416bk_pm_lp_vol_set8uint32_t "永久链接至目标")
 :   lp voltage set
 
     set the lp voltage
@@ -874,7 +873,7 @@ uint32_t bk_pm_lp_vol_get(void)[](#_CPPv416bk_pm_lp_vol_getv "永久链接至
     返回
     :   - the lp voltage value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_rf_tx_vol_set(uint32_t tx_vol)[](#_CPPv419bk_pm_rf_tx_vol_set8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_rf_tx_vol_set(uint32_t tx_vol)[](#_CPPv419bk_pm_rf_tx_vol_set8uint32_t "永久链接至目标")
 :   rf tx voltage set
 
     set the tx voltage of RF
@@ -906,7 +905,7 @@ uint32_t bk_pm_rf_tx_vol_get(void)[](#_CPPv419bk_pm_rf_tx_vol_getv "永久链
     返回
     :   - the tx voltage value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_rf_rx_vol_set(uint32_t rx_vol)[](#_CPPv419bk_pm_rf_rx_vol_set8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_rf_rx_vol_set(uint32_t rx_vol)[](#_CPPv419bk_pm_rf_rx_vol_set8uint32_t "永久链接至目标")
 :   rf rx voltage set
 
     set the rx voltage of RF
@@ -938,7 +937,7 @@ uint32_t bk_pm_rf_rx_vol_get(void)[](#_CPPv419bk_pm_rf_rx_vol_getv "永久链
     返回
     :   - the rx voltage value
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_lpo_src_set([pm_lpo_src_e](#_CPPv412pm_lpo_src_e "pm_lpo_src_e") lpo_src)[](#_CPPv417bk_pm_lpo_src_set12pm_lpo_src_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_lpo_src_set([pm_lpo_src_e](#_CPPv412pm_lpo_src_e "pm_lpo_src_e") lpo_src)[](#_CPPv417bk_pm_lpo_src_set12pm_lpo_src_e "永久链接至目标")
 :   lpo source set
 
     set the lpo source
@@ -970,7 +969,7 @@ uint32_t bk_pm_rf_rx_vol_get(void)[](#_CPPv419bk_pm_rf_rx_vol_getv "永久链
     返回
     :   -lpo_src:0x0:32K from 26m;0x1:32K from 26m;0x2:32K from ROSC;0x3:32K from ROSC
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_mcu_pm_ctrl(uint32_t power_state)[](#_CPPv417bk_pm_mcu_pm_ctrl8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_mcu_pm_ctrl(uint32_t power_state)[](#_CPPv417bk_pm_mcu_pm_ctrl8uint32_t "永久链接至目标")
 :   mcu pm ctrl
 
     enabel and disable the mcu power manage
@@ -1002,7 +1001,7 @@ uint32_t bk_pm_mcu_pm_state_get(void)[](#_CPPv422bk_pm_mcu_pm_state_getv "永
     返回
     :   -mcu power manage state(0x0:enable the mcu power manage;0x1:disable the mcu power manage)
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_mode_set([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode)[](#_CPPv420bk_pm_sleep_mode_set15pm_sleep_mode_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_sleep_mode_set([pm_sleep_mode_e](#_CPPv415pm_sleep_mode_e "pm_sleep_mode_e") sleep_mode)[](#_CPPv420bk_pm_sleep_mode_set15pm_sleep_mode_e "永久链接至目标")
 :   set sleep mode
 
     set sleep mode.
@@ -1019,7 +1018,7 @@ uint32_t bk_pm_mcu_pm_state_get(void)[](#_CPPv422bk_pm_mcu_pm_state_getv "永
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_wakeup_source_set(pm_wakeup_source_e wakeup_source, void *source_param)[](#_CPPv423bk_pm_wakeup_source_set18pm_wakeup_source_ePv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_wakeup_source_set(pm_wakeup_source_e wakeup_source, void *source_param)[](#_CPPv423bk_pm_wakeup_source_set18pm_wakeup_source_ePv "永久链接至目标")
 :   set wakeup source
 
     set wakeup source(eg.rtc,gpio)
@@ -1036,7 +1035,7 @@ uint32_t bk_pm_mcu_pm_state_get(void)[](#_CPPv422bk_pm_mcu_pm_state_getv "永
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_sleep_ctrl([pm_sleep_module_name_e](#_CPPv422pm_sleep_module_name_e "pm_sleep_module_name_e") module, uint32_t sleep_state, uint32_t sleep_time)[](#_CPPv428bk_pm_module_vote_sleep_ctrl22pm_sleep_module_name_e8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_sleep_ctrl([pm_sleep_module_name_e](#_CPPv422pm_sleep_module_name_e "pm_sleep_module_name_e") module, uint32_t sleep_state, uint32_t sleep_time)[](#_CPPv428bk_pm_module_vote_sleep_ctrl22pm_sleep_module_name_e8uint32_t8uint32_t "永久链接至目标")
 :   module vote sleep ctrl
 
     other module tell pm module, they have entered sleep.(eg.wifi or bt enter sleep,then call the function ,tell pm it have entered sleep)
@@ -1055,7 +1054,7 @@ uint32_t bk_pm_mcu_pm_state_get(void)[](#_CPPv422bk_pm_mcu_pm_state_getv "永
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_power_ctrl(pm_power_module_name_e module, [pm_power_module_state_e](#_CPPv423pm_power_module_state_e "pm_power_module_state_e") power_state)[](#_CPPv428bk_pm_module_vote_power_ctrl22pm_power_module_name_e23pm_power_module_state_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_pm_module_vote_power_ctrl(pm_power_module_name_e module, [pm_power_module_state_e](#_CPPv423pm_power_module_state_e "pm_power_module_state_e") power_state)[](#_CPPv428bk_pm_module_vote_power_ctrl22pm_power_module_name_e23pm_power_module_state_e "永久链接至目标")
 :   pm module vote power ctrl
 
     ther module tell pm module, they can enter power on or power off
@@ -1104,7 +1103,7 @@ void bk_pm_enter_sleep(void)[](#_CPPv417bk_pm_enter_sleepv "永久链接至�
     返回
     :   - void
 
-static inline [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_sleep_vote_init(void)[](#_CPPv418pm_sleep_vote_initv "永久链接至目标")
+static inline [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") pm_sleep_vote_init(void)[](#_CPPv418pm_sleep_vote_initv "永久链接至目标")
 :   sleep vote init
 
     the function is for init the enter low voltage sleep vote
@@ -1121,7 +1120,7 @@ static inline [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_sleep_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_clk_32k_source_switch([pm_lpo_src_e](#_CPPv412pm_lpo_src_e "pm_lpo_src_e") lpo_src)[](#_CPPv424pm_clk_32k_source_switch12pm_lpo_src_e "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") pm_clk_32k_source_switch([pm_lpo_src_e](#_CPPv412pm_lpo_src_e "pm_lpo_src_e") lpo_src)[](#_CPPv424pm_clk_32k_source_switch12pm_lpo_src_e "永久链接至目标")
 :   32k source switch
 
     When the external 32k clock source is enabled, this api used to switch the 32k clock source
@@ -1134,7 +1133,7 @@ static inline [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_sleep_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_extern32k_register_cb([pm_cb_extern32k_cfg_t](#_CPPv421pm_cb_extern32k_cfg_t "pm_cb_extern32k_cfg_t") *cfg)[](#_CPPv424pm_extern32k_register_cbP21pm_cb_extern32k_cfg_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") pm_extern32k_register_cb([pm_cb_extern32k_cfg_t](#_CPPv421pm_cb_extern32k_cfg_t "pm_cb_extern32k_cfg_t") *cfg)[](#_CPPv424pm_extern32k_register_cbP21pm_cb_extern32k_cfg_t "永久链接至目标")
 :   register callback function
 
     BT WIFI module registered callback function, used to switch synchronization when switching clock source
@@ -1147,7 +1146,7 @@ static inline [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_sleep_
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") pm_extern32k_unregister_cb([pm_cb_extern32k_cfg_t](#_CPPv421pm_cb_extern32k_cfg_t "pm_cb_extern32k_cfg_t") *cfg)[](#_CPPv426pm_extern32k_unregister_cbP21pm_cb_extern32k_cfg_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") pm_extern32k_unregister_cb([pm_cb_extern32k_cfg_t](#_CPPv421pm_cb_extern32k_cfg_t "pm_cb_extern32k_cfg_t") *cfg)[](#_CPPv426pm_extern32k_unregister_cbP21pm_cb_extern32k_cfg_t "永久链接至目标")
 :   unregister callback function
 
     参数
@@ -1509,7 +1508,7 @@ typedef void (*sleep_callback_t)(void *arg)[](#_CPPv416sleep_callback_t "永�
     Param arg
     :   User-defined argument passed during registration
 
-typedef [bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") (*pm_enter_lv_timeout_cb)(void *args)[](#_CPPv422pm_enter_lv_timeout_cb "永久链接至目标")
+typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") (*pm_enter_lv_timeout_cb)(void *args)[](#_CPPv422pm_enter_lv_timeout_cb "永久链接至目标")
 
 typedef int (*pm_cb)(uint64_t sleep_time, void *args)[](#_CPPv45pm_cb "永久链接至目标")
 

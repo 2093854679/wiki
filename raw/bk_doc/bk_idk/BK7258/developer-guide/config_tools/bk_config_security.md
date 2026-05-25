@@ -1,6 +1,5 @@
 # 安全配置[](#bk-config-security "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_config_security.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_config_security.html")
 
 
 ## 通用安全配置[](#bk-config-security-security "永久链接至标题")
@@ -102,7 +101,7 @@ TBC
 > - `Size` - 必选项。配置块大小。必须按设备块大小对齐。
 > - `Secure` - 可选项。配置块安全属性，未配置时值为 False。
 
-关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../security/bk_security_overview.html#bk-security-overview-mpc "../security/bk_security_overview.html#bk-security-overview-mpc")。
+关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../security/bk_security_overview.md#bk-security-overview-mpc "../security/bk_security_overview.md#bk-security-overview-mpc")。
 
 备注
 

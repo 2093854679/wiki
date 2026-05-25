@@ -1,6 +1,5 @@
 # Hardware JPEGDEC APIs[](#hardware-jpegdec-apis "永久链接至标题")
 
-[[English]](../../../../en/v1.5/api-reference/multi_media/bk_jpegdec_hw.html "../../../../en/v1.5/api-reference/multi_media/bk_jpegdec_hw.html")
 
 
 ## JPEGDEC API Categories[](#jpegdec-api-categories "永久链接至标题")
@@ -35,18 +34,18 @@ Figure 1. jpeg decode config flow[](#id2 "永久链接至图片")
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_driver_init(void)[](#_CPPv423bk_jpeg_dec_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_driver_init(void)[](#_CPPv423bk_jpeg_dec_driver_initv "永久链接至目标")
 :   HW JPEG DEC API.
 
     this api open the jpeg decode clk
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_driver_deinit(void)[](#_CPPv425bk_jpeg_dec_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_driver_deinit(void)[](#_CPPv425bk_jpeg_dec_driver_deinitv "永久链接至目标")
 :   this api close the jpeg decode clk
 
 
     - disable jpeg decode
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_line_int_en(uint32_t line_num)[](#_CPPv423bk_jpeg_dec_line_int_en8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_line_int_en(uint32_t line_num)[](#_CPPv423bk_jpeg_dec_line_int_en8uint32_t "永久链接至目标")
 :   this api used for jpeg decode config
 
     Usage example:
@@ -77,7 +76,7 @@ Figure 1. jpeg decode config flow[](#id2 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_line_int_dis(void)[](#_CPPv424bk_jpeg_dec_line_int_disv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_line_int_dis(void)[](#_CPPv424bk_jpeg_dec_line_int_disv "永久链接至目标")
 :   this api used for disable jpeg decode line num int
 
     返回
@@ -85,7 +84,7 @@ Figure 1. jpeg decode config flow[](#id2 "永久链接至图片")
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_hw_start(uint32_t length, unsigned char *input_buf, unsigned char *output_buf)[](#_CPPv420bk_jpeg_dec_hw_start8uint32_tPhPh "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_hw_start(uint32_t length, unsigned char *input_buf, unsigned char *output_buf)[](#_CPPv420bk_jpeg_dec_hw_start8uint32_tPhPh "永久链接至目标")
 :   this api start jpeg decode
 
     参数
@@ -99,7 +98,7 @@ Figure 1. jpeg decode config flow[](#id2 "永久链接至图片")
     返回
     :   0: jpeg decode ok; others: error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_dma_start(uint32_t length, unsigned char *input_buf, unsigned char *output_buf)[](#_CPPv421bk_jpeg_dec_dma_start8uint32_tPhPh "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_dma_start(uint32_t length, unsigned char *input_buf, unsigned char *output_buf)[](#_CPPv421bk_jpeg_dec_dma_start8uint32_tPhPh "永久链接至目标")
 :   this api start jpeg decode
 
     参数
@@ -113,13 +112,13 @@ Figure 1. jpeg decode config flow[](#id2 "永久链接至图片")
     返回
     :   0: jpeg decode ok; others: error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_stop(void)[](#_CPPv416bk_jpeg_dec_stopv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_stop(void)[](#_CPPv416bk_jpeg_dec_stopv "永久链接至目标")
 :   stop jpeg decode
 
     返回
     :   0: jpeg decode stop ok; others: error
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_isr_register(jpeg_dec_isr_t jpeg_dec_isr)[](#_CPPv424bk_jpeg_dec_isr_register14jpeg_dec_isr_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_jpeg_dec_isr_register(jpeg_dec_isr_t jpeg_dec_isr)[](#_CPPv424bk_jpeg_dec_isr_register14jpeg_dec_isr_t "永久链接至目标")
 :   This API is direct registerjpeg dec cpu isr.
 
     参数

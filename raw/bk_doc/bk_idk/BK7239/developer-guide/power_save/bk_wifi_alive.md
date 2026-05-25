@@ -56,4 +56,3 @@
 2. 配置`CONFIG_DPD_CALI=n`时，系统会将关键代码放置在RAM中执行，减少唤醒时从Flash加载代码的功耗
 3. 实际功耗可能因具体应用场景、硬件版本和环境因素而略有差异
 
-[[English]](../../../../en/v2.2.1/developer-guide/power_save/bk_wifi_alive.html "../../../../en/v2.2.1/developer-guide/power_save/bk_wifi_alive.html")

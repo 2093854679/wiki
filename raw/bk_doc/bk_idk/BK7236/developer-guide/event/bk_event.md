@@ -1,6 +1,5 @@
 # 事件机制[](#id1 "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/event/bk_event.html "../../../../en/v2.0.1/developer-guide/event/bk_event.html")
 
 事件机制用于向用户通知 SDK 产生的异步事件，如 WiFi 掉线等。
 

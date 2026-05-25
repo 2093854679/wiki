@@ -1,6 +1,5 @@
 # 非安全版本OTP使用介绍[](#otp "永久链接至标题")
 
-[[English]](../../../../en/v2.0.1/developer-guide/config_tools/bk_nosecure_version_of_otp_usage_instructions.html "../../../../en/v2.0.1/developer-guide/config_tools/bk_nosecure_version_of_otp_usage_instructions.html")
 
 
 ## OTP[](#id1 "永久链接至标题")
@@ -8,7 +7,7 @@
 
 ### 一、概述[](#id2 "永久链接至标题")
 
-OTP的详细概述，详情请参考 [OTP/EFUSE配置](bk_config_otp_efuse.html#bk-config-otp-efuse "bk_config_otp_efuse.html#bk-config-otp-efuse")。
+OTP的详细概述，详情请参考 [OTP/EFUSE配置](bk_config_otp_efuse.md#bk-config-otp-efuse "bk_config_otp_efuse.md#bk-config-otp-efuse")。
 
 备注
 

@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/time.h>;
 > - 定义了系统定时器相关的接口
 
-[[English]](../../../../../en/v1.5/api-reference/system/posix/time.html "../../../../../en/v1.5/api-reference/system/posix/time.html")
 
 
 ## Header File[](#header-file "永久链接至标题")
@@ -110,7 +109,7 @@ int nanosleep(const struct [timespec](#_CPPv48timespec "timespec") *rqtp, struct
 
         - **-1** – - The rqtp argument is invalid OR the rqtp argument specified a nanosecond value less than zero or greater than or equal to 1000 million.
 
-int timer_create(clockid_t clockid, struct [sigevent](signal.html#_CPPv48sigevent "sigevent") *evp, timer_t *timerid)[](#_CPPv412timer_create9clockid_tP8sigeventP7timer_t "永久链接至目标")
+int timer_create(clockid_t clockid, struct [sigevent](signal.md#_CPPv48sigevent "sigevent") *evp, timer_t *timerid)[](#_CPPv412timer_create9clockid_tP8sigeventP7timer_t "永久链接至目标")
 :   Create a per-process timer.
 
     [http://pubs.opengroup.org/onlinepubs/9699919799/functions/timer_create.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/timer_create.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/timer_create.html")

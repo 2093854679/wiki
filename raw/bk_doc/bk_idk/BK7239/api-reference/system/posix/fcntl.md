@@ -3,7 +3,6 @@
 > - 需要包含头文件#include <posix/fcntl.h>;
 > - 定义了posix接口file cntrol相关的宏定义
 
-[[English]](../../../../../en/v2.2.1/api-reference/system/posix/fcntl.html "../../../../../en/v2.2.1/api-reference/system/posix/fcntl.html")
 
 
 ## Header File[](#header-file "永久链接至标题")

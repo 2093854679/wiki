@@ -45,7 +45,7 @@
 
 ### Functions[](#functions "永久链接至标题")
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_driver_init(void)[](#_CPPv418bk_i2c_driver_initv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_driver_init(void)[](#_CPPv418bk_i2c_driver_initv "永久链接至目标")
 :   Init the I2C driver.
 
     This API init the resoure common:
@@ -62,7 +62,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_driver_deinit(void)[](#_CPPv420bk_i2c_driver_deinitv "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_driver_deinit(void)[](#_CPPv420bk_i2c_driver_deinitv "永久链接至目标")
 :   Deinit the I2C driver.
 
     This API free all resource related to I2C and disable I2C.
@@ -72,7 +72,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_init([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_config_t](#_CPPv412i2c_config_t "i2c_config_t") *cfg)[](#_CPPv411bk_i2c_init8i2c_id_tPK12i2c_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_init([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_config_t](#_CPPv412i2c_config_t "i2c_config_t") *cfg)[](#_CPPv411bk_i2c_init8i2c_id_tPK12i2c_config_t "永久链接至目标")
 :   Init the I2C id.
 
     This API init the I2C id:
@@ -106,7 +106,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_deinit([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv413bk_i2c_deinit8i2c_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_deinit([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv413bk_i2c_deinit8i2c_id_t "永久链接至目标")
 :   Deinit the I2C id.
 
     This API deinit the I2C id:
@@ -126,7 +126,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t dev_addr, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv419bk_i2c_master_write8i2c_id_t8uint32_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t dev_addr, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv419bk_i2c_master_write8i2c_id_t8uint32_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Write data to the I2C port from a given buffer and length, It shall only be called in I2C master mode.
 
     参数
@@ -151,7 +151,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_write_noaddr([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv426bk_i2c_master_write_noaddr8i2c_id_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_write_noaddr([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv426bk_i2c_master_write_noaddr8i2c_id_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Write data to the I2C port from a given buffer and length without slave address, It shall only be called in I2C master mode.
 
     参数
@@ -174,7 +174,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t dev_addr, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv418bk_i2c_master_read8i2c_id_t8uint32_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t dev_addr, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv418bk_i2c_master_read8i2c_id_t8uint32_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   I2C read data from I2C buffer, It shall only be called in I2C master mode.
 
     参数
@@ -199,7 +199,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_read_noaddr([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv425bk_i2c_master_read_noaddr8i2c_id_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_master_read_noaddr([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv425bk_i2c_master_read_noaddr8i2c_id_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   I2C read data from I2C buffer without slave address, It shall only be called in I2C master mode.
 
     参数
@@ -222,7 +222,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_slave_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv418bk_i2c_slave_write8i2c_id_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_slave_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv418bk_i2c_slave_write8i2c_id_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   Write data to the I2C port from a given buffer and length, It shall only be called in I2C slave mode.
 
     参数
@@ -245,7 +245,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_slave_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv417bk_i2c_slave_read8i2c_id_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_slave_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint8_t *data, uint32_t size, uint32_t timeout_ms)[](#_CPPv417bk_i2c_slave_read8i2c_id_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
 :   I2C read data from I2C buffer, It shall only be called in I2C slave mode.
 
     参数
@@ -270,7 +270,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv419bk_i2c_memory_write8i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_write([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv419bk_i2c_memory_write8i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
 :   Write data to the specific memory address from a given buffer and length, It shall only be called in I2C master mode.
 
     参数
@@ -291,7 +291,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv418bk_i2c_memory_read8i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_read([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv418bk_i2c_memory_read8i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
 :   I2C read data from I2C specific memory address, It shall only be called in I2C master mode.
 
     参数
@@ -312,7 +312,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_baud_rate([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t baud_rate)[](#_CPPv420bk_i2c_set_baud_rate8i2c_id_t8uint32_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_baud_rate([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint32_t baud_rate)[](#_CPPv420bk_i2c_set_baud_rate8i2c_id_t8uint32_t "永久链接至目标")
 :   I2C set baud rate.
 
     参数
@@ -331,7 +331,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_no_ack_mode([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, bool enable)[](#_CPPv422bk_i2c_set_no_ack_mode8i2c_id_tb "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_no_ack_mode([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, bool enable)[](#_CPPv422bk_i2c_set_no_ack_mode8i2c_id_tb "永久链接至目标")
 :   I2C set no ack mode.
 
     参数
@@ -350,7 +350,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_slave_address([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint16_t slave_addr)[](#_CPPv424bk_i2c_set_slave_address8i2c_id_t8uint16_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_set_slave_address([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, uint16_t slave_addr)[](#_CPPv424bk_i2c_set_slave_address8i2c_id_t8uint16_t "永久链接至目标")
 :   Set slave address when current role is i2c slave.
 
     参数
@@ -365,7 +365,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_enable_interrupt([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv423bk_i2c_enable_interrupt8i2c_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_enable_interrupt([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv423bk_i2c_enable_interrupt8i2c_id_t "永久链接至目标")
 :   Enable I2C interrupt.
 
     参数
@@ -376,7 +376,7 @@
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_disable_interrupt([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv424bk_i2c_disable_interrupt8i2c_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_disable_interrupt([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv424bk_i2c_disable_interrupt8i2c_id_t "永久链接至目标")
 :   Disable I2C interrupt.
 
     参数
@@ -412,7 +412,7 @@ void bk_i2c_timer_callback(int id, void *myTimer)[](#_CPPv421bk_i2c_timer_cal
 
     返回
 
-void bk_i2c_queue_callback(int id, [beken_queue_t](../system/os.html#_CPPv413beken_queue_t "beken_queue_t") *queue, void *data)[](#_CPPv421bk_i2c_queue_callbackiP13beken_queue_tPv "永久链接至目标")
+void bk_i2c_queue_callback(int id, [beken_queue_t](../system/os.md#_CPPv413beken_queue_t "beken_queue_t") *queue, void *data)[](#_CPPv421bk_i2c_queue_callbackiP13beken_queue_tPv "永久链接至目标")
 :   bk_i2c_queue_callback
 
     This API set queue call back
@@ -439,7 +439,7 @@ uint8_t bk_i2c_get_transstate(int id)[](#_CPPv421bk_i2c_get_transstatei "永�
 
         - 0: fail.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_init_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_config_t](#_CPPv412i2c_config_t "i2c_config_t") *cfg)[](#_CPPv414bk_i2c_init_v28i2c_id_tPK12i2c_config_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_init_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_config_t](#_CPPv412i2c_config_t "i2c_config_t") *cfg)[](#_CPPv414bk_i2c_init_v28i2c_id_tPK12i2c_config_t "永久链接至目标")
 :   Init the SIM I2C id.
 
     This API init the I2C id:
@@ -473,7 +473,7 @@ uint8_t bk_i2c_get_transstate(int id)[](#_CPPv421bk_i2c_get_transstatei "永�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_deinit_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv416bk_i2c_deinit_v28i2c_id_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_deinit_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id)[](#_CPPv416bk_i2c_deinit_v28i2c_id_t "永久链接至目标")
 :   Deinit the SIM I2C driver.
 
     This API free all resource related to I2C and disable I2C.
@@ -483,7 +483,7 @@ uint8_t bk_i2c_get_transstate(int id)[](#_CPPv421bk_i2c_get_transstatei "永�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_write_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv422bk_i2c_memory_write_v28i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_write_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv422bk_i2c_memory_write_v28i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
 :   Write data to the specific memory address from a given buffer and length, It shall only be called in SIM I2C master mode.
 
     参数
@@ -504,7 +504,7 @@ uint8_t bk_i2c_get_transstate(int id)[](#_CPPv421bk_i2c_get_transstatei "永�
 
         - others: other errors.
 
-[bk_err_t](../system/os.html#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_read_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv421bk_i2c_memory_read_v28i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
+[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_i2c_memory_read_v2([i2c_id_t](#_CPPv48i2c_id_t "i2c_id_t") id, const [i2c_mem_param_t](#_CPPv415i2c_mem_param_t "i2c_mem_param_t") *mem_param)[](#_CPPv421bk_i2c_memory_read_v28i2c_id_tPK15i2c_mem_param_t "永久链接至目标")
 :   SIM I2C read data from I2C specific memory address, It shall only be called in SIM I2C master mode.
 
     参数
