@@ -1,4 +1,4 @@
-"""LLM-powered Q&A against the compiled wiki."""
+"""LLM-powered Q&A against the compiled wiki and raw technical docs."""
 
 from pathlib import Path
 
@@ -7,19 +7,59 @@ import click
 from .llm import complete_with_context, get_config
 from .search_engine import SearchEngine
 
-SYSTEM_PROMPT = """You are a research assistant answering questions against a personal knowledge base wiki.
-You have access to relevant wiki articles provided as context documents.
+SYSTEM_PROMPT = """You are a research assistant answering questions against a personal knowledge base.
+You have access to relevant wiki articles and raw technical documents provided as context documents.
 
 Guidelines:
-- Base your answer on the provided wiki articles. Cite specific articles using [[wikilinks]].
-- If the wiki doesn't contain enough information, say so clearly.
+- Base your answer on the provided context documents.
+- Cite specific wiki articles using [[wikilinks]].
+- For raw technical documents, cite the file path explicitly.
+- If the provided context doesn't contain enough information, say so clearly.
 - Structure long answers with headings and bullet points.
-- Include a ## Sources section listing the wiki articles you referenced.
-- Be thorough but concise — prefer depth over breadth."""
+- Include a ## Sources section listing the documents you referenced.
+- Be thorough but concise - prefer depth over breadth."""
 
 
-def _load_wiki_documents(wiki_dir: Path, max_docs: int = 15) -> list[dict]:
-    """Load wiki markdown files as context documents."""
+def _resolve_document_path(workspace_dir: Path, rel_path: str) -> Path | None:
+    """Resolve a wiki-relative or workspace-relative markdown path."""
+    rel = rel_path.replace("\\", "/").lstrip("/")
+
+    candidates = []
+    if rel.startswith(("wiki/", "raw/")):
+        candidates.append(workspace_dir / rel)
+    else:
+        candidates.append(workspace_dir / "wiki" / rel)
+        candidates.append(workspace_dir / "raw" / rel)
+
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def _load_documents(workspace_dir: Path, paths: list[str]) -> list[dict]:
+    """Load markdown files by workspace-relative path."""
+    docs = []
+    for rel_path in paths:
+        fpath = _resolve_document_path(workspace_dir, rel_path)
+        if not fpath:
+            click.echo(f"  [warn] Not found: {rel_path}", err=True)
+            continue
+        try:
+            content = fpath.read_text(encoding="utf-8")
+            if len(content) > 8000:
+                content = content[:8000] + "\n\n[... truncated ...]"
+            docs.append({
+                "path": str(fpath.relative_to(workspace_dir)).replace("\\", "/"),
+                "content": content,
+            })
+        except Exception:
+            pass
+    return docs
+
+
+def _load_default_documents(wiki_dir: Path, max_docs: int = 15) -> list[dict]:
+    """Load a small default set of wiki documents."""
     docs = []
     for md in sorted(wiki_dir.rglob("*.md")):
         if md.name == "index.md":
@@ -37,62 +77,47 @@ def _load_wiki_documents(wiki_dir: Path, max_docs: int = 15) -> list[dict]:
     return docs[:max_docs]
 
 
-def _load_specific_docs(wiki_dir: Path, paths: list[str]) -> list[dict]:
-    """Load specific wiki documents by relative path."""
-    docs = []
-    for p in paths:
-        fpath = wiki_dir / p
-        if fpath.exists():
-            try:
-                content = fpath.read_text(encoding="utf-8")
-                docs.append({
-                    "path": p,
-                    "content": content[:8000],
-                })
-            except Exception:
-                pass
-        else:
-            click.echo(f"  [warn] Not found: {p}", err=True)
-    return docs
-
-
 @click.command("query")
 @click.argument("question")
 @click.option("--format", "-f", "output_format",
               type=click.Choice(["md", "slides", "chart"]), default="md",
               help="Output format")
 @click.option("--docs", "-d", multiple=True,
-              help="Specific wiki documents to include (relative paths)")
+              help="Specific documents to include (wiki-relative or raw-relative paths)")
 @click.option("--search", "-s", "use_search", is_flag=True, default=True,
               help="Use search to find relevant documents")
 @click.option("--max-docs", default=15, help="Max documents to load")
 @click.option("--save/--no-save", default=True, help="Save output to wiki/outputs/")
 def cmd_query(question, output_format, docs, use_search, max_docs, save):
-    """Ask a question against the wiki and get an LLM-researched answer."""
+    """Ask a question against the knowledge base and get an LLM-researched answer."""
     cfg = get_config()
     wiki_dir = Path(cfg["paths"]["wiki_dir"])
+    raw_dir = Path(cfg["paths"]["raw_dir"])
+    workspace_dir = wiki_dir.parent
 
-    if not wiki_dir.exists() or not list(wiki_dir.rglob("*.md")):
-        click.echo("Wiki is empty. Run 'kb compile' first.")
+    if not wiki_dir.exists() and not raw_dir.exists():
+        click.echo("Knowledge base is empty. Run 'kb ingest' and 'kb index' first.")
         return
 
     documents = []
 
     if list(docs):
-        documents = _load_specific_docs(wiki_dir, list(docs))
+        documents = _load_documents(workspace_dir, list(docs))
         click.echo(f"Loaded {len(documents)} specified documents.")
     elif use_search:
         engine = SearchEngine(Path(cfg["paths"]["search_db"]))
+        if engine.document_count == 0 and (wiki_dir.exists() or raw_dir.exists()):
+            click.echo("Indexing wiki and raw docs...")
+            engine.index(wiki_dir, raw_dir)
         results = engine.search(question, limit=max_docs)
         if results:
-            paths = [r["path"] for r in results]
-            documents = _load_specific_docs(wiki_dir, paths)
+            documents = _load_documents(workspace_dir, [r["workspace_path"] for r in results])
             click.echo(f"Search found {len(documents)} relevant documents.")
         else:
-            documents = _load_wiki_documents(wiki_dir, max_docs)
-            click.echo(f"Loaded {len(documents)} documents (search index empty, using all).")
+            documents = _load_default_documents(wiki_dir, max_docs)
+            click.echo(f"Loaded {len(documents)} documents (search index empty, using defaults).")
     else:
-        documents = _load_wiki_documents(wiki_dir, max_docs)
+        documents = _load_default_documents(wiki_dir, max_docs)
         click.echo(f"Loaded {len(documents)} documents.")
 
     if not documents:
@@ -103,7 +128,8 @@ def cmd_query(question, output_format, docs, use_search, max_docs, save):
         prompt = f"""Question: {question}
 
 Write a Marp slide deck (markdown with --- slide separators) answering this question.
-Use Marp directives for theming at the top. Cite wiki articles with [[wikilinks]].
+Use Marp directives for theming at the top. Cite wiki articles with [[wikilinks]] and
+cite raw technical documents by file path.
 Each slide should be focused on one key point. 5-10 slides total.
 
 Start with:
@@ -116,13 +142,14 @@ theme: default
 
 Generate Python matplotlib code that creates a chart visualizing the answer to this question.
 The chart should be well-labeled with title, axis labels, and legend if applicable.
-Output ONLY the Python code in a ```python code block. Use data from the wiki articles provided.
+Output ONLY the Python code in a ```python code block. Use data from the provided wiki and raw documents.
 Keep the chart simple but informative."""
     else:
         prompt = f"""Question: {question}
 
-Answer this question using the wiki articles provided as context. Write a thorough, well-structured
-response in markdown. Use [[wikilinks]] to reference wiki articles. Include a ## Sources section."""
+Answer this question using the provided wiki articles and raw technical documents as context.
+Write a thorough, well-structured response in markdown. Use [[wikilinks]] to reference wiki articles
+and raw file paths for direct technical citations. Include a ## Sources section."""
 
     click.echo("Researching...")
     answer = complete_with_context(

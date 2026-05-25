@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from app.services.converter import ConverterService
 
 ROOT_URL = "https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/"
-ROOT_OUT = Path(r"D:\Desktop\obsidian\raw\bk\bk_matter")
+ROOT_OUT = Path(r"D:\Desktop\obsidian\raw\beken\bk_matter")
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "

@@ -1,8 +1,8 @@
-# BK 低功耗与电源管理
+﻿# BK 低功耗与电源管理
 
 > **TLDR:** BK 芯片低功耗方案涵盖时钟管理、CPU 变频、RTC 深度睡眠、WiFi DTIM 保活和多媒体关断——通过 32K 时钟源选择、FSM 状态机、GPIO/Touch 唤醒实现从微安级到毫安级的动态功耗调节。
 
-> **Source:** [power_save/index.md](../../raw/bk_doc/bk_idk/BK7236/developer-guide/power_save/index.md)
+> **Source:** [power_save/index.md](../../../raw/beken/bk_idk/BK7236/developer-guide/power_save/index.md)
 
 ## 低功耗层次
 
@@ -58,4 +58,4 @@
 
 - [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
 - [[bk-wifi-api-v2|BK WiFi API v2.0]]
-- [[../categories/bk-doc|BK Docs 分类页面]]
+- [[../../categories/bk-doc|BK Docs 分类页面]]

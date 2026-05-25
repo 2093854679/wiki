@@ -48,5 +48,5 @@ bk_ble_create_db() ─ BLE Driver ─── BLE_5_*_EVENT
 - [[wifi-networking-stack|WiFi网络技术栈]]
 - [[../summaries/bk-wifi-api-v2|BK WiFi API v2.0]]
 - [[../summaries/bk-low-power|BK 低功耗与电源管理]]
-- [BK7235 PM API](../../raw/bk_doc/bk_idk/BK7235/api-reference/pm/bk_pm.md)
-- [BK7236 WiFi Alive](../../raw/bk_doc/bk_idk/BK7236/developer-guide/power_save/bk_wifi_alive.md)
+- [BK7235 PM API](../../raw/beken/bk_idk/BK7235/api-reference/pm/bk_pm.md)
+- [BK7236 WiFi Alive](../../raw/beken/bk_idk/BK7236/developer-guide/power_save/bk_wifi_alive.md)

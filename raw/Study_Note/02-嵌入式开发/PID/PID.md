@@ -1,3 +1,7 @@
+---
+aliases:
+- 'Study_Note › 02-嵌入式开发 › PID › PID'
+---
 # 理解PID原理及优化算法
 
 ![img](markdown-img/PID.assets/cbd558846cc447e30cd7063bca8da693.png)

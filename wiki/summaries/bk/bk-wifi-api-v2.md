@@ -1,8 +1,8 @@
-# BK WiFi API v2.0
+﻿# BK WiFi API v2.0
 
 > **TLDR:** BK WiFi 驱动 v2.0 是事件驱动架构，支持 STA/AP/Monitor 三种接口独立运行，提供 Common/Interface/Module 三类 API；配置结构体预留字段必须清零保证向前兼容，回调中不应执行繁重操作。
 
-> **Source:** [bk_wifi.md](../../raw/bk_doc/bk_idk/BK7236/api-reference/wifi/bk_wifi.md)
+> **Source:** [bk_wifi.md](../../../raw/beken/bk_idk/BK7236/api-reference/wifi/bk_wifi.md)
 
 ## 三种 WiFi 接口
 

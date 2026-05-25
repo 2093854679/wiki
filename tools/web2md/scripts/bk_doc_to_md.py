@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 from app.services.converter import ConverterService
 
 
-ROOT_OUT = Path(r"D:\Desktop\obsidian\raw\bk_doc\bk_idk")
+ROOT_OUT = Path(r"D:\Desktop\obsidian\raw\beken\bk_idk")
 
 CHIPS = {
     "BK7235": "https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/",
@@ -111,14 +111,19 @@ def page_to_md_path(chip_dir: Path, root_url: str, page_url: str) -> Path:
     parsed = urlparse(page_url)
     rel = parsed.path.removeprefix(root_path).strip("/")
     if not rel:
-        rel = "index.html"
+        return chip_dir / "index.md"
     if rel.endswith("/"):
-        rel += "index.html"
+        rel = rel.rstrip("/")
     if rel.endswith(".html"):
-        rel = rel[:-5] + ".md"
-    else:
-        rel = rel + ".md"
-    return chip_dir / rel
+        rel = rel[:-5]
+    # Flatten: a/b/c/index → a/b/c.md
+    parts = rel.split("/")
+    if parts[-1] == "index":
+        del parts[-1]
+    name = parts[-1]
+    parent = chip_dir / "/".join(parts[:-1])
+    parent.mkdir(parents=True, exist_ok=True)
+    return parent / f"{name}.md"
 
 
 def extract_links(html: str, base_url: str, root_url: str) -> list[str]:

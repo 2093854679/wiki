@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Download images referenced by BK_IDK Markdown files and rewrite links local."""
+"""Download images referenced by mirrored Beken Markdown files and rewrite links local."""
 
 from __future__ import annotations
 
 import re
+import argparse
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 import requests
 
-
-ROOT = Path(r"D:\Desktop\obsidian\raw\bk_doc\bk_idk")
+DEFAULT_ROOT = Path(r"D:\Desktop\obsidian\raw\beken\bk_idk")
+DEFAULT_REFERER = "https://docs.bekencorp.com/arminodoc/chipchoose/?dk=BK_IDK&lan=zh"
 IMAGE_RE = re.compile(r"!\[([^\]]*)\]\((https://docs\.bekencorp\.com/[^)]+?\.(?:png|jpg|jpeg|gif|svg|webp))\)", re.I)
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 CHALLENGE_URL = "https://docs.bekencorp.com/arminodoc/chipchoose/?dk=BK_IDK&lan=zh"
@@ -72,7 +73,7 @@ def safeline_calc(values: list[int]) -> list[int]:
     return out
 
 
-def refresh_safeline_cookie(session: requests.Session) -> None:
+def refresh_safeline_cookie(session: requests.Session, visitor_id: str) -> None:
     issue = session.post(
         "https://challenge.rivers.chaitin.cn/challenge/v2/api/issue",
         json={"client_id": "424b5f37a1df48d1971652925e47ee2e_0", "level": 1},
@@ -90,7 +91,7 @@ def refresh_safeline_cookie(session: requests.Session) -> None:
                 "language": "zh-CN,en-US",
                 "vendor": "Google Inc.",
                 "screen": [1920, 1080],
-                "visitorId": "web2md-bk-doc-images",
+                "visitorId": visitor_id,
                 "score": 100,
                 "target": 100,
             },
@@ -102,9 +103,15 @@ def refresh_safeline_cookie(session: requests.Session) -> None:
 
 
 def main() -> None:
+    global ROOT
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=DEFAULT_ROOT)
+    parser.add_argument("--referer", default=DEFAULT_REFERER)
+    args = parser.parse_args()
+    ROOT = args.root
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT, "Referer": CHALLENGE_URL})
-    refresh_safeline_cookie(session)
+    session.headers.update({"User-Agent": USER_AGENT, "Referer": args.referer})
+    refresh_safeline_cookie(session, "web2md-bk-doc-images")
     downloaded = 0
     rewritten = 0
     failed = 0
@@ -125,7 +132,7 @@ def main() -> None:
                     try:
                         response = session.get(url, timeout=30)
                         if response.status_code == 468:
-                            refresh_safeline_cookie(session)
+                            refresh_safeline_cookie(session, "web2md-bk-doc-images")
                             response = session.get(url, timeout=30)
                         if response.status_code >= 400:
                             failed += 1

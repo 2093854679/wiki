@@ -1,8 +1,8 @@
-# BK 安全框架
+﻿# BK 安全框架
 
 > **TLDR:** BK 芯片五层安全体系——Secure Boot(启动链校验)、Flash AES(固件加密)、eFuse/OTP(硬件密钥)、LCS(生命周期管理)、FIH(抗故障注入)；支持安全 OTA 升级和完整的证书管理流程。
 
-> **Source:** [security/index.md](../../raw/bk_doc/bk_idk/BK7236/security/index.md)
+> **Source:** [security/index.md](../../../raw/beken/bk_idk/BK7236/security/index.md)
 
 ## 五层安全体系
 
@@ -67,4 +67,4 @@ Raw → Test → Provisioning → Secure → RMA (Return Merchandise Authorizati
 ## Related
 
 - [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
-- [[../categories/bk-doc|BK Docs 分类页面]]
+- [[../../categories/bk-doc|BK Docs 分类页面]]

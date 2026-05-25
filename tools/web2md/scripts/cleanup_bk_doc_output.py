@@ -17,7 +17,7 @@ from pathlib import Path
 
 KEEP_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".ico"}
 DROP_MARKDOWN_NAMES = {"genindex.md", "search.md"}
-DEFAULT_ROOT = Path(r"D:\Desktop\obsidian\raw\bk_doc\bk_idk")
+DEFAULT_ROOT = Path(r"D:\Desktop\obsidian\raw\beken\bk_idk")
 MARKDOWN_LINK_RE = re.compile(r"(\]\()([^)\s]+)(\s+\"[^\"]*\")?(\))")
 
 
@@ -91,12 +91,213 @@ def prune(root: Path) -> tuple[int, int]:
     return removed_files, removed_dirs
 
 
+LINK_RE = re.compile(r'\[([^\]]*)\]\(([^)\s"]+)(\s*"[^"]*")?\)')
+
+# Human-readable module names for chip hub nav generation
+MODULE_NAMES = {
+    'api-reference': 'API 参考',
+    'developer-guide': '开发者指南',
+    'examples': '示例',
+    'get-started': '快速入门',
+    'hw-reference': '硬件参考',
+    'introduction': '概述',
+    'os': '操作系统',
+    'process': '开发流程',
+    'application': '应用',
+    'clounds': '云端',
+    'cloud': '云端',
+    'projects': '解决方案',
+    'projects_work': '项目实战',
+    'release-notes': '发布说明',
+    'security': '安全',
+    'boards': '开发板',
+}
+
+
+def enforce_hierarchy(root: Path) -> tuple[int, int]:
+    """Ensure the 总分 (overview + details) hierarchy is consistent.
+
+    After crawling, the raw directory should have:
+    - Every directory foo/ has a matching foo.md hub page at the same level
+    - Every hub page's internal links point to the correct sub-directory paths
+    - Chip root pages have module navigation linking to all sub-modules
+
+    Returns (files_fixed, dirs_removed).
+    """
+    import os as _os
+    fixed = 0
+
+    # ── Pass 1: remove residual index.md ────────────────────────────
+    for index_file in sorted(root.rglob("index.md")):
+        parent = index_file.parent
+        if parent == root:
+            continue
+        hub = parent.parent / f"{parent.name}.md"
+        if not hub.exists():
+            index_file.rename(hub)
+            print(f"  [flatten] {index_file.relative_to(root)} -> {hub.relative_to(root)}")
+            fixed += 1
+        else:
+            index_file.unlink()
+            print(f"  [dedup] {index_file.relative_to(root)}")
+
+    # ── Pass 2: unstuck dir/dir.md recursively ──────────────────────
+    while True:
+        stuck_found = False
+        for md_file in sorted(root.rglob("*.md")):
+            parent = md_file.parent
+            if parent == root:
+                continue
+            if md_file.stem != parent.name:
+                continue
+            target = parent.parent / f"{parent.name}.md"
+            if target.exists():
+                md_file.unlink()
+                print(f"  [dedup] {md_file.relative_to(root)}")
+                stuck_found = True
+                continue
+
+            content = md_file.read_text(encoding='utf-8')
+            changed = [False]
+
+            def adjust_stuck(m):
+                text, tgt, suffix = m.group(1), m.group(2), m.group(3) or ''
+                if '/' in tgt or tgt.startswith(('#', '.')) or '://' in tgt:
+                    return m.group(0)
+                changed[0] = True
+                return f'[{text}]({parent.name}/{tgt}{suffix})'
+
+            new_content = LINK_RE.sub(adjust_stuck, content)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(new_content, encoding='utf-8')
+            md_file.unlink()
+            print(f"  [unstuck] {md_file.relative_to(root)} -> {target.relative_to(root)}")
+            fixed += 1
+            stuck_found = True
+
+        if not stuck_found:
+            break
+
+    # ── Pass 3: fix hub page internal links ─────────────────────────
+    # For every hub page foo.md (with sibling foo/ dir), ensure all
+    # relative links that should point into foo/ actually do.
+    links_fixed = 0
+    for hub_file in sorted(root.rglob("*.md")):
+        sibling_dir = hub_file.parent / hub_file.stem
+        if not sibling_dir.is_dir():
+            continue
+
+        content = hub_file.read_text(encoding='utf-8')
+        changed = [False]
+
+        def fix_link(m):
+            text, target, suffix = m.group(1), m.group(2), m.group(3) or ''
+            if target.startswith('#') or '://' in target:
+                return m.group(0)
+            if target.startswith(hub_file.stem + '/'):
+                return m.group(0)
+
+            # Already resolves correctly from current location
+            if (hub_file.parent / target).exists():
+                return m.group(0)
+
+            # Should point into sibling dir
+            if (sibling_dir / target).exists():
+                changed[0] = True
+                return f'[{text}]({hub_file.stem}/{target}{suffix})'
+
+            # Old stuck pattern: X/X.md where X.md was unstuck to sibling/
+            parts = target.split('/')
+            if len(parts) == 2 and parts[0] == parts[1].replace('.md', ''):
+                flat = f"{parts[0]}.md"
+                if (sibling_dir / flat).exists():
+                    changed[0] = True
+                    return f'[{text}]({hub_file.stem}/{flat}{suffix})'
+
+            return m.group(0)
+
+        new_content = LINK_RE.sub(fix_link, content)
+        if changed[0]:
+            hub_file.write_text(new_content, encoding='utf-8')
+            links_fixed += 1
+
+    if links_fixed:
+        print(f"  [links] fixed internal links in {links_fixed} hub pages")
+    fixed += links_fixed
+
+    # ── Pass 4: add module nav to chip root pages ───────────────────
+    nav_added = 0
+    for chip_dir in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith('_')):
+        chip_md = chip_dir.parent / f"{chip_dir.name}.md"
+        if not chip_md.exists():
+            continue
+
+        content = chip_md.read_text(encoding='utf-8')
+        if '## 模块导航' in content:
+            continue
+
+        modules = []
+        for item in sorted(chip_dir.iterdir()):
+            if item.is_dir() and item.name != '_images':
+                continue
+            if item.suffix != '.md':
+                continue
+            name = MODULE_NAMES.get(item.stem, item.stem)
+            modules.append((name, item.stem))
+
+        if not modules:
+            continue
+
+        nav = '\n\n## 模块导航\n\n'
+        prefix = f"{chip_dir.name}/"
+        for name, fname in modules:
+            nav += f'- [{name}]({prefix}{fname}.md)\n'
+
+        # Remove any existing nav (in case of partial update)
+        lines = content.split('\n')
+        new_lines = []
+        skip = False
+        for line in lines:
+            if line.strip() == '## 模块导航':
+                skip = True
+                continue
+            if skip and line.startswith('## '):
+                skip = False
+                new_lines.append(line)
+                continue
+            if skip:
+                continue
+            new_lines.append(line)
+        while new_lines and new_lines[-1].strip() == '':
+            new_lines.pop()
+
+        new_content = '\n'.join(new_lines) + nav + '\n'
+        chip_md.write_text(new_content, encoding='utf-8')
+        nav_added += 1
+
+    if nav_added:
+        print(f"  [nav] added module navigation to {nav_added} chip hubs")
+    fixed += nav_added
+
+    # ── Clean empty dirs ────────────────────────────────────────────
+    dirs_removed = 0
+    for dirpath in sorted((p for p in root.rglob("*") if p.is_dir()), reverse=True):
+        try:
+            next(dirpath.iterdir())
+        except StopIteration:
+            dirpath.rmdir()
+            dirs_removed += 1
+
+    return fixed, dirs_removed
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=DEFAULT_ROOT)
     args = parser.parse_args()
 
     removed_site_pages, rewritten_files, removed_language_links = clean_markdown(args.root)
+    hierarchy_fixed, hierarchy_dirs = enforce_hierarchy(args.root)
     removed_files, removed_dirs = prune(args.root)
     print(
         " ".join(
@@ -104,6 +305,8 @@ def main() -> None:
                 f"site_pages_removed={removed_site_pages}",
                 f"md_files_rewritten={rewritten_files}",
                 f"language_links_removed={removed_language_links}",
+                f"hierarchy_fixed={hierarchy_fixed}",
+                f"hierarchy_dirs_removed={hierarchy_dirs}",
                 f"pruned_files={removed_files}",
                 f"pruned_dirs={removed_dirs}",
             ]

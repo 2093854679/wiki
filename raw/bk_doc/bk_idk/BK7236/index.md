@@ -1,6 +1,0 @@
-# 博通集成 ARMINO IDK 开发框架[](#armino-idk "永久链接至标题")
-
-
-这是博通集成 ARMINO IDK(IoT Development Kit) 开发框架的官方文档。
-
-

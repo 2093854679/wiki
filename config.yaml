@@ -7,6 +7,7 @@ paths:
   concepts_dir: wiki/concepts
   outputs_dir: wiki/outputs
   manifest_file: tools/kb/cache/.kb_manifest.json
+  raw_metadata_file: tools/kb/cache/raw_metadata.json
   search_db: tools/kb/cache/search.db
   static_dir: tools/kb/static
   templates_dir: tools/kb/templates

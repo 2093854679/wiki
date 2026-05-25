@@ -88,13 +88,14 @@ def cmd_serve(port, reindex):
     cfg = get_config()
     p = port or cfg["search"]["port"]
     wiki_dir = Path(cfg["paths"]["wiki_dir"])
+    raw_dir = Path(cfg["paths"]["raw_dir"])
     db_path = Path(cfg["paths"]["search_db"])
     static_dir = Path(cfg["paths"]["static_dir"])
 
     engine = SearchEngine(db_path)
     if reindex or engine.document_count == 0:
-        click.echo("Indexing wiki...")
-        engine.index(wiki_dir)
+        click.echo("Indexing wiki and raw docs...")
+        engine.index(wiki_dir, raw_dir)
 
     SearchHandler.engine = engine
     SearchHandler.static_dir = static_dir.resolve()

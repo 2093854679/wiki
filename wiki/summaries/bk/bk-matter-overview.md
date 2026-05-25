@@ -1,8 +1,8 @@
-# BK Matter 开发框架概述
+﻿# BK Matter 开发框架概述
 
 > **TLDR:** BK Matter 是博通集成基于 CSA Matter 协议的应用层框架，运行于 BK7235/BK7236/BK7256/BK7258 之上，提供统一的 Matter 设备类型开发、配网、安全通信和多生态接入能力。
 
-> **Source:** [matter-basic.md](../../raw/bk_doc/bk_matter/matter-basic.md)
+> **Source:** [matter-basic.md](../../../raw/beken/bk_matter/matter-basic.md)
 
 ## Matter 是什么
 
@@ -59,4 +59,4 @@ UDP/TCP            ← IP 传输
 
 - [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
 - [[../concepts/iot-communication-protocols|物联网通信协议全景]]
-- [[../categories/bk-doc/matter|BK Matter 芯片 Hub]]
+- [[../../categories/bk-doc/matter|BK Matter 芯片 Hub]]

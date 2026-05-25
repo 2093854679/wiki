@@ -13,6 +13,40 @@ import yaml
 from .llm import get_config
 
 
+CATEGORY_DISPLAY_NAMES = {
+    "bk_doc": "BK Docs",
+    "Study_Note": "Study Note",
+    "desktop_pet": "Desktop Pet",
+    "Other": "Other",
+}
+
+CATEGORY_SLUGS = {
+    "bk_doc": "bk-doc",
+    "Study_Note": "study-note",
+    "desktop_pet": "desktop-pet",
+}
+
+
+def _canonical_category(value: str) -> str:
+    """Return a stable internal category name."""
+    raw = (value or "").replace("\\", "/").strip()
+    lower = raw.lower()
+
+    if lower in {"beken", "beken.md", "bk_doc", "bk-doc", "bk_doc.md"}:
+        return "bk_doc"
+    if lower in {"study_note", "study-note", "study_note.md"}:
+        return "Study_Note"
+    if (
+        lower in {"desktop_pet", "desktop-pet"}
+        or "智能桌面" in raw
+        or "桌面萌宠" in raw
+        or "鏅鸿兘" in raw
+        or "钀屽疇" in raw
+    ):
+        return "desktop_pet"
+    return raw or "Other"
+
+
 def _title_from_md(filepath: Path) -> str:
     """Extract first heading from a markdown file."""
     try:
@@ -95,13 +129,7 @@ def _category_from_source(
 ) -> str:
     """Map a raw source path to its top-level category."""
     if source_root:
-        if source_root.lower() == "study_note":
-            return "Study_Note"
-        if source_root.lower() == "bk_doc":
-            return "bk_doc"
-        if source_root in {"智能桌面萌宠项目笔记", "desktop-pet"}:
-            return "智能桌面萌宠项目笔记"
-        return source_root
+        return _canonical_category(source_root)
 
     raw_path = source.replace("\\", "/")
     idx = raw_path.lower().find("raw/")
@@ -109,45 +137,29 @@ def _category_from_source(
         rel = raw_path[idx + 4 :]
         parts = [p for p in rel.split("/") if p]
         if parts:
-            return parts[0]
+            return _canonical_category(parts[0])
 
     hint = f"{title} {(md_path.stem if md_path else '')} {source}".lower()
-    if any(token in hint for token in ["bk723", "bk_doc", "cli_api", "armino"]):
+    if any(token in hint for token in ["bk723", "bk_doc", "beken", "cli_api", "armino"]):
         return "bk_doc"
-    if any(token in hint for token in ["desktop-pet", "宠物", "萌宠"]):
-        return "智能桌面萌宠项目笔记"
+    if any(token in hint for token in ["desktop-pet", "desktop_pet", "宠物", "萌宠"]):
+        return "desktop_pet"
     if any(token in hint for token in ["interview", "task-development", "study_note", "study note", "面试", "task"]):
         return "Study_Note"
 
     parts = [p for p in raw_path.split("/") if p]
-    category = parts[0] if parts else "Other"
-    if category.lower() == "study_note":
-        return "Study_Note"
-    if category.lower() == "bk_doc":
-        return "bk_doc"
-    return category
+    return _canonical_category(parts[0] if parts else "Other")
 
 
 def _pretty_category_name(category: str) -> str:
     """Human-friendly display name for a raw category."""
-    mapping = {
-        "bk_doc": "BK Docs",
-        "Study_Note": "Study Note",
-        "智能桌面萌宠项目笔记": "Desktop Pet",
-        "Other": "Other",
-    }
-    return mapping.get(category, category)
+    return CATEGORY_DISPLAY_NAMES.get(category, category)
 
 
 def _category_slug(category: str) -> str:
     """Stable filename for a category hub page."""
-    explicit = {
-        "bk_doc": "bk-doc",
-        "Study_Note": "study-note",
-        "智能桌面萌宠项目笔记": "desktop-pet",
-    }
-    if category in explicit:
-        return explicit[category]
+    if category in CATEGORY_SLUGS:
+        return CATEGORY_SLUGS[category]
     normalized = unicodedata.normalize("NFKD", category).encode("ascii", "ignore").decode("ascii")
     slug = re.sub(r"[^a-zA-Z0-9]+", "-", normalized.lower()).strip("-")
     return slug or "category"
@@ -185,14 +197,23 @@ def _build_category_page(category: dict, wiki_dir: Path) -> str:
             chips = sorted(chip_dir.glob("*.md"))
             if chips:
                 has_chip_nav = True
-                lines.append("## 芯片导航")
+                lines.append("## Chip Hubs")
                 lines.append("")
+                labels = {
+                    "bk7235": "BK7235",
+                    "bk7236": "BK7236",
+                    "bk7236n": "BK7236N",
+                    "bk7239": "BK7239",
+                    "bk7256": "BK7256",
+                    "bk7258": "BK7258",
+                    "matter": "BK Matter",
+                }
                 for chip in chips:
                     stem = chip.stem
-                    label = {"bk7235": "BK7235 (第一代)", "bk7236": "BK7236 (第二代)", "bk7236n": "BK7236N (增强版)", "bk7239": "BK7239 (旗舰)", "matter": "BK Matter (Matter协议)"}.get(stem, stem.upper())
+                    label = labels.get(stem, stem.upper())
                     lines.append(f"- **[{label}](bk-doc/{stem})**")
                 lines.append("")
-                lines.append("点击芯片查看完整的模块索引、摘要列表和原始文档链接。")
+                lines.append("Open a chip hub for module navigation, curated summaries, and raw document links.")
                 lines.append("")
 
     if not has_chip_nav:
@@ -217,14 +238,25 @@ def _build_category_page(category: dict, wiki_dir: Path) -> str:
     return "\n".join(lines)
 
 
+def _is_generated_category_page(filepath: Path) -> bool:
+    """Detect whether a category page was generated by kb index."""
+    try:
+        return "*Generated by `kb index`.*" in filepath.read_text(encoding="utf-8")
+    except Exception:
+        return False
+
+
 def _scan_wiki(wiki_dir: Path) -> dict:
     """Scan wiki directory and return structured data."""
     sections = {"summaries": [], "concepts": [], "outputs": [], "other": []}
     source_categories: dict[str, list[dict]] = {}
+    manual_categories: list[dict] = []
 
     for md in sorted(wiki_dir.rglob("*.md")):
         rel = str(md.relative_to(wiki_dir)).replace("\\", "/")
-        if rel == "index.md" or rel.startswith("categories/"):
+        if rel in {"index.md", "WIKI.md"} or rel.startswith("categories/"):
+            continue
+        if rel == "summaries/index.md" or (rel.startswith("summaries/") and rel.endswith("/index.md")):
             continue
 
         entry = {
@@ -264,7 +296,35 @@ def _scan_wiki(wiki_dir: Path) -> dict:
         }
         for name, items in sorted(source_categories.items(), key=lambda x: x[0].lower())
     ]
+
+    categories_dir = wiki_dir / "categories"
+    if categories_dir.is_dir():
+        known_slugs = {group["slug"] for group in grouped}
+        for md in sorted(categories_dir.glob("*.md")):
+            if _is_generated_category_page(md):
+                continue
+            slug = md.stem
+            if slug in known_slugs:
+                continue
+            manual_categories.append(
+                {
+                    "name": slug,
+                    "slug": slug,
+                    "display_name": _title_from_md(md),
+                    "items": [],
+                    "path": f"categories/{slug}.md",
+                    "manual": True,
+                }
+            )
+
+    core_concepts = sorted(
+        [item for item in sections["concepts"] if item["path"] != "concepts/concept-map.md"],
+        key=lambda item: (-len(item["backlinks"]), item["title"].lower()),
+    )[:8]
+    sections["core_concepts"] = core_concepts
+    sections["concepts"] = sorted(sections["concepts"], key=lambda item: item["title"].lower())
     sections["groups"] = grouped
+    sections["manual_categories"] = manual_categories
     return sections
 
 
@@ -289,40 +349,36 @@ def _build_index_plain(sections: dict) -> str:
     lines = [
         "# Wiki Index",
         "",
-        f"*Auto-generated index of {len(sections['summaries']) + len(sections['concepts']) + len(sections['outputs']) + len(sections['other'])} articles.*",
+        f"*Auto-generated dashboard for {len(sections['summaries']) + len(sections['concepts']) + len(sections['outputs']) + len(sections['other'])} articles.*",
         "",
     ]
 
+    lines.append("## Semantic Map")
+    lines.append("")
+    lines.append("- [Concept Map](concepts/concept-map.md) - LLM routing layer across domains, concepts, summaries, and raw sources")
+    lines.append("")
+
     groups = sections.get("groups", [])
     if groups:
-        lines.append("## Raw Categories")
+        lines.append("## Categories")
         lines.append("")
         for group in groups:
-            lines.append(f"### [{group['display_name']}](categories/{group['slug']}.md) ({len(group['items'])})")
-            lines.append("")
-            preview = group["items"][:5]
-            for item in preview:
-                link = f"[{item['title']}]({item['path']})"
-                if item["tldr"]:
-                    lines.append(f"- {link} - {item['tldr']}")
-                else:
-                    lines.append(f"- {link}")
-            if len(group["items"]) > len(preview):
-                lines.append(f"- ... and {len(group['items']) - len(preview)} more")
-            lines.append("")
-
-    for section_key, section_name in [
-        ("concepts", "Concepts"),
-        ("summaries", "Summaries"),
-        ("outputs", "Outputs"),
-        ("other", "Other"),
-    ]:
-        items = sections.get(section_key, [])
-        if not items:
-            continue
-        lines.append(f"## {section_name} ({len(items)})")
+            lines.append(f"- [{group['display_name']}](categories/{group['slug']}.md) - {len(group['items'])} summaries")
         lines.append("")
-        for item in items:
+
+    manual_categories = sections.get("manual_categories", [])
+    if manual_categories:
+        lines.append("## Doc Families")
+        lines.append("")
+        for item in manual_categories:
+            lines.append(f"- [{item['display_name']}]({item['path']})")
+        lines.append("")
+
+    core_concepts = sections.get("core_concepts", [])
+    if core_concepts:
+        lines.append("## Core Concepts")
+        lines.append("")
+        for item in core_concepts:
             link = f"[{item['title']}]({item['path']})"
             if item["tldr"]:
                 lines.append(f"- {link} - {item['tldr']}")
@@ -330,26 +386,30 @@ def _build_index_plain(sections: dict) -> str:
                 lines.append(f"- {link}")
         lines.append("")
 
-    lines.append("## Backlink Graph")
+    if sections.get("concepts"):
+        lines.append(f"## Concepts ({len(sections['concepts'])})")
+        lines.append("")
+        for item in sections["concepts"]:
+            link = f"[{item['title']}]({item['path']})"
+            if item["tldr"]:
+                lines.append(f"- {link} - {item['tldr']}")
+            else:
+                lines.append(f"- {link}")
+        lines.append("")
+
+    if sections.get("outputs"):
+        lines.append(f"## Outputs ({len(sections['outputs'])})")
+        lines.append("")
+        for item in sections["outputs"]:
+            lines.append(f"- [{item['title']}]({item['path']})")
+        lines.append("")
+
+    lines.append("## Maintenance")
     lines.append("")
-    all_articles: dict[str, set[str]] = {}
-    for items in sections.values():
-        if isinstance(items, list):
-            for item in items:
-                all_articles[item["title"]] = set()
-
-    for items in sections.values():
-        if isinstance(items, list):
-            for item in items:
-                for bl in item["backlinks"]:
-                    if bl in all_articles:
-                        all_articles[bl].add(item["title"])
-
-    for title, linked_from in sorted(all_articles.items()):
-        if linked_from:
-            lines.append(f"- [[{title}]] - referenced by: {', '.join(sorted(linked_from)[:5])}")
-            if len(linked_from) > 5:
-                lines[-1] += f" (+ {len(linked_from) - 5} more)"
+    lines.append("- `python -m tools.kb ingest --status new` - detect new raw files")
+    lines.append("- `python -m tools.kb index` - rebuild this dashboard and category pages")
+    lines.append("- `python -m tools.kb graph-health` - inspect unresolved links, orphans, and manifest drift")
+    lines.append("- `python -m tools.kb stats` - count current wiki articles")
 
     lines.append("")
     lines.append("---")
@@ -380,7 +440,8 @@ def cmd_index():
     categories_dir = wiki_dir / "categories"
     categories_dir.mkdir(parents=True, exist_ok=True)
     for path in categories_dir.glob("*.md"):
-        path.unlink()
+        if _is_generated_category_page(path):
+            path.unlink()
     for group in sections.get("groups", []):
         out_path = categories_dir / f"{group['slug']}.md"
         out_path.write_text(_build_category_page(group, wiki_dir), encoding="utf-8")
@@ -389,7 +450,8 @@ def cmd_index():
         from .search_engine import SearchEngine
 
         engine = SearchEngine(Path(cfg["paths"]["search_db"]))
-        engine.index(wiki_dir)
+        raw_dir = Path(cfg["paths"]["raw_dir"])
+        engine.index(wiki_dir, raw_dir)
         click.echo("  -> search cache updated.")
     except Exception as exc:
         click.echo(f"  [warn] search cache not updated: {exc}", err=True)

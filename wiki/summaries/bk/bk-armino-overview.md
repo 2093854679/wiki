@@ -1,8 +1,8 @@
-# ARMINO 开发框架概述
+﻿# ARMINO 开发框架概述
 
 > **TLDR:** ARMINO 是博通集成(Beken)的新一代 AIoT 软件开发框架，基于 CMake+Kconfig，支持 BK7235/7236/7236N/7239 多芯片平台，提供 WiFi/BT/低功耗/多媒体/安全启动的全功能 IoT 开发环境。
 
-> **Source:** [BK7235 bk_overview.md](../../raw/bk_doc/bk_idk/BK7235/introduction/bk_overview.md), [BK7236 bk_overview.md](../../raw/bk_doc/bk_idk/BK7236/introduction/bk_overview.md), [BK7236N bk_overview.md](../../raw/bk_doc/bk_idk/BK7236N/introduction/bk_overview.md), [BK7239 bk_overview.md](../../raw/bk_doc/bk_idk/BK7239/introduction/bk_overview.md)
+> **Source:** [BK7235 bk_overview.md](../../../raw/beken/bk_idk/BK7235/introduction/bk_overview.md), [BK7236 bk_overview.md](../../../raw/beken/bk_idk/BK7236/introduction/bk_overview.md), [BK7236N bk_overview.md](../../../raw/beken/bk_idk/BK7236N/introduction/bk_overview.md), [BK7239 bk_overview.md](../../../raw/beken/bk_idk/BK7239/introduction/bk_overview.md)
 
 ## 框架特性
 
@@ -37,4 +37,4 @@
 ## Related
 
 - [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
-- [[../categories/bk-doc|BK Docs 分类页面]]
+- [[../../categories/bk-doc|BK Docs 分类页面]]

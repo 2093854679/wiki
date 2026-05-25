@@ -1,8 +1,9 @@
 {
-  "dangerouslySkipPermissions": true,
   "permissions": {
     "allow": [
-      "Read(//c/Users/48527/AppData/Local/Temp/**)"
+      "Read(//c/Users/48527/AppData/Local/Temp/**)",
+      "Bash(python)"
     ]
-  }
+  },
+  "dangerouslySkipPermissions": true
 }

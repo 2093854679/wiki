@@ -1,8 +1,8 @@
-# BK Bootloader & OTA 升级
+﻿# BK Bootloader & OTA 升级
 
 > **TLDR:** BK7236/7236N/7239 支持 A/B 分区无位置依赖 OTA 升级方案——双固件分区轮流升级、Hash 完整性校验、回滚保护、安全 OTA 签名验证；同时支持传统单分区 Bootloader 方案。
 
-> **Source:** [bootloader_ota/index.md](../../raw/bk_doc/bk_idk/BK7236/developer-guide/bootloader_ota/index.md)
+> **Source:** [bootloader_ota/index.md](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/index.md)
 
 ## 两种方案对比
 
@@ -45,4 +45,4 @@
 
 - [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
 - [[bk-security-framework|BK 安全框架]]
-- [[../categories/bk-doc|BK Docs 分类页面]]
+- [[../../categories/bk-doc|BK Docs 分类页面]]
