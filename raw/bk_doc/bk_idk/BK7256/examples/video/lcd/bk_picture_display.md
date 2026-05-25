@@ -1,0 +1,35 @@
+# LCD RGB Display JPEG[](#lcd-rgb-display-jpeg "永久链接至标题")
+
+[[English]](../../../../../en/v1.5/examples/video/lcd/bk_picture_display.html "../../../../../en/v1.5/examples/video/lcd/bk_picture_display.html")
+
+
+## 1、功能概述[](#id1 "永久链接至标题")
+
+> 显示一张JPEG图片到mcu/rgb LCD屏幕。
+
+
+## 2、代码路径[](#id2 "永久链接至标题")
+
+> - Demo 涉及的模块AP接口的详细说明请参考同网页: `/api-reference/multi_media/bk_display.html`
+> - Demo 具体的示例代码详见: `\components\demos\media\lcd\picture_display`
+
+demo运行依赖的宏配置:
+
+| Name | Description | File | value |
+| --- | --- | --- | --- |
+| CONFIG_LCD | 配置LCD功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_LCD_TEST | LCD DEMO使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+
+demo运行依赖的库和驱动:
+:   - LCD LCD模块驱动
+
+    - JPEG JPEG模块驱动
+
+    - SD 模块驱动
+
+
+## 3、cli命令简介[](#cli "永久链接至标题")
+
+> 从SD卡读取一张jpeg图片显示到屏幕上,参数3可以修改使用的屏幕大小，比如320X480,480X800.
+> - `` fatfstest M 1``
+> - `` lcd=file_display,filename,480X272``

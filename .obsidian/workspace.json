@@ -1,0 +1,235 @@
+{
+  "main": {
+    "id": "70cbf375144f2864",
+    "type": "split",
+    "children": [
+      {
+        "id": "e98236612d55e9ae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eca584b49c4e8b13",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0b8956bb86d7ea1a",
+    "type": "split",
+    "children": [
+      {
+        "id": "01b0cb92bd9ab14e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f4560303f17f231",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "8b198f50baa2b883",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "3cf9e31f2e7836a8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d957091de1e2c0a7",
+    "type": "split",
+    "children": [
+      {
+        "id": "5d175b8d570b737c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b6dea903c29722d8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "raw/Study_Note/05-工具与技巧/Typora使用/使用 Typora 画图（类图、流程图、时序图）.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "使用 Typora 画图（类图、流程图、时序图） 的反向链接列表"
+            }
+          },
+          {
+            "id": "0d5ed58ac73a6bcf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "raw/Study_Note/05-工具与技巧/Typora使用/使用 Typora 画图（类图、流程图、时序图）.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "使用 Typora 画图（类图、流程图、时序图） 的出链列表"
+            }
+          },
+          {
+            "id": "123a450fb8d9d472",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "418d112e89fbd17d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "13df4614e2fb680b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "raw/Study_Note/05-工具与技巧/Typora使用/使用 Typora 画图（类图、流程图、时序图）.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "使用 Typora 画图（类图、流程图、时序图） 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "eca584b49c4e8b13",
+  "lastOpenFiles": [
+    "tools/kb/__pycache__/server.cpython-314.pyc",
+    "tools/kb/__pycache__/indexer.cpython-314.pyc",
+    "tools/kb/__pycache__/linter.cpython-314.pyc",
+    "tools/kb/__pycache__/search_engine.cpython-314.pyc",
+    "tools/kb/__pycache__/query.cpython-314.pyc",
+    "tools/kb/__pycache__/compiler.cpython-314.pyc",
+    "tools/kb/__pycache__/llm.cpython-314.pyc",
+    "tools/kb/__pycache__/ingest.cpython-314.pyc",
+    "tools/kb/__pycache__/__init__.cpython-314.pyc",
+    "tools/kb/__pycache__/cli.cpython-314.pyc",
+    "tools/kb/__pycache__",
+    "tools/web2md/scripts/README.md",
+    "tools/web2md/docs/REFACTORING_SUMMARY.md",
+    "tools/web2md/docs/PROJECT_STRUCTURE.md",
+    "tools/web2md/docs/IMPLEMENTATION_SUMMARY.md",
+    "tools/web2md/docs/AUTHENTICATION.md",
+    "tools/web2md/README.md",
+    "tools/web2md/QUICKSTART.md",
+    "bk_gpio.html.md",
+    "raw/bk_doc/bk_idk/BK7236/developer-guide/peripheral/bk_interrupt.md",
+    "English.md",
+    "wiki/index.md",
+    "wiki/concepts/wifi-networking-stack.md",
+    "wiki/summaries/wifi-four-way-handshake.md",
+    "wiki/summaries/wifi-basics.md",
+    "raw/bk_doc/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_compile_command_introduction.md",
+    "wiki/summaries/c-stack-mechanism.md",
+    "raw/bk_doc/bk_idk/BK7236/projects/examples/build_system/build_system.md",
+    "102_build_options/component_build_options.html.md",
+    "wiki/summaries/c-memory-management.md",
+    "raw/Study_Note/01-编程语言/C语言/05-内存管理.md",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624140841739.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624133920997.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624135624903.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624133811124.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624114631874.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624115006279.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624113626987.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210624112150368.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210617144427683.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.assets/image-20210617142727844.png",
+    "archive/raw_cleanup/wifi_抓包/抓包方法总结/Wi-Fi抓包方法总结.md",
+    "archive/未命名 1.canvas",
+    "archive/未命名.canvas",
+    "archive/README.md",
+    "README.md",
+    "wiki/outputs/bk-idk-web2md-crawl.md",
+    "raw/bk_doc/bk_idk/BK7239/examples/cli/touch/touch.md",
+    "未命名 1.canvas",
+    "未命名.canvas"
+  ]
+}

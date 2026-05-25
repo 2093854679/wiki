@@ -1,0 +1,27 @@
+# {{ title }}
+
+> **Source:** [{{ source_file }}]({{ source_path }})
+> **TLDR:** {{ tldr }}
+
+## Key Points
+
+{% for point in key_points %}
+- {{ point }}
+{% endfor %}
+
+## Main Arguments
+
+{{ main_arguments }}
+
+## Evidence & Data
+
+{{ evidence }}
+
+## Related Concepts
+
+{% for link in related %}
+- [[{{ link }}]]
+{% endfor %}
+
+---
+*Summary generated {{ generated_at }}*

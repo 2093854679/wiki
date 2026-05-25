@@ -1,0 +1,66 @@
+# Wiki Index
+
+*Auto-generated index of {{ total_count }} articles — {{ summary_count }} summaries, {{ concept_count }} concepts.*
+
+---
+
+## Concepts ({{ concept_count }})
+
+{% for item in sections.concepts %}
+- [{{ item.title }}]({{ item.path }}){% if item.tldr %} — {{ item.tldr }}{% endif %}
+
+{% endfor %}
+
+## Summaries ({{ summary_count }})
+
+{% for item in sections.summaries %}
+- [{{ item.title }}]({{ item.path }}){% if item.tldr %} — {{ item.tldr }}{% endif %}
+
+{% endfor %}
+
+{% if sections.outputs %}
+## Outputs ({{ sections.outputs | length }})
+
+{% for item in sections.outputs %}
+- [{{ item.title }}]({{ item.path }})
+
+{% endfor %}
+{% endif %}
+
+{% if sections.other %}
+## Other ({{ sections.other | length }})
+
+{% for item in sections.other %}
+- [{{ item.title }}]({{ item.path }})
+
+{% endfor %}
+{% endif %}
+
+## Backlink Graph
+
+{% set all_articles = {} %}
+{% for section_name, items in sections.items() %}
+{% for item in items %}
+{% set _ = all_articles.update({item.title: []}) %}
+{% endfor %}
+{% endfor %}
+
+{% for section_name, items in sections.items() %}
+{% for item in items %}
+{% for bl in item.backlinks %}
+{% if bl in all_articles %}
+{% set _ = all_articles[bl].append(item.title) %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+{% for title, linked_from in all_articles.items() %}
+{% if linked_from %}
+- [[{{ title }}]] ← referenced by: {{ linked_from[:5] | join(', ') }}{% if linked_from | length > 5 %} (+ {{ linked_from | length - 5 }} more){% endif %}
+
+{% endif %}
+{% endfor %}
+
+---
+*Run `kb index` to regenerate. Generated {{ current_time }}.*

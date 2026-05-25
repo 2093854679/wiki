@@ -1,0 +1,65 @@
+# I2C[](#i2c "永久链接至标题")
+
+[[English]](../../../../en/v2.2.1/examples/peripheral/bk_i2c.html "../../../../en/v2.2.1/examples/peripheral/bk_i2c.html")
+
+
+## 1 功能概述[](#id1 "永久链接至标题")
+
+> 通过I2C接口完成对EEPROM芯片的数据读写。
+
+
+## 2 代码路径[](#id2 "永久链接至标题")
+
+> demo路径：`components\bk_cli\cli_i2c.c`
+
+
+## 3 cli命令简介[](#cli "永久链接至标题")
+
+demo运行依赖的宏配置：
+
+> | NAME | Description | File | value |
+> | --- | --- | --- | --- |
+> | CONFIG_I2C | support i2c | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+
+demo支持的命令如下表：
+
+> | Command | Param | Description |
+> | --- | --- | --- |
+> | i2c_driver init | none | init I2C driver control memory |
+> | i2c_driver deinit | none | free all resource related to I2C |
+> | i2c {id} init | i2c id number | power up and start the I2C id |
+> | i2c {id} deinit | i2c id number | power down and Stop the I2C id |
+> | i2c {id} memory_write {data_size} {dev_addr} | id: i2c id number | write data_size bytes of data to the slave device with address dev_id |
+> | data_size:size of data written |
+> | dev_addr: slave device address |
+> | i2c {id} memory_read {data_size} | id: i2c id | read data_size bytes of data from slave device |
+> | data_size:size of data read |
+
+
+## 4 演示介绍[](#id3 "永久链接至标题")
+
+> > demo执行的步骤如下：
+>
+> 1、准备好EEPROM的模块，型号为FM24C04B，连接方式如下：
+>
+> > ```
+> > SCL----GPIO0
+> > SDA----GPIO1
+> > Vcc----3.3V
+> > ```
+>
+> 2、顺序发送以下命令
+>
+> > ```
+> > i2c_driver init
+> >
+> > i2c 1 init
+> >
+> > i2c 1 memory_write 8 50   //向EEPROM中写入8字节数据
+> >
+> > i2c 1 memory_read 8       //从EEPROM中读取8字节数据
+> > ```
+
+备注
+
+注意：memory_write命令中的dev_addr 50为16进制，因为i2c驱动中会将dev_addr左移一位，所以传入的dev_addr需要将FM24C04B的dev_addr（1010b）右移一位。

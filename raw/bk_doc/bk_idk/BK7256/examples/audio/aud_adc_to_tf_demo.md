@@ -1,0 +1,79 @@
+# Audio record demo[](#audio-record-demo "永久链接至标题")
+
+[[English]](../../../../en/v1.5/examples/audio/aud_adc_to_tf_demo.html "../../../../en/v1.5/examples/audio/aud_adc_to_tf_demo.html")
+
+
+## 1、功能概述[](#id1 "永久链接至标题")
+
+> mic采集音频数据并保存为 `xx.pcm` 文件存储至TF卡。
+
+
+## 2、代码路径[](#id2 "永久链接至标题")
+
+> demo路径: `\components\demos\media\audio\aud_intf\demo\aud_intf_demo.c`
+>
+> Aud_Intf API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud_intf.html`
+
+
+## 3、cli命令简介[](#cli "永久链接至标题")
+
+demo支持的命令如下表:
+
+| Command | Description |
+| --- | --- |
+| aud_intf_record_test {init|start|pause|stop|deinit} xx.pcm | 录音到xx.pcm文件 |
+
+demo运行依赖的宏配置:
+
+| Name | Description | File | value |
+| --- | --- | --- | --- |
+| CONFIG_AUDIO | 配置audio功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUDIO_RISCV_IP_V1_0 | 配置audio ip | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUD_INTF | 配置aud_intf使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUD_INTF_VER_NEW | 配置aud_intf版本使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUD_INTF_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUDIO_TRANSFER | 配置语音传输使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG_AUD_TRAS_MODE_CPU0 | 配置语音传输模式 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+
+demo运行依赖的库和驱动:
+:   - DMA DMA驱动
+
+    - AUD audio模块驱动
+
+    - Sdcard 模块驱动
+
+
+## 4 演示介绍[](#id3 "永久链接至标题")
+
+demo执行的步骤如下:
+
+> 1.挂载TF卡
+> :   - Uart发送AT指令 `fatfstest M 1` 挂载TF卡
+>
+> 2.准备录音
+> :   - Uart发送AT指令 `aud_intf_record_test init xx.pcm` 初始化录音
+>
+> 3.开始录音
+> :   - Uart发送AT指令 `aud_intf_record_test start xx.pcm` 开始录音, 音频会保存在TF卡的根目录文件 `xx.pcm` 中
+>
+> 4.暂停录音
+> :   - Uart发送AT指令 `aud_intf_record_test pause xx.pcm` 暂停录音
+>
+> 5.恢复录音
+> :   - Uart发送AT指令 `aud_intf_record_test start xx.pcm` 恢复录音
+>
+> 6.停止录音
+> :   - Uart发送AT指令 `aud_intf_record_test stop xx.pcm` 停止录音
+>
+> 7.结束录音
+> :   - Uart发送AT指令 `aud_intf_record_test deinit xx.pcm` 结束录音, 关闭录音文件, 注销录音通路
+
+
+## 5、详细配置及说明[](#id4 "永久链接至标题")
+
+备注
+
+
+- 1.执行此demo前请确保tf卡可正常使用;
+
+- 3.此demo源码较多, 所以就不在此处展开说明了，请参考源码;

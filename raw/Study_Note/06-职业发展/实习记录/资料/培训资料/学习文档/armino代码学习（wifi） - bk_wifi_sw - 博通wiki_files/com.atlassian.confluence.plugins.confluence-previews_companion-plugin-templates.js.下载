@@ -1,0 +1,71 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'com.atlassian.confluence.plugins.confluence-previews:companion-plugin-templates', location = '/templates/companion.soy' */
+// This file was automatically generated from companion.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace CompanionProtocol.
+ */
+
+if (typeof CompanionProtocol == 'undefined') { var CompanionProtocol = {}; }
+
+
+CompanionProtocol.companionEditStyled = function(opt_data, opt_ignored) {
+  return '<button type="button" id="cp-file-control-companion-edit" class="companion-edit-button cp-control-panel-more cp-icon" tabindex="58" aria-haspopup="true">' + soy.$$escapeHtml('\u7f16\u8f91') + '</button>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionEditStyled.soyTemplateName = 'CompanionProtocol.companionEditStyled';
+}
+
+
+CompanionProtocol.companionEditButon = function(opt_data, opt_ignored) {
+  return '<button type="button"  class="aui-button companion-edit-button">' + soy.$$escapeHtml('\u7f16\u8f91') + '</button>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionEditButon.soyTemplateName = 'CompanionProtocol.companionEditButon';
+}
+
+
+CompanionProtocol.companionEditIcon = function(opt_data, opt_ignored) {
+  return '<button type="button" class="aui-button aui-button-subtle companion-edit-button edit" title="' + soy.$$escapeHtml('\u7f16\u8f91') + '"><span class="aui-icon aui-icon-small aui-iconfont-edit-filled">' + soy.$$escapeHtml('\u7f16\u8f91') + '</span></button>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionEditIcon.soyTemplateName = 'CompanionProtocol.companionEditIcon';
+}
+
+
+CompanionProtocol.companionEditLink = function(opt_data, opt_ignored) {
+  return '<button type="button" class="aui-button aui-button-link companion-edit-button" title="' + soy.$$escapeHtml('\u7f16\u8f91') + '">' + soy.$$escapeHtml('\u7f16\u8f91') + '</button>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionEditLink.soyTemplateName = 'CompanionProtocol.companionEditLink';
+}
+
+
+CompanionProtocol.companionLaunchingFlagBody = function(opt_data, opt_ignored) {
+  return '<div class="companion-launching-flag-body companion-margin-top-10">' + soy.$$filterNoAutoescape(AJS.format('\u5982\u679c\u6ca1\u6709\u4efb\u4f55\u53cd\u5e94\uff0c\x3ca href\x3d{0}\x3e\u8bf7\u4e0b\u8f7d Atlassian Companion \u5e94\u7528\u7a0b\u5e8f\x3c/a\x3e\u7136\u540e\u518d\u8bd5\u4e00\u6b21\u3002',"https://docs.atlassian.com/confluence/docs-713/Edit+Files")) + '</div>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionLaunchingFlagBody.soyTemplateName = 'CompanionProtocol.companionLaunchingFlagBody';
+}
+
+
+CompanionProtocol.companionLaunchFlagBody = function(opt_data, opt_ignored) {
+  opt_data = opt_data || {};
+  return '<div class="companion-launching-flag-body companion-margin-top-10"><p>' + soy.$$filterNoAutoescape(AJS.format('\u5fc5\u987b\u4f7f\u7528 \x3ca href\x3d{0}\x3eAtlassian Companion\x3c/a\x3e \u7f16\u8f91\u6b64\u6587\u4ef6\u3002\u5982\u679c\u60a8\u6ca1\u6709\u5b89\u88c5\u8be5\u5e94\u7528\u7a0b\u5e8f\u7684\u6743\u9650\uff0c\u8bf7\u8054\u7cfb\u60a8\u7684 IT \u56e2\u961f\u3002',"https://docs.atlassian.com/confluence/docs-713/Edit+Files")) + '</p><p>' + soy.$$escapeHtml('\u5b89\u88c5\u5b8c\u6210\u540e\uff0c\u60a8\u7684\u6d4f\u89c8\u5668\u4f1a\u63d0\u793a\u60a8\u542f\u52a8\u8be5\u5e94\u7528\u3002') + '</p><div class="companion-launching-flag-download-buttons companion-margin-top-10" id="companion-download-buttons">' + ((opt_data.os == 'windows') ? '<a id="download-btn-windows" class="aui-button-link download-win companion-left-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Windows \u7248') + '</a>\u00B7<a id="download-btn-mac" class="aui-button-link download-mac companion-right-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Mac \u7248') + '</a>' : (opt_data.os == 'mac') ? '<a id="download-btn-mac" class="aui-button-link download-mac companion-left-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Mac \u7248') + '</a>\u00B7<a id="download-btn-windows" class="aui-button-link download-win companion-right-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Windows \u7248') + '</a>' : '<a id="download-btn-mac" class="aui-button-link download-mac companion-left-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Windows \u7248') + '</a>\u00B7<a id="download-btn-windows" class="aui-button-link download-win companion-right-download-button" href="javascript:void(0)">' + soy.$$escapeHtml('\u4e0b\u8f7d Mac \u7248') + '</a>') + '</div></div>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionLaunchFlagBody.soyTemplateName = 'CompanionProtocol.companionLaunchFlagBody';
+}
+
+
+CompanionProtocol.companionLaunchingFlagErrorBody = function(opt_data, opt_ignored) {
+  return '<div class="companion-launching-flag-error-body companion-margin-top-10">' + soy.$$filterNoAutoescape(opt_data.message) + '</div>';
+};
+if (goog.DEBUG) {
+  CompanionProtocol.companionLaunchingFlagErrorBody.soyTemplateName = 'CompanionProtocol.companionLaunchingFlagErrorBody';
+}
+
+}catch(e){WRMCB(e)};

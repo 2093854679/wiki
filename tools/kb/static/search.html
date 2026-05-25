@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KB Search</title>
+<style>
+  :root {
+    --bg: #1e1e2e;
+    --surface: #2a2a3e;
+    --text: #e0e0e0;
+    --muted: #a0a0b0;
+    --accent: #7c8cf8;
+    --accent-hover: #9aa8ff;
+    --border: #3a3a4e;
+    --highlight: #f0c040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  h1 { font-size: 1.8rem; color: var(--accent); }
+  .stats { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+  .search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  input[type="search"] {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="search"]:focus { border-color: var(--accent); }
+  button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover { background: var(--accent-hover); }
+  .result {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s;
+  }
+  .result:hover { border-color: var(--accent); }
+  .result-title { font-size: 1.1rem; color: var(--accent); text-decoration: none; }
+  .result-title:hover { text-decoration: underline; }
+  .result-path { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .result-snippet { font-size: 0.9rem; line-height: 1.5; }
+  .result-snippet b { color: var(--highlight); }
+  .empty { text-align: center; color: var(--muted); padding: 3rem 0; }
+  .status { text-align: center; color: var(--muted); margin-top: 1rem; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>KB Search</h1>
+  <div class="stats" id="stats">Loading stats...</div>
+</header>
+<div class="search-bar">
+  <input type="search" id="q" placeholder="Search the wiki..." autofocus>
+  <button id="search-btn">Search</button>
+</div>
+<div id="results"></div>
+<div class="status" id="status"></div>
+
+<script>
+const api = (path) => fetch(path).then(r => r.json());
+
+function loadStats() {
+  api('/api/stats').then(data => {
+    document.getElementById('stats').textContent =
+      `${data.total_articles} articles · ${data.total_words.toLocaleString()} words`;
+  }).catch(() => {
+    document.getElementById('stats').textContent = '';
+  });
+}
+
+function search() {
+  const q = document.getElementById('q').value.trim();
+  const results = document.getElementById('results');
+  const status = document.getElementById('status');
+  if (!q) { results.innerHTML = ''; status.textContent = ''; return; }
+
+  status.textContent = 'Searching...';
+  api(`/api/search?q=${encodeURIComponent(q)}`).then(data => {
+    status.textContent = `${data.results.length} result(s)`;
+    if (!data.results.length) {
+      results.innerHTML = '<div class="empty">No results found.</div>';
+      return;
+    }
+    results.innerHTML = data.results.map(r => `
+      <div class="result">
+        <a class="result-title" href="#" onclick="return false">${r.title}</a>
+        <div class="result-path">${r.path}</div>
+        <div class="result-snippet">${r.snippet}</div>
+      </div>
+    `).join('');
+  }).catch(err => {
+    status.textContent = 'Search error';
+    console.error(err);
+  });
+}
+
+document.getElementById('search-btn').addEventListener('click', search);
+document.getElementById('q').addEventListener('keydown', e => {
+  if (e.key === 'Enter') search();
+});
+loadStats();
+</script>
+</body>
+</html>

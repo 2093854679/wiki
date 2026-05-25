@@ -1,0 +1,25 @@
+# Copyrights and Licenses[](#copyrights-and-licenses "永久链接至标题")
+
+[[English]](../../../en/v1.5/introduction/bk_licensing.html "../../../en/v1.5/introduction/bk_licensing.html")
+
+
+## Software Copyrights[](#software-copyrights "永久链接至标题")
+
+All original source code in this repository is Copyright (C) 2021-2022 Beken. This source code is licensed under the Apache License 2.0 as described in the file LICENSE.
+
+Additional third party copyrighted code is included under the following licenses.
+
+Where source code headers specify Copyright & License information, this information takes precedence over the summaries made here.
+
+
+### Firmware Components[](#firmware-components "永久链接至标题")
+
+Armino SDK may include some third party open source libraries.
+
+Detail info, you can get from: [https://docs.bekencorp.com/copyright/armino/copyright.xlsx](https://docs.bekencorp.com/copyright/armino/copyright.xlsx "https://docs.bekencorp.com/copyright/armino/copyright.xlsx")
+
+
+### Documentation[](#documentation "永久链接至标题")
+
+
+- HTML version of the [Armino Programming Guide](../index.html "../index.html") uses the Sphinx theme [sphinx_rtd_theme](https://github.com/readthedocs/sphinx_rtd_theme "https://github.com/readthedocs/sphinx_rtd_theme"), which is Copyright (c) 2013-2020 Dave Snider, Read the Docs, Inc. It’s licensed under MIT license.

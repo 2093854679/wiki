@@ -1,0 +1,23 @@
+services:
+  web2md:
+    image: docker.cnb.cool/xscan/web2md:latest
+    ports:
+      - "9097:8080"
+    env_file:
+      - .docker.env
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=False
+      - FLASK_PORT=8080
+      - PLAYWRIGHT_HEADLESS=True
+      - LOG_LEVEL=INFO
+      - ENABLE_BEARER_AUTH=True
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

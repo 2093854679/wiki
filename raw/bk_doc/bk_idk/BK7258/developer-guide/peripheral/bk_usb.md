@@ -1,0 +1,13 @@
+# USB 使用指南[](#usb "永久链接至标题")
+
+[[English]](../../../../en/v2.0.1/developer-guide/peripheral/bk_usb.html "../../../../en/v2.0.1/developer-guide/peripheral/bk_usb.html")
+
+
+## 概述[](#id1 "永久链接至标题")
+
+> 当前芯片支持的USB类型如下所示：
+
+| USB类型 | 工作电压 | USB协议 | 设备协议 | 速度 | 编码协议 | 分辨率 | 端点`wMaxPacketSize` | 备注 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| UVC | 5.0v | USB 1.1/2.0 | UVC 1.5 | High/Full-Speed | MJPEG | 1280*720 | 1024 | 不支持DRI字段 |
+| UAC | 5.0v | USB 1.1/2.0 | UAC 1.0 | High/Full-Speed | ALL | N | 1024 |  |

@@ -1,0 +1,26 @@
+# {{ title }}
+
+> **TLDR:** {{ tldr }}
+
+## Overview
+
+{{ overview }}
+
+## Key Points
+
+{% for point in key_points %}
+- {{ point }}
+{% endfor %}
+
+## Details
+
+{{ body }}
+
+## Related
+
+{% for link in related %}
+- [[{{ link }}]]
+{% endfor %}
+
+---
+*Generated {{ generated_at }}*

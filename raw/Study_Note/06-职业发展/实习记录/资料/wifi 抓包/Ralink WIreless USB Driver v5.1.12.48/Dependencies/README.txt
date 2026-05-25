@@ -1,0 +1,1 @@
+Driver version 5.1.12.48 will require Windows update KB3033929 to be installed on the target machine.

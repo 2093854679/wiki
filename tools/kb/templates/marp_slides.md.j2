@@ -1,0 +1,34 @@
+---
+marp: true
+theme: default
+paginate: true
+---
+
+# {{ title }}
+
+{{ subtitle }}
+
+---
+
+{% for slide in slides %}
+## {{ slide.heading }}
+
+{{ slide.content }}
+
+{% if slide.image %}
+![{{ slide.image_alt }}]({{ slide.image }})
+{% endif %}
+
+{% if slide.bullets %}
+{% for bullet in slide.bullets %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
+---
+
+{% endfor %}
+
+# Thank You
+
+{{ closing }}

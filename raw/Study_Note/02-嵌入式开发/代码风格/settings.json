@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "SConscript": "python",
+        "spi.h": "c"
+    }
+}

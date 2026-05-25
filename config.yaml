@@ -1,0 +1,33 @@
+# LLM Knowledge Base Configuration
+
+paths:
+  raw_dir: raw
+  wiki_dir: wiki
+  summaries_dir: wiki/summaries
+  concepts_dir: wiki/concepts
+  outputs_dir: wiki/outputs
+  manifest_file: .kb_manifest.json
+  search_db: .kb_search.db
+  static_dir: tools/kb/static
+  templates_dir: tools/kb/templates
+
+llm:
+  model: claude-sonnet-4-6
+  max_tokens: 8192
+  temperature: 0.3
+  # Set via ANTHROPIC_API_KEY env var, or override here:
+  api_key: null
+
+compiler:
+  max_chunk_size: 8000  # max chars per LLM call for raw docs
+  summary_max_words: 300
+  concept_max_words: 2000
+  extract_concepts: true
+  auto_backlink: true
+
+search:
+  port: 8080
+  results_limit: 20
+
+lint:
+  max_articles_per_check: 30
