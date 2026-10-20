@@ -19,9 +19,21 @@ KEEP_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp",
 DROP_MARKDOWN_NAMES = {"genindex.md", "search.md"}
 DEFAULT_ROOT = Path(r"D:\Desktop\obsidian\raw\beken\bk_idk")
 MARKDOWN_LINK_RE = re.compile(r"(\]\()([^)\s]+)(\s+\"[^\"]*\")?(\))")
+SPHINX_PERMALINK_RE = re.compile(r"\[\uf0c1(?:\]\(#[^)]+\))?|\uf0c1")
+
+
+def is_excluded(path: Path, root: Path, excluded_dirs: set[str]) -> bool:
+    if not excluded_dirs:
+        return False
+    try:
+        rel = path.relative_to(root)
+    except ValueError:
+        return False
+    return bool(rel.parts) and rel.parts[0] in excluded_dirs
 
 
 def rewrite_markdown_links(text: str) -> str:
+    text = text.lstrip("\ufeff")
     lines = []
     for line in text.splitlines(keepends=True):
         if "[[English]](" in line:
@@ -43,17 +55,20 @@ def rewrite_markdown_links(text: str) -> str:
             new_title = re.sub(r"\.html", ".md", title or "", flags=re.I)
             return f"{prefix}{new_target}{new_title}{suffix}"
 
-        lines.append(MARKDOWN_LINK_RE.sub(repl, line))
+        cleaned = SPHINX_PERMALINK_RE.sub("", line)
+        lines.append(MARKDOWN_LINK_RE.sub(repl, cleaned))
 
     return "".join(lines)
 
 
-def clean_markdown(root: Path) -> tuple[int, int, int]:
+def clean_markdown(root: Path, excluded_dirs: set[str]) -> tuple[int, int, int]:
     removed_site_pages = 0
     rewritten_files = 0
     removed_language_links = 0
 
     for path in sorted(root.rglob("*.md")):
+        if is_excluded(path, root, excluded_dirs):
+            continue
         if path.name.lower() in DROP_MARKDOWN_NAMES:
             path.unlink()
             removed_site_pages += 1
@@ -69,11 +84,13 @@ def clean_markdown(root: Path) -> tuple[int, int, int]:
     return removed_site_pages, rewritten_files, removed_language_links
 
 
-def prune(root: Path) -> tuple[int, int]:
+def prune(root: Path, excluded_dirs: set[str]) -> tuple[int, int]:
     removed_files = 0
     removed_dirs = 0
 
     for path in sorted(root.rglob("*"), reverse=True):
+        if is_excluded(path, root, excluded_dirs):
+            continue
         if path.is_file():
             suffix = path.suffix.lower()
             if suffix == ".md" or suffix in KEEP_IMAGE_SUFFIXES:
@@ -82,6 +99,8 @@ def prune(root: Path) -> tuple[int, int]:
             removed_files += 1
 
     for path in sorted((p for p in root.rglob("*") if p.is_dir()), reverse=True):
+        if is_excluded(path, root, excluded_dirs):
+            continue
         try:
             next(path.iterdir())
         except StopIteration:
@@ -114,7 +133,7 @@ MODULE_NAMES = {
 }
 
 
-def enforce_hierarchy(root: Path) -> tuple[int, int]:
+def enforce_hierarchy(root: Path, excluded_dirs: set[str]) -> tuple[int, int]:
     """Ensure the 总分 (overview + details) hierarchy is consistent.
 
     After crawling, the raw directory should have:
@@ -129,6 +148,8 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
 
     # ── Pass 1: remove residual index.md ────────────────────────────
     for index_file in sorted(root.rglob("index.md")):
+        if is_excluded(index_file, root, excluded_dirs):
+            continue
         parent = index_file.parent
         if parent == root:
             continue
@@ -145,6 +166,8 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
     while True:
         stuck_found = False
         for md_file in sorted(root.rglob("*.md")):
+            if is_excluded(md_file, root, excluded_dirs):
+                continue
             parent = md_file.parent
             if parent == root:
                 continue
@@ -183,6 +206,8 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
     # relative links that should point into foo/ actually do.
     links_fixed = 0
     for hub_file in sorted(root.rglob("*.md")):
+        if is_excluded(hub_file, root, excluded_dirs):
+            continue
         sibling_dir = hub_file.parent / hub_file.stem
         if not sibling_dir.is_dir():
             continue
@@ -228,6 +253,8 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
     # ── Pass 4: add module nav to chip root pages ───────────────────
     nav_added = 0
     for chip_dir in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith('_')):
+        if chip_dir.name in excluded_dirs:
+            continue
         chip_md = chip_dir.parent / f"{chip_dir.name}.md"
         if not chip_md.exists():
             continue
@@ -282,6 +309,8 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
     # ── Clean empty dirs ────────────────────────────────────────────
     dirs_removed = 0
     for dirpath in sorted((p for p in root.rglob("*") if p.is_dir()), reverse=True):
+        if is_excluded(dirpath, root, excluded_dirs):
+            continue
         try:
             next(dirpath.iterdir())
         except StopIteration:
@@ -294,11 +323,13 @@ def enforce_hierarchy(root: Path) -> tuple[int, int]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=DEFAULT_ROOT)
+    parser.add_argument("--exclude-dir", action="append", default=[])
     args = parser.parse_args()
+    excluded_dirs = set(args.exclude_dir)
 
-    removed_site_pages, rewritten_files, removed_language_links = clean_markdown(args.root)
-    hierarchy_fixed, hierarchy_dirs = enforce_hierarchy(args.root)
-    removed_files, removed_dirs = prune(args.root)
+    removed_site_pages, rewritten_files, removed_language_links = clean_markdown(args.root, excluded_dirs)
+    hierarchy_fixed, hierarchy_dirs = enforce_hierarchy(args.root, excluded_dirs)
+    removed_files, removed_dirs = prune(args.root, excluded_dirs)
     print(
         " ".join(
             [

@@ -73,15 +73,31 @@ def safeline_calc(values: list[int]) -> list[int]:
     return out
 
 
+def post_challenge_json(session: requests.Session, url: str, payload: dict) -> dict:
+    last_error: Exception | None = None
+    for attempt in range(4):
+        try:
+            return session.post(url, json=payload, timeout=60).json()
+        except requests.RequestException as exc:
+            last_error = exc
+            import time
+
+            time.sleep(2 * (attempt + 1))
+    if last_error:
+        raise last_error
+    raise RuntimeError("challenge request failed")
+
+
 def refresh_safeline_cookie(session: requests.Session, visitor_id: str) -> None:
-    issue = session.post(
+    issue = post_challenge_json(
+        session,
         "https://challenge.rivers.chaitin.cn/challenge/v2/api/issue",
-        json={"client_id": "424b5f37a1df48d1971652925e47ee2e_0", "level": 1},
-        timeout=30,
-    ).json()
-    verify = session.post(
+        {"client_id": "424b5f37a1df48d1971652925e47ee2e_0", "level": 1},
+    )
+    verify = post_challenge_json(
+        session,
         "https://challenge.rivers.chaitin.cn/challenge/v2/api/verify",
-        json={
+        {
             "issue_id": issue["data"]["issue_id"],
             "result": safeline_calc(issue["data"]["data"]),
             "serials": [],
@@ -96,8 +112,7 @@ def refresh_safeline_cookie(session: requests.Session, visitor_id: str) -> None:
                 "target": 100,
             },
         },
-        timeout=30,
-    ).json()
+    )
     session.cookies.set("sl-challenge-server", "cloud", domain="docs.bekencorp.com", path="/")
     session.cookies.set("sl-challenge-jwt", verify["data"]["jwt"], domain="docs.bekencorp.com", path="/")
 
@@ -107,20 +122,23 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=DEFAULT_ROOT)
     parser.add_argument("--referer", default=DEFAULT_REFERER)
+    parser.add_argument("--timeout", type=int, default=30)
     args = parser.parse_args()
     ROOT = args.root
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT, "Referer": args.referer})
-    refresh_safeline_cookie(session, "web2md-bk-doc-images")
+    cookie_ready = False
     downloaded = 0
     rewritten = 0
     failed = 0
 
-    for chip_dir in sorted(p for p in ROOT.iterdir() if p.is_dir()):
+    doc_roots = [ROOT] + sorted(p for p in ROOT.iterdir() if p.is_dir())
+    for chip_dir in doc_roots:
         image_dir = chip_dir / "_images"
         image_dir.mkdir(parents=True, exist_ok=True)
 
-        for md_file in chip_dir.rglob("*.md"):
+        md_files = chip_dir.glob("*.md") if chip_dir == ROOT else chip_dir.rglob("*.md")
+        for md_file in md_files:
             text = md_file.read_text(encoding="utf-8")
             changed = False
 
@@ -130,10 +148,15 @@ def main() -> None:
                 out = image_dir / safe_name(url)
                 if not out.exists():
                     try:
-                        response = session.get(url, timeout=30)
+                        nonlocal cookie_ready
+                        if not cookie_ready:
+                            refresh_safeline_cookie(session, "web2md-bk-doc-images")
+                            cookie_ready = True
+                        response = session.get(url, timeout=args.timeout)
                         if response.status_code == 468:
                             refresh_safeline_cookie(session, "web2md-bk-doc-images")
-                            response = session.get(url, timeout=30)
+                            cookie_ready = True
+                            response = session.get(url, timeout=args.timeout)
                         if response.status_code >= 400:
                             failed += 1
                             return match.group(0)

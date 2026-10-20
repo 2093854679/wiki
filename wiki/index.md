@@ -1,6 +1,6 @@
 # Wiki Index
 
-*Auto-generated dashboard for 77 articles - 58 summaries, 19 concepts.*
+*Auto-generated dashboard for 78 articles - 58 summaries, 20 concepts.*
 
 ---
 
@@ -23,6 +23,8 @@
 
 ## Doc Families
 
+
+- [BK AVDK SMP](categories/bk-avdk-smp.md)
 
 - [BK AVDK](categories/bk-avdk.md)
 
@@ -50,7 +52,7 @@
 
 
 
-## Concepts (19)
+## Concepts (20)
 
 
 - [ARM Cortex-M嵌入式开发基础](concepts/arm-cortex-m-embedded-fundamentals.md) - > **TLDR:** ARM Cortex-M嵌入式开发的三层基础：硬件层（寄存器R0-R15、CPSR、异常模式）、启动层（上电→SP初始化→SystemInit→数据搬移→main）和链接层（分散加载LR/ER、map文件分析、内存布局）。
@@ -90,6 +92,8 @@
 - [物联网通信协议全景](concepts/iot-communication-protocols.md) - > **TLDR:** 从板级总线到云端的完整 IoT 通信协议栈——板级用 I2C/SPI/UART、传输层选 WebSocket 或 MQTT+UDP、应用层统一用 MCP（JSON-RPC 2.0）实现设备能力发现和远程调用。
 
 - [知识库语义地图](concepts/concept-map.md) - > **TLDR:** 这是给 LLM 和人一起用的总路由页：先定位问题属于哪个主题簇，再进入概念 hub，最后落到 summary 和 raw 原文。
+
+- [网页转 Markdown 清洗](concepts/web-to-markdown-cleanup.md) - > **TLDR:** 抓取网页并转换为 Markdown 时，应在转换/落盘环节清理标题锚点、永久链接和 Sphinx 生成的跳转噪音，避免这些残留进入 raw、summary 和后续 LLM 上下文。
 
 
 
