@@ -1,17 +1,34 @@
-# Camera 概述[](#camera "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/camera/camera_introduction/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="camera"></a>
 
+# Camera 概述
 
-## 1 工作原理[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 工作原理
 
 > 景物通过镜头（LENS）生成的光学图像投射到图像传感器（SENSOR）表面，然后转为电信号，经过A/D（模数转换）转换后变成数字图像信号，再送到数字信号处理芯片（DSP）中加工处理，后输出 YUV 或者 RGB 格式的数据。
 
-![camera_working_principle flow](_images/camera_working_principle_flow.png)
+<a id="id4"></a>
+![camera_working_principle flow](../../_assets/e3b99493ef8ef2864a09-camera_working_principle_flow.png)
 
-Figure 1.工作原理流程[](#id4 "永久链接至图片")
 
+Figure 1.工作原理流程
 
-## 2 主要部件[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 2 主要部件
 
 > 一般来说，camera 主要是由 lens 和 sensor IC 两部分组成，其中有的 sensor IC 集成 了 DSP，有的没有集成，但也需要外部 DSP 处理。
 
@@ -19,9 +36,11 @@ Figure 1.工作原理流程[](#id4 "永久链接至图片")
 
 > camera 的镜头结构是有几片透镜组成，分有塑胶透镜（Plastic）和玻璃透 镜(Glass) ，通常镜头结构有：1P,2P,1G1P,1G3P,2G2P,4G 等。
 
-![lens type](_images/lens_type.png)
+<a id="id5"></a>
+![lens type](../../_assets/5a2881b18d91db67bb9b-lens_type.png)
 
-Figure 2.镜头结构[](#id5 "永久链接至图片")
+
+Figure 2.镜头结构
 
 2、sensor（图像传感器）
 
@@ -31,35 +50,34 @@ Figure 2.镜头结构[](#id5 "永久链接至图片")
 
 备注
 
-
 - 1、CCD传感器，电荷信号先传送，后放大，再A/D，成像质量灵敏度高、分辨率好、噪声小；处理速度慢；造价高，工艺复杂。
-
 - 2、CMOS传感器，电荷信号先放大，后A/D，再传送；成像质量灵敏度低、噪声明显；处理速度快；造价低，工艺简单。
 
 3、CAMIF（camera 控制器
 
 > 芯片上的 camera 接口电路，对设备进行控制，接收 sensor 采集的数据交给 CPU，并送入 LCD 进行显示。
 
+<a id="id3"></a>
 
-## 3 摄像头接口[](#id3 "永久链接至标题")
+## 3 摄像头接口
 
 > 摄像头常见的两种接口:UVC接口和DVP接口。
 
-
 - USB接口，只有数据线，没有时钟线。
 
-> ![uvc interface](_images/uvc_interface.png)
+> <a id="id6"></a>
+> ![uvc interface](../../_assets/03f387e2430513641bd0-uvc_interface.png)
 >
 >
-> Figure 3.UVC接口[](#id6 "永久链接至图片")
-
+> Figure 3.UVC接口
 
 - DVP（Digital Video Port/Parally Port）接口，主要由电源总线，输入总线，输出总线组成。
 
-> ![dvp interface](_images/dvp_interface.png)
+> <a id="id7"></a>
+> ![dvp interface](../../_assets/6a8a6b2478b552a1f3f8-dvp_interface.png)
 >
 >
-> Figure 4.DVP接口[](#id7 "永久链接至图片")
+> Figure 4.DVP接口
 >
 > - 输入总线
 >
@@ -67,7 +85,7 @@ Figure 2.镜头结构[](#id5 "永久链接至图片")
 >
 >   MCLK：提供给camera的工作时钟。
 >
->   IIC_SDA/IIC_SCL：用来读写sensor的寄存器，配置寄存器。
+>   IIC\_SDA/IIC\_SCL：用来读写sensor的寄存器，配置寄存器。
 > - 输出总线
 >
 >   PCLK：像素同步信号管脚。
@@ -76,7 +94,7 @@ Figure 2.镜头结构[](#id5 "永久链接至图片")
 >
 >   HSYN：行同步信号。
 >
->   DATA[0-7]：输出数据管脚。
+>   DATA\[0-7\]：输出数据管脚。
 > - 电源总线
 >
 >   AVDD：camera的模拟电压，主要给camera的感光区和ADC部分供电。

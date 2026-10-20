@@ -1,0 +1,3 @@
+[submodule "beken-avdk-smp-docs"]
+	path = raw/beken/bk_avdk_smp
+	url = git@github.com:2093854679/bk_avdk_smp_docs.git

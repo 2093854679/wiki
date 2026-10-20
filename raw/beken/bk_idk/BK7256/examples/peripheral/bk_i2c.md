@@ -1,45 +1,62 @@
-# I2C[](#i2c "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/peripheral/bk_i2c.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="i2c"></a>
 
+# I2C
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 通过I2C接口完成对EEPROM芯片的数据读写。
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`components\bk_cli\cli_i2c.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 demo运行依赖的宏配置：
 
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_I2C | support i2c | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_SIM_I2C | support use of gpio simulates i2c | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_I2C_SUPPORT_ID_BITS | number of i2c IDs support(binary) | `middleware\soc\bk7256\bk7256.defconfig` | 11(dec:3) |
-> | CONFIG_FM_I2C | iic used by FM | `middleware\soc\bk7256\bk7256.defconfig` | n |
-> | CONFIG_CAMERA_USE_I2C1 | iic used by camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_I2C | support i2c | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_SIM\_I2C | support use of gpio simulates i2c | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_I2C\_SUPPORT\_ID\_BITS | number of i2c IDs support(binary) | `middleware\soc\bk7256\bk7256.defconfig` | 11(dec:3) |
+> | CONFIG\_FM\_I2C | iic used by FM | `middleware\soc\bk7256\bk7256.defconfig` | n |
+> | CONFIG\_CAMERA\_USE\_I2C1 | iic used by camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
 
 demo支持的命令如下表：
 
 > | Command | Param | Description |
 > | --- | --- | --- |
-> | i2c_driver init | none | init I2C driver control memory |
-> | i2c_driver deinit | none | free all resource related to I2C |
+> | i2c\_driver init | none | init I2C driver control memory |
+> | i2c\_driver deinit | none | free all resource related to I2C |
 > | i2c {id} init | i2c id number | power up and start the I2C id |
 > | i2c {id} deinit | i2c id number | power down and Stop the I2C id |
-> | i2c {id} memory_write {data_size} {dev_addr} | id: i2c id number | write data_size bytes of data to the slave device with address dev_id |
-> | data_size:size of data written |
-> | dev_addr: slave device address |
-> | i2c {id} memory_read {data_size} | id: i2c id | read data_size bytes of data from slave device |
-> | data_size:size of data read |
+> | i2c {id} memory\_write {data\_size} {dev\_addr} | id: i2c id number | write data\_size bytes of data to the slave device with address dev\_id |
+> | data\_size:size of data written |
+> | dev\_addr: slave device address |
+> | i2c {id} memory\_read {data\_size} | id: i2c id | read data\_size bytes of data from slave device |
+> | data\_size:size of data read |
 
+<a id="id3"></a>
 
-## 4 演示介绍[](#id3 "永久链接至标题")
+## 4 演示介绍
 
 > > demo执行的步骤如下：
 >
@@ -65,4 +82,4 @@ demo支持的命令如下表：
 
 备注
 
-注意：memory_write命令中的dev_addr 50为16进制，因为i2c驱动中会将dev_addr左移一位，所以传入的dev_addr需要将FM24C04B的dev_addr（1010b）右移一位。
+注意：memory\_write命令中的dev\_addr 50为16进制，因为i2c驱动中会将dev\_addr左移一位，所以传入的dev\_addr需要将FM24C04B的dev\_addr（1010b）右移一位。

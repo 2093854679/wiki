@@ -3,6 +3,7 @@
 import json
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 import click
 
@@ -18,28 +19,35 @@ class SearchHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(self.static_dir), **kwargs)
 
     def do_GET(self):
-        if self.path == "/api/search":
+        path = urlparse(self.path).path
+        if path == "/api/search":
             self._handle_search()
-        elif self.path == "/":
+        elif path == "/":
             self._serve_search_page()
-        elif self.path == "/api/stats":
+        elif path == "/api/stats":
             self._handle_stats()
         else:
             super().do_GET()
 
     def _handle_search(self):
-        import urllib.parse
-        parsed = urllib.parse.urlparse(self.path)
-        params = urllib.parse.parse_qs(parsed.query)
+        params = parse_qs(urlparse(self.path).query)
         query = params.get("q", [""])[0]
-        limit = int(params.get("limit", ["20"])[0])
+        try:
+            limit = max(1, min(int(params.get("limit", ["20"])[0]), 100))
+        except ValueError:
+            self.send_error(400, "limit must be an integer")
+            return
+        filters = {key: params[key][0] for key in ("family", "version", "processor", "kind", "scope") if key in params}
+        if "chip" in params:
+            filters["chip"] = params["chip"]
+        filters["include_historical"] = params.get("include_historical", [""])[0].lower() in {"1", "true"}
 
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
 
-        results = self.engine.search(query, limit=limit) if query else []
+        results = self.engine.search(query, limit=limit, **filters) if query else []
         self.wfile.write(json.dumps({"results": results, "query": query}).encode())
 
     def _handle_stats(self):

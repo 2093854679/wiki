@@ -1,72 +1,92 @@
-# Doorbell_8M[](#doorbell-8m "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/media/doorbell_8M/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="doorbell-8m"></a>
 
+# Doorbell\_8M
 
-## 1. 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 简介
 
 本工程是USB摄像头门锁的一个demo，支持端（BK7258设备）到端（手机APP端）的演示。默认使用的PSRAM为8Mbyte。
 
+<a id="id2"></a>
 
-### 1.1 规格[](#id2 "永久链接至标题")
+### 1.1 规格
 
-> 请参考 [规格](../doorbell/index.md#id2 "../doorbell/index.md#id2")
+> 请参考 [规格](doorbell.md#id2)
 
+<a id="id4"></a>
 
-### 1.2 路径[](#id4 "永久链接至标题")
+### 1.2 路径
 
-> <bk_avdk源代码路径>/projects/media/doorbell_8M
+> \<bk\_avdk源代码路径\>/projects/media/doorbell\_8M
 
+<a id="id5"></a>
 
-## 2. 框架图[](#id5 "永久链接至标题")
+## 2\. 框架图
 
-> 请参考 [框架图](../doorbell/index.md#id4 "../doorbell/index.md#id4")
+> 请参考 [框架图](doorbell.md#id4)
 
+<a id="id7"></a>
 
-## 3. 配置[](#id7 "永久链接至标题")
+## 3\. 配置
 
-> 请参考 [配置](../doorbell/index.md#id7 "../doorbell/index.md#id7")
+> 请参考 [配置](doorbell.md#id7)
 
+<a id="id9"></a>
 
-### 3.1 区别[](#id9 "永久链接至标题")
+### 3.1 区别
 
-> doorbell_8M与doorbell的区别在于前一个配置使用的8M psram，后一个配置使用的是16M psram。
+> doorbell\_8M与doorbell的区别在于前一个配置使用的8M psram，后一个配置使用的是16M psram。
 >
-> doorbell_8M工程cpu0上psram基本的宏配置如下：
->
-> |  |  |  |
-> | --- | --- | --- |
-> | marco | value | implication |
-> | CONFIG_PSRAM | Y | 使能PSRAM模块 |
-> | CONFIG_PSRAM_AS_SYS_MEMORY | Y | 使能PSRAM作为Heap |
-> | CONFIG_USE_PSRAM_HEAP_AT_SRAM_OOM | N | 使能sram申请不到内存，从psram申请 |
-> | CONFIG_PSRAM_HEAP_BASE | 0x60700000 | 当前CPU上psram作为heap的起始地址 |
-> | CONFIG_PSRAM_HEAP_SIZE | 0x80000 | 当前CPU上psram作为heap的长度 |
-> | CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER | 0x60700000 | psram作为heap的起始地址 |
->
-> doorbell_8M工程cpu1上psram基本的宏配置如下：
+> doorbell\_8M工程cpu0上psram基本的宏配置如下：
 >
 > |  |  |  |
 > | --- | --- | --- |
 > | marco | value | implication |
-> | CONFIG_PSRAM | Y | 使能PSRAM模块 |
-> | CONFIG_PSRAM_AS_SYS_MEMORY | Y | 使能PSRAM作为Heap |
-> | CONFIG_USE_PSRAM_HEAP_AT_SRAM_OOM | N | 使能sram申请不到内存，从psram申请 |
-> | CONFIG_PSRAM_HEAP_BASE | 0x60780000 | 当前CPU上psram作为heap的起始地址 |
-> | CONFIG_PSRAM_HEAP_SIZE | 0x80000 | 当前CPU上psram作为heap的长度 |
-> | CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER | 0x60700000 | psram作为heap的起始地址 |
+> | CONFIG\_PSRAM | Y | 使能PSRAM模块 |
+> | CONFIG\_PSRAM\_AS\_SYS\_MEMORY | Y | 使能PSRAM作为Heap |
+> | CONFIG\_USE\_PSRAM\_HEAP\_AT\_SRAM\_OOM | N | 使能sram申请不到内存，从psram申请 |
+> | CONFIG\_PSRAM\_HEAP\_BASE | 0x60700000 | 当前CPU上psram作为heap的起始地址 |
+> | CONFIG\_PSRAM\_HEAP\_SIZE | 0x80000 | 当前CPU上psram作为heap的长度 |
+> | CONFIG\_PSRAM\_HEAP\_CPU0\_BASE\_ADDER | 0x60700000 | psram作为heap的起始地址 |
 >
-> 从上面可以分析出，针对8M psram从0x60700000（CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER）-0x60800000作为heap使用，
+> doorbell\_8M工程cpu1上psram基本的宏配置如下：
+>
+> |  |  |  |
+> | --- | --- | --- |
+> | marco | value | implication |
+> | CONFIG\_PSRAM | Y | 使能PSRAM模块 |
+> | CONFIG\_PSRAM\_AS\_SYS\_MEMORY | Y | 使能PSRAM作为Heap |
+> | CONFIG\_USE\_PSRAM\_HEAP\_AT\_SRAM\_OOM | N | 使能sram申请不到内存，从psram申请 |
+> | CONFIG\_PSRAM\_HEAP\_BASE | 0x60780000 | 当前CPU上psram作为heap的起始地址 |
+> | CONFIG\_PSRAM\_HEAP\_SIZE | 0x80000 | 当前CPU上psram作为heap的长度 |
+> | CONFIG\_PSRAM\_HEAP\_CPU0\_BASE\_ADDER | 0x60700000 | psram作为heap的起始地址 |
+>
+> 从上面可以分析出，针对8M psram从0x60700000（CONFIG\_PSRAM\_HEAP\_CPU0\_BASE\_ADDER）-0x60800000作为heap使用，
 > 两个核上各分了0x80000。
 
 警告
 
 使用时请注意工程与PSRAM大小（型号）是否适配，如果使用16M psram的配置在8M板子上运行时，可能使用的psram会超过最大范围，则会造成dump。
 
+<a id="id10"></a>
 
-## 4. 演示说明[](#id10 "永久链接至标题")
+## 4\. 演示说明
 
 > 请访问
-> [APP使用文档](https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug")
+> [APP使用文档](../../../bk_toolkit/iotapp/app_usage/app_usage_guide.md#debug)
 > 查看。
 >
 > 演示结果：运行时会启动UVC，LCD和AUDIO，LCD显示UVC输出JPEG（864X480）图像经过解码和旋转90°后显示到LCD(480X854)上，
@@ -76,7 +96,8 @@
 
 如果您没有云账号权限，可以使用debug模式，设置局域网TCP图传方式。
 
+<a id="id11"></a>
 
-## 5. 代码讲解[](#id11 "永久链接至标题")
+## 5\. 代码讲解
 
-> 请参考 [代码讲解](../doorbell/index.md#id13 "../doorbell/index.md#id13")
+> 请参考 [代码讲解](doorbell.md#id13)

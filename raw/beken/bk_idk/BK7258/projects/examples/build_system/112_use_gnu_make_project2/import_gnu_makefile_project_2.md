@@ -1,12 +1,28 @@
-# Import GNU Makefile Project 2[](#import-gnu-makefile-project-2 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/projects/examples/build_system/112_use_gnu_make_project2/import_gnu_makefile_project_2.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="import-gnu-makefile-project-2"></a>
 
-## Overview[](#overview "永久链接至标题")
+<a id="project-import-gnu-makefile-project-2"></a>
 
-Another way to import a GNU project is to import a project written in a GNU Makefile via add_custom_command.
+# Import GNU Makefile Project 2
+
+<a id="overview"></a>
+
+## Overview
+
+Another way to import a GNU project is to import a project written in a GNU Makefile via add\_custom\_command.
 
 Example to import a foo component written with a Makefile into the c1 component:
-
 
 ```
 armino_component_register(SRCS c1.c INCLUDE_DIRS include)
@@ -24,7 +40,6 @@ set_target_properties(foo PROPERTIES IMPORTED_LOCATION ${COMPONENT_DIR}/foo/libf
 set_target_properties(foo PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${COMPONENT_DIR}/foo/include)
 
 target_link_libraries(${COMPONENT_LIB} PUBLIC foo)
-
 ```
 
 The above use case first calls `armino_component_register` to register a standard armino component `c1`, then adds a command to generate `libfoo.a` through `add_custom_command()`, and then calls `add_custom_target()` to add the target `foo_build`.

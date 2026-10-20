@@ -1,17 +1,28 @@
 ---
-aliases:
-- 'BK7256 › developer-guide › agora'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/agora/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 声网(agora)开发指南[](#agora "永久链接至标题")
 
+<a id="agora"></a>
 
+# 声网(agora)开发指南
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 声网Agora-iot-sdk主要功能是连接声网云，实现设备和云端服务器之间的音视频数据流的传输。
 
+<a id="id2"></a>
 
-## 2、开发资料[](#id2 "永久链接至标题")
+## 2、开发资料
 
 > armino平台已经将声网Agora-iot-sdk库适配并集成为平台组件，因此客户只需要专注于声网音视频传输应用的开发。
 >
@@ -31,8 +42,9 @@ aliases:
 1、建议采用第二种开发方案，开发难度较小，且提供了参考demo，下述章节会详细描述如何使用封装后的声网组件快速开发常用的功能场景应用代码。
 2、如选择第一种开发方案，请直接参考声网提供的开发指南。
 
+<a id="id3"></a>
 
-## 3、音视频传输场景开发[](#id3 "永久链接至标题")
+## 3、音视频传输场景开发
 
 > 基于声网云开发语音通话和设备至云端单向图传的流程如下：
 >
@@ -42,7 +54,6 @@ aliases:
 > 4、打开图传
 >
 > 接口调用实例如下：
-
 
 ```
 /* 采用默认配置初始化声网sdk */
@@ -73,16 +84,12 @@ bk_aud_intf_voc_start();
 media_app_camera_open(camera_type, camera_ppi); // PPI_320X240   PPI_640X480
 media_app_register_read_frame_cb(app_media_read_frame_callback);
 media_app_save_start("unused_name");
-
 ```
-
 
 ```
 初始化声网sdk时需要传入sdk的回调函数，用于接收处理声网sdk上报的消息。
 可参考下述设计：
-
 ```
-
 
 ```
 void agora_rtc_user_notify_msg_handle(agora_rtc_msg_t *p_msg)
@@ -116,16 +123,14 @@ void agora_rtc_user_notify_msg_handle(agora_rtc_msg_t *p_msg)
                         break;
         }
 }
-
 ```
-
 
 ```
 完整的demo请参考源码： ``\projects\thirdparty\agora\main\agora_rtc_demo.c``
-
 ```
 
+<a id="id4"></a>
 
-## 参考链接[](#id4 "永久链接至标题")
+## 参考链接
 
-> [声网(agora)工程](../../projects_work/thirdparty/agora.md "../../projects_work/thirdparty/agora/index.md")
+> [声网(agora)工程](../projects_work/thirdparty/agora.md)

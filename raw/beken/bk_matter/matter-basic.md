@@ -1,6 +1,18 @@
-# Matter 简介[](#matter "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/matter-basic/index.html
+sdk_family: bk_matter
+chip: BK7235,BK7236,BK7256,BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
-[[English]](../../../en/v2.0.1/matter-basic/index.html "../../../en/v2.0.1/matter-basic/index.html")
+<a id="matter"></a>
+
+# Matter 简介
 
 当前物联网的智能家居和智能建筑市场因为存在多种技术标准和生态平台构筑的围墙花园而呈现碎片化的状态。消费者在购买智能设备时要考虑多方因素：自己喜欢的产品是否与家中已有系统的兼容、将来的维护和扩展等等；制造厂商为了拓展产品市场逐一打通与各个生态兼容性，不得不对同一款产品进行多次重复开发。
 
@@ -8,36 +20,35 @@ Matter由CSA(连接标准联盟)的工作组开发，是一个统一的开源应
 
 Matter技术包含了三份规格书，分别是：
 
-
 - Matter Core Specification : 核心标准是主要标准，定义了Matter协议架构、安全通信机制、配网流程、数据模型等Matter技术内容。
-
 - Matter Application Cluster Specification : 目前支持的Matter产品应用相关的cluster的详细定义。
-
 - Matter Device Library Specification : 目前支持的Matter设备类型的具体定义，比如设备需要满足的cluter。
 
-它们都可以在 [CSA官网](https://csa-iot.org/developer-resource/specifications-download-request/ "https://csa-iot.org/developer-resource/specifications-download-request/") 下载。
+它们都可以在 [CSA官网](https://csa-iot.org/developer-resource/specifications-download-request/) 下载。
 
+<a id="id1"></a>
 
-## Matter 架构[](#id1 "永久链接至标题")
+## Matter 架构
 
 Matter旨在为智能家居设备构建基于IPv6的通信协议。 Matter协议定义了部署在设备上的应用层以及不同的链路层，用于辅助和维护不同层次的互操作性。下图演示了常见操作的调用协议栈:
 
-![Application-and-Network-Stack](_images/Application-and-Network-Stack.png)
+<a id="id5"></a>
+![Application-and-Network-Stack](../_assets/beaae82b8de3ed888e7b-Application-and-Network-Stack.png)
 
-Application and Network Stack[](#id5 "永久链接至图片")
+
+Application and Network Stack
 
 Matter使用分层架构分离不同的职责，并且在不同的协议栈之间进行了良好的封装。大部分的交互都会经过下面图例的层级。
 
-![分层架构](_images/分层架构.png)
+<a id="id6"></a>
+![分层架构](../_assets/c5e4f4e0501321395ece-%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84.png)
 
-分层架构[](#id6 "永久链接至图片")
 
+分层架构
 
 **Application** 层对应于设备的高阶业务逻辑。 如照明应用的开/关灯泡及控制颜色的功能。
 
-
 **Data Model** 层用来定义应用程序的数据模型及动作。应用程序将使用这些数据与设备进行互操作。
-
 
 **Interaction Model** 层定义了一系列客户端设备与服务端设备进行的交互(interaction)。例如，读或写服务设备的属性时的设备行为。 这些交互作用于 Data Model 层定义的元素。
 
@@ -53,17 +64,21 @@ Matter使用分层架构分离不同的职责，并且在不同的协议栈之�
 
 除了上述的数据流之外，Matter还定义了基于操作证书(operational certificates)的安全会话构建协议(CASE),或passcodes (PASE)，组通讯，已经主要用于OTA的大量数据传输的大数据传输协议协议(BDX)，还支持厂商自定义的传输协议。
 
+<a id="id2"></a>
 
-## Matter 拓扑结构[](#id2 "永久链接至标题")
+## Matter 拓扑结构
 
 Matter可以同时支持Wi-Fi/Thread/Ethernet，也就是说Matter可以让不同网络中的设备进行互联互通，通过Thread border router 可以实现Wi-Fi和Thread设备互相通信。不仅如此，Matter还允许接入其他网络设备，比如ZigBee设备，这主要通过一个Matter bridge设备来实现。在Matter拓扑结构中，还有一个节点非常重要：Matter controller，Matter controller用来完成配网和远程控制设备，比如苹果的HomePod mini和Home app就是一个典型的Matter controller节点。如下为一个典型的Matter拓扑结构：
 
-![拓扑结构](_images/Matter-拓扑结构.png)
+<a id="id7"></a>
+![拓扑结构](../_assets/f6e04009290f9543a683-Matter-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84.png)
 
-拓扑结构[](#id7 "永久链接至图片")
 
+拓扑结构
 
-## Matter网络中的概念[](#id3 "永久链接至标题")
+<a id="id3"></a>
+
+## Matter网络中的概念
 
 1. Matter Device（Matter设备）
 
@@ -93,9 +108,11 @@ Matter设备在家庭中称为 Matter Fabric的虚拟网络上连接在一起，
 
 如下图所示：非 Matter 设备作为桥接设备暴露给 Fabric 上的节点。Matter 节点既可以与（本地）Matter 设备通信，也可以与桥接设备通信（通过Matter bridge在 Matter 和其他协议之间进行转换）。
 
-![Matter Bridge](_images/Matter-Bridge.png)
+<a id="id8"></a>
+![Matter Bridge](../_assets/8c83e431ad0133659ed9-Matter-Bridge.png)
 
-Matter Bridge[](#id8 "永久链接至图片")
+
+Matter Bridge
 
 7. Matter标准OTA
 
@@ -111,76 +128,65 @@ Matter标准OTA定义了两个角色：OTA Provider和OTA Requestor，OTA Provid
 
 每当一个产品通过了Matter认证，CSA就会颁发一个CD证书给它，CD证书包括Vendor ID，Certificate ID，certification type等，由于一个产品类别下所有设备共用同一个CD，因此CD都是hard code在应用中的。
 
+<a id="id4"></a>
 
-## Matter网络配网[](#id4 "永久链接至标题")
+## Matter网络配网
 
 Matter配网（commissioning）就是把一个设备加入Matter Fabric（也叫Matter操作网络）的过程，此过程包含两个角色：
 
-
 - Commissioner device，一般放在Matter controller中，用于发起配网过程。
-
 - Commissionee device，就是还未添加到Matter网络中的设备。
 
 为了完成配网，commissionee必须提供如下onboarding信息：
 
-
 - 16-bit Vendor ID and 16-bit Product ID
-
 - 12-bit device discriminator
-
 - 27-bit setup passcode
-
 - 8-bit Discovery Capabilities Bitmask
 
 上面这些信息可以以下面三种方式提供：
 
-
 - 手动配对码（Manual Pairing Code）
-
 - 二维码（QR Code）
-
 - QR Code Payload
 
 双方必须支持Manual Pairing Code，但推荐使用二维码，当然各个生态系统也可以定义自己的discriminator和setup passcode。
 
 配网流程如下图所示：
 
-![Matter Commissioning](_images/Matter-Commissioning.png)
+<a id="id9"></a>
+![Matter Commissioning](../_assets/5e129d661443a8654737-Matter-Commissioning.png)
 
-Matter配对流程[](#id9 "永久链接至图片")
+
+Matter配对流程
 
 如果上述配网流程成功，那么设备将得到如下信息：
 
-
 - 由fabric ID和node ID组成的实例名
-
 - Node Operational Certificate(NOC)
-
 - NOC对应的私钥
-
 - Access Control List
-
 - 操作网络的其他信息
 
+<a id="data-model"></a>
 
-## 数据模型(Data Model)和设备类型[](#data-model "永久链接至标题")
+## 数据模型(Data Model)和设备类型
 
 如下为一个典型的Matter设备的data model表示：
 
-![Data Model](_images/Data-Model.png)
+<a id="id10"></a>
+![Data Model](../_assets/742e591268d60d542447-Data-Model.png)
 
-Data Model[](#id10 "永久链接至图片")
 
+Data Model
 
 **Fabric**
 
 在同一个Fabric中的设备，共享同一个根证书，通过证书链的验证，同一个fabric中的所有设备都可以建立安全的通信。
 
-
 **Node**
 
 节点(Node)是一个逻辑上独立的设备，有自己唯一的网络地址。每个Matter设备由一个或多个Node组成。
-
 
 **Endpoint**
 
@@ -189,7 +195,6 @@ Data Model[](#id10 "永久链接至图片")
 备注
 
 endpoint 0预留为Matter的utility cluster，而且每个Matter设备都必须强制包含它。
-
 
 **Cluster**
 
@@ -203,43 +208,37 @@ Client – 对Server发起交互（interaction）操作
 
 Cluster的详细规格定义请参见Matter Application Cluster Specification。如何通过cluster组成endpoint，进而组成设备类型，这个则是Matter Device Library Specification规定的内容。
 
-
 **Attribute**
 
 Attribute就是一条条表示物理量或者状态的数据记录，他们保存在设备的存储器中。
-
 
 **Command**
 
 Command就是下文所说的action，用来触发server的特定行为，比如关锁命令用来触发关锁操作。
 
-
 **Event**
 
 Event其实是一种特殊的attribute，它用来更新设备的状态，因此你可以把event当成是一种历史数据记录。
 
+<a id="interaction-model"></a>
 
-## 交互命令和模型(Interaction Model)[](#interaction-model "永久链接至标题")
+## 交互命令和模型(Interaction Model)
 
 通俗地讲，Interaction model就是用来规定交互命令集的，我们把发起交互的节点叫initiator (一般都是client设备)，而接收者称为target (一般为server设备)。
 
 Matter定义了如下interaction类型：
 
-
 **Read**
 
 用来读取attributes或events的值
-
 
 **Write**
 
 用来修改attribute的值
 
-
 **Invoke**
 
 用来发送commands
-
 
 **Subscribe**
 

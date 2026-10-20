@@ -1,22 +1,38 @@
-# sched接口介绍[](#sched "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/api-reference/system/posix/sched.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
-> - 需要包含头文件#include <posix/sched.h>;
+<a id="sched"></a>
+
+# sched接口介绍
+
+> - 需要包含头文件#include \<posix/sched.h\>;
 > - 定义了系统调度相关的接口
 
+<a id="header-file"></a>
 
+## Header File
 
-## Header File[](#header-file "永久链接至标题")
+- [sched.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/sched.h)
 
+<a id="functions"></a>
 
-- [sched.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/sched.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/sched.h")
+## Functions
 
+<a id="_CPPv422sched_get_priority_maxi"></a>
 
-## Functions[](#functions "永久链接至标题")
-
-int sched_get_priority_max(int policy)[](#_CPPv422sched_get_priority_maxi "永久链接至目标")
+<a id="_CPPv322sched_get_priority_maxi"></a> <a id="_CPPv222sched_get_priority_maxi"></a> <a id="sched_get_priority_max__i"></a> <a id="sched_8h_1afaebd1698caeb9b9b9e614ad84edd609"></a> int sched\_get\_priority\_max(int policy)
 :   Get priority limit (max).
 
-    [http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_max.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_max.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_max.html")
+    <http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_max.html>
 
     备注
 
@@ -25,38 +41,52 @@ int sched_get_priority_max(int policy)[](#_CPPv422sched_get_priority_maxi "�
     返回
     :   the maximum priority value (0-based) system configuration allows.
 
-        e.g. if configMAX_PRIORITIES == 7, this function returns (configMAX_PRIORITIES - 1). configMAX_PRIORITIES is configured in application FreeRTOSConfig.h file.
+        e.g. if configMAX\_PRIORITIES \=\= 7, this function returns (configMAX\_PRIORITIES \- 1). configMAX\_PRIORITIES is configured in application FreeRTOSConfig.h file.
 
-int sched_get_priority_min(int policy)[](#_CPPv422sched_get_priority_mini "永久链接至目标")
+<a id="_CPPv422sched_get_priority_mini"></a>
+
+<a id="_CPPv322sched_get_priority_mini"></a> <a id="_CPPv222sched_get_priority_mini"></a> <a id="sched_get_priority_min__i"></a> <a id="sched_8h_1af1f370fc36ea6b22ed42b5ee3cf82a81"></a> int sched\_get\_priority\_min(int policy)
 :   Get priority limit (min).
 
-    [http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_min.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_min.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_min.html")
+    <http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_get_priority_min.html>
 
     备注
 
     policy is ignored.
 
-int sched_yield(void)[](#_CPPv411sched_yieldv "永久链接至目标")
+<a id="_CPPv411sched_yieldv"></a>
+
+<a id="_CPPv311sched_yieldv"></a> <a id="_CPPv211sched_yieldv"></a> <a id="sched_yield__void"></a> <a id="sched_8h_1a357cd4b34c13011749dfffb42b489f09"></a> int sched\_yield(void)
 :   Yield the processor.
 
-    [http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_yield.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_yield.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_yield.html")
+    <http://pubs.opengroup.org/onlinepubs/9699919799/functions/sched_yield.html>
 
     Return values
-    :   **0** – - Upon successful completion
+    :   **0** – \- Upon successful completion
 
+<a id="structures"></a>
 
-## Structures[](#structures "永久链接至标题")
+## Structures
 
-struct sched_param[](#_CPPv411sched_param "永久链接至目标")
+<a id="_CPPv411sched_param"></a>
+
+<a id="_CPPv311sched_param"></a> <a id="_CPPv211sched_param"></a> <a id="sched_param"></a> <a id="structsched__param"></a> struct sched\_param
 :   Scheduling parameters required for implementation of each supported scheduling policy.
+
+    <a id="breathe-section-title-public-members"></a>
 
     Public Members
 
-    int sched_priority[](#_CPPv4N11sched_param14sched_priorityE "永久链接至目标")
+    <a id="_CPPv4N11sched_param14sched_priorityE"></a>
+
+    <a id="_CPPv3N11sched_param14sched_priorityE"></a> <a id="_CPPv2N11sched_param14sched_priorityE"></a> <a id="sched_param::sched_priority__i"></a> <a id="structsched__param_1aa0f2640949273f2c30549ed8d1bb197e"></a> int sched\_priority
     :   Process or thread execution scheduling priority.
 
+<a id="macros"></a>
 
-## Macros[](#macros "永久链接至标题")
+## Macros
 
-SCHED_OTHER[](#c.SCHED_OTHER "永久链接至目标")
+<a id="c.SCHED_OTHER"></a>
+
+<a id="sched_8h_1a44c9baaf6f3c286f76783265b4938881"></a> SCHED\_OTHER
 :   Another scheduling policy.

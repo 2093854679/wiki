@@ -1,12 +1,22 @@
 ---
-aliases:
-- 'BK7256 › developer-guide › debug_trace'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/debug_trace/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 系统调试[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 系统调试
 
-## Armino平台BK7256系统调试命令[](#arminobk7256 "永久链接至标题")
+<a id="arminobk7256"></a>
+
+## Armino平台BK7256系统调试命令
 
 > - BK7256 CPU0的log通过串口uart1输出(默认波特率为115200)
 > - BK7256 CPU1的log通过mailbox转发到CPU0串口uart1输出(默认波特率为115200)
@@ -14,7 +24,7 @@ aliases:
 > - 由于内存缓冲区的限制，每条log数据的字节数，要小于128字节。超过这个大小的log都会被shell 模块丢弃，并输出一条 !!some LOGs discarded!! 如果log数量太多，来不及输出导致log堆积，缓冲区用完，也会输出这条提示字符串。
 > - 通过串口输入log命令查看当前log配置
 > - 通过串口输入log 1 3 1命令设置log为同步机制
-> - log 1 3 1 命令第一个参数为echo开关 (0/1)，第二个参数为log级别(0~6)，第三个参数为同步开关(0异步,1同步)
+> - log 1 3 1 命令第一个参数为echo开关 (0/1)，第二个参数为log级别(0\~6)，第三个参数为同步开关(0异步,1同步)
 > - 通过串口输入help命令查看当前支持的调试命令：
 >
 > > ```
@@ -199,7 +209,6 @@ aliases:
 > > wdt_driver: {init|deinit}
 > > ```
 
-
 - 可以通过cpu1 help的命令格式，输入cpu1的调试命令：
 
   ```
@@ -210,18 +219,20 @@ aliases:
   #
   ```
 
+<a id="arminobk7256jtag"></a>
 
-## Armino平台BK7256系统jtag调试[](#arminobk7256jtag "永久链接至标题")
+## Armino平台BK7256系统jtag调试
 
-> - 需要安装ANDES/AndeSight STD_V5.1.1软件
+> - 需要安装ANDES/AndeSight STD\_V5.1.1软件
 > - 需要jtag连接线
 > - 默认jtag连接cpu0，BK7256有两个Jtag口(grou1/group2)
 > - 可以通过setjtagmode cpu0 group1命令设置jtag连接cpu0
 > - 可以通过setjtagmode cpu1 group1设置jtag连接cpu1
 > - 可以通过jtagmode命令查看当前jtag状态
 
+<a id="arminobk7256log"></a>
 
-## Armino平台BK7256系统异常log分析[](#arminobk7256log "永久链接至标题")
+## Armino平台BK7256系统异常log分析
 
 异常信息中，以如下信息为例：
 
@@ -303,7 +314,7 @@ aliases:
 > 0x000cc160: rwm_upload_data at /home/jenkins/workspace/ArminoMainCI/properties/modules/rwnx_intf/rw_msdu.c:1299
 > ```
 >
-> - 根据SP指针0x3002573c，得知当前Task为core_thread：
+> - 根据SP指针0x3002573c，得知当前Task为core\_thread：
 >
 > ```
 > core_thread        [0x30025120 ~ 0x30025920]   0x300257bc   2048   0          cc164 cc160 cc124 ff68 1880 cf326 ae0f4 ce124 ce464

@@ -1,28 +1,43 @@
-# Doorbell[](#doorbell "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/media/doorbell/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="doorbell"></a>
 
+# Doorbell
 
-## 1. 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 简介
 
 本工程是USB摄像头门锁的一个demo，支持端（BK7258设备）到端（手机APP端）的演示。
 
+<a id="id2"></a>
 
-### 1.1 规格[](#id2 "永久链接至标题")
+### 1.1 规格
 
 > - 硬件配置：
->   :   - 核心板，**BK7258_QFN88_9X9_V3.2**
->       - 显示转接板，**BK7258_LCD_Interface_V3.0**
->       - 麦克小板，**BK_Module_Microphone_V1.1**
->       - 喇叭小板，**BK_Module_Speaker_V1.1**
+>   :   - 核心板，**BK7258\_QFN88\_9X9\_V3.2**
+>       - 显示转接板，**BK7258\_LCD\_Interface\_V3.0**
+>       - 麦克小板，**BK\_Module\_Microphone\_V1.1**
+>       - 喇叭小板，**BK\_Module\_Speaker\_V1.1**
 >       - PSRAM 8M/16M
 > - 支持，UVC
->   :   - 参考外设，**864 * 480** 分辨率的UVC
+>   :   - 参考外设，**864 \* 480** 分辨率的UVC
 > - 支持，UAC
 > - 支持，TCP局域网图传
 > - 支持，UDP局域网图传
 > - 支持，尚云，P2P图传
 > - 支持，LCD RGB/MCU I8080显示
->   :   - 参考外设，**ST7701SN**，480 * 854 RGB LCD
+>   :   - 参考外设，**ST7701SN**，480 \* 854 RGB LCD
 >       - RGB565/RGB888
 > - 支持，硬件/软件旋转
 >   :   - 0°，90°，180°，270°
@@ -34,31 +49,36 @@
 >   :   - YUV420
 > - 支持，H264硬件编码
 > - 支持，OSD显示
->   :   - ARGB888[PNG]
+>   :   - ARGB888\[PNG\]
 >       - 自定义字体
 
 警告
 
 请使用参考外设，进行demo工程的熟悉和学习。如果外设规格不一样，代码可能需要重新配置。
 
+<a id="id3"></a>
 
-### 1.2 路径[](#id3 "永久链接至标题")
+### 1.2 路径
 
-> <bk_avdk源代码路径>/projects/media/doorbell
+> \<bk\_avdk源代码路径\>/projects/media/doorbell
 
+<a id="id4"></a>
 
-## 2. 框架图[](#id4 "永久链接至标题")
+## 2\. 框架图
 
+<a id="id5"></a>
 
-### 2.1 软件模块架构图[](#id5 "永久链接至标题")
+### 2.1 软件模块架构图
 
 > 如下图所示，BK7258有多个CPU：
 > :   - CPU0，运行WIFI/BLE，作为低功耗CPU。
 >     - CPU1，运行多媒体，作为多媒体高性能CPU。
 
-![module architecture Overview](../_images/doorbell_arch.png)
+<a id="id39"></a>
+![module architecture Overview](../../../_assets/2139c5a24bbc0e3086f2-doorbell_arch.png)
 
-Figure 1. software module architecture[](#id39 "永久链接至图片")
+
+Figure 1\. software module architecture
 
 > - UVC方案中，我们采用pipeline方式，来提高整体性能。
 > - UVC摄像头输出的图像可以分为两种，一种是YUV420 MJPEG，一种是YUV422 MJPEG。
@@ -75,37 +95,42 @@ Figure 1. software module architecture[](#id39 "永久链接至图片")
 >       - 如果需要使用RGB888输出，或者支持180°，满足其中一个条件，都需要切换成软件解码。
 >       - 当前Rota HW和Rota SW，如何决策，由SDK软件决定。用户只需要在打开LCD时，将旋转角度和输出图像格式参数，输入给对应接口即可。
 
+<a id="id6"></a>
 
-### 2.2 代码模块关系图[](#id6 "永久链接至标题")
+### 2.2 代码模块关系图
 
-> 如下图所示，多媒体的接口，都定义在 **media_app.h** 和 **aud_intf.h** 中。
+> 如下图所示，多媒体的接口，都定义在 **media\_app.h** 和 **aud\_intf.h** 中。
 
-![relationship diagram Overview](../_images/doorbell_sw_relationship_diag.png)
-
-Figure 2. module relationship diagram[](#id40 "永久链接至图片")
-
-
-## 3. 配置[](#id7 "永久链接至标题")
+<a id="id40"></a>
+![relationship diagram Overview](../../../_assets/0439442c74191d5a52fe-doorbell_sw_relationship_diag.png)
 
 
-### 3.1 蓝牙与多媒体内存复用[](#id8 "永久链接至标题")
+Figure 2\. module relationship diagram
+
+<a id="id7"></a>
+
+## 3\. 配置
+
+<a id="id8"></a>
+
+### 3.1 蓝牙与多媒体内存复用
 
 > 为了进一步节约内存，默认工程中，多媒体的内存编解码内存和蓝牙的内存是复用，主要是采用以下两个宏。
 > 如果希望并行使用两个模块，可自行关闭。关闭前请确认整体内存是否够用。
 >
 > | Kconfig | CPU | Format | Value |
 > | --- | --- | --- | --- |
-> | CONFIG_BT_REUSE_MEDIA_MEMORY | CPU0 && CPU1 | bool | y |
-> | CONFIG_BT_REUSE_MEDIA_MEM_SIZE | CPU0 && CPU1 | hex | 0x1B000 |
+> | CONFIG\_BT\_REUSE\_MEDIA\_MEMORY | CPU0 \&\& CPU1 | bool | y |
+> | CONFIG\_BT\_REUSE\_MEDIA\_MEM\_SIZE | CPU0 \&\& CPU1 | hex | 0x1B000 |
 >
 > - 为了解决实际使用过程中的内存复用冲突，需要在使用多媒体模块前，检查蓝牙的状态，关闭卸载蓝牙。
 > - 如果多媒体模块都已经关闭，想再次使用，需要再重新初始化蓝牙。请参考以下代码。
-> - CONFIG_BT_REUSE_MEDIA_MEM_SIZE：取值范围是，基于蓝牙硬件模块的需要最大内存和多媒体硬件编码需要的最大内存的两个值，取一个最大值。
->   :   - 一般蓝牙的硬件内存，需求比较小[实际统计，需要根据编译出来map程序来统计]。因为，一般都按照多媒体硬件的最大内存配置。
+> - CONFIG\_BT\_REUSE\_MEDIA\_MEM\_SIZE：取值范围是，基于蓝牙硬件模块的需要最大内存和多媒体硬件编码需要的最大内存的两个值，取一个最大值。
+>   :   - 一般蓝牙的硬件内存，需求比较小\[实际统计，需要根据编译出来map程序来统计\]。因为，一般都按照多媒体硬件的最大内存配置。
 
+<a id="id9"></a>
 
-#### 3.1.1 卸载蓝牙[](#id9 "永久链接至标题")
-
+#### 3.1.1 卸载蓝牙
 
 ```
 #ifdef CONFIG_BT_REUSE_MEDIA_MEMORY
@@ -113,24 +138,22 @@ Figure 2. module relationship diagram[](#id40 "永久链接至图片")
         bk_bluetooth_deinit();
 #endif
 #endif
-
 ```
 
+<a id="id10"></a>
 
-#### 3.1.2 初始化蓝牙[](#id10 "永久链接至标题")
-
+#### 3.1.2 初始化蓝牙
 
 ```
 bk_bluetooth_init();
-
 ```
 
+<a id="id11"></a>
 
-### 3.2 硬件解码内存配置说明[](#id11 "永久链接至标题")
+### 3.2 硬件解码内存配置说明
 
 > 硬件加速器，需要使用一部分内存，这部分内存是根据实际的分辨率来优化。
-> 默认配置参数，LCD是480 * 854的竖屏，Camera是864 * 480的MJPEG图像。
-
+> 默认配置参数，LCD是480 \* 854的竖屏，Camera是864 \* 480的MJPEG图像。
 
 ```
 //Camera的输出分辨率，宽度，建议是32的倍数。当屏和Camera的默认配置小的时候，可以通过修改配置宏来优化内存。
@@ -152,46 +175,47 @@ typedef struct {
 #endif
 } mux_sram_buffer_t;
 
-
 * 如果不需要旋转，旋转部分的内存可以省去。
-
 * 缩放的分辨率需要注意。缩放后的分辨率，宽和高，都必须是8的倍数。
-
 ```
 
 小心
 
-当CONFIG_BT_REUSE_MEDIA_MEMORY宏打开时，这部分内存会与蓝牙的硬件内存复用。
+当CONFIG\_BT\_REUSE\_MEDIA\_MEMORY宏打开时，这部分内存会与蓝牙的硬件内存复用。
 
+<a id="id12"></a>
 
-## 4. 演示说明[](#id12 "永久链接至标题")
+## 4\. 演示说明
 
 > 请访问
-> [APP使用文档](https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug")
+> [APP使用文档](../../../bk_toolkit/iotapp/app_usage/app_usage_guide.md#debug)
 > 查看。
 
 提示
 
 如果您没有云账号权限，可以使用debug模式，设置局域网TCP图传方式。
 
+<a id="id13"></a>
 
-## 5. 代码讲解[](#id13 "永久链接至标题")
+## 5\. 代码讲解
 
+<a id="uvc"></a>
 
-### 5.1 UVC摄像头[](#uvc "永久链接至标题")
+### 5.1 UVC摄像头
 
-> 已支持的外设，请参考 [支持外设](../../../support_peripherals/index.md "../../../support_peripherals/index.md")
+> 已支持的外设，请参考 [支持外设](../../support_peripherals.md)
 
+<a id="id15"></a>
 
-#### 5.1.1 打开UVC[](#id15 "永久链接至标题")
+#### 5.1.1 打开UVC
 
+<a id="id16"></a>
 
-##### 5.1.1.1 应用代码[](#id16 "永久链接至标题")
-
+##### 5.1.1.1 应用代码
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_camera_turn_on(camera_parameters_t *parameters)
 {
@@ -211,16 +235,15 @@ int doorbell_camera_turn_on(camera_parameters_t *parameters)
 
     ...
 }
-
 ```
 
+<a id="id17"></a>
 
-##### 5.1.1.2 接口代码[](#id17 "永久链接至标题")
-
+##### 5.1.1.2 接口代码
 
 ```
 //Path      ： components/multimedia/app/media_app.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t media_app_camera_open(media_camera_device_t *device)
 {
@@ -241,19 +264,19 @@ bk_err_t media_app_camera_open(media_camera_device_t *device)
 
     ...
 }
-
 ```
 
+<a id="id18"></a>
 
-#### 5.1.2 获取一张图像[](#id18 "永久链接至标题")
+#### 5.1.2 获取一张图像
 
+<a id="id19"></a>
 
-##### 5.1.2.1 应用代码[](#id19 "永久链接至标题")
-
+##### 5.1.2.1 应用代码
 
 ```
 //Path      ： components/multimedia/camera/uvc.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 bk_err_t bk_uvc_camera_open(media_camera_device_t *device)
 {
@@ -265,16 +288,15 @@ bk_err_t bk_uvc_camera_open(media_camera_device_t *device)
 
     ...
 }
-
 ```
 
+<a id="id20"></a>
 
-##### 5.1.2.2 接口代码[](#id20 "永久链接至标题")
-
+##### 5.1.2.2 接口代码
 
 ```
 //Path      ： bk_idk/middleware/driver/camera/uvc_camera.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 static void uvc_camera_eof_handle(uint32_t idx_uvc)
 {
     ...
@@ -284,23 +306,23 @@ static void uvc_camera_eof_handle(uint32_t idx_uvc)
 
     ...
 }
-
 ```
 
 注意
 
 这里介绍的是MJPEG图像，在CPU1上如何获取。如果您的应用运行在CPU0上，需要通过mailbox发送到CPU0上使用，并且在使用完毕后，需要回到CPU1取释放。
 
+<a id="id21"></a>
 
-#### 5.1.3 关闭UVC[](#id21 "永久链接至标题")
+#### 5.1.3 关闭UVC
 
+<a id="id22"></a>
 
-##### 5.1.3.1 应用代码[](#id22 "永久链接至标题")
-
+##### 5.1.3.1 应用代码
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_camera_turn_off(void)
 {
@@ -314,16 +336,15 @@ int doorbell_camera_turn_off(void)
 
     ...
 }
-
 ```
 
+<a id="id23"></a>
 
-##### 5.1.3.2 接口代码[](#id23 "永久链接至标题")
-
+##### 5.1.3.2 接口代码
 
 ```
 //Path      ： components/multimedia/app/media_app.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t media_app_camera_close(camera_type_t type)
 {
@@ -337,33 +358,31 @@ bk_err_t media_app_camera_close(camera_type_t type)
 
     ...
 }
-
 ```
 
 警告
 
-
 - 所有涉及到多媒体的操作，都需要注意低功耗的要求。即打开设备，必须关闭设备，否则无法让整个系统进入低功耗模式。
-
 - 涉及到CPU1投票的操作，打开和关闭，必须成对出现，否则会出现CPU1无法关闭，功耗增加的问题。
-
 - 可以参考低功耗章节
 
+<a id="lcd"></a>
 
-### 5.2 LCD显示[](#lcd "永久链接至标题")
+### 5.2 LCD显示
 
-> 已支持的外设，请参考 [支持外设](../../../support_peripherals/index.md "../../../support_peripherals/index.md")
+> 已支持的外设，请参考 [支持外设](../../support_peripherals.md)
 
+<a id="id25"></a>
 
-#### 5.2.1 打开LCD[](#id25 "永久链接至标题")
+#### 5.2.1 打开LCD
 
+<a id="id26"></a>
 
-##### 5.2.1.1 应用代码[](#id26 "永久链接至标题")
-
+##### 5.2.1.1 应用代码
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_display_turn_on(uint16_t id, uint16_t rotate, uint16_t fmt)
 {
@@ -404,16 +423,15 @@ int doorbell_display_turn_on(uint16_t id, uint16_t rotate, uint16_t fmt)
 
     ...
 }
-
 ```
 
+<a id="id27"></a>
 
-##### 5.2.1.2 接口代码[](#id27 "永久链接至标题")
-
+##### 5.2.1.2 接口代码
 
 ```
 //Path      ： components/multimedia/app/media_app.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t media_app_lcd_pipeline_open(void *lcd_open)
 {
@@ -456,19 +474,19 @@ bk_err_t media_app_lcd_pipeline_jdec_open(void)
 
     return ret;
 }
-
 ```
 
+<a id="id28"></a>
 
-#### 5.2.2 关闭LCD[](#id28 "永久链接至标题")
+#### 5.2.2 关闭LCD
 
+<a id="id29"></a>
 
-##### 5.2.2.1 应用代码[](#id29 "永久链接至标题")
-
+##### 5.2.2.1 应用代码
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_display_turn_off(void)
 {
@@ -479,16 +497,15 @@ int doorbell_display_turn_off(void)
 
     ...
 }
-
 ```
 
+<a id="id30"></a>
 
-##### 5.2.2.2 接口代码[](#id30 "永久链接至标题")
-
+##### 5.2.2.2 接口代码
 
 ```
 //Path      ： components/multimedia/app/media_app.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t media_app_lcd_pipeline_close(void)
 {
@@ -502,24 +519,25 @@ bk_err_t media_app_lcd_pipeline_close(void)
 
     ...
 }
-
 ```
 
+<a id="osd"></a>
 
-#### 5.2.3 OSD显示[](#osd "永久链接至标题")
+#### 5.2.3 OSD显示
 
-> 请参考 [OSD视频叠加](../../../gui/osd/osd_blend.md "../../../gui/osd/osd_blend.md")
+> 请参考 [OSD视频叠加](../../gui/osd/osd_blend.md)
 
+<a id="audio"></a>
 
-### 5.3 Audio[](#audio "永久链接至标题")
+### 5.3 Audio
 
+<a id="uac-mic-speaker"></a>
 
-#### 5.3.1 打开UAC，板载MIC/SPEAKER[](#uac-mic-speaker "永久链接至标题")
-
+#### 5.3.1 打开UAC，板载MIC/SPEAKER
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_audio_turn_on(audio_parameters_t *parameters)
 {
@@ -534,6 +552,7 @@ int doorbell_audio_turn_on(audio_parameters_t *parameters)
     {
         aud_voc_setup.aec_enable = false;
     }
+
 
     //设置SPEAKER单端模式
     ud_voc_setup.spk_mode = AUD_DAC_WORK_MODE_SIGNAL_END;
@@ -575,16 +594,15 @@ int doorbell_audio_turn_on(audio_parameters_t *parameters)
 
     ...
 }
-
 ```
 
+<a id="mic"></a>
 
-#### 5.3.2 获取上行MIC数据[](#mic "永久链接至标题")
-
+#### 5.3.2 获取上行MIC数据
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 //注册MIC回调
     aud_intf_drv_setup.aud_intf_tx_mic_data = doorbell_udp_voice_send_callback;
@@ -597,16 +615,15 @@ int doorbell_udp_voice_send_callback(unsigned char *data, unsigned int len)
     //通常实现的回调是往WIFI方向传输。
     return db_device_info->audio_transfer_cb->send(buffer, len, &retry_cnt);
 }
-
 ```
 
+<a id="speaker"></a>
 
-#### 5.3.3 播放下行SPEAKER数据[](#speaker "永久链接至标题")
-
+#### 5.3.3 播放下行SPEAKER数据
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 void doorbell_audio_data_callback(uint8_t *data, uint32_t length)
 {
@@ -617,21 +634,21 @@ void doorbell_audio_data_callback(uint8_t *data, uint32_t length)
 
     ...
 }
-
 ```
 
+<a id="aec"></a>
 
-#### 5.3.4 AEC/降噪处理[](#aec "永久链接至标题")
+#### 5.3.4 AEC/降噪处理
 
-> 请参考 [AEC 调试](../../../audio_algorithms/aec/index.md "../../../audio_algorithms/aec/index.md")
+> 请参考 [AEC 调试](../../audio_algorithms/aec.md)
 
+<a id="id33"></a>
 
-#### 5.3.7 关闭UAC，板载MIC/SPEAKER[](#id33 "永久链接至标题")
-
+#### 5.3.7 关闭UAC，板载MIC/SPEAKER
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_audio_turn_off(void)
 {
@@ -646,24 +663,25 @@ int doorbell_audio_turn_off(void)
 
     ...
 }
-
 ```
 
+<a id="h264"></a>
 
-### 5.4 H264编解码[](#h264 "永久链接至标题")
+### 5.4 H264编解码
 
-> 请参考 [H264编码](../../../video_codec/h264_encoding/index.md "../../../video_codec/h264_encoding/index.md")
+> 请参考 [H264编码](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/h264_encoding/index.html)
 
+<a id="wifi"></a>
 
-### 5.5 WIFI传输[](#wifi "永久链接至标题")
+### 5.5 WIFI传输
 
+<a id="id35"></a>
 
-#### 5.5.1 设置WIFI网络数据传输回调[](#id35 "永久链接至标题")
-
+#### 5.5.1 设置WIFI网络数据传输回调
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_udp_service.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t doorbell_udp_service_init(void)
 {
@@ -695,16 +713,15 @@ typedef struct {
     //设置图像的数据格式
     pixel_format_t fmt;
 } media_transfer_cb_t;
-
 ```
 
+<a id="id36"></a>
 
-#### 5.5.1 获取H264图像数据[](#id36 "永久链接至标题")
-
+#### 5.5.1 获取H264图像数据
 
 ```
 //Path      ： components/wifi_transfer/src/wifi_transfer.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t bk_wifi_transfer_frame_open(const media_transfer_cb_t *cb)
 {
@@ -721,20 +738,19 @@ bk_err_t bk_wifi_transfer_frame_open(const media_transfer_cb_t *cb)
 
     ...
 }
-
 ```
 
 注意
 
-提高网络图像传输性能API详细介绍请参考 [Armino Wi-Fi音视频传输使用指南](https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/wifi/bk_wifi_multimedia.html "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/wifi/bk_wifi_multimedia.html")
+提高网络图像传输性能API详细介绍请参考 [Armino Wi-Fi音视频传输使用指南](../../../bk_idk/BK7258/developer-guide/wifi/bk_wifi_multimedia.md)
 
+<a id="id37"></a>
 
-#### 5.5.2 打开图像数据图传[](#id37 "永久链接至标题")
-
+#### 5.5.2 打开图像数据图传
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_video_transfer_turn_on(void)
 {
@@ -745,16 +761,15 @@ int doorbell_video_transfer_turn_on(void)
 
     ...
 }
-
 ```
 
+<a id="id38"></a>
 
-#### 5.5.2 关闭图像数据图传[](#id38 "永久链接至标题")
-
+#### 5.5.2 关闭图像数据图传
 
 ```
 //Path      ： projects/media/doorbell/main/src/doorbell_devices.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 int doorbell_video_transfer_turn_off(void)
 {
@@ -765,5 +780,4 @@ int doorbell_video_transfer_turn_off(void)
 
     ...
 }
-
 ```

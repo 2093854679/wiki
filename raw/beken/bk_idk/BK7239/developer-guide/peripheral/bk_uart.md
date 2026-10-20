@@ -1,14 +1,30 @@
-# UART 使用指南[](#uart "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/developer-guide/peripheral/bk_uart.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="uart"></a>
 
+# UART 使用指南
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 UART (Universal Asynchronous Receiver and Transmitter) 通用异步接收器/发送器，用来实现不同设备之间的全双工或半双工数据交换。
 
-![UART Connection](../../_images/uart.png)
+<a id="id8"></a>
+![UART Connection](../../../../_assets/7edb8f2619e4f4921232-uart.png)
 
-UART Connection[](#id8 "永久链接至图片")
+
+UART Connection
 
 上图为UART串口TTL电平硬件连接，其中：
 
@@ -16,14 +32,15 @@ UART Connection[](#id8 "永久链接至图片")
 > - RXD：用于接收数据，应连接到发送设备的 TXD 引脚上；
 > - GND：为双方提供一个相同的参考电平。
 
-BK7239 支持 3 个 UART (DL_UART0、UART1 和 UART2)，Armino 默认使用 DL_UART0 打印日志，可通过 Kconfig 进行更改。
+BK7239 支持 3 个 UART (DL\_UART0、UART1 和 UART2)，Armino 默认使用 DL\_UART0 打印日志，可通过 Kconfig 进行更改。
 
 备注
 
-安全启动使能时，默认 DL_UART0 用于非安全世界日志打印，UART1 用于安全世界日志打印。
+安全启动使能时，默认 DL\_UART0 用于非安全世界日志打印，UART1 用于安全世界日志打印。
 
+<a id="id2"></a>
 
-## UART配置[](#id2 "永久链接至标题")
+## UART配置
 
 为了使用 UART 进行数据传输，通常需要配置下述参数：
 
@@ -32,56 +49,64 @@ BK7239 支持 3 个 UART (DL_UART0、UART1 和 UART2)，Armino 默认使用 DL_U
 > - 校验位：用来校验数据传送的正确性，只能检错，不能纠错
 > - 停止位：用来表示当前数据传输完毕，为逻辑电平”1”
 
+<a id="id3"></a>
 
-## UART时序[](#id3 "永久链接至标题")
+## UART时序
 
-![UART Timing](../../_images/uart_data.png)
+<a id="id9"></a>
+![UART Timing](../../../../_assets/bc4af520d34a058afc08-uart_data.png)
 
-UART Timing[](#id9 "永久链接至图片")
 
-上图为 8位数据位+1位偶校验位+1位停止位 发送’A’(0x41) 的波形
+UART Timing
+
+上图为 8位数据位\+1位偶校验位\+1位停止位 发送’A’(0x41) 的波形
 ‘A’的二进制是01000001，小端传输，即低位（LSB）在前，高位（MSB）在后
 
 > - 空闲时，数据线上为高电平
 > - 起始位，当需要发送数据时，UART将改变TXD的状态，变为低电平，通常为1bit
-> - 数据位，发送方一位一位的改变数据线上的状态（高电平或低电平）将它们发送出去，先传bit[0]，其值为1；再发送bit[1]，其值为0，以此类推
-> - 校验位，偶校验：数据位 + 校验位 值为“1”的bit数为偶数，因此校验位为低电平
+> - 数据位，发送方一位一位的改变数据线上的状态（高电平或低电平）将它们发送出去，先传bit\[0\]，其值为1；再发送bit\[1\]，其值为0，以此类推
+> - 校验位，偶校验：数据位 \+ 校验位 值为“1”的bit数为偶数，因此校验位为低电平
 > - 停止位，因配置停止位为1bit，因此停止位为1bit高电平
 
+<a id="id4"></a>
 
-## UART 发包通路[](#id4 "永久链接至标题")
+## UART 发包通路
 
 发包通路如下：
 
-> - 应用程序可调用 bk_uart_write_bytes() 进行发包
+> - 应用程序可调用 bk\_uart\_write\_bytes() 进行发包
 > - UART 硬件发包
 
 备注
 
-当应用程序发包速率超过 UART 硬件发送速率时，bk_uart_write_bytes() 会等进行忙等待，这可能对 CPU 性能有一定影响。但在实际应用中，这通常不是问题。
+当应用程序发包速率超过 UART 硬件发送速率时，bk\_uart\_write\_bytes() 会等进行忙等待，这可能对 CPU 性能有一定影响。但在实际应用中，这通常不是问题。
+
+<a id="id5"></a>
+
+## UART 收包通路
+
+<a id="id10"></a>
+![UART Receive Data](../../../../_assets/4e2c02aaaa85a7a6d5a9-uart_recv.png)
 
 
-## UART 收包通路[](#id5 "永久链接至标题")
-
-![UART Receive Data](../../_images/uart_recv.png)
-
-UART Receive Data[](#id10 "永久链接至图片")
+UART Receive Data
 
 UART 收包通路如上图所示：
 
 > - UART 硬件收包：
 >   UART 硬件将包收到硬件 FIFO 中，当包的个数达到 RX Full Threshold 时，上报 UART RX 中断；当硬件在一段时间没有收到包时，上报 UART RX Finish 中断。
->   RX Full Threshold 可通过 bk_uart_set_rx_full_threshold() 来配置； 硬件判断 RX Finish 的时间长度可通过 bk_uart_set_rx_timeout() 配置。
+>   RX Full Threshold 可通过 bk\_uart\_set\_rx\_full\_threshold() 来配置； 硬件判断 RX Finish 的时间长度可通过 bk\_uart\_set\_rx\_timeout() 配置。
 > - UART 中断收包：
 >   当 UART RX 或者 UART RX Finish 中断产生时，软件进入 UART 中断处理函数。 UART 中断从硬件 FIFO 中读取数据，并放入 RX FIFO。如果此时有应用程序在等
 >   待数据，则唤醒应用程序进行收包。
 >   UART RX FIFO 的大小可通过 menuconfig 来配置。
 > - UART 应用收包：
->   当应用调用 bk_uart_read_bytes() 时，会从 UART RX FIFO 中读取数据，当 UART RX FIFO 中没有数据时，如果 timeout 设置为 0，则 bk_uart_read_bytes()
+>   当应用调用 bk\_uart\_read\_bytes() 时，会从 UART RX FIFO 中读取数据，当 UART RX FIFO 中没有数据时，如果 timeout 设置为 0，则 bk\_uart\_read\_bytes()
 >   立即返回，否则会等待，直到超时或者 UART RX FIFO 中收到新数据。
 
+<a id="id6"></a>
 
-### UART 收包流控[](#id6 "永久链接至标题")
+### UART 收包流控
 
 当 UART 中断从 UART HW FIFO 中取包速率小于 UART 硬件向 HW FIFO 中填包速率时，UART HW FIFO 会 Full。
 如果 UART 硬件流控使能，则 UART 硬件会通知发送方停止发包，否则会出现丢包。
@@ -94,15 +119,16 @@ UART 收包通路如上图所示：
 
 解决 SW FIFO Full 的另一个方案是中断停止从 HW FIFO 中取包，从而触发硬件收包流控，最终实现收包降速。ARMINO 未来可能会支持这种机制。
 
+<a id="id7"></a>
 
-## UART 应用场景[](#id7 "永久链接至标题")
+## UART 应用场景
 
 目前 UART 支持三种不同的应用方式：
 
 > - 使用默认 UART 中断处理流程：
->   使用默认的 bk_uart_write_bytes()/bk_uart_read_bytes 来处理 UART 收发包，收发包通路如 UART 收包通路一节所述，通常这种方式能满足大部分应用的需求。
+>   使用默认的 bk\_uart\_write\_bytes()/bk\_uart\_read\_bytes 来处理 UART 收发包，收发包通路如 UART 收包通路一节所述，通常这种方式能满足大部分应用的需求。
 > - 使用默认 UART 中断处理流程，同时注册用户 callback：
 >   同第一方式，唯一不同的点是，在产生 UART 中断之后，会调用用户注册的 callback。
 > - 完全由应用自己实现 UART 中断处理：
->   当默认的 UART 中断处理流程无法满足应用需求时，如应用的 UART 由第三方代码实现时，可以通过 bk_interrupt_register(xx, isr, arg) 替换默认的 UART 中断处理程序。
+>   当默认的 UART 中断处理流程无法满足应用需求时，如应用的 UART 由第三方代码实现时，可以通过 bk\_interrupt\_register(xx, isr, arg) 替换默认的 UART 中断处理程序。
 >   此时收发包过程完全由应用实现。

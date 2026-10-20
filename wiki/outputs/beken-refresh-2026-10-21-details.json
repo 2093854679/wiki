@@ -1,0 +1,1982 @@
+{
+  "summary": {
+    "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+    "roots": 37,
+    "pages": 3027,
+    "page_failures": 69,
+    "assets": 1997,
+    "asset_failures": 7,
+    "failed_local_links_restored_to_official_urls": 101,
+    "per_root": {
+      "bk_ai_smp-BK7258": 22,
+      "bk_ai_smp-BK7259": 21,
+      "bk_aidk-BK7258": 21,
+      "bk_arduino-BK7239N": 25,
+      "bk_audio-BK3298": 132,
+      "bk_avdk-BK7258": 104,
+      "bk_avdk_smp-BK7258": 36,
+      "bk_avdk_smp-BK7258-ap_doc": 330,
+      "bk_avdk_smp-BK7258-cp_doc": 116,
+      "bk_avdk_smp-BK7259": 49,
+      "bk_avdk_smp-BK7259-ap_doc": 403,
+      "bk_avdk_smp-BK7259-cp_doc": 160,
+      "bk_bluelink-BK7258": 15,
+      "bk_controller-BK7236": 26,
+      "bk_controller-BK7239N": 92,
+      "bk_dashboard-BK7258": 13,
+      "bk_dashboard-BK7259": 12,
+      "bk_doorbell-BK7258": 11,
+      "bk_doorbell-BK7259": 12,
+      "bk_findmy-BK3633": 16,
+      "bk_idk-BK7235": 168,
+      "bk_idk-BK7236": 234,
+      "bk_idk-BK7236N": 181,
+      "bk_idk-BK7239": 184,
+      "bk_idk-BK7256": 251,
+      "bk_idk-BK7258": 241,
+      "bk_ipc-BK7259": 12,
+      "bk_matter-BK7235-BK7236-BK7256-BK7258": 13,
+      "bk_mesh-BK7236": 18,
+      "bk_toolkit-audiodebugtool": 8,
+      "bk_toolkit-bkfil": 17,
+      "bk_toolkit-ide": 17,
+      "bk_toolkit-iotapp": 8,
+      "bk_toolkit-lvgluidesigner": 20,
+      "bk_toolkit-meshapp": 24,
+      "bk_toolkit-rf-test": 7,
+      "bk_toolkit-uidesigner": 8
+    },
+    "inventory_pages": 3008,
+    "inventory_pages_missing": 0,
+    "additional_link_title_repairs": 0,
+    "url_alias_groups": [
+      [
+        "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/developer-guide/apple&google_test_instruction/index.html",
+        "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/developer-guide/apple%26google_test_instruction/index.html"
+      ]
+    ],
+    "missing_anchor_page_fallbacks": 9,
+    "legacy_markdown_retained": 124,
+    "stale_manifest_entries_archived": 154,
+    "summaries_added": 12,
+    "summaries_updated": 6,
+    "summary_paths": [
+      {
+        "path": "summaries/bk/bk-ai-solution-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-arduino-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-armino-overview.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk-audio-bluek-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-avdk-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-bluelink-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-bootloader-ota.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk-controller-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-findmy-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-low-power.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk-matter-overview.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk-mesh-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-security-framework.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk-smp-product-solutions-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-toolkit-overview.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk-wifi-api-v2.md",
+        "new": false
+      },
+      {
+        "path": "summaries/bk/bk7258-smp-architecture.md",
+        "new": true
+      },
+      {
+        "path": "summaries/bk/bk7259-smp-architecture.md",
+        "new": true
+      }
+    ],
+    "concepts_added": 1,
+    "concepts_updated": 2,
+    "backup_dir": "C:\\Users\\48527\\.codex\\visualizations\\2026\\10\\20\\01a15a2a-40b3-79a1-9f1e-ba1ebda07ac1\\beken-refresh-2026-10-21\\backups"
+  },
+  "official_catalog": {
+    "source_home": "https://docs.bekencorp.com/",
+    "catalog_page": "https://docs.bekencorp.com/arminodoc/chipchoose/?dk=BK_IDK&lan=zh",
+    "catalog_script": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+    "verified_date": "2026-10-21",
+    "scope": "Official default Chinese routes with English-only fallback; deduplicate common Matter roots; versions are site defaults, not guessed latest.",
+    "family_count": 17,
+    "product_entry_count": 37,
+    "unique_root_count": 34,
+    "entries": [
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7235"
+        ],
+        "chip": "BK7235",
+        "product": "BK7235",
+        "url": "https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/",
+        "root_url": "https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/",
+          "en": "https://docs.bekencorp.com/armino/bk7235/en/v1.5/"
+        },
+        "version": "v1.5",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7236"
+        ],
+        "chip": "BK7236",
+        "product": "BK7236",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7236N"
+        ],
+        "chip": "BK7236N",
+        "product": "BK7236N",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/en/v2.2.1/"
+        },
+        "version": "v2.2.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7256"
+        ],
+        "chip": "BK7256",
+        "product": "BK7256",
+        "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/",
+        "root_url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/",
+          "en": "https://docs.bekencorp.com/armino/bk7256/en/v1.5/"
+        },
+        "version": "v1.5",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IDK",
+        "families": [
+          "BK_IDK"
+        ],
+        "products": [
+          "BK7239"
+        ],
+        "chip": "BK7239",
+        "product": "BK7239",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/en/v2.2.1/"
+        },
+        "version": "v2.2.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_AVDK",
+        "families": [
+          "BK_AVDK"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_AVDK_SMP",
+        "families": [
+          "BK_AVDK_SMP"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7258/zh_CN/v3.1.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7258/zh_CN/v3.1.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7258/zh_CN/v3.1.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7258/en/v3.1.1/"
+        },
+        "version": "v3.1.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_AVDK_SMP",
+        "families": [
+          "BK_AVDK_SMP"
+        ],
+        "products": [
+          "BK7259"
+        ],
+        "chip": "BK7259",
+        "product": "BK7259",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/en/v4.0.1/"
+        },
+        "version": "v4.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_FindMy",
+        "families": [
+          "BK_FindMy"
+        ],
+        "products": [
+          "BK3633"
+        ],
+        "chip": "BK3633",
+        "product": "BK3633",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_BLE",
+        "families": [
+          "BK_BLE"
+        ],
+        "products": [
+          "BK3633"
+        ],
+        "chip": "BK3633",
+        "product": "BK3633",
+        "url": "https://dl.bekencorp.com/files/bk3633",
+        "root_url": "https://dl.bekencorp.com/files/bk3633",
+        "language": "en",
+        "available_languages": [
+          "en"
+        ],
+        "language_urls": {
+          "en": "https://dl.bekencorp.com/files/bk3633"
+        },
+        "version": null,
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "official-download-directory"
+      },
+      {
+        "family": "BK_AIDK",
+        "families": [
+          "BK_AIDK"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_aidk/bk7258/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_aidk/bk7258/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_aidk/bk7258/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_aidk/bk7258/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_AI(SMP)",
+        "families": [
+          "BK_AI(SMP)"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/en/v3.1.1/"
+        },
+        "version": "v3.1.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_AI(SMP)",
+        "families": [
+          "BK_AI(SMP)"
+        ],
+        "products": [
+          "BK7259"
+        ],
+        "chip": "BK7259",
+        "product": "BK7259",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/en/v4.0.1/"
+        },
+        "version": "v4.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_MESH",
+        "families": [
+          "BK_MESH"
+        ],
+        "products": [
+          "BK7236"
+        ],
+        "chip": "BK7236",
+        "product": "BK7236",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_mesh/bk7236/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_mesh/bk7236/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_mesh/bk7236/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_mesh/bk7236/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "IoTApp"
+        ],
+        "chip": null,
+        "product": "IoTApp",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_app/app/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "IDE"
+        ],
+        "chip": null,
+        "product": "IDE",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_ide/ide/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_ide/ide/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_ide/ide/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_ide/ide/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "MeshApp"
+        ],
+        "chip": null,
+        "product": "MeshApp",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_mesh/app/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_mesh/app/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_mesh/app/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "RF Test"
+        ],
+        "chip": null,
+        "product": "RF Test",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/rftest/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/rftest/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/rftest/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "UIDesigner"
+        ],
+        "chip": null,
+        "product": "UIDesigner",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/ui_designer/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/ui_designer/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/ui_designer/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "AudioDebugTool"
+        ],
+        "chip": null,
+        "product": "AudioDebugTool",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/audio_debug_tool/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/audio_debug_tool/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/audio_debug_tool/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "BKFIL"
+        ],
+        "chip": null,
+        "product": "BKFIL",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/bkfil_v4/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/bkfil_v4/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/bkfil_v4/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_ToolKit",
+        "families": [
+          "BK_ToolKit"
+        ],
+        "products": [
+          "LvglUIDesigner"
+        ],
+        "chip": null,
+        "product": "LvglUIDesigner",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/index.html"
+        },
+        "version": null,
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "mkdocs-html"
+      },
+      {
+        "family": "BK_Audio",
+        "families": [
+          "BK_Audio"
+        ],
+        "products": [
+          "BK3298"
+        ],
+        "chip": "BK3298",
+        "product": "BK3298",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_audio/bk3298/zh_CN/latest/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_audio/bk3298/zh_CN/latest/",
+        "language": "zh",
+        "available_languages": [
+          "zh"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_audio/bk3298/zh_CN/latest/index.html"
+        },
+        "version": "latest",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Matter",
+        "families": [
+          "BK_Matter"
+        ],
+        "products": [
+          "BK7235",
+          "BK7236",
+          "BK7256",
+          "BK7258"
+        ],
+        "chip": "BK7235",
+        "product": "BK7235",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_matter/matter/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Dashboard",
+        "families": [
+          "BK_Dashboard"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7258/zh_CN/v3.1.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7258/zh_CN/v3.1.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7258/zh_CN/v3.1.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7258/en/v3.1.1/index.html"
+        },
+        "version": "v3.1.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Dashboard",
+        "families": [
+          "BK_Dashboard"
+        ],
+        "products": [
+          "BK7259"
+        ],
+        "chip": "BK7259",
+        "product": "BK7259",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7259/zh_CN/v4.0.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7259/zh_CN/v4.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7259/zh_CN/v4.0.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7259/en/v4.0.1/index.html"
+        },
+        "version": "v4.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_IPC",
+        "families": [
+          "BK_IPC"
+        ],
+        "products": [
+          "BK7259"
+        ],
+        "chip": "BK7259",
+        "product": "BK7259",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_ipc/bk7259/zh_CN/v4.0.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_ipc/bk7259/zh_CN/v4.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_ipc/bk7259/zh_CN/v4.0.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_ipc/bk7259/en/v4.0.1/index.html"
+        },
+        "version": "v4.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Controller",
+        "families": [
+          "BK_Controller"
+        ],
+        "products": [
+          "BK7236"
+        ],
+        "chip": "BK7236",
+        "product": "BK7236",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7236/zh_CN/v2.0.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7236/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7236/zh_CN/v2.0.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7236/en/v2.0.1/index.html"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Controller",
+        "families": [
+          "BK_Controller"
+        ],
+        "products": [
+          "BK7239N"
+        ],
+        "chip": "BK7239N",
+        "product": "BK7239N",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/zh_CN/v2.1.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/zh_CN/v2.1.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/zh_CN/v2.1.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/en/v2.1.1/index.html"
+        },
+        "version": "v2.1.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Bluelink",
+        "families": [
+          "BK_Bluelink"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_bluelink/bk7258/zh_CN/v2.0.1/",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_bluelink/bk7258/zh_CN/v2.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_bluelink/bk7258/zh_CN/v2.0.1/",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_bluelink/bk7258/en/v2.0.1/"
+        },
+        "version": "v2.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Arduino",
+        "families": [
+          "BK_Arduino"
+        ],
+        "products": [
+          "BK7239N"
+        ],
+        "chip": "BK7239N",
+        "product": "BK7239N",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/en/index.html"
+        },
+        "version": null,
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Doorbell",
+        "families": [
+          "BK_Doorbell"
+        ],
+        "products": [
+          "BK7258"
+        ],
+        "chip": "BK7258",
+        "product": "BK7258",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7258/zh_CN/v3.1.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7258/zh_CN/v3.1.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7258/zh_CN/v3.1.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7258/en/v3.1.1/index.html"
+        },
+        "version": "v3.1.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      },
+      {
+        "family": "BK_Doorbell",
+        "families": [
+          "BK_Doorbell"
+        ],
+        "products": [
+          "BK7259"
+        ],
+        "chip": "BK7259",
+        "product": "BK7259",
+        "url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7259/zh_CN/v4.0.1/index.html",
+        "root_url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7259/zh_CN/v4.0.1/",
+        "language": "zh",
+        "available_languages": [
+          "zh",
+          "en"
+        ],
+        "language_urls": {
+          "zh": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7259/zh_CN/v4.0.1/index.html",
+          "en": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7259/en/v4.0.1/index.html"
+        },
+        "version": "v4.0.1",
+        "source": "https://docs.bekencorp.com/arminodoc/chipchoose/assets/index-1a58e4e0.js",
+        "http_probe": {
+          "status": 200,
+          "challenge_detected": false,
+          "method": "normal requests GET; TLS validation enabled",
+          "checked_date": "2026-10-21"
+        },
+        "content_kind": "sphinx-html"
+      }
+    ],
+    "unpublished_families": [
+      "BK_AT",
+      "BK_HomeKit",
+      "BK_OTT",
+      "BK_Auto"
+    ],
+    "notes": [
+      "Homepage marks BK_AT/BK_HomeKit/BK_OTT/BK_Auto isReady=false. They have no chipInfo roots.",
+      "BK_BLE links to an external official download catalog, not Sphinx HTML.",
+      "BK_AVDK_SMP SMP root links to AP and CP roots, which must be traversed as additional document sets.",
+      "No all-version enumeration should be inferred from the root routing defaults.",
+      "Every catalog root returned HTTP 200 through normal GET without challenge bypass on 2026-10-21.",
+      "BK7236N and BK7239N chip fields normalized to retain N suffix.",
+      "LvglUIDesigner uses MkDocs-style static HTML; crawl links or search/search_index.json instead of assuming Sphinx searchindex.js.",
+      "Official BLE download page has no HTML anchor links and no script tags; retain catalog reference and inspect available public download data if required."
+    ],
+    "discovery_checks": {
+      "robots_txt": {
+        "status": 404,
+        "url": "https://docs.bekencorp.com/robots.txt"
+      },
+      "root_sitemap": {
+        "status": 200,
+        "url": "https://docs.bekencorp.com/sitemap.xml",
+        "usable": false,
+        "reason": "Only one <loc>None</loc> entry."
+      }
+    }
+  },
+  "unavailable_page_links": [
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/en/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/en/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_arduino-BK7239N"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/api-reference/nand_disk_note.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/api-reference/nand_disk_note.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_ai_smp-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/projects/beken_robot/ap/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/projects/beken_robot/ap/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_ai_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/doorbell/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/doorbell/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/chapters/en/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/chapters/en/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_arduino-BK7239N"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/projects/beken_robot/cp/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/projects/beken_robot/cp/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_ai_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/media/doorbell/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/media/doorbell/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/thirdparty/media/doorbell/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/thirdparty/media/doorbell/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/lvgl/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/lvgl/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/h264_encoding/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/h264_encoding/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk-BK7258"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multi_media/bk_jpegenc_sw.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multi_media/bk_jpegenc_sw.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/en/latest/kb/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/en/latest/kb/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/projects/api/en/v3.5.2/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/projects/api/en/v3.5.2/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/examples/developer-guide/display/lcd_devices.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/examples/developer-guide/display/lcd_devices.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/projects/bluetooth/bluetooth.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/projects/bluetooth/bluetooth.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/projects/peripheral/dvp/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/projects/peripheral/dvp/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/en/latest/kb/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/en/latest/kb/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-cp_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/projects/api/en/v3.5.2/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/developer-guide/security/mbed-tls.readthedocs.io/projects/api/en/v3.5.2/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-cp_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-cp_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/examples/peripheral/bk_timer.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/examples/peripheral/bk_timer.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-cp_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/projects/bluetooth/bluetooth.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/projects/bluetooth/bluetooth.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7258-cp_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/asr_service/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/asr_service/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/player_service/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/player_service/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/voice_service/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/api-reference/audio/voice_service/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/asr_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/asr_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/player_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/player_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/voice_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/examples/projects/voice_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/audio/player_service/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/audio/player_service/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_camera.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_camera.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_frame_buffer.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_frame_buffer.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_video_player.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_video_player.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_video_record.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_video_record.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_vpu.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/api-reference/multimedia/bk_vpu.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/audio/player_service/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/audio/player_service/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/mipi_csi.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/mipi_csi.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/uvc.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/camera/uvc.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/multimedia/video_file_playback.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/multimedia/video_file_playback.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/multimedia/video_file_recording.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/multimedia/video_file_recording.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/video_codec/h264_decoding_sw.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/video_codec/h264_decoding_sw.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/flexa_frame.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/flexa_frame.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/h264_encode.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/h264_encode.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/jpeg_decode.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/jpeg_decode.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/jpeg_encode.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/developer-guide/vpu/jpeg_encode.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/examples/projects/voice_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/examples/projects/voice_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/asr_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/asr_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/isp_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/isp_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/player_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/player_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/rgb_lcd_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/rgb_lcd_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/tflite_micro_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/tflite_micro_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/uvc_display_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/uvc_display_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/uvc_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/uvc_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/voice_service_example/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/examples/projects/voice_service_example/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/projects/bluetooth/bluetooth.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/projects/bluetooth/bluetooth.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/projects/peripheral/dvp/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/projects/peripheral/dvp/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_avdk_smp-BK7259-ap_doc"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7236"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/projects/bluetooth/bluetooth.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/projects/bluetooth/bluetooth.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7236N"
+    },
+    {
+      "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/developer-guide/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/developer-guide/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7256"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7239"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/projects/bluetooth/bluetooth.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/projects/bluetooth/bluetooth.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7239"
+    },
+    {
+      "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/api-reference/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/api-reference/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7256"
+    },
+    {
+      "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7256"
+    },
+    {
+      "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/projects_work/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/projects_work/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7256"
+    },
+    {
+      "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/examples/bluetooth/index.html",
+      "final_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/examples/bluetooth/index.html",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "root_id": "bk_idk-BK7258"
+    }
+  ],
+  "anchor_fallbacks": [
+    {
+      "source": "beken/bk_avdk_smp/BK7258/ap_doc/developer-guide/display/dma2d.md",
+      "original_target": "../../api-reference/multimedia/bk_dma2d.md#_CPPv415dma2d_fill_config_t",
+      "local_target": "../../api-reference/multimedia/bk_dma2d.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multimedia/bk_dma2d.html#_CPPv415dma2d_fill_config_t"
+    },
+    {
+      "source": "beken/bk_avdk_smp/BK7258/ap_doc/developer-guide/display/dma2d.md",
+      "original_target": "../../api-reference/multimedia/bk_dma2d.md#_CPPv415dma2d_memcpy_config_t",
+      "local_target": "../../api-reference/multimedia/bk_dma2d.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multimedia/bk_dma2d.html#_CPPv415dma2d_memcpy_config_t"
+    },
+    {
+      "source": "beken/bk_avdk_smp/BK7258/ap_doc/developer-guide/display/dma2d.md",
+      "original_target": "../../api-reference/multimedia/bk_dma2d.md#_CPPv415dma2d_pfc_memcpy_config_t",
+      "local_target": "../../api-reference/multimedia/bk_dma2d.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multimedia/bk_dma2d.html#_CPPv415dma2d_pfc_memcpy_config_t"
+    },
+    {
+      "source": "beken/bk_avdk_smp/BK7258/ap_doc/developer-guide/display/dma2d.md",
+      "original_target": "../../api-reference/multimedia/bk_dma2d.md#_CPPv415dma2d_blend_config_t",
+      "local_target": "../../api-reference/multimedia/bk_dma2d.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/api-reference/multimedia/bk_dma2d.html#_CPPv415dma2d_blend_config_t"
+    },
+    {
+      "source": "beken/bk_matter/get-started.md",
+      "original_target": "../bk_idk/BK7258/get-started.md#id3",
+      "local_target": "../bk_idk/BK7258/get-started.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/get-started/index.html#id3"
+    },
+    {
+      "source": "beken/bk_toolkit/lvgluidesigner/workspace-custom_character.md",
+      "original_target": "workspace-toolbar.md#资源管理器",
+      "local_target": "workspace-toolbar.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/workspace-toolbar.html#资源管理器"
+    },
+    {
+      "source": "beken/bk_toolkit/lvgluidesigner/workspace-custom_character.md",
+      "original_target": "workspace-toolbar.md#代码生成",
+      "local_target": "workspace-toolbar.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/workspace-toolbar.html#代码生成"
+    },
+    {
+      "source": "beken/bk_toolkit/lvgluidesigner/workspace-i18n.md",
+      "original_target": "workspace-toolbar.md#资源管理器",
+      "local_target": "workspace-toolbar.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/workspace-toolbar.html#资源管理器"
+    },
+    {
+      "source": "beken/bk_toolkit/lvgluidesigner/workspace-i18n.md",
+      "original_target": "workspace-toolbar.md#项目设置",
+      "local_target": "workspace-toolbar.md",
+      "official_url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/workspace-toolbar.html#项目设置"
+    }
+  ],
+  "validation": {
+    "published_page_hash_mismatches": [],
+    "new_Beken_wiki_broken_links": [],
+    "search_index_counts": [
+      [
+        "raw",
+        3134
+      ],
+      [
+        "wiki",
+        93
+      ]
+    ],
+    "current_official_pages_missing_from_search": [],
+    "historical_pages_in_default_search": []
+  },
+  "unavailable_assets": [
+    {
+      "url": "https://docs.bekencorp.com/_static/BK7239_Datasheet.pdf",
+      "final_url": "https://docs.bekencorp.com/_static/BK7239_Datasheet.pdf",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "path": "beken/_assets/f6986b2f4badaa45aa91-BK7239_Datasheet.pdf"
+    },
+    {
+      "url": "https://docs.bekencorp.com/_static/M39N_Datasheet.pdf",
+      "final_url": "https://docs.bekencorp.com/_static/M39N_Datasheet.pdf",
+      "status": 404,
+      "content_type": "text/html; charset=iso-8859-1",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 404",
+      "path": "beken/_assets/4755060839ed2a751697-M39N_Datasheet.pdf"
+    },
+    {
+      "url": "https://dl.bekencorp.com/tools/system_debug/稳定性问题软件分析.pdf",
+      "final_url": "https://dl.bekencorp.com/tools/system_debug/%E7%A8%B3%E5%AE%9A%E6%80%A7%E9%97%AE%E9%A2%98%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90.pdf",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "path": "beken/_assets/2fe4ef880ec244e48933-稳定性问题软件分析.pdf",
+      "error": "HTML returned for image/PDF; not published"
+    },
+    {
+      "url": "http://dl.bekencorp.com/d/bk7236/security/flaw_procedure/beken_flaw_reporting_procedure.pdf",
+      "final_url": "https://dl.bekencorp.com/d/bk7236/security/flaw_procedure/beken_flaw_reporting_procedure.pdf",
+      "status": 401,
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 401",
+      "path": "beken/_assets/55d78d1e0f511a54cafe-beken_flaw_reporting_procedure.pdf"
+    },
+    {
+      "url": "http://dl.bekencorp.com/d/bk7236n/security/flaw_procedure/beken_flaw_reporting_procedure.pdf",
+      "final_url": "https://dl.bekencorp.com/d/bk7236n/security/flaw_procedure/beken_flaw_reporting_procedure.pdf",
+      "status": 401,
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 401",
+      "path": "beken/_assets/eabb573c395db5769b36-beken_flaw_reporting_procedure.pdf"
+    },
+    {
+      "url": "https://dl.bekencorp.com/d/files/bk7239n/security/flaw_procedure/beken_ALC_flaw_reporting_procedure.pdf",
+      "final_url": "https://dl.bekencorp.com/d/files/bk7239n/security/flaw_procedure/beken_ALC_flaw_reporting_procedure.pdf",
+      "status": 401,
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "error": "HTTP 401",
+      "path": "beken/_assets/18c2448dc7872d1282f2-beken_ALC_flaw_reporting_procedure.pdf"
+    },
+    {
+      "url": "https://dl.bekencorp.com/tools/system_debug/稳定性问题软件分析_V1.1.pdf",
+      "final_url": "https://dl.bekencorp.com/tools/system_debug/%E7%A8%B3%E5%AE%9A%E6%80%A7%E9%97%AE%E9%A2%98%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90_V1.1.pdf",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-10-20T16:59:36.586772+00:00",
+      "path": "beken/_assets/ec767cb5fb4ee468d2e0-稳定性问题软件分析_V1.1.pdf",
+      "error": "HTML returned for image/PDF; not published"
+    }
+  ]
+}

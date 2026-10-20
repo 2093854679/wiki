@@ -1,0 +1,67 @@
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/security/bk_flash_aes.html
+sdk_family: bk_idk
+chip: BK7236
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="flash-aes-crc"></a>
+
+<a id="bk-security-flash-aes-crc"></a>
+
+# FLASH AES 加密与 CRC
+
+![8](../../../_assets/2dd03ded0e2ae15f4254-security_flash.svg)
+
+如上图所示，BK7236 FLASH 提供了两中访问接口：数据口与指令口：
+
+> - 数据口访问，即访问者（一般指 CPU）直接通过 SPI 接口访问 FLASH，使用的是 FLASH 物理地址。
+> - 指令口访问，访问者不直接访问 FLASH，而是经由 FLASH Controller 间接访问 FLASH。
+>
+> > - 读访问时，FLASH 控制器通过 SPI 读出 FLASH 中的原始数据，检验并去掉 CRC，然后使用 OTP 中 AES KEY 对数据解密，最后返回。
+> > - 写访问为读的逆操作，即先加密，再加 CRC，最后通过 SPI 将加 CRC/加密的数据写入 FLASH 中。
+
+备注
+
+注意通过指令口读数据时，如果 CRC 检验失败，则会重新偿试再次读取，直接 CRC 检验通过。因此，如果存放在 FLASH 中原始数据
+的 CRC 不对，则 CPU 永远无法读取成功，表示出卡死。
+
+通常，FLASH 指令口仅用在下述三种情况中：
+
+> - CPU 从 FLASH 取指。
+> - BL1/BL2 安全启动。
+> - OTA 升级。
+
+其他情况都应该走 FLASH 数据口访问 FLASH。
+
+<a id="id1"></a>
+
+## 虚拟地址与物理地址
+
+虚拟地址是指访问者使用的地址。物理地址是指的 SPI 访问 FLASH 的地址，也即 FLASH 自身的地址偏移。
+由于访问时 FLASH 控制器可能会对地址进行映射，因此虚拟地址可能与物理地址不同。
+
+当走数据口时，虚拟地址即为物理地址。走指令口时，虚拟地址与物理地址关系为：
+
+> physical\_addr \= (virtual\_addr/32)\*34
+
+例如，CPU 取指时会走指令口，当 CPU 从地址 0x1000 取指时，实际访问到的物理地址为 0x1100。
+
+<a id="id2"></a>
+
+## 配置
+
+要使用 FLASH AES 加密功能，需做下述配置：
+
+> - security.csv 中使能并配置 AES KEY，请参考 [安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security)。
+> - EFUSE 中使能 FLASH AES 功能，并将 KEY 部署到 OTP 中，请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse)。
+
+重要
+
+BK7236 暂不支持自动生成随机 FLASH AES KEY，需要用户手动配置 AES KEY，为确保存放在
+FLASH 中指令安全，您需要妥善保管好您的 FLASH AES KEY。

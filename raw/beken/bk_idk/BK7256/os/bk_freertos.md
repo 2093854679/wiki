@@ -1,8 +1,22 @@
-# FreeRTOS[](#freertos "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/os/bk_freertos.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="freertos"></a>
 
+# FreeRTOS
 
-## FreeRTOS简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## FreeRTOS简介
 
 > - FreeRTOS是一个迷你的实时操作系统内核。
 > - 作为一个轻量级的操作系统，功能包括：任务管理、时间管理、信号量、消息队列、内存管理、记录功能、软件定时器、协程等，可基本满足较小系统的需要
@@ -11,20 +25,22 @@
 > - github上最新的10.4 LTS版本是2020年12月发布的版本（FreeRTOSv202012.04-LTS），版本号：FreeRTOS Kernel V10.4.3 LTS Patch 2
 > - 目前Armino平台使用的是2021年7月发布的版本，比10.4 LTS版本稍新的Release版本（FreeRTOSv202107.00），版本号：FreeRTOS Kernel V10.4.4
 
+<a id="id2"></a>
 
-## FreeRTOS通用架构[](#id2 "永久链接至标题")
+## FreeRTOS通用架构
 
-![FreeRTOS Architecture](../_images/freertos_arch.png)
+<a id="id5"></a>
+![FreeRTOS Architecture](../../../_assets/7babb3db26b8e070e693-freertos_arch.png)
 
-FreeRTOS 架构[](#id5 "永久链接至图片")
 
+FreeRTOS 架构
 
-- 一个FreeRTOS 系统主要由BSP驱动+内核+组件组成（如上图）。内核包含多任务调度、内存管理、任务间通信的功能，组件包含网络协议、外设支持等。
-
+- 一个FreeRTOS 系统主要由BSP驱动\+内核\+组件组成（如上图）。内核包含多任务调度、内存管理、任务间通信的功能，组件包含网络协议、外设支持等。
 - FreeRTOS内核是可剪裁的，组件也是可选的。由于嵌入式应用往往对内存空间的要求十分苛刻，所以一个可剪裁的RTOS对于嵌入式应用非常重要。这使得FreeRTOS的核心代码只有9000行左右。
 
+<a id="id3"></a>
 
-## 功能和特点[](#id3 "永久链接至标题")
+## 功能和特点
 
 > - 用户可配置内核功能
 > - 多平台的支持
@@ -40,8 +56,9 @@ FreeRTOS 架构[](#id5 "永久链接至图片")
 > - 优先级继承
 > - 免费开源的源代码
 
+<a id="id4"></a>
 
-## FreeRTOS 小结[](#id4 "永久链接至标题")
+## FreeRTOS 小结
 
 > - 作为一个轻量级的操作系统，FreeRTOS提供的功能包括：任务管理、时间管理、信号量、消息队列、内存管理、记录功能等，可基本满足较小系统的需要。FreeRTOS内核支持优先级调度算法，每个任务可根据重要程度的不同被赋予一定的优先级，CPU总是让处于就绪态的、优先级最高的任务先运行。FreeRTOS内核同时支持轮换调度算法，系统允许不同的任务使用相同的优先级，在没有更高优先级任务就绪的情况下，同一优先级的任务共享CPU的使用时间。
 > - FreeRTOS的内核可根据用户需要设置为可剥夺型内核或不可剥夺型内核。当FreeRTOS被设置为可剥夺型内核时，处于就绪态的高优先级任务能剥夺低优先级任务的CPU使用权，这样可保证系统满足实时性的要求；当FreeRTOS被设置为不可剥夺型内核时，处于就绪态的高优先级任务只有等当前运行任务主动释放CPU的使用权后才能获得运行，这样可提高CPU的运行效率。

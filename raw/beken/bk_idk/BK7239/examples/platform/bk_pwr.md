@@ -1,31 +1,48 @@
-# power manager[](#power-manager "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/platform/bk_pwr.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="power-manager"></a>
 
+# power manager
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 支持平台power manager（normal sleep、low voltage 、deepsleep）。
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`components\bk_cli\cli_pwr.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 demo运行依赖的宏配置：
 
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_MCU_PS | support low power feature | `properties\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_MCU\_PS | support low power feature | `properties\soc\bk7239n\bk7239n.defconfig` | y |
 
 demo支持的命令如下：
 
+<a id="cmd-line-1"></a>
 
-### cmd line 1:[](#cmd-line-1 "永久链接至标题")
+### cmd line 1:
 
-> pm [sleep_mode] [wake_source] [vote1] [vote2] [vote3] [param1] [param2] [param3]
+> pm \[sleep\_mode\] \[wake\_source\] \[vote1\] \[vote2\] \[vote3\] \[param1\] \[param2\] \[param3\]
 >
 > > ```
 > > sleep_mode：代表休眠模式(参数范围：0-3): 0:normal sleep; 1:low voltage; 2:deep sleep;3:none
@@ -36,8 +53,9 @@ demo支持的命令如下：
 > > param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设置的时间1000000000（100s）,设置这么大的值为了使用BT模块内部模块设置的时间为准
 > > ```
 
+<a id="example-1-gpiodeepsleep"></a>
 
-#### EXAMPLE 1: 使用GPIO作为唤醒源来唤醒deepsleep设备[](#example-1-gpiodeepsleep "永久链接至标题")
+#### EXAMPLE 1: 使用GPIO作为唤醒源来唤醒deepsleep设备
 
 > 测试步骤：
 >
@@ -61,8 +79,9 @@ demo支持的命令如下：
 > > 3）deepsleep之后的功耗符合预期为15ua-20ua左右。
 > > ```
 
+<a id="example-2-rtcdeepsleep"></a>
 
-#### EXAMPLE 2: 使用RTC设置唤醒时间来唤醒deepsleep设备[](#example-2-rtcdeepsleep "永久链接至标题")
+#### EXAMPLE 2: 使用RTC设置唤醒时间来唤醒deepsleep设备
 
 > 测试步骤：
 >
@@ -82,8 +101,9 @@ demo支持的命令如下：
 > > 3）deepsleep之后的功耗符合预期为15ua-20ua左右。
 > > ```
 
+<a id="example-3-touch-deepsleep"></a>
 
-#### EXAMPLE 3:使用触摸(touch)作为唤醒源来唤醒deepsleep设备[](#example-3-touch-deepsleep "永久链接至标题")
+#### EXAMPLE 3:使用触摸(touch)作为唤醒源来唤醒deepsleep设备
 
 > 测试步骤：
 >
@@ -105,8 +125,9 @@ demo支持的命令如下：
 > > 3）deepsleep之后的功耗符合预期为15ua-20ua左右。
 > > ```
 
+<a id="example-4-gpio"></a>
 
-#### EXAMPLE 4: 使用GPIO来唤醒低压设备[](#example-4-gpio "永久链接至标题")
+#### EXAMPLE 4: 使用GPIO来唤醒低压设备
 
 > 测试步骤：
 >
@@ -130,8 +151,9 @@ demo支持的命令如下：
 > > 2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗。
 > > ```
 
+<a id="example-5-rtc"></a>
 
-#### EXAMPLE 5: 使用RTC作为唤醒源来唤醒低压设备[](#example-5-rtc "永久链接至标题")
+#### EXAMPLE 5: 使用RTC作为唤醒源来唤醒低压设备
 
 > 测试步骤：
 >
@@ -154,8 +176,9 @@ demo支持的命令如下：
 > > 2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗；
 > > ```
 
+<a id="example-6-touch"></a>
 
-#### EXAMPLE 6: 使用触摸(touch)来唤醒低压设备[](#example-6-touch "永久链接至标题")
+#### EXAMPLE 6: 使用触摸(touch)来唤醒低压设备
 
 > 测试步骤：
 >
@@ -177,10 +200,11 @@ demo支持的命令如下：
 > > 2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗;
 > > ```
 
+<a id="cmd-line-2"></a>
 
-### cmd line 2:[](#cmd-line-2 "永久链接至标题")
+### cmd line 2:
 
-> pm_vote [sleep_mode] [pm_vote] [pm_vote_value] [pm_sleep_time]
+> pm\_vote \[sleep\_mode\] \[pm\_vote\] \[pm\_vote\_value\] \[pm\_sleep\_time\]
 >
 > > ```
 > > sleep_mode：代表休眠模式(参数范围：0-3): 0:normal sleep; 1:low voltage; 2:deep sleep;3:none
@@ -189,8 +213,9 @@ demo支持的命令如下：
 > > pm_sleep_time：BT休眠时间，该参数对于发送命令是兼容接口，建议设置的时间1000000000（100s）,设置这么大的值为了使用BT模块内部模块设置的时间为准
 > > ```
 
+<a id="example-1-wifi"></a>
 
-#### EXAMPLE 1: 使用WIFI保活来唤醒低压设备[](#example-1-wifi "永久链接至标题")
+#### EXAMPLE 1: 使用WIFI保活来唤醒低压设备
 
 > 测试步骤：
 >

@@ -1,90 +1,85 @@
-# **PHY cli命令**[](#phy-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/cli/phy/phy_cli.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="phy-cli"></a>
+
+<a id="id1"></a>
+
+# **PHY cli命令**
 
 重要
 
-
 *本界面所有功能仅面向一些仍在使用cli命令操作PHY的用户使用*
 
+- [rfcali\_show\_data](#phy-rfcal) :显示校准信息
+- [tempd](#phy-temp) :获取当前芯片温度
+- [rxsens](#phy-rxsens) :WIFI射频接收测试命令
+- [txevm](#phy-txevm) :WIFI各信道发射测试命令
 
-- [rfcali_show_data](#phy-rfcal "#phy-rfcal") :显示校准信息
+<a id="rfcali-show-data"></a>
 
-- [tempd](#phy-temp "#phy-temp") :获取当前芯片温度
+<a id="phy-rfcal"></a>
 
-- [rxsens](#phy-rxsens "#phy-rxsens") :WIFI射频接收测试命令
-
-- [txevm](#phy-txevm "#phy-txevm") :WIFI各信道发射测试命令
-
-
-## [rfcali_show_data](#phy-cli "#phy-cli") **:显示校准信息**[](#rfcali-show-data "永久链接至标题")
-
+## [rfcali\_show\_data](#phy-cli) **:显示校准信息**
 
 **命令**
 
-
 ```
 rfcali_show_data
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
-
 
 **使用场景**
 
-
 ```
 rfcali_show_data: 输入这条命令，则开始显示板子的校准信息
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
+*本命令在CONFIG\_WIFI\_CLI\_ENABLE开启下生效*
 
-*本命令在CONFIG_WIFI_CLI_ENABLE开启下生效*
+<a id="tempd"></a>
 
+<a id="phy-temp"></a>
 
-## [tempd](#phy-cli "#phy-cli") **:获取当前芯片温度**[](#tempd "永久链接至标题")
-
+## [tempd](#phy-cli) **:获取当前芯片温度**
 
 **命令**
 
-
 ```
 tempd [stop]
-
 ```
-
 
 **参数**
 
-
 ```
 stop:停止温补
-
 ```
 
-
 **使用场景**
-
 
 ```
 1)  输入：tempd,返回当前温度
@@ -94,56 +89,43 @@ stop:停止温补
         current temperature is 581
 
 2)  输入: tempd stop 关闭温补
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
+*本命令在CONFIG\_WIFI\_CLI\_ENABLE开启下生效*
 
-*本命令在CONFIG_WIFI_CLI_ENABLE开启下生效*
+<a id="rxsens-wifi"></a>
 
+<a id="phy-rxsens"></a>
 
-## [rxsens](#phy-cli "#phy-cli") **:WIFI射频接收测试命令**[](#rxsens-wifi "永久链接至标题")
-
+## [rxsens](#phy-cli) **:WIFI射频接收测试命令**
 
 **命令**
 
-
 ```
 rxsens [-b] [-c] [-d]
-
 ```
-
 
 **参数**
 
-
 ```
-
 -d: Timer interval (单位:s)
-
 
 -c: Channel
 
-
 -b: Bandwidth 0:20M, 1:40M
-
 ```
 
-
 **使用场景**
-
 
 ```
 rxsens -e 1 进入接收测试模式
@@ -179,59 +161,45 @@ rxsens -g 1 得到20M带宽正确包(正确包数/1000,测试通过的要求：1
 rxsens -g 2 得到40M带宽正确包(正确包数/1000,测试通过的要求：>90%。)
 
 rxsens -e 0 退出接收模式
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
+*本命令在CONFIG\_WIFI\_CLI\_ENABLE开启下生效!*
 
-*本命令在CONFIG_WIFI_CLI_ENABLE开启下生效!*
+<a id="txevm-wifi"></a>
 
+<a id="phy-txevm"></a>
 
-## [txevm](#phy-cli "#phy-cli") **:WIFI各信道发射测试命令**[](#txevm-wifi "永久链接至标题")
-
+## [txevm](#phy-cli) **:WIFI各信道发射测试命令**
 
 **命令**
 
-
 ```
 txevm [-b] [-r] [-c] [-f]
-
 ```
-
 
 **参数**
 
-
 ```
-
 -b: Bandwidth 0:20M; 1:40M
-
 
 -r: Rate
 
-
 -c: Channel
 
-
 -f : 0x0: Non-HT; 0x1:Non-HT-DUP; 0x2: HT-MM;  0x3: HT-GF
-
 ```
 
-
 **使用场景**
-
 
 ```
 //11M功率测试
@@ -253,21 +221,16 @@ txevm -b 0 -r 135 -c 13 -f 2        65M信道13发射
 txevm -b 1 -r 135 -c 3 -f 2     135M信道3发射
 txevm -b 1 -r 135 -c 7 -f 2     135M信道7发射
 txevm -b 1 -r 135 -c 11 -f 2        135M信道11发射
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
-
-*本命令在CONFIG_WIFI_CLI_ENABLE开启下生效!*
+*本命令在CONFIG\_WIFI\_CLI\_ENABLE开启下生效!*

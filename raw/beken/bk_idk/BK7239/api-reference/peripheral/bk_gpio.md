@@ -1,4 +1,18 @@
-# GPIO[](#gpio "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/api-reference/peripheral/bk_gpio.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="gpio"></a>
+
+# GPIO
 
 Beken chip supports abundant GPIO pins, some GPIOs can’t be used by the application:
 
@@ -6,73 +20,75 @@ Beken chip supports abundant GPIO pins, some GPIOs can’t be used by the applic
 > - Some GPIOs may be used by specific peripheral device, the application can’t use the GPIOs used by that device if the device is enabled by software. E.g. in BK7239, the SPI-1 can use GPIO 2/3/4/5, the application can’t use GPIO 2/3/4/5 if SPI-1 is enabled by the software, the application can still use GPIO 2/3/4/5 if the SPI-1 is disabled by software.
 > - Some GPIO groups may be used by specific peripheral device, the application can’t use that GPIO group if the device chooses that GPIO group and the device is enabled by software. E.g. SPI-3 can use GPIO 30/31/32/33 or GPIO GPIO 36/37/38/39, if the software enable the SPI-3 and configure it to use the first GPIO group (GPIO 30/31/32/33), the application can’t use GPIO 30/31/32/33, but the application can still use 2nd GPIO group (GPIO 36/37/38/39) if they are not used by other devices. The application can use both group if SPI-3 is NOT enabled and other devices also don’t use them.
 
-If the GPIOs are already used by the periperal devices, the GPIO API, such as [`bk_gpio_set_config()`](#_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t "bk_gpio_set_config") will return GPIO_ERR_INTERNAL_USED.
+If the GPIOs are already used by the periperal devices, the GPIO API, such as [`bk_gpio_set_config()`](#_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t "bk_gpio_set_config") will return GPIO\_ERR\_INTERNAL\_USED.
 
 Generally speaking, the GPIO user can take following steps to use the GPIO:
 
 > - Read the chip hardware datasheet to gain overview about how the peripheral use the GPIOs
 > - Check the enabled peripheral device in your application and find out the GPIOs used by the devices
-> - Always check the return value of GPIO API, make sure it’s not GPIO_ERR_INTERNAL_USED
+> - Always check the return value of GPIO API, make sure it’s not GPIO\_ERR\_INTERNAL\_USED
 
 备注
 
 If peripheral is enabled after the application configure it’s GPIO, we have no way to detect the GPIO conflict between the application and peripheral usage, the application need to pay attention to it.
 
+<a id="gpio-map-config"></a>
 
-## GPIO MAP Config[](#gpio-map-config "永久链接至标题")
+## GPIO MAP Config
 
-> gpio_map.h
+> gpio\_map.h
 >
-> GPIO is configured according to the MAP(GPIO_DEFAULT_DEV_CONFIG) during driver initialization. Each row in the map contains nine elements.
+> GPIO is configured according to the MAP(GPIO\_DEFAULT\_DEV\_CONFIG) during driver initialization. Each row in the map contains nine elements.
 > The 9 elements are as follows:
 >
-> > - gpio_id:Corresponding PIN number starting from 0
-> > - second_func_en:Whether to enable the secondary function
-> > - second_func_dev:Select the second function of the PIN
-> > - io_mode:Select the IO operating mode, inputoutputhigh resistance
-> > - pull_mode:Select IO level pull up or pull down
-> > - int_en:Whether to turn on interrupt
-> > - int_type:Select trigger interrupt condition, high/low/rise/fall
-> > - low_power_io_ctrl:Low power whether to maintain the output level
-> > - driver_capacity:Driver ability selection, a total of four levels
+> > - gpio\_id:Corresponding PIN number starting from 0
+> > - second\_func\_en:Whether to enable the secondary function
+> > - second\_func\_dev:Select the second function of the PIN
+> > - io\_mode:Select the IO operating mode, inputoutputhigh resistance
+> > - pull\_mode:Select IO level pull up or pull down
+> > - int\_en:Whether to turn on interrupt
+> > - int\_type:Select trigger interrupt condition, high/low/rise/fall
+> > - low\_power\_io\_ctrl:Low power whether to maintain the output level
+> > - driver\_capacity:Driver ability selection, a total of four levels
 
 备注
 
-gpio_map.h must be configured. GPIO configuration varies with product types.
+gpio\_map.h must be configured. GPIO configuration varies with product types.
 
 Example:
 
-Configure GPIO_0 to function [GPIO_DEV_I2C1_SCL] and GPIO_1 to function [GPIO_DEV_I2C1_SDA]:
-:   | gpio_id | second_func_en | second_func_dev | io_mode | pull_mode | int_en | int_type | low_power_io_ctrl | driver_capacity |
+Configure GPIO\_0 to function \[GPIO\_DEV\_I2C1\_SCL\] and GPIO\_1 to function \[GPIO\_DEV\_I2C1\_SDA\]:
+:   | gpio\_id | second\_func\_en | second\_func\_dev | io\_mode | pull\_mode | int\_en | int\_type | low\_power\_io\_ctrl | driver\_capacity |
     | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | GPIO_0 | GPIO_SECOND_FUNC_ENABLE | GPIO_DEV_I2C1_SCL | GPIO_IO_DISABLE | GPIO_PULL_DISABLE | GPIO_INT_DISABLE | GPIO_INT_TYPE_LOW_LEVEL | GPIO_LOW_POWER_DISCARD_IO_STATUS | GPIO_DRIVER_CAPACITY_3 |
-    | GPIO_1 | GPIO_SECOND_FUNC_ENABLE | GPIO_DEV_I2C1_SDA | GPIO_IO_DISABLE | GPIO_PULL_DISABLE | GPIO_INT_DISABLE | GPIO_INT_TYPE_LOW_LEVEL | GPIO_LOW_POWER_DISCARD_IO_STATUS | GPIO_DRIVER_CAPACITY_3 |
+    | GPIO\_0 | GPIO\_SECOND\_FUNC\_ENABLE | GPIO\_DEV\_I2C1\_SCL | GPIO\_IO\_DISABLE | GPIO\_PULL\_DISABLE | GPIO\_INT\_DISABLE | GPIO\_INT\_TYPE\_LOW\_LEVEL | GPIO\_LOW\_POWER\_DISCARD\_IO\_STATUS | GPIO\_DRIVER\_CAPACITY\_3 |
+    | GPIO\_1 | GPIO\_SECOND\_FUNC\_ENABLE | GPIO\_DEV\_I2C1\_SDA | GPIO\_IO\_DISABLE | GPIO\_PULL\_DISABLE | GPIO\_INT\_DISABLE | GPIO\_INT\_TYPE\_LOW\_LEVEL | GPIO\_LOW\_POWER\_DISCARD\_IO\_STATUS | GPIO\_DRIVER\_CAPACITY\_3 |
 
-    > - PS:GPIO is turned off by default when the second function is used (io_mode is [GPIO_IO_DISABLE]). I2C needs more driving capability (driver_capacity is [GPIO_DRIVER_CAPACITY_3]).
+    > - PS:GPIO is turned off by default when the second function is used (io\_mode is \[GPIO\_IO\_DISABLE\]). I2C needs more driving capability (driver\_capacity is \[GPIO\_DRIVER\_CAPACITY\_3\]).
 
-GPIO_0 is set to high resistance(Default state):
-:   | gpio_id | second_func_en | second_func_dev | io_mode | pull_mode | int_en | int_type | low_power_io_ctrl | driver_capacity |
+GPIO\_0 is set to high resistance(Default state):
+:   | gpio\_id | second\_func\_en | second\_func\_dev | io\_mode | pull\_mode | int\_en | int\_type | low\_power\_io\_ctrl | driver\_capacity |
     | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | GPIO_0 | GPIO_SECOND_FUNC_DISABLE | GPIO_DEV_INVALID | GPIO_IO_DISABLE | GPIO_PULL_DISABLE | GPIO_INT_DISABLE | GPIO_INT_TYPE_LOW_LEVEL | GPIO_LOW_POWER_DISCARD_IO_STATUS | GPIO_DRIVER_CAPACITY_0 |
+    | GPIO\_0 | GPIO\_SECOND\_FUNC\_DISABLE | GPIO\_DEV\_INVALID | GPIO\_IO\_DISABLE | GPIO\_PULL\_DISABLE | GPIO\_INT\_DISABLE | GPIO\_INT\_TYPE\_LOW\_LEVEL | GPIO\_LOW\_POWER\_DISCARD\_IO\_STATUS | GPIO\_DRIVER\_CAPACITY\_0 |
 
     > - PS:Disable all config
 
-GPIO_0 is set to input key and falling edge to trigger the interrupt:
-:   | gpio_id | second_func_en | second_func_dev | io_mode | pull_mode | int_en | int_type | low_power_io_ctrl | driver_capacity |
+GPIO\_0 is set to input key and falling edge to trigger the interrupt:
+:   | gpio\_id | second\_func\_en | second\_func\_dev | io\_mode | pull\_mode | int\_en | int\_type | low\_power\_io\_ctrl | driver\_capacity |
     | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | GPIO_0 | GPIO_SECOND_FUNC_DISABLE | GPIO_DEV_INVALID | GPIO_INPUT_ENABLE | GPIO_PULL_UP_EN | GPIO_INT_ENABLE | GPIO_INT_TYPE_FALLING_EDGE | GPIO_LOW_POWER_DISCARD_IO_STATUS | GPIO_DRIVER_CAPACITY_0 |
+    | GPIO\_0 | GPIO\_SECOND\_FUNC\_DISABLE | GPIO\_DEV\_INVALID | GPIO\_INPUT\_ENABLE | GPIO\_PULL\_UP\_EN | GPIO\_INT\_ENABLE | GPIO\_INT\_TYPE\_FALLING\_EDGE | GPIO\_LOW\_POWER\_DISCARD\_IO\_STATUS | GPIO\_DRIVER\_CAPACITY\_0 |
 
-    > - PS:Turn off the second function related. There are 4 interrupt trigger conditions:[GPIO_INT_TYPE_LOW_LEVEL],[GPIO_INT_TYPE_HIGH_LEVEL],[GPIO_INT_TYPE_RISING_EDGE],[GPIO_INT_TYPE_FALLING_EDGE].
+    > - PS:Turn off the second function related. There are 4 interrupt trigger conditions:\[GPIO\_INT\_TYPE\_LOW\_LEVEL\],\[GPIO\_INT\_TYPE\_HIGH\_LEVEL\],\[GPIO\_INT\_TYPE\_RISING\_EDGE\],\[GPIO\_INT\_TYPE\_FALLING\_EDGE\].
 
-GPIO_0 acts as a low power wake-up source:
-:   | gpio_id | second_func_en | second_func_dev | io_mode | pull_mode | int_en | int_type | low_power_io_ctrl | driver_capacity |
+GPIO\_0 acts as a low power wake-up source:
+:   | gpio\_id | second\_func\_en | second\_func\_dev | io\_mode | pull\_mode | int\_en | int\_type | low\_power\_io\_ctrl | driver\_capacity |
     | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | GPIO_0 | GPIO_SECOND_FUNC_DISABLE | GPIO_DEV_INVALID | GPIO_INPUT_ENABLE | GPIO_PULL_UP_EN | GPIO_INT_ENABLE | GPIO_INT_TYPE_FALLING_EDGE | GPIO_LOW_POWER_DISCARD_IO_STATUS | GPIO_DRIVER_CAPACITY_0 |
+    | GPIO\_0 | GPIO\_SECOND\_FUNC\_DISABLE | GPIO\_DEV\_INVALID | GPIO\_INPUT\_ENABLE | GPIO\_PULL\_UP\_EN | GPIO\_INT\_ENABLE | GPIO\_INT\_TYPE\_FALLING\_EDGE | GPIO\_LOW\_POWER\_DISCARD\_IO\_STATUS | GPIO\_DRIVER\_CAPACITY\_0 |
 
-    > - PS:low_power_io_ctrl is [GPIO_LOW_POWER_KEEP_INPUT_STATUS], int_type is [GPIO_INT_TYPE_RISING_EDGE] or [GPIO_INT_TYPE_FALLING_EDGE];
+    > - PS:low\_power\_io\_ctrl is \[GPIO\_LOW\_POWER\_KEEP\_INPUT\_STATUS\], int\_type is \[GPIO\_INT\_TYPE\_RISING\_EDGE\] or \[GPIO\_INT\_TYPE\_FALLING\_EDGE\];
 
+<a id="gpio-api-status"></a>
 
-## GPIO API Status[](#gpio-api-status "永久链接至标题")
+## GPIO API Status
 
 | API | BK7239 |
 | --- | --- |
@@ -95,411 +111,464 @@ GPIO_0 acts as a low power wake-up source:
 | [`bk_gpio_disable_interrupt()`](#_CPPv425bk_gpio_disable_interrupt9gpio_id_t "bk_gpio_disable_interrupt") | Y |
 | [`bk_gpio_set_interrupt_type()`](#_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t "bk_gpio_set_interrupt_type") | Y |
 
+<a id="application-example"></a>
 
-## Application Example[](#application-example "永久链接至标题")
+## Application Example
 
 DEMO1:
-:   GPIO_0 as wake-up source for DeepSleep or LowPower, pseudo code description and interpretation.
+:   GPIO\_0 as wake-up source for DeepSleep or LowPower, pseudo code description and interpretation.
 
-![GPIO](../../_images/GPIO_Lowpower_Deepsleep.png)
-
-Figure 1. GPIO as wake-up source for DeepSleep or LowPower[](#id2 "永久链接至图片")
-
-
-## GPIO API Reference[](#gpio-api-reference "永久链接至标题")
+<a id="id2"></a>
+![GPIO](../../../../_assets/231c5785a21f37f7c096-GPIO_Lowpower_Deepsleep.png)
 
 
-### Header File[](#header-file "永久链接至标题")
+Figure 1\. GPIO as wake-up source for DeepSleep or LowPower
 
+<a id="gpio-api-reference"></a>
 
-- [gpio.h](https://github.com/bekencorp/armino/blob/main/components/gpio.h "https://github.com/bekencorp/armino/blob/main/components/gpio.h")
+## GPIO API Reference
 
+<a id="header-file"></a>
 
-### Functions[](#functions "永久链接至标题")
+### Header File
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_init(void)[](#_CPPv419bk_gpio_driver_initv "永久链接至目标")
+- [gpio.h](https://github.com/bekencorp/armino/blob/main/components/gpio.h)
+
+<a id="functions"></a>
+
+### Functions
+
+<a id="_CPPv419bk_gpio_driver_initv"></a>
+
+<a id="_CPPv319bk_gpio_driver_initv"></a> <a id="_CPPv219bk_gpio_driver_initv"></a> <a id="bk_gpio_driver_init__void"></a> <a id="group__bk__api__gpio_1gacae1346ccd48c98d892fe82d0473cfde"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_driver\_init(void)
 :   Init the GPIO driver.
 
     This API init the resoure common to all GPIO channels:
-
 
     - Init GPIO driver control memory
 
     This API should be called before any other GPIO APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_driver_deinit(void)[](#_CPPv421bk_gpio_driver_deinitv "永久链接至目标")
+<a id="_CPPv421bk_gpio_driver_deinitv"></a>
+
+<a id="_CPPv321bk_gpio_driver_deinitv"></a> <a id="_CPPv221bk_gpio_driver_deinitv"></a> <a id="bk_gpio_driver_deinit__void"></a> <a id="group__bk__api__gpio_1ga1f1b3f85bc530c7bd4179fdcc3fb5868"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_driver\_deinit(void)
 :   Deinit the GPIO driver.
 
     This API free all resource related to GPIO and power down all GPIO channels.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-void bk_gpio_set_value(gpio_id_t id, uint32_t v)[](#_CPPv417bk_gpio_set_value9gpio_id_t8uint32_t "永久链接至目标")
+<a id="_CPPv417bk_gpio_set_value9gpio_id_t8uint32_t"></a>
+
+<a id="_CPPv317bk_gpio_set_value9gpio_id_t8uint32_t"></a> <a id="_CPPv217bk_gpio_set_value9gpio_id_t8uint32_t"></a> <a id="bk_gpio_set_value__gpio_id_t.uint32_t"></a> <a id="group__bk__api__gpio_1gafca019ef63ca760b3764e97462c0585b"></a> void bk\_gpio\_set\_value(gpio\_id\_t id, uint32\_t v)
 :   Direct set GPIO config value.
 
-    @NOTES Please be care to use this API,unless you know the detail mean, because it will set the GPIO config value. Sometimes the special GPIO needs to re-used by one more owner, after the second owner re-used it, it should restore the config value. Before re-use a GPIO, the owner can call bk_gpio_get_value and bakup it, after re-used finish, it call bk_gpio_set_value to restore the prevous value.
+    @NOTES Please be care to use this API,unless you know the detail mean, because it will set the GPIO config value. Sometimes the special GPIO needs to re-used by one more owner, after the second owner re-used it, it should restore the config value. Before re-use a GPIO, the owner can call bk\_gpio\_get\_value and bakup it, after re-used finish, it call bk\_gpio\_set\_value to restore the prevous value.
 
-uint32_t bk_gpio_get_value(gpio_id_t id)[](#_CPPv417bk_gpio_get_value9gpio_id_t "永久链接至目标")
+<a id="_CPPv417bk_gpio_get_value9gpio_id_t"></a>
+
+<a id="_CPPv317bk_gpio_get_value9gpio_id_t"></a> <a id="_CPPv217bk_gpio_get_value9gpio_id_t"></a> <a id="bk_gpio_get_value__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga21130dd4b1f24b16e8526226438f9b31"></a> uint32\_t bk\_gpio\_get\_value(gpio\_id\_t id)
 :   get GPIO config value.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_output(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_enable_output9gpio_id_t "永久链接至目标")
+<a id="_CPPv421bk_gpio_enable_output9gpio_id_t"></a>
+
+<a id="_CPPv321bk_gpio_enable_output9gpio_id_t"></a> <a id="_CPPv221bk_gpio_enable_output9gpio_id_t"></a> <a id="bk_gpio_enable_output__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga2973cb2479aaf6bbfe2efebd84d3985d"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_enable\_output(gpio\_id\_t gpio\_id)
 :   enable GPIO output mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_output(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_disable_output9gpio_id_t "永久链接至目标")
+<a id="_CPPv422bk_gpio_disable_output9gpio_id_t"></a>
+
+<a id="_CPPv322bk_gpio_disable_output9gpio_id_t"></a> <a id="_CPPv222bk_gpio_disable_output9gpio_id_t"></a> <a id="bk_gpio_disable_output__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga2e177c4285dd8673b446bcd15db92126"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_disable\_output(gpio\_id\_t gpio\_id)
 :   disable GPIO output mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_input(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_enable_input9gpio_id_t "永久链接至目标")
+<a id="_CPPv420bk_gpio_enable_input9gpio_id_t"></a>
+
+<a id="_CPPv320bk_gpio_enable_input9gpio_id_t"></a> <a id="_CPPv220bk_gpio_enable_input9gpio_id_t"></a> <a id="bk_gpio_enable_input__gpio_id_t"></a> <a id="group__bk__api__gpio_1gaf9acdf13c743f920174bbb103f108ac7"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_enable\_input(gpio\_id\_t gpio\_id)
 :   enable GPIO input mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_input(gpio_id_t gpio_id)[](#_CPPv421bk_gpio_disable_input9gpio_id_t "永久链接至目标")
+<a id="_CPPv421bk_gpio_disable_input9gpio_id_t"></a>
+
+<a id="_CPPv321bk_gpio_disable_input9gpio_id_t"></a> <a id="_CPPv221bk_gpio_disable_input9gpio_id_t"></a> <a id="bk_gpio_disable_input__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga200faf135f7d18061fc1c4057bd48b6f"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_disable\_input(gpio\_id\_t gpio\_id)
 :   disable GPIO input mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_pull(gpio_id_t gpio_id)[](#_CPPv419bk_gpio_enable_pull9gpio_id_t "永久链接至目标")
+<a id="_CPPv419bk_gpio_enable_pull9gpio_id_t"></a>
+
+<a id="_CPPv319bk_gpio_enable_pull9gpio_id_t"></a> <a id="_CPPv219bk_gpio_enable_pull9gpio_id_t"></a> <a id="bk_gpio_enable_pull__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga231a1940364f61c699d2d4fba643a743"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_enable\_pull(gpio\_id\_t gpio\_id)
 :   enable GPIO pull mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_pull(gpio_id_t gpio_id)[](#_CPPv420bk_gpio_disable_pull9gpio_id_t "永久链接至目标")
+<a id="_CPPv420bk_gpio_disable_pull9gpio_id_t"></a>
+
+<a id="_CPPv320bk_gpio_disable_pull9gpio_id_t"></a> <a id="_CPPv220bk_gpio_disable_pull9gpio_id_t"></a> <a id="bk_gpio_disable_pull__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga044f2ca367852a0ae8f85f9440db08f8"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_disable\_pull(gpio\_id\_t gpio\_id)
 :   disable gpio pull mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_up(gpio_id_t gpio_id)[](#_CPPv415bk_gpio_pull_up9gpio_id_t "永久链接至目标")
+<a id="_CPPv415bk_gpio_pull_up9gpio_id_t"></a>
+
+<a id="_CPPv315bk_gpio_pull_up9gpio_id_t"></a> <a id="_CPPv215bk_gpio_pull_up9gpio_id_t"></a> <a id="bk_gpio_pull_up__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga8d974991d0a7d561eda8bd14c9bfc3b5"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_pull\_up(gpio\_id\_t gpio\_id)
 :   set GPIO as pull up mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_pull_down(gpio_id_t gpio_id)[](#_CPPv417bk_gpio_pull_down9gpio_id_t "永久链接至目标")
+<a id="_CPPv417bk_gpio_pull_down9gpio_id_t"></a>
+
+<a id="_CPPv317bk_gpio_pull_down9gpio_id_t"></a> <a id="_CPPv217bk_gpio_pull_down9gpio_id_t"></a> <a id="bk_gpio_pull_down__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga206cf499bae8f2d5b7057f8d3f3f21fe"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_pull\_down(gpio\_id\_t gpio\_id)
 :   set GPIO as pull down mode
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_config(gpio_id_t gpio_id, const gpio_config_t *config)[](#_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t "永久链接至目标")
+<a id="_CPPv418bk_gpio_set_config9gpio_id_tPK13gpio_config_t"></a>
+
+<a id="_CPPv318bk_gpio_set_config9gpio_id_tPK13gpio_config_t"></a> <a id="_CPPv218bk_gpio_set_config9gpio_id_tPK13gpio_config_t"></a> <a id="bk_gpio_set_config__gpio_id_t.gpio_config_tCP"></a> <a id="group__bk__api__gpio_1gabc229ebbc3ae486f8538789a61491bc7"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_set\_config(gpio\_id\_t gpio\_id, const gpio\_config\_t \*config)
 :   Config the GPIO mode.
 
     This API config GPIO’s mode
 
-
-    - BK_OK: succeed
-
-    - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-    - BK_ERR_GPIO_INVALID_MODE: invalid GPIO’s io_mode/pull_mode
-
-    - BK_ERR_GPIO_INTERNAL_USED:GPIO was map to another device
-
+    - BK\_OK: succeed
+    - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+    - BK\_ERR\_GPIO\_INVALID\_MODE: invalid GPIO’s io\_mode/pull\_mode
+    - BK\_ERR\_GPIO\_INTERNAL\_USED:GPIO was map to another device
     - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_high(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_set_output_high9gpio_id_t "永久链接至目标")
+<a id="_CPPv423bk_gpio_set_output_high9gpio_id_t"></a>
+
+<a id="_CPPv323bk_gpio_set_output_high9gpio_id_t"></a> <a id="_CPPv223bk_gpio_set_output_high9gpio_id_t"></a> <a id="bk_gpio_set_output_high__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga6813699d36a76f6ed87e72c6f90a0592"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_set\_output\_high(gpio\_id\_t gpio\_id)
 :   Set the GPIO output high,.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_OUTPUT_MODE:GPIO not in output mode
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_OUTPUT\_MODE:GPIO not in output mode
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_output_low(gpio_id_t gpio_id)[](#_CPPv422bk_gpio_set_output_low9gpio_id_t "永久链接至目标")
+<a id="_CPPv422bk_gpio_set_output_low9gpio_id_t"></a>
+
+<a id="_CPPv322bk_gpio_set_output_low9gpio_id_t"></a> <a id="_CPPv222bk_gpio_set_output_low9gpio_id_t"></a> <a id="bk_gpio_set_output_low__gpio_id_t"></a> <a id="group__bk__api__gpio_1gad53b1f39990fd6d6d051b75b0424dd9c"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_set\_output\_low(gpio\_id\_t gpio\_id)
 :   Set the GPIO output low,.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_OUTPUT_MODE:GPIO not in output mode
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_OUTPUT\_MODE:GPIO not in output mode
         - others: other errors.
 
-bool bk_gpio_get_input(gpio_id_t gpio_id)[](#_CPPv417bk_gpio_get_input9gpio_id_t "永久链接至目标")
+<a id="_CPPv417bk_gpio_get_input9gpio_id_t"></a>
+
+<a id="_CPPv317bk_gpio_get_input9gpio_id_t"></a> <a id="_CPPv217bk_gpio_get_input9gpio_id_t"></a> <a id="bk_gpio_get_input__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga71b4f9272a2c8bc27d906f2de602bce2"></a> bool bk\_gpio\_get\_input(gpio\_id\_t gpio\_id)
 :   Get the GPIO input value,.
 
-    This API get GPIO’s input level: 0 :low_level 1:high_level.
+    This API get GPIO’s input level: 0 :low\_level 1:high\_level.
 
     返回
     :   - input value
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_INPUT_MODE : GPIO is not input mode
-
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_INPUT\_MODE : GPIO is not input mode
         - others: other errors.
 
-bool bk_gpio_get_output(gpio_id_t gpio_id)[](#_CPPv418bk_gpio_get_output9gpio_id_t "永久链接至目标")
+<a id="_CPPv418bk_gpio_get_output9gpio_id_t"></a>
+
+<a id="_CPPv318bk_gpio_get_output9gpio_id_t"></a> <a id="_CPPv218bk_gpio_get_output9gpio_id_t"></a> <a id="bk_gpio_get_output__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga7f0727891df79177a60026077b694db8"></a> bool bk\_gpio\_get\_output(gpio\_id\_t gpio\_id)
 :   Get the GPIO output value,.
 
-    This API get GPIO’s output level: 0 :low_level 1:high_level.
+    This API get GPIO’s output level: 0 :low\_level 1:high\_level.
 
     返回
     :   - output value
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_INPUT_MODE : GPIO is not input mode
-
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_INPUT\_MODE : GPIO is not input mode
         - others: other errors.
 
-bool bk_gpio_set_capacity(gpio_id_t gpio_id, uint32 capacity)[](#_CPPv420bk_gpio_set_capacity9gpio_id_t6uint32 "永久链接至目标")
+<a id="_CPPv420bk_gpio_set_capacity9gpio_id_t6uint32"></a>
+
+<a id="_CPPv320bk_gpio_set_capacity9gpio_id_t6uint32"></a> <a id="_CPPv220bk_gpio_set_capacity9gpio_id_t6uint32"></a> <a id="bk_gpio_set_capacity__gpio_id_t.uint32"></a> <a id="group__bk__api__gpio_1ga2e422b1299cf61773beedbddcdc15c47"></a> bool bk\_gpio\_set\_capacity(gpio\_id\_t gpio\_id, uint32 capacity)
 :   Set the GPIO driver capacity.
 
-    This API Set GPIO’s output driver capacity which range is 0~3.
+    This API Set GPIO’s output driver capacity which range is 0\~3.
 
     返回
     :   - input value
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_INPUT_MODE : GPIO is not input mode
-
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_INPUT\_MODE : GPIO is not input mode
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_set_interrupt_type(gpio_id_t gpio_id, gpio_int_type_t type)[](#_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t "永久链接至目标")
+<a id="_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t"></a>
+
+<a id="_CPPv326bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t"></a> <a id="_CPPv226bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t"></a> <a id="bk_gpio_set_interrupt_type__gpio_id_t.gpio_int_type_t"></a> <a id="group__bk__api__gpio_1ga33259d746c51989bbeb0d98956570235"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_set\_interrupt\_type(gpio\_id\_t gpio\_id, gpio\_int\_type\_t type)
 :   Config the GPIO intterrupt type mode when use gpio intterrupt mode,.
 
-    This API config all GPIO channels’ intterrupt mode, the mode included in gpio_int_type_t.
+    This API config all GPIO channels’ intterrupt mode, the mode included in gpio\_int\_type\_t.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_INVALID_INT_TYPE: invalid GPIO int type
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_INVALID\_INT\_TYPE: invalid GPIO int type
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_enable_interrupt(gpio_id_t id)[](#_CPPv424bk_gpio_enable_interrupt9gpio_id_t "永久链接至目标")
+<a id="_CPPv424bk_gpio_enable_interrupt9gpio_id_t"></a>
+
+<a id="_CPPv324bk_gpio_enable_interrupt9gpio_id_t"></a> <a id="_CPPv224bk_gpio_enable_interrupt9gpio_id_t"></a> <a id="bk_gpio_enable_interrupt__gpio_id_t"></a> <a id="group__bk__api__gpio_1gacd7ff15a6390a73472c435411da6c660"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_enable\_interrupt(gpio\_id\_t id)
 :   Enable GPIO intterrupt.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
-        - BK_ERR_GPIO_NOT_INPUT_MODE : GPIO is not input mode
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
+        - BK\_ERR\_GPIO\_NOT\_INPUT\_MODE : GPIO is not input mode
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_disable_interrupt(gpio_id_t id)[](#_CPPv425bk_gpio_disable_interrupt9gpio_id_t "永久链接至目标")
+<a id="_CPPv425bk_gpio_disable_interrupt9gpio_id_t"></a>
+
+<a id="_CPPv325bk_gpio_disable_interrupt9gpio_id_t"></a> <a id="_CPPv225bk_gpio_disable_interrupt9gpio_id_t"></a> <a id="bk_gpio_disable_interrupt__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga48e0eaf44663f68f2f2cea47e6476f95"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_disable\_interrupt(gpio\_id\_t id)
 :   Disable GPIO intterrupt.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid GPIO channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid GPIO channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_clear_interrupt(gpio_id_t gpio_id)[](#_CPPv423bk_gpio_clear_interrupt9gpio_id_t "永久链接至目标")
+<a id="_CPPv423bk_gpio_clear_interrupt9gpio_id_t"></a>
+
+<a id="_CPPv323bk_gpio_clear_interrupt9gpio_id_t"></a> <a id="_CPPv223bk_gpio_clear_interrupt9gpio_id_t"></a> <a id="bk_gpio_clear_interrupt__gpio_id_t"></a> <a id="group__bk__api__gpio_1ga9309e183217de3b2dfadd4b3d35290cd"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_clear\_interrupt(gpio\_id\_t gpio\_id)
 :   Clear GPIO intterrupt.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid gpio channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid gpio channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_register_isr(gpio_id_t id, [gpio_isr_t](#_CPPv410gpio_isr_t "gpio_isr_t") isr)[](#_CPPv420bk_gpio_register_isr9gpio_id_t10gpio_isr_t "永久链接至目标")
+<a id="_CPPv420bk_gpio_register_isr9gpio_id_t10gpio_isr_t"></a>
+
+<a id="_CPPv320bk_gpio_register_isr9gpio_id_t10gpio_isr_t"></a> <a id="_CPPv220bk_gpio_register_isr9gpio_id_t10gpio_isr_t"></a> <a id="bk_gpio_register_isr__gpio_id_t.gpio_isr_t"></a> <a id="group__bk__api__gpio_1gadf2d7a2aaf11b9140e9ee78de984ed2e"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_register\_isr(gpio\_id\_t id, [gpio\_isr\_t](#_CPPv410gpio_isr_t "gpio_isr_t") isr)
 :   Register the interrupt service routine for GPIO channel.
 
     This API regist gpio isr callback function.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid gpio channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid gpio channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_unregister_isr(gpio_id_t id)[](#_CPPv422bk_gpio_unregister_isr9gpio_id_t "永久链接至目标")
+<a id="_CPPv422bk_gpio_unregister_isr9gpio_id_t"></a>
+
+<a id="_CPPv322bk_gpio_unregister_isr9gpio_id_t"></a> <a id="_CPPv222bk_gpio_unregister_isr9gpio_id_t"></a> <a id="bk_gpio_unregister_isr__gpio_id_t"></a> <a id="group__bk__api__gpio_1gac5d7e52d0c90e032dfa52089f6492f01"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_unregister\_isr(gpio\_id\_t id)
 :   Unregister the interrupt service routine for GPIO channel.
 
     This API deregist gpio isr callback function.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_GPIO_CHAN_ID: invalid gpio channel
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_GPIO\_CHAN\_ID: invalid gpio channel
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_save(uint32_t *gpio_cfg)[](#_CPPv416bk_gpio_reg_saveP8uint32_t "永久链接至目标")
+<a id="_CPPv416bk_gpio_reg_saveP8uint32_t"></a>
+
+<a id="_CPPv316bk_gpio_reg_saveP8uint32_t"></a> <a id="_CPPv216bk_gpio_reg_saveP8uint32_t"></a> <a id="bk_gpio_reg_save__uint32_tP"></a> <a id="group__bk__api__gpio_1gab087a8620f896615b5080fc7f5186b4d"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_reg\_save(uint32\_t \*gpio\_cfg)
 :   Register save all gpio reg value.
 
     This API save all gpio reg value function.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_reg_restore(uint32_t *gpio_cfg)[](#_CPPv419bk_gpio_reg_restoreP8uint32_t "永久链接至目标")
+<a id="_CPPv419bk_gpio_reg_restoreP8uint32_t"></a>
+
+<a id="_CPPv319bk_gpio_reg_restoreP8uint32_t"></a> <a id="_CPPv219bk_gpio_reg_restoreP8uint32_t"></a> <a id="bk_gpio_reg_restore__uint32_tP"></a> <a id="group__bk__api__gpio_1gac0f85bcc46f1f17f82d56d60720723ad"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_reg\_restore(uint32\_t \*gpio\_cfg)
 :   Register restore all gpio reg value.
 
     This API restore all gpio reg value function.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_enable(int64_t index, uint64_t type_l, uint64_t type_h)[](#_CPPv421bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t "永久链接至目标")
+<a id="_CPPv421bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t"></a>
+
+<a id="_CPPv321bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t"></a> <a id="_CPPv221bk_gpio_wakeup_enable7int64_t8uint64_t8uint64_t"></a> <a id="bk_gpio_wakeup_enable__int64_t.uint64_t.uint64_t"></a> <a id="group__bk__api__gpio_1ga54bf46c728d9157572b533e225daf14c"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_wakeup\_enable(int64\_t index, uint64\_t type\_l, uint64\_t type\_h)
 :   Register configue the gpio wakeup value.
 
     This API configue the gpio wakeup value function.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_wakeup_interrupt_clear()[](#_CPPv430bk_gpio_wakeup_interrupt_clearv "永久链接至目标")
+<a id="_CPPv430bk_gpio_wakeup_interrupt_clearv"></a>
+
+<a id="_CPPv330bk_gpio_wakeup_interrupt_clearv"></a> <a id="_CPPv230bk_gpio_wakeup_interrupt_clearv"></a> <a id="bk_gpio_wakeup_interrupt_clear"></a> <a id="group__bk__api__gpio_1gab8fe4b39f956d0151701327998bf044a"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_wakeup\_interrupt\_clear()
 :   Register clear wake up interrupt.
 
     This API clear wake up interrupt function.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_gpio_ctrl_external_ldo(gpio_ctrl_ldo_module_e module, gpio_id_t gpio_id, gpio_output_state_e value)[](#_CPPv425bk_gpio_ctrl_external_ldo22gpio_ctrl_ldo_module_e9gpio_id_t19gpio_output_state_e "永久链接至目标")
+<a id="_CPPv425bk_gpio_ctrl_external_ldo22gpio_ctrl_ldo_module_e9gpio_id_t19gpio_output_state_e"></a>
+
+<a id="_CPPv325bk_gpio_ctrl_external_ldo22gpio_ctrl_ldo_module_e9gpio_id_t19gpio_output_state_e"></a> <a id="_CPPv225bk_gpio_ctrl_external_ldo22gpio_ctrl_ldo_module_e9gpio_id_t19gpio_output_state_e"></a> <a id="bk_gpio_ctrl_external_ldo__gpio_ctrl_ldo_module_e.gpio_id_t.gpio_output_state_e"></a> <a id="group__bk__api__gpio_1ga3ba1f2491962ef391b68deae24787671"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_ctrl\_external\_ldo(gpio\_ctrl\_ldo\_module\_e module, gpio\_id\_t gpio\_id, gpio\_output\_state\_e value)
 :   using the gpio to control the external ldo
 
     control the external ldo,multi modules power on use one gpio control
 
-
     **Attention**
-    :   - This API is used to use the specific gpio(define in GPIO_CTRL_LDO_MAP in gpio_map.h) control the external ldo(multi modules power on use one gpio control)
+    :   - This API is used to use the specific gpio(define in GPIO\_CTRL\_LDO\_MAP in gpio\_map.h) control the external ldo(multi modules power on use one gpio control)
 
     参数
-    :   **-module:gpio** – ctrl ldo module name -gpio_id:gpio id -value:gpio output state
+    :   **-module:gpio** – ctrl ldo module name -gpio\_id:gpio id -value:gpio output state
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
+<a id="_CPPv422bk_gpio_map_dev_to_pin9gpio_id_t10gpio_dev_t"></a>
 
-## GPIO API Typedefs[](#gpio-api-typedefs "永久链接至标题")
+<a id="_CPPv322bk_gpio_map_dev_to_pin9gpio_id_t10gpio_dev_t"></a> <a id="_CPPv222bk_gpio_map_dev_to_pin9gpio_id_t10gpio_dev_t"></a> <a id="bk_gpio_map_dev_to_pin__gpio_id_t.gpio_dev_t"></a> <a id="group__bk__api__gpio_1ga3041f3fad63ea7e45e3b1f93f08a4dc4"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_gpio\_map\_dev\_to\_pin(gpio\_id\_t gpio\_id, gpio\_dev\_t dev)
+:   Map a device to a GPIO pin.
 
+    参数
+    :   - **gpio\_id** – GPIO pin to map the device to (must be \< SOC\_GPIO\_NUM)
+        - **dev** – Device type to map (must not be GPIO\_DEV\_INVALID)
 
-### Header File[](#id1 "永久链接至标题")
+    返回
+    :   - BK\_OK: succeed
+        - others: failed
 
+<a id="gpio-api-typedefs"></a>
 
-- [gpio_types.h](https://github.com/bekencorp/armino/blob/main/components/gpio_types.h "https://github.com/bekencorp/armino/blob/main/components/gpio_types.h")
+## GPIO API Typedefs
 
+<a id="id1"></a>
 
-### Structures[](#structures "永久链接至标题")
+### Header File
 
-struct gpio_wakeup_config_t[](#_CPPv420gpio_wakeup_config_t "永久链接至目标")
+- [gpio\_types.h](https://github.com/bekencorp/armino/blob/main/components/gpio_types.h)
 
+<a id="structures"></a>
 
-### Macros[](#macros "永久链接至标题")
+### Structures
 
-BK_ERR_GPIO_CHAN_ID[](#c.BK_ERR_GPIO_CHAN_ID "永久链接至目标")
+<a id="_CPPv420gpio_wakeup_config_t"></a>
+
+<a id="_CPPv320gpio_wakeup_config_t"></a> <a id="_CPPv220gpio_wakeup_config_t"></a> <a id="gpio_wakeup_config_t"></a> <a id="structgpio__wakeup__config__t"></a> struct gpio\_wakeup\_config\_t
+
+<a id="macros"></a>
+
+### Macros
+
+<a id="c.BK_ERR_GPIO_CHAN_ID"></a>
+
+<a id="group__bk__api__gpio__defs_1gaacc3e93706a93358d601c6ec04146261"></a> BK\_ERR\_GPIO\_CHAN\_ID
 :   gpio channel number is invalid
 
-BK_ERR_GPIO_INVALID_MODE[](#c.BK_ERR_GPIO_INVALID_MODE "永久链接至目标")
+<a id="c.BK_ERR_GPIO_INVALID_MODE"></a>
+
+<a id="group__bk__api__gpio__defs_1gace5c41582937a21a27ae0820f313e9ee"></a> BK\_ERR\_GPIO\_INVALID\_MODE
 :   gpio mode is invalid
 
-BK_ERR_GPIO_NOT_INPUT_MODE[](#c.BK_ERR_GPIO_NOT_INPUT_MODE "永久链接至目标")
+<a id="c.BK_ERR_GPIO_NOT_INPUT_MODE"></a>
+
+<a id="group__bk__api__gpio__defs_1ga0822231d653ff3a5b33526debcfddd1f"></a> BK\_ERR\_GPIO\_NOT\_INPUT\_MODE
 :   gpio is not in input mode
 
-BK_ERR_GPIO_SET_INVALID_FUNC_MODE[](#c.BK_ERR_GPIO_SET_INVALID_FUNC_MODE "永久链接至目标")
+<a id="c.BK_ERR_GPIO_SET_INVALID_FUNC_MODE"></a>
+
+<a id="group__bk__api__gpio__defs_1ga8b45865d53d4c8b3a3f1132ec8ce05e3"></a> BK\_ERR\_GPIO\_SET\_INVALID\_FUNC\_MODE
 :   gpio perial mode is invalid or was be set as 2nd func
 
-BK_ERR_GPIO_INVALID_INT_TYPE[](#c.BK_ERR_GPIO_INVALID_INT_TYPE "永久链接至目标")
+<a id="c.BK_ERR_GPIO_INVALID_INT_TYPE"></a>
+
+<a id="group__bk__api__gpio__defs_1ga97a713384ad81a53908f88b78bca5b13"></a> BK\_ERR\_GPIO\_INVALID\_INT\_TYPE
 :   gpio int type is invalid
 
-BK_ERR_GPIOS_MAP_NONE[](#c.BK_ERR_GPIOS_MAP_NONE "永久链接至目标")
+<a id="c.BK_ERR_GPIOS_MAP_NONE"></a>
+
+<a id="group__bk__api__gpio__defs_1ga10f54a8b0a842f63d6a96af9b9f67a84"></a> BK\_ERR\_GPIOS\_MAP\_NONE
 :   gpio map device is none
 
-BK_ERR_GPIO_NOT_OUTPUT_MODE[](#c.BK_ERR_GPIO_NOT_OUTPUT_MODE "永久链接至目标")
+<a id="c.BK_ERR_GPIO_NOT_OUTPUT_MODE"></a>
+
+<a id="group__bk__api__gpio__defs_1ga04b0272d3fc9708ce8f0ee7cfabdd77b"></a> BK\_ERR\_GPIO\_NOT\_OUTPUT\_MODE
 :   gpio is not in output mode
 
-BK_ERR_GPIO_BITS_NUM[](#c.BK_ERR_GPIO_BITS_NUM "永久链接至目标")
+<a id="c.BK_ERR_GPIO_BITS_NUM"></a>
+
+<a id="group__bk__api__gpio__defs_1gaf9b248434af2ff4fd9cd48255cf0e176"></a> BK\_ERR\_GPIO\_BITS\_NUM
 :   gpio map bit num is error
 
-BK_ERR_GPIO_INTERNAL_USED[](#c.BK_ERR_GPIO_INTERNAL_USED "永久链接至目标")
+<a id="c.BK_ERR_GPIO_INTERNAL_USED"></a>
+
+<a id="group__bk__api__gpio__defs_1ga7988719e8641431bff42a6dfe4f31631"></a> BK\_ERR\_GPIO\_INTERNAL\_USED
 :   gpio map was be map to a device
 
-BK_ERR_GPIO_MAP_PWMS_CHAN[](#c.BK_ERR_GPIO_MAP_PWMS_CHAN "永久链接至目标")
+<a id="c.BK_ERR_GPIO_MAP_PWMS_CHAN"></a>
+
+<a id="group__bk__api__gpio__defs_1gabcf06b5e850fb98924efeb471d2aa539"></a> BK\_ERR\_GPIO\_MAP\_PWMS\_CHAN
 :   gpio map to pwm pwms’ channel is invalid
 
-BK_ERR_GPIO_INVALID_ID[](#c.BK_ERR_GPIO_INVALID_ID "永久链接至目标")
+<a id="c.BK_ERR_GPIO_INVALID_ID"></a>
+
+<a id="group__bk__api__gpio__defs_1ga9621ce48723cd742c2e9f43667c94d1a"></a> BK\_ERR\_GPIO\_INVALID\_ID
 :   gpio id is invalid
 
-BK_ERR_GPIO_WAKESOURCE_OVER_MAX_CNT[](#c.BK_ERR_GPIO_WAKESOURCE_OVER_MAX_CNT "永久链接至目标")
+<a id="c.BK_ERR_GPIO_WAKESOURCE_OVER_MAX_CNT"></a>
+
+<a id="group__bk__api__gpio__defs_1gafd653a6a90fb2b5e8145cf3b6c407ecd"></a> BK\_ERR\_GPIO\_WAKESOURCE\_OVER\_MAX\_CNT
 :   too much GPIO is register to wakeup source
 
-BK_ERR_ANA_GPIO_TYPE_NOT_SUPPORT[](#c.BK_ERR_ANA_GPIO_TYPE_NOT_SUPPORT "永久链接至目标")
-:   analog gpio wake source pin config is invalid>
+<a id="c.BK_ERR_ANA_GPIO_TYPE_NOT_SUPPORT"></a>
 
-BK_ERR_GPIO_ATE_TEST_FAILED[](#c.BK_ERR_GPIO_ATE_TEST_FAILED "永久链接至目标")
+<a id="group__bk__api__gpio__defs_1gaa2b6eb440b415cab586e3a2cde07f5dc"></a> BK\_ERR\_ANA\_GPIO\_TYPE\_NOT\_SUPPORT
+:   analog gpio wake source pin config is invalid\>
+
+<a id="c.BK_ERR_GPIO_ATE_TEST_FAILED"></a>
+
+<a id="group__bk__api__gpio__defs_1gaf8c9a0cd1f31c901a2da26e6c47757c3"></a> BK\_ERR\_GPIO\_ATE\_TEST\_FAILED
 :   gpio ate test failed
 
+<a id="type-definitions"></a>
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+### Type Definitions
 
-typedef void (*gpio_isr_t)(gpio_id_t gpio_id)[](#_CPPv410gpio_isr_t "永久链接至目标")
+<a id="_CPPv410gpio_isr_t"></a>
+
+<a id="_CPPv310gpio_isr_t"></a> <a id="_CPPv210gpio_isr_t"></a> <a id="gpio_isr_t"></a> <a id="group__bk__api__gpio__defs_1ga35b08da8d5d3e07661468da1cf30eed3"></a> typedef void (\*gpio\_isr\_t)(gpio\_id\_t gpio\_id)
 :   GPIO interrupt service routine.

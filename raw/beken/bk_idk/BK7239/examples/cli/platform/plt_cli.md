@@ -1,54 +1,54 @@
-# **Platform cli命令**[](#platform-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/cli/platform/plt_cli.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="platform-cli"></a>
+
+<a id="plt-cli"></a>
+
+# **Platform cli命令**
 
 重要
 
-
 *本界面所有功能面向使用cli命令操作平台的用户使用*
 
+- [backtrace](#plt-backtrace) :显示任务回溯信息
+- [cpuload](#plt-load) :用来展示当前CPU上每个task的负载情况和已运行时间等情况
+- [memdump](#plt-memdump) :执行对内存上某段长度的dump操作
+- [memleak](#plt-memleak) :执行对内存heap申请情况的统计
+- [memshow](#plt-memshow) :执行对当前内存所使用情况的显示
+- [memstack](#plt-memstack) :执行对内存上stack使用情况的显示
+- [reboot](#plt-reboot) :执行重启
+- [tasklist](#plt-taskl) :打印当前的task状态列表
+- [flash](#plt-flash) :执行对flash的相关操作
 
-- [backtrace](#plt-backtrace "#plt-backtrace") :显示任务回溯信息
+<a id="backtrace"></a>
 
-- [cpuload](#plt-load "#plt-load") :用来展示当前CPU上每个task的负载情况和已运行时间等情况
+<a id="plt-backtrace"></a>
 
-- [memdump](#plt-memdump "#plt-memdump") :执行对内存上某段长度的dump操作
-
-- [memleak](#plt-memleak "#plt-memleak") :执行对内存heap申请情况的统计
-
-- [memshow](#plt-memshow "#plt-memshow") :执行对当前内存所使用情况的显示
-
-- [memstack](#plt-memstack "#plt-memstack") :执行对内存上stack使用情况的显示
-
-- [reboot](#plt-reboot "#plt-reboot") :执行重启
-
-- [tasklist](#plt-taskl "#plt-taskl") :打印当前的task状态列表
-
-- [flash](#plt-flash "#plt-flash") :执行对flash的相关操作
-
-
-## [backtrace](#plt-cli "#plt-cli") **:显示任务回溯信息**[](#backtrace "永久链接至标题")
-
+## [backtrace](#plt-cli) **:显示任务回溯信息**
 
 **命令**
 
-
 ```
 backtrace
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -60,44 +60,35 @@ backtrace
     >>>>dump task backtrace begin.
     "task", "stack_addr", "top", "size", "overflow", "backtrace"
     <<<<dump task backtrace end
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="cpuload-cputask"></a>
 
-## [cpuload](#plt-cli "#plt-cli") **:用来展示当前CPU上每个task的负载情况和已运行时间等情况**[](#cpuload-cputask "永久链接至标题")
+<a id="plt-load"></a>
 
+## [cpuload](#plt-cli) **:用来展示当前CPU上每个task的负载情况和已运行时间等情况**
 
 **命令**
 
-
 ```
 cpuload
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -122,51 +113,41 @@ cpuload
     cli             0                  <1%
     syswq           0                  <1%
     <<<<dump task runtime end.
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
+*本命令在CONFIG\_FREERTOS开启下生效!*
 
-*本命令在CONFIG_FREERTOS开启下生效!*
+<a id="memdump-dump"></a>
 
+<a id="plt-memdump"></a>
 
-## [memdump](#plt-cli "#plt-cli") **:执行对内存上某段长度的dump操作**[](#memdump-dump "永久链接至标题")
-
+## [memdump](#plt-cli) **:执行对内存上某段长度的dump操作**
 
 **命令**
 
-
 ```
 memdump <addr> <length>
-
 ```
 
-
 **参数**
-
 
 ```
 addr:想要dump的内存的起始地址
 
 length:想要dump的内存的长度
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -178,49 +159,39 @@ length:想要dump的内存的长度
     dump,address: 0x2806CD00 size: 0x00000100
 
     ……(随后显示dump数据)
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_DEBUG_VERSION!*
-
+*此命令需要开启CONFIG\_DEBUG\_VERSION!*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="memleak-heap"></a>
 
-## [memleak](#plt-cli "#plt-cli") **:执行对内存heap申请情况的统计**[](#memleak-heap "永久链接至标题")
+<a id="plt-memleak"></a>
 
+## [memleak](#plt-cli) **:执行对内存heap申请情况的统计**
 
 **命令**
 
-
 ```
 memleak
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -228,49 +199,39 @@ memleak
     memleak
 
 输入这条命令，则返回当前系统中每个task下申请的heap的位置，所经历的tick数，所申请的heap空间大小，所申请函数命令及其malloc函数所调用的位置等信息。
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_MEM_DEBUG和CONFIG_FREERTOS下使用!*
-
+*此命令需要开启CONFIG\_MEM\_DEBUG和CONFIG\_FREERTOS下使用!*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="memshow"></a>
 
-## [memshow](#plt-cli "#plt-cli") **:执行对当前内存所使用情况的显示**[](#memshow "永久链接至标题")
+<a id="plt-memshow"></a>
 
+## [memshow](#plt-cli) **:执行对当前内存所使用情况的显示**
 
 **命令**
 
-
 ```
 memshow
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -281,7 +242,6 @@ memshow
 
     ================Static memory================
     mem_type start    end      size
-
     -------- -------- -------- --------
     itcm     0x0      0x3e00   15872
     dtcm     0x20000000 0x20001bd8 7128
@@ -301,44 +261,35 @@ memshow
     name    total   free    minimum   peak
     heap    391552  345248  332472  59080
     psram   3145728 3136968 3136848 8880
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="memstack"></a>
 
-## [memstack](#plt-cli "#plt-cli") **:执行对当前内存所使用情况的显示**[](#memstack "永久链接至标题")
+<a id="plt-memstack"></a>
 
+## [memstack](#plt-cli) **:执行对当前内存所使用情况的显示**
 
 **命令**
 
-
 ```
 memstack
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -377,49 +328,39 @@ syswq              1024              0x2806ecf0- 0x2806f0f0       176           
 thread_stack:37888, used:35056, the rest:2832
 arm_mode_stack:0, used:0, the rest:0
 total_stack_space:37888, used:35056, the rest:2832
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_FREERTOS下使用!*
-
+*此命令需要开启CONFIG\_FREERTOS下使用!*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="reboot"></a>
 
-## [reboot](#plt-cli "#plt-cli") **:执行重启**[](#reboot "永久链接至标题")
+<a id="plt-reboot"></a>
 
+## [reboot](#plt-cli) **:执行重启**
 
 **命令**
 
-
 ```
 reboot
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -427,44 +368,35 @@ reboot
     reboot
 
 输入这条命令，则执行板子重启流程
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="tasklist-task"></a>
 
-## [tasklist](#plt-cli "#plt-cli") **:打印当前的task状态列表**[](#tasklist-task "永久链接至标题")
+<a id="plt-taskl"></a>
 
+## [tasklist](#plt-cli) **:打印当前的task状态列表**
 
 **命令**
 
-
 ```
 tasklist
-
 ```
-
 
 **参数**
 
-
 ```
 无
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入:
@@ -491,40 +423,33 @@ tasklist
     cli             B       5       2124    15
     syswq           B       6       848     7
     <<<<dump task list end.
-
 ```
 
 备注
 
-
-*开启CONFIG_FREERTOS_SMP下，打印将增加一列”affinity”*
-
+*开启CONFIG\_FREERTOS\_SMP下，打印将增加一列”affinity”*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="flash-flash"></a>
 
-## [flash](#plt-cli "#plt-cli") **:执行对flash的相关操作**[](#flash-flash "永久链接至标题")
+<a id="plt-flash"></a>
 
+## [flash](#plt-cli) **:执行对flash的相关操作**
 
 **命令**
 
-
 ```
 flash {erase|read|write} [start_addr] [len]
-
 ```
 
-
 **参数**
-
 
 ```
 erase：擦除指定地址和长度的flash数据
@@ -536,12 +461,9 @@ write:  写入指定地址和长度的flash数据
 start_addr:想要操作的flash起始地址
 
 len:想要操作的数据长度
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -555,21 +477,16 @@ len:想要操作的数据长度
 如果在输入这条命令后，命令不被识别，则返回：
 
     CMDRSP:ERROR
-
 ```
 
 备注
 
-
-*在CONFIG_FLASH和CONFIG_FLASH_TEST同时开启下生效*
-
+*在CONFIG\_FLASH和CONFIG\_FLASH\_TEST同时开启下生效*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```

@@ -1,13 +1,28 @@
-# DUT[](#dut "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/examples/bluetooth/dut.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="dut"></a>
 
+# DUT
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 > 介绍如何进行蓝牙DUT测试，包括BLE的非信令测试以及BT的信令和非信令测试。
 
+<a id="id2"></a>
 
-## 简介[](#id2 "永久链接至标题")
+## 简介
 
 1. BLE非信令测试
 
@@ -44,25 +59,25 @@
 >
 >       测试设备开启TX模式，串口输入RX命令进行TX测试，输入end命令停止RX测试
 >
->       [TX/RX命令格式]
+>       \[TX/RX命令格式\]
 >       :   `01 E0 FC 0C FD UAP LAP2 LAP1 LAP0 Test_Scenarios Hop_mode TX_chnl RX_chnl Interval Packet_Type Tx_Power`
 >
 >       |  |  |
 >       | --- | --- |
 >       | 01 E0 FC 0C FD | 固定命令头 |
 >       | UAP LAP2 LAP1 LAP0 | 测试设备地址，rx时有效 |
->       | Test_Scenarios | 测试模式  01 : Repeated ‘00000000’ (in transmission order) sequence  02 : Repeated ‘11111111’ (in transmission order) sequence  03 : Repeated ‘10101010’ (in transmission order) sequence  04 : PN9 sequence (in transmission order)  07 : rx test  09 : Repeated ‘11110000’ (in transmission order) sequence |
->       | Hop_mode | 跳频开关  00 : off  01 : on |
->       | TX_chnl | 发射频点  0-78,对应频点2402-2480 |
->       | RX_chnl | 接收频点  0-78,对应频点2402-2480（tx和rx channel值要一样） |
+>       | Test\_Scenarios | 测试模式  01 : Repeated ‘00000000’ (in transmission order) sequence  02 : Repeated ‘11111111’ (in transmission order) sequence  03 : Repeated ‘10101010’ (in transmission order) sequence  04 : PN9 sequence (in transmission order)  07 : rx test  09 : Repeated ‘11110000’ (in transmission order) sequence |
+>       | Hop\_mode | 跳频开关  00 : off  01 : on |
+>       | TX\_chnl | 发射频点  0-78,对应频点2402-2480 |
+>       | RX\_chnl | 接收频点  0-78,对应频点2402-2480（tx和rx channel值要一样） |
 >       | Interval | 当前未使用 |
->       | Packet_Type | 包类型  0 : NULLpkt  1 : POLLpkt  2 : FHSpkt  3 : DM1  4 : DH1  5 : HV1  6 : HV2  7 : HV3  8 : DV  9 : AUX1  10 : DM3  11 : DH3  12 : EV4  13 : EV5  14 : DM5  15 : DH5  16 : IDpkt  20 : EDR_2DH1  21 : EV3  22 : EDR_2EV3  23 : EDR_3EV3  24 : EDR_3DH1  25 : EDR_AUX1  26 : EDR_2DH3  27 : EDR_3DH3  28 : EDR_2EV5  29 : EDR_3EV5  30 : EDR_2DH5  31 : EDR_3DH5 |
->       | Tx_Power | 当前不生效 |
+>       | Packet\_Type | 包类型  0 : NULLpkt  1 : POLLpkt  2 : FHSpkt  3 : DM1  4 : DH1  5 : HV1  6 : HV2  7 : HV3  8 : DV  9 : AUX1  10 : DM3  11 : DH3  12 : EV4  13 : EV5  14 : DM5  15 : DH5  16 : IDpkt  20 : EDR\_2DH1  21 : EV3  22 : EDR\_2EV3  23 : EDR\_3EV3  24 : EDR\_3DH1  25 : EDR\_AUX1  26 : EDR\_2DH3  27 : EDR\_3DH3  28 : EDR\_2EV5  29 : EDR\_3EV5  30 : EDR\_2DH5  31 : EDR\_3DH5 |
+>       | Tx\_Power | 当前不生效 |
 >
->       [end命令格式]
+>       \[end命令格式\]
 >       :   `01 E0 FC 01 90` 输入完此命令后串口会收到一个end resp
 >
->       [end resp格式]
+>       \[end resp格式\]
 >       :   `04 0E 18 01 E0 FC 90 TxTotolPackets RxTotolPackets RxValidPackets RxHECErrorCntr RxCRCErrorCntr`
 >
 >       |  |  |
@@ -76,7 +91,7 @@
 >
 >       备注：所有命令参数均是16进制格式
 >
->       [测试用例]
+>       \[测试用例\]
 >       :   tx ：`01 e0 fc 0c fd 12 34 56 12 09 00 00 00 01 04 7f`
 >
 >           rx ：`01 e0 fc 0c fd 9c bd 35 9c 07 00 00 00 01 04 7f`

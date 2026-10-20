@@ -1,56 +1,65 @@
-# BLE APIs[](#ble-apis "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/api-reference/bluetooth/ble.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="ble-apis"></a>
+
+# BLE APIs
 
 重要
 
 The BLE API v1.0 is the lastest stable BLE APIs. All new applications should use BLE API v1.0.
 
+<a id="ble-api-categories"></a>
 
-## BLE API Categories[](#ble-api-categories "永久链接至标题")
+## BLE API Categories
 
 Most of BLE APIs can be categoried as:
 
 Interface specific BLE APIs:
 :   - BLE common interface
-
     - BLE scan interface
-
     - BLE ADV interface
-
     - BLE connect interface
 
+<a id="compitability-and-extension"></a>
 
-## Compitability and Extension[](#compitability-and-extension "永久链接至标题")
+## Compitability and Extension
 
 The BLE APIs are flexible, easy to be extended and backward compatible. For most of the BLE configurations, we put some reserved fields in the config struct for future extendence. The API users need to make sure the reserved fields are initialized to 0, otherwise the compatibility may be broken as more fields are added.
 
+<a id="programing-principle"></a>
 
-## Programing Principle[](#programing-principle "永久链接至标题")
+## Programing Principle
 
 重要
 
 Here is some general principle for BLE API users:
 :   - Always init the reserved fields of config stuct to 0
-
-    - Use BK_ERR_CHECK to check the return value of the BLE API
-
+    - Use BK\_ERR\_CHECK to check the return value of the BLE API
     - If you are not sure how to use BLE APIs, study the BLE example code first
-
     - If you are not sure how to initialize some fields of config struct, use the default configuration macro to use the config first and then set application specific fields.
-
     - Don’t do too much work in BLE event callback, relay the event to your own application task.
 
+<a id="user-development-model"></a>
 
-## User Development Model[](#user-development-model "永久链接至标题")
+## User Development Model
 
 Similar as most popular BLE driver, the Beken BLE driver is implemented as event driver. The application call BLE APIs to operate the BLE driver and get notified by BLE event.
 
+<a id="user-guide"></a>
 
-## User Guide[](#user-guide "永久链接至标题")
-
+## User Guide
 
 - create att database
-
 
 ```
     #define DECL_PRIMARY_SERVICE_128     {0x00,0x28,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
@@ -63,6 +72,7 @@ Similar as most popular BLE driver, the Beken BLE driver is implemented as event
             TEST_IDX_CHAR_DECL,
             TEST_IDX_CHAR_VALUE,
             TEST_IDX_CHAR_DESC,
+
 
             TEST_IDX_NB,
     };
@@ -78,6 +88,7 @@ Similar as most popular BLE driver, the Beken BLE driver is implemented as event
        [TEST_IDX_CHAR_DESC] = {DESC_CLIENT_CHAR_CFG_128, BK_BLE_PERM_SET(RD, ENABLE) | BK_BLE_PERM_SET(WRITE_REQ, ENABLE), 0, 0},
     };
 
+
     struct bk_ble_db_cfg ble_db_cfg;
     const uint16_t service_uuid = 0xffff;
 
@@ -90,6 +101,7 @@ os_memcpy(&(ble_db_cfg.uuid[0]), &service_uuid, 2);
 
     bk_ble_set_notice_cb(ble_at_notice_cb);
     bk_ble_create_db(&ble_db_cfg);
+
 
     void ble_at_notice_cb(ble_notice_t notice, void *param)
     {
@@ -122,12 +134,9 @@ os_memcpy(&(ble_db_cfg.uuid[0]), &service_uuid, 2);
             break;
             }
     }
-
 ```
 
-
 - start adv
-
 
 ```
 ble_adv_param_t adv_param;
@@ -158,12 +167,9 @@ bk_ble_set_scan_rsp_data(actv_idx, scan_data, sizeof(scan_data), ble_at_cmd_cb);
 //wait for ble_at_cmd_cb
 
 bk_ble_start_advertising(actv_idx, 0, ble_at_cmd_cb);
-
 ```
 
-
 - start scan
-
 
 ```
 ble_scan_param_t scan_param;
@@ -177,12 +183,9 @@ bk_ble_create_scaning(actv_idx, &scan_param, ble_at_cmd);
 
 //wait for ble_at_cmd_cb
 bk_ble_start_scaning(actv_idx, ble_at_cmd);
-
 ```
 
-
 - start a connect
-
 
 ```
 ble_conn_param_t conn_param;
@@ -196,25 +199,28 @@ bk_ble_create_init(con_idx, &conn_param, ble_at_cmd);
 //wait for ble_at_cmd_cb
 bk_ble_init_set_connect_dev_addr(con_idx, bt_mac, 1);
 bk_ble_init_start_conn(con_idx, ble_at_cmd)
-
 ```
 
+<a id="api-reference"></a>
 
-## API Reference[](#api-reference "永久链接至标题")
+## API Reference
 
+<a id="header-file"></a>
 
-### Header File[](#header-file "永久链接至标题")
+### Header File
 
+- [ble.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble.h)
 
-- [ble.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble.h")
+<a id="functions"></a>
 
+### Functions
 
-### Functions[](#functions "永久链接至标题")
+<a id="_CPPv416bk_ble_create_dbP13bk_ble_db_cfg"></a>
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_db(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv416bk_ble_create_dbP13bk_ble_db_cfg "永久链接至目标")
+<a id="_CPPv316bk_ble_create_dbP13bk_ble_db_cfg"></a> <a id="_CPPv216bk_ble_create_dbP13bk_ble_db_cfg"></a> <a id="bk_ble_create_db__bk_ble_db_cfgP"></a> <a id="group__bk__ble__api__v1_1ga48fc31375113253658e599d347a37878"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_db(struct [bk\_ble\_db\_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") \*ble\_db\_cfg)
 :   Register a gatt service.
 
-    User example: First we must build test_service_db test_service_db is a database for att, which used in ble discovery. reading writing and other operation is used on a att database.
+    User example: First we must build test\_service\_db test\_service\_db is a database for att, which used in ble discovery. reading writing and other operation is used on a att database.
 
     ```
     enum {
@@ -246,15 +252,15 @@ bk_ble_init_start_conn(con_idx, ble_at_cmd)
     };
     ```
 
-    TEST_IDX_SVC is nessecery, is declare a primary att service. The macro define is:
+    TEST\_IDX\_SVC is nessecery, is declare a primary att service. The macro define is:
 
     ```
     #define DECL_PRIMARY_SERVICE_128     {0x00,0x28,0}
     ```
 
-    which is an UUID say it is a “primary service” [BK_BLE_PERM_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") means it can be read, and must be read, so it can be discove by peer master.
+    which is an UUID say it is a “primary service” [BK\_BLE\_PERM\_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) means it can be read, and must be read, so it can be discove by peer master.
 
-    TEST_IDX_CHAR_DECL declare a characteristic as a element in service, it must be [BK_BLE_PERM_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b")
+    TEST\_IDX\_CHAR\_DECL declare a characteristic as a element in service, it must be [BK\_BLE\_PERM\_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b)
 
     ```
     #define DECL_CHARACTERISTIC_128      {0x03,0x28,0}
@@ -262,15 +268,15 @@ bk_ble_init_start_conn(con_idx, ble_at_cmd)
 
     show it’s a “characteristic”
 
-    [BK_BLE_PERM_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") means it can be read, and must be read, so it can be discove by peer master.
+    [BK\_BLE\_PERM\_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) means it can be read, and must be read, so it can be discove by peer master.
 
-    TEST_IDX_CHAR_VALUE is the real value of TEST_IDX_CHAR_DECL, {0x34, 0x12, 0} means it’s type is 0x1234, you can determine by you self [BK_BLE_PERM_SET(NTF, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") means it cant notify peer, such as value change. For exzample, BLE mouse report pos by “notify” peer. [BK_BLE_PERM_SET(RI, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") means if peer read this att record, it will enable notification. [BK_BLE_PERM_SET(UUID_LEN, UUID_16)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") means the first elem’s max len of TEST_IDX_CHAR_VALUE.
+    TEST\_IDX\_CHAR\_VALUE is the real value of TEST\_IDX\_CHAR\_DECL, {0x34, 0x12, 0} means it’s type is 0x1234, you can determine by you self [BK\_BLE\_PERM\_SET(NTF, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) means it cant notify peer, such as value change. For exzample, BLE mouse report pos by “notify” peer. [BK\_BLE\_PERM\_SET(RI, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) means if peer read this att record, it will enable notification. [BK\_BLE\_PERM\_SET(UUID\_LEN, UUID\_16)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) means the first elem’s max len of TEST\_IDX\_CHAR\_VALUE.
 
-    TEST_IDX_CHAR_DESC is a Client Characteristic Configuration Descriptor for TEST_IDX_CHAR_VALUE, it used by peer master as know as a client. As common usage, it config TEST_IDX_CHAR_VALUE indication or notification. Peer can write this att handle to triggle it. Must be [BK_BLE_PERM_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") | [BK_BLE_PERM_SET(WRITE_REQ, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b")
+    TEST\_IDX\_CHAR\_DESC is a Client Characteristic Configuration Descriptor for TEST\_IDX\_CHAR\_VALUE, it used by peer master as know as a client. As common usage, it config TEST\_IDX\_CHAR\_VALUE indication or notification. Peer can write this att handle to triggle it. Must be [BK\_BLE\_PERM\_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) \| [BK\_BLE\_PERM\_SET(WRITE\_REQ, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b)
 
-    Now, you have a basic database for peer, in this case, peer write TEST_IDX_CHAR_DESC or read TEST_IDX_CHAR_VALUE to enable notification, and then we notify peer by TEST_IDX_CHAR_VALUE
+    Now, you have a basic database for peer, in this case, peer write TEST\_IDX\_CHAR\_DESC or read TEST\_IDX\_CHAR\_VALUE to enable notification, and then we notify peer by TEST\_IDX\_CHAR\_VALUE
 
-    Secondlly, we build ble_db_cfg
+    Secondlly, we build ble\_db\_cfg
 
     ```
     struct bk_ble_db_cfg ble_db_cfg;
@@ -282,17 +288,18 @@ bk_ble_init_start_conn(con_idx, ble_at_cmd)
     ble_db_cfg.svc_perm = BK_BLE_PERM_SET(SVC_UUID_LEN, UUID_16);
     ```
 
-    prf_task_id is app handle. If you have multi att service, used prf_task_id to distinguish it. svc_perm show TEST_IDX_SVC UUID type’s len.
+    prf\_task\_id is app handle. If you have multi att service, used prf\_task\_id to distinguish it. svc\_perm show TEST\_IDX\_SVC UUID type’s len.
 
     参数
-    :   **ble_db_cfg, :** – service param
+    :   **ble\_db\_cfg, :** – service param
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-void bk_ble_set_notice_cb([ble_notice_cb_t](#_CPPv415ble_notice_cb_t "ble_notice_cb_t") func)[](#_CPPv420bk_ble_set_notice_cb15ble_notice_cb_t "永久链接至目标")
+<a id="_CPPv420bk_ble_set_notice_cb15ble_notice_cb_t"></a>
+
+<a id="_CPPv320bk_ble_set_notice_cb15ble_notice_cb_t"></a> <a id="_CPPv220bk_ble_set_notice_cb15ble_notice_cb_t"></a> <a id="bk_ble_set_notice_cb__ble_notice_cb_t"></a> <a id="group__bk__ble__api__v1_1gaf161dd87d3a0fcc95e6cee58e4d18f0a"></a> void bk\_ble\_set\_notice\_cb([ble\_notice\_cb\_t](#_CPPv415ble_notice_cb_t "ble_notice_cb_t") func)
 :   Register ble event notification callback.
 
     User example:
@@ -333,11 +340,10 @@ void bk_ble_set_notice_cb([ble_notice_cb_t](#_CPPv415ble_notice_cb_t "ble_notice
     bk_ble_set_notice_cb(ble_at_notice_cb);
     ```
 
-
     **Attention**
-    :   1. you must regist it, otherwise you cant get any event !
+    :   1\. you must regist it, otherwise you cant get any event !
 
-        2. you must regist it before bk_ble_create_db, otherwise you cant get BLE_5_CREATE_DB event
+        2\. you must regist it before bk\_ble\_create\_db, otherwise you cant get BLE\_5\_CREATE\_DB event
 
     参数
     :   **func, :** – event callback
@@ -345,31 +351,35 @@ void bk_ble_set_notice_cb([ble_notice_cb_t](#_CPPv415ble_notice_cb_t "ble_notice
     返回
     :   - void
 
-uint8_t bk_ble_appm_get_dev_name(uint8_t *name, uint32_t buf_len)[](#_CPPv424bk_ble_appm_get_dev_nameP7uint8_t8uint32_t "永久链接至目标")
+<a id="_CPPv424bk_ble_appm_get_dev_nameP7uint8_t8uint32_t"></a>
+
+<a id="_CPPv324bk_ble_appm_get_dev_nameP7uint8_t8uint32_t"></a> <a id="_CPPv224bk_ble_appm_get_dev_nameP7uint8_t8uint32_t"></a> <a id="bk_ble_appm_get_dev_name__uint8_tP.uint32_t"></a> <a id="group__bk__ble__api__v1_1ga448a1a40bc38145553a43edcd3e481aa"></a> uint8\_t bk\_ble\_appm\_get\_dev\_name(uint8\_t \*name, uint32\_t buf\_len)
 :   Get device name.
 
     参数
     :   **name, :** – store the device name
 
-
-        - buf_len: the length of buf to store the device name
+        - buf\_len: the length of buf to store the device name
 
     返回
     :   - length: the length of device name
 
-uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_ble_appm_set_dev_name7uint8_tP7uint8_t "永久链接至目标")
+<a id="_CPPv424bk_ble_appm_set_dev_name7uint8_tP7uint8_t"></a>
+
+<a id="_CPPv324bk_ble_appm_set_dev_name7uint8_tP7uint8_t"></a> <a id="_CPPv224bk_ble_appm_set_dev_name7uint8_tP7uint8_t"></a> <a id="bk_ble_appm_set_dev_name__uint8_t.uint8_tP"></a> <a id="group__bk__ble__api__v1_1gaf5cb0e30cb1ebd5711a12a9ca2346505"></a> uint8\_t bk\_ble\_appm\_set\_dev\_name(uint8\_t len, uint8\_t \*name)
 :   Set device name.
 
     参数
     :   **len, :** – the length of device name
-
 
         - name: the device name to be set
 
     返回
     :   - length: the length of device name
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_advertising(uint8_t actv_idx, [ble_adv_param_t](#_CPPv415ble_adv_param_t "ble_adv_param_t") *adv_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv425bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv325bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t"></a> <a id="_CPPv225bk_ble_create_advertising7uint8_tP15ble_adv_param_t12ble_cmd_cb_t"></a> <a id="bk_ble_create_advertising__uint8_t.ble_adv_param_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gac697edafd3d29640923bfb753f3043c2"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_advertising(uint8\_t actv\_idx, [ble\_adv\_param\_t](#_CPPv415ble_adv_param_t "ble_adv_param_t") \*adv\_param, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Create a ble advertising activity.
 
     User example:
@@ -391,86 +401,80 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     }
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - adv_param: the advertising parameter
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CREATE_ADV
+        - adv\_param: the advertising parameter
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CREATE\_ADV
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_start_advertising(uint8_t actv_idx, uint16 duration, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv424bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t"></a>
+
+<a id="_CPPv324bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t"></a> <a id="_CPPv224bk_ble_start_advertising7uint8_t6uint1612ble_cmd_cb_t"></a> <a id="bk_ble_start_advertising__uint8_t.uint16.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga91507146a662c6c47a76f52916accdd1"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_start\_advertising(uint8\_t actv\_idx, uint16 duration, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Start a ble advertising.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_advertising
+        2.must used after bk\_ble\_create\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
-
+    :   **actv\_idx, :** – the index of activity
 
         - duration: Advertising duration (in unit of 10ms). 0 means that advertising continues
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_START_ADV
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_START\_ADV
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv423bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv323bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv223bk_ble_stop_advertising7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_stop_advertising__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga8c6b7d094110e544c24e45ed5aff9fc5"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_stop\_advertising(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Stop the advertising that has been started.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_start_advertising
+        2.must used after bk\_ble\_start\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_STOP_ADV
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_STOP\_ADV
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_advertising(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv425bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv325bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv225bk_ble_delete_advertising7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_delete_advertising__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga7ae152d6b52f7d01ecc975ad51cb42d3"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_delete\_advertising(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Delete the advertising that has been created.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_advertising
+        2.must used after bk\_ble\_create\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_DELETE_ADV
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_DELETE\_ADV
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_adv_data(uint8_t actv_idx, uint8_t *adv_buff, uint8_t adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv419bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv319bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv219bk_ble_set_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_set_adv_data__uint8_t.uint8_tP.uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga2702094390c495f1392f444cdb56fa74"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_adv\_data(uint8\_t actv\_idx, uint8\_t \*adv\_buff, uint8\_t adv\_len, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Set the advertising data.
 
     User example:
@@ -480,28 +484,25 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_set_adv_data(actv_idx, adv_data, sizeof(adv_data), ble_at_cmd_cb);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_advertising
+        2.must used after bk\_ble\_create\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - adv_buff: advertising data
-
-        - adv_len: the length of advertising data
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_SET_ADV_DATA
+        - adv\_buff: advertising data
+        - adv\_len: the length of advertising data
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_SET\_ADV\_DATA
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_scan_rsp_data(uint8_t actv_idx, uint8_t *scan_buff, uint8_t scan_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv424bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv424bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv324bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv224bk_ble_set_scan_rsp_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_set_scan_rsp_data__uint8_t.uint8_tP.uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gaf5cdf9f084cb3d354708814e98b7ee89"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_scan\_rsp\_data(uint8\_t actv\_idx, uint8\_t \*scan\_buff, uint8\_t scan\_len, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Set the scan response data.
 
     User example:
@@ -511,30 +512,27 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_set_scan_rsp_data(actv_idx, scan_data, sizeof(scan_data), ble_at_cmd_cb);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.scan rsp data similaly to adv data
 
-        3.must used after bk_ble_create_advertising
+        3.must used after bk\_ble\_create\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - scan_buff: scan response data
-
-        - scan_len: the length of scan response data
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_SET_RSP_DATA
+        - scan\_buff: scan response data
+        - scan\_len: the length of scan response data
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_SET\_RSP\_DATA
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_per_adv_data(uint8_t actv_idx, uint8_t *per_adv_buff, uint8_t per_adv_len, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv423bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv323bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv223bk_ble_set_per_adv_data7uint8_tP7uint8_t7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_set_per_adv_data__uint8_t.uint8_tP.uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga383697ec5d75e11dc41c229a226d37fb"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_per\_adv\_data(uint8\_t actv\_idx, uint8\_t \*per\_adv\_buff, uint8\_t per\_adv\_len, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Set the periodic advertising data.
 
     User example:
@@ -544,28 +542,25 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_set_per_adv_data(actv_idx, adv_data, sizeof(adv_data), ble_at_cmd_cb);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_advertising
+        2.must used after bk\_ble\_create\_advertising
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - per_adv_buff: periodic advertising data
-
-        - per_adv_len: the length of periodic advertising data
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_SET_ADV_DATA????
+        - per\_adv\_buff: periodic advertising data
+        - per\_adv\_len: the length of periodic advertising data
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_SET\_ADV\_DATA????
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_read_phy(uint8_t conn_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv415bk_ble_read_phy7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv415bk_ble_read_phy7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv315bk_ble_read_phy7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv215bk_ble_read_phy7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_read_phy__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga914c7cb19037f0b723b8c3f6660a90d6"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_read\_phy(uint8\_t conn\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Read the phy of connection device.
 
     User example:
@@ -574,24 +569,23 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_read_phy(conn_idx, ble_at_cmd_cb);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.must used after after connected
 
     参数
-    :   **conn_idx, :** – the index of connection device
+    :   **conn\_idx, :** – the index of connection device
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CONN_READ_PHY
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CONN\_READ\_PHY
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_phy(uint8_t conn_idx, [ble_set_phy_t](#_CPPv413ble_set_phy_t "ble_set_phy_t") *phy_info, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv414bk_ble_set_phy7uint8_tP13ble_set_phy_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv414bk_ble_set_phy7uint8_tP13ble_set_phy_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv314bk_ble_set_phy7uint8_tP13ble_set_phy_t12ble_cmd_cb_t"></a> <a id="_CPPv214bk_ble_set_phy7uint8_tP13ble_set_phy_t12ble_cmd_cb_t"></a> <a id="bk_ble_set_phy__uint8_t.ble_set_phy_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gaa5465a60f1c62303ee8e66faf157a816"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_phy(uint8\_t conn\_idx, [ble\_set\_phy\_t](#_CPPv413ble_set_phy_t "ble_set_phy_t") \*phy\_info, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Set the phy of connection device.
 
     User example:
@@ -602,90 +596,83 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_set_phy(1, phy, ble_at_cmd_cb);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.must used after after connected
 
     参数
-    :   **conn_idx, :** – the index of connection device
+    :   **conn\_idx, :** – the index of connection device
 
-
-        - phy_info: phy parameters
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CONN_SET_PHY
+        - phy\_info: phy parameters
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CONN\_SET\_PHY
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_update_param(uint8_t conn_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_update_param7uint8_tP16ble_conn_param_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv419bk_ble_update_param7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv319bk_ble_update_param7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a> <a id="_CPPv219bk_ble_update_param7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a> <a id="bk_ble_update_param__uint8_t.ble_conn_param_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga88f3b7c447275010458ea147a0b44363"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_update\_param(uint8\_t conn\_idx, [ble\_conn\_param\_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") \*conn\_param, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Update connection parameters.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.must used after connected
 
     参数
-    :   **conn_idx, :** – the index of connection
+    :   **conn\_idx, :** – the index of connection
 
-
-        - conn_param: connection parameters
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CONN_UPDATE_PARAM
+        - conn\_param: connection parameters
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CONN\_UPDATE\_PARAM
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_disconnect(uint8_t conn_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv417bk_ble_disconnect7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv417bk_ble_disconnect7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv317bk_ble_disconnect7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv217bk_ble_disconnect7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_disconnect__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gaf78543ff0522f75f8268ae90b30fcf05"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_disconnect(uint8\_t conn\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Disconnect a ble connection.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.must used after connected
 
     参数
-    :   **conn_idx, :** – the index of connection
+    :   **conn\_idx, :** – the index of connection
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CONN_DIS_CONN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CONN\_DIS\_CONN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_mtu_change(uint8_t conn_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv422bk_ble_gatt_mtu_change7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv422bk_ble_gatt_mtu_change7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv322bk_ble_gatt_mtu_change7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv222bk_ble_gatt_mtu_change7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_gatt_mtu_change__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga7bb498cb322ef67a968852d58f45a52f"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_gatt\_mtu\_change(uint8\_t conn\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Exchange MTU.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
         2.must used after connected
 
     参数
-    :   **conn_idx, :** – the index of connection
+    :   **conn\_idx, :** – the index of connection
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CONN_UPDATE_MTU
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CONN\_UPDATE\_MTU
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_max_mtu(uint16_t max_mtu)[](#_CPPv418bk_ble_set_max_mtu8uint16_t "永久链接至目标")
-:   Set maximal Exchange MTU.
+<a id="_CPPv418bk_ble_set_max_mtu8uint16_t"></a>
 
+<a id="_CPPv318bk_ble_set_max_mtu8uint16_t"></a> <a id="_CPPv218bk_ble_set_max_mtu8uint16_t"></a> <a id="bk_ble_set_max_mtu__uint16_t"></a> <a id="group__bk__ble__api__v1_1gad3584b9ef0305ac4f8c15520d7302045"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_max\_mtu(uint16\_t max\_mtu)
+:   Set maximal Exchange MTU.
 
     **Attention**
     :   1.you must wait callback status, 0 mean success.
@@ -693,14 +680,15 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
         2.must used before connected
 
     参数
-    :   **max_mtu, :** – the value to set
+    :   **max\_mtu, :** – the value to set
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_scaning(uint8_t actv_idx, [ble_scan_param_t](#_CPPv416ble_scan_param_t "ble_scan_param_t") *scan_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv421bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv321bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t"></a> <a id="_CPPv221bk_ble_create_scaning7uint8_tP16ble_scan_param_t12ble_cmd_cb_t"></a> <a id="bk_ble_create_scaning__uint8_t.ble_scan_param_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga0543b2a2e91eb632db83762d976ec616"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_scaning(uint8\_t actv\_idx, [ble\_scan\_param\_t](#_CPPv416ble_scan_param_t "ble_scan_param_t") \*scan\_param, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Create a ble scan activity.
 
     User exzample:
@@ -715,88 +703,85 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_create_scaning(actv_idx, &, ble_at_cmd);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - scan_param: the scan parameter
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_CREATE_SCAN
+        - scan\_param: the scan parameter
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_CREATE\_SCAN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv420bk_ble_start_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv420bk_ble_start_scaning7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv320bk_ble_start_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv220bk_ble_start_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_start_scaning__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga6ab237005c5a40cda9f44fa9776c1ce2"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_start\_scaning(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Start a ble scan.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_scaning
+        2.must used after bk\_ble\_create\_scaning
 
-        3.adv will report in ble_notice_cb_t as BLE_5_REPORT_ADV
+        3.adv will report in ble\_notice\_cb\_t as BLE\_5\_REPORT\_ADV
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_START_SCAN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_START\_SCAN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_start_scaning_ex(uint8_t actv_idx, uint8_t filt_duplicate, uint16_t duration, uint16_t period, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv423bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv423bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t"></a>
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv419bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv323bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t"></a> <a id="_CPPv223bk_ble_start_scaning_ex7uint8_t7uint8_t8uint16_t8uint16_t12ble_cmd_cb_t"></a> <a id="bk_ble_start_scaning_ex__uint8_t.uint8_t.uint16_t.uint16_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gac42673372c1fce4d583e03135f099627"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_start\_scaning\_ex(uint8\_t actv\_idx, uint8\_t filt\_duplicate, uint16\_t duration, uint16\_t period, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
+
+<a id="_CPPv419bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv319bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv219bk_ble_stop_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_stop_scaning__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga72336462591df1db0904e1a799eb7502"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_stop\_scaning(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Stop the scan that has been started.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_start_scaning
+        2.must used after bk\_ble\_start\_scaning
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_STOP_SCAN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_STOP\_SCAN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_scaning(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv421bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv321bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv221bk_ble_delete_scaning7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_delete_scaning__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gad109f017d81f4712a6c934bf17bb3d51"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_delete\_scaning(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Delete the scan that has been created.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_scaning
+        2.must used after bk\_ble\_create\_scaning
 
     参数
-    :   **actv_idx, :** – the index of activity
+    :   **actv\_idx, :** – the index of activity
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_DELETE_SCAN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_DELETE\_SCAN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_init(uint8_t con_idx, [ble_conn_param_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") *conn_param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv418bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv418bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv318bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a> <a id="_CPPv218bk_ble_create_init7uint8_tP16ble_conn_param_t12ble_cmd_cb_t"></a> <a id="bk_ble_create_init__uint8_t.ble_conn_param_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga1b4daf940ba925f1023604f1f78a69e5"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_init(uint8\_t con\_idx, [ble\_conn\_param\_t](#_CPPv416ble_conn_param_t "ble_conn_param_t") \*conn\_param, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Create a activity for initiating a connection.
 
     User example:
@@ -811,390 +796,399 @@ uint8_t bk_ble_appm_set_dev_name(uint8_t len, uint8_t *name)[](#_CPPv424bk_bl
     bk_ble_create_init(con_idx, &conn_param, ble_at_cmd);
     ```
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - conn_param: the connection parameter
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_INIT_CREATE
+        - conn\_param: the connection parameter
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_INIT\_CREATE
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_init_start_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv422bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv422bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv322bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv222bk_ble_init_start_conn7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_init_start_conn__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga57dd321d593ba5ddeb24f821dc34bb96"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_init\_start\_conn(uint8\_t con\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Initiate a connection.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_init
+        2.must used after bk\_ble\_create\_init
 
-        3.when connect result, will recv BLE_5_INIT_CONNECT_EVENT in ble_notice_cb_t
+        3.when connect result, will recv BLE\_5\_INIT\_CONNECT\_EVENT in ble\_notice\_cb\_t
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_INIT_START_CONN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_INIT\_START\_CONN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_init_stop_conn(uint8_t con_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv421bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv421bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv321bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv221bk_ble_init_stop_conn7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_init_stop_conn__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga6c383277ac66a267565a8759a1fb37f3"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_init\_stop\_conn(uint8\_t con\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   Stop a connection.
 
-
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_init_start_conn
+        2.must used after bk\_ble\_init\_start\_conn
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - callback: register a callback for this action, ble_cmd_t: BLE_INIT_STOP_CONN
+        - callback: register a callback for this action, ble\_cmd\_t: BLE\_INIT\_STOP\_CONN
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_init_set_connect_dev_addr(uint8_t connidx, [bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *bdaddr, uint8_t addr_type)[](#_CPPv432bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t "永久链接至目标")
-:   Set the address of the device to be connected.
+<a id="_CPPv432bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t"></a>
 
+<a id="_CPPv332bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t"></a> <a id="_CPPv232bk_ble_init_set_connect_dev_addr7uint8_tP9bd_addr_t7uint8_t"></a> <a id="bk_ble_init_set_connect_dev_addr__uint8_t.bd_addr_tP.uint8_t"></a> <a id="group__bk__ble__api__v1_1ga5effaee518f4279b18480590f11492b2"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_init\_set\_connect\_dev\_addr(uint8\_t connidx, [bd\_addr\_t](#_CPPv49bd_addr_t "bd_addr_t") \*bdaddr, uint8\_t addr\_type)
+:   Set the address of the device to be connected.
 
     **Attention**
     :   1.you must wait callback status, 0 mean success.
 
-        2.must used after bk_ble_create_init
+        2.must used after bk\_ble\_create\_init
 
-        3.addr_type must right, if wrong, cant connect
+        3.addr\_type must right, if wrong, cant connect
 
     参数
     :   **connidx, :** – the index of connection
 
-
         - bdaddr: the address of the device to be connected
-
-        - addr_type: the address type of the device to be connected, 1: public 0: random
+        - addr\_type: the address type of the device to be connected, 1: public 0: random
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv427bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t"></a>
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_start_periodic_sync(uint8_t actv_idx, [ble_periodic_param_t](#_CPPv420ble_periodic_param_t "ble_periodic_param_t") *param, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv426bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv327bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv227bk_ble_create_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_create_periodic_sync__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gae223c377f88d86cfd2c00924308a884b"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_periodic\_sync(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_stop_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv425bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv426bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t"></a>
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_periodic_sync(uint8_t actv_idx, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv427bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv326bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t"></a> <a id="_CPPv226bk_ble_start_periodic_sync7uint8_tP20ble_periodic_param_t12ble_cmd_cb_t"></a> <a id="bk_ble_start_periodic_sync__uint8_t.ble_periodic_param_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1ga6fc9e9c9de75337df138562176fa7ebf"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_start\_periodic\_sync(uint8\_t actv\_idx, [ble\_periodic\_param\_t](#_CPPv420ble_periodic_param_t "ble_periodic_param_t") \*param, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 
-uint8_t bk_ble_get_idle_actv_idx_handle(void)[](#_CPPv431bk_ble_get_idle_actv_idx_handlev "永久链接至目标")
+<a id="_CPPv425bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv325bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv225bk_ble_stop_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_stop_periodic_sync__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gaa96fa107f270ed0d7ada77fea3100dfa"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_stop\_periodic\_sync(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
+
+<a id="_CPPv427bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv327bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv227bk_ble_delete_periodic_sync7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_delete_periodic_sync__uint8_t.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gabed96772625693380d83c81d4b704933"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_delete\_periodic\_sync(uint8\_t actv\_idx, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
+
+<a id="_CPPv431bk_ble_get_idle_actv_idx_handlev"></a>
+
+<a id="_CPPv331bk_ble_get_idle_actv_idx_handlev"></a> <a id="_CPPv231bk_ble_get_idle_actv_idx_handlev"></a> <a id="bk_ble_get_idle_actv_idx_handle__void"></a> <a id="group__bk__ble__api__v1_1ga59256bec7de3df45f39570d5ef69d082"></a> uint8\_t bk\_ble\_get\_idle\_actv\_idx\_handle(void)
 :   Get an idle activity.
 
     返回
     :   - xx: the idle activity’s index
 
-uint8_t bk_ble_get_max_actv_idx_count(void)[](#_CPPv429bk_ble_get_max_actv_idx_countv "永久链接至目标")
+<a id="_CPPv429bk_ble_get_max_actv_idx_countv"></a>
+
+<a id="_CPPv329bk_ble_get_max_actv_idx_countv"></a> <a id="_CPPv229bk_ble_get_max_actv_idx_countv"></a> <a id="bk_ble_get_max_actv_idx_count__void"></a> <a id="group__bk__ble__api__v1_1gada33374d8018856640754918b9297e1d"></a> uint8\_t bk\_ble\_get\_max\_actv\_idx\_count(void)
 :   Get the maximum count of activities.
 
     返回
     :   - xx: the maximum count of activities
 
-uint8_t bk_ble_get_max_conn_idx_count(void)[](#_CPPv429bk_ble_get_max_conn_idx_countv "永久链接至目标")
+<a id="_CPPv429bk_ble_get_max_conn_idx_countv"></a>
+
+<a id="_CPPv329bk_ble_get_max_conn_idx_countv"></a> <a id="_CPPv229bk_ble_get_max_conn_idx_countv"></a> <a id="bk_ble_get_max_conn_idx_count__void"></a> <a id="group__bk__ble__api__v1_1ga5974f690de4bd01eba232d898fc21173"></a> uint8\_t bk\_ble\_get\_max\_conn\_idx\_count(void)
 :   Get the maximum count of supported connections.
 
     返回
     :   - xx: the maximum count of supported connections
 
-uint8_t bk_ble_get_idle_conn_idx_handle(void)[](#_CPPv431bk_ble_get_idle_conn_idx_handlev "永久链接至目标")
+<a id="_CPPv431bk_ble_get_idle_conn_idx_handlev"></a>
+
+<a id="_CPPv331bk_ble_get_idle_conn_idx_handlev"></a> <a id="_CPPv231bk_ble_get_idle_conn_idx_handlev"></a> <a id="bk_ble_get_idle_conn_idx_handle__void"></a> <a id="group__bk__ble__api__v1_1ga127748f4f5b2d17a8326ac63af539254"></a> uint8\_t bk\_ble\_get\_idle\_conn\_idx\_handle(void)
 :   Get an idle connection activity.
 
     返回
     :   - xx: the idle connection activity’s index
 
-uint8_t bk_ble_find_conn_idx_from_addr([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *connt_addr)[](#_CPPv430bk_ble_find_conn_idx_from_addrP9bd_addr_t "永久链接至目标")
+<a id="_CPPv430bk_ble_find_conn_idx_from_addrP9bd_addr_t"></a>
+
+<a id="_CPPv330bk_ble_find_conn_idx_from_addrP9bd_addr_t"></a> <a id="_CPPv230bk_ble_find_conn_idx_from_addrP9bd_addr_t"></a> <a id="bk_ble_find_conn_idx_from_addr__bd_addr_tP"></a> <a id="group__bk__ble__api__v1_1gacaf401abda1e95bf14f3e7b4b14e9d31"></a> uint8\_t bk\_ble\_find\_conn\_idx\_from\_addr([bd\_addr\_t](#_CPPv49bd_addr_t "bd_addr_t") \*connt\_addr)
 :   Find the specific connection activity by address.
 
     参数
-    :   **connt_addr, :** – the address of the connected device
+    :   **connt\_addr, :** – the address of the connected device
 
     返回
     :   - xx: the index of the connection activity meeting the address
 
-uint8_t bk_ble_get_connect_state([bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") *connt_addr)[](#_CPPv424bk_ble_get_connect_stateP9bd_addr_t "永久链接至目标")
+<a id="_CPPv424bk_ble_get_connect_stateP9bd_addr_t"></a>
+
+<a id="_CPPv324bk_ble_get_connect_stateP9bd_addr_t"></a> <a id="_CPPv224bk_ble_get_connect_stateP9bd_addr_t"></a> <a id="bk_ble_get_connect_state__bd_addr_tP"></a> <a id="group__bk__ble__api__v1_1ga3048473f9c8c4c226eeb664e7e53a430"></a> uint8\_t bk\_ble\_get\_connect\_state([bd\_addr\_t](#_CPPv49bd_addr_t "bd_addr_t") \*connt\_addr)
 :   Get the connection state of the specific device.
 
     参数
-    :   **connt_addr, :** – the device’s address
+    :   **connt\_addr, :** – the device’s address
 
     返回
     :   - 1: this device is connected
-
         - 0: this device is disconnected
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_get_mac(uint8_t *mac)[](#_CPPv414bk_ble_get_macP7uint8_t "永久链接至目标")
+<a id="_CPPv414bk_ble_get_macP7uint8_t"></a>
+
+<a id="_CPPv314bk_ble_get_macP7uint8_t"></a> <a id="_CPPv214bk_ble_get_macP7uint8_t"></a> <a id="bk_ble_get_mac__uint8_tP"></a> <a id="group__bk__ble__api__v1_1ga7473327e2502d76d164da8dffd05c58c"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_get\_mac(uint8\_t \*mac)
 :   get ble mac addr
 
-
     **Attention**
-    :   1. return mac is 6 bytes.
+    :   1\. return mac is 6 bytes.
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_mac(uint8_t actv_idx, uint8_t *mac, [ble_cmd_cb_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)[](#_CPPv414bk_ble_set_mac7uint8_tP7uint8_t12ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv414bk_ble_set_mac7uint8_tP7uint8_t12ble_cmd_cb_t"></a>
+
+<a id="_CPPv314bk_ble_set_mac7uint8_tP7uint8_t12ble_cmd_cb_t"></a> <a id="_CPPv214bk_ble_set_mac7uint8_tP7uint8_t12ble_cmd_cb_t"></a> <a id="bk_ble_set_mac__uint8_t.uint8_tP.ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1_1gac3bb86e393dc033c28cf2c77cf5da23c"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_mac(uint8\_t actv\_idx, uint8\_t \*mac, [ble\_cmd\_cb\_t](#_CPPv412ble_cmd_cb_t "ble_cmd_cb_t") callback)
 :   set ble mac addr
 
-
     **Attention**
-    :   1. This API is not ready yet.
+    :   1\. This API is not ready yet.
 
     参数
-    :   **actv_idx, :** – actv_idx: the index of activity
-
+    :   **actv\_idx, :** – actv\_idx: the index of activity
 
         - mac: the device’s address
-
         - callback: register a callback for this action
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_send_noti_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv422bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+<a id="_CPPv422bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a>
+
+<a id="_CPPv322bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="_CPPv222bk_ble_send_noti_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="bk_ble_send_noti_value__uint8_t.uint32_t.uint8_tP.uint16_t.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga743b3b5e1a8789a83099ab260115a6c7"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_send\_noti\_value(uint8\_t con\_idx, uint32\_t len, uint8\_t \*buf, uint16\_t prf\_id, uint16\_t att\_idx)
 :   As slaver, send a notification of an attribute’s value.
 
     参数
-    :   **con_idx, :** – the index of connection
-
+    :   **con\_idx, :** – the index of connection
 
         - len: the length of attribute’s value
-
         - buf: attribute’s value
-
-        - prf_id: The id of the profile
-
-        - att_idx: The index of the attribute
+        - prf\_id: The id of the profile
+        - att\_idx: The index of the attribute
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_send_ind_value(uint8_t con_idx, uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv421bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+<a id="_CPPv421bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a>
+
+<a id="_CPPv321bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="_CPPv221bk_ble_send_ind_value7uint8_t8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="bk_ble_send_ind_value__uint8_t.uint32_t.uint8_tP.uint16_t.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga1762c826416150f03376d283904c27a0"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_send\_ind\_value(uint8\_t con\_idx, uint32\_t len, uint8\_t \*buf, uint16\_t prf\_id, uint16\_t att\_idx)
 :   As slaver, send an indication of an attribute’s value.
 
     参数
-    :   **con_idx, :** – the index of connection
-
+    :   **con\_idx, :** – the index of connection
 
         - len: the length of attribute’s value
-
         - buf: attribute’s value
-
-        - prf_id: The id of the profile
-
-        - att_idx: The index of the attribute
+        - prf\_id: The id of the profile
+        - att\_idx: The index of the attribute
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_reg_hci_recv_callback([ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") evt_cb, [ble_hci_to_host_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") acl_cb)[](#_CPPv428bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb "永久链接至目标")
+<a id="_CPPv428bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb"></a>
+
+<a id="_CPPv328bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb"></a> <a id="_CPPv228bk_ble_reg_hci_recv_callback18ble_hci_to_host_cb18ble_hci_to_host_cb"></a> <a id="bk_ble_reg_hci_recv_callback__ble_hci_to_host_cb.ble_hci_to_host_cb"></a> <a id="group__bk__ble__api__v1_1ga0f4a056d95139bcd0ab6e1da8c58c0a2"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_reg\_hci\_recv\_callback([ble\_hci\_to\_host\_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") evt\_cb, [ble\_hci\_to\_host\_cb](#_CPPv418ble_hci_to_host_cb "ble_hci_to_host_cb") acl\_cb)
 :   reg hci recv callback
 
-
     **Attention**
-    :   1. you must call this after recv BLE_5_STACK_OK evt !
+    :   1\. you must call this after recv BLE\_5\_STACK\_OK evt !
 
     参数
-    :   **evt_cb, :** – evt callback function
+    :   **evt\_cb, :** – evt callback function
 
-
-        - acl_cb: acl callback function
+        - acl\_cb: acl callback function
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_to_controller(uint8_t type, uint8_t *buf, uint16_t len)[](#_CPPv424bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t "永久链接至目标")
+<a id="_CPPv424bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t"></a>
+
+<a id="_CPPv324bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t"></a> <a id="_CPPv224bk_ble_hci_to_controller7uint8_tP7uint8_t8uint16_t"></a> <a id="bk_ble_hci_to_controller__uint8_t.uint8_tP.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga3ec321524722d7477284ca9058c2140f"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_hci\_to\_controller(uint8\_t type, uint8\_t \*buf, uint16\_t len)
 :   send hci to controller.
 
-
     **Attention**
-    :   1. you must call this after bk_ble_reg_hci_recv_callback !
+    :   1\. you must call this after bk\_ble\_reg\_hci\_recv\_callback !
 
     参数
-    :   **type, :** – see BK_BLE_HCI_TYPE.
-
+    :   **type, :** – see BK\_BLE\_HCI\_TYPE.
 
         - buf: payload
-
         - len: buf’s len
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_cmd_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t "永久链接至目标")
+<a id="_CPPv428bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t"></a>
+
+<a id="_CPPv328bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t"></a> <a id="_CPPv228bk_ble_hci_cmd_to_controllerP7uint8_t8uint16_t"></a> <a id="bk_ble_hci_cmd_to_controller__uint8_tP.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga1ef1a5b9e5879e45c132c00113c80210"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_hci\_cmd\_to\_controller(uint8\_t \*buf, uint16\_t len)
 :   send hci cmd to controller.
 
-
     **Attention**
-    :   1. you must call this after bk_ble_reg_hci_recv_callback !
+    :   1\. you must call this after bk\_ble\_reg\_hci\_recv\_callback !
 
     参数
     :   **buf, :** – payload
 
-
         - len: buf’s len
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_hci_acl_to_controller(uint8_t *buf, uint16_t len)[](#_CPPv428bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t "永久链接至目标")
+<a id="_CPPv428bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t"></a>
+
+<a id="_CPPv328bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t"></a> <a id="_CPPv228bk_ble_hci_acl_to_controllerP7uint8_t8uint16_t"></a> <a id="bk_ble_hci_acl_to_controller__uint8_tP.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga42c06f4782cd0f9269ef723299c5656e"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_hci\_acl\_to\_controller(uint8\_t \*buf, uint16\_t len)
 :   send hci acl to controller.
 
-
     **Attention**
-    :   1. you must call this after bk_ble_reg_hci_recv_callback !
+    :   1\. you must call this after bk\_ble\_reg\_hci\_recv\_callback !
 
     参数
     :   **buf, :** – payload
 
-
         - len: buf’s len
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
 
-uint8_t bk_ble_if_support_central(uint8_t *count)[](#_CPPv425bk_ble_if_support_centralP7uint8_t "永久链接至目标")
+<a id="_CPPv425bk_ble_if_support_centralP7uint8_t"></a>
 
-[BK_BLE_CONTROLLER_STACK_TYPE](#_CPPv428BK_BLE_CONTROLLER_STACK_TYPE "BK_BLE_CONTROLLER_STACK_TYPE") bk_ble_get_controller_stack_type(void)[](#_CPPv432bk_ble_get_controller_stack_typev "永久链接至目标")
+<a id="_CPPv325bk_ble_if_support_centralP7uint8_t"></a> <a id="_CPPv225bk_ble_if_support_centralP7uint8_t"></a> <a id="bk_ble_if_support_central__uint8_tP"></a> <a id="group__bk__ble__api__v1_1gab48622b9f97434399b0057e2d7fa7a4d"></a> uint8\_t bk\_ble\_if\_support\_central(uint8\_t \*count)
 
-[BK_BLE_HOST_STACK_TYPE](#_CPPv422BK_BLE_HOST_STACK_TYPE "BK_BLE_HOST_STACK_TYPE") bk_ble_get_host_stack_type(void)[](#_CPPv426bk_ble_get_host_stack_typev "永久链接至目标")
+<a id="_CPPv432bk_ble_get_controller_stack_typev"></a>
 
-uint8_t bk_ble_get_env_state(void)[](#_CPPv420bk_ble_get_env_statev "永久链接至目标")
+<a id="_CPPv332bk_ble_get_controller_stack_typev"></a> <a id="_CPPv232bk_ble_get_controller_stack_typev"></a> <a id="bk_ble_get_controller_stack_type__void"></a> <a id="group__bk__ble__api__v1_1gad34af9c7166e9e393789e03c8c06a23f"></a> [BK\_BLE\_CONTROLLER\_STACK\_TYPE](#_CPPv428BK_BLE_CONTROLLER_STACK_TYPE "BK_BLE_CONTROLLER_STACK_TYPE") bk\_ble\_get\_controller\_stack\_type(void)
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_set_task_stack_size(uint16_t size)[](#_CPPv426bk_ble_set_task_stack_size8uint16_t "永久链接至目标")
+<a id="_CPPv426bk_ble_get_host_stack_typev"></a>
 
-void bk_ble_register_app_sdp_charac_callback([app_sdp_charac_callback](#_CPPv423app_sdp_charac_callback "app_sdp_charac_callback") cb)[](#_CPPv439bk_ble_register_app_sdp_charac_callback23app_sdp_charac_callback "永久链接至目标")
+<a id="_CPPv326bk_ble_get_host_stack_typev"></a> <a id="_CPPv226bk_ble_get_host_stack_typev"></a> <a id="bk_ble_get_host_stack_type__void"></a> <a id="group__bk__ble__api__v1_1gaaf9743eb06680f2d5fba04e6c2b526d0"></a> [BK\_BLE\_HOST\_STACK\_TYPE](#_CPPv422BK_BLE_HOST_STACK_TYPE "BK_BLE_HOST_STACK_TYPE") bk\_ble\_get\_host\_stack\_type(void)
 
-void bk_ble_register_app_sdp_common_callback([app_sdp_comm_callback](#_CPPv421app_sdp_comm_callback "app_sdp_comm_callback") cb)[](#_CPPv439bk_ble_register_app_sdp_common_callback21app_sdp_comm_callback "永久链接至目标")
+<a id="_CPPv420bk_ble_get_env_statev"></a>
 
-uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc_value)[](#_CPPv421bk_ble_gatt_write_ccc7uint8_t8uint16_t8uint16_t "永久链接至目标")
+<a id="_CPPv320bk_ble_get_env_statev"></a> <a id="_CPPv220bk_ble_get_env_statev"></a> <a id="bk_ble_get_env_state__void"></a> <a id="group__bk__ble__api__v1_1ga3a4ee0a3aaf16dac82123483730cdedb"></a> uint8\_t bk\_ble\_get\_env\_state(void)
+
+<a id="_CPPv426bk_ble_set_task_stack_size8uint16_t"></a>
+
+<a id="_CPPv326bk_ble_set_task_stack_size8uint16_t"></a> <a id="_CPPv226bk_ble_set_task_stack_size8uint16_t"></a> <a id="bk_ble_set_task_stack_size__uint16_t"></a> <a id="group__bk__ble__api__v1_1gacdc2660fdb8672cdd73749f91c952f29"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_set\_task\_stack\_size(uint16\_t size)
+
+<a id="_CPPv439bk_ble_register_app_sdp_charac_callback23app_sdp_charac_callback"></a>
+
+<a id="_CPPv339bk_ble_register_app_sdp_charac_callback23app_sdp_charac_callback"></a> <a id="_CPPv239bk_ble_register_app_sdp_charac_callback23app_sdp_charac_callback"></a> <a id="bk_ble_register_app_sdp_charac_callback__app_sdp_charac_callback"></a> <a id="group__bk__ble__api__v1_1gae17451331278acf39079608c0f31cf9d"></a> void bk\_ble\_register\_app\_sdp\_charac\_callback([app\_sdp\_charac\_callback](#_CPPv423app_sdp_charac_callback "app_sdp_charac_callback") cb)
+
+<a id="_CPPv439bk_ble_register_app_sdp_common_callback21app_sdp_comm_callback"></a>
+
+<a id="_CPPv339bk_ble_register_app_sdp_common_callback21app_sdp_comm_callback"></a> <a id="_CPPv239bk_ble_register_app_sdp_common_callback21app_sdp_comm_callback"></a> <a id="bk_ble_register_app_sdp_common_callback__app_sdp_comm_callback"></a> <a id="group__bk__ble__api__v1_1ga1c7f8f3a73702fe8ecc729d960e08274"></a> void bk\_ble\_register\_app\_sdp\_common\_callback([app\_sdp\_comm\_callback](#_CPPv421app_sdp_comm_callback "app_sdp_comm_callback") cb)
+
+<a id="_CPPv421bk_ble_gatt_write_ccc7uint8_t8uint16_t8uint16_t"></a>
+
+<a id="_CPPv321bk_ble_gatt_write_ccc7uint8_t8uint16_t8uint16_t"></a> <a id="_CPPv221bk_ble_gatt_write_ccc7uint8_t8uint16_t8uint16_t"></a> <a id="bk_ble_gatt_write_ccc__uint8_t.uint16_t.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga7eef50132e596d6d6e46cd48d44afbf4"></a> uint8\_t bk\_ble\_gatt\_write\_ccc(uint8\_t con\_idx, uint16\_t ccc\_handle, uint16\_t ccc\_value)
 :   As master, enable notification or indication.
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - ccc_handle: the handle of Client Characteristic Configuration descriptor
-
-        - ccc_value: descriptor value, 0x01 means notification ,0x02 means indication
+        - ccc\_handle: the handle of Client Characteristic Configuration descriptor
+        - ccc\_value: descriptor value, 0x01 means notification ,0x02 means indication
 
     返回
     :   - 0: succeed
-
         - others: errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_gatt_write_value(uint8_t con_idx, uint16_t att_handle, uint16_t len, uint8_t *data)[](#_CPPv423bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t "永久链接至目标")
+<a id="_CPPv423bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t"></a>
+
+<a id="_CPPv323bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t"></a> <a id="_CPPv223bk_ble_gatt_write_value7uint8_t8uint16_t8uint16_tP7uint8_t"></a> <a id="bk_ble_gatt_write_value__uint8_t.uint16_t.uint16_t.uint8_tP"></a> <a id="group__bk__ble__api__v1_1ga5d8594b965d7972b27469437d1fafb54"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_gatt\_write\_value(uint8\_t con\_idx, uint16\_t att\_handle, uint16\_t len, uint8\_t \*data)
 :   As master, write attribute value.
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - att_handle: the handle of attribute value
-
+        - att\_handle: the handle of attribute value
         - data: value data
-
         - len: the length of attribute value
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_read_response_value(uint32_t len, uint8_t *buf, uint16_t prf_id, uint16_t att_idx)[](#_CPPv426bk_ble_read_response_value8uint32_tP7uint8_t8uint16_t8uint16_t "永久链接至目标")
+<a id="_CPPv426bk_ble_read_response_value8uint32_tP7uint8_t8uint16_t8uint16_t"></a>
+
+<a id="_CPPv326bk_ble_read_response_value8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="_CPPv226bk_ble_read_response_value8uint32_tP7uint8_t8uint16_t8uint16_t"></a> <a id="bk_ble_read_response_value__uint32_t.uint8_tP.uint16_t.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga6f31e4ecda255bd1b7ebbd0f819c6aee"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_read\_response\_value(uint32\_t len, uint8\_t \*buf, uint16\_t prf\_id, uint16\_t att\_idx)
 :   As slaver, send response value.
 
     参数
     :   **len, :** – the length of attribute’s value
 
-
         - buf: attribute’s value
-
-        - prf_id: The id of the profile
-
-        - att_idx: The index of the attribute
+        - prf\_id: The id of the profile
+        - att\_idx: The index of the attribute
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_sec_send_auth_mode(uint8_t con_idx, uint8_t mode, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv425bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+<a id="_CPPv425bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a>
+
+<a id="_CPPv325bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a> <a id="_CPPv225bk_ble_sec_send_auth_mode7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a> <a id="bk_ble_sec_send_auth_mode__uint8_t.uint8_t.uint8_t.uint8_t.uint8_t"></a> <a id="group__bk__ble__api__v1_1ga3b406cbb6440cbff728fb52de36f91e6"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_sec\_send\_auth\_mode(uint8\_t con\_idx, uint8\_t mode, uint8\_t iocap, uint8\_t sec\_req, uint8\_t oob)
 :   As master, configure attribute value.
 
     参数
-    :   **con_idx, :** – the index of connection
-
+    :   **con\_idx, :** – the index of connection
 
         - mode: authentication features
-
         - iocap: IO Capability Values
-
-        - sec_req: Security Defines
-
+        - sec\_req: Security Defines
         - oob: OOB Data Present Flag Values
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_init(void)[](#_CPPv411bk_ble_initv "永久链接至目标")
+<a id="_CPPv411bk_ble_initv"></a>
+
+<a id="_CPPv311bk_ble_initv"></a> <a id="_CPPv211bk_ble_initv"></a> <a id="bk_ble_init__void"></a> <a id="group__bk__ble__api__v1_1ga6e2fb78d12d18f8adfa8221a4dc9d4b4"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_init(void)
 :   ble init function
 
     参数
     :   **@return** –
 
-
-        - BK_ERR_BLE_SUCCESS: succeed
-
+        - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_deinit(void)[](#_CPPv413bk_ble_deinitv "永久链接至目标")
+<a id="_CPPv413bk_ble_deinitv"></a>
+
+<a id="_CPPv313bk_ble_deinitv"></a> <a id="_CPPv213bk_ble_deinitv"></a> <a id="bk_ble_deinit__void"></a> <a id="group__bk__ble__api__v1_1gaf520ce1148fdad9b4f3eb3841ef07091"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_deinit(void)
 :   ble deinit function
 
     参数
     :   **@return** –
 
-
-        - BK_ERR_BLE_SUCCESS: succeed
-
+        - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_delete_service(struct [bk_ble_db_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") *ble_db_cfg)[](#_CPPv421bk_ble_delete_serviceP13bk_ble_db_cfg "永久链接至目标")
+<a id="_CPPv421bk_ble_delete_serviceP13bk_ble_db_cfg"></a>
+
+<a id="_CPPv321bk_ble_delete_serviceP13bk_ble_db_cfg"></a> <a id="_CPPv221bk_ble_delete_serviceP13bk_ble_db_cfg"></a> <a id="bk_ble_delete_service__bk_ble_db_cfgP"></a> <a id="group__bk__ble__api__v1_1gad0471e4a212ec50d89da0237ca07c3fe"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_delete\_service(struct [bk\_ble\_db\_cfg](#_CPPv413bk_ble_db_cfg "bk_ble_db_cfg") \*ble\_db\_cfg)
 :   Unregister a gatt service.
 
     User example:
@@ -1207,590 +1201,952 @@ uint8_t bk_ble_gatt_write_ccc(uint8_t con_idx, uint16_t ccc_handle, uint16_t ccc
     ble_db_cfg.svc_perm = BK_BLE_PERM_SET(SVC_UUID_LEN, UUID_16);
     ```
 
-
     **Attention**
     :   1.you must set the uuid of service and the len of uuid.
 
     参数
-    :   **ble_db_cfg, :** – service param
+    :   **ble\_db\_cfg, :** – service param
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: other errors.
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_att_read(uint8_t con_idx, uint16_t att_handle)[](#_CPPv415bk_ble_att_read7uint8_t8uint16_t "永久链接至目标")
-:   As master, read attribute value, the result is reported in the callback registered through bk_ble_register_app_sdp_charac_callback.
+<a id="_CPPv415bk_ble_att_read7uint8_t8uint16_t"></a>
+
+<a id="_CPPv315bk_ble_att_read7uint8_t8uint16_t"></a> <a id="_CPPv215bk_ble_att_read7uint8_t8uint16_t"></a> <a id="bk_ble_att_read__uint8_t.uint16_t"></a> <a id="group__bk__ble__api__v1_1ga2dff3792fbbce670c5eb9bab35a8a68f"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_att\_read(uint8\_t con\_idx, uint16\_t att\_handle)
+:   As master, read attribute value, the result is reported in the callback registered through bk\_ble\_register\_app\_sdp\_charac\_callback.
 
     参数
-    :   **con_idx, :** – the index of connection
+    :   **con\_idx, :** – the index of connection
 
-
-        - att_handle: the handle of attribute value
+        - att\_handle: the handle of attribute value
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
-[ble_err_t](#_CPPv49ble_err_t "ble_err_t") bk_ble_create_bond(uint8_t con_idx, uint8_t auth, uint8_t iocap, uint8_t sec_req, uint8_t oob)[](#_CPPv418bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t "永久链接至目标")
+<a id="_CPPv418bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a>
+
+<a id="_CPPv318bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a> <a id="_CPPv218bk_ble_create_bond7uint8_t7uint8_t7uint8_t7uint8_t7uint8_t"></a> <a id="bk_ble_create_bond__uint8_t.uint8_t.uint8_t.uint8_t.uint8_t"></a> <a id="group__bk__ble__api__v1_1gac786e0c3ad011349f19ccfc337037ce9"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") bk\_ble\_create\_bond(uint8\_t con\_idx, uint8\_t auth, uint8\_t iocap, uint8\_t sec\_req, uint8\_t oob)
 :   Create Bluetooth Bonding.
 
     参见
 
-    enum [gap_auth](#group__bk__ble__api__v1__typedef_1gabddf59399b398b7d0cdb34f77becadb8 "#group__bk__ble__api__v1__typedef_1gabddf59399b398b7d0cdb34f77becadb8"))
-
+    enum [gap\_auth](#group__bk__ble__api__v1__typedef_1gabddf59399b398b7d0cdb34f77becadb8))
 
     - iocap: IO Capability Values(
 
-    enum [gap_io_cap](#group__bk__ble__api__v1__typedef_1ga790b6f241b1164d78f2f781f393ea576 "#group__bk__ble__api__v1__typedef_1ga790b6f241b1164d78f2f781f393ea576"))
+    enum [gap\_io\_cap](#group__bk__ble__api__v1__typedef_1ga790b6f241b1164d78f2f781f393ea576))
 
+    - sec\_req: Security Defines(
 
-    - sec_req: Security Defines(
-
-    enum [gap_sec_req](#group__bk__ble__api__v1__typedef_1ga5bdf085cbe078d063965de5462611445 "#group__bk__ble__api__v1__typedef_1ga5bdf085cbe078d063965de5462611445"))
-
+    enum [gap\_sec\_req](#group__bk__ble__api__v1__typedef_1ga5bdf085cbe078d063965de5462611445))
 
     - oob: OOB Data Present Flag Values(
 
-    enum [gap_oob](#group__bk__ble__api__v1__typedef_1ga009fe656dba3e223453288e3fc6fa68c "#group__bk__ble__api__v1__typedef_1ga009fe656dba3e223453288e3fc6fa68c"))
+    enum [gap\_oob](#group__bk__ble__api__v1__typedef_1ga009fe656dba3e223453288e3fc6fa68c))
 
     参数
-    :   **con_idx, :** – the index of connection
-
+    :   **con\_idx, :** – the index of connection
 
         - auth: authentication features(
 
     返回
-    :   - BK_ERR_BLE_SUCCESS: succeed
-
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
         - others: fail
 
+<a id="api-typedefs"></a>
 
-## API Typedefs[](#api-typedefs "永久链接至标题")
+## API Typedefs
 
+<a id="id1"></a>
 
-### Header File[](#id1 "永久链接至标题")
+### Header File
 
+- [ble\_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble_types.h)
 
-- [ble_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble_types.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/ble_types.h")
+<a id="structures"></a>
 
+### Structures
 
-### Structures[](#structures "永久链接至标题")
+<a id="_CPPv415ble_sdp_svc_ind"></a>
 
-struct ble_sdp_svc_ind[](#_CPPv415ble_sdp_svc_ind "永久链接至目标")
-:   Public Members
+<a id="_CPPv315ble_sdp_svc_ind"></a> <a id="_CPPv215ble_sdp_svc_ind"></a> <a id="ble_sdp_svc_ind"></a> <a id="structble__sdp__svc__ind"></a> struct ble\_sdp\_svc\_ind
+:   <a id="breathe-section-title-public-members"></a>
 
-    uint8_t uuid_len[](#_CPPv4N15ble_sdp_svc_ind8uuid_lenE "永久链接至目标")
+    Public Members
+
+    <a id="_CPPv4N15ble_sdp_svc_ind8uuid_lenE"></a>
+
+    <a id="_CPPv3N15ble_sdp_svc_ind8uuid_lenE"></a> <a id="_CPPv2N15ble_sdp_svc_ind8uuid_lenE"></a> <a id="ble_sdp_svc_ind::uuid_len__uint8_t"></a> <a id="structble__sdp__svc__ind_1a6f9ace123d16e90645e16cdaa59f045b"></a> uint8\_t uuid\_len
     :   Service UUID Length.
 
-    uint8_t uuid[16][](#_CPPv4N15ble_sdp_svc_ind4uuidE "永久链接至目标")
+    <a id="_CPPv4N15ble_sdp_svc_ind4uuidE"></a>
+
+    <a id="_CPPv3N15ble_sdp_svc_ind4uuidE"></a> <a id="_CPPv2N15ble_sdp_svc_ind4uuidE"></a> <a id="ble_sdp_svc_ind::uuid__uint8_tA"></a> <a id="structble__sdp__svc__ind_1ab1cdd5bb5d4c48c2dc38d350befae802"></a> uint8\_t uuid\[16\]
     :   Service UUID.
 
-    uint16_t start_hdl[](#_CPPv4N15ble_sdp_svc_ind9start_hdlE "永久链接至目标")
+    <a id="_CPPv4N15ble_sdp_svc_ind9start_hdlE"></a>
+
+    <a id="_CPPv3N15ble_sdp_svc_ind9start_hdlE"></a> <a id="_CPPv2N15ble_sdp_svc_ind9start_hdlE"></a> <a id="ble_sdp_svc_ind::start_hdl__uint16_t"></a> <a id="structble__sdp__svc__ind_1ada0877057c70c911000207c351676a59"></a> uint16\_t start\_hdl
     :   Service start handle.
 
-    uint16_t end_hdl[](#_CPPv4N15ble_sdp_svc_ind7end_hdlE "永久链接至目标")
+    <a id="_CPPv4N15ble_sdp_svc_ind7end_hdlE"></a>
+
+    <a id="_CPPv3N15ble_sdp_svc_ind7end_hdlE"></a> <a id="_CPPv2N15ble_sdp_svc_ind7end_hdlE"></a> <a id="ble_sdp_svc_ind::end_hdl__uint16_t"></a> <a id="structble__sdp__svc__ind_1a36c26bdc2e02da1bdbe9f5c517bf7b5d"></a> uint16\_t end\_hdl
     :   Service end handle.
 
-struct ble_sdp_char_inf[](#_CPPv416ble_sdp_char_inf "永久链接至目标")
+<a id="_CPPv416ble_sdp_char_inf"></a>
+
+<a id="_CPPv316ble_sdp_char_inf"></a> <a id="_CPPv216ble_sdp_char_inf"></a> <a id="ble_sdp_char_inf"></a> <a id="structble__sdp__char__inf"></a> struct ble\_sdp\_char\_inf
 :   characteristic info
 
+    <a id="breathe-section-title-public-members"></a>
+
     Public Members
 
-    uint8_t uuid_len[](#_CPPv4N16ble_sdp_char_inf8uuid_lenE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf8uuid_lenE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf8uuid_lenE"></a> <a id="_CPPv2N16ble_sdp_char_inf8uuid_lenE"></a> <a id="ble_sdp_char_inf::uuid_len__uint8_t"></a> <a id="structble__sdp__char__inf_1a84583b32f7d117f521693d09f5e4e2a9"></a> uint8\_t uuid\_len
     :   Characteristic UUID Length.
 
-    uint8_t uuid[16][](#_CPPv4N16ble_sdp_char_inf4uuidE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf4uuidE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf4uuidE"></a> <a id="_CPPv2N16ble_sdp_char_inf4uuidE"></a> <a id="ble_sdp_char_inf::uuid__uint8_tA"></a> <a id="structble__sdp__char__inf_1a2d63ce72eb25d98f28debd417d2b518e"></a> uint8\_t uuid\[16\]
     :   Characteristic UUID.
 
-    uint16_t char_hdl[](#_CPPv4N16ble_sdp_char_inf8char_hdlE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf8char_hdlE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf8char_hdlE"></a> <a id="_CPPv2N16ble_sdp_char_inf8char_hdlE"></a> <a id="ble_sdp_char_inf::char_hdl__uint16_t"></a> <a id="structble__sdp__char__inf_1a74a26115d03737d4307b254f35e44c18"></a> uint16\_t char\_hdl
     :   Characteristic handle.
 
-    uint16_t val_hdl[](#_CPPv4N16ble_sdp_char_inf7val_hdlE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf7val_hdlE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf7val_hdlE"></a> <a id="_CPPv2N16ble_sdp_char_inf7val_hdlE"></a> <a id="ble_sdp_char_inf::val_hdl__uint16_t"></a> <a id="structble__sdp__char__inf_1a4b6e93dbc8da6b65512da75d7729b37d"></a> uint16\_t val\_hdl
     :   Value handle.
 
-    uint8_t prop[](#_CPPv4N16ble_sdp_char_inf4propE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf4propE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf4propE"></a> <a id="_CPPv2N16ble_sdp_char_inf4propE"></a> <a id="ble_sdp_char_inf::prop__uint8_t"></a> <a id="structble__sdp__char__inf_1a5dea06aef1aa6fe99d10c7acd4671732"></a> uint8\_t prop
     :   Characteristic properties.
 
-    uint8_t char_ehdl_off[](#_CPPv4N16ble_sdp_char_inf13char_ehdl_offE "永久链接至目标")
+    <a id="_CPPv4N16ble_sdp_char_inf13char_ehdl_offE"></a>
+
+    <a id="_CPPv3N16ble_sdp_char_inf13char_ehdl_offE"></a> <a id="_CPPv2N16ble_sdp_char_inf13char_ehdl_offE"></a> <a id="ble_sdp_char_inf::char_ehdl_off__uint8_t"></a> <a id="structble__sdp__char__inf_1a294bd833aed072d81770df134a38d58b"></a> uint8\_t char\_ehdl\_off
     :   End of characteristic offset.
 
-struct ble_sdp_char_desc_inf[](#_CPPv421ble_sdp_char_desc_inf "永久链接至目标")
+<a id="_CPPv421ble_sdp_char_desc_inf"></a>
+
+<a id="_CPPv321ble_sdp_char_desc_inf"></a> <a id="_CPPv221ble_sdp_char_desc_inf"></a> <a id="ble_sdp_char_desc_inf"></a> <a id="structble__sdp__char__desc__inf"></a> struct ble\_sdp\_char\_desc\_inf
 :   characteristic description
+
+    <a id="breathe-section-title-public-members"></a>
 
     Public Members
 
-    uint8_t uuid_len[](#_CPPv4N21ble_sdp_char_desc_inf8uuid_lenE "永久链接至目标")
+    <a id="_CPPv4N21ble_sdp_char_desc_inf8uuid_lenE"></a>
+
+    <a id="_CPPv3N21ble_sdp_char_desc_inf8uuid_lenE"></a> <a id="_CPPv2N21ble_sdp_char_desc_inf8uuid_lenE"></a> <a id="ble_sdp_char_desc_inf::uuid_len__uint8_t"></a> <a id="structble__sdp__char__desc__inf_1a8802e4441451c97fa67e26bdbdde7c2a"></a> uint8\_t uuid\_len
     :   UUID length.
 
-    uint8_t uuid[16][](#_CPPv4N21ble_sdp_char_desc_inf4uuidE "永久链接至目标")
+    <a id="_CPPv4N21ble_sdp_char_desc_inf4uuidE"></a>
+
+    <a id="_CPPv3N21ble_sdp_char_desc_inf4uuidE"></a> <a id="_CPPv2N21ble_sdp_char_desc_inf4uuidE"></a> <a id="ble_sdp_char_desc_inf::uuid__uint8_tA"></a> <a id="structble__sdp__char__desc__inf_1a3b3080c1d0ca69b20bb938b3cedb941e"></a> uint8\_t uuid\[16\]
     :   UUID.
 
-    uint16_t desc_hdl[](#_CPPv4N21ble_sdp_char_desc_inf8desc_hdlE "永久链接至目标")
+    <a id="_CPPv4N21ble_sdp_char_desc_inf8desc_hdlE"></a>
+
+    <a id="_CPPv3N21ble_sdp_char_desc_inf8desc_hdlE"></a> <a id="_CPPv2N21ble_sdp_char_desc_inf8desc_hdlE"></a> <a id="ble_sdp_char_desc_inf::desc_hdl__uint16_t"></a> <a id="structble__sdp__char__desc__inf_1a7cd69cc67ad4a2fb03eadb773e0225de"></a> uint16\_t desc\_hdl
     :   Descriptor handle.
 
-struct ble_smp_ind_t[](#_CPPv413ble_smp_ind_t "永久链接至目标")
+<a id="_CPPv413ble_smp_ind_t"></a>
 
-struct ble_attc_wr_rd_op[](#_CPPv417ble_attc_wr_rd_op "永久链接至目标")
-:   Public Members
+<a id="_CPPv313ble_smp_ind_t"></a> <a id="_CPPv213ble_smp_ind_t"></a> <a id="ble_smp_ind_t"></a> <a id="structble__smp__ind__t"></a> struct ble\_smp\_ind\_t
 
-    uint8_t status[](#_CPPv4N17ble_attc_wr_rd_op6statusE "永久链接至目标")
+<a id="_CPPv417ble_attc_wr_rd_op"></a>
+
+<a id="_CPPv317ble_attc_wr_rd_op"></a> <a id="_CPPv217ble_attc_wr_rd_op"></a> <a id="ble_attc_wr_rd_op"></a> <a id="structble__attc__wr__rd__op"></a> struct ble\_attc\_wr\_rd\_op
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N17ble_attc_wr_rd_op6statusE"></a>
+
+    <a id="_CPPv3N17ble_attc_wr_rd_op6statusE"></a> <a id="_CPPv2N17ble_attc_wr_rd_op6statusE"></a> <a id="ble_attc_wr_rd_op::status__uint8_t"></a> <a id="structble__attc__wr__rd__op_1a503a2240092b3dfcc81063faa63df0d0"></a> uint8\_t status
     :   Status of the request.
 
-    uint16_t seq_num[](#_CPPv4N17ble_attc_wr_rd_op7seq_numE "永久链接至目标")
-    :   operation sequence number - provided when operation is started
+    <a id="_CPPv4N17ble_attc_wr_rd_op7seq_numE"></a>
 
-struct ble_attc_event_ind[](#_CPPv418ble_attc_event_ind "永久链接至目标")
-:   Public Members
+    <a id="_CPPv3N17ble_attc_wr_rd_op7seq_numE"></a> <a id="_CPPv2N17ble_attc_wr_rd_op7seq_numE"></a> <a id="ble_attc_wr_rd_op::seq_num__uint16_t"></a> <a id="structble__attc__wr__rd__op_1a260b547697f5add39cfab2dd63de66b4"></a> uint16\_t seq\_num
+    :   operation sequence number \- provided when operation is started
 
-    enum [msg_attc](#_CPPv48msg_attc "msg_attc") type[](#_CPPv4N18ble_attc_event_ind4typeE "永久链接至目标")
+<a id="_CPPv418ble_attc_event_ind"></a>
+
+<a id="_CPPv318ble_attc_event_ind"></a> <a id="_CPPv218ble_attc_event_ind"></a> <a id="ble_attc_event_ind"></a> <a id="structble__attc__event__ind"></a> struct ble\_attc\_event\_ind
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N18ble_attc_event_ind4typeE"></a>
+
+    <a id="_CPPv3N18ble_attc_event_ind4typeE"></a> <a id="_CPPv2N18ble_attc_event_ind4typeE"></a> <a id="ble_attc_event_ind::type__msg_attc"></a> <a id="structble__attc__event__ind_1ac2579853c8097a9951057055a30242d9"></a> enum [msg\_attc](#_CPPv48msg_attc "msg_attc") type
     :   Event Type.
 
-    uint16_t start_hdl[](#_CPPv4N18ble_attc_event_ind9start_hdlE "永久链接至目标")
-    :   if start_hdl = end_hdl = 0,it is invaild
+    <a id="_CPPv4N18ble_attc_event_ind9start_hdlE"></a>
 
-struct ble_cmd_param_t[](#_CPPv415ble_cmd_param_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv3N18ble_attc_event_ind9start_hdlE"></a> <a id="_CPPv2N18ble_attc_event_ind9start_hdlE"></a> <a id="ble_attc_event_ind::start_hdl__uint16_t"></a> <a id="structble__attc__event__ind_1a75f263f209f7c64bbbe81b2e88aa560d"></a> uint16\_t start\_hdl
+    :   if start\_hdl \= end\_hdl \= 0,it is invaild
 
-    uint8_t cmd_idx[](#_CPPv4N15ble_cmd_param_t7cmd_idxE "永久链接至目标")
-    :   actv_idx
+<a id="_CPPv415ble_cmd_param_t"></a>
 
-    [ble_err_t](#_CPPv49ble_err_t "ble_err_t") status[](#_CPPv4N15ble_cmd_param_t6statusE "永久链接至目标")
+<a id="_CPPv315ble_cmd_param_t"></a> <a id="_CPPv215ble_cmd_param_t"></a> <a id="ble_cmd_param_t"></a> <a id="structble__cmd__param__t"></a> struct ble\_cmd\_param\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N15ble_cmd_param_t7cmd_idxE"></a>
+
+    <a id="_CPPv3N15ble_cmd_param_t7cmd_idxE"></a> <a id="_CPPv2N15ble_cmd_param_t7cmd_idxE"></a> <a id="ble_cmd_param_t::cmd_idx__uint8_t"></a> <a id="structble__cmd__param__t_1ae740a8e25fad23170b2e6cda2e17552a"></a> uint8\_t cmd\_idx
+    :   actv\_idx
+
+    <a id="_CPPv4N15ble_cmd_param_t6statusE"></a>
+
+    <a id="_CPPv3N15ble_cmd_param_t6statusE"></a> <a id="_CPPv2N15ble_cmd_param_t6statusE"></a> <a id="ble_cmd_param_t::status__ble_err_t"></a> <a id="structble__cmd__param__t_1aa36c3b32869b750ee7b34364337b9a16"></a> [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") status
     :   The status for this command
 
-struct ble_att_info_req_t[](#_CPPv418ble_att_info_req_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv418ble_att_info_req_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N18ble_att_info_req_t8conn_idxE "永久链接至目标")
+<a id="_CPPv318ble_att_info_req_t"></a> <a id="_CPPv218ble_att_info_req_t"></a> <a id="ble_att_info_req_t"></a> <a id="structble__att__info__req__t"></a> struct ble\_att\_info\_req\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N18ble_att_info_req_t8conn_idxE"></a>
+
+    <a id="_CPPv3N18ble_att_info_req_t8conn_idxE"></a> <a id="_CPPv2N18ble_att_info_req_t8conn_idxE"></a> <a id="ble_att_info_req_t::conn_idx__uint8_t"></a> <a id="structble__att__info__req__t_1aad446a224db42be81b4d554c49ef9d59"></a> uint8\_t conn\_idx
     :   The index of the connection
 
-    uint16_t prf_id[](#_CPPv4N18ble_att_info_req_t6prf_idE "永久链接至目标")
+    <a id="_CPPv4N18ble_att_info_req_t6prf_idE"></a>
+
+    <a id="_CPPv3N18ble_att_info_req_t6prf_idE"></a> <a id="_CPPv2N18ble_att_info_req_t6prf_idE"></a> <a id="ble_att_info_req_t::prf_id__uint16_t"></a> <a id="structble__att__info__req__t_1a2220587285bcea14d8ad6cb118389939"></a> uint16\_t prf\_id
     :   The id of the profile
 
-    uint16_t att_idx[](#_CPPv4N18ble_att_info_req_t7att_idxE "永久链接至目标")
+    <a id="_CPPv4N18ble_att_info_req_t7att_idxE"></a>
+
+    <a id="_CPPv3N18ble_att_info_req_t7att_idxE"></a> <a id="_CPPv2N18ble_att_info_req_t7att_idxE"></a> <a id="ble_att_info_req_t::att_idx__uint16_t"></a> <a id="structble__att__info__req__t_1a4aef6fd992c708d8a1f8d9ca0ae8f620"></a> uint16\_t att\_idx
     :   The index of the attribute
 
-    uint16_t length[](#_CPPv4N18ble_att_info_req_t6lengthE "永久链接至目标")
+    <a id="_CPPv4N18ble_att_info_req_t6lengthE"></a>
+
+    <a id="_CPPv3N18ble_att_info_req_t6lengthE"></a> <a id="_CPPv2N18ble_att_info_req_t6lengthE"></a> <a id="ble_att_info_req_t::length__uint16_t"></a> <a id="structble__att__info__req__t_1addeea7b9d3a80bd0da33e01769984a88"></a> uint16\_t length
     :   The length of the attribute
 
-    uint8_t status[](#_CPPv4N18ble_att_info_req_t6statusE "永久链接至目标")
+    <a id="_CPPv4N18ble_att_info_req_t6statusE"></a>
+
+    <a id="_CPPv3N18ble_att_info_req_t6statusE"></a> <a id="_CPPv2N18ble_att_info_req_t6statusE"></a> <a id="ble_att_info_req_t::status__uint8_t"></a> <a id="structble__att__info__req__t_1af2c1feb324e1b62d3496b38cddc16090"></a> uint8\_t status
     :   Use to know if it’s possible to modify the attribute ,can contains authorization or application error code
 
-struct ble_write_req_t[](#_CPPv415ble_write_req_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv415ble_write_req_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N15ble_write_req_t8conn_idxE "永久链接至目标")
+<a id="_CPPv315ble_write_req_t"></a> <a id="_CPPv215ble_write_req_t"></a> <a id="ble_write_req_t"></a> <a id="structble__write__req__t"></a> struct ble\_write\_req\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N15ble_write_req_t8conn_idxE"></a>
+
+    <a id="_CPPv3N15ble_write_req_t8conn_idxE"></a> <a id="_CPPv2N15ble_write_req_t8conn_idxE"></a> <a id="ble_write_req_t::conn_idx__uint8_t"></a> <a id="structble__write__req__t_1a861f0a0a6b01edef93912d4bbd028dc8"></a> uint8\_t conn\_idx
     :   The index of the connection
 
-    uint16_t prf_id[](#_CPPv4N15ble_write_req_t6prf_idE "永久链接至目标")
+    <a id="_CPPv4N15ble_write_req_t6prf_idE"></a>
+
+    <a id="_CPPv3N15ble_write_req_t6prf_idE"></a> <a id="_CPPv2N15ble_write_req_t6prf_idE"></a> <a id="ble_write_req_t::prf_id__uint16_t"></a> <a id="structble__write__req__t_1ad6a43fae0f27bb7b7c782996dd55df79"></a> uint16\_t prf\_id
     :   The id of the profile
 
-    uint16_t att_idx[](#_CPPv4N15ble_write_req_t7att_idxE "永久链接至目标")
+    <a id="_CPPv4N15ble_write_req_t7att_idxE"></a>
+
+    <a id="_CPPv3N15ble_write_req_t7att_idxE"></a> <a id="_CPPv2N15ble_write_req_t7att_idxE"></a> <a id="ble_write_req_t::att_idx__uint16_t"></a> <a id="structble__write__req__t_1a8a2f44bb70fffa7c1201e40374c48729"></a> uint16\_t att\_idx
     :   The index of the attribute
 
-    uint8_t *value[](#_CPPv4N15ble_write_req_t5valueE "永久链接至目标")
+    <a id="_CPPv4N15ble_write_req_t5valueE"></a>
+
+    <a id="_CPPv3N15ble_write_req_t5valueE"></a> <a id="_CPPv2N15ble_write_req_t5valueE"></a> <a id="ble_write_req_t::value__uint8_tP"></a> <a id="structble__write__req__t_1a06235bf4af0dd453f712d93b6d6a599e"></a> uint8\_t \*value
     :   The attribute value
 
-    uint16_t len[](#_CPPv4N15ble_write_req_t3lenE "永久链接至目标")
+    <a id="_CPPv4N15ble_write_req_t3lenE"></a>
+
+    <a id="_CPPv3N15ble_write_req_t3lenE"></a> <a id="_CPPv2N15ble_write_req_t3lenE"></a> <a id="ble_write_req_t::len__uint16_t"></a> <a id="structble__write__req__t_1a790cfbc5d85f6e21f465caa178e0bd90"></a> uint16\_t len
     :   The length of the attribute value
 
-struct ble_read_req_t[](#_CPPv414ble_read_req_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv414ble_read_req_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N14ble_read_req_t8conn_idxE "永久链接至目标")
+<a id="_CPPv314ble_read_req_t"></a> <a id="_CPPv214ble_read_req_t"></a> <a id="ble_read_req_t"></a> <a id="structble__read__req__t"></a> struct ble\_read\_req\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N14ble_read_req_t8conn_idxE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t8conn_idxE"></a> <a id="_CPPv2N14ble_read_req_t8conn_idxE"></a> <a id="ble_read_req_t::conn_idx__uint8_t"></a> <a id="structble__read__req__t_1afd2730611ca865ba0e765151f93096f4"></a> uint8\_t conn\_idx
     :   The index of the connection
 
-    uint16_t prf_id[](#_CPPv4N14ble_read_req_t6prf_idE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_req_t6prf_idE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t6prf_idE"></a> <a id="_CPPv2N14ble_read_req_t6prf_idE"></a> <a id="ble_read_req_t::prf_id__uint16_t"></a> <a id="structble__read__req__t_1abbf2cf04db6dc60e709de501a943b037"></a> uint16\_t prf\_id
     :   The id of the profile
 
-    uint16_t att_idx[](#_CPPv4N14ble_read_req_t7att_idxE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_req_t7att_idxE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t7att_idxE"></a> <a id="_CPPv2N14ble_read_req_t7att_idxE"></a> <a id="ble_read_req_t::att_idx__uint16_t"></a> <a id="structble__read__req__t_1aa2ee1cd30db266822d352b51ee358c8f"></a> uint16\_t att\_idx
     :   The index of the attribute
 
-    uint8_t *value[](#_CPPv4N14ble_read_req_t5valueE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_req_t5valueE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t5valueE"></a> <a id="_CPPv2N14ble_read_req_t5valueE"></a> <a id="ble_read_req_t::value__uint8_tP"></a> <a id="structble__read__req__t_1a5528bdce8e953fe243aa6be2e5fcc26c"></a> uint8\_t \*value
     :   The attribute value
 
-    uint16_t size[](#_CPPv4N14ble_read_req_t4sizeE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_req_t4sizeE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t4sizeE"></a> <a id="_CPPv2N14ble_read_req_t4sizeE"></a> <a id="ble_read_req_t::size__uint16_t"></a> <a id="structble__read__req__t_1a8eeeb01cf9a26119cf84d6fd2dd12c45"></a> uint16\_t size
     :   The size of attribute value to read
 
-    uint16_t length[](#_CPPv4N14ble_read_req_t6lengthE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_req_t6lengthE"></a>
+
+    <a id="_CPPv3N14ble_read_req_t6lengthE"></a> <a id="_CPPv2N14ble_read_req_t6lengthE"></a> <a id="ble_read_req_t::length__uint16_t"></a> <a id="structble__read__req__t_1a66f24478110858738158617e6fd864ba"></a> uint16\_t length
     :   The data length read
 
-struct ble_recv_adv_t[](#_CPPv414ble_recv_adv_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv414ble_recv_adv_t"></a>
 
-    uint8_t actv_idx[](#_CPPv4N14ble_recv_adv_t8actv_idxE "永久链接至目标")
+<a id="_CPPv314ble_recv_adv_t"></a> <a id="_CPPv214ble_recv_adv_t"></a> <a id="ble_recv_adv_t"></a> <a id="structble__recv__adv__t"></a> struct ble\_recv\_adv\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N14ble_recv_adv_t8actv_idxE"></a>
+
+    <a id="_CPPv3N14ble_recv_adv_t8actv_idxE"></a> <a id="_CPPv2N14ble_recv_adv_t8actv_idxE"></a> <a id="ble_recv_adv_t::actv_idx__uint8_t"></a> <a id="structble__recv__adv__t_1abf28d3ae03f016f54ac3b1c649f7e959"></a> uint8\_t actv\_idx
     :   The index of the activity
 
-    uint8_t evt_type[](#_CPPv4N14ble_recv_adv_t8evt_typeE "永久链接至目标")
-    :   Event type (see enum adv_report_info and adv_report_type)
+    <a id="_CPPv4N14ble_recv_adv_t8evt_typeE"></a>
 
-    uint8_t adv_addr_type[](#_CPPv4N14ble_recv_adv_t13adv_addr_typeE "永久链接至目标")
+    <a id="_CPPv3N14ble_recv_adv_t8evt_typeE"></a> <a id="_CPPv2N14ble_recv_adv_t8evt_typeE"></a> <a id="ble_recv_adv_t::evt_type__uint8_t"></a> <a id="structble__recv__adv__t_1a47da49c1aa9a1073dc7627fa0d8a1968"></a> uint8\_t evt\_type
+    :   Event type (see enum adv\_report\_info and adv\_report\_type)
+
+    <a id="_CPPv4N14ble_recv_adv_t13adv_addr_typeE"></a>
+
+    <a id="_CPPv3N14ble_recv_adv_t13adv_addr_typeE"></a> <a id="_CPPv2N14ble_recv_adv_t13adv_addr_typeE"></a> <a id="ble_recv_adv_t::adv_addr_type__uint8_t"></a> <a id="structble__recv__adv__t_1aa9f900b13290663a3cb8c8fc7e127cff"></a> uint8\_t adv\_addr\_type
     :   Advertising address type: public/random
 
-    uint8_t adv_addr[6][](#_CPPv4N14ble_recv_adv_t8adv_addrE "永久链接至目标")
+    <a id="_CPPv4N14ble_recv_adv_t8adv_addrE"></a>
+
+    <a id="_CPPv3N14ble_recv_adv_t8adv_addrE"></a> <a id="_CPPv2N14ble_recv_adv_t8adv_addrE"></a> <a id="ble_recv_adv_t::adv_addr__uint8_tA"></a> <a id="structble__recv__adv__t_1ada1b929edd545a73837ec3e492034589"></a> uint8\_t adv\_addr\[6\]
     :   Advertising address value
 
-    uint8_t data_len[](#_CPPv4N14ble_recv_adv_t8data_lenE "永久链接至目标")
+    <a id="_CPPv4N14ble_recv_adv_t8data_lenE"></a>
+
+    <a id="_CPPv3N14ble_recv_adv_t8data_lenE"></a> <a id="_CPPv2N14ble_recv_adv_t8data_lenE"></a> <a id="ble_recv_adv_t::data_len__uint8_t"></a> <a id="structble__recv__adv__t_1ad6f78528d3f14be445e36e322b2a1da0"></a> uint8\_t data\_len
     :   Data length in advertising packet
 
-    uint8_t *data[](#_CPPv4N14ble_recv_adv_t4dataE "永久链接至目标")
+    <a id="_CPPv4N14ble_recv_adv_t4dataE"></a>
+
+    <a id="_CPPv3N14ble_recv_adv_t4dataE"></a> <a id="_CPPv2N14ble_recv_adv_t4dataE"></a> <a id="ble_recv_adv_t::data__uint8_tP"></a> <a id="structble__recv__adv__t_1a649fcb58e3240174507cee3e269da8fd"></a> uint8\_t \*data
     :   Data of advertising packet
 
-    uint8_t rssi[](#_CPPv4N14ble_recv_adv_t4rssiE "永久链接至目标")
-    :   RSSI value for advertising packet (in dBm, between -127 and +20 dBm)
+    <a id="_CPPv4N14ble_recv_adv_t4rssiE"></a>
 
-struct ble_mtu_change_t[](#_CPPv416ble_mtu_change_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv3N14ble_recv_adv_t4rssiE"></a> <a id="_CPPv2N14ble_recv_adv_t4rssiE"></a> <a id="ble_recv_adv_t::rssi__uint8_t"></a> <a id="structble__recv__adv__t_1a3f510215cc9a75beeb25c55d8725cadb"></a> uint8\_t rssi
+    :   RSSI value for advertising packet (in dBm, between -127 and \+20 dBm)
 
-    uint8_t conn_idx[](#_CPPv4N16ble_mtu_change_t8conn_idxE "永久链接至目标")
+<a id="_CPPv416ble_mtu_change_t"></a>
+
+<a id="_CPPv316ble_mtu_change_t"></a> <a id="_CPPv216ble_mtu_change_t"></a> <a id="ble_mtu_change_t"></a> <a id="structble__mtu__change__t"></a> struct ble\_mtu\_change\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N16ble_mtu_change_t8conn_idxE"></a>
+
+    <a id="_CPPv3N16ble_mtu_change_t8conn_idxE"></a> <a id="_CPPv2N16ble_mtu_change_t8conn_idxE"></a> <a id="ble_mtu_change_t::conn_idx__uint8_t"></a> <a id="structble__mtu__change__t_1a90a0e12708869c47e85896788c7b40de"></a> uint8\_t conn\_idx
     :   The index of connection
 
-    uint16_t mtu_size[](#_CPPv4N16ble_mtu_change_t8mtu_sizeE "永久链接至目标")
+    <a id="_CPPv4N16ble_mtu_change_t8mtu_sizeE"></a>
+
+    <a id="_CPPv3N16ble_mtu_change_t8mtu_sizeE"></a> <a id="_CPPv2N16ble_mtu_change_t8mtu_sizeE"></a> <a id="ble_mtu_change_t::mtu_size__uint16_t"></a> <a id="structble__mtu__change__t_1a193ad9078c7dbf8c59f0c57180cf84d4"></a> uint16\_t mtu\_size
     :   The MTU size to exchange
 
-struct ble_conn_ind_t[](#_CPPv414ble_conn_ind_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv414ble_conn_ind_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N14ble_conn_ind_t8conn_idxE "永久链接至目标")
+<a id="_CPPv314ble_conn_ind_t"></a> <a id="_CPPv214ble_conn_ind_t"></a> <a id="ble_conn_ind_t"></a> <a id="structble__conn__ind__t"></a> struct ble\_conn\_ind\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N14ble_conn_ind_t8conn_idxE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t8conn_idxE"></a> <a id="_CPPv2N14ble_conn_ind_t8conn_idxE"></a> <a id="ble_conn_ind_t::conn_idx__uint8_t"></a> <a id="structble__conn__ind__t_1af4f295eb48b648b67d0443bfb3403620"></a> uint8\_t conn\_idx
     :   The index of connection.
 
-    uint8_t peer_addr_type[](#_CPPv4N14ble_conn_ind_t14peer_addr_typeE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t14peer_addr_typeE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t14peer_addr_typeE"></a> <a id="_CPPv2N14ble_conn_ind_t14peer_addr_typeE"></a> <a id="ble_conn_ind_t::peer_addr_type__uint8_t"></a> <a id="structble__conn__ind__t_1ad47dc6314a101f301cbe02bd8e148ad8"></a> uint8\_t peer\_addr\_type
     :   Peer address type.
 
-    uint8_t peer_addr[6][](#_CPPv4N14ble_conn_ind_t9peer_addrE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t9peer_addrE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t9peer_addrE"></a> <a id="_CPPv2N14ble_conn_ind_t9peer_addrE"></a> <a id="ble_conn_ind_t::peer_addr__uint8_tA"></a> <a id="structble__conn__ind__t_1a0b799a282a21ff0c6ff25ffaa9454a1c"></a> uint8\_t peer\_addr\[6\]
     :   Peer BT address.
 
-    uint8_t clk_accuracy[](#_CPPv4N14ble_conn_ind_t12clk_accuracyE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t12clk_accuracyE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t12clk_accuracyE"></a> <a id="_CPPv2N14ble_conn_ind_t12clk_accuracyE"></a> <a id="ble_conn_ind_t::clk_accuracy__uint8_t"></a> <a id="structble__conn__ind__t_1a96a0b4a0940d4d6484bc978a0be2ddc3"></a> uint8\_t clk\_accuracy
     :   Clock accuracy.
 
-    uint16_t con_interval[](#_CPPv4N14ble_conn_ind_t12con_intervalE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t12con_intervalE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t12con_intervalE"></a> <a id="_CPPv2N14ble_conn_ind_t12con_intervalE"></a> <a id="ble_conn_ind_t::con_interval__uint16_t"></a> <a id="structble__conn__ind__t_1a4c9e41b945f7413c8f1603e852e2d240"></a> uint16\_t con\_interval
     :   Connection interval.
 
-    uint16_t con_latency[](#_CPPv4N14ble_conn_ind_t11con_latencyE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t11con_latencyE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t11con_latencyE"></a> <a id="_CPPv2N14ble_conn_ind_t11con_latencyE"></a> <a id="ble_conn_ind_t::con_latency__uint16_t"></a> <a id="structble__conn__ind__t_1a901a0ecf301b255d03e33e038f103761"></a> uint16\_t con\_latency
     :   Connection latency.
 
-    uint16_t sup_to[](#_CPPv4N14ble_conn_ind_t6sup_toE "永久链接至目标")
+    <a id="_CPPv4N14ble_conn_ind_t6sup_toE"></a>
+
+    <a id="_CPPv3N14ble_conn_ind_t6sup_toE"></a> <a id="_CPPv2N14ble_conn_ind_t6sup_toE"></a> <a id="ble_conn_ind_t::sup_to__uint16_t"></a> <a id="structble__conn__ind__t_1a0bce0270464e23963578f8c258797eb0"></a> uint16\_t sup\_to
     :   Link supervision timeout.
 
-struct ble_discon_ind_t[](#_CPPv416ble_discon_ind_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv416ble_discon_ind_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N16ble_discon_ind_t8conn_idxE "永久链接至目标")
+<a id="_CPPv316ble_discon_ind_t"></a> <a id="_CPPv216ble_discon_ind_t"></a> <a id="ble_discon_ind_t"></a> <a id="structble__discon__ind__t"></a> struct ble\_discon\_ind\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N16ble_discon_ind_t8conn_idxE"></a>
+
+    <a id="_CPPv3N16ble_discon_ind_t8conn_idxE"></a> <a id="_CPPv2N16ble_discon_ind_t8conn_idxE"></a> <a id="ble_discon_ind_t::conn_idx__uint8_t"></a> <a id="structble__discon__ind__t_1aef720d93c729e305c25cfe81780ad71b"></a> uint8\_t conn\_idx
     :   The index of connection.
 
-    uint8_t reason[](#_CPPv4N16ble_discon_ind_t6reasonE "永久链接至目标")
+    <a id="_CPPv4N16ble_discon_ind_t6reasonE"></a>
+
+    <a id="_CPPv3N16ble_discon_ind_t6reasonE"></a> <a id="_CPPv2N16ble_discon_ind_t6reasonE"></a> <a id="ble_discon_ind_t::reason__uint8_t"></a> <a id="structble__discon__ind__t_1ad74b0d40dc32e699dd9e12ed1cde7aa1"></a> uint8\_t reason
     :   Reason of disconnection.
 
-struct ble_create_db_t[](#_CPPv415ble_create_db_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv415ble_create_db_t"></a>
 
-    uint8_t status[](#_CPPv4N15ble_create_db_t6statusE "永久链接至目标")
+<a id="_CPPv315ble_create_db_t"></a> <a id="_CPPv215ble_create_db_t"></a> <a id="ble_create_db_t"></a> <a id="structble__create__db__t"></a> struct ble\_create\_db\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N15ble_create_db_t6statusE"></a>
+
+    <a id="_CPPv3N15ble_create_db_t6statusE"></a> <a id="_CPPv2N15ble_create_db_t6statusE"></a> <a id="ble_create_db_t::status__uint8_t"></a> <a id="structble__create__db__t_1a824468db37268d79ceb9f0a0b2915520"></a> uint8\_t status
     :   The status for creating db
 
-    uint8_t prf_id[](#_CPPv4N15ble_create_db_t6prf_idE "永久链接至目标")
+    <a id="_CPPv4N15ble_create_db_t6prf_idE"></a>
+
+    <a id="_CPPv3N15ble_create_db_t6prf_idE"></a> <a id="_CPPv2N15ble_create_db_t6prf_idE"></a> <a id="ble_create_db_t::prf_id__uint8_t"></a> <a id="structble__create__db__t_1ae95753676e170782ec6113bbc803681d"></a> uint8\_t prf\_id
     :   The id of the profile
 
-struct ble_attm_desc_t[](#_CPPv415ble_attm_desc_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv415ble_attm_desc_t"></a>
 
-    uint8_t uuid[16][](#_CPPv4N15ble_attm_desc_t4uuidE "永久链接至目标")
+<a id="_CPPv315ble_attm_desc_t"></a> <a id="_CPPv215ble_attm_desc_t"></a> <a id="ble_attm_desc_t"></a> <a id="structble__attm__desc__t"></a> struct ble\_attm\_desc\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N15ble_attm_desc_t4uuidE"></a>
+
+    <a id="_CPPv3N15ble_attm_desc_t4uuidE"></a> <a id="_CPPv2N15ble_attm_desc_t4uuidE"></a> <a id="ble_attm_desc_t::uuid__uint8_tA"></a> <a id="structble__attm__desc__t_1aa5556efddeaf989b1176681cf2266910"></a> uint8\_t uuid\[16\]
     :   16 bits UUID LSB First
 
-    uint16_t perm[](#_CPPv4N15ble_attm_desc_t4permE "永久链接至目标")
-    :   Attribute Permissions (see enum bk_ble_perm_mask)
+    <a id="_CPPv4N15ble_attm_desc_t4permE"></a>
 
-    uint16_t ext_perm[](#_CPPv4N15ble_attm_desc_t8ext_permE "永久链接至目标")
-    :   Attribute Extended Permissions (see enum bk_ble_ext_perm_mask)
+    <a id="_CPPv3N15ble_attm_desc_t4permE"></a> <a id="_CPPv2N15ble_attm_desc_t4permE"></a> <a id="ble_attm_desc_t::perm__uint16_t"></a> <a id="structble__attm__desc__t_1ae1395c22253723f638922bbc40c8fdc7"></a> uint16\_t perm
+    :   Attribute Permissions (see enum bk\_ble\_perm\_mask)
 
-    uint16_t max_size[](#_CPPv4N15ble_attm_desc_t8max_sizeE "永久链接至目标")
+    <a id="_CPPv4N15ble_attm_desc_t8ext_permE"></a>
+
+    <a id="_CPPv3N15ble_attm_desc_t8ext_permE"></a> <a id="_CPPv2N15ble_attm_desc_t8ext_permE"></a> <a id="ble_attm_desc_t::ext_perm__uint16_t"></a> <a id="structble__attm__desc__t_1aae56741bd16e5a0fc21f5c2a14a293d3"></a> uint16\_t ext\_perm
+    :   Attribute Extended Permissions (see enum bk\_ble\_ext\_perm\_mask)
+
+    <a id="_CPPv4N15ble_attm_desc_t8max_sizeE"></a>
+
+    <a id="_CPPv3N15ble_attm_desc_t8max_sizeE"></a> <a id="_CPPv2N15ble_attm_desc_t8max_sizeE"></a> <a id="ble_attm_desc_t::max_size__uint16_t"></a> <a id="structble__attm__desc__t_1aa8d08dcf8d2024e44da8ec1cd189d00a"></a> uint16\_t max\_size
     :   Attribute Max Size note: for characteristic declaration contains handle offset note: for included service, contains target service handle
 
-struct bk_ble_db_cfg[](#_CPPv413bk_ble_db_cfg "永久链接至目标")
-:   Public Members
+<a id="_CPPv413bk_ble_db_cfg"></a>
 
-    uint8_t uuid[16][](#_CPPv4N13bk_ble_db_cfg4uuidE "永久链接至目标")
+<a id="_CPPv313bk_ble_db_cfg"></a> <a id="_CPPv213bk_ble_db_cfg"></a> <a id="bk_ble_db_cfg"></a> <a id="structbk__ble__db__cfg"></a> struct bk\_ble\_db\_cfg
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N13bk_ble_db_cfg4uuidE"></a>
+
+    <a id="_CPPv3N13bk_ble_db_cfg4uuidE"></a> <a id="_CPPv2N13bk_ble_db_cfg4uuidE"></a> <a id="bk_ble_db_cfg::uuid__uint8_tA"></a> <a id="structbk__ble__db__cfg_1aed7b89e50bbe97f1c998072f202a49e1"></a> uint8\_t uuid\[16\]
     :   Service uuid.
 
-    uint8_t att_db_nb[](#_CPPv4N13bk_ble_db_cfg9att_db_nbE "永久链接至目标")
+    <a id="_CPPv4N13bk_ble_db_cfg9att_db_nbE"></a>
+
+    <a id="_CPPv3N13bk_ble_db_cfg9att_db_nbE"></a> <a id="_CPPv2N13bk_ble_db_cfg9att_db_nbE"></a> <a id="bk_ble_db_cfg::att_db_nb__uint8_t"></a> <a id="structbk__ble__db__cfg_1a850dc90e7312e9b79c80a3a6a2874d45"></a> uint8\_t att\_db\_nb
     :   Number of db.
 
-    uint16_t start_hdl[](#_CPPv4N13bk_ble_db_cfg9start_hdlE "永久链接至目标")
+    <a id="_CPPv4N13bk_ble_db_cfg9start_hdlE"></a>
+
+    <a id="_CPPv3N13bk_ble_db_cfg9start_hdlE"></a> <a id="_CPPv2N13bk_ble_db_cfg9start_hdlE"></a> <a id="bk_ble_db_cfg::start_hdl__uint16_t"></a> <a id="structbk__ble__db__cfg_1a963b8418954491413550ad82081a5997"></a> uint16\_t start\_hdl
     :   Start handler, 0 means autoalloc.
 
-    [ble_attm_desc_t](#_CPPv415ble_attm_desc_t "ble_attm_desc_t") *att_db[](#_CPPv4N13bk_ble_db_cfg6att_dbE "永久链接至目标")
+    <a id="_CPPv4N13bk_ble_db_cfg6att_dbE"></a>
+
+    <a id="_CPPv3N13bk_ble_db_cfg6att_dbE"></a> <a id="_CPPv2N13bk_ble_db_cfg6att_dbE"></a> <a id="bk_ble_db_cfg::att_db__ble_attm_desc_tP"></a> <a id="structbk__ble__db__cfg_1ade205f79f2b9e4a7a78afa5c20fa2236"></a> [ble\_attm\_desc\_t](#_CPPv415ble_attm_desc_t "ble_attm_desc_t") \*att\_db
     :   Attribute database.
 
-    uint8_t svc_perm[](#_CPPv4N13bk_ble_db_cfg8svc_permE "永久链接至目标")
+    <a id="_CPPv4N13bk_ble_db_cfg8svc_permE"></a>
+
+    <a id="_CPPv3N13bk_ble_db_cfg8svc_permE"></a> <a id="_CPPv2N13bk_ble_db_cfg8svc_permE"></a> <a id="bk_ble_db_cfg::svc_perm__uint8_t"></a> <a id="structbk__ble__db__cfg_1a5d40d0a144bb9551f76ad1a94b402c63"></a> uint8\_t svc\_perm
     :   Service config.
 
-struct ble_init_config_t[](#_CPPv417ble_init_config_t "永久链接至目标")
+<a id="_CPPv417ble_init_config_t"></a>
 
-struct bd_addr_t[](#_CPPv49bd_addr_t "永久链接至目标")
+<a id="_CPPv317ble_init_config_t"></a> <a id="_CPPv217ble_init_config_t"></a> <a id="ble_init_config_t"></a> <a id="structble__init__config__t"></a> struct ble\_init\_config\_t
 
-struct ble_read_phy_t[](#_CPPv414ble_read_phy_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv49bd_addr_t"></a>
 
-    uint8_t tx_phy[](#_CPPv4N14ble_read_phy_t6tx_phyE "永久链接至目标")
+<a id="_CPPv39bd_addr_t"></a> <a id="_CPPv29bd_addr_t"></a> <a id="bd_addr_t"></a> <a id="structbd__addr__t"></a> struct bd\_addr\_t
+
+<a id="_CPPv414ble_read_phy_t"></a>
+
+<a id="_CPPv314ble_read_phy_t"></a> <a id="_CPPv214ble_read_phy_t"></a> <a id="ble_read_phy_t"></a> <a id="structble__read__phy__t"></a> struct ble\_read\_phy\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N14ble_read_phy_t6tx_phyE"></a>
+
+    <a id="_CPPv3N14ble_read_phy_t6tx_phyE"></a> <a id="_CPPv2N14ble_read_phy_t6tx_phyE"></a> <a id="ble_read_phy_t::tx_phy__uint8_t"></a> <a id="structble__read__phy__t_1a512ed2d8fd49223a8910b4f209ba4e77"></a> uint8\_t tx\_phy
     :   The transmitter PHY
 
-    uint8_t rx_phy[](#_CPPv4N14ble_read_phy_t6rx_phyE "永久链接至目标")
+    <a id="_CPPv4N14ble_read_phy_t6rx_phyE"></a>
+
+    <a id="_CPPv3N14ble_read_phy_t6rx_phyE"></a> <a id="_CPPv2N14ble_read_phy_t6rx_phyE"></a> <a id="ble_read_phy_t::rx_phy__uint8_t"></a> <a id="structble__read__phy__t_1aaacac6fe720bc36b1b34566ab1abde3f"></a> uint8\_t rx\_phy
     :   The receiver PHY
 
-struct ble_set_phy_t[](#_CPPv413ble_set_phy_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv413ble_set_phy_t"></a>
 
-    uint8_t tx_phy[](#_CPPv4N13ble_set_phy_t6tx_phyE "永久链接至目标")
+<a id="_CPPv313ble_set_phy_t"></a> <a id="_CPPv213ble_set_phy_t"></a> <a id="ble_set_phy_t"></a> <a id="structble__set__phy__t"></a> struct ble\_set\_phy\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N13ble_set_phy_t6tx_phyE"></a>
+
+    <a id="_CPPv3N13ble_set_phy_t6tx_phyE"></a> <a id="_CPPv2N13ble_set_phy_t6tx_phyE"></a> <a id="ble_set_phy_t::tx_phy__uint8_t"></a> <a id="structble__set__phy__t_1a7c02467fdbc77d96d67dff65d90112b9"></a> uint8\_t tx\_phy
     :   The transmitter PHY
 
-    uint8_t rx_phy[](#_CPPv4N13ble_set_phy_t6rx_phyE "永久链接至目标")
+    <a id="_CPPv4N13ble_set_phy_t6rx_phyE"></a>
+
+    <a id="_CPPv3N13ble_set_phy_t6rx_phyE"></a> <a id="_CPPv2N13ble_set_phy_t6rx_phyE"></a> <a id="ble_set_phy_t::rx_phy__uint8_t"></a> <a id="structble__set__phy__t_1a0eb779c69a7ed6e92f45d552818e3161"></a> uint8\_t rx\_phy
     :   The receiver PHY
 
-    uint8_t phy_opt[](#_CPPv4N13ble_set_phy_t7phy_optE "永久链接至目标")
+    <a id="_CPPv4N13ble_set_phy_t7phy_optE"></a>
+
+    <a id="_CPPv3N13ble_set_phy_t7phy_optE"></a> <a id="_CPPv2N13ble_set_phy_t7phy_optE"></a> <a id="ble_set_phy_t::phy_opt__uint8_t"></a> <a id="structble__set__phy__t_1a8a96262b9400a193679625f6ac192a3f"></a> uint8\_t phy\_opt
     :   PHY options
 
-struct ble_adv_param_t[](#_CPPv415ble_adv_param_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv415ble_adv_param_t"></a>
 
-    uint8_t own_addr_type[](#_CPPv4N15ble_adv_param_t13own_addr_typeE "永久链接至目标")
-    :   Own address type: see enum ble_own_addr_type.
+<a id="_CPPv315ble_adv_param_t"></a> <a id="_CPPv215ble_adv_param_t"></a> <a id="ble_adv_param_t"></a> <a id="structble__adv__param__t"></a> struct ble\_adv\_param\_t
+:   <a id="breathe-section-title-public-members"></a>
 
-    uint8_t adv_type[](#_CPPv4N15ble_adv_param_t8adv_typeE "永久链接至目标")
+    Public Members
+
+    <a id="_CPPv4N15ble_adv_param_t13own_addr_typeE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t13own_addr_typeE"></a> <a id="_CPPv2N15ble_adv_param_t13own_addr_typeE"></a> <a id="ble_adv_param_t::own_addr_type__uint8_t"></a> <a id="structble__adv__param__t_1a6f1a854b16ae312ff007c80969c91475"></a> uint8\_t own\_addr\_type
+    :   Own address type: see enum ble\_own\_addr\_type.
+
+    <a id="_CPPv4N15ble_adv_param_t8adv_typeE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t8adv_typeE"></a> <a id="_CPPv2N15ble_adv_param_t8adv_typeE"></a> <a id="ble_adv_param_t::adv_type__uint8_t"></a> <a id="structble__adv__param__t_1a6e865fec2db0cc0eaee3e477918f1c38"></a> uint8\_t adv\_type
     :   Advertising type (.
 
         参见
 
-        enum [adv_type](#structble__adv__param__t_1a6e865fec2db0cc0eaee3e477918f1c38 "#structble__adv__param__t_1a6e865fec2db0cc0eaee3e477918f1c38"))
+        enum [adv\_type](#structble__adv__param__t_1a6e865fec2db0cc0eaee3e477918f1c38))
 
-    uint8_t chnl_map[](#_CPPv4N15ble_adv_param_t8chnl_mapE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t8chnl_mapE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t8chnl_mapE"></a> <a id="_CPPv2N15ble_adv_param_t8chnl_mapE"></a> <a id="ble_adv_param_t::chnl_map__uint8_t"></a> <a id="structble__adv__param__t_1ae5136acc3ec82c51b7fcc690a15aa80b"></a> uint8\_t chnl\_map
     :   Bit field indicating the channel mapping (.
 
         参见
 
-        enum [adv_chnl_map](#group__bk__ble__api__v1__typedef_1ga57c9e3ee8efb2e8c2fcc35e570f8679a "#group__bk__ble__api__v1__typedef_1ga57c9e3ee8efb2e8c2fcc35e570f8679a"))
+        enum [adv\_chnl\_map](#group__bk__ble__api__v1__typedef_1ga57c9e3ee8efb2e8c2fcc35e570f8679a))
 
-    uint16_t adv_prop[](#_CPPv4N15ble_adv_param_t8adv_propE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t8adv_propE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t8adv_propE"></a> <a id="_CPPv2N15ble_adv_param_t8adv_propE"></a> <a id="ble_adv_param_t::adv_prop__uint16_t"></a> <a id="structble__adv__param__t_1a88155e8b3ac2265ed5f26e01d0e024dd"></a> uint16\_t adv\_prop
     :   Bit field value provided advertising properties (.
 
         参见
 
-        enum [adv_prop_bf](#group__bk__ble__api__v1__typedef_1ga6b5140e1b8fe4043c83c62cbdfdd20c3 "#group__bk__ble__api__v1__typedef_1ga6b5140e1b8fe4043c83c62cbdfdd20c3"))
+        enum [adv\_prop\_bf](#group__bk__ble__api__v1__typedef_1ga6b5140e1b8fe4043c83c62cbdfdd20c3))
 
-    uint32_t adv_intv_min[](#_CPPv4N15ble_adv_param_t12adv_intv_minE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t12adv_intv_minE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t12adv_intv_minE"></a> <a id="_CPPv2N15ble_adv_param_t12adv_intv_minE"></a> <a id="ble_adv_param_t::adv_intv_min__uint32_t"></a> <a id="structble__adv__param__t_1a10f76572775faab83d26244978ec53d9"></a> uint32\_t adv\_intv\_min
     :   Minimum advertising interval (in unit of 625us). Must be greater than or equal to 20ms.
 
-    uint32_t adv_intv_max[](#_CPPv4N15ble_adv_param_t12adv_intv_maxE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t12adv_intv_maxE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t12adv_intv_maxE"></a> <a id="_CPPv2N15ble_adv_param_t12adv_intv_maxE"></a> <a id="ble_adv_param_t::adv_intv_max__uint32_t"></a> <a id="structble__adv__param__t_1a68c97dfb28cb08faef0eb43eff114c69"></a> uint32\_t adv\_intv\_max
     :   Maximum advertising interval (in unit of 625us). Must be greater than or equal to 20ms.
 
-    uint8_t prim_phy[](#_CPPv4N15ble_adv_param_t8prim_phyE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t8prim_phyE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t8prim_phyE"></a> <a id="_CPPv2N15ble_adv_param_t8prim_phyE"></a> <a id="ble_adv_param_t::prim_phy__uint8_t"></a> <a id="structble__adv__param__t_1a15208842eae32fc0e618f3a104b15d8e"></a> uint8\_t prim\_phy
     :   Indicate on which PHY primary advertising has to be performed (
 
         参见
 
-        enum [phy_type_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874 "#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874")) Note that LE 2M PHY is not allowed and that legacy advertising only support LE 1M PHY
+        enum [phy\_type\_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874)) Note that LE 2M PHY is not allowed and that legacy advertising only support LE 1M PHY
 
-    uint8_t second_phy[](#_CPPv4N15ble_adv_param_t10second_phyE "永久链接至目标")
+    <a id="_CPPv4N15ble_adv_param_t10second_phyE"></a>
+
+    <a id="_CPPv3N15ble_adv_param_t10second_phyE"></a> <a id="_CPPv2N15ble_adv_param_t10second_phyE"></a> <a id="ble_adv_param_t::second_phy__uint8_t"></a> <a id="structble__adv__param__t_1a996fd748977a38954f18006538ba1c1b"></a> uint8\_t second\_phy
     :   Indicate on which PHY secondary advertising has to be performed (.
 
         参见
 
-        enum [phy_type_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874 "#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874"))
+        enum [phy\_type\_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874))
 
-struct ble_scan_param_t[](#_CPPv416ble_scan_param_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv416ble_scan_param_t"></a>
 
-    uint8_t own_addr_type[](#_CPPv4N16ble_scan_param_t13own_addr_typeE "永久链接至目标")
-    :   Own address type: see enum ble_own_addr_type.
+<a id="_CPPv316ble_scan_param_t"></a> <a id="_CPPv216ble_scan_param_t"></a> <a id="ble_scan_param_t"></a> <a id="structble__scan__param__t"></a> struct ble\_scan\_param\_t
+:   <a id="breathe-section-title-public-members"></a>
 
-    uint8_t scan_phy[](#_CPPv4N16ble_scan_param_t8scan_phyE "永久链接至目标")
-    :   on which the advertising packets should be received: LE 1M=1 / LE CODED=4 / LE 1M and LE CODED=5
+    Public Members
 
-    uint16_t scan_intv[](#_CPPv4N16ble_scan_param_t9scan_intvE "永久链接至目标")
+    <a id="_CPPv4N16ble_scan_param_t13own_addr_typeE"></a>
+
+    <a id="_CPPv3N16ble_scan_param_t13own_addr_typeE"></a> <a id="_CPPv2N16ble_scan_param_t13own_addr_typeE"></a> <a id="ble_scan_param_t::own_addr_type__uint8_t"></a> <a id="structble__scan__param__t_1abe6dce83e26b4ba6e6385d526b4d1bdb"></a> uint8\_t own\_addr\_type
+    :   Own address type: see enum ble\_own\_addr\_type.
+
+    <a id="_CPPv4N16ble_scan_param_t8scan_phyE"></a>
+
+    <a id="_CPPv3N16ble_scan_param_t8scan_phyE"></a> <a id="_CPPv2N16ble_scan_param_t8scan_phyE"></a> <a id="ble_scan_param_t::scan_phy__uint8_t"></a> <a id="structble__scan__param__t_1a4e220e9c3d40f93ab380f7b14c8de3ed"></a> uint8\_t scan\_phy
+    :   on which the advertising packets should be received: LE 1M\=1 / LE CODED\=4 / LE 1M and LE CODED\=5
+
+    <a id="_CPPv4N16ble_scan_param_t9scan_intvE"></a>
+
+    <a id="_CPPv3N16ble_scan_param_t9scan_intvE"></a> <a id="_CPPv2N16ble_scan_param_t9scan_intvE"></a> <a id="ble_scan_param_t::scan_intv__uint16_t"></a> <a id="structble__scan__param__t_1a4e5db3d10db53fa49af639924d82290f"></a> uint16\_t scan\_intv
     :   Scan interval (in unit of 625us). Must be greater than or equal to 2.5ms.
 
-    uint16_t scan_wd[](#_CPPv4N16ble_scan_param_t7scan_wdE "永久链接至目标")
+    <a id="_CPPv4N16ble_scan_param_t7scan_wdE"></a>
+
+    <a id="_CPPv3N16ble_scan_param_t7scan_wdE"></a> <a id="_CPPv2N16ble_scan_param_t7scan_wdE"></a> <a id="ble_scan_param_t::scan_wd__uint16_t"></a> <a id="structble__scan__param__t_1a5f9e94be9176f6c8c96d2508aa376227"></a> uint16\_t scan\_wd
     :   Scan window (in unit of 625us). Must be greater than or equal to 2.5ms.
 
-struct ble_conn_param_t[](#_CPPv416ble_conn_param_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv416ble_conn_param_t"></a>
 
-    uint16_t intv_min[](#_CPPv4N16ble_conn_param_t8intv_minE "永久链接至目标")
+<a id="_CPPv316ble_conn_param_t"></a> <a id="_CPPv216ble_conn_param_t"></a> <a id="ble_conn_param_t"></a> <a id="structble__conn__param__t"></a> struct ble\_conn\_param\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N16ble_conn_param_t8intv_minE"></a>
+
+    <a id="_CPPv3N16ble_conn_param_t8intv_minE"></a> <a id="_CPPv2N16ble_conn_param_t8intv_minE"></a> <a id="ble_conn_param_t::intv_min__uint16_t"></a> <a id="structble__conn__param__t_1aca198b6c52b979cdcc00940b6821c935"></a> uint16\_t intv\_min
     :   Connection interval minimum (in unit of 1.25ms). Must be greater than or equal to 7.5ms.
 
-    uint16_t intv_max[](#_CPPv4N16ble_conn_param_t8intv_maxE "永久链接至目标")
+    <a id="_CPPv4N16ble_conn_param_t8intv_maxE"></a>
+
+    <a id="_CPPv3N16ble_conn_param_t8intv_maxE"></a> <a id="_CPPv2N16ble_conn_param_t8intv_maxE"></a> <a id="ble_conn_param_t::intv_max__uint16_t"></a> <a id="structble__conn__param__t_1a78809b7b8cf8043c7cde434b4d1e0a12"></a> uint16\_t intv\_max
     :   Connection interval maximum (in unit of 1.25ms). Must be greater than or equal to 7.5ms.
 
-    uint16_t con_latency[](#_CPPv4N16ble_conn_param_t11con_latencyE "永久链接至目标")
+    <a id="_CPPv4N16ble_conn_param_t11con_latencyE"></a>
+
+    <a id="_CPPv3N16ble_conn_param_t11con_latencyE"></a> <a id="_CPPv2N16ble_conn_param_t11con_latencyE"></a> <a id="ble_conn_param_t::con_latency__uint16_t"></a> <a id="structble__conn__param__t_1a25b0aba39495037e46c3c07d107bfaf4"></a> uint16\_t con\_latency
     :   Connection latency. The range is 0x0000 to 0x01F3.
 
-    uint16_t sup_to[](#_CPPv4N16ble_conn_param_t6sup_toE "永久链接至目标")
+    <a id="_CPPv4N16ble_conn_param_t6sup_toE"></a>
+
+    <a id="_CPPv3N16ble_conn_param_t6sup_toE"></a> <a id="_CPPv2N16ble_conn_param_t6sup_toE"></a> <a id="ble_conn_param_t::sup_to__uint16_t"></a> <a id="structble__conn__param__t_1abb1fa7075dc1063cb2a029c181a79f63"></a> uint16\_t sup\_to
     :   Link supervision timeout(in unit of 10ms). Must be greater than or equal to 100ms.
 
-    uint8_t init_phys[](#_CPPv4N16ble_conn_param_t9init_physE "永久链接至目标")
+    <a id="_CPPv4N16ble_conn_param_t9init_physE"></a>
+
+    <a id="_CPPv3N16ble_conn_param_t9init_physE"></a> <a id="_CPPv2N16ble_conn_param_t9init_physE"></a> <a id="ble_conn_param_t::init_phys__uint8_t"></a> <a id="structble__conn__param__t_1ae5cf2a7588a3e78fb906d623194f686a"></a> uint8\_t init\_phys
     :   on which the advertising packets should be received on the primary advertising physical channel (
 
         参见
 
-        enum [phy_type_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874 "#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874"))
+        enum [phy\_type\_le](#group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874))
 
-struct ble_periodic_param_t[](#_CPPv420ble_periodic_param_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv420ble_periodic_param_t"></a>
 
-    uint8_t report_disable[](#_CPPv4N20ble_periodic_param_t14report_disableE "永久链接至目标")
+<a id="_CPPv320ble_periodic_param_t"></a> <a id="_CPPv220ble_periodic_param_t"></a> <a id="ble_periodic_param_t"></a> <a id="structble__periodic__param__t"></a> struct ble\_periodic\_param\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N20ble_periodic_param_t14report_disableE"></a>
+
+    <a id="_CPPv3N20ble_periodic_param_t14report_disableE"></a> <a id="_CPPv2N20ble_periodic_param_t14report_disableE"></a> <a id="ble_periodic_param_t::report_disable__uint8_t"></a> <a id="structble__periodic__param__t_1ae1d57ecf55a55dc5f778c9603dc9b2e7"></a> uint8\_t report\_disable
     :   1 to disable periodic advertising report, 0 to enable them by default
 
-    uint8_t adv_sid[](#_CPPv4N20ble_periodic_param_t7adv_sidE "永久链接至目标")
+    <a id="_CPPv4N20ble_periodic_param_t7adv_sidE"></a>
+
+    <a id="_CPPv3N20ble_periodic_param_t7adv_sidE"></a> <a id="_CPPv2N20ble_periodic_param_t7adv_sidE"></a> <a id="ble_periodic_param_t::adv_sid__uint8_t"></a> <a id="structble__periodic__param__t_1a75ae20862225eeafcec072af2475e8e5"></a> uint8\_t adv\_sid
     :   adv sid of advertiser(0x00 to 0x0F)
 
-    [bd_addr_t](#_CPPv49bd_addr_t "bd_addr_t") adv_addr[](#_CPPv4N20ble_periodic_param_t8adv_addrE "永久链接至目标")
-    :   Address of advertiser with which synchronization has to be established (used only if use_pal is false)
+    <a id="_CPPv4N20ble_periodic_param_t8adv_addrE"></a>
 
-    uint16_t skip[](#_CPPv4N20ble_periodic_param_t4skipE "永久链接至目标")
+    <a id="_CPPv3N20ble_periodic_param_t8adv_addrE"></a> <a id="_CPPv2N20ble_periodic_param_t8adv_addrE"></a> <a id="ble_periodic_param_t::adv_addr__bd_addr_t"></a> <a id="structble__periodic__param__t_1aa5e55b7c6667f7a8a64381d5f57beb0a"></a> [bd\_addr\_t](#_CPPv49bd_addr_t "bd_addr_t") adv\_addr
+    :   Address of advertiser with which synchronization has to be established (used only if use\_pal is false)
+
+    <a id="_CPPv4N20ble_periodic_param_t4skipE"></a>
+
+    <a id="_CPPv3N20ble_periodic_param_t4skipE"></a> <a id="_CPPv2N20ble_periodic_param_t4skipE"></a> <a id="ble_periodic_param_t::skip__uint16_t"></a> <a id="structble__periodic__param__t_1ae7fd1bf008f4a247996f5892a0378b50"></a> uint16\_t skip
     :   Number of periodic advertising that can be skipped after a successful receive. Maximum authorized value is 499
 
-    uint16_t sync_to[](#_CPPv4N20ble_periodic_param_t7sync_toE "永久链接至目标")
+    <a id="_CPPv4N20ble_periodic_param_t7sync_toE"></a>
+
+    <a id="_CPPv3N20ble_periodic_param_t7sync_toE"></a> <a id="_CPPv2N20ble_periodic_param_t7sync_toE"></a> <a id="ble_periodic_param_t::sync_to__uint16_t"></a> <a id="structble__periodic__param__t_1a70e718edb4b1f61d9baa5c1c9c784914"></a> uint16\_t sync\_to
     :   Synchronization timeout for the periodic advertising (in unit of 10ms between 100ms and 163.84s)
 
-    uint8_t cte_type[](#_CPPv4N20ble_periodic_param_t8cte_typeE "永久链接至目标")
+    <a id="_CPPv4N20ble_periodic_param_t8cte_typeE"></a>
+
+    <a id="_CPPv3N20ble_periodic_param_t8cte_typeE"></a> <a id="_CPPv2N20ble_periodic_param_t8cte_typeE"></a> <a id="ble_periodic_param_t::cte_type__uint8_t"></a> <a id="structble__periodic__param__t_1a6af2f2c28db8765fde4dad4e89d82fb4"></a> uint8\_t cte\_type
     :   Type of Constant Tone Extension device should sync on (.
 
         参见
 
-        enum [ble_sync_cte_type](#group__bk__ble__api__v1__typedef_1ga7249d9eb7c2b2f4a4f56b4c241e6db5f "#group__bk__ble__api__v1__typedef_1ga7249d9eb7c2b2f4a4f56b4c241e6db5f")).
+        enum [ble\_sync\_cte\_type](#group__bk__ble__api__v1__typedef_1ga7249d9eb7c2b2f4a4f56b4c241e6db5f)).
 
-struct ble_conn_update_para_ind_t[](#_CPPv426ble_conn_update_para_ind_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv426ble_conn_update_para_ind_t"></a>
 
-    uint8_t conn_idx[](#_CPPv4N26ble_conn_update_para_ind_t8conn_idxE "永久链接至目标")
+<a id="_CPPv326ble_conn_update_para_ind_t"></a> <a id="_CPPv226ble_conn_update_para_ind_t"></a> <a id="ble_conn_update_para_ind_t"></a> <a id="structble__conn__update__para__ind__t"></a> struct ble\_conn\_update\_para\_ind\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N26ble_conn_update_para_ind_t8conn_idxE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t8conn_idxE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t8conn_idxE"></a> <a id="ble_conn_update_para_ind_t::conn_idx__uint8_t"></a> <a id="structble__conn__update__para__ind__t_1a0011063616f8807786ae4dcb74d775d0"></a> uint8\_t conn\_idx
     :   0:is not agree,1:is agree,0xFF;Let me think about it;other:is agree
 
-    uint16_t ce_len_min[](#_CPPv4N26ble_conn_update_para_ind_t10ce_len_minE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t10ce_len_minE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t10ce_len_minE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t10ce_len_minE"></a> <a id="ble_conn_update_para_ind_t::ce_len_min__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1a24a00a5ff64af79fb58cd202752ac783"></a> uint16\_t ce\_len\_min
     :   Minimum Connection Event Duration.
 
-    uint16_t ce_len_max[](#_CPPv4N26ble_conn_update_para_ind_t10ce_len_maxE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t10ce_len_maxE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t10ce_len_maxE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t10ce_len_maxE"></a> <a id="ble_conn_update_para_ind_t::ce_len_max__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1a0a7b127322f162ab289d4c2a4ea1fbe9"></a> uint16\_t ce\_len\_max
     :   Maximum Connection Event Duration.
 
-    uint16_t intv_min[](#_CPPv4N26ble_conn_update_para_ind_t8intv_minE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t8intv_minE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t8intv_minE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t8intv_minE"></a> <a id="ble_conn_update_para_ind_t::intv_min__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1addcda9188c4ef00cb5a9206b666eb2cf"></a> uint16\_t intv\_min
     :   Connection interval minimum.
 
-    uint16_t intv_max[](#_CPPv4N26ble_conn_update_para_ind_t8intv_maxE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t8intv_maxE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t8intv_maxE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t8intv_maxE"></a> <a id="ble_conn_update_para_ind_t::intv_max__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1a266cf438364df9cb38cd2c9588e8b70c"></a> uint16\_t intv\_max
     :   Connection interval maximum.
 
-    uint16_t latency[](#_CPPv4N26ble_conn_update_para_ind_t7latencyE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t7latencyE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t7latencyE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t7latencyE"></a> <a id="ble_conn_update_para_ind_t::latency__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1ae86d7e016b82cd2f409588262dffef67"></a> uint16\_t latency
     :   Latency.
 
-    uint16_t time_out[](#_CPPv4N26ble_conn_update_para_ind_t8time_outE "永久链接至目标")
+    <a id="_CPPv4N26ble_conn_update_para_ind_t8time_outE"></a>
+
+    <a id="_CPPv3N26ble_conn_update_para_ind_t8time_outE"></a> <a id="_CPPv2N26ble_conn_update_para_ind_t8time_outE"></a> <a id="ble_conn_update_para_ind_t::time_out__uint16_t"></a> <a id="structble__conn__update__para__ind__t_1aec7a28e3af4c1e8bcd1b1e7dde38b21c"></a> uint16\_t time\_out
     :   Supervision timeout.
 
-struct mst_comm_updata_para[](#_CPPv420mst_comm_updata_para "永久链接至目标")
-:   Public Members
+<a id="_CPPv420mst_comm_updata_para"></a>
 
-    uint8_t is_agree[](#_CPPv4N20mst_comm_updata_para8is_agreeE "永久链接至目标")
+<a id="_CPPv320mst_comm_updata_para"></a> <a id="_CPPv220mst_comm_updata_para"></a> <a id="mst_comm_updata_para"></a> <a id="structmst__comm__updata__para"></a> struct mst\_comm\_updata\_para
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N20mst_comm_updata_para8is_agreeE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para8is_agreeE"></a> <a id="_CPPv2N20mst_comm_updata_para8is_agreeE"></a> <a id="mst_comm_updata_para::is_agree__uint8_t"></a> <a id="structmst__comm__updata__para_1a79d2e4cc44e721d1d25b40e5ddc50577"></a> uint8\_t is\_agree
     :   Status of the request.
 
-    uint16_t ce_len_min[](#_CPPv4N20mst_comm_updata_para10ce_len_minE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para10ce_len_minE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para10ce_len_minE"></a> <a id="_CPPv2N20mst_comm_updata_para10ce_len_minE"></a> <a id="mst_comm_updata_para::ce_len_min__uint16_t"></a> <a id="structmst__comm__updata__para_1a18b3e9067466395ae730bf48b845d1ff"></a> uint16\_t ce\_len\_min
     :   Minimum Connection Event Duration.
 
         0:is not agree,1:is agree,0xFF;Let me think about it;other:is agree
 
-    uint16_t ce_len_max[](#_CPPv4N20mst_comm_updata_para10ce_len_maxE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para10ce_len_maxE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para10ce_len_maxE"></a> <a id="_CPPv2N20mst_comm_updata_para10ce_len_maxE"></a> <a id="mst_comm_updata_para::ce_len_max__uint16_t"></a> <a id="structmst__comm__updata__para_1a3f87e250d9bb8e337ef8a717d382b30d"></a> uint16\_t ce\_len\_max
     :   Maximum Connection Event Duration.
 
-    uint16_t intv_min[](#_CPPv4N20mst_comm_updata_para8intv_minE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para8intv_minE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para8intv_minE"></a> <a id="_CPPv2N20mst_comm_updata_para8intv_minE"></a> <a id="mst_comm_updata_para::intv_min__uint16_t"></a> <a id="structmst__comm__updata__para_1aca468e10620cf89651108256681c0ccf"></a> uint16\_t intv\_min
     :   Connection interval minimum.
 
-    uint16_t intv_max[](#_CPPv4N20mst_comm_updata_para8intv_maxE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para8intv_maxE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para8intv_maxE"></a> <a id="_CPPv2N20mst_comm_updata_para8intv_maxE"></a> <a id="mst_comm_updata_para::intv_max__uint16_t"></a> <a id="structmst__comm__updata__para_1a9fee9122ac2425d5117c3744f206c0b1"></a> uint16\_t intv\_max
     :   Connection interval maximum.
 
-    uint16_t latency[](#_CPPv4N20mst_comm_updata_para7latencyE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para7latencyE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para7latencyE"></a> <a id="_CPPv2N20mst_comm_updata_para7latencyE"></a> <a id="mst_comm_updata_para::latency__uint16_t"></a> <a id="structmst__comm__updata__para_1a314f2629aa454c7f87a59ea66971cd9b"></a> uint16\_t latency
     :   Latency.
 
-    uint16_t time_out[](#_CPPv4N20mst_comm_updata_para8time_outE "永久链接至目标")
+    <a id="_CPPv4N20mst_comm_updata_para8time_outE"></a>
+
+    <a id="_CPPv3N20mst_comm_updata_para8time_outE"></a> <a id="_CPPv2N20mst_comm_updata_para8time_outE"></a> <a id="mst_comm_updata_para::time_out__uint16_t"></a> <a id="structmst__comm__updata__para_1ae3d4443a920e55371bde8a8e31b280d4"></a> uint16\_t time\_out
     :   Supervision timeout.
 
+<a id="macros"></a>
 
-### Macros[](#macros "永久链接至标题")
+### Macros
 
-BK_ERR_BLE_SUCCESS[](#c.BK_ERR_BLE_SUCCESS "永久链接至目标")
+<a id="c.BK_ERR_BLE_SUCCESS"></a>
+
+<a id="group__bk__ble__api__v1_1ga081979d9071f263e708969a25b0a9d07"></a> BK\_ERR\_BLE\_SUCCESS
 :   success
 
-BK_ERR_BLE_FAIL[](#c.BK_ERR_BLE_FAIL "永久链接至目标")
+<a id="c.BK_ERR_BLE_FAIL"></a>
+
+<a id="group__bk__ble__api__v1_1gad00f606f99bcdd8a940e2e6bbfef6d3c"></a> BK\_ERR\_BLE\_FAIL
 :   fail
 
-BK_ERR_BLE_NO_MEM[](#c.BK_ERR_BLE_NO_MEM "永久链接至目标")
+<a id="c.BK_ERR_BLE_NO_MEM"></a>
+
+<a id="group__bk__ble__api__v1_1gac22ab18e83a2472f6b3bc75b2b3c0968"></a> BK\_ERR\_BLE\_NO\_MEM
 :   no mem
 
-BK_ERR_BLE_PROFILE[](#c.BK_ERR_BLE_PROFILE "永久链接至目标")
+<a id="c.BK_ERR_BLE_PROFILE"></a>
+
+<a id="group__bk__ble__api__v1_1ga417d140f9bf91159e14c609f953593ac"></a> BK\_ERR\_BLE\_PROFILE
 :   profile err
 
-BK_ERR_BLE_CREATE_DB[](#c.BK_ERR_BLE_CREATE_DB "永久链接至目标")
-:   bk_ble_create_db err
+<a id="c.BK_ERR_BLE_CREATE_DB"></a>
 
-BK_ERR_BLE_CMD_NOT_SUPPORT[](#c.BK_ERR_BLE_CMD_NOT_SUPPORT "永久链接至目标")
+<a id="group__bk__ble__api__v1_1ga7184d63fc78c9f2dd944281b263a9292"></a> BK\_ERR\_BLE\_CREATE\_DB
+:   bk\_ble\_create\_db err
+
+<a id="c.BK_ERR_BLE_CMD_NOT_SUPPORT"></a>
+
+<a id="group__bk__ble__api__v1_1gafe155fd3e34200c3dc1ed76dd3a56475"></a> BK\_ERR\_BLE\_CMD\_NOT\_SUPPORT
 :   unknow cmd err
 
-BK_ERR_BLE_UNKNOW_IDX[](#c.BK_ERR_BLE_UNKNOW_IDX "永久链接至目标")
-:   index err, suchas conn_ind
+<a id="c.BK_ERR_BLE_UNKNOW_IDX"></a>
 
-BK_ERR_BLE_BLE_STATUS[](#c.BK_ERR_BLE_BLE_STATUS "永久链接至目标")
+<a id="group__bk__ble__api__v1_1gad46c25ca7786a81b8c0816716f9cff07"></a> BK\_ERR\_BLE\_UNKNOW\_IDX
+:   index err, suchas conn\_ind
+
+<a id="c.BK_ERR_BLE_BLE_STATUS"></a>
+
+<a id="group__bk__ble__api__v1_1ga3a7c17a33464079ddf58e0aba6e766e5"></a> BK\_ERR\_BLE\_BLE\_STATUS
 :   ble status not match
 
-BK_ERR_BLE_ADV_DATA[](#c.BK_ERR_BLE_ADV_DATA "永久链接至目标")
+<a id="c.BK_ERR_BLE_ADV_DATA"></a>
+
+<a id="group__bk__ble__api__v1_1gaca1266cf2089898726e8270d1e8376c7"></a> BK\_ERR\_BLE\_ADV\_DATA
 :   adv data err, such as too long
 
-BK_ERR_BLE_CMD_RUN[](#c.BK_ERR_BLE_CMD_RUN "永久链接至目标")
+<a id="c.BK_ERR_BLE_CMD_RUN"></a>
+
+<a id="group__bk__ble__api__v1_1ga1c7dbaeeee7fe1691bcd7d2d4aa67a2b"></a> BK\_ERR\_BLE\_CMD\_RUN
 :   cmd run err
 
-BK_ERR_BLE_INIT_CREATE[](#c.BK_ERR_BLE_INIT_CREATE "永久链接至目标")
-:   create init err, such as bk_ble_create_init
+<a id="c.BK_ERR_BLE_INIT_CREATE"></a>
 
-BK_ERR_BLE_INIT_STATE[](#c.BK_ERR_BLE_INIT_STATE "永久链接至目标")
+<a id="group__bk__ble__api__v1_1gac982525fa3f88935fae8cadcb5dfa4a3"></a> BK\_ERR\_BLE\_INIT\_CREATE
+:   create init err, such as bk\_ble\_create\_init
+
+<a id="c.BK_ERR_BLE_INIT_STATE"></a>
+
+<a id="group__bk__ble__api__v1_1ga294839cec2a404230984f2333ce38b1c"></a> BK\_ERR\_BLE\_INIT\_STATE
 :   current init status not match
 
-BK_ERR_BLE_ATTC_WRITE[](#c.BK_ERR_BLE_ATTC_WRITE "永久链接至目标")
+<a id="c.BK_ERR_BLE_ATTC_WRITE"></a>
+
+<a id="group__bk__ble__api__v1_1gab5ec291b766d4436cc27ad2843b616dc"></a> BK\_ERR\_BLE\_ATTC\_WRITE
 :   att write err
 
-BK_ERR_BLE_ATTC_WRITE_UNREGISTER[](#c.BK_ERR_BLE_ATTC_WRITE_UNREGISTER "永久链接至目标")
+<a id="c.BK_ERR_BLE_ATTC_WRITE_UNREGISTER"></a>
+
+<a id="group__bk__ble__api__v1_1ga12009758a11d77482c0ee14e9403e997"></a> BK\_ERR\_BLE\_ATTC\_WRITE\_UNREGISTER
 :   att handle is not regist
 
-BK_BLE_MAX_ADV_DATA_LEN[](#c.BK_BLE_MAX_ADV_DATA_LEN "永久链接至目标")
+<a id="c.BK_BLE_MAX_ADV_DATA_LEN"></a>
+
+<a id="group__bk__ble__api__v1_1ga89718ba447b76d92120a318754cf253b"></a> BK\_BLE\_MAX\_ADV\_DATA\_LEN
 :   max ble adv data len
 
-BK_BLE_GAP_BD_ADDR_LEN[](#c.BK_BLE_GAP_BD_ADDR_LEN "永久链接至目标")
+<a id="c.BK_BLE_GAP_BD_ADDR_LEN"></a>
+
+<a id="group__bk__ble__api__v1_1gaea4b7b2187d942384b18bf2f4b607223"></a> BK\_BLE\_GAP\_BD\_ADDR\_LEN
 :   BD address length.
 
-BK_BLE_APP_DEVICE_NAME_MAX_LEN[](#c.BK_BLE_APP_DEVICE_NAME_MAX_LEN "永久链接至目标")
+<a id="c.BK_BLE_APP_DEVICE_NAME_MAX_LEN"></a>
+
+<a id="group__bk__ble__api__v1_1ga1e8c921e258212da6460840aa4301fda"></a> BK\_BLE\_APP\_DEVICE\_NAME\_MAX\_LEN
 :   Maximal length of the Device Name value.
 
-BK_BLE_PERM_SET(access, right)[](#c.BK_BLE_PERM_SET "永久链接至目标")
-:   for [ble_attm_desc_t](#structble__attm__desc__t "#structble__attm__desc__t"), build database perm,
+<a id="c.BK_BLE_PERM_SET"></a>
 
-BK_BLE_PERM_GET(perm, access)[](#c.BK_BLE_PERM_GET "永久链接至目标")
+<a id="group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b"></a> BK\_BLE\_PERM\_SET(access, right)
+:   for [ble\_attm\_desc\_t](#structble__attm__desc__t), build database perm,
 
+<a id="c.BK_BLE_PERM_GET"></a>
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+<a id="group__bk__ble__api__v1_1gae03690e23cd26e504a15bf4b93337d5e"></a> BK\_BLE\_PERM\_GET(perm, access)
 
-typedef [bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble_err_t[](#_CPPv49ble_err_t "永久链接至目标")
+<a id="type-definitions"></a>
+
+### Type Definitions
+
+<a id="_CPPv49ble_err_t"></a>
+
+<a id="_CPPv39ble_err_t"></a> <a id="_CPPv29ble_err_t"></a> <a id="ble_err_t"></a> <a id="group__bk__ble__api__v1_1ga3358a7925e0da86de797cf98ad5c878e"></a> typedef [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") ble\_err\_t
 :   ble api return enum
 
-typedef void (*app_sdp_callback)(unsigned char conidx, uint16_t chars_val_hdl, unsigned char uuid_len, unsigned char *uuid)[](#_CPPv416app_sdp_callback "永久链接至目标")
+<a id="_CPPv416app_sdp_callback"></a>
 
-typedef void (*app_sdp_charac_callback)([CHAR_TYPE](#_CPPv49CHAR_TYPE "CHAR_TYPE") type, uint8 conidx, uint16_t hdl, uint16_t len, uint8 *data)[](#_CPPv423app_sdp_charac_callback "永久链接至目标")
+<a id="_CPPv316app_sdp_callback"></a> <a id="_CPPv216app_sdp_callback"></a> <a id="app_sdp_callback"></a> <a id="group__bk__ble__api__v1_1gac3f3f8284c66c86303864ba7dd4e3cc8"></a> typedef void (\*app\_sdp\_callback)(unsigned char conidx, uint16\_t chars\_val\_hdl, unsigned char uuid\_len, unsigned char \*uuid)
 
-typedef void (*app_sdp_comm_callback)([MASTER_COMMON_TYPE](#_CPPv418MASTER_COMMON_TYPE "MASTER_COMMON_TYPE") type, uint8 conidx, void *param)[](#_CPPv421app_sdp_comm_callback "永久链接至目标")
+<a id="_CPPv423app_sdp_charac_callback"></a>
 
-typedef void (*ble_cmd_cb_t)([ble_cmd_t](#_CPPv49ble_cmd_t "ble_cmd_t") cmd, [ble_cmd_param_t](#_CPPv415ble_cmd_param_t "ble_cmd_param_t") *param)[](#_CPPv412ble_cmd_cb_t "永久链接至目标")
+<a id="_CPPv323app_sdp_charac_callback"></a> <a id="_CPPv223app_sdp_charac_callback"></a> <a id="app_sdp_charac_callback"></a> <a id="group__bk__ble__api__v1_1gab0f5b2ea9b15ec193dd542a2689bb4d5"></a> typedef void (\*app\_sdp\_charac\_callback)([CHAR\_TYPE](#_CPPv49CHAR_TYPE "CHAR_TYPE") type, uint8 conidx, uint16\_t hdl, uint16\_t len, uint8 \*data)
+
+<a id="_CPPv421app_sdp_comm_callback"></a>
+
+<a id="_CPPv321app_sdp_comm_callback"></a> <a id="_CPPv221app_sdp_comm_callback"></a> <a id="app_sdp_comm_callback"></a> <a id="group__bk__ble__api__v1_1gad6676333aa455b90691ae64a06358ee0"></a> typedef void (\*app\_sdp\_comm\_callback)([MASTER\_COMMON\_TYPE](#_CPPv418MASTER_COMMON_TYPE "MASTER_COMMON_TYPE") type, uint8 conidx, void \*param)
+
+<a id="_CPPv412ble_cmd_cb_t"></a>
+
+<a id="_CPPv312ble_cmd_cb_t"></a> <a id="_CPPv212ble_cmd_cb_t"></a> <a id="ble_cmd_cb_t"></a> <a id="group__bk__ble__api__v1__typedef_1ga06a9c6c3582ed084865e91ba527eabc8"></a> typedef void (\*ble\_cmd\_cb\_t)([ble\_cmd\_t](#_CPPv49ble_cmd_t "ble_cmd_t") cmd, [ble\_cmd\_param\_t](#_CPPv415ble_cmd_param_t "ble_cmd_param_t") \*param)
 :   for sync ble api call return
 
-    most ble api have ble_cmd_cb_t param, you must wait is callback.
+    most ble api have ble\_cmd\_cb\_t param, you must wait is callback.
 
     Param cmd, :
     :   cmd id.
 
-
         - param: param
 
-typedef void (*ble_notice_cb_t)([ble_notice_t](#_CPPv412ble_notice_t "ble_notice_t") notice, void *param)[](#_CPPv415ble_notice_cb_t "永久链接至目标")
+<a id="_CPPv415ble_notice_cb_t"></a>
+
+<a id="_CPPv315ble_notice_cb_t"></a> <a id="_CPPv215ble_notice_cb_t"></a> <a id="ble_notice_cb_t"></a> <a id="group__bk__ble__api__v1__typedef_1gaa8812280a654a1df3d30f17c52593704"></a> typedef void (\*ble\_notice\_cb\_t)([ble\_notice\_t](#_CPPv412ble_notice_t "ble_notice_t") notice, void \*param)
 :   for async ble api event.
 
     ble event report.
@@ -1798,10 +2154,11 @@ typedef void (*ble_notice_cb_t)([ble_notice_t](#_CPPv412ble_notice_t "ble_notice
     Param notice, :
     :   event id.
 
-
         - param: param
 
-typedef [ble_err_t](#_CPPv49ble_err_t "ble_err_t") (*ble_hci_to_host_cb)(uint8_t *buf, uint16_t len)[](#_CPPv418ble_hci_to_host_cb "永久链接至目标")
+<a id="_CPPv418ble_hci_to_host_cb"></a>
+
+<a id="_CPPv318ble_hci_to_host_cb"></a> <a id="_CPPv218ble_hci_to_host_cb"></a> <a id="ble_hci_to_host_cb"></a> <a id="group__bk__ble__api__v1__typedef_1gaaf2d92983452665a1aec53df9d027845"></a> typedef [ble\_err\_t](#_CPPv49ble_err_t "ble_err_t") (\*ble\_hci\_to\_host\_cb)(uint8\_t \*buf, uint16\_t len)
 :   for hci callback.
 
     stack report evt, acl to upper
@@ -1809,744 +2166,1228 @@ typedef [ble_err_t](#_CPPv49ble_err_t "ble_err_t") (*ble_hci_to_host_cb)(uint8_t
     Param buf, :
     :   payload
 
-
         - len: buf’s len
 
     Return
-    :   - BK_ERR_BLE_SUCCESS: succeed
+    :   - BK\_ERR\_BLE\_SUCCESS: succeed
 
+<a id="enumerations"></a>
 
-### Enumerations[](#enumerations "永久链接至标题")
+### Enumerations
 
-enum BK_BLE_CONTROLLER_STACK_TYPE[](#_CPPv428BK_BLE_CONTROLLER_STACK_TYPE "永久链接至目标")
+<a id="_CPPv428BK_BLE_CONTROLLER_STACK_TYPE"></a>
+
+<a id="_CPPv328BK_BLE_CONTROLLER_STACK_TYPE"></a> <a id="_CPPv228BK_BLE_CONTROLLER_STACK_TYPE"></a> <a id="group__bk__ble__api__v1_1gadebabc09c1f14686ca765cf16ed7ee10"></a> enum BK\_BLE\_CONTROLLER\_STACK\_TYPE
 :   *Values:*
 
-    enumerator BK_BLE_CONTROLLER_STACK_TYPE_BLE_4[](#_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE34BK_BLE_CONTROLLER_STACK_TYPE_BLE_4E "永久链接至目标")
+    <a id="_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE34BK_BLE_CONTROLLER_STACK_TYPE_BLE_4E"></a>
 
-    enumerator BK_BLE_CONTROLLER_STACK_TYPE_BLE_5_X[](#_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE36BK_BLE_CONTROLLER_STACK_TYPE_BLE_5_XE "永久链接至目标")
+    <a id="_CPPv3N28BK_BLE_CONTROLLER_STACK_TYPE34BK_BLE_CONTROLLER_STACK_TYPE_BLE_4E"></a> <a id="_CPPv2N28BK_BLE_CONTROLLER_STACK_TYPE34BK_BLE_CONTROLLER_STACK_TYPE_BLE_4E"></a> <a id="group__bk__ble__api__v1_1ggadebabc09c1f14686ca765cf16ed7ee10af1a420a7192790e7d01b3d9fd0c0e31a"></a> enumerator BK\_BLE\_CONTROLLER\_STACK\_TYPE\_BLE\_4
 
-    enumerator BK_BLE_CONTROLLER_STACK_TYPE_BTDM_5_2[](#_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE37BK_BLE_CONTROLLER_STACK_TYPE_BTDM_5_2E "永久链接至目标")
+    <a id="_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE36BK_BLE_CONTROLLER_STACK_TYPE_BLE_5_XE"></a>
 
-enum BK_BLE_HOST_STACK_TYPE[](#_CPPv422BK_BLE_HOST_STACK_TYPE "永久链接至目标")
+    <a id="_CPPv3N28BK_BLE_CONTROLLER_STACK_TYPE36BK_BLE_CONTROLLER_STACK_TYPE_BLE_5_XE"></a> <a id="_CPPv2N28BK_BLE_CONTROLLER_STACK_TYPE36BK_BLE_CONTROLLER_STACK_TYPE_BLE_5_XE"></a> <a id="group__bk__ble__api__v1_1ggadebabc09c1f14686ca765cf16ed7ee10a54673346abd20a6d105883505a574b98"></a> enumerator BK\_BLE\_CONTROLLER\_STACK\_TYPE\_BLE\_5\_X
+
+    <a id="_CPPv4N28BK_BLE_CONTROLLER_STACK_TYPE37BK_BLE_CONTROLLER_STACK_TYPE_BTDM_5_2E"></a>
+
+    <a id="_CPPv3N28BK_BLE_CONTROLLER_STACK_TYPE37BK_BLE_CONTROLLER_STACK_TYPE_BTDM_5_2E"></a> <a id="_CPPv2N28BK_BLE_CONTROLLER_STACK_TYPE37BK_BLE_CONTROLLER_STACK_TYPE_BTDM_5_2E"></a> <a id="group__bk__ble__api__v1_1ggadebabc09c1f14686ca765cf16ed7ee10aeaffb69b63e0d7b78d4c7fe05838edf8"></a> enumerator BK\_BLE\_CONTROLLER\_STACK\_TYPE\_BTDM\_5\_2
+
+<a id="_CPPv422BK_BLE_HOST_STACK_TYPE"></a>
+
+<a id="_CPPv322BK_BLE_HOST_STACK_TYPE"></a> <a id="_CPPv222BK_BLE_HOST_STACK_TYPE"></a> <a id="group__bk__ble__api__v1_1ga4b5ac5d4250839875c2633fe296e396e"></a> enum BK\_BLE\_HOST\_STACK\_TYPE
 :   *Values:*
 
-    enumerator BK_BLE_HOST_STACK_TYPE_RW_4[](#_CPPv4N22BK_BLE_HOST_STACK_TYPE27BK_BLE_HOST_STACK_TYPE_RW_4E "永久链接至目标")
+    <a id="_CPPv4N22BK_BLE_HOST_STACK_TYPE27BK_BLE_HOST_STACK_TYPE_RW_4E"></a>
 
-    enumerator BK_BLE_HOST_STACK_TYPE_RW_5_X[](#_CPPv4N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_XE "永久链接至目标")
+    <a id="_CPPv3N22BK_BLE_HOST_STACK_TYPE27BK_BLE_HOST_STACK_TYPE_RW_4E"></a> <a id="_CPPv2N22BK_BLE_HOST_STACK_TYPE27BK_BLE_HOST_STACK_TYPE_RW_4E"></a> <a id="group__bk__ble__api__v1_1gga4b5ac5d4250839875c2633fe296e396eadbf620d83af7c90c11406db28578518b"></a> enumerator BK\_BLE\_HOST\_STACK\_TYPE\_RW\_4
 
-    enumerator BK_BLE_HOST_STACK_TYPE_RW_5_2[](#_CPPv4N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_2E "永久链接至目标")
+    <a id="_CPPv4N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_XE"></a>
 
-    enumerator BK_BLE_HOST_STACK_TYPE_ETHERMIND[](#_CPPv4N22BK_BLE_HOST_STACK_TYPE32BK_BLE_HOST_STACK_TYPE_ETHERMINDE "永久链接至目标")
+    <a id="_CPPv3N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_XE"></a> <a id="_CPPv2N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_XE"></a> <a id="group__bk__ble__api__v1_1gga4b5ac5d4250839875c2633fe296e396ea6cdadfd5a12a3f22222d73c88fc93d1c"></a> enumerator BK\_BLE\_HOST\_STACK\_TYPE\_RW\_5\_X
 
-enum BK_BLE_HCI_TYPE[](#_CPPv415BK_BLE_HCI_TYPE "永久链接至目标")
+    <a id="_CPPv4N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_2E"></a>
+
+    <a id="_CPPv3N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_2E"></a> <a id="_CPPv2N22BK_BLE_HOST_STACK_TYPE29BK_BLE_HOST_STACK_TYPE_RW_5_2E"></a> <a id="group__bk__ble__api__v1_1gga4b5ac5d4250839875c2633fe296e396ea6b6ce980ea05293faa37ef3bc97ff653"></a> enumerator BK\_BLE\_HOST\_STACK\_TYPE\_RW\_5\_2
+
+    <a id="_CPPv4N22BK_BLE_HOST_STACK_TYPE32BK_BLE_HOST_STACK_TYPE_ETHERMINDE"></a>
+
+    <a id="_CPPv3N22BK_BLE_HOST_STACK_TYPE32BK_BLE_HOST_STACK_TYPE_ETHERMINDE"></a> <a id="_CPPv2N22BK_BLE_HOST_STACK_TYPE32BK_BLE_HOST_STACK_TYPE_ETHERMINDE"></a> <a id="group__bk__ble__api__v1_1gga4b5ac5d4250839875c2633fe296e396ea19cb02c85924c35ad72853fa94ae1622"></a> enumerator BK\_BLE\_HOST\_STACK\_TYPE\_ETHERMIND
+
+<a id="_CPPv415BK_BLE_HCI_TYPE"></a>
+
+<a id="_CPPv315BK_BLE_HCI_TYPE"></a> <a id="_CPPv215BK_BLE_HCI_TYPE"></a> <a id="group__bk__ble__api__v1_1ga28e61788890c70b81bec53fc9a5ea22c"></a> enum BK\_BLE\_HCI\_TYPE
 :   hci type enum
 
-
     *Values:*
 
-    enumerator BK_BLE_HCI_TYPE_CMD[](#_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_CMDE "永久链接至目标")
+    <a id="_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_CMDE"></a>
 
-    enumerator BK_BLE_HCI_TYPE_ACL[](#_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_ACLE "永久链接至目标")
+    <a id="_CPPv3N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_CMDE"></a> <a id="_CPPv2N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_CMDE"></a> <a id="group__bk__ble__api__v1_1gga28e61788890c70b81bec53fc9a5ea22caf40ea31e4569058c5962a5897cb1c1b3"></a> enumerator BK\_BLE\_HCI\_TYPE\_CMD
 
-    enumerator BK_BLE_HCI_TYPE_SCO[](#_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_SCOE "永久链接至目标")
+    <a id="_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_ACLE"></a>
 
-    enumerator BK_BLE_HCI_TYPE_EVT[](#_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_EVTE "永久链接至目标")
+    <a id="_CPPv3N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_ACLE"></a> <a id="_CPPv2N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_ACLE"></a> <a id="group__bk__ble__api__v1_1gga28e61788890c70b81bec53fc9a5ea22cab62feafcb11f987813e1af652a149c7a"></a> enumerator BK\_BLE\_HCI\_TYPE\_ACL
 
-enum bk_ble_perm_mask[](#_CPPv416bk_ble_perm_mask "永久链接至目标")
-:   normal perm, for BK_BLE_PERM_SET
+    <a id="_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_SCOE"></a>
 
-    15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+ |EXT | WS | I | N | WR | WC | RD | B | NP | IP | WP | RP | +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+
+    <a id="_CPPv3N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_SCOE"></a> <a id="_CPPv2N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_SCOE"></a> <a id="group__bk__ble__api__v1_1gga28e61788890c70b81bec53fc9a5ea22ca1f25d213e298fc45cc141a2dc316ca27"></a> enumerator BK\_BLE\_HCI\_TYPE\_SCO
 
+    <a id="_CPPv4N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_EVTE"></a>
+
+    <a id="_CPPv3N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_EVTE"></a> <a id="_CPPv2N15BK_BLE_HCI_TYPE19BK_BLE_HCI_TYPE_EVTE"></a> <a id="group__bk__ble__api__v1_1gga28e61788890c70b81bec53fc9a5ea22ca49bb45c98e664aac984eb6115fa9a7b1"></a> enumerator BK\_BLE\_HCI\_TYPE\_EVT
+
+<a id="_CPPv416bk_ble_perm_mask"></a>
+
+<a id="_CPPv316bk_ble_perm_mask"></a> <a id="_CPPv216bk_ble_perm_mask"></a> <a id="group__bk__ble__api__v1_1gaa529f18ac0ecdf658b9e49c2fffc7f22"></a> enum bk\_ble\_perm\_mask
+:   normal perm, for BK\_BLE\_PERM\_SET
+
+    15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+ \|EXT \| WS \| I \| N \| WR \| WC \| RD \| B \| NP \| IP \| WP \| RP \| \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+
 
     **Attention**
-    :   you cant use this direct, use [BK_BLE_PERM_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") instead
+    :   you cant use this direct, use [BK\_BLE\_PERM\_SET(RD, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) instead
 
-    Bit [0-1] : Read Permission (0 = NO_AUTH, 1 = UNAUTH, 2 = AUTH, 3 = SEC_CON) Bit [2-3] : Write Permission (0 = NO_AUTH, 1 = UNAUTH, 2 = AUTH, 3 = SEC_CON) Bit [4-5] : Indication Permission (0 = NO_AUTH, 1 = UNAUTH, 2 = AUTH, 3 = SEC_CON) Bit [6-7] : Notification Permission (0 = NO_AUTH, 1 = UNAUTH, 2 = AUTH, 3 = SEC_CON)
+    Bit \[0-1\] : Read Permission (0 \= NO\_AUTH, 1 \= UNAUTH, 2 \= AUTH, 3 \= SEC\_CON) Bit \[2-3\] : Write Permission (0 \= NO\_AUTH, 1 \= UNAUTH, 2 \= AUTH, 3 \= SEC\_CON) Bit \[4-5\] : Indication Permission (0 \= NO\_AUTH, 1 \= UNAUTH, 2 \= AUTH, 3 \= SEC\_CON) Bit \[6-7\] : Notification Permission (0 \= NO\_AUTH, 1 \= UNAUTH, 2 \= AUTH, 3 \= SEC\_CON)
 
-    Bit [8] : Broadcast permission Bit [9] : Read Command accepted Bit [10] : Write Command accepted Bit [11] : Write Request accepted Bit [12] : Send Notification Bit [13] : Send Indication Bit [14] : Write Signed accepted Bit [15] : Extended properties present
-
+    Bit \[8\] : Broadcast permission Bit \[9\] : Read Command accepted Bit \[10\] : Write Command accepted Bit \[11\] : Write Request accepted Bit \[12\] : Send Notification Bit \[13\] : Send Indication Bit \[14\] : Write Signed accepted Bit \[15\] : Extended properties present
 
     *Values:*
 
-    enumerator BK_BLE_RP_MASK[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_RP_MASKE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_RP_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_RP_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_RP_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a8db925c764699883032b59f18bb98abd"></a> enumerator BK\_BLE\_RP\_MASK
     :   Read Permission Mask.
 
-    enumerator BK_BLE_RP_POS[](#_CPPv4N16bk_ble_perm_mask13BK_BLE_RP_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask13BK_BLE_RP_POSE"></a>
 
-    enumerator BK_BLE_WP_MASK[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_WP_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask13BK_BLE_RP_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask13BK_BLE_RP_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a0d9ec2bc3c350b06bcad469eaa2266f4"></a> enumerator BK\_BLE\_RP\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_WP_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_WP_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_WP_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a0441f3e2131b90e4f7f0f9b56ddc9bb1"></a> enumerator BK\_BLE\_WP\_MASK
     :   Write Permission Mask.
 
-    enumerator BK_BLE_WP_POS[](#_CPPv4N16bk_ble_perm_mask13BK_BLE_WP_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask13BK_BLE_WP_POSE"></a>
 
-    enumerator BK_BLE_IP_MASK[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_IP_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask13BK_BLE_WP_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask13BK_BLE_WP_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a1e3e97f5039eed8cd2e58f922448dbac"></a> enumerator BK\_BLE\_WP\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_IP_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_IP_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_IP_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22ac989b546af16e79828c9687eaf4a2cf5"></a> enumerator BK\_BLE\_IP\_MASK
     :   Indication Access Mask.
 
-    enumerator BK_BLE_IP_POS[](#_CPPv4N16bk_ble_perm_mask13BK_BLE_IP_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask13BK_BLE_IP_POSE"></a>
 
-    enumerator BK_BLE_NP_MASK[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_NP_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask13BK_BLE_IP_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask13BK_BLE_IP_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a71a49563a14010a4ac82774d8a72b99c"></a> enumerator BK\_BLE\_IP\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_NP_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_NP_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_NP_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a1e7ca16a0d453d4a1b12293e0c3d37f0"></a> enumerator BK\_BLE\_NP\_MASK
     :   Notification Access Mask.
 
-    enumerator BK_BLE_NP_POS[](#_CPPv4N16bk_ble_perm_mask13BK_BLE_NP_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask13BK_BLE_NP_POSE"></a>
 
-    enumerator BK_BLE_BROADCAST_MASK[](#_CPPv4N16bk_ble_perm_mask21BK_BLE_BROADCAST_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask13BK_BLE_NP_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask13BK_BLE_NP_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22af86e8881eb54765715d96884da17d57f"></a> enumerator BK\_BLE\_NP\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask21BK_BLE_BROADCAST_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask21BK_BLE_BROADCAST_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask21BK_BLE_BROADCAST_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a5ab1d50471f0870dcaeb916dce369a6d"></a> enumerator BK\_BLE\_BROADCAST\_MASK
     :   Broadcast descriptor present.
 
-    enumerator BK_BLE_BROADCAST_POS[](#_CPPv4N16bk_ble_perm_mask20BK_BLE_BROADCAST_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask20BK_BLE_BROADCAST_POSE"></a>
 
-    enumerator BK_BLE_RD_MASK[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_RD_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask20BK_BLE_BROADCAST_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask20BK_BLE_BROADCAST_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a3120d6a33d6c51b177df8731773ec888"></a> enumerator BK\_BLE\_BROADCAST\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_RD_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_RD_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_RD_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a64ea4430c8769ee1d57002125ea7dcab"></a> enumerator BK\_BLE\_RD\_MASK
     :   Read Access Mask.
 
-    enumerator BK_BLE_RD_POS[](#_CPPv4N16bk_ble_perm_mask13BK_BLE_RD_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask13BK_BLE_RD_POSE"></a>
 
-    enumerator BK_BLE_WRITE_COMMAND_MASK[](#_CPPv4N16bk_ble_perm_mask25BK_BLE_WRITE_COMMAND_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask13BK_BLE_RD_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask13BK_BLE_RD_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a9649ef76a0e3d6f55a3d687065bad642"></a> enumerator BK\_BLE\_RD\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask25BK_BLE_WRITE_COMMAND_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask25BK_BLE_WRITE_COMMAND_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask25BK_BLE_WRITE_COMMAND_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a2b8cd657ac425926da41dda643eca722"></a> enumerator BK\_BLE\_WRITE\_COMMAND\_MASK
     :   Write Command Enabled attribute Mask.
 
-    enumerator BK_BLE_WRITE_COMMAND_POS[](#_CPPv4N16bk_ble_perm_mask24BK_BLE_WRITE_COMMAND_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask24BK_BLE_WRITE_COMMAND_POSE"></a>
 
-    enumerator BK_BLE_WRITE_REQ_MASK[](#_CPPv4N16bk_ble_perm_mask21BK_BLE_WRITE_REQ_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask24BK_BLE_WRITE_COMMAND_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask24BK_BLE_WRITE_COMMAND_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a83e1ef223d6d12cd8389eb1858023a02"></a> enumerator BK\_BLE\_WRITE\_COMMAND\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask21BK_BLE_WRITE_REQ_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask21BK_BLE_WRITE_REQ_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask21BK_BLE_WRITE_REQ_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22ae99f3fe056cccd5dc3c7bf43103810c8"></a> enumerator BK\_BLE\_WRITE\_REQ\_MASK
     :   Write Request Enabled attribute Mask.
 
-    enumerator BK_BLE_WRITE_REQ_POS[](#_CPPv4N16bk_ble_perm_mask20BK_BLE_WRITE_REQ_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask20BK_BLE_WRITE_REQ_POSE"></a>
 
-    enumerator BK_BLE_NTF_MASK[](#_CPPv4N16bk_ble_perm_mask15BK_BLE_NTF_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask20BK_BLE_WRITE_REQ_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask20BK_BLE_WRITE_REQ_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a19cf0afd18af3681a2370918e6321edc"></a> enumerator BK\_BLE\_WRITE\_REQ\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask15BK_BLE_NTF_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask15BK_BLE_NTF_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask15BK_BLE_NTF_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a5575973122b8460041e00c353aed3bb1"></a> enumerator BK\_BLE\_NTF\_MASK
     :   Notification Access Mask.
 
-    enumerator BK_BLE_NTF_POS[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_NTF_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_NTF_POSE"></a>
 
-    enumerator BK_BLE_IND_MASK[](#_CPPv4N16bk_ble_perm_mask15BK_BLE_IND_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_NTF_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_NTF_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a480ed7d3d56fd33bc277bee67281678e"></a> enumerator BK\_BLE\_NTF\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask15BK_BLE_IND_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask15BK_BLE_IND_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask15BK_BLE_IND_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a5a8414b2b11be5582064dc9d6c6c2594"></a> enumerator BK\_BLE\_IND\_MASK
     :   Indication Access Mask.
 
-    enumerator BK_BLE_IND_POS[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_IND_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_IND_POSE"></a>
 
-    enumerator BK_BLE_WRITE_SIGNED_MASK[](#_CPPv4N16bk_ble_perm_mask24BK_BLE_WRITE_SIGNED_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_IND_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_IND_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a867b5f08a7e4a26fcebc5b0aa2fea24c"></a> enumerator BK\_BLE\_IND\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask24BK_BLE_WRITE_SIGNED_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask24BK_BLE_WRITE_SIGNED_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask24BK_BLE_WRITE_SIGNED_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a6123ccc407fc95e5da9afa709cf4f187"></a> enumerator BK\_BLE\_WRITE\_SIGNED\_MASK
     :   Write Signed Enabled attribute Mask.
 
-    enumerator BK_BLE_WRITE_SIGNED_POS[](#_CPPv4N16bk_ble_perm_mask23BK_BLE_WRITE_SIGNED_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask23BK_BLE_WRITE_SIGNED_POSE"></a>
 
-    enumerator BK_BLE_EXT_MASK[](#_CPPv4N16bk_ble_perm_mask15BK_BLE_EXT_MASKE "永久链接至目标")
+    <a id="_CPPv3N16bk_ble_perm_mask23BK_BLE_WRITE_SIGNED_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask23BK_BLE_WRITE_SIGNED_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22ab398b4f194dd33b5b3fc6f951411031c"></a> enumerator BK\_BLE\_WRITE\_SIGNED\_POS
+
+    <a id="_CPPv4N16bk_ble_perm_mask15BK_BLE_EXT_MASKE"></a>
+
+    <a id="_CPPv3N16bk_ble_perm_mask15BK_BLE_EXT_MASKE"></a> <a id="_CPPv2N16bk_ble_perm_mask15BK_BLE_EXT_MASKE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a275468e5a7ccdcd6e92da92aabca6d43"></a> enumerator BK\_BLE\_EXT\_MASK
     :   Extended properties descriptor present.
 
-    enumerator BK_BLE_EXT_POS[](#_CPPv4N16bk_ble_perm_mask14BK_BLE_EXT_POSE "永久链接至目标")
+    <a id="_CPPv4N16bk_ble_perm_mask14BK_BLE_EXT_POSE"></a>
 
-enum bk_ble_ext_perm_mask[](#_CPPv420bk_ble_ext_perm_mask "永久链接至目标")
-:   Attribute Extended permissions, for BK_BLE_PERM_SET.
+    <a id="_CPPv3N16bk_ble_perm_mask14BK_BLE_EXT_POSE"></a> <a id="_CPPv2N16bk_ble_perm_mask14BK_BLE_EXT_POSE"></a> <a id="group__bk__ble__api__v1_1ggaa529f18ac0ecdf658b9e49c2fffc7f22a52b38cbd5b7829e36645a06fced773ff"></a> enumerator BK\_BLE\_EXT\_POS
+
+<a id="_CPPv420bk_ble_ext_perm_mask"></a>
+
+<a id="_CPPv320bk_ble_ext_perm_mask"></a> <a id="_CPPv220bk_ble_ext_perm_mask"></a> <a id="group__bk__ble__api__v1_1ga3c750771a137d5504854bfcebb6e5235"></a> enum bk\_ble\_ext\_perm\_mask
+:   Attribute Extended permissions, for BK\_BLE\_PERM\_SET.
 
     Extended Value permission bit field
 
-
     **Attention**
-    :   you cant use this direct, use [BK_BLE_PERM_SET(EKS, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") instead
+    :   you cant use this direct, use [BK\_BLE\_PERM\_SET(EKS, ENABLE)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) instead
 
-    15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+ | RI |UUID_LEN |EKS | Reserved | +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+
+    15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+ \| RI \|UUID\_LEN \|EKS \| Reserved \| \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+
 
-    Bit [0-11] : Reserved Bit [12] : Encryption key Size must be 16 bytes Bit [13-14]: UUID Length (0 = 16 bits, 1 = 32 bits, 2 = 128 bits, 3 = RFU) Bit [15] : Trigger Read Indication (0 = Value present in Database, 1 = Value not present in Database)
-
+    Bit \[0-11\] : Reserved Bit \[12\] : Encryption key Size must be 16 bytes Bit \[13-14\]: UUID Length (0 \= 16 bits, 1 \= 32 bits, 2 \= 128 bits, 3 \= RFU) Bit \[15\] : Trigger Read Indication (0 \= Value present in Database, 1 \= Value not present in Database)
 
     *Values:*
 
-    enumerator BK_BLE_EKS_MASK[](#_CPPv4N20bk_ble_ext_perm_mask15BK_BLE_EKS_MASKE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_ext_perm_mask15BK_BLE_EKS_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_ext_perm_mask15BK_BLE_EKS_MASKE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask15BK_BLE_EKS_MASKE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235a1017d3efa95446f54b971268fd2b183d"></a> enumerator BK\_BLE\_EKS\_MASK
     :   Check Encryption key size Mask.
 
-    enumerator BK_BLE_EKS_POS[](#_CPPv4N20bk_ble_ext_perm_mask14BK_BLE_EKS_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_ext_perm_mask14BK_BLE_EKS_POSE"></a>
 
-    enumerator BK_BLE_UUID_LEN_MASK[](#_CPPv4N20bk_ble_ext_perm_mask20BK_BLE_UUID_LEN_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_ext_perm_mask14BK_BLE_EKS_POSE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask14BK_BLE_EKS_POSE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235a8e7d250d2f898ca4340256cff38a70d9"></a> enumerator BK\_BLE\_EKS\_POS
+
+    <a id="_CPPv4N20bk_ble_ext_perm_mask20BK_BLE_UUID_LEN_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_ext_perm_mask20BK_BLE_UUID_LEN_MASKE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask20BK_BLE_UUID_LEN_MASKE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235a6eaf2efbea77f3a8cd3dfbd71d881cf1"></a> enumerator BK\_BLE\_UUID\_LEN\_MASK
     :   UUID Length.
 
-    enumerator BK_BLE_UUID_LEN_POS[](#_CPPv4N20bk_ble_ext_perm_mask19BK_BLE_UUID_LEN_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_ext_perm_mask19BK_BLE_UUID_LEN_POSE"></a>
 
-    enumerator BK_BLE_RI_MASK[](#_CPPv4N20bk_ble_ext_perm_mask14BK_BLE_RI_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_ext_perm_mask19BK_BLE_UUID_LEN_POSE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask19BK_BLE_UUID_LEN_POSE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235a74b4a92205e2440cce4cffd6b3986a9d"></a> enumerator BK\_BLE\_UUID\_LEN\_POS
+
+    <a id="_CPPv4N20bk_ble_ext_perm_mask14BK_BLE_RI_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_ext_perm_mask14BK_BLE_RI_MASKE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask14BK_BLE_RI_MASKE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235a20524048dc2f5302b68c55cd6cefc65a"></a> enumerator BK\_BLE\_RI\_MASK
     :   Read trigger Indication.
 
-    enumerator BK_BLE_RI_POS[](#_CPPv4N20bk_ble_ext_perm_mask13BK_BLE_RI_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_ext_perm_mask13BK_BLE_RI_POSE"></a>
 
-enum bk_ble_svc_perm_mask[](#_CPPv420bk_ble_svc_perm_mask "永久链接至目标")
-:   Service permissions, for BK_BLE_PERM_SET.
+    <a id="_CPPv3N20bk_ble_ext_perm_mask13BK_BLE_RI_POSE"></a> <a id="_CPPv2N20bk_ble_ext_perm_mask13BK_BLE_RI_POSE"></a> <a id="group__bk__ble__api__v1_1gga3c750771a137d5504854bfcebb6e5235aa257ae6f47e63be8408b1f7763adb53d"></a> enumerator BK\_BLE\_RI\_POS
 
-    7 6 5 4 3 2 1 0 +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+ |SEC |UUID_LEN |DIS | AUTH |EKS | MI | +-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+-&#8212;+
+<a id="_CPPv420bk_ble_svc_perm_mask"></a>
 
+<a id="_CPPv320bk_ble_svc_perm_mask"></a> <a id="_CPPv220bk_ble_svc_perm_mask"></a> <a id="group__bk__ble__api__v1_1ga391834053b6777e7f684b4ea71d34811"></a> enum bk\_ble\_svc\_perm\_mask
+:   Service permissions, for BK\_BLE\_PERM\_SET.
+
+    7 6 5 4 3 2 1 0 \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+ \|SEC \|UUID\_LEN \|DIS \| AUTH \|EKS \| MI \| \+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+-\&#8212;\+
 
     **Attention**
-    :   you cant use this direct, use [BK_BLE_PERM_SET(SVC_UUID_LEN, UUID_16)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b "#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b") instead
+    :   you cant use this direct, use [BK\_BLE\_PERM\_SET(SVC\_UUID\_LEN, UUID\_16)](#group__bk__ble__api__v1_1ga12a5ba4c80b8f6fdc20573c242bd0b5b) instead
 
-    Bit [0] : Task that manage service is multi-instantiated (Connection index is conveyed) Bit [1] : Encryption key Size must be 16 bytes Bit [2-3]: Service Permission (0 = NO_AUTH, 1 = UNAUTH, 2 = AUTH, 3 = Secure Connect) Bit [4] : Disable the service Bit [5-6]: UUID Length (0 = 16 bits, 1 = 32 bits, 2 = 128 bits, 3 = RFU) Bit [7] : Secondary Service (0 = Primary Service, 1 = Secondary Service)
-
+    Bit \[0\] : Task that manage service is multi-instantiated (Connection index is conveyed) Bit \[1\] : Encryption key Size must be 16 bytes Bit \[2-3\]: Service Permission (0 \= NO\_AUTH, 1 \= UNAUTH, 2 \= AUTH, 3 \= Secure Connect) Bit \[4\] : Disable the service Bit \[5-6\]: UUID Length (0 \= 16 bits, 1 \= 32 bits, 2 \= 128 bits, 3 \= RFU) Bit \[7\] : Secondary Service (0 \= Primary Service, 1 \= Secondary Service)
 
     *Values:*
 
-    enumerator BK_BLE_SVC_MI_MASK[](#_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_MI_MASKE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_MI_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask18BK_BLE_SVC_MI_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask18BK_BLE_SVC_MI_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811a205433f5f13db7900adda586526235b6"></a> enumerator BK\_BLE\_SVC\_MI\_MASK
     :   Task that manage service is multi-instantiated.
 
-    enumerator BK_BLE_SVC_MI_POS[](#_CPPv4N20bk_ble_svc_perm_mask17BK_BLE_SVC_MI_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask17BK_BLE_SVC_MI_POSE"></a>
 
-    enumerator BK_BLE_SVC_EKS_MASK[](#_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_EKS_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask17BK_BLE_SVC_MI_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask17BK_BLE_SVC_MI_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811a93a8cc723b54c02351db07aa18ae445c"></a> enumerator BK\_BLE\_SVC\_MI\_POS
+
+    <a id="_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_EKS_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask19BK_BLE_SVC_EKS_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask19BK_BLE_SVC_EKS_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811ad09e6a3af1c92221ea1e907ff626cd32"></a> enumerator BK\_BLE\_SVC\_EKS\_MASK
     :   Check Encryption key size for service Access.
 
-    enumerator BK_BLE_SVC_EKS_POS[](#_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_EKS_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_EKS_POSE"></a>
 
-    enumerator BK_BLE_SVC_AUTH_MASK[](#_CPPv4N20bk_ble_svc_perm_mask20BK_BLE_SVC_AUTH_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask18BK_BLE_SVC_EKS_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask18BK_BLE_SVC_EKS_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811a786da7d843e324aa9bc1c4869cd51b40"></a> enumerator BK\_BLE\_SVC\_EKS\_POS
+
+    <a id="_CPPv4N20bk_ble_svc_perm_mask20BK_BLE_SVC_AUTH_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask20BK_BLE_SVC_AUTH_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask20BK_BLE_SVC_AUTH_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811af3a4b289d81263c8f642f43f725d8a91"></a> enumerator BK\_BLE\_SVC\_AUTH\_MASK
     :   Service Permission authentication.
 
-    enumerator BK_BLE_SVC_AUTH_POS[](#_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_AUTH_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_AUTH_POSE"></a>
 
-    enumerator BK_BLE_SVC_DIS_MASK[](#_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_DIS_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask19BK_BLE_SVC_AUTH_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask19BK_BLE_SVC_AUTH_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811a2bbe5cbe4e227abdbb830266cfed8da4"></a> enumerator BK\_BLE\_SVC\_AUTH\_POS
+
+    <a id="_CPPv4N20bk_ble_svc_perm_mask19BK_BLE_SVC_DIS_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask19BK_BLE_SVC_DIS_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask19BK_BLE_SVC_DIS_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811a85f7157e31162ceb509d826a9c942ae5"></a> enumerator BK\_BLE\_SVC\_DIS\_MASK
     :   Disable the service.
 
-    enumerator BK_BLE_SVC_DIS_POS[](#_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_DIS_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask18BK_BLE_SVC_DIS_POSE"></a>
 
-    enumerator BK_BLE_SVC_UUID_LEN_MASK[](#_CPPv4N20bk_ble_svc_perm_mask24BK_BLE_SVC_UUID_LEN_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask18BK_BLE_SVC_DIS_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask18BK_BLE_SVC_DIS_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811ad14b0d9c8b2ffd64034c1bad9f54ecf0"></a> enumerator BK\_BLE\_SVC\_DIS\_POS
+
+    <a id="_CPPv4N20bk_ble_svc_perm_mask24BK_BLE_SVC_UUID_LEN_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask24BK_BLE_SVC_UUID_LEN_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask24BK_BLE_SVC_UUID_LEN_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811ab80ac257bc219d788b864dcef3959174"></a> enumerator BK\_BLE\_SVC\_UUID\_LEN\_MASK
     :   Service UUID Length.
 
-    enumerator BK_BLE_SVC_UUID_LEN_POS[](#_CPPv4N20bk_ble_svc_perm_mask23BK_BLE_SVC_UUID_LEN_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask23BK_BLE_SVC_UUID_LEN_POSE"></a>
 
-    enumerator BK_BLE_SVC_SECONDARY_MASK[](#_CPPv4N20bk_ble_svc_perm_mask25BK_BLE_SVC_SECONDARY_MASKE "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask23BK_BLE_SVC_UUID_LEN_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask23BK_BLE_SVC_UUID_LEN_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811adf7c2194f9888b39b7a5e45f9964677a"></a> enumerator BK\_BLE\_SVC\_UUID\_LEN\_POS
+
+    <a id="_CPPv4N20bk_ble_svc_perm_mask25BK_BLE_SVC_SECONDARY_MASKE"></a>
+
+    <a id="_CPPv3N20bk_ble_svc_perm_mask25BK_BLE_SVC_SECONDARY_MASKE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask25BK_BLE_SVC_SECONDARY_MASKE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811abfdd1487376e4303a15dab9199334c34"></a> enumerator BK\_BLE\_SVC\_SECONDARY\_MASK
     :   Service type Secondary.
 
-    enumerator BK_BLE_SVC_SECONDARY_POS[](#_CPPv4N20bk_ble_svc_perm_mask24BK_BLE_SVC_SECONDARY_POSE "永久链接至目标")
+    <a id="_CPPv4N20bk_ble_svc_perm_mask24BK_BLE_SVC_SECONDARY_POSE"></a>
 
-enum [anonymous][](#_CPPv4Ut1_0 "永久链接至目标")
+    <a id="_CPPv3N20bk_ble_svc_perm_mask24BK_BLE_SVC_SECONDARY_POSE"></a> <a id="_CPPv2N20bk_ble_svc_perm_mask24BK_BLE_SVC_SECONDARY_POSE"></a> <a id="group__bk__ble__api__v1_1gga391834053b6777e7f684b4ea71d34811ad701e9394a71730315214c2866772855"></a> enumerator BK\_BLE\_SVC\_SECONDARY\_POS
+
+<a id="_CPPv4Ut1_0"></a>
+
+<a id="_CPPv3Ut1_0"></a> <a id="group__bk__ble__api__v1_1ga06fc87d81c62e9abb8790b6e5713c55b"></a> enum \[anonymous\]
 :   *Values:*
 
-    enumerator BK_BLE_PERM_RIGHT_DISABLE[](#_CPPv4NUt1_025BK_BLE_PERM_RIGHT_DISABLEE "永久链接至目标")
+    <a id="_CPPv4NUt1_025BK_BLE_PERM_RIGHT_DISABLEE"></a>
+
+    <a id="_CPPv3NUt1_025BK_BLE_PERM_RIGHT_DISABLEE"></a> <a id="group__bk__ble__api__v1_1gga06fc87d81c62e9abb8790b6e5713c55ba9be1c04515409aa5eeaaae93c9e92fcd"></a> enumerator BK\_BLE\_PERM\_RIGHT\_DISABLE
     :   Disable access.
 
-    enumerator BK_BLE_PERM_RIGHT_ENABLE[](#_CPPv4NUt1_024BK_BLE_PERM_RIGHT_ENABLEE "永久链接至目标")
+    <a id="_CPPv4NUt1_024BK_BLE_PERM_RIGHT_ENABLEE"></a>
+
+    <a id="_CPPv3NUt1_024BK_BLE_PERM_RIGHT_ENABLEE"></a> <a id="group__bk__ble__api__v1_1gga06fc87d81c62e9abb8790b6e5713c55baa86aa249371126b53055fbd024bf2bb1"></a> enumerator BK\_BLE\_PERM\_RIGHT\_ENABLE
     :   Enable access.
 
-enum [anonymous][](#_CPPv4Ut1_1 "永久链接至目标")
+<a id="_CPPv4Ut1_1"></a>
+
+<a id="_CPPv3Ut1_1"></a> <a id="group__bk__ble__api__v1_1gadf764cbdea00d65edcd07bb9953ad2b7"></a> enum \[anonymous\]
 :   *Values:*
 
-    enumerator BK_BLE_PERM_RIGHT_NO_AUTH[](#_CPPv4NUt1_125BK_BLE_PERM_RIGHT_NO_AUTHE "永久链接至目标")
+    <a id="_CPPv4NUt1_125BK_BLE_PERM_RIGHT_NO_AUTHE"></a>
+
+    <a id="_CPPv3NUt1_125BK_BLE_PERM_RIGHT_NO_AUTHE"></a> <a id="group__bk__ble__api__v1_1ggadf764cbdea00d65edcd07bb9953ad2b7a11a016e005f711095fa7f29b8d47e5c5"></a> enumerator BK\_BLE\_PERM\_RIGHT\_NO\_AUTH
     :   No Authentication.
 
-    enumerator BK_BLE_PERM_RIGHT_UNAUTH[](#_CPPv4NUt1_124BK_BLE_PERM_RIGHT_UNAUTHE "永久链接至目标")
+    <a id="_CPPv4NUt1_124BK_BLE_PERM_RIGHT_UNAUTHE"></a>
+
+    <a id="_CPPv3NUt1_124BK_BLE_PERM_RIGHT_UNAUTHE"></a> <a id="group__bk__ble__api__v1_1ggadf764cbdea00d65edcd07bb9953ad2b7a4639ac034d0b1cc495d15a52f96a3e6e"></a> enumerator BK\_BLE\_PERM\_RIGHT\_UNAUTH
     :   Access Requires Unauthenticated link.
 
-    enumerator BK_BLE_PERM_RIGHT_AUTH[](#_CPPv4NUt1_122BK_BLE_PERM_RIGHT_AUTHE "永久链接至目标")
+    <a id="_CPPv4NUt1_122BK_BLE_PERM_RIGHT_AUTHE"></a>
+
+    <a id="_CPPv3NUt1_122BK_BLE_PERM_RIGHT_AUTHE"></a> <a id="group__bk__ble__api__v1_1ggadf764cbdea00d65edcd07bb9953ad2b7a20d838c38c592c6caec2f1c8051b605e"></a> enumerator BK\_BLE\_PERM\_RIGHT\_AUTH
     :   Access Requires Authenticated link.
 
-    enumerator BK_BLE_PERM_RIGHT_SEC_CON[](#_CPPv4NUt1_125BK_BLE_PERM_RIGHT_SEC_CONE "永久链接至目标")
+    <a id="_CPPv4NUt1_125BK_BLE_PERM_RIGHT_SEC_CONE"></a>
+
+    <a id="_CPPv3NUt1_125BK_BLE_PERM_RIGHT_SEC_CONE"></a> <a id="group__bk__ble__api__v1_1ggadf764cbdea00d65edcd07bb9953ad2b7aeb25a35bd13703406ea346c1c2c0f33f"></a> enumerator BK\_BLE\_PERM\_RIGHT\_SEC\_CON
     :   Access Requires Secure Connection link.
 
-enum [anonymous][](#_CPPv4Ut1_2 "永久链接至目标")
+<a id="_CPPv4Ut1_2"></a>
+
+<a id="_CPPv3Ut1_2"></a> <a id="group__bk__ble__api__v1_1ga99fb83031ce9923c84392b4e92f956b5"></a> enum \[anonymous\]
 :   *Values:*
 
-    enumerator BK_BLE_PERM_RIGHT_UUID_16[](#_CPPv4NUt1_225BK_BLE_PERM_RIGHT_UUID_16E "永久链接至目标")
+    <a id="_CPPv4NUt1_225BK_BLE_PERM_RIGHT_UUID_16E"></a>
+
+    <a id="_CPPv3NUt1_225BK_BLE_PERM_RIGHT_UUID_16E"></a> <a id="group__bk__ble__api__v1_1gga99fb83031ce9923c84392b4e92f956b5a25db928cc38335fa3dda0a78ae58bf0d"></a> enumerator BK\_BLE\_PERM\_RIGHT\_UUID\_16
     :   16 bits UUID
 
-    enumerator BK_BLE_PERM_RIGHT_UUID_32[](#_CPPv4NUt1_225BK_BLE_PERM_RIGHT_UUID_32E "永久链接至目标")
+    <a id="_CPPv4NUt1_225BK_BLE_PERM_RIGHT_UUID_32E"></a>
+
+    <a id="_CPPv3NUt1_225BK_BLE_PERM_RIGHT_UUID_32E"></a> <a id="group__bk__ble__api__v1_1gga99fb83031ce9923c84392b4e92f956b5ae1a469cb692c2f336665501223ba85bc"></a> enumerator BK\_BLE\_PERM\_RIGHT\_UUID\_32
     :   32 bits UUID
 
-    enumerator BK_BLE_PERM_RIGHT_UUID_128[](#_CPPv4NUt1_226BK_BLE_PERM_RIGHT_UUID_128E "永久链接至目标")
+    <a id="_CPPv4NUt1_226BK_BLE_PERM_RIGHT_UUID_128E"></a>
+
+    <a id="_CPPv3NUt1_226BK_BLE_PERM_RIGHT_UUID_128E"></a> <a id="group__bk__ble__api__v1_1gga99fb83031ce9923c84392b4e92f956b5acb88d87262c6d823d670c03339900560"></a> enumerator BK\_BLE\_PERM\_RIGHT\_UUID\_128
     :   128 bits UUID
 
-    enumerator BK_BLE_PERM_RIGHT_UUID_RFU[](#_CPPv4NUt1_226BK_BLE_PERM_RIGHT_UUID_RFUE "永久链接至目标")
+    <a id="_CPPv4NUt1_226BK_BLE_PERM_RIGHT_UUID_RFUE"></a>
+
+    <a id="_CPPv3NUt1_226BK_BLE_PERM_RIGHT_UUID_RFUE"></a> <a id="group__bk__ble__api__v1_1gga99fb83031ce9923c84392b4e92f956b5a5ebf47fcd932d30f544e4826e5ba4452"></a> enumerator BK\_BLE\_PERM\_RIGHT\_UUID\_RFU
     :   Invalid.
 
-enum ble_cmd_t[](#_CPPv49ble_cmd_t "永久链接至目标")
+<a id="_CPPv49ble_cmd_t"></a>
+
+<a id="_CPPv39ble_cmd_t"></a> <a id="_CPPv29ble_cmd_t"></a> <a id="group__bk__ble__api__v1_1ga9801599b87e214e2e00bb28da16f0e0d"></a> enum ble\_cmd\_t
 :   *Values:*
 
-    enumerator BLE_CMD_NONE[](#_CPPv4N9ble_cmd_t12BLE_CMD_NONEE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t12BLE_CMD_NONEE"></a>
 
-    enumerator BLE_CREATE_ADV[](#_CPPv4N9ble_cmd_t14BLE_CREATE_ADVE "永久链接至目标")
-    :   ADV_CMD:FOR BLE 5.1.
+    <a id="_CPPv3N9ble_cmd_t12BLE_CMD_NONEE"></a> <a id="_CPPv2N9ble_cmd_t12BLE_CMD_NONEE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dae0c65fbac97a567ea04b132950ebb7ea"></a> enumerator BLE\_CMD\_NONE
 
-    enumerator BLE_SET_ADV_DATA[](#_CPPv4N9ble_cmd_t16BLE_SET_ADV_DATAE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t14BLE_CREATE_ADVE"></a>
 
-    enumerator BLE_SET_RSP_DATA[](#_CPPv4N9ble_cmd_t16BLE_SET_RSP_DATAE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t14BLE_CREATE_ADVE"></a> <a id="_CPPv2N9ble_cmd_t14BLE_CREATE_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dad8d6dded22b2c38b5884fdd9eac8292b"></a> enumerator BLE\_CREATE\_ADV
+    :   ADV\_CMD:FOR BLE 5.1.
 
-    enumerator BLE_START_ADV[](#_CPPv4N9ble_cmd_t13BLE_START_ADVE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t16BLE_SET_ADV_DATAE"></a>
 
-    enumerator BLE_STOP_ADV[](#_CPPv4N9ble_cmd_t12BLE_STOP_ADVE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t16BLE_SET_ADV_DATAE"></a> <a id="_CPPv2N9ble_cmd_t16BLE_SET_ADV_DATAE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daa241768e9fae960b000adc1f5dfb7f16"></a> enumerator BLE\_SET\_ADV\_DATA
 
-    enumerator BLE_DELETE_ADV[](#_CPPv4N9ble_cmd_t14BLE_DELETE_ADVE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t16BLE_SET_RSP_DATAE"></a>
 
-    enumerator BLE_INIT_ADV[](#_CPPv4N9ble_cmd_t12BLE_INIT_ADVE "永久链接至目标")
-    :   ADV_CMD:FOR BLE 4.2.
+    <a id="_CPPv3N9ble_cmd_t16BLE_SET_RSP_DATAE"></a> <a id="_CPPv2N9ble_cmd_t16BLE_SET_RSP_DATAE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dad819543a4e331990b8a96757757e4a7c"></a> enumerator BLE\_SET\_RSP\_DATA
 
-    enumerator BLE_DEINIT_ADV[](#_CPPv4N9ble_cmd_t14BLE_DEINIT_ADVE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t13BLE_START_ADVE"></a>
 
-    enumerator BLE_CREATE_SCAN[](#_CPPv4N9ble_cmd_t15BLE_CREATE_SCANE "永久链接至目标")
-    :   SCAN_CMD:FOR BLE 5.1.
+    <a id="_CPPv3N9ble_cmd_t13BLE_START_ADVE"></a> <a id="_CPPv2N9ble_cmd_t13BLE_START_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da0e4f768a7f8bec5ffa17b02aec76ed8f"></a> enumerator BLE\_START\_ADV
 
-    enumerator BLE_START_SCAN[](#_CPPv4N9ble_cmd_t14BLE_START_SCANE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t12BLE_STOP_ADVE"></a>
 
-    enumerator BLE_STOP_SCAN[](#_CPPv4N9ble_cmd_t13BLE_STOP_SCANE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t12BLE_STOP_ADVE"></a> <a id="_CPPv2N9ble_cmd_t12BLE_STOP_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da8aad650777fa00a735c7b77753b613d3"></a> enumerator BLE\_STOP\_ADV
 
-    enumerator BLE_DELETE_SCAN[](#_CPPv4N9ble_cmd_t15BLE_DELETE_SCANE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t14BLE_DELETE_ADVE"></a>
 
-    enumerator BLE_INIT_SCAN[](#_CPPv4N9ble_cmd_t13BLE_INIT_SCANE "永久链接至目标")
-    :   SCAN_CMD:FOR BLE 4.2.
+    <a id="_CPPv3N9ble_cmd_t14BLE_DELETE_ADVE"></a> <a id="_CPPv2N9ble_cmd_t14BLE_DELETE_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daec68cf87faaad45c46b0f31b0af8edba"></a> enumerator BLE\_DELETE\_ADV
 
-    enumerator BLE_DEINIT_SCAN[](#_CPPv4N9ble_cmd_t15BLE_DEINIT_SCANE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t12BLE_INIT_ADVE"></a>
 
-    enumerator BLE_CONN_UPDATE_MTU[](#_CPPv4N9ble_cmd_t19BLE_CONN_UPDATE_MTUE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t12BLE_INIT_ADVE"></a> <a id="_CPPv2N9ble_cmd_t12BLE_INIT_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daf6aa5752806fa6b8348c477fbce2d816"></a> enumerator BLE\_INIT\_ADV
+    :   ADV\_CMD:FOR BLE 4.2.
+
+    <a id="_CPPv4N9ble_cmd_t14BLE_DEINIT_ADVE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t14BLE_DEINIT_ADVE"></a> <a id="_CPPv2N9ble_cmd_t14BLE_DEINIT_ADVE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dafa46c3ac7a39a89297f9cf38e5734607"></a> enumerator BLE\_DEINIT\_ADV
+
+    <a id="_CPPv4N9ble_cmd_t15BLE_CREATE_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t15BLE_CREATE_SCANE"></a> <a id="_CPPv2N9ble_cmd_t15BLE_CREATE_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da869869af192b70cfc351720b73ffe4a9"></a> enumerator BLE\_CREATE\_SCAN
+    :   SCAN\_CMD:FOR BLE 5.1.
+
+    <a id="_CPPv4N9ble_cmd_t14BLE_START_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t14BLE_START_SCANE"></a> <a id="_CPPv2N9ble_cmd_t14BLE_START_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da99b194c61a93c591dfcecc85ca5b262d"></a> enumerator BLE\_START\_SCAN
+
+    <a id="_CPPv4N9ble_cmd_t13BLE_STOP_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t13BLE_STOP_SCANE"></a> <a id="_CPPv2N9ble_cmd_t13BLE_STOP_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da72e0c7b7302aee05bd752862e45fcce3"></a> enumerator BLE\_STOP\_SCAN
+
+    <a id="_CPPv4N9ble_cmd_t15BLE_DELETE_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t15BLE_DELETE_SCANE"></a> <a id="_CPPv2N9ble_cmd_t15BLE_DELETE_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da008a42de3af4f564a9ac9e1ffdf600d5"></a> enumerator BLE\_DELETE\_SCAN
+
+    <a id="_CPPv4N9ble_cmd_t13BLE_INIT_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t13BLE_INIT_SCANE"></a> <a id="_CPPv2N9ble_cmd_t13BLE_INIT_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da2b54b635c5d892c3d4209c88d18c3d4d"></a> enumerator BLE\_INIT\_SCAN
+    :   SCAN\_CMD:FOR BLE 4.2.
+
+    <a id="_CPPv4N9ble_cmd_t15BLE_DEINIT_SCANE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t15BLE_DEINIT_SCANE"></a> <a id="_CPPv2N9ble_cmd_t15BLE_DEINIT_SCANE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dae7aee5579f9a8c32e4accfc0849f2851"></a> enumerator BLE\_DEINIT\_SCAN
+
+    <a id="_CPPv4N9ble_cmd_t19BLE_CONN_UPDATE_MTUE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t19BLE_CONN_UPDATE_MTUE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_CONN_UPDATE_MTUE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da84c7214d655474e6036ca2ed6a2548a9"></a> enumerator BLE\_CONN\_UPDATE\_MTU
     :   conn
 
-    enumerator BLE_CONN_UPDATE_PARAM[](#_CPPv4N9ble_cmd_t21BLE_CONN_UPDATE_PARAME "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t21BLE_CONN_UPDATE_PARAME"></a>
 
-    enumerator BLE_CONN_DIS_CONN[](#_CPPv4N9ble_cmd_t17BLE_CONN_DIS_CONNE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t21BLE_CONN_UPDATE_PARAME"></a> <a id="_CPPv2N9ble_cmd_t21BLE_CONN_UPDATE_PARAME"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dae9df6e284106ae6ae6a8f52d1c8c38f0"></a> enumerator BLE\_CONN\_UPDATE\_PARAM
 
-    enumerator BLE_CONN_READ_PHY[](#_CPPv4N9ble_cmd_t17BLE_CONN_READ_PHYE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t17BLE_CONN_DIS_CONNE"></a>
 
-    enumerator BLE_CONN_SET_PHY[](#_CPPv4N9ble_cmd_t16BLE_CONN_SET_PHYE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t17BLE_CONN_DIS_CONNE"></a> <a id="_CPPv2N9ble_cmd_t17BLE_CONN_DIS_CONNE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daea8cdfeef1216950ea0a170a4504a483"></a> enumerator BLE\_CONN\_DIS\_CONN
 
-    enumerator BLE_INIT_CREATE[](#_CPPv4N9ble_cmd_t15BLE_INIT_CREATEE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t17BLE_CONN_READ_PHYE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t17BLE_CONN_READ_PHYE"></a> <a id="_CPPv2N9ble_cmd_t17BLE_CONN_READ_PHYE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da6193b3a8977665c459fc25928727c73d"></a> enumerator BLE\_CONN\_READ\_PHY
+
+    <a id="_CPPv4N9ble_cmd_t16BLE_CONN_SET_PHYE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t16BLE_CONN_SET_PHYE"></a> <a id="_CPPv2N9ble_cmd_t16BLE_CONN_SET_PHYE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da5a0e8649e35d581c35cad91eeeaa3751"></a> enumerator BLE\_CONN\_SET\_PHY
+
+    <a id="_CPPv4N9ble_cmd_t15BLE_INIT_CREATEE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t15BLE_INIT_CREATEE"></a> <a id="_CPPv2N9ble_cmd_t15BLE_INIT_CREATEE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dabd8968e94c1fdc9ae6008d354b50a489"></a> enumerator BLE\_INIT\_CREATE
     :   init
 
-    enumerator BLE_INIT_START_CONN[](#_CPPv4N9ble_cmd_t19BLE_INIT_START_CONNE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t19BLE_INIT_START_CONNE"></a>
 
-    enumerator BLE_INIT_STOP_CONN[](#_CPPv4N9ble_cmd_t18BLE_INIT_STOP_CONNE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t19BLE_INIT_START_CONNE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_INIT_START_CONNE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da3ccfcd2f8b73f4865da997819c276146"></a> enumerator BLE\_INIT\_START\_CONN
 
-    enumerator BLE_INIT_DIS_CONN[](#_CPPv4N9ble_cmd_t17BLE_INIT_DIS_CONNE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t18BLE_INIT_STOP_CONNE"></a>
 
-    enumerator BLE_INIT_READ_CHAR[](#_CPPv4N9ble_cmd_t18BLE_INIT_READ_CHARE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t18BLE_INIT_STOP_CONNE"></a> <a id="_CPPv2N9ble_cmd_t18BLE_INIT_STOP_CONNE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da55ef40219395cb7704ca37011e1d5766"></a> enumerator BLE\_INIT\_STOP\_CONN
 
-    enumerator BLE_INIT_WRITE_CHAR[](#_CPPv4N9ble_cmd_t19BLE_INIT_WRITE_CHARE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t17BLE_INIT_DIS_CONNE"></a>
 
-    enumerator BLE_SET_MAX_MTU[](#_CPPv4N9ble_cmd_t15BLE_SET_MAX_MTUE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t17BLE_INIT_DIS_CONNE"></a> <a id="_CPPv2N9ble_cmd_t17BLE_INIT_DIS_CONNE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da28d88b1603ae434a90c8b77ec5e9b0cd"></a> enumerator BLE\_INIT\_DIS\_CONN
+
+    <a id="_CPPv4N9ble_cmd_t18BLE_INIT_READ_CHARE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t18BLE_INIT_READ_CHARE"></a> <a id="_CPPv2N9ble_cmd_t18BLE_INIT_READ_CHARE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daae1277dbb85965f808e52a7737ab1b78"></a> enumerator BLE\_INIT\_READ\_CHAR
+
+    <a id="_CPPv4N9ble_cmd_t19BLE_INIT_WRITE_CHARE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t19BLE_INIT_WRITE_CHARE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_INIT_WRITE_CHARE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da305d34a23e2b8b41c2fdae235b0cdd73"></a> enumerator BLE\_INIT\_WRITE\_CHAR
+
+    <a id="_CPPv4N9ble_cmd_t15BLE_SET_MAX_MTUE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t15BLE_SET_MAX_MTUE"></a> <a id="_CPPv2N9ble_cmd_t15BLE_SET_MAX_MTUE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dac0ea1ba46581a91ef34d9a2055bf3444"></a> enumerator BLE\_SET\_MAX\_MTU
     :   config
 
-    enumerator BLE_CREATE_PERIODIC[](#_CPPv4N9ble_cmd_t19BLE_CREATE_PERIODICE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t19BLE_CREATE_PERIODICE"></a>
 
-    enumerator BLE_START_PERIODIC[](#_CPPv4N9ble_cmd_t18BLE_START_PERIODICE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t19BLE_CREATE_PERIODICE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_CREATE_PERIODICE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da0ab84f3504a51898fb6e6c398d774aa2"></a> enumerator BLE\_CREATE\_PERIODIC
 
-    enumerator BLE_STOP_PERIODIC[](#_CPPv4N9ble_cmd_t17BLE_STOP_PERIODICE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t18BLE_START_PERIODICE"></a>
 
-    enumerator BLE_DELETE_PERIODIC[](#_CPPv4N9ble_cmd_t19BLE_DELETE_PERIODICE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t18BLE_START_PERIODICE"></a> <a id="_CPPv2N9ble_cmd_t18BLE_START_PERIODICE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daec19de508a314b95fd7aba251eb4ccb5"></a> enumerator BLE\_START\_PERIODIC
 
-    enumerator BLE_SET_LOCAL_NAME[](#_CPPv4N9ble_cmd_t18BLE_SET_LOCAL_NAMEE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t17BLE_STOP_PERIODICE"></a>
 
-    enumerator BLE_GET_LOCAL_NAME[](#_CPPv4N9ble_cmd_t18BLE_GET_LOCAL_NAMEE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t17BLE_STOP_PERIODICE"></a> <a id="_CPPv2N9ble_cmd_t17BLE_STOP_PERIODICE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da053740e7ea912054b0cd57e46e6f7078"></a> enumerator BLE\_STOP\_PERIODIC
 
-    enumerator BLE_READ_LOCAL_ADDR[](#_CPPv4N9ble_cmd_t19BLE_READ_LOCAL_ADDRE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t19BLE_DELETE_PERIODICE"></a>
 
-    enumerator BLE_SET_RANDOM_ADDR[](#_CPPv4N9ble_cmd_t19BLE_SET_RANDOM_ADDRE "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t19BLE_DELETE_PERIODICE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_DELETE_PERIODICE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da587b64656c33f64d7dd3afbe7ff47327"></a> enumerator BLE\_DELETE\_PERIODIC
 
-    enumerator BLE_CMD_MAX[](#_CPPv4N9ble_cmd_t11BLE_CMD_MAXE "永久链接至目标")
+    <a id="_CPPv4N9ble_cmd_t18BLE_SET_LOCAL_NAMEE"></a>
 
-enum ble_notice_t[](#_CPPv412ble_notice_t "永久链接至目标")
+    <a id="_CPPv3N9ble_cmd_t18BLE_SET_LOCAL_NAMEE"></a> <a id="_CPPv2N9ble_cmd_t18BLE_SET_LOCAL_NAMEE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da31751fb34c3aa15783ef646d0723a350"></a> enumerator BLE\_SET\_LOCAL\_NAME
+
+    <a id="_CPPv4N9ble_cmd_t18BLE_GET_LOCAL_NAMEE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t18BLE_GET_LOCAL_NAMEE"></a> <a id="_CPPv2N9ble_cmd_t18BLE_GET_LOCAL_NAMEE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dacbd5681b06cc721f8dfbc7716ec02e2a"></a> enumerator BLE\_GET\_LOCAL\_NAME
+
+    <a id="_CPPv4N9ble_cmd_t19BLE_READ_LOCAL_ADDRE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t19BLE_READ_LOCAL_ADDRE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_READ_LOCAL_ADDRE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0dae5e4ec6d104a7f1849c03572dd66fb8d"></a> enumerator BLE\_READ\_LOCAL\_ADDR
+
+    <a id="_CPPv4N9ble_cmd_t19BLE_SET_RANDOM_ADDRE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t19BLE_SET_RANDOM_ADDRE"></a> <a id="_CPPv2N9ble_cmd_t19BLE_SET_RANDOM_ADDRE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0daf80386d514d080863522d25870d182c4"></a> enumerator BLE\_SET\_RANDOM\_ADDR
+
+    <a id="_CPPv4N9ble_cmd_t11BLE_CMD_MAXE"></a>
+
+    <a id="_CPPv3N9ble_cmd_t11BLE_CMD_MAXE"></a> <a id="_CPPv2N9ble_cmd_t11BLE_CMD_MAXE"></a> <a id="group__bk__ble__api__v1_1gga9801599b87e214e2e00bb28da16f0e0da5c5c3e336ee535c0d8ef3ea30151f9d7"></a> enumerator BLE\_CMD\_MAX
+
+<a id="_CPPv412ble_notice_t"></a>
+
+<a id="_CPPv312ble_notice_t"></a> <a id="_CPPv212ble_notice_t"></a> <a id="group__bk__ble__api__v1_1ga0bcca73e43830fd3440cb09cc01294f3"></a> enum ble\_notice\_t
 :   *Values:*
 
-    enumerator BLE_5_STACK_OK[](#_CPPv4N12ble_notice_t14BLE_5_STACK_OKE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t14BLE_5_STACK_OKE"></a>
+
+    <a id="_CPPv3N12ble_notice_t14BLE_5_STACK_OKE"></a> <a id="_CPPv2N12ble_notice_t14BLE_5_STACK_OKE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a7e01206fd01dc61e5a6615668e7703ee"></a> enumerator BLE\_5\_STACK\_OK
     :   ble stack init ok, param null
 
-    enumerator BLE_5_WRITE_EVENT[](#_CPPv4N12ble_notice_t17BLE_5_WRITE_EVENTE "永久链接至目标")
-    :   peer write our, param [ble_write_req_t](#structble__write__req__t "#structble__write__req__t")
+    <a id="_CPPv4N12ble_notice_t17BLE_5_WRITE_EVENTE"></a>
 
-    enumerator BLE_5_READ_EVENT[](#_CPPv4N12ble_notice_t16BLE_5_READ_EVENTE "永久链接至目标")
-    :   peer read our, param [ble_read_req_t](#structble__read__req__t "#structble__read__req__t")
+    <a id="_CPPv3N12ble_notice_t17BLE_5_WRITE_EVENTE"></a> <a id="_CPPv2N12ble_notice_t17BLE_5_WRITE_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a58574fe9c4dc1778f56561196e304d39"></a> enumerator BLE\_5\_WRITE\_EVENT
+    :   peer write our, param [ble\_write\_req\_t](#structble__write__req__t)
 
-    enumerator BLE_5_REPORT_ADV[](#_CPPv4N12ble_notice_t16BLE_5_REPORT_ADVE "永久链接至目标")
-    :   scan peer adv report, param [ble_recv_adv_t](#structble__recv__adv__t "#structble__recv__adv__t")
+    <a id="_CPPv4N12ble_notice_t16BLE_5_READ_EVENTE"></a>
 
-    enumerator BLE_5_MTU_CHANGE[](#_CPPv4N12ble_notice_t16BLE_5_MTU_CHANGEE "永久链接至目标")
-    :   mtu change event, param [ble_mtu_change_t](#structble__mtu__change__t "#structble__mtu__change__t")
+    <a id="_CPPv3N12ble_notice_t16BLE_5_READ_EVENTE"></a> <a id="_CPPv2N12ble_notice_t16BLE_5_READ_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a9000f45195301685f3c1f93141c0c8c6"></a> enumerator BLE\_5\_READ\_EVENT
+    :   peer read our, param [ble\_read\_req\_t](#structble__read__req__t)
 
-    enumerator BLE_5_CONNECT_EVENT[](#_CPPv4N12ble_notice_t19BLE_5_CONNECT_EVENTE "永久链接至目标")
-    :   as slaver, recv connnect event, param [ble_conn_ind_t](#structble__conn__ind__t "#structble__conn__ind__t")
+    <a id="_CPPv4N12ble_notice_t16BLE_5_REPORT_ADVE"></a>
 
-    enumerator BLE_5_DISCONNECT_EVENT[](#_CPPv4N12ble_notice_t22BLE_5_DISCONNECT_EVENTE "永久链接至目标")
-    :   recv disconnect event, param [ble_discon_ind_t](#structble__discon__ind__t "#structble__discon__ind__t")
+    <a id="_CPPv3N12ble_notice_t16BLE_5_REPORT_ADVE"></a> <a id="_CPPv2N12ble_notice_t16BLE_5_REPORT_ADVE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3ae3dfc071331695f61f2a2c192ec7e505"></a> enumerator BLE\_5\_REPORT\_ADV
+    :   scan peer adv report, param [ble\_recv\_adv\_t](#structble__recv__adv__t)
 
-    enumerator BLE_5_ATT_INFO_REQ[](#_CPPv4N12ble_notice_t18BLE_5_ATT_INFO_REQE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t16BLE_5_MTU_CHANGEE"></a>
 
-    enumerator BLE_5_CREATE_DB[](#_CPPv4N12ble_notice_t15BLE_5_CREATE_DBE "永久链接至目标")
-    :   create db event, param [ble_create_db_t](#structble__create__db__t "#structble__create__db__t")
+    <a id="_CPPv3N12ble_notice_t16BLE_5_MTU_CHANGEE"></a> <a id="_CPPv2N12ble_notice_t16BLE_5_MTU_CHANGEE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3ad21acd32dd01acb3ebc2b091b4b81465"></a> enumerator BLE\_5\_MTU\_CHANGE
+    :   mtu change event, param [ble\_mtu\_change\_t](#structble__mtu__change__t)
 
-    enumerator BLE_5_TX_DONE[](#_CPPv4N12ble_notice_t13BLE_5_TX_DONEE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t19BLE_5_CONNECT_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t19BLE_5_CONNECT_EVENTE"></a> <a id="_CPPv2N12ble_notice_t19BLE_5_CONNECT_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a5e72b31146968abb86e292c10c2af7af"></a> enumerator BLE\_5\_CONNECT\_EVENT
+    :   as slaver, recv connnect event, param [ble\_conn\_ind\_t](#structble__conn__ind__t)
+
+    <a id="_CPPv4N12ble_notice_t22BLE_5_DISCONNECT_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t22BLE_5_DISCONNECT_EVENTE"></a> <a id="_CPPv2N12ble_notice_t22BLE_5_DISCONNECT_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a4b238cacc401b2a9fa242fdae0bf3ca4"></a> enumerator BLE\_5\_DISCONNECT\_EVENT
+    :   recv disconnect event, param [ble\_discon\_ind\_t](#structble__discon__ind__t)
+
+    <a id="_CPPv4N12ble_notice_t18BLE_5_ATT_INFO_REQE"></a>
+
+    <a id="_CPPv3N12ble_notice_t18BLE_5_ATT_INFO_REQE"></a> <a id="_CPPv2N12ble_notice_t18BLE_5_ATT_INFO_REQE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3acf4178aace725bb5fec85b2b456f8c2b"></a> enumerator BLE\_5\_ATT\_INFO\_REQ
+
+    <a id="_CPPv4N12ble_notice_t15BLE_5_CREATE_DBE"></a>
+
+    <a id="_CPPv3N12ble_notice_t15BLE_5_CREATE_DBE"></a> <a id="_CPPv2N12ble_notice_t15BLE_5_CREATE_DBE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3af194509a3be556f3feafcd4274a04977"></a> enumerator BLE\_5\_CREATE\_DB
+    :   create db event, param [ble\_create\_db\_t](#structble__create__db__t)
+
+    <a id="_CPPv4N12ble_notice_t13BLE_5_TX_DONEE"></a>
+
+    <a id="_CPPv3N12ble_notice_t13BLE_5_TX_DONEE"></a> <a id="_CPPv2N12ble_notice_t13BLE_5_TX_DONEE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a5922d24bc5d4a14db372e6878e7bd23b"></a> enumerator BLE\_5\_TX\_DONE
     :   tx complete event, param null
 
-    enumerator BLE_5_PAIRING_REQ[](#_CPPv4N12ble_notice_t17BLE_5_PAIRING_REQE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t17BLE_5_PAIRING_REQE"></a>
+
+    <a id="_CPPv3N12ble_notice_t17BLE_5_PAIRING_REQE"></a> <a id="_CPPv2N12ble_notice_t17BLE_5_PAIRING_REQE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3aee1be53af00f9a7156f13e19d1ebd023"></a> enumerator BLE\_5\_PAIRING\_REQ
     :   smp report
 
-    enumerator BLE_5_PAIRING_SUCCEED[](#_CPPv4N12ble_notice_t21BLE_5_PAIRING_SUCCEEDE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t21BLE_5_PAIRING_SUCCEEDE"></a>
 
-    enumerator BLE_5_PAIRING_FAILED[](#_CPPv4N12ble_notice_t20BLE_5_PAIRING_FAILEDE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t21BLE_5_PAIRING_SUCCEEDE"></a> <a id="_CPPv2N12ble_notice_t21BLE_5_PAIRING_SUCCEEDE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3aa1855717d8b1523ea883ab4a1c22991b"></a> enumerator BLE\_5\_PAIRING\_SUCCEED
 
-    enumerator BLE_5_PARING_PASSKEY_REQ[](#_CPPv4N12ble_notice_t24BLE_5_PARING_PASSKEY_REQE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t20BLE_5_PAIRING_FAILEDE"></a>
 
-    enumerator BLE_5_ENCRYPT_EVENT[](#_CPPv4N12ble_notice_t19BLE_5_ENCRYPT_EVENTE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t20BLE_5_PAIRING_FAILEDE"></a> <a id="_CPPv2N12ble_notice_t20BLE_5_PAIRING_FAILEDE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3afa4d4ffbfac6c4bd0bc582415390cf8f"></a> enumerator BLE\_5\_PAIRING\_FAILED
 
-    enumerator BLE_5_INIT_CONNECT_EVENT[](#_CPPv4N12ble_notice_t24BLE_5_INIT_CONNECT_EVENTE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t24BLE_5_PARING_PASSKEY_REQE"></a>
+
+    <a id="_CPPv3N12ble_notice_t24BLE_5_PARING_PASSKEY_REQE"></a> <a id="_CPPv2N12ble_notice_t24BLE_5_PARING_PASSKEY_REQE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a7de37581ca661bbed6c1fb1dce3d6de8"></a> enumerator BLE\_5\_PARING\_PASSKEY\_REQ
+
+    <a id="_CPPv4N12ble_notice_t19BLE_5_ENCRYPT_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t19BLE_5_ENCRYPT_EVENTE"></a> <a id="_CPPv2N12ble_notice_t19BLE_5_ENCRYPT_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a111c96778f8d51b7ee36f7bb5312a37b"></a> enumerator BLE\_5\_ENCRYPT\_EVENT
+
+    <a id="_CPPv4N12ble_notice_t24BLE_5_INIT_CONNECT_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t24BLE_5_INIT_CONNECT_EVENTE"></a> <a id="_CPPv2N12ble_notice_t24BLE_5_INIT_CONNECT_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a225e83c86c3ef4aad89ee1b0119db864"></a> enumerator BLE\_5\_INIT\_CONNECT\_EVENT
     :   as master, recv connect event
 
-    enumerator BLE_5_INIT_DISCONNECT_EVENT[](#_CPPv4N12ble_notice_t27BLE_5_INIT_DISCONNECT_EVENTE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t27BLE_5_INIT_DISCONNECT_EVENTE"></a>
 
-    enumerator BLE_5_INIT_CONNECT_FAILED_EVENT[](#_CPPv4N12ble_notice_t31BLE_5_INIT_CONNECT_FAILED_EVENTE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t27BLE_5_INIT_DISCONNECT_EVENTE"></a> <a id="_CPPv2N12ble_notice_t27BLE_5_INIT_DISCONNECT_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a9ba0ce42303bd30b85669b8f439f28ac"></a> enumerator BLE\_5\_INIT\_DISCONNECT\_EVENT
 
-    enumerator BLE_5_SDP_REGISTER_FAILED[](#_CPPv4N12ble_notice_t25BLE_5_SDP_REGISTER_FAILEDE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t31BLE_5_INIT_CONNECT_FAILED_EVENTE"></a>
 
-    enumerator BLE_5_READ_PHY_EVENT[](#_CPPv4N12ble_notice_t20BLE_5_READ_PHY_EVENTE "永久链接至目标")
-    :   get current conn phy result, param [ble_read_phy_t](#structble__read__phy__t "#structble__read__phy__t")
+    <a id="_CPPv3N12ble_notice_t31BLE_5_INIT_CONNECT_FAILED_EVENTE"></a> <a id="_CPPv2N12ble_notice_t31BLE_5_INIT_CONNECT_FAILED_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a4636ece2656518c0262ff637cdeaf187"></a> enumerator BLE\_5\_INIT\_CONNECT\_FAILED\_EVENT
 
-    enumerator BLE_5_CONN_UPDATA_EVENT[](#_CPPv4N12ble_notice_t23BLE_5_CONN_UPDATA_EVENTE "永久链接至目标")
-    :   recv conn update event, param [ble_conn_param_t](#structble__conn__param__t "#structble__conn__param__t")
+    <a id="_CPPv4N12ble_notice_t25BLE_5_SDP_REGISTER_FAILEDE"></a>
 
-    enumerator BLE_5_PERIODIC_SYNC_CMPL_EVENT[](#_CPPv4N12ble_notice_t30BLE_5_PERIODIC_SYNC_CMPL_EVENTE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t25BLE_5_SDP_REGISTER_FAILEDE"></a> <a id="_CPPv2N12ble_notice_t25BLE_5_SDP_REGISTER_FAILEDE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a1f4984843b5aa177d9a3f1ad1f5b7ddb"></a> enumerator BLE\_5\_SDP\_REGISTER\_FAILED
 
-    enumerator BLE_5_DISCOVERY_PRIMARY_SERVICE_EVENT[](#_CPPv4N12ble_notice_t37BLE_5_DISCOVERY_PRIMARY_SERVICE_EVENTE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t20BLE_5_READ_PHY_EVENTE"></a>
 
-    enumerator BLE_5_DISCOVERY_CHAR_EVENT[](#_CPPv4N12ble_notice_t26BLE_5_DISCOVERY_CHAR_EVENTE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t20BLE_5_READ_PHY_EVENTE"></a> <a id="_CPPv2N12ble_notice_t20BLE_5_READ_PHY_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a6a01d522725ed8b863fc389e515a1f05"></a> enumerator BLE\_5\_READ\_PHY\_EVENT
+    :   get current conn phy result, param [ble\_read\_phy\_t](#structble__read__phy__t)
 
-    enumerator BLE_5_RECV_NOTIFY_EVENT[](#_CPPv4N12ble_notice_t23BLE_5_RECV_NOTIFY_EVENTE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t23BLE_5_CONN_UPDATA_EVENTE"></a>
 
-    enumerator BLE_5_ATT_READ_RESPONSE[](#_CPPv4N12ble_notice_t23BLE_5_ATT_READ_RESPONSEE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t23BLE_5_CONN_UPDATA_EVENTE"></a> <a id="_CPPv2N12ble_notice_t23BLE_5_CONN_UPDATA_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3ad154891d46bf4d5aba9177d6929a6f47"></a> enumerator BLE\_5\_CONN\_UPDATA\_EVENT
+    :   recv conn update event, param [ble\_conn\_param\_t](#structble__conn__param__t)
 
-    enumerator BLE_5_CONN_UPD_PAR_ASK[](#_CPPv4N12ble_notice_t22BLE_5_CONN_UPD_PAR_ASKE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t30BLE_5_PERIODIC_SYNC_CMPL_EVENTE"></a>
 
-    enumerator BLE_5_SHUTDOWN_SUCCEED[](#_CPPv4N12ble_notice_t22BLE_5_SHUTDOWN_SUCCEEDE "永久链接至目标")
+    <a id="_CPPv3N12ble_notice_t30BLE_5_PERIODIC_SYNC_CMPL_EVENTE"></a> <a id="_CPPv2N12ble_notice_t30BLE_5_PERIODIC_SYNC_CMPL_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a208dc372f5e897b1eb27ecb89fc66148"></a> enumerator BLE\_5\_PERIODIC\_SYNC\_CMPL\_EVENT
 
-    enumerator BLE_5_DELETE_SERVICE_DONE[](#_CPPv4N12ble_notice_t25BLE_5_DELETE_SERVICE_DONEE "永久链接至目标")
+    <a id="_CPPv4N12ble_notice_t37BLE_5_DISCOVERY_PRIMARY_SERVICE_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t37BLE_5_DISCOVERY_PRIMARY_SERVICE_EVENTE"></a> <a id="_CPPv2N12ble_notice_t37BLE_5_DISCOVERY_PRIMARY_SERVICE_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a31cfa7ec8408adaaddf603c6b76e602b"></a> enumerator BLE\_5\_DISCOVERY\_PRIMARY\_SERVICE\_EVENT
+
+    <a id="_CPPv4N12ble_notice_t26BLE_5_DISCOVERY_CHAR_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t26BLE_5_DISCOVERY_CHAR_EVENTE"></a> <a id="_CPPv2N12ble_notice_t26BLE_5_DISCOVERY_CHAR_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3aaa8a8cd749202a1a367136545d5b259a"></a> enumerator BLE\_5\_DISCOVERY\_CHAR\_EVENT
+
+    <a id="_CPPv4N12ble_notice_t23BLE_5_RECV_NOTIFY_EVENTE"></a>
+
+    <a id="_CPPv3N12ble_notice_t23BLE_5_RECV_NOTIFY_EVENTE"></a> <a id="_CPPv2N12ble_notice_t23BLE_5_RECV_NOTIFY_EVENTE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a3c50c9dc2eca3432a5ac7dfaf5911442"></a> enumerator BLE\_5\_RECV\_NOTIFY\_EVENT
+
+    <a id="_CPPv4N12ble_notice_t23BLE_5_ATT_READ_RESPONSEE"></a>
+
+    <a id="_CPPv3N12ble_notice_t23BLE_5_ATT_READ_RESPONSEE"></a> <a id="_CPPv2N12ble_notice_t23BLE_5_ATT_READ_RESPONSEE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3af9032e438d373977b21e3c5abd02dd78"></a> enumerator BLE\_5\_ATT\_READ\_RESPONSE
+
+    <a id="_CPPv4N12ble_notice_t22BLE_5_CONN_UPD_PAR_ASKE"></a>
+
+    <a id="_CPPv3N12ble_notice_t22BLE_5_CONN_UPD_PAR_ASKE"></a> <a id="_CPPv2N12ble_notice_t22BLE_5_CONN_UPD_PAR_ASKE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a5588230fe069304807cdda84d62f72d2"></a> enumerator BLE\_5\_CONN\_UPD\_PAR\_ASK
+
+    <a id="_CPPv4N12ble_notice_t22BLE_5_SHUTDOWN_SUCCEEDE"></a>
+
+    <a id="_CPPv3N12ble_notice_t22BLE_5_SHUTDOWN_SUCCEEDE"></a> <a id="_CPPv2N12ble_notice_t22BLE_5_SHUTDOWN_SUCCEEDE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3a6036e01bc2c2bc3840e9e8757a2f925d"></a> enumerator BLE\_5\_SHUTDOWN\_SUCCEED
+
+    <a id="_CPPv4N12ble_notice_t25BLE_5_DELETE_SERVICE_DONEE"></a>
+
+    <a id="_CPPv3N12ble_notice_t25BLE_5_DELETE_SERVICE_DONEE"></a> <a id="_CPPv2N12ble_notice_t25BLE_5_DELETE_SERVICE_DONEE"></a> <a id="group__bk__ble__api__v1_1gga0bcca73e43830fd3440cb09cc01294f3aefacd1478b41576fa1931578e51ec5d0"></a> enumerator BLE\_5\_DELETE\_SERVICE\_DONE
     :   delete service event
 
-enum CHAR_TYPE[](#_CPPv49CHAR_TYPE "永久链接至目标")
+<a id="_CPPv49CHAR_TYPE"></a>
+
+<a id="_CPPv39CHAR_TYPE"></a> <a id="_CPPv29CHAR_TYPE"></a> <a id="group__bk__ble__api__v1_1gaeb41f806b82df447b2f964ca753fcd5a"></a> enum CHAR\_TYPE
 :   *Values:*
 
-    enumerator CHARAC_NOTIFY[](#_CPPv4N9CHAR_TYPE13CHARAC_NOTIFYE "永久链接至目标")
+    <a id="_CPPv4N9CHAR_TYPE13CHARAC_NOTIFYE"></a>
 
-    enumerator CHARAC_INDICATE[](#_CPPv4N9CHAR_TYPE15CHARAC_INDICATEE "永久链接至目标")
+    <a id="_CPPv3N9CHAR_TYPE13CHARAC_NOTIFYE"></a> <a id="_CPPv2N9CHAR_TYPE13CHARAC_NOTIFYE"></a> <a id="group__bk__ble__api__v1_1ggaeb41f806b82df447b2f964ca753fcd5aa1fb0421d90a47c4f9f17fa07f3f9527c"></a> enumerator CHARAC\_NOTIFY
 
-    enumerator CHARAC_READ[](#_CPPv4N9CHAR_TYPE11CHARAC_READE "永久链接至目标")
+    <a id="_CPPv4N9CHAR_TYPE15CHARAC_INDICATEE"></a>
 
-    enumerator CHARAC_READ_DONE[](#_CPPv4N9CHAR_TYPE16CHARAC_READ_DONEE "永久链接至目标")
+    <a id="_CPPv3N9CHAR_TYPE15CHARAC_INDICATEE"></a> <a id="_CPPv2N9CHAR_TYPE15CHARAC_INDICATEE"></a> <a id="group__bk__ble__api__v1_1ggaeb41f806b82df447b2f964ca753fcd5aabfab0b7e2c9af256a073fcac363a2069"></a> enumerator CHARAC\_INDICATE
 
-    enumerator CHARAC_WRITE_DONE[](#_CPPv4N9CHAR_TYPE17CHARAC_WRITE_DONEE "永久链接至目标")
+    <a id="_CPPv4N9CHAR_TYPE11CHARAC_READE"></a>
 
-enum MASTER_COMMON_TYPE[](#_CPPv418MASTER_COMMON_TYPE "永久链接至目标")
+    <a id="_CPPv3N9CHAR_TYPE11CHARAC_READE"></a> <a id="_CPPv2N9CHAR_TYPE11CHARAC_READE"></a> <a id="group__bk__ble__api__v1_1ggaeb41f806b82df447b2f964ca753fcd5aac3ded6ca552396ccd9fc3952958c2c1f"></a> enumerator CHARAC\_READ
+
+    <a id="_CPPv4N9CHAR_TYPE16CHARAC_READ_DONEE"></a>
+
+    <a id="_CPPv3N9CHAR_TYPE16CHARAC_READ_DONEE"></a> <a id="_CPPv2N9CHAR_TYPE16CHARAC_READ_DONEE"></a> <a id="group__bk__ble__api__v1_1ggaeb41f806b82df447b2f964ca753fcd5aab5bef3e6bee72022dcca2fe237f2cfef"></a> enumerator CHARAC\_READ\_DONE
+
+    <a id="_CPPv4N9CHAR_TYPE17CHARAC_WRITE_DONEE"></a>
+
+    <a id="_CPPv3N9CHAR_TYPE17CHARAC_WRITE_DONEE"></a> <a id="_CPPv2N9CHAR_TYPE17CHARAC_WRITE_DONEE"></a> <a id="group__bk__ble__api__v1_1ggaeb41f806b82df447b2f964ca753fcd5aa8be6c2cf932d7864c493b7030b30113d"></a> enumerator CHARAC\_WRITE\_DONE
+
+<a id="_CPPv418MASTER_COMMON_TYPE"></a>
+
+<a id="_CPPv318MASTER_COMMON_TYPE"></a> <a id="_CPPv218MASTER_COMMON_TYPE"></a> <a id="group__bk__ble__api__v1_1gad953151559361a2e0102c4c9a3bd77d8"></a> enum MASTER\_COMMON\_TYPE
 :   *Values:*
 
-    enumerator MST_TYPE_SVR_UUID[](#_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_SVR_UUIDE"></a>
 
-    enumerator MST_TYPE_ATT_UUID[](#_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATT_UUIDE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE17MST_TYPE_SVR_UUIDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE17MST_TYPE_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a40d7f7821c82fdb5eafc28ba287f575a"></a> enumerator MST\_TYPE\_SVR\_UUID
 
-    enumerator MST_TYPE_ATT_DESC[](#_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATT_DESCE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATT_UUIDE"></a>
 
-    enumerator MST_TYPE_SDP_END[](#_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_SDP_ENDE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE17MST_TYPE_ATT_UUIDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE17MST_TYPE_ATT_UUIDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a6f5412e98ae0565eebc2c304ddd355be"></a> enumerator MST\_TYPE\_ATT\_UUID
 
-    enumerator MST_TYPE_ATTC_SVR_UUID[](#_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATT_DESCE"></a>
 
-    enumerator MST_TYPE_ATTC_ATT_UUID[](#_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_UUIDE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE17MST_TYPE_ATT_DESCE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE17MST_TYPE_ATT_DESCE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a30728c63c38992b7f6d6254a0b6b4e5d"></a> enumerator MST\_TYPE\_ATT\_DESC
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_SDP_ENDE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE16MST_TYPE_SDP_ENDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE16MST_TYPE_SDP_ENDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a12a890e8a7a2c63114b597ee5ff8e135"></a> enumerator MST\_TYPE\_SDP\_END
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_SVR_UUIDE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_SVR_UUIDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a938ba3fc112ac31f5b32c048ee512612"></a> enumerator MST\_TYPE\_ATTC\_SVR\_UUID
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_UUIDE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_UUIDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_UUIDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a6778001ac4a5e4f048bc640938474cc2"></a> enumerator MST\_TYPE\_ATTC\_ATT\_UUID
     :   Service the UUID.
 
-    enumerator MST_TYPE_ATTC_ATT_DESC[](#_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_DESCE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_DESCE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_DESCE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE22MST_TYPE_ATTC_ATT_DESCE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a49fe52837f95c7e9cb6ddb77b3f1f965"></a> enumerator MST\_TYPE\_ATTC\_ATT\_DESC
     :   ATT of a service.
 
-    enumerator MST_TYPS_ATTC_PARAM_ERR[](#_CPPv4N18MASTER_COMMON_TYPE23MST_TYPS_ATTC_PARAM_ERRE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE23MST_TYPS_ATTC_PARAM_ERRE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE23MST_TYPS_ATTC_PARAM_ERRE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE23MST_TYPS_ATTC_PARAM_ERRE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8aecfd4e6f7d2dc45d4d69008a98c91edd"></a> enumerator MST\_TYPS\_ATTC\_PARAM\_ERR
     :   ATT DESC of a service.
 
-    enumerator MST_TYPE_ATTC_ERR[](#_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ERRE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ERRE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ERRE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ERRE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a5a69eb2441261a46dcdfcafa0f9b4b46"></a> enumerator MST\_TYPE\_ATTC\_ERR
     :   The delivered parameter is abnormal or unknown.
 
-    enumerator MST_TYPE_ATTC_END[](#_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ENDE "永久链接至目标")
-    :   if appm_get_init_attc_info return is ok && ble is disconnect,so update the event
+    <a id="_CPPv4N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ENDE"></a>
 
-    enumerator MST_TYPE_ATTC_WRITE_RSP[](#_CPPv4N18MASTER_COMMON_TYPE23MST_TYPE_ATTC_WRITE_RSPE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ENDE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE17MST_TYPE_ATTC_ENDE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a5fc80545b3afb0a6e20ec358286f5350"></a> enumerator MST\_TYPE\_ATTC\_END
+    :   if appm\_get\_init\_attc\_info return is ok \&\& ble is disconnect,so update the event
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE23MST_TYPE_ATTC_WRITE_RSPE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE23MST_TYPE_ATTC_WRITE_RSPE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE23MST_TYPE_ATTC_WRITE_RSPE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a29ef1c6f91053c591fcda8c15e4325ab"></a> enumerator MST\_TYPE\_ATTC\_WRITE\_RSP
     :   End of the operation.
 
-    enumerator MST_TYPE_ATTC_WRITE_NO_RESPONSE[](#_CPPv4N18MASTER_COMMON_TYPE31MST_TYPE_ATTC_WRITE_NO_RESPONSEE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE31MST_TYPE_ATTC_WRITE_NO_RESPONSEE"></a>
 
-    enumerator MST_TYPE_ATTC_CHARAC_READ_DONE[](#_CPPv4N18MASTER_COMMON_TYPE30MST_TYPE_ATTC_CHARAC_READ_DONEE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE31MST_TYPE_ATTC_WRITE_NO_RESPONSEE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE31MST_TYPE_ATTC_WRITE_NO_RESPONSEE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a5391e5bce23207515664d310e297dee5"></a> enumerator MST\_TYPE\_ATTC\_WRITE\_NO\_RESPONSE
 
-    enumerator MST_TYPE_MTU_EXC[](#_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_MTU_EXCE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE30MST_TYPE_ATTC_CHARAC_READ_DONEE"></a>
 
-    enumerator MST_TYPE_MTU_EXC_DONE[](#_CPPv4N18MASTER_COMMON_TYPE21MST_TYPE_MTU_EXC_DONEE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE30MST_TYPE_ATTC_CHARAC_READ_DONEE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE30MST_TYPE_ATTC_CHARAC_READ_DONEE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8acc3aeff18054812e394d0ab8d87e5650"></a> enumerator MST\_TYPE\_ATTC\_CHARAC\_READ\_DONE
 
-    enumerator MST_TYPE_UPP_ASK[](#_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_UPP_ASKE "永久链接至目标")
+    <a id="_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_MTU_EXCE"></a>
 
-    enumerator MST_TYPE_UPDATA_STATUS[](#_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_UPDATA_STATUSE "永久链接至目标")
+    <a id="_CPPv3N18MASTER_COMMON_TYPE16MST_TYPE_MTU_EXCE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE16MST_TYPE_MTU_EXCE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8aaa6f4467c2d938d9c7b423d0e985636b"></a> enumerator MST\_TYPE\_MTU\_EXC
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE21MST_TYPE_MTU_EXC_DONEE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE21MST_TYPE_MTU_EXC_DONEE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE21MST_TYPE_MTU_EXC_DONEE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8adb9b3ecc9349fed7cf2890b0a8e8d296"></a> enumerator MST\_TYPE\_MTU\_EXC\_DONE
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE16MST_TYPE_UPP_ASKE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE16MST_TYPE_UPP_ASKE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE16MST_TYPE_UPP_ASKE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a820948e8285b78bfc765eed754f0ae69"></a> enumerator MST\_TYPE\_UPP\_ASK
+
+    <a id="_CPPv4N18MASTER_COMMON_TYPE22MST_TYPE_UPDATA_STATUSE"></a>
+
+    <a id="_CPPv3N18MASTER_COMMON_TYPE22MST_TYPE_UPDATA_STATUSE"></a> <a id="_CPPv2N18MASTER_COMMON_TYPE22MST_TYPE_UPDATA_STATUSE"></a> <a id="group__bk__ble__api__v1_1ggad953151559361a2e0102c4c9a3bd77d8a1cf96778e72fd3ddbcf8994fe7bda0d4"></a> enumerator MST\_TYPE\_UPDATA\_STATUS
     :   Ask if you agree to update the parameter.
 
-enum msg_attc[](#_CPPv48msg_attc "永久链接至目标")
+<a id="_CPPv48msg_attc"></a>
+
+<a id="_CPPv38msg_attc"></a> <a id="_CPPv28msg_attc"></a> <a id="group__bk__ble__api__v1_1ga0d2f5c239f8dfb71778af9b1c083c7fb"></a> enum msg\_attc
 :   *Values:*
 
-    enumerator MST_ATTC_ALL[](#_CPPv4N8msg_attc12MST_ATTC_ALLE "永久链接至目标")
+    <a id="_CPPv4N8msg_attc12MST_ATTC_ALLE"></a>
 
-    enumerator MST_ATTC_GET_SVR_UUID_ALL[](#_CPPv4N8msg_attc25MST_ATTC_GET_SVR_UUID_ALLE "永久链接至目标")
+    <a id="_CPPv3N8msg_attc12MST_ATTC_ALLE"></a> <a id="_CPPv2N8msg_attc12MST_ATTC_ALLE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba440ee17bea84fcec7ac2d5c560782e36"></a> enumerator MST\_ATTC\_ALL
 
-    enumerator MST_ATTC_GET_SVR_UUID_BY_SVR_UUID[](#_CPPv4N8msg_attc33MST_ATTC_GET_SVR_UUID_BY_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv4N8msg_attc25MST_ATTC_GET_SVR_UUID_ALLE"></a>
 
-    enumerator MST_ATTC_GET_ATT_UUID_ALL[](#_CPPv4N8msg_attc25MST_ATTC_GET_ATT_UUID_ALLE "永久链接至目标")
+    <a id="_CPPv3N8msg_attc25MST_ATTC_GET_SVR_UUID_ALLE"></a> <a id="_CPPv2N8msg_attc25MST_ATTC_GET_SVR_UUID_ALLE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba123018e64df63423d6ba48eaab039c83"></a> enumerator MST\_ATTC\_GET\_SVR\_UUID\_ALL
 
-    enumerator MST_ATTC_GET_ATT_DESC_UUID_ALL[](#_CPPv4N8msg_attc30MST_ATTC_GET_ATT_DESC_UUID_ALLE "永久链接至目标")
+    <a id="_CPPv4N8msg_attc33MST_ATTC_GET_SVR_UUID_BY_SVR_UUIDE"></a>
 
-    enumerator MST_ATTC_SVR_ATT_BY_SVR_UUID[](#_CPPv4N8msg_attc28MST_ATTC_SVR_ATT_BY_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv3N8msg_attc33MST_ATTC_GET_SVR_UUID_BY_SVR_UUIDE"></a> <a id="_CPPv2N8msg_attc33MST_ATTC_GET_SVR_UUID_BY_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba6c9862959bd1ece0714db964dcbd630f"></a> enumerator MST\_ATTC\_GET\_SVR\_UUID\_BY\_SVR\_UUID
 
-    enumerator MST_ATTC_SVR_ATT_DESC_BY_SVR_UUID[](#_CPPv4N8msg_attc33MST_ATTC_SVR_ATT_DESC_BY_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv4N8msg_attc25MST_ATTC_GET_ATT_UUID_ALLE"></a>
 
-    enumerator MST_ATTC_SVR_ATT_AND_DESC_BY_SVR_UUID[](#_CPPv4N8msg_attc37MST_ATTC_SVR_ATT_AND_DESC_BY_SVR_UUIDE "永久链接至目标")
+    <a id="_CPPv3N8msg_attc25MST_ATTC_GET_ATT_UUID_ALLE"></a> <a id="_CPPv2N8msg_attc25MST_ATTC_GET_ATT_UUID_ALLE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba8d62374968ebefec650974d9054f6ede"></a> enumerator MST\_ATTC\_GET\_ATT\_UUID\_ALL
+
+    <a id="_CPPv4N8msg_attc30MST_ATTC_GET_ATT_DESC_UUID_ALLE"></a>
+
+    <a id="_CPPv3N8msg_attc30MST_ATTC_GET_ATT_DESC_UUID_ALLE"></a> <a id="_CPPv2N8msg_attc30MST_ATTC_GET_ATT_DESC_UUID_ALLE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba5befb9a5f2f8abc2049165b716db0a52"></a> enumerator MST\_ATTC\_GET\_ATT\_DESC\_UUID\_ALL
+
+    <a id="_CPPv4N8msg_attc28MST_ATTC_SVR_ATT_BY_SVR_UUIDE"></a>
+
+    <a id="_CPPv3N8msg_attc28MST_ATTC_SVR_ATT_BY_SVR_UUIDE"></a> <a id="_CPPv2N8msg_attc28MST_ATTC_SVR_ATT_BY_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba36e59b3b049324509d82ba96d46de3af"></a> enumerator MST\_ATTC\_SVR\_ATT\_BY\_SVR\_UUID
+
+    <a id="_CPPv4N8msg_attc33MST_ATTC_SVR_ATT_DESC_BY_SVR_UUIDE"></a>
+
+    <a id="_CPPv3N8msg_attc33MST_ATTC_SVR_ATT_DESC_BY_SVR_UUIDE"></a> <a id="_CPPv2N8msg_attc33MST_ATTC_SVR_ATT_DESC_BY_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba32e30f0af1fb1aea03aea509eb016f55"></a> enumerator MST\_ATTC\_SVR\_ATT\_DESC\_BY\_SVR\_UUID
+
+    <a id="_CPPv4N8msg_attc37MST_ATTC_SVR_ATT_AND_DESC_BY_SVR_UUIDE"></a>
+
+    <a id="_CPPv3N8msg_attc37MST_ATTC_SVR_ATT_AND_DESC_BY_SVR_UUIDE"></a> <a id="_CPPv2N8msg_attc37MST_ATTC_SVR_ATT_AND_DESC_BY_SVR_UUIDE"></a> <a id="group__bk__ble__api__v1_1gga0d2f5c239f8dfb71778af9b1c083c7fba0c5322b3d104392cd0ca1cd076998b94"></a> enumerator MST\_ATTC\_SVR\_ATT\_AND\_DESC\_BY\_SVR\_UUID
     :   Gets all ATT-DESC’s for this SVR-UUID for this connection.
 
-enum adv_report_type[](#_CPPv415adv_report_type "永久链接至目标")
+<a id="_CPPv415adv_report_type"></a>
+
+<a id="_CPPv315adv_report_type"></a> <a id="_CPPv215adv_report_type"></a> <a id="group__bk__ble__api__v1__typedef_1ga586827f2b8e2c17b183858febd25a205"></a> enum adv\_report\_type
 :   *Values:*
 
-    enumerator REPORT_TYPE_ADV_EXT[](#_CPPv4N15adv_report_type19REPORT_TYPE_ADV_EXTE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_type19REPORT_TYPE_ADV_EXTE"></a>
+
+    <a id="_CPPv3N15adv_report_type19REPORT_TYPE_ADV_EXTE"></a> <a id="_CPPv2N15adv_report_type19REPORT_TYPE_ADV_EXTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga586827f2b8e2c17b183858febd25a205a59ad919478107532715a49e6ad75114f"></a> enumerator REPORT\_TYPE\_ADV\_EXT
     :   Extended advertising report.
 
-    enumerator REPORT_TYPE_ADV_LEG[](#_CPPv4N15adv_report_type19REPORT_TYPE_ADV_LEGE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_type19REPORT_TYPE_ADV_LEGE"></a>
+
+    <a id="_CPPv3N15adv_report_type19REPORT_TYPE_ADV_LEGE"></a> <a id="_CPPv2N15adv_report_type19REPORT_TYPE_ADV_LEGE"></a> <a id="group__bk__ble__api__v1__typedef_1gga586827f2b8e2c17b183858febd25a205a44d7aebbbfbbeb34e40de6f4a0e9c9df"></a> enumerator REPORT\_TYPE\_ADV\_LEG
     :   Legacy advertising report.
 
-    enumerator REPORT_TYPE_SCAN_RSP_EXT[](#_CPPv4N15adv_report_type24REPORT_TYPE_SCAN_RSP_EXTE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_type24REPORT_TYPE_SCAN_RSP_EXTE"></a>
+
+    <a id="_CPPv3N15adv_report_type24REPORT_TYPE_SCAN_RSP_EXTE"></a> <a id="_CPPv2N15adv_report_type24REPORT_TYPE_SCAN_RSP_EXTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga586827f2b8e2c17b183858febd25a205a76fb8ea453b6ad91445db1586cb43802"></a> enumerator REPORT\_TYPE\_SCAN\_RSP\_EXT
     :   Extended scan response report.
 
-    enumerator REPORT_TYPE_SCAN_RSP_LEG[](#_CPPv4N15adv_report_type24REPORT_TYPE_SCAN_RSP_LEGE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_type24REPORT_TYPE_SCAN_RSP_LEGE"></a>
+
+    <a id="_CPPv3N15adv_report_type24REPORT_TYPE_SCAN_RSP_LEGE"></a> <a id="_CPPv2N15adv_report_type24REPORT_TYPE_SCAN_RSP_LEGE"></a> <a id="group__bk__ble__api__v1__typedef_1gga586827f2b8e2c17b183858febd25a205a3706f1a939dcdeffba155441cad99cb1"></a> enumerator REPORT\_TYPE\_SCAN\_RSP\_LEG
     :   Legacy scan response report.
 
-    enumerator REPORT_TYPE_PER_ADV[](#_CPPv4N15adv_report_type19REPORT_TYPE_PER_ADVE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_type19REPORT_TYPE_PER_ADVE"></a>
+
+    <a id="_CPPv3N15adv_report_type19REPORT_TYPE_PER_ADVE"></a> <a id="_CPPv2N15adv_report_type19REPORT_TYPE_PER_ADVE"></a> <a id="group__bk__ble__api__v1__typedef_1gga586827f2b8e2c17b183858febd25a205a570e3ca9160eb5704457953f00688f00"></a> enumerator REPORT\_TYPE\_PER\_ADV
     :   Periodic advertising report.
 
-enum adv_report_info[](#_CPPv415adv_report_info "永久链接至目标")
+<a id="_CPPv415adv_report_info"></a>
+
+<a id="_CPPv315adv_report_info"></a> <a id="_CPPv215adv_report_info"></a> <a id="group__bk__ble__api__v1__typedef_1ga8648555af760e5e51dcbd0829cb4dd16"></a> enum adv\_report\_info
 :   *Values:*
 
-    enumerator REPORT_INFO_REPORT_TYPE_MASK[](#_CPPv4N15adv_report_info28REPORT_INFO_REPORT_TYPE_MASKE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_info28REPORT_INFO_REPORT_TYPE_MASKE"></a>
+
+    <a id="_CPPv3N15adv_report_info28REPORT_INFO_REPORT_TYPE_MASKE"></a> <a id="_CPPv2N15adv_report_info28REPORT_INFO_REPORT_TYPE_MASKE"></a> <a id="group__bk__ble__api__v1__typedef_1gga8648555af760e5e51dcbd0829cb4dd16a7f1330821b7bfeba8a4bbf59006b3bd2"></a> enumerator REPORT\_INFO\_REPORT\_TYPE\_MASK
     :   Report Type.
 
-    enumerator REPORT_INFO_COMPLETE_BIT[](#_CPPv4N15adv_report_info24REPORT_INFO_COMPLETE_BITE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_info24REPORT_INFO_COMPLETE_BITE"></a>
+
+    <a id="_CPPv3N15adv_report_info24REPORT_INFO_COMPLETE_BITE"></a> <a id="_CPPv2N15adv_report_info24REPORT_INFO_COMPLETE_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga8648555af760e5e51dcbd0829cb4dd16ad0cdca29003a242c00a3cf8a182fe12f"></a> enumerator REPORT\_INFO\_COMPLETE\_BIT
     :   Report is complete.
 
-    enumerator REPORT_INFO_CONN_ADV_BIT[](#_CPPv4N15adv_report_info24REPORT_INFO_CONN_ADV_BITE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_info24REPORT_INFO_CONN_ADV_BITE"></a>
+
+    <a id="_CPPv3N15adv_report_info24REPORT_INFO_CONN_ADV_BITE"></a> <a id="_CPPv2N15adv_report_info24REPORT_INFO_CONN_ADV_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga8648555af760e5e51dcbd0829cb4dd16a318b428e1033ec328c35dc9c09411361"></a> enumerator REPORT\_INFO\_CONN\_ADV\_BIT
     :   Connectable advertising.
 
-    enumerator REPORT_INFO_SCAN_ADV_BIT[](#_CPPv4N15adv_report_info24REPORT_INFO_SCAN_ADV_BITE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_info24REPORT_INFO_SCAN_ADV_BITE"></a>
+
+    <a id="_CPPv3N15adv_report_info24REPORT_INFO_SCAN_ADV_BITE"></a> <a id="_CPPv2N15adv_report_info24REPORT_INFO_SCAN_ADV_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga8648555af760e5e51dcbd0829cb4dd16a250f38dcce7713b54b3def41b23d6163"></a> enumerator REPORT\_INFO\_SCAN\_ADV\_BIT
     :   Scannable advertising.
 
-    enumerator REPORT_INFO_DIR_ADV_BIT[](#_CPPv4N15adv_report_info23REPORT_INFO_DIR_ADV_BITE "永久链接至目标")
+    <a id="_CPPv4N15adv_report_info23REPORT_INFO_DIR_ADV_BITE"></a>
+
+    <a id="_CPPv3N15adv_report_info23REPORT_INFO_DIR_ADV_BITE"></a> <a id="_CPPv2N15adv_report_info23REPORT_INFO_DIR_ADV_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga8648555af760e5e51dcbd0829cb4dd16adadb02b6d7a4ad4e31236ea5b5d529fe"></a> enumerator REPORT\_INFO\_DIR\_ADV\_BIT
     :   Directed advertising.
 
-enum adv_type[](#_CPPv48adv_type "永久链接至目标")
+<a id="_CPPv48adv_type"></a>
+
+<a id="_CPPv38adv_type"></a> <a id="_CPPv28adv_type"></a> <a id="group__bk__ble__api__v1__typedef_1ga9dc8280460afec1e78fb24edf38968ec"></a> enum adv\_type
 :   Type of advertising that can be created.
 
-
     *Values:*
 
-    enumerator ADV_TYPE_LEGACY[](#_CPPv4N8adv_type15ADV_TYPE_LEGACYE "永久链接至目标")
+    <a id="_CPPv4N8adv_type15ADV_TYPE_LEGACYE"></a>
+
+    <a id="_CPPv3N8adv_type15ADV_TYPE_LEGACYE"></a> <a id="_CPPv2N8adv_type15ADV_TYPE_LEGACYE"></a> <a id="group__bk__ble__api__v1__typedef_1gga9dc8280460afec1e78fb24edf38968eca1484c4d607906882daa1e1e25f3f0445"></a> enumerator ADV\_TYPE\_LEGACY
     :   Legacy advertising.
 
-    enumerator ADV_TYPE_EXTENDED[](#_CPPv4N8adv_type17ADV_TYPE_EXTENDEDE "永久链接至目标")
+    <a id="_CPPv4N8adv_type17ADV_TYPE_EXTENDEDE"></a>
+
+    <a id="_CPPv3N8adv_type17ADV_TYPE_EXTENDEDE"></a> <a id="_CPPv2N8adv_type17ADV_TYPE_EXTENDEDE"></a> <a id="group__bk__ble__api__v1__typedef_1gga9dc8280460afec1e78fb24edf38968eca667aa96d416488694e3a87d503e6181e"></a> enumerator ADV\_TYPE\_EXTENDED
     :   Extended advertising.
 
-    enumerator ADV_TYPE_PERIODIC[](#_CPPv4N8adv_type17ADV_TYPE_PERIODICE "永久链接至目标")
+    <a id="_CPPv4N8adv_type17ADV_TYPE_PERIODICE"></a>
+
+    <a id="_CPPv3N8adv_type17ADV_TYPE_PERIODICE"></a> <a id="_CPPv2N8adv_type17ADV_TYPE_PERIODICE"></a> <a id="group__bk__ble__api__v1__typedef_1gga9dc8280460afec1e78fb24edf38968eca86ddf30995d689cbd242ea2ff43aa9ba"></a> enumerator ADV\_TYPE\_PERIODIC
     :   Periodic advertising.
 
-enum adv_prop_bf[](#_CPPv411adv_prop_bf "永久链接至目标")
+<a id="_CPPv411adv_prop_bf"></a>
+
+<a id="_CPPv311adv_prop_bf"></a> <a id="_CPPv211adv_prop_bf"></a> <a id="group__bk__ble__api__v1__typedef_1ga6b5140e1b8fe4043c83c62cbdfdd20c3"></a> enum adv\_prop\_bf
 :   Advertising properties bit field bit positions.
 
-
     *Values:*
 
-    enumerator ADV_PROP_CONNECTABLE_BIT[](#_CPPv4N11adv_prop_bf24ADV_PROP_CONNECTABLE_BITE "永久链接至目标")
-    :   Indicate that advertising is connectable, reception of CONNECT_REQ or AUX_CONNECT_REQ PDUs is accepted. Not applicable for periodic advertising.
+    <a id="_CPPv4N11adv_prop_bf24ADV_PROP_CONNECTABLE_BITE"></a>
 
-    enumerator ADV_PROP_SCANNABLE_BIT[](#_CPPv4N11adv_prop_bf22ADV_PROP_SCANNABLE_BITE "永久链接至目标")
-    :   Indicate that advertising is scannable, reception of SCAN_REQ or AUX_SCAN_REQ PDUs is accepted
+    <a id="_CPPv3N11adv_prop_bf24ADV_PROP_CONNECTABLE_BITE"></a> <a id="_CPPv2N11adv_prop_bf24ADV_PROP_CONNECTABLE_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a984052b2241764d01c3b65db394706ee"></a> enumerator ADV\_PROP\_CONNECTABLE\_BIT
+    :   Indicate that advertising is connectable, reception of CONNECT\_REQ or AUX\_CONNECT\_REQ PDUs is accepted. Not applicable for periodic advertising.
 
-    enumerator ADV_PROP_DIRECTED_BIT[](#_CPPv4N11adv_prop_bf21ADV_PROP_DIRECTED_BITE "永久链接至目标")
+    <a id="_CPPv4N11adv_prop_bf22ADV_PROP_SCANNABLE_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf22ADV_PROP_SCANNABLE_BITE"></a> <a id="_CPPv2N11adv_prop_bf22ADV_PROP_SCANNABLE_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a96cabc80e4f429480b3cb3b4a7dabdfe"></a> enumerator ADV\_PROP\_SCANNABLE\_BIT
+    :   Indicate that advertising is scannable, reception of SCAN\_REQ or AUX\_SCAN\_REQ PDUs is accepted
+
+    <a id="_CPPv4N11adv_prop_bf21ADV_PROP_DIRECTED_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf21ADV_PROP_DIRECTED_BITE"></a> <a id="_CPPv2N11adv_prop_bf21ADV_PROP_DIRECTED_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a688e041835db559dcb8883816ef94ae7"></a> enumerator ADV\_PROP\_DIRECTED\_BIT
     :   Indicate that advertising targets a specific device. Only apply in following cases:
 
-
         - Legacy advertising: if connectable
-
         - Extended advertising: connectable or (non connectable and non discoverable)
 
-    enumerator ADV_PROP_HDC_BIT[](#_CPPv4N11adv_prop_bf16ADV_PROP_HDC_BITE "永久链接至目标")
+    <a id="_CPPv4N11adv_prop_bf16ADV_PROP_HDC_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf16ADV_PROP_HDC_BITE"></a> <a id="_CPPv2N11adv_prop_bf16ADV_PROP_HDC_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a0dc0b915b1a059b3b87ffecd9a4298f3"></a> enumerator ADV\_PROP\_HDC\_BIT
     :   Indicate that High Duty Cycle has to be used for advertising on primary channel Apply only if created advertising is not an extended advertising
 
-    enumerator ADV_PROP_PROP_LEGACY_BIT[](#_CPPv4N11adv_prop_bf24ADV_PROP_PROP_LEGACY_BITE "永久链接至目标")
+    <a id="_CPPv4N11adv_prop_bf24ADV_PROP_PROP_LEGACY_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf24ADV_PROP_PROP_LEGACY_BITE"></a> <a id="_CPPv2N11adv_prop_bf24ADV_PROP_PROP_LEGACY_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3ac95ae1003bc603b78ba3fa5b6a2e42b9"></a> enumerator ADV\_PROP\_PROP\_LEGACY\_BIT
     :   Use legacy advertising PDUs.
 
-    enumerator ADV_PROP_ANONYMOUS_BIT[](#_CPPv4N11adv_prop_bf22ADV_PROP_ANONYMOUS_BITE "永久链接至目标")
+    <a id="_CPPv4N11adv_prop_bf22ADV_PROP_ANONYMOUS_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf22ADV_PROP_ANONYMOUS_BITE"></a> <a id="_CPPv2N11adv_prop_bf22ADV_PROP_ANONYMOUS_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a3e10c259a29b7487e96e5b43a258f54a"></a> enumerator ADV\_PROP\_ANONYMOUS\_BIT
     :   Enable anonymous mode. Device address won’t appear in send PDUs Valid only if created advertising is an extended advertising
 
-    enumerator ADV_PROP_TX_PWR_BIT[](#_CPPv4N11adv_prop_bf19ADV_PROP_TX_PWR_BITE "永久链接至目标")
+    <a id="_CPPv4N11adv_prop_bf19ADV_PROP_TX_PWR_BITE"></a>
+
+    <a id="_CPPv3N11adv_prop_bf19ADV_PROP_TX_PWR_BITE"></a> <a id="_CPPv2N11adv_prop_bf19ADV_PROP_TX_PWR_BITE"></a> <a id="group__bk__ble__api__v1__typedef_1gga6b5140e1b8fe4043c83c62cbdfdd20c3a93482ad3e5cec8729eed91844a2180b6"></a> enumerator ADV\_PROP\_TX\_PWR\_BIT
     :   Include TX Power in the extended header of the advertising PDU. Valid only if created advertising is not a legacy advertising
 
-enum adv_chnl_map[](#_CPPv412adv_chnl_map "永久链接至目标")
+<a id="_CPPv412adv_chnl_map"></a>
+
+<a id="_CPPv312adv_chnl_map"></a> <a id="_CPPv212adv_chnl_map"></a> <a id="group__bk__ble__api__v1__typedef_1ga57c9e3ee8efb2e8c2fcc35e570f8679a"></a> enum adv\_chnl\_map
 :   Advertising channels enables.
 
-
     *Values:*
 
-    enumerator ADV_CHNL_37[](#_CPPv4N12adv_chnl_map11ADV_CHNL_37E "永久链接至目标")
+    <a id="_CPPv4N12adv_chnl_map11ADV_CHNL_37E"></a>
+
+    <a id="_CPPv3N12adv_chnl_map11ADV_CHNL_37E"></a> <a id="_CPPv2N12adv_chnl_map11ADV_CHNL_37E"></a> <a id="group__bk__ble__api__v1__typedef_1gga57c9e3ee8efb2e8c2fcc35e570f8679aa5019ec058bd0e2a1e7895261518d029c"></a> enumerator ADV\_CHNL\_37
     :   Byte value for advertising channel map for channel 37 enable.
 
-    enumerator ADV_CHNL_38[](#_CPPv4N12adv_chnl_map11ADV_CHNL_38E "永久链接至目标")
+    <a id="_CPPv4N12adv_chnl_map11ADV_CHNL_38E"></a>
+
+    <a id="_CPPv3N12adv_chnl_map11ADV_CHNL_38E"></a> <a id="_CPPv2N12adv_chnl_map11ADV_CHNL_38E"></a> <a id="group__bk__ble__api__v1__typedef_1gga57c9e3ee8efb2e8c2fcc35e570f8679aae1f1c6ec2492ba7858ad64d749b5dae9"></a> enumerator ADV\_CHNL\_38
     :   Byte value for advertising channel map for channel 38 enable.
 
-    enumerator ADV_CHNL_39[](#_CPPv4N12adv_chnl_map11ADV_CHNL_39E "永久链接至目标")
+    <a id="_CPPv4N12adv_chnl_map11ADV_CHNL_39E"></a>
+
+    <a id="_CPPv3N12adv_chnl_map11ADV_CHNL_39E"></a> <a id="_CPPv2N12adv_chnl_map11ADV_CHNL_39E"></a> <a id="group__bk__ble__api__v1__typedef_1gga57c9e3ee8efb2e8c2fcc35e570f8679aaf09c24430d3cd6436a96d4bfcedce34e"></a> enumerator ADV\_CHNL\_39
     :   Byte value for advertising channel map for channel 39 enable.
 
-    enumerator ADV_ALL_CHNLS[](#_CPPv4N12adv_chnl_map13ADV_ALL_CHNLSE "永久链接至目标")
+    <a id="_CPPv4N12adv_chnl_map13ADV_ALL_CHNLSE"></a>
+
+    <a id="_CPPv3N12adv_chnl_map13ADV_ALL_CHNLSE"></a> <a id="_CPPv2N12adv_chnl_map13ADV_ALL_CHNLSE"></a> <a id="group__bk__ble__api__v1__typedef_1gga57c9e3ee8efb2e8c2fcc35e570f8679aa765fea1b0bce17dd282f807b9fc53a00"></a> enumerator ADV\_ALL\_CHNLS
     :   Byte value for advertising channel map for channel 37, 38 and 39 enable.
 
-enum phy_type_le[](#_CPPv411phy_type_le "永久链接至目标")
+<a id="_CPPv411phy_type_le"></a>
+
+<a id="_CPPv311phy_type_le"></a> <a id="_CPPv211phy_type_le"></a> <a id="group__bk__ble__api__v1__typedef_1ga4acd0e053cbeead642d1317913613874"></a> enum phy\_type\_le
 :   PHY Type.
 
-
     *Values:*
 
-    enumerator PHY_TYPE_LE_1M[](#_CPPv4N11phy_type_le14PHY_TYPE_LE_1ME "永久链接至目标")
+    <a id="_CPPv4N11phy_type_le14PHY_TYPE_LE_1ME"></a>
+
+    <a id="_CPPv3N11phy_type_le14PHY_TYPE_LE_1ME"></a> <a id="_CPPv2N11phy_type_le14PHY_TYPE_LE_1ME"></a> <a id="group__bk__ble__api__v1__typedef_1gga4acd0e053cbeead642d1317913613874ab011c206022d171051175c0a77377c84"></a> enumerator PHY\_TYPE\_LE\_1M
     :   LE 1M.
 
-    enumerator PHY_TYPE_LE_2M[](#_CPPv4N11phy_type_le14PHY_TYPE_LE_2ME "永久链接至目标")
+    <a id="_CPPv4N11phy_type_le14PHY_TYPE_LE_2ME"></a>
+
+    <a id="_CPPv3N11phy_type_le14PHY_TYPE_LE_2ME"></a> <a id="_CPPv2N11phy_type_le14PHY_TYPE_LE_2ME"></a> <a id="group__bk__ble__api__v1__typedef_1gga4acd0e053cbeead642d1317913613874ae4c9d6b43453986dbe6db98ea56350e3"></a> enumerator PHY\_TYPE\_LE\_2M
     :   LE 2M.
 
-    enumerator PHY_TYPE_LE_CODED[](#_CPPv4N11phy_type_le17PHY_TYPE_LE_CODEDE "永久链接至目标")
+    <a id="_CPPv4N11phy_type_le17PHY_TYPE_LE_CODEDE"></a>
+
+    <a id="_CPPv3N11phy_type_le17PHY_TYPE_LE_CODEDE"></a> <a id="_CPPv2N11phy_type_le17PHY_TYPE_LE_CODEDE"></a> <a id="group__bk__ble__api__v1__typedef_1gga4acd0e053cbeead642d1317913613874a041b5c82139db2960ab6b5adf120469f"></a> enumerator PHY\_TYPE\_LE\_CODED
     :   LE Coded.
 
-enum initiating_phy_type_le[](#_CPPv422initiating_phy_type_le "永久链接至目标")
+<a id="_CPPv422initiating_phy_type_le"></a>
+
+<a id="_CPPv322initiating_phy_type_le"></a> <a id="_CPPv222initiating_phy_type_le"></a> <a id="group__bk__ble__api__v1__typedef_1ga016191e9a8530c40e1f0616481c286de"></a> enum initiating\_phy\_type\_le
 :   Initiating PHY Type.
 
-
     *Values:*
 
-    enumerator INIT_PHY_TYPE_LE_1M[](#_CPPv4N22initiating_phy_type_le19INIT_PHY_TYPE_LE_1ME "永久链接至目标")
+    <a id="_CPPv4N22initiating_phy_type_le19INIT_PHY_TYPE_LE_1ME"></a>
+
+    <a id="_CPPv3N22initiating_phy_type_le19INIT_PHY_TYPE_LE_1ME"></a> <a id="_CPPv2N22initiating_phy_type_le19INIT_PHY_TYPE_LE_1ME"></a> <a id="group__bk__ble__api__v1__typedef_1gga016191e9a8530c40e1f0616481c286dea071f993c59e44e41a79b1dbcb3b75981"></a> enumerator INIT\_PHY\_TYPE\_LE\_1M
     :   LE 1M.
 
-    enumerator INIT_PHY_TYPE_LE_2M[](#_CPPv4N22initiating_phy_type_le19INIT_PHY_TYPE_LE_2ME "永久链接至目标")
+    <a id="_CPPv4N22initiating_phy_type_le19INIT_PHY_TYPE_LE_2ME"></a>
+
+    <a id="_CPPv3N22initiating_phy_type_le19INIT_PHY_TYPE_LE_2ME"></a> <a id="_CPPv2N22initiating_phy_type_le19INIT_PHY_TYPE_LE_2ME"></a> <a id="group__bk__ble__api__v1__typedef_1gga016191e9a8530c40e1f0616481c286dea22a42cbeeff8d2141e8a308485081cd6"></a> enumerator INIT\_PHY\_TYPE\_LE\_2M
     :   LE 2M.
 
-    enumerator INIT_PHY_TYPE_LE_CODED[](#_CPPv4N22initiating_phy_type_le22INIT_PHY_TYPE_LE_CODEDE "永久链接至目标")
+    <a id="_CPPv4N22initiating_phy_type_le22INIT_PHY_TYPE_LE_CODEDE"></a>
+
+    <a id="_CPPv3N22initiating_phy_type_le22INIT_PHY_TYPE_LE_CODEDE"></a> <a id="_CPPv2N22initiating_phy_type_le22INIT_PHY_TYPE_LE_CODEDE"></a> <a id="group__bk__ble__api__v1__typedef_1gga016191e9a8530c40e1f0616481c286dea043d21edc125c554918969c3c3128921"></a> enumerator INIT\_PHY\_TYPE\_LE\_CODED
     :   LE Coded.
 
-enum ble_own_addr_type[](#_CPPv417ble_own_addr_type "永久链接至目标")
+<a id="_CPPv417ble_own_addr_type"></a>
+
+<a id="_CPPv317ble_own_addr_type"></a> <a id="_CPPv217ble_own_addr_type"></a> <a id="group__bk__ble__api__v1__typedef_1gaaa7b5c55bc3b207c84e20eca8e0c7223"></a> enum ble\_own\_addr\_type
 :   Own addr type.
 
-
     *Values:*
 
-    enumerator OWN_ADDR_TYPE_PUBLIC_OR_STATIC_ADDR[](#_CPPv4N17ble_own_addr_type35OWN_ADDR_TYPE_PUBLIC_OR_STATIC_ADDRE "永久链接至目标")
+    <a id="_CPPv4N17ble_own_addr_type35OWN_ADDR_TYPE_PUBLIC_OR_STATIC_ADDRE"></a>
+
+    <a id="_CPPv3N17ble_own_addr_type35OWN_ADDR_TYPE_PUBLIC_OR_STATIC_ADDRE"></a> <a id="_CPPv2N17ble_own_addr_type35OWN_ADDR_TYPE_PUBLIC_OR_STATIC_ADDRE"></a> <a id="group__bk__ble__api__v1__typedef_1ggaaa7b5c55bc3b207c84e20eca8e0c7223aeaab267da1451e15d2ce73518d28d2af"></a> enumerator OWN\_ADDR\_TYPE\_PUBLIC\_OR\_STATIC\_ADDR
     :   Public or Private Static Address according to device address configuration Attention: Private Static Address is not used now, so set will be public
 
-    enumerator OWN_ADDR_TYPE_GEN_RSLV_OR_RANDOM_ADDR[](#_CPPv4N17ble_own_addr_type37OWN_ADDR_TYPE_GEN_RSLV_OR_RANDOM_ADDRE "永久链接至目标")
+    <a id="_CPPv4N17ble_own_addr_type37OWN_ADDR_TYPE_GEN_RSLV_OR_RANDOM_ADDRE"></a>
+
+    <a id="_CPPv3N17ble_own_addr_type37OWN_ADDR_TYPE_GEN_RSLV_OR_RANDOM_ADDRE"></a> <a id="_CPPv2N17ble_own_addr_type37OWN_ADDR_TYPE_GEN_RSLV_OR_RANDOM_ADDRE"></a> <a id="group__bk__ble__api__v1__typedef_1ggaaa7b5c55bc3b207c84e20eca8e0c7223a107021a6faa3d66be8dda1f818139b60"></a> enumerator OWN\_ADDR\_TYPE\_GEN\_RSLV\_OR\_RANDOM\_ADDR
     :   Generated resolvable private random or random address, will auto refresh periodic Attention: RPA is not used now, so set will be random
 
-    enumerator OWN_ADDR_TYPE_GEN_NON_RSLV_OR_RANDOM_ADDR[](#_CPPv4N17ble_own_addr_type41OWN_ADDR_TYPE_GEN_NON_RSLV_OR_RANDOM_ADDRE "永久链接至目标")
+    <a id="_CPPv4N17ble_own_addr_type41OWN_ADDR_TYPE_GEN_NON_RSLV_OR_RANDOM_ADDRE"></a>
+
+    <a id="_CPPv3N17ble_own_addr_type41OWN_ADDR_TYPE_GEN_NON_RSLV_OR_RANDOM_ADDRE"></a> <a id="_CPPv2N17ble_own_addr_type41OWN_ADDR_TYPE_GEN_NON_RSLV_OR_RANDOM_ADDRE"></a> <a id="group__bk__ble__api__v1__typedef_1ggaaa7b5c55bc3b207c84e20eca8e0c7223a9c6a03741c65a51820fb48664849c37c"></a> enumerator OWN\_ADDR\_TYPE\_GEN\_NON\_RSLV\_OR\_RANDOM\_ADDR
     :   Generated non-resolvable private random or random address, will auto refresh periodic Attention: NRPA is not used now, so set will be random
 
-enum ble_sync_cte_type[](#_CPPv417ble_sync_cte_type "永久链接至目标")
+<a id="_CPPv417ble_sync_cte_type"></a>
+
+<a id="_CPPv317ble_sync_cte_type"></a> <a id="_CPPv217ble_sync_cte_type"></a> <a id="group__bk__ble__api__v1__typedef_1ga7249d9eb7c2b2f4a4f56b4c241e6db5f"></a> enum ble\_sync\_cte\_type
 :   Constant Tone Extension sync filtering type.
 
-
     *Values:*
 
-    enumerator CTE_NO_SYNC_WITH_AOA[](#_CPPv4N17ble_sync_cte_type20CTE_NO_SYNC_WITH_AOAE "永久链接至目标")
+    <a id="_CPPv4N17ble_sync_cte_type20CTE_NO_SYNC_WITH_AOAE"></a>
+
+    <a id="_CPPv3N17ble_sync_cte_type20CTE_NO_SYNC_WITH_AOAE"></a> <a id="_CPPv2N17ble_sync_cte_type20CTE_NO_SYNC_WITH_AOAE"></a> <a id="group__bk__ble__api__v1__typedef_1gga7249d9eb7c2b2f4a4f56b4c241e6db5faffcb176752b31b7cca43dc72da2bdae2"></a> enumerator CTE\_NO\_SYNC\_WITH\_AOA
     :   Do not sync to packets with an AoA Constant Tone Extension.
 
-    enumerator CTE_NO_SYNC_WITH_AOD_1US_SLOT[](#_CPPv4N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_1US_SLOTE "永久链接至目标")
+    <a id="_CPPv4N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_1US_SLOTE"></a>
+
+    <a id="_CPPv3N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_1US_SLOTE"></a> <a id="_CPPv2N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_1US_SLOTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga7249d9eb7c2b2f4a4f56b4c241e6db5fab8ffe31c3315edd8230de9b3d7dc3ced"></a> enumerator CTE\_NO\_SYNC\_WITH\_AOD\_1US\_SLOT
     :   Do not sync to packets with an AoD Constant Tone Extension with 1 us slots.
 
-    enumerator CTE_NO_SYNC_WITH_AOD_2US_SLOT[](#_CPPv4N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_2US_SLOTE "永久链接至目标")
+    <a id="_CPPv4N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_2US_SLOTE"></a>
+
+    <a id="_CPPv3N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_2US_SLOTE"></a> <a id="_CPPv2N17ble_sync_cte_type29CTE_NO_SYNC_WITH_AOD_2US_SLOTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga7249d9eb7c2b2f4a4f56b4c241e6db5fa0b6c9b189783b7156f5cc69f08b28cd7"></a> enumerator CTE\_NO\_SYNC\_WITH\_AOD\_2US\_SLOT
     :   Do not sync to packets with an AoD Constant Tone Extension with 2 us slots.
 
-    enumerator CTE_NO_SYNC_WITH_TYPE_3[](#_CPPv4N17ble_sync_cte_type23CTE_NO_SYNC_WITH_TYPE_3E "永久链接至目标")
+    <a id="_CPPv4N17ble_sync_cte_type23CTE_NO_SYNC_WITH_TYPE_3E"></a>
+
+    <a id="_CPPv3N17ble_sync_cte_type23CTE_NO_SYNC_WITH_TYPE_3E"></a> <a id="_CPPv2N17ble_sync_cte_type23CTE_NO_SYNC_WITH_TYPE_3E"></a> <a id="group__bk__ble__api__v1__typedef_1gga7249d9eb7c2b2f4a4f56b4c241e6db5fa4741a8ef436097f7776b316a40c67ce5"></a> enumerator CTE\_NO\_SYNC\_WITH\_TYPE\_3
     :   Do not sync to packets with a type 3 Constant Tone Extension (currently reserved for future use)
 
-    enumerator CTE_NO_SYNC_WITHOUT_CTE[](#_CPPv4N17ble_sync_cte_type23CTE_NO_SYNC_WITHOUT_CTEE "永久链接至目标")
+    <a id="_CPPv4N17ble_sync_cte_type23CTE_NO_SYNC_WITHOUT_CTEE"></a>
+
+    <a id="_CPPv3N17ble_sync_cte_type23CTE_NO_SYNC_WITHOUT_CTEE"></a> <a id="_CPPv2N17ble_sync_cte_type23CTE_NO_SYNC_WITHOUT_CTEE"></a> <a id="group__bk__ble__api__v1__typedef_1gga7249d9eb7c2b2f4a4f56b4c241e6db5fac545a900f870e08037c81cbe287155bc"></a> enumerator CTE\_NO\_SYNC\_WITHOUT\_CTE
     :   Do not sync to packets without a Constant Tone Extension.
 
-enum gap_auth_mask[](#_CPPv413gap_auth_mask "永久链接至目标")
+<a id="_CPPv413gap_auth_mask"></a>
+
+<a id="_CPPv313gap_auth_mask"></a> <a id="_CPPv213gap_auth_mask"></a> <a id="group__bk__ble__api__v1__typedef_1ga911a09effea6e7bee0e14e1de9ce92e2"></a> enum gap\_auth\_mask
 :   Authentication mask.
 
-
     *Values:*
 
-    enumerator GAP_AUTH_NONE[](#_CPPv4N13gap_auth_mask13GAP_AUTH_NONEE "永久链接至目标")
+    <a id="_CPPv4N13gap_auth_mask13GAP_AUTH_NONEE"></a>
+
+    <a id="_CPPv3N13gap_auth_mask13GAP_AUTH_NONEE"></a> <a id="_CPPv2N13gap_auth_mask13GAP_AUTH_NONEE"></a> <a id="group__bk__ble__api__v1__typedef_1gga911a09effea6e7bee0e14e1de9ce92e2aee34906a3ee68109b67c93292e0cad24"></a> enumerator GAP\_AUTH\_NONE
     :   No Flag set.
 
-    enumerator GAP_AUTH_BOND[](#_CPPv4N13gap_auth_mask13GAP_AUTH_BONDE "永久链接至目标")
+    <a id="_CPPv4N13gap_auth_mask13GAP_AUTH_BONDE"></a>
+
+    <a id="_CPPv3N13gap_auth_mask13GAP_AUTH_BONDE"></a> <a id="_CPPv2N13gap_auth_mask13GAP_AUTH_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1gga911a09effea6e7bee0e14e1de9ce92e2a1abec2f02b72340592b33c687fe1db20"></a> enumerator GAP\_AUTH\_BOND
     :   Bond authentication.
 
-    enumerator GAP_AUTH_MITM[](#_CPPv4N13gap_auth_mask13GAP_AUTH_MITME "永久链接至目标")
+    <a id="_CPPv4N13gap_auth_mask13GAP_AUTH_MITME"></a>
+
+    <a id="_CPPv3N13gap_auth_mask13GAP_AUTH_MITME"></a> <a id="_CPPv2N13gap_auth_mask13GAP_AUTH_MITME"></a> <a id="group__bk__ble__api__v1__typedef_1gga911a09effea6e7bee0e14e1de9ce92e2ab1f36dbfbf9e7ef5c21a408fdaf81efc"></a> enumerator GAP\_AUTH\_MITM
     :   Man In the middle protection.
 
-    enumerator GAP_AUTH_SEC_CON[](#_CPPv4N13gap_auth_mask16GAP_AUTH_SEC_CONE "永久链接至目标")
+    <a id="_CPPv4N13gap_auth_mask16GAP_AUTH_SEC_CONE"></a>
+
+    <a id="_CPPv3N13gap_auth_mask16GAP_AUTH_SEC_CONE"></a> <a id="_CPPv2N13gap_auth_mask16GAP_AUTH_SEC_CONE"></a> <a id="group__bk__ble__api__v1__typedef_1gga911a09effea6e7bee0e14e1de9ce92e2ac41f63724b17519ddd097a1a569e8fa0"></a> enumerator GAP\_AUTH\_SEC\_CON
     :   Secure Connection.
 
-    enumerator GAP_AUTH_KEY_NOTIF[](#_CPPv4N13gap_auth_mask18GAP_AUTH_KEY_NOTIFE "永久链接至目标")
+    <a id="_CPPv4N13gap_auth_mask18GAP_AUTH_KEY_NOTIFE"></a>
+
+    <a id="_CPPv3N13gap_auth_mask18GAP_AUTH_KEY_NOTIFE"></a> <a id="_CPPv2N13gap_auth_mask18GAP_AUTH_KEY_NOTIFE"></a> <a id="group__bk__ble__api__v1__typedef_1gga911a09effea6e7bee0e14e1de9ce92e2aefb49a1256845c0cb3959ebc5b7c968b"></a> enumerator GAP\_AUTH\_KEY\_NOTIF
     :   Key Notification.
 
-enum gap_auth[](#_CPPv48gap_auth "永久链接至目标")
+<a id="_CPPv48gap_auth"></a>
+
+<a id="_CPPv38gap_auth"></a> <a id="_CPPv28gap_auth"></a> <a id="group__bk__ble__api__v1__typedef_1gabddf59399b398b7d0cdb34f77becadb8"></a> enum gap\_auth
 :   *Values:*
 
-    enumerator GAP_AUTH_REQ_NO_MITM_NO_BOND[](#_CPPv4N8gap_auth28GAP_AUTH_REQ_NO_MITM_NO_BONDE "永久链接至目标")
+    <a id="_CPPv4N8gap_auth28GAP_AUTH_REQ_NO_MITM_NO_BONDE"></a>
+
+    <a id="_CPPv3N8gap_auth28GAP_AUTH_REQ_NO_MITM_NO_BONDE"></a> <a id="_CPPv2N8gap_auth28GAP_AUTH_REQ_NO_MITM_NO_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8ac4aba04277037bac5ec5d8d9668ae657"></a> enumerator GAP\_AUTH\_REQ\_NO\_MITM\_NO\_BOND
     :   No MITM No Bonding.
 
-    enumerator GAP_AUTH_REQ_NO_MITM_BOND[](#_CPPv4N8gap_auth25GAP_AUTH_REQ_NO_MITM_BONDE "永久链接至目标")
+    <a id="_CPPv4N8gap_auth25GAP_AUTH_REQ_NO_MITM_BONDE"></a>
+
+    <a id="_CPPv3N8gap_auth25GAP_AUTH_REQ_NO_MITM_BONDE"></a> <a id="_CPPv2N8gap_auth25GAP_AUTH_REQ_NO_MITM_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8ad3e559d487eb420f2ea7dae398566a50"></a> enumerator GAP\_AUTH\_REQ\_NO\_MITM\_BOND
     :   No MITM Bonding.
 
-    enumerator GAP_AUTH_REQ_MITM_NO_BOND[](#_CPPv4N8gap_auth25GAP_AUTH_REQ_MITM_NO_BONDE "永久链接至目标")
+    <a id="_CPPv4N8gap_auth25GAP_AUTH_REQ_MITM_NO_BONDE"></a>
+
+    <a id="_CPPv3N8gap_auth25GAP_AUTH_REQ_MITM_NO_BONDE"></a> <a id="_CPPv2N8gap_auth25GAP_AUTH_REQ_MITM_NO_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8afdeda86ae5a14395edefa75a302fd899"></a> enumerator GAP\_AUTH\_REQ\_MITM\_NO\_BOND
     :   MITM No Bonding.
 
-    enumerator GAP_AUTH_REQ_MITM_BOND[](#_CPPv4N8gap_auth22GAP_AUTH_REQ_MITM_BONDE "永久链接至目标")
+    <a id="_CPPv4N8gap_auth22GAP_AUTH_REQ_MITM_BONDE"></a>
+
+    <a id="_CPPv3N8gap_auth22GAP_AUTH_REQ_MITM_BONDE"></a> <a id="_CPPv2N8gap_auth22GAP_AUTH_REQ_MITM_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8acab77d5a0652d6d7a8a7fd78478304d9"></a> enumerator GAP\_AUTH\_REQ\_MITM\_BOND
     :   MITM and Bonding.
 
-    enumerator GAP_AUTH_REQ_SEC_CON_NO_BOND[](#_CPPv4N8gap_auth28GAP_AUTH_REQ_SEC_CON_NO_BONDE "永久链接至目标")
-    :   SEC_CON and No Bonding.
+    <a id="_CPPv4N8gap_auth28GAP_AUTH_REQ_SEC_CON_NO_BONDE"></a>
 
-    enumerator GAP_AUTH_REQ_SEC_CON_BOND[](#_CPPv4N8gap_auth25GAP_AUTH_REQ_SEC_CON_BONDE "永久链接至目标")
-    :   SEC_CON and Bonding.
+    <a id="_CPPv3N8gap_auth28GAP_AUTH_REQ_SEC_CON_NO_BONDE"></a> <a id="_CPPv2N8gap_auth28GAP_AUTH_REQ_SEC_CON_NO_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8afc97985dc697ac951b57b1a37219b542"></a> enumerator GAP\_AUTH\_REQ\_SEC\_CON\_NO\_BOND
+    :   SEC\_CON and No Bonding.
 
-    enumerator GAP_AUTH_REQ_LAST[](#_CPPv4N8gap_auth17GAP_AUTH_REQ_LASTE "永久链接至目标")
+    <a id="_CPPv4N8gap_auth25GAP_AUTH_REQ_SEC_CON_BONDE"></a>
 
-    enumerator GAP_AUTH_REQ_MASK[](#_CPPv4N8gap_auth17GAP_AUTH_REQ_MASKE "永久链接至目标")
+    <a id="_CPPv3N8gap_auth25GAP_AUTH_REQ_SEC_CON_BONDE"></a> <a id="_CPPv2N8gap_auth25GAP_AUTH_REQ_SEC_CON_BONDE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8a19fb7a7aafcdafc43587043c01111d5e"></a> enumerator GAP\_AUTH\_REQ\_SEC\_CON\_BOND
+    :   SEC\_CON and Bonding.
+
+    <a id="_CPPv4N8gap_auth17GAP_AUTH_REQ_LASTE"></a>
+
+    <a id="_CPPv3N8gap_auth17GAP_AUTH_REQ_LASTE"></a> <a id="_CPPv2N8gap_auth17GAP_AUTH_REQ_LASTE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8aad1781703b9196073699e3c920b808ee"></a> enumerator GAP\_AUTH\_REQ\_LAST
+
+    <a id="_CPPv4N8gap_auth17GAP_AUTH_REQ_MASKE"></a>
+
+    <a id="_CPPv3N8gap_auth17GAP_AUTH_REQ_MASKE"></a> <a id="_CPPv2N8gap_auth17GAP_AUTH_REQ_MASKE"></a> <a id="group__bk__ble__api__v1__typedef_1ggabddf59399b398b7d0cdb34f77becadb8a43e44e749147dd098d76822b5d1e9ccb"></a> enumerator GAP\_AUTH\_REQ\_MASK
     :   Mask of authentication features without reserved flag.
 
-enum gap_io_cap[](#_CPPv410gap_io_cap "永久链接至目标")
+<a id="_CPPv410gap_io_cap"></a>
+
+<a id="_CPPv310gap_io_cap"></a> <a id="_CPPv210gap_io_cap"></a> <a id="group__bk__ble__api__v1__typedef_1ga790b6f241b1164d78f2f781f393ea576"></a> enum gap\_io\_cap
 :   IO Capability Values.
 
-
     *Values:*
 
-    enumerator GAP_IO_CAP_DISPLAY_ONLY[](#_CPPv4N10gap_io_cap23GAP_IO_CAP_DISPLAY_ONLYE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap23GAP_IO_CAP_DISPLAY_ONLYE"></a>
+
+    <a id="_CPPv3N10gap_io_cap23GAP_IO_CAP_DISPLAY_ONLYE"></a> <a id="_CPPv2N10gap_io_cap23GAP_IO_CAP_DISPLAY_ONLYE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576afcb3d86c446a1357603cd1644cf078e0"></a> enumerator GAP\_IO\_CAP\_DISPLAY\_ONLY
     :   Display Only.
 
-    enumerator GAP_IO_CAP_DISPLAY_YES_NO[](#_CPPv4N10gap_io_cap25GAP_IO_CAP_DISPLAY_YES_NOE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap25GAP_IO_CAP_DISPLAY_YES_NOE"></a>
+
+    <a id="_CPPv3N10gap_io_cap25GAP_IO_CAP_DISPLAY_YES_NOE"></a> <a id="_CPPv2N10gap_io_cap25GAP_IO_CAP_DISPLAY_YES_NOE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576ac06ea14836705dd96bc511524ce1c22f"></a> enumerator GAP\_IO\_CAP\_DISPLAY\_YES\_NO
     :   Display Yes No.
 
-    enumerator GAP_IO_CAP_KB_ONLY[](#_CPPv4N10gap_io_cap18GAP_IO_CAP_KB_ONLYE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap18GAP_IO_CAP_KB_ONLYE"></a>
+
+    <a id="_CPPv3N10gap_io_cap18GAP_IO_CAP_KB_ONLYE"></a> <a id="_CPPv2N10gap_io_cap18GAP_IO_CAP_KB_ONLYE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576a3367e8956f22a4cf4169103d3a7bea08"></a> enumerator GAP\_IO\_CAP\_KB\_ONLY
     :   Keyboard Only.
 
-    enumerator GAP_IO_CAP_NO_INPUT_NO_OUTPUT[](#_CPPv4N10gap_io_cap29GAP_IO_CAP_NO_INPUT_NO_OUTPUTE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap29GAP_IO_CAP_NO_INPUT_NO_OUTPUTE"></a>
+
+    <a id="_CPPv3N10gap_io_cap29GAP_IO_CAP_NO_INPUT_NO_OUTPUTE"></a> <a id="_CPPv2N10gap_io_cap29GAP_IO_CAP_NO_INPUT_NO_OUTPUTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576a37845069e8fce0d25222ca70bf5af666"></a> enumerator GAP\_IO\_CAP\_NO\_INPUT\_NO\_OUTPUT
     :   No Input No Output.
 
-    enumerator GAP_IO_CAP_KB_DISPLAY[](#_CPPv4N10gap_io_cap21GAP_IO_CAP_KB_DISPLAYE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap21GAP_IO_CAP_KB_DISPLAYE"></a>
+
+    <a id="_CPPv3N10gap_io_cap21GAP_IO_CAP_KB_DISPLAYE"></a> <a id="_CPPv2N10gap_io_cap21GAP_IO_CAP_KB_DISPLAYE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576a414b441c9e5c306e6db5f1beeb89217b"></a> enumerator GAP\_IO\_CAP\_KB\_DISPLAY
     :   Keyboard Display.
 
-    enumerator GAP_IO_CAP_LAST[](#_CPPv4N10gap_io_cap15GAP_IO_CAP_LASTE "永久链接至目标")
+    <a id="_CPPv4N10gap_io_cap15GAP_IO_CAP_LASTE"></a>
 
-enum gap_sec_req[](#_CPPv411gap_sec_req "永久链接至目标")
+    <a id="_CPPv3N10gap_io_cap15GAP_IO_CAP_LASTE"></a> <a id="_CPPv2N10gap_io_cap15GAP_IO_CAP_LASTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga790b6f241b1164d78f2f781f393ea576ae3a0de4a8165e97f1a9fb5d5e6a6114e"></a> enumerator GAP\_IO\_CAP\_LAST
+
+<a id="_CPPv411gap_sec_req"></a>
+
+<a id="_CPPv311gap_sec_req"></a> <a id="_CPPv211gap_sec_req"></a> <a id="group__bk__ble__api__v1__typedef_1ga5bdf085cbe078d063965de5462611445"></a> enum gap\_sec\_req
 :   Security Defines.
 
-
     *Values:*
 
-    enumerator GAP_NO_SEC[](#_CPPv4N11gap_sec_req10GAP_NO_SECE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req10GAP_NO_SECE"></a>
+
+    <a id="_CPPv3N11gap_sec_req10GAP_NO_SECE"></a> <a id="_CPPv2N11gap_sec_req10GAP_NO_SECE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445ad0af542571980627ce32404a067e23b1"></a> enumerator GAP\_NO\_SEC
     :   No security (no authentication and encryption)
 
-    enumerator GAP_SEC1_NOAUTH_PAIR_ENC[](#_CPPv4N11gap_sec_req24GAP_SEC1_NOAUTH_PAIR_ENCE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req24GAP_SEC1_NOAUTH_PAIR_ENCE"></a>
+
+    <a id="_CPPv3N11gap_sec_req24GAP_SEC1_NOAUTH_PAIR_ENCE"></a> <a id="_CPPv2N11gap_sec_req24GAP_SEC1_NOAUTH_PAIR_ENCE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445ae553513b59fee763c9634a779f814f1f"></a> enumerator GAP\_SEC1\_NOAUTH\_PAIR\_ENC
     :   Unauthenticated pairing with encryption.
 
-    enumerator GAP_SEC1_AUTH_PAIR_ENC[](#_CPPv4N11gap_sec_req22GAP_SEC1_AUTH_PAIR_ENCE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req22GAP_SEC1_AUTH_PAIR_ENCE"></a>
+
+    <a id="_CPPv3N11gap_sec_req22GAP_SEC1_AUTH_PAIR_ENCE"></a> <a id="_CPPv2N11gap_sec_req22GAP_SEC1_AUTH_PAIR_ENCE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445abcf255ee894be1d663e86d3fcc48dad5"></a> enumerator GAP\_SEC1\_AUTH\_PAIR\_ENC
     :   Authenticated pairing with encryption.
 
-    enumerator GAP_SEC2_NOAUTH_DATA_SGN[](#_CPPv4N11gap_sec_req24GAP_SEC2_NOAUTH_DATA_SGNE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req24GAP_SEC2_NOAUTH_DATA_SGNE"></a>
+
+    <a id="_CPPv3N11gap_sec_req24GAP_SEC2_NOAUTH_DATA_SGNE"></a> <a id="_CPPv2N11gap_sec_req24GAP_SEC2_NOAUTH_DATA_SGNE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445ad94fae22059a320c3f68e2768ad14ae6"></a> enumerator GAP\_SEC2\_NOAUTH\_DATA\_SGN
     :   Unauthenticated pairing with data signing.
 
-    enumerator GAP_SEC2_AUTH_DATA_SGN[](#_CPPv4N11gap_sec_req22GAP_SEC2_AUTH_DATA_SGNE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req22GAP_SEC2_AUTH_DATA_SGNE"></a>
+
+    <a id="_CPPv3N11gap_sec_req22GAP_SEC2_AUTH_DATA_SGNE"></a> <a id="_CPPv2N11gap_sec_req22GAP_SEC2_AUTH_DATA_SGNE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445ab8df9063d4930f0a60ff80c623704597"></a> enumerator GAP\_SEC2\_AUTH\_DATA\_SGN
     :   Authentication pairing with data signing.
 
-    enumerator GAP_SEC1_SEC_CON_PAIR_ENC[](#_CPPv4N11gap_sec_req25GAP_SEC1_SEC_CON_PAIR_ENCE "永久链接至目标")
+    <a id="_CPPv4N11gap_sec_req25GAP_SEC1_SEC_CON_PAIR_ENCE"></a>
+
+    <a id="_CPPv3N11gap_sec_req25GAP_SEC1_SEC_CON_PAIR_ENCE"></a> <a id="_CPPv2N11gap_sec_req25GAP_SEC1_SEC_CON_PAIR_ENCE"></a> <a id="group__bk__ble__api__v1__typedef_1gga5bdf085cbe078d063965de5462611445a4cf0120640cce2cfd5331e5e6745330d"></a> enumerator GAP\_SEC1\_SEC\_CON\_PAIR\_ENC
     :   Secure Connection pairing with encryption.
 
-enum gap_oob[](#_CPPv47gap_oob "永久链接至目标")
-:   OOB Data Present Flag Values.
+<a id="_CPPv47gap_oob"></a>
 
+<a id="_CPPv37gap_oob"></a> <a id="_CPPv27gap_oob"></a> <a id="group__bk__ble__api__v1__typedef_1ga009fe656dba3e223453288e3fc6fa68c"></a> enum gap\_oob
+:   OOB Data Present Flag Values.
 
     *Values:*
 
-    enumerator GAP_OOB_AUTH_DATA_NOT_PRESENT[](#_CPPv4N7gap_oob29GAP_OOB_AUTH_DATA_NOT_PRESENTE "永久链接至目标")
+    <a id="_CPPv4N7gap_oob29GAP_OOB_AUTH_DATA_NOT_PRESENTE"></a>
+
+    <a id="_CPPv3N7gap_oob29GAP_OOB_AUTH_DATA_NOT_PRESENTE"></a> <a id="_CPPv2N7gap_oob29GAP_OOB_AUTH_DATA_NOT_PRESENTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga009fe656dba3e223453288e3fc6fa68cade9fd19ae99db1b0b5cd9ef872b1971f"></a> enumerator GAP\_OOB\_AUTH\_DATA\_NOT\_PRESENT
     :   OOB Data not present.
 
-    enumerator GAP_OOB_AUTH_DATA_PRESENT[](#_CPPv4N7gap_oob25GAP_OOB_AUTH_DATA_PRESENTE "永久链接至目标")
+    <a id="_CPPv4N7gap_oob25GAP_OOB_AUTH_DATA_PRESENTE"></a>
+
+    <a id="_CPPv3N7gap_oob25GAP_OOB_AUTH_DATA_PRESENTE"></a> <a id="_CPPv2N7gap_oob25GAP_OOB_AUTH_DATA_PRESENTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga009fe656dba3e223453288e3fc6fa68cad6b453c05c5531e763bb06136744190c"></a> enumerator GAP\_OOB\_AUTH\_DATA\_PRESENT
     :   OOB data present.
 
-    enumerator GAP_OOB_AUTH_DATA_LAST[](#_CPPv4N7gap_oob22GAP_OOB_AUTH_DATA_LASTE "永久链接至目标")
+    <a id="_CPPv4N7gap_oob22GAP_OOB_AUTH_DATA_LASTE"></a>
+
+    <a id="_CPPv3N7gap_oob22GAP_OOB_AUTH_DATA_LASTE"></a> <a id="_CPPv2N7gap_oob22GAP_OOB_AUTH_DATA_LASTE"></a> <a id="group__bk__ble__api__v1__typedef_1gga009fe656dba3e223453288e3fc6fa68ca5f1ad604f71648ced05467cf2e6a871b"></a> enumerator GAP\_OOB\_AUTH\_DATA\_LAST

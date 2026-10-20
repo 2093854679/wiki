@@ -1,0 +1,59 @@
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/zh_CN/v2.1.1/controller-guide/peripheral_guide/index.html
+sdk_family: bk_controller
+chip: BK7239N
+processor: ''
+sdk_version: v2.1.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="id1"></a>
+
+# 外设开发指南
+
+- [UART 驱动](peripheral_guide/uart.md)
+- [ADC 驱动](peripheral_guide/adc.md)
+- [SDIO 驱动](peripheral_guide/sdio.md)
+- [SPI 驱动](peripheral_guide/spi.md)
+- [I2C 驱动](peripheral_guide/i2c.md)
+- [GPIO 驱动](peripheral_guide/gpio.md)
+- [FLASH 驱动](peripheral_guide/flash.md)
+- [PWM 驱动](peripheral_guide/pwm.md)
+- [WDG 驱动](peripheral_guide/wdg.md)
+- [DMA 驱动](peripheral_guide/dma.md)
+- [efuse 驱动](peripheral_guide/efuse.md)
+
+## 模块导航
+
+- [简介](../introduction.md)
+- [快速入门](../get-started.md)
+- [硬件开发指南](../hw-reference.md)
+- [Controller软件开发指南](../controller-guide.md)
+- [软件架构](sw_arch.md)
+- [配置与构建](config_and_build.md)
+- [API参考手册](api-reference.md)
+- [平台开发指南](platform_guide.md)
+- [Wi-Fi开发指南](wifi_guide.md)
+- [蓝牙开发指南](bluetooth_guide.md)
+- [网络协议开发指南](network_protocol_guide.md)
+- [低功耗开发指南](low_power_guide.md)
+- [UART 驱动](peripheral_guide/uart.md)
+- [ADC 驱动](peripheral_guide/adc.md)
+- [SDIO 驱动](peripheral_guide/sdio.md)
+- [SPI 驱动](peripheral_guide/spi.md)
+- [I2C 驱动](peripheral_guide/i2c.md)
+- [GPIO 驱动](peripheral_guide/gpio.md)
+- [FLASH 驱动](peripheral_guide/flash.md)
+- [PWM 驱动](peripheral_guide/pwm.md)
+- [WDG 驱动](peripheral_guide/wdg.md)
+- [DMA 驱动](peripheral_guide/dma.md)
+- [efuse 驱动](peripheral_guide/efuse.md)
+- [主控平台软件开发指南](../host-guide.md)
+- [工程与示例](../project-example.md)
+- [开发工具介绍](../dev-tool.md)
+- [调测指导](../debug-guide.md)
+- [产测指导](../production-test-guide.md)
+- [常见问题解答](../faq.md)

@@ -1,45 +1,48 @@
-# **GPIO cli命令**[](#gpio-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/cli/gpio/gpio_cli.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="gpio-cli"></a>
+
+<a id="id1"></a>
+
+# **GPIO cli命令**
 
 重要
 
+*与gpio相关的测试用例需要打开CONFIG\_GPIO和CONFIG\_DRIVER\_TEST宏*
 
-*与gpio相关的测试用例需要打开CONFIG_GPIO和CONFIG_DRIVER_TEST宏*
+- [gpio set\_config](#gpio-gpioset) :用来配置gpio的相关状态
+- [gpio output](#gpio-gpiooutput) :用来配置gpio的输出状态
+- [gpio output](#gpio-gpioinput) :用来配置gpio的输入状态
+- [gpio output\_high](#gpio-gpioouth) :用来配置gpio的输出电平
+- [gpio input\_get](#gpio-gpioinpg) :用来获取gpio的输入电平
+- [gpio\_int](#gpio-gpioint) :用来配置gpio的中断类型以及开启关闭中断
+- [gpio\_wake](#gpio-gpiowake) :在进入低压模式之前，用来注册对应的gpio为唤醒源
+- [gpio\_kpsta](#gpio-gpiokpsta) :用来注册在低压模式下需要保持状态的gpio
+- [gpio\_driver](#gpio-gpiodrv) :用来初始化（取消初始化）与gpio相关的资源
 
+<a id="gpio-set-config-gpio"></a>
 
-- [gpio set_config](#gpio-gpioset "#gpio-gpioset") :用来配置gpio的相关状态
+<a id="gpio-gpioset"></a>
 
-- [gpio output](#gpio-gpiooutput "#gpio-gpiooutput") :用来配置gpio的输出状态
-
-- [gpio output](#gpio-gpioinput "#gpio-gpioinput") :用来配置gpio的输入状态
-
-- [gpio output_high](#gpio-gpioouth "#gpio-gpioouth") :用来配置gpio的输出电平
-
-- [gpio input_get](#gpio-gpioinpg "#gpio-gpioinpg") :用来获取gpio的输入电平
-
-- [gpio_int](#gpio-gpioint "#gpio-gpioint") :用来配置gpio的中断类型以及开启关闭中断
-
-- [gpio_wake](#gpio-gpiowake "#gpio-gpiowake") :在进入低压模式之前，用来注册对应的gpio为唤醒源
-
-- [gpio_kpsta](#gpio-gpiokpsta "#gpio-gpiokpsta") :用来注册在低压模式下需要保持状态的gpio
-
-- [gpio_driver](#gpio-gpiodrv "#gpio-gpiodrv") :用来初始化（取消初始化）与gpio相关的资源
-
-
-## [gpio set_config](#gpio-cli "#gpio-cli") **:用来配置gpio的相关状态**[](#gpio-set-config-gpio "永久链接至标题")
-
+## [gpio set\_config](#gpio-cli) **:用来配置gpio的相关状态**
 
 **命令**
 
-
 ```
 gpio set_config <id> <io_mode> <pull_mode>
-
 ```
 
-
 **参数**
-
 
 ```
 id: 想要操作的gpio引脚
@@ -63,12 +66,9 @@ pull_mode:设置gpio上下拉电阻；
         2:上拉使能；
 
         3:无效
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -78,54 +78,43 @@ pull_mode:设置gpio上下拉电阻；
 输出：
 
     gpio io(output/disable/input): 2 ,  pull(disable/down/up) : 1
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_GPIO和CONFIG_DRIVER_TEST!*
-
+*此命令需要开启CONFIG\_GPIO和CONFIG\_DRIVER\_TEST!*
 
 *已经开启第二功能的gpio必须先取消第二功能才能进行此设置*
 
+<a id="gpio-output-gpio"></a>
 
-## [gpio output](#gpio-cli "#gpio-cli") **:用来配置gpio的输出状态**[](#gpio-output-gpio "永久链接至标题")
+<a id="gpio-gpiooutput"></a>
 
+## [gpio output](#gpio-cli) **:用来配置gpio的输出状态**
 
 **命令**
 
-
 ```
 gpio output <id> <pull_up|pull_down>
-
 ```
 
-
 **参数**
-
 
 ```
 id: 想要操作的gpio引脚
 
 pull_up/pull_down:上拉或下拉
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -135,46 +124,37 @@ pull_up/pull_down:上拉或下拉
 输出：
 
     gpio output test: 5
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-input-gpio"></a>
 
-## [gpio input](#gpio-cli "#gpio-cli") **:用来配置gpio的输出状态**[](#gpio-input-gpio "永久链接至标题")
+<a id="gpio-gpioinput"></a>
 
+## [gpio input](#gpio-cli) **:用来配置gpio的输出状态**
 
 **命令**
 
-
 ```
 gpio input <id> <pull_up|pull_down>
-
 ```
 
-
 **参数**
-
 
 ```
 id: 想要操作的gpio引脚
 
 pull_up/pull_down:上拉或下拉
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -184,46 +164,37 @@ pull_up/pull_down:上拉或下拉
 输出：
 
     gpio input test: 5
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-output-high-gpio"></a>
 
-## [gpio output_high](#gpio-cli "#gpio-cli") **:用来配置gpio的输出电平**[](#gpio-output-high-gpio "永久链接至标题")
+<a id="gpio-gpioouth"></a>
 
+## [gpio output\_high](#gpio-cli) **:用来配置gpio的输出电平**
 
 **命令**
 
-
 ```
 gpio <output_high|output_low> <id>
-
 ```
 
-
 **参数**
-
 
 ```
 id: 想要操作的gpio引脚
 
 pull_up/pull_down:上拉或下拉
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：gpio output_high 5
@@ -248,78 +219,63 @@ pull_up/pull_down:上拉或下拉
         $err:E(5890):cli_gpio_cmd 114: ret=-0x2007
 
         cli:I(5890):gpio output low
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-intput-get-gpio"></a>
 
-## [gpio intput_get](#gpio-cli "#gpio-cli") **:用来获取gpio的输入电平**[](#gpio-intput-get-gpio "永久链接至标题")
+<a id="gpio-gpioinpg"></a>
 
+## [gpio intput\_get](#gpio-cli) **:用来获取gpio的输入电平**
 
 **命令**
 
-
 ```
 gpio intput_get <id>
-
 ```
-
 
 **参数**
 
-
 ```
 id: 想要操作的gpio引脚
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：gpio input_get 5
 
     输入这条命令，配置成功，则返回gpio的输入电平。
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-int-gpio"></a>
 
-## [gpio_int](#gpio-cli "#gpio-cli") **:用来配置gpio的中断类型以及开启关闭中断**[](#gpio-int-gpio "永久链接至标题")
+<a id="gpio-gpioint"></a>
 
+## [gpio\_int](#gpio-cli) **:用来配置gpio的中断类型以及开启关闭中断**
 
 **命令**
 
-
 ```
 gpio_int <id> <inttype|start|stop> [mode]
-
 ```
 
-
 **参数**
-
 
 ```
 id: 想要操作的gpio引脚
@@ -339,12 +295,9 @@ mode:中断触发模式
     rising_edge:上升沿触发
 
     falling_edge:下降沿触发
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -358,40 +311,33 @@ mode:中断触发模式
 输入：
 
     gpio_int 5 stop：输入这条命令，失能中断。
-
 ```
 
 备注
 
-
 *已经开启第二功能的gpio必须先取消第二功能才能进行此设置*
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-wake-gpio"></a>
 
-## [gpio wake](#gpio-cli "#gpio-cli") **:在进入低压模式之前，用来注册对应的gpio为唤醒源**[](#gpio-wake-gpio "永久链接至标题")
+<a id="gpio-gpiowake"></a>
 
+## [gpio wake](#gpio-cli) **:在进入低压模式之前，用来注册对应的gpio为唤醒源**
 
 **命令**
 
-
 ```
 gpio_wake <register|unregister|get_id> [id] [mode]
-
 ```
 
-
 **参数**
-
 
 ```
 register:注册唤醒源
@@ -411,12 +357,9 @@ mode:唤醒模式
     2:上升沿唤醒
 
     3:下降沿唤醒
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -430,43 +373,35 @@ mode:唤醒模式
 输入：
 
     gpio_wake get_id:输入这条命令，获取当前是哪个gpio_id唤醒系统。
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_GPIO_WAKEUP_SUPPORT和CONFIG_GPIO_DYNAMIC_WAKEUP_SUPPORT!*
-
+*此命令需要开启CONFIG\_GPIO\_WAKEUP\_SUPPORT和CONFIG\_GPIO\_DYNAMIC\_WAKEUP\_SUPPORT!*
 
 *要向MCU设置GPIO作为唤醒源，低压模式下可验证*
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-kpsta-gpio"></a>
 
-## [gpio_kpsta](#gpio-cli "#gpio-cli") **:用来注册在低压模式下需要保持状态的gpio**[](#gpio-kpsta-gpio "永久链接至标题")
+<a id="gpio-gpiokpsta"></a>
 
+## [gpio\_kpsta](#gpio-cli) **:用来注册在低压模式下需要保持状态的gpio**
 
 **命令**
 
-
 ```
 gpio_kpsta <register|unregister> <id> [io_mode|pull_mode|func_mode]
-
 ```
 
-
 **参数**
-
 
 ```
 register:注册需要保持的gpio引脚
@@ -500,12 +435,9 @@ func_mode:使能第二功能；
     0:失能；
 
     1:使能
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -515,54 +447,43 @@ func_mode:使能第二功能；
 输入：
 
     gpio_wake unregister 5:输入这条命令，取消注册gpio5在低压模式下需要保持状态。
-
 ```
 
 备注
 
-
-*此命令需要开启CONFIG_GPIO_WAKEUP_SUPPORT!*
-
+*此命令需要开启CONFIG\_GPIO\_WAKEUP\_SUPPORT!*
 
 *要向MCU设置GPIO作为唤醒源，低压模式下可验证*
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="gpio-driver-gpio"></a>
 
-## [gpio_driver](#gpio-cli "#gpio-cli") **:用来初始化（取消初始化）与gpio相关的资源**[](#gpio-driver-gpio "永久链接至标题")
+<a id="gpio-gpiodrv"></a>
 
+## [gpio\_driver](#gpio-cli) **:用来初始化（取消初始化）与gpio相关的资源**
 
 **命令**
 
-
 ```
 gpio_driver [init/deinit]
-
 ```
 
-
 **参数**
-
 
 ```
 init:初始化gpio
 
 deinit:取消gpio初始化
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -580,16 +501,12 @@ deinit:取消gpio初始化
     输入这条命令，配置成功，则返回：
 
     gpio deinit
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```

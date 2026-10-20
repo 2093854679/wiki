@@ -1,19 +1,60 @@
 ---
-aliases:
-- 'BK7256 › examples › cli › video'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/cli/video/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 多媒体Cli[](#cli "永久链接至标题")
 
+<a id="cli"></a>
 
+# 多媒体Cli
 
-- [DVP](video/dvp.md "dvp.md")
+- [DVP](video/dvp.md)
+- [VIDEO\_TRANSFER](video/video_transfer.md)
+- [DOORBELL](video/doorbell.md)
+- [MEDIA](video/media.md)
+- [PSRAM](video/psram.md)
+- [VIDEO AT CMD](video/video_at.md)
 
-- [VIDEO_TRANSFER](video/video_transfer.md "video_transfer.md")
+## 模块导航
 
-- [DOORBELL](video/doorbell.md "doorbell.md")
-
-- [MEDIA](video/media.md "media.md")
-
-- [PSRAM](video/psram.md "psram.md")
-
-- [VIDEO AT CMD](video/video_at.md "video_at.md")
+- [简介](../../introduction.md)
+- [快速入门](../../get-started.md)
+- [H/W 参考手册](../../hw-reference.md)
+- [API 参考手册](../../api-reference.md)
+- [开发者指南](../../developer-guide.md)
+- [OS 相关参考](../../os.md)
+- [样例演示](../../examples.md)
+- [视频](../video.md)
+- [音频](../audio.md)
+- [蓝牙](../bluetooth.md)
+- [门铃](../doorbell.md)
+- [命令](../cli.md)
+- [蓝牙](bluetooth.md)
+- [音频](audio.md)
+- [DVP](video/dvp.md)
+- [VIDEO_TRANSFER](video/video_transfer.md)
+- [DOORBELL](video/doorbell.md)
+- [MEDIA](video/media.md)
+- [PSRAM](video/psram.md)
+- [VIDEO AT CMD](video/video_at.md)
+- [触摸](touch.md)
+- [saradc](saradc/saradc.md)
+- [flashdb](flashdb/flashdb.md)
+- [外设](../peripheral.md)
+- [平台](../platform.md)
+- [LVGL](../lvgl/lvgl.md)
+- [尚云P2P](../cs2_p2p.md)
+- [wifi](../wifi.md)
+- [VND_CAL](../vnd_cal/vnd_cal.md)
+- [应用开发](../../application.md)
+- [工程](../../projects_work.md)
+- [产品解决方案](../../projects.md)
+- [开发与贡献代码流程](../../process.md)
+- [云平台](../../clounds.md)
+- [版本](../../release-notes.md)

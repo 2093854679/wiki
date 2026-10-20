@@ -1,51 +1,70 @@
-# LVGL[](#lvgl "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/gui/lvgl/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="lvgl"></a>
 
+# LVGL
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
 
-> LVGL(Light and Versatile Graphics Library，轻量级多功能图形库)是一种免费、开源且低消耗的嵌入式图形库，具有丰富且强大的模块化图像组件，可以为任何MCU、MPU及显示类型创建美观的界面，且支持多种输入设备，已成为当前热门的图形用户界面库。LVGL官方网站地址：[https://lvgl.io](https://lvgl.io "https://lvgl.io") 。
+## 1、功能概述
 
+> LVGL(Light and Versatile Graphics Library，轻量级多功能图形库)是一种免费、开源且低消耗的嵌入式图形库，具有丰富且强大的模块化图像组件，可以为任何MCU、MPU及显示类型创建美观的界面，且支持多种输入设备，已成为当前热门的图形用户界面库。LVGL官方网站地址：<https://lvgl.io> 。
 
-## 2、参考工程[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 2、参考工程
 
 > 当前avdk提供了多种类型和用途的LVGL demo参考工程，参考工程的代码路径： `\projects\lvgl\...`，编译命令： `make bk7258 PROJECT=lvgl/xxx`，具体工程介绍见：
-> [参考工程](../../projects_work/lvgl/index.md "../../projects_work/lvgl/index.md")
+> [参考工程](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/lvgl/index.html)
 
+<a id="id4"></a>
 
-## 3、开发步骤[](#id4 "永久链接至标题")
+## 3、开发步骤
 
 由于BK7258多媒体执行在CPU1上，lvgl的执行需要在CPU0上先启动CPU1，然后发送mailbox消息到CPU1上执行相关代码，最后在CPU1上执行完成后返回执行状态。该部分执行代码已封装成独立接口，如图所示，具体可按照以下步骤：
 
-![lvgl framework diagram Overview](_images/lvgl_framework.png)
+<a id="id10"></a>
+![lvgl framework diagram Overview](../../_assets/e48d274af2acedd838ef-lvgl_framework.png)
 
-Figure 1. lvgl framework diagram[](#id10 "永久链接至图片")
+
+Figure 1\. lvgl framework diagram
 
 > - 根据LCD屏幕的数据类型设置宏 `CONFIG_LV_COLOR_DEPTH` 的值，并根据需求打开LVGL所提供功能的相应宏配置；
 > - 在CPU0上调用 `media_app_lvgl_open()` 启动CPU1并发送执行LVGL event的消息；
 > - 在CPU1上定义 `void lvgl_event_handle(media_mailbox_msg_t *msg)`，并根据 `msg->event` 参数执行相应的open或close代码；
-> - 根据 `msg->param` 获取lcd的结构体信息，选择draw_buffer的内存类型并配置 `lv_vnd_config_t` 结构体的相应参数；
+> - 根据 `msg->param` 获取lcd的结构体信息，选择draw\_buffer的内存类型并配置 `lv_vnd_config_t` 结构体的相应参数；
 > - 调用 `lv_vendor_init(lv_vnd_config_t *config)` 的接口初始化lvgl的相关配置；
 > - 调用 `lcd_display_open(lcd_open_t *config)` 初始化并打开LCD显示；
 > - 若存在触摸功能，调用 `drv_tp_open(int hor_size, int ver_size, tp_mirror_type_t tp_mirror)` 的接口初始化TP的功能；
 > - 调用lvgl提供的组件接口绘制相应的UI；
 > - 调用 `lv_vendor_start()` 的接口创建LVGL的task开始调度执行；
-> - 调用 `msg_send_rsp_to_media_major_mailbox(media_mailbox_msg_t msg, uint32_t result, uint32_t dest)` 返回执行状态，dest的参数为APP_MODULE。
+> - 调用 `msg_send_rsp_to_media_major_mailbox(media_mailbox_msg_t msg, uint32_t result, uint32_t dest)` 返回执行状态，dest的参数为APP\_MODULE。
 
+<a id="id5"></a>
 
-## 4. 参数配置说明[](#id5 "永久链接至标题")
+## 4\. 参数配置说明
 
-> - LVGL中使用SRAM作为运行内存，其中draw_buffer的内存有两种选择，可通过宏 `CONFIG_LVGL_USE_PSRAM` 来设置draw_buffer使用psram内存还是sram内存，使用sram内存时的帧率会比使用psram内存时的帧率高。
-> - LVGL的draw_buffer在选择使用sram内存时，其大小根据官方的推荐为十分之一屏幕大小的size，可以在不损失帧率的情况下节省内存，以字节为单位。
-> - 参数draw_pixel_size根据draw_buffer的大小进行设置，以像素为单位。
-> - 关于双draw_buffer和双frame_buffer，双draw_buffer主要是为了并行绘制来提升显示帧率，但会消耗更多的sram内存，双frame_buffer主要是为了解决显示撕裂问题，在无触摸滑动交互的情况下可不使用双frame_buffer，具体情况可自行选择。
-> - 参数lcd_hor_res和lcd_ver_res分别为LCD分辨率的宽和高。
+> - LVGL中使用SRAM作为运行内存，其中draw\_buffer的内存有两种选择，可通过宏 `CONFIG_LVGL_USE_PSRAM` 来设置draw\_buffer使用psram内存还是sram内存，使用sram内存时的帧率会比使用psram内存时的帧率高。
+> - LVGL的draw\_buffer在选择使用sram内存时，其大小根据官方的推荐为十分之一屏幕大小的size，可以在不损失帧率的情况下节省内存，以字节为单位。
+> - 参数draw\_pixel\_size根据draw\_buffer的大小进行设置，以像素为单位。
+> - 关于双draw\_buffer和双frame\_buffer，双draw\_buffer主要是为了并行绘制来提升显示帧率，但会消耗更多的sram内存，双frame\_buffer主要是为了解决显示撕裂问题，在无触摸滑动交互的情况下可不使用双frame\_buffer，具体情况可自行选择。
+> - 参数lcd\_hor\_res和lcd\_ver\_res分别为LCD分辨率的宽和高。
 > - 参数rotation可传入不同的值实现不旋转、旋转90度、旋转180度和旋转270度。
 > - LCD TP打开接口中的最后一个参数用于解决触摸坐标和实际坐标是否存在镜像关系的问题。
 
+<a id="id6"></a>
 
-## 5. 代码讲解[](#id6 "永久链接至标题")
-
+## 5\. 代码讲解
 
 ```
 void lvgl_event_handle(media_mailbox_msg_t *msg)
@@ -68,6 +87,7 @@ void lvgl_event_handle(media_mailbox_msg_t *msg)
     //回复执行的结果到CPU0
     msg_send_rsp_to_media_major_mailbox(msg, BK_OK, APP_MODULE);
 }
+
 
 void lvgl_event_open_handle(media_mailbox_msg_t *msg)
 {
@@ -110,35 +130,36 @@ void lvgl_event_open_handle(media_mailbox_msg_t *msg)
 
     lv_vendor_start();  //启动LVGL绘制
 }
-
 ```
 
+<a id="id7"></a>
 
-## 6、开发说明[](#id7 "永久链接至标题")
+## 6、开发说明
 
 > | 目录 | 说明 |
 > | --- | --- |
-> | 图片解码显示 | 在lv_conf.h文件中打开 `LV_USE_PNG`、`LV_USE_SJPG` 和 `LV_USE_GIF`， 对于大分辨率图像，还需打开 `LV_PNG_USE_PSRAM`、`LV_SJPG_USE_PSRAM` 和 `LV_GIF_USE_PSRAM` 宏来使用psram进行解码。 |
-> | 文件系统 | bk_vfs既支持FATFS又支持LITTLEFS，可参考cli_vfs.c文件熟悉用法。首先需要打开 `CONFIG_VFS`，再依据所需文件系统类型打开对应的宏（`CONFIG_FATFS` 或 `CONFIG_LITTLEFS`），若使用FATFS文件系统，还可选择另一种方式，只需打开 `CONFIG_FATFS` ，并将lv_conf.h文件中的 `LV_USE_FS_FATFS` 设置为1。 |
-> | freetype字库 | 将字体打包成bin文件烧录到user分区地址，并将lv_conf.h文件中的 `LV_USE_FREETYPE` 设置为1，同时在工程中通过配置宏 `CONFIG_MEDIA_UI_TASK_STACK_SIZE` 来扩大task栈空间。 |
+> | 图片解码显示 | 在lv\_conf.h文件中打开 `LV_USE_PNG`、`LV_USE_SJPG` 和 `LV_USE_GIF`， 对于大分辨率图像，还需打开 `LV_PNG_USE_PSRAM`、`LV_SJPG_USE_PSRAM` 和 `LV_GIF_USE_PSRAM` 宏来使用psram进行解码。 |
+> | 文件系统 | bk\_vfs既支持FATFS又支持LITTLEFS，可参考cli\_vfs.c文件熟悉用法。首先需要打开 `CONFIG_VFS`，再依据所需文件系统类型打开对应的宏（`CONFIG_FATFS` 或 `CONFIG_LITTLEFS`），若使用FATFS文件系统，还可选择另一种方式，只需打开 `CONFIG_FATFS` ，并将lv\_conf.h文件中的 `LV_USE_FS_FATFS` 设置为1。 |
+> | freetype字库 | 将字体打包成bin文件烧录到user分区地址，并将lv\_conf.h文件中的 `LV_USE_FREETYPE` 设置为1，同时在工程中通过配置宏 `CONFIG_MEDIA_UI_TASK_STACK_SIZE` 来扩大task栈空间。 |
 > | 调整工程分区大小 | 只需修改工程中的 `bk7258_partitions.csv` 文件即可，注意对齐要求，重新编译 前需要先make clean。 |
 > | 资源文件打包工具 | 根据选择的文件系统类型，使用对应的打包工具进行生成，工具可咨询FAE获取。 |
 
+<a id="id8"></a>
 
-## 7、示例工程说明[](#id8 "永久链接至标题")
+## 7、示例工程说明
 
-如下表所示，BK7258上提供了多种LVGL demo工程，用于演示不同类型不同场景的功能，具体细节可见参考工程中：[图形界面工程](../../projects/lvgl/index.md "../../projects/lvgl/index.md")。
+如下表所示，BK7258上提供了多种LVGL demo工程，用于演示不同类型不同场景的功能，具体细节可见参考工程中：[图形界面工程](../projects/lvgl.md)。
 
 > | 工程名 | LCD分辨率 | 数据格式 | 工程说明 |
 > | --- | --- | --- | --- |
-> | 86box | 480*480 | RGB565 | 86盒子演示 |
-> | 86box_smart_panel | 480*480 | RGB565 | 带语音识别的86盒子演示 |
-> | benchmark | 480*480 | RGB565 | LVGL性能跑分展示 |
-> | camera | 480*854 | RGB565 | LVGL和camera图像切换演示 |
-> | keypad_encoder | 800*480 | RGB565 | LVGL官方demo |
-> | meter | 400*400 | RGB565 | QSPI LCD动画演示 |
-> | meter_rgb_16M | 720*1280 | RGB888 | RGB888 LCD动画演示 |
-> | meter_spi | 320*480 | RGB565 | SPI LCD动画演示 |
-> | music | 720*1280 | RGB565 | LVGL官方demo |
-> | stress | 800*480 | RGB565 | LVGL官方demo |
-> | widgets | 1024*600 | RGB565 | LVGL官方demo |
+> | 86box | 480\*480 | RGB565 | 86盒子演示 |
+> | 86box\_smart\_panel | 480\*480 | RGB565 | 带语音识别的86盒子演示 |
+> | benchmark | 480\*480 | RGB565 | LVGL性能跑分展示 |
+> | camera | 480\*854 | RGB565 | LVGL和camera图像切换演示 |
+> | keypad\_encoder | 800\*480 | RGB565 | LVGL官方demo |
+> | meter | 400\*400 | RGB565 | QSPI LCD动画演示 |
+> | meter\_rgb\_16M | 720\*1280 | RGB888 | RGB888 LCD动画演示 |
+> | meter\_spi | 320\*480 | RGB565 | SPI LCD动画演示 |
+> | music | 720\*1280 | RGB565 | LVGL官方demo |
+> | stress | 800\*480 | RGB565 | LVGL官方demo |
+> | widgets | 1024\*600 | RGB565 | LVGL官方demo |

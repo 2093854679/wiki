@@ -1,26 +1,42 @@
-# MP3 Cli[](#mp3-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/cli/audio/mp3.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="mp3-cli"></a>
 
+# MP3 Cli
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 为了便于验证MP3解码的功能，为此设计了一系列cli CMD，主要包括从SDCARD读取MP3文件进行解码以及解码并播放两种demo，当前cli命令是否生效由宏 `CLI_CFG_MP3` 决定，宏控制位置在：`components\bk_cli\cli_config.h` 文件中，该宏是否生效由内部宏 `CONFIG_AUDIO_MP3_TEST` 决定。
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > 路径：`components\demos\media\audio\mp3\mp3_demo.c`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 支持的命令如下:
 
-> 1.mp3_decode_test
+> 1.mp3\_decode\_test
 > :   - 功能说明
 >       :   用来测试MP3解码功能，并将解码后的PCM文件存放到SDcard中。
 >     - 命令格式
->       :   mp3_decode_test param1 param2 param3
+>       :   mp3\_decode\_test param1 param2 param3
 >
 >           | Param | value |
 >           | --- | --- |
@@ -32,11 +48,11 @@
 >
 >           关闭测试文件并释放资源：`mp3_decode_test stop qingtian.mp3 qingtian.pcm`
 >
-> 2.mp3_play_test
+> 2.mp3\_play\_test
 > :   - 功能说明
 >       :   用来测试MP3解码并实时播放的功能（使用audio driver基本API）。
 >     - 命令格式
->       :   mp3_play_test param1 param2
+>       :   mp3\_play\_test param1 param2
 >
 >           | Param | value |
 >           | --- | --- |
@@ -47,11 +63,11 @@
 >
 >           关闭测试文件并释放资源：`mp3_play_test stop qingtian.mp3`
 >
-> 3.aud_intf_mp3_play_test
+> 3.aud\_intf\_mp3\_play\_test
 > :   - 功能说明
 >       :   用来测试MP3解码并实时播放的功能（使用audio intf基本API）。
 >     - 命令格式
->       :   aud_intf_mp3_play_test param1 param2
+>       :   aud\_intf\_mp3\_play\_test param1 param2
 >
 >           | Param | value |
 >           | --- | --- |

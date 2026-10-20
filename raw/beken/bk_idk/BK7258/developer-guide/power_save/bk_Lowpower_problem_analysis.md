@@ -1,19 +1,34 @@
-# 低功耗问题分析[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/power_save/bk_Lowpower_problem_analysis.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
-## 一、低压问题分析指导[](#id2 "永久链接至标题")
+# 低功耗问题分析
 
+<a id="id2"></a>
 
-### 1.进低压失败[](#id3 "永久链接至标题")
+## 一、低压问题分析指导
+
+<a id="id3"></a>
+
+### 1.进低压失败
 
 如果进低压失败，首先确认是否满足进入低压的条件：
-
 
 - 1. 业务线程可能有类似while(1)的操作,业务线程一直在运行，导致系统无法进入IDLE task。
 
 该问题debug方法：
 
-> a) 异常后，通过串口发送测试命令：pm_debug 1
+> a) 异常后，通过串口发送测试命令：pm\_debug 1
 > 观察是否有以下log打印：
 >
 > > ```
@@ -26,12 +41,11 @@
 > b) 以上问题的解决方案：
 > 线程运行不能一直while(1)进行运行或者等待，应该使用信号量或者事件标识，没有业务工作时，线程进入sleep。
 
-
 - 2. 相应的模块没有投sleep的票，导致无法进入低压。
 
 该问题debug方法：
 
-> a) 异常后，通过串口发送测试命令：pm_debug 1
+> a) 异常后，通过串口发送测试命令：pm\_debug 1
 > 有以下log打印：
 >
 > > ```
@@ -43,8 +57,8 @@
 > > 需要满足的票值：0xFFFFFFFF
 >
 > 从以上两个值对比来看，bit12的值为0，表示该位置的票没有投上，
-> 查看pm_sleep_module_name_e枚举类型，值为12的票
-> 为PM_SLEEP_MODULE_NAME_APP，则表示该APP票没有投上。
+> 查看pm\_sleep\_module\_name\_e枚举类型，值为12的票
+> 为PM\_SLEEP\_MODULE\_NAME\_APP，则表示该APP票没有投上。
 >
 > b) 以上问题的解决方案：
 > 需要在业务线程处理完响应的工作后，调用以下接口把票投上：
@@ -90,11 +104,11 @@
 > > }pm_sleep_module_name_e;
 > > ```
 
+<a id="id4"></a>
 
-### 2.低压唤醒后系统自动复位[](#id4 "永久链接至标题")
+### 2.低压唤醒后系统自动复位
 
 低压唤醒后系统自动复位，可能的原因如下：
-
 
 - 1. wdt复位:低压唤醒后，有中断没有清除掉，导致中断不断的上报，WDT无法喂狗导致
 
@@ -106,20 +120,21 @@
 > b) 以上问题的解决方案：
 > 中断响应完后，需要把中断清除，防止中断不断往上报。
 
+<a id="id5"></a>
 
-## 二、深度睡眠问题分析指导[](#id5 "永久链接至标题")
+## 二、深度睡眠问题分析指导
 
+<a id="id6"></a>
 
-### 1.进深度睡眠失败[](#id6 "永久链接至标题")
+### 1.进深度睡眠失败
 
 如果进深度睡眠失败，首先确认是否满足进入深度睡眠的条件：
-
 
 - 1. 业务线程可能有类似while(1)的操作,业务线程一直在运行，导致系统无法进入IDLE task。
 
 该问题debug方法：
 
-> 1. 异常后，通过串口发送测试命令：pm_debug 2
+> 1. 异常后，通过串口发送测试命令：pm\_debug 2
 
 观察是否有以下log打印：
 
@@ -134,7 +149,6 @@
 
 线程运行不能一直while(1)进行运行或者等待，应该使用信号量或者事件标识，没有业务工作时，线程进入sleep。
 
-
 - 2. 没有满足了进入深度睡眠的票（BT和WIFI进入sleep并下电,多媒体关闭并下电）
 
 重要
@@ -144,7 +158,7 @@
 
 该问题debug方法：
 
-> a)异常后，通过串口发送测试命令：pm_debug 1
+> a)异常后，通过串口发送测试命令：pm\_debug 1
 
 有以下log打印：
 
@@ -157,7 +171,7 @@
 > 需要满足的票值：0x3C0
 
 从以上两个值对比来看，bit6和bit7的值为0，表示该位置的票没有投上，
-查看PM_ENTER_DEEP_SLEEP_MODULES_CONFIG定义的值，bit6为AUDIO,
+查看PM\_ENTER\_DEEP\_SLEEP\_MODULES\_CONFIG定义的值，bit6为AUDIO,
 Bit7为VIDEO，则表示以上两个模块的票没有投上。
 
 > > ```
@@ -173,10 +187,11 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > b)以上问题的解决方案：
 > Audio,video模块需要在进deepsleep之前，调用各自模块的接口关闭audio,video。
 
+<a id="id7"></a>
 
-## 三、获取低功耗相关调试信息[](#id7 "永久链接至标题")
+## 三、获取低功耗相关调试信息
 
-> > > > 通过串口发送测试命令：pm_debug 8，获取低功耗相关调试信息（模块未使用则不输出相关调试信息）
+> > > > 通过串口发送测试命令：pm\_debug 8，获取低功耗相关调试信息（模块未使用则不输出相关调试信息）
 > > >
 > > > ```
 > > > 1)pm video and audio state:0x0 0x0
@@ -193,19 +208,19 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > >
 > > - pm video and audio state:0x0 0x0 ： 记录video和audio电源域投票状态
 > > - pm ahpb and bakp state:0x0 0x10001 : 记录ahpb和bakp电源域投票状态
-> > - pm low vol[module:0xffbfffff] [need module:0xffffffff]： 记录进入低压需要投票的模块和已经投票的模块
-> > - pm deepsleep[module:0x5e0][need module:0x3c0] ：记录进入deepsleep需要投票的模块和已经投票的模块
-> > - pm power and pmu state[0x202a25e8][0x7d000271] ：输出所有电源域的状态和lpo时钟源选择状态
-> > - Attention the bakp not power down[modulue:0x10001] ：输出bakp电源域下的模块状态
-> > - pm_psram_ctrl_state:0x0 0x0 ：记录使用psram的子模块和psram作为内存使用的初始化完成标志
-> > - pm_cp1_ctrl_state:0x0 ： 记录启动cpu1的子模块
-> > - pm_cp1_boot_ready:0x0 ： 记录cpu1的启动状态
-> > - pm_module_lv_sleep_state:0xffffffffffffffff ： 记录退出低压时需要恢复的模块状态
+> > - pm low vol\[module:0xffbfffff\] \[need module:0xffffffff\]： 记录进入低压需要投票的模块和已经投票的模块
+> > - pm deepsleep\[module:0x5e0\]\[need module:0x3c0\] ：记录进入deepsleep需要投票的模块和已经投票的模块
+> > - pm power and pmu state\[0x202a25e8\]\[0x7d000271\] ：输出所有电源域的状态和lpo时钟源选择状态
+> > - Attention the bakp not power down\[modulue:0x10001\] ：输出bakp电源域下的模块状态
+> > - pm\_psram\_ctrl\_state:0x0 0x0 ：记录使用psram的子模块和psram作为内存使用的初始化完成标志
+> > - pm\_cp1\_ctrl\_state:0x0 ： 记录启动cpu1的子模块
+> > - pm\_cp1\_boot\_ready:0x0 ： 记录cpu1的启动状态
+> > - pm\_module\_lv\_sleep\_state:0xffffffffffffffff ： 记录退出低压时需要恢复的模块状态
 > > - 1)pm video and audio state:0x0 0x0
 > >
 > >   > 记录video和audio电源域电源域投票模块状态。
 > >   >
-> >   > - 第一个0x0记录video投票上下电情况。如果值是0x0表示投的票都下电了;如果值是0x1表示bit0所对应的模块JPEG_EN模块没有投下电的票,各个bit对应的模块。
+> >   > - 第一个0x0记录video投票上下电情况。如果值是0x0表示投的票都下电了;如果值是0x1表示bit0所对应的模块JPEG\_EN模块没有投下电的票,各个bit对应的模块。
 > >   > > ```
 > >   > > typedef enum
 > >   > > {
@@ -238,15 +253,15 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > >
 > > > 备注：ahpb和bakp比较特殊，由SDK底层进行管理，一般使用场景，应用程序不需要关注。进入低压时会备份相关寄存器，出低压时会恢复相关寄存器。
 >
-> - 3)pm low vol[module:0xffbfffff] [need module:0xffffffff]
+> - 3)pm low vol\[module:0xffbfffff\] \[need module:0xffffffff\]
 >
 > > 记录进入低压需要投票的模块和已经投票的模块
 > > 当系统无法进入低压时，确认该项：
 > > need module:0xffffffff 表示进入低压需要32张票都投1，则表示都进入睡眠状态。
 > > module:0xffbfffff 其中为1的bit位，表示已经进入了睡眠的模块；其中为0的bit位，表示还没有进入睡眠的模块。
-> > 各个bit为对应的模块，请参考pm_sleep_module_name_e中定义的票。
+> > 各个bit为对应的模块，请参考pm\_sleep\_module\_name\_e中定义的票。
 >
-> - 4)pm deepsleep[module:0x5e0][need module:0x3c0]
+> - 4)pm deepsleep\[module:0x5e0\]\[need module:0x3c0\]
 >
 > > 记录进入deepsleep需要投票的模块和已经投票的模块
 > > need module:0x3c0 表示进入深度睡眠，以下模块需要关闭状态。值为1表示该模块已经关闭了。
@@ -255,7 +270,7 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > > module:0x5e0 表示当前投票进入deepsleep的模块。
 > > 其中bit6,bit7为1了，则表示AUDP,VIDP模块已经关闭了。
 > > Bit8为1了，则表示BTSP模块进入睡眠了。
-> > Bit9为0， 则表示WIFI_MAC还没有进入睡眠。
+> > Bit9为0， 则表示WIFI\_MAC还没有进入睡眠。
 > > 以上值不满足进入deepsleep的条件。
 > >
 > > > ```
@@ -268,19 +283,19 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > > > }
 > > > ```
 >
-> - 5)pm power and pmu state[0x202a25e8][0x7d000272]
+> - 5)pm power and pmu state\[0x202a25e8\]\[0x7d000272\]
 >
 > > 输出所有电源域的状态和lpo时钟源选择状态。
-> > 红色第一项表示电源关闭状态,关注bit[0]到bit[15],各个bit位代表的含义如下图。
+> > 红色第一项表示电源关闭状态,关注bit\[0\]到bit\[15\],各个bit位代表的含义如下图。
 > > 其中值为1, 表示该电源域关闭，值为0，表示该电源域开启。
 > >
 > > 例如:
 > > a)0x202a25e8(进入低功耗预期以下模块都关闭了)
 > >
-> > 其中8:表示pwd_encp模块电源关闭了。
-> > e:表示pwd_vidp,pwd,audp,pwd_ ahbp模块的电源关闭了
-> > 5:表示pwd_wifip_phy,pwd,btsp关闭了
-> > 2:表示pwd_ofdm关闭了。
+> > 其中8:表示pwd\_encp模块电源关闭了。
+> > e:表示pwd\_vidp,pwd,audp,pwd\_ ahbp模块的电源关闭了
+> > 5:表示pwd\_wifip\_phy,pwd,btsp关闭了
+> > 2:表示pwd\_ofdm关闭了。
 > >
 > > 以下为每bit对应的电源(0:表示开; 1:表示关闭)：
 > >
@@ -309,20 +324,20 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > >
 > > > 备注
 > > >
-> > > 进入低压的预期值为：pm power and pmu state[0x202a25e8][0x7d000272]
+> > > 进入低压的预期值为：pm power and pmu state\[0x202a25e8\]\[0x7d000272\]
 > > > 默认32K时钟源为ROSC
 >
-> - 6)Attention the bakp not power down[modulue:0x10001]
+> - 6)Attention the bakp not power down\[modulue:0x10001\]
 >
 > > 输出bakp电源域下的模块状态。
 > > Bakp模块比较特殊，底层SDK做好适配。当前的方案是进入低压前备份相关的寄存器的值，低压唤醒后恢复备份的值。
 >
-> - 7)pm_psram_ctrl_state:0x0 0x0
+> - 7)pm\_psram\_ctrl\_state:0x0 0x0
 >
 >   > 记录使用psram的子模块和psram作为内存使用的初始化完成标志。
 >   > a)第一个红色参数表示投票开启PSRAM的模块是否都关闭.
 >   > 0x0：表示投票开启PSRAM的模块都关闭了
->   > 如果非0，例如0x4，则表示bit2对应的模块（PM_POWER_PSRAM_MODULE_NAME_AUDP_AUDIO），
+>   > 如果非0，例如0x4，则表示bit2对应的模块（PM\_POWER\_PSRAM\_MODULE\_NAME\_AUDP\_AUDIO），
 >   > 没有投关闭PSRAM的票。
 >
 >   ```
@@ -346,18 +361,18 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 >   }pm_power_psram_module_name_e;
 >   ```
 >
-> > b)当应用程序没有把malloc psram作为SRAM用，进入电压前没有是否，pm_debug 8命令后，会打印以下log，并会告诉哪个地方没有释放：
+> > b)当应用程序没有把malloc psram作为SRAM用，进入电压前没有是否，pm\_debug 8命令后，会打印以下log，并会告诉哪个地方没有释放：
 > > ”Attention the CPU1 psram malloc count”
 > >
 > > c)如果PSRAM不关闭，能够进入低压，但是低压的底电流会变高。
 >
-> - 8)pm_cp1_ctrl_state:0x0
+> - 8)pm\_cp1\_ctrl\_state:0x0
 >
 > > 记录启动cpu1的子模块。
 > > 当值为0x0时，表示投CPU1启动的模块，都关闭了。
 > >
 > > 当值不为0x0时，表示投CPU1启动的模块，还有没有关闭的。
-> > 例如当值为0x4时，表示PM_BOOT_CP1_MODULE_NAME_AUDP_AUDIO模块没有投关闭CPU1的票。
+> > 例如当值为0x4时，表示PM\_BOOT\_CP1\_MODULE\_NAME\_AUDP\_AUDIO模块没有投关闭CPU1的票。
 > >
 > > 各个bit 位对应的模块，如下:
 > >
@@ -382,24 +397,24 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 > > > }pm_boot_cp1_module_name_e;
 > > > ```
 >
-> - 9)pm_cp1_boot_ready:0x0
+> - 9)pm\_cp1\_boot\_ready:0x0
 >
 >   > 记录cpu1的启动状态。
 >   > 确认CPU1是否关闭。
 >   > 当值为0x0时，表示CPU1已经关闭了
 >   > 当值为0x1时，表示CPU1启动了，还没有关闭。
-> - 10)pm_module_lv_sleep_state:0xffffffffffffffff
+> - 10)pm\_module\_lv\_sleep\_state:0xffffffffffffffff
 >   :   记录退出低压时需要恢复的模块状态。
 >       该state主要是给SDK内部的bakp模块使用。
 
+<a id="id8"></a>
 
-## 四、低功耗问题问答[](#id8 "永久链接至标题")
+## 四、低功耗问题问答
 
 > - 1.进入深度睡眠后功耗偏高问题确认
 >   :   - a.进入深度睡眠成功后，VDDDIG的电压为0v.电流在20uA左右.
 >       - b.如果VDDDIG的电压为0v, 电流超过了25Ua则需要确认是否外围电路漏电。
 > - 2.进入低压后功耗偏高问题确认
->   :   - a.通过pm_debug 8确认该关闭的模块都关闭了，功耗还偏高，则确认外围电路是否由漏电。通过万用表确认各个GPIO是否有高电平。
+>   :   - a.通过pm\_debug 8确认该关闭的模块都关闭了，功耗还偏高，则确认外围电路是否由漏电。通过万用表确认各个GPIO是否有高电平。
 >       - b.确认测试环境，温度高低压功耗也会变高。
 >       - c.WIFI保活功耗高，则首先确认底电流是否符合预期，然后确认WIFI开窗时长是否符合预期，WIFI接收电流是否符合预期。WIFI发包周期是否频繁，DTIM的值是否符合预期。
-

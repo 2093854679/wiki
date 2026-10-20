@@ -1,8 +1,22 @@
-# 中控(Central)[](#central "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/bluetooth/central/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="central"></a>
 
+# 中控(Central)
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 本工程用于手机、拨号盘等主设备场景，主要功能有
 >
@@ -12,8 +26,9 @@
 >
 > 3.ble gatt server/gatt client
 
+<a id="id2"></a>
 
-### 1.1 软件规格[](#id2 "永久链接至标题")
+### 1.1 软件规格
 
 > - a2dp：
 >   :   - avdtp source
@@ -26,49 +41,55 @@
 >       - gatt client
 >       - smp legacy pair/secure connection pair
 
+<a id="id3"></a>
 
-### 1.2 代码路径及编译命令[](#id3 "永久链接至标题")
+### 1.2 代码路径及编译命令
 
-> Demo路径：[./projects/bluetooth/central](https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/central "https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/central")
+> Demo路径：[./projects/bluetooth/central](https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/central)
 >
 > 编译命令：`make bk7258 PROJECT=bluetooth/central`
 
+<a id="cmd"></a>
 
-## 2 cmd命令简介[](#cmd "永久链接至标题")
+## 2 cmd命令简介
 
+<a id="a2dp-source"></a>
 
-### 2.1 a2dp source[](#a2dp-source "永久链接至标题")
-
-> |  |  |
-> | --- | --- |
-> | a2dp_player connect <xx:xx:xx:xx:xx:xx> | 连接音响 |
-> | a2dp_player disconnect <xx:xx:xx:xx:xx:xx> | 断开连接 |
-> | a2dp_player play <xxx.mp3> | 播放mp3 |
-> | a2dp_player stop | 停止播放 |
-> | a2dp_player pause | 暂停 |
-> | a2dp_player resume | 恢复 |
-> | a2dp_player abs_vol <xxx> | 设置音响绝对音量 0 ~ 127 (是否有效视对端而定) |
-
-
-### 2.2 ble gatt[](#ble-gatt "永久链接至标题")
+### 2.1 a2dp source
 
 > |  |  |
 > | --- | --- |
-> | ble_gatt_demo -h | 显示详细命令 |
-> | ble_gatt_demo <gatts|gattc> init | gatts/gattc初始化 |
-> | ble_gatt_demo gatts disconnect <xx:xx:xx:xx:xx:xx> | gatts断开连接 |
-> | ble_gatt_demo gattc connect <xx:xx:xx:xx:xx:xx> <0|1> | 连接gatts，0为public，1为random |
-> | ble_gatt_demo gattc disconnect <xx:xx:xx:xx:xx:xx> | gattc断开连接 |
-> | ble_gatt_demo gattc connect_cancel | 取消连接 |
-> | ble_gatt_demo update_param <xx:xx:xx:xx:xx:xx> <interval> <timeout> | 更新连接参数 |
+> | a2dp\_player connect \<xx:xx:xx:xx:xx:xx\> | 连接音响 |
+> | a2dp\_player disconnect \<xx:xx:xx:xx:xx:xx\> | 断开连接 |
+> | a2dp\_player play \<xxx.mp3\> | 播放mp3 |
+> | a2dp\_player stop | 停止播放 |
+> | a2dp\_player pause | 暂停 |
+> | a2dp\_player resume | 恢复 |
+> | a2dp\_player abs\_vol \<xxx\> | 设置音响绝对音量 0 \~ 127 (是否有效视对端而定) |
 
+<a id="ble-gatt"></a>
 
-## 3 a2dp source 测试[](#id4 "永久链接至标题")
+### 2.2 ble gatt
 
+> |  |  |
+> | --- | --- |
+> | ble\_gatt\_demo -h | 显示详细命令 |
+> | ble\_gatt\_demo \<gatts\|gattc\> init | gatts/gattc初始化 |
+> | ble\_gatt\_demo gatts disconnect \<xx:xx:xx:xx:xx:xx\> | gatts断开连接 |
+> | ble\_gatt\_demo gattc connect \<xx:xx:xx:xx:xx:xx\> \<0\|1\> | 连接gatts，0为public，1为random |
+> | ble\_gatt\_demo gattc disconnect \<xx:xx:xx:xx:xx:xx\> | gattc断开连接 |
+> | ble\_gatt\_demo gattc connect\_cancel | 取消连接 |
+> | ble\_gatt\_demo update\_param \<xx:xx:xx:xx:xx:xx\> \<interval\> \<timeout\> | 更新连接参数 |
 
-### 3.1 测试过程[](#id5 "永久链接至标题")
+<a id="id4"></a>
 
-> 1.准备一张sd卡，格式化成exfat，将project/bluetooth/central/1_qcs.mp3放入根目录。(必须是16bits的mp3)
+## 3 a2dp source 测试
+
+<a id="id5"></a>
+
+### 3.1 测试过程
+
+> 1.准备一张sd卡，格式化成exfat，将project/bluetooth/central/1\_qcs.mp3放入根目录。(必须是16bits的mp3)
 >
 > 2.插入sd卡，开机。
 >
@@ -80,7 +101,7 @@
 >
 > 6.输入 `a2dp_player play xxx.mp3`。
 >
-> 7.如果sd卡正常，会提示”f_mount OK”，如果音乐文件存在，会提示”mp3 file open successfully”
+> 7.如果sd卡正常，会提示”f\_mount OK”，如果音乐文件存在，会提示”mp3 file open successfully”
 >
 > 8.此时可听到播出声音
 >
@@ -88,10 +109,11 @@
 >
 > 10.如果音响支持avrcp，可以通过音响控制播放暂停。(存在兼容性问题，参见本章节兼容性说明)
 
+<a id="id6"></a>
 
-### 3.2 兼容性说明[](#id6 "永久链接至标题")
+### 3.2 兼容性说明
 
-> 1.仅播放歌曲场景，某些音响如果长时间处于stop(本地a2dp_player stop 或对端avdtp suspend)状态，会主动断开连接。log会提示bt_api_event_cb:Disconnected from xx:xx:xx:xx:xx:xx
+> 1.仅播放歌曲场景，某些音响如果长时间处于stop(本地a2dp\_player stop 或对端avdtp suspend)状态，会主动断开连接。log会提示bt\_api\_event\_cb:Disconnected from xx:xx:xx:xx:xx:xx
 >
 > 2.某些音响不会向本地注册avrcp playback notify，会导致两端操作播放暂停时状态不一致的现象。
 >
@@ -99,16 +121,19 @@
 >
 > 4.某些音响不支持设置绝对音量。
 
+<a id="id7"></a>
 
-### 3.3 其他注意事项[](#id7 "永久链接至标题")
+### 3.3 其他注意事项
 
-> 1.如果sdcard有问题，会出现 f_mount failed 或 read data crc error 的提示
+> 1.如果sdcard有问题，会出现 f\_mount failed 或 read data crc error 的提示
 
+<a id="id8"></a>
 
-## 4 ble gatt 测试[](#id8 "永久链接至标题")
+## 4 ble gatt 测试
 
+<a id="client"></a>
 
-### 4.1 单板作为client与手机连接测试[](#client "永久链接至标题")
+### 4.1 单板作为client与手机连接测试
 
 > 1.手机使用nrf connect开启广播
 >
@@ -120,8 +145,9 @@
 >
 > 4.discover完成会有打印 `BK_GATTC_DIS_SRVC_CMPL_EVT`
 
+<a id="id9"></a>
 
-### 4.2 双板对测[](#id9 "永久链接至标题")
+### 4.2 双板对测
 
 > 1.开发板a输入 `ble_gatt_demo gatts init`
 >
@@ -135,29 +161,37 @@
 >
 > 6.后续a板会定时给b板notify
 
+<a id="id10"></a>
 
-## 5 结构图[](#id10 "永久链接至标题")
+## 5 结构图
 
+<a id="id11"></a>
 
-### 5.1 运行时[](#id11 "永久链接至标题")
+### 5.1 运行时
 
-![module architecture Overview](../_images/bluetooth_central_runtime_arch.png)
-
-Figure 1. software module architecture[](#id18 "永久链接至图片")
-
-
-### 5.2 流程图[](#id12 "永久链接至标题")
-
-![module architecture Overview](../_images/bluetooth_central_flow_chart.png)
-
-Figure 2. flow chart[](#id19 "永久链接至图片")
+<a id="id18"></a>
+![module architecture Overview](../../../_assets/111eb9b6e02ee43c612e-bluetooth_central_runtime_arch.png)
 
 
-## 6 重要流程说明[](#id13 "永久链接至标题")
+Figure 1\. software module architecture
+
+<a id="id12"></a>
+
+### 5.2 流程图
+
+<a id="id19"></a>
+![module architecture Overview](../../../_assets/3b590cd7b361c57b5227-bluetooth_central_flow_chart.png)
 
 
-### 6.1 连接音响[](#id14 "永久链接至标题")
+Figure 2\. flow chart
 
+<a id="id13"></a>
+
+## 6 重要流程说明
+
+<a id="id14"></a>
+
+### 6.1 连接音响
 
 ```
 int bt_a2dp_source_demo_connect(uint8_t *addr)
@@ -197,12 +231,11 @@ int bt_a2dp_source_demo_connect(uint8_t *addr)
 
     ...
 }
-
 ```
 
+<a id="mp3"></a>
 
-### 6.2 mp3解码[](#mp3 "永久链接至标题")
-
+### 6.2 mp3解码
 
 ```
 static void bt_a2dp_source_decode_task(void *arg)
@@ -293,12 +326,11 @@ static void bt_a2dp_source_decode_task(void *arg)
 
     ...
 }
-
 ```
 
+<a id="host-a2dp-pcm"></a>
 
-### 6.3 host a2dp 取数回调(pcm)[](#host-a2dp-pcm "永久链接至标题")
-
+### 6.3 host a2dp 取数回调(pcm)
 
 ```
 static int32_t a2dp_source_data_cb(uint8_t *buf, int32_t len)
@@ -323,12 +355,11 @@ static int32_t a2dp_source_data_cb(uint8_t *buf, int32_t len)
 
     return read_len;
 }
-
 ```
 
+<a id="host-a2dp"></a>
 
-### 6.3 host a2dp 重采样回调[](#host-a2dp "永久链接至标题")
-
+### 6.3 host a2dp 重采样回调
 
 ```
 static int32_t a2dp_source_pcm_resample_cb(uint8_t *in_addr, uint32_t *in_len, uint8_t *out_addr, uint32_t *out_len)
@@ -360,12 +391,11 @@ static int32_t a2dp_source_pcm_resample_cb(uint8_t *in_addr, uint32_t *in_len, u
 
     return ret;
 }
-
 ```
 
+<a id="host-a2dp-sbc"></a>
 
-### 6.4 host a2dp sbc编码回调[](#host-a2dp-sbc "永久链接至标题")
-
+### 6.4 host a2dp sbc编码回调
 
 ```
 static int32_t a2dp_source_pcm_encode_cb(uint8_t type, uint8_t *in_addr, uint32_t *in_len, uint8_t *out_addr, uint32_t *out_len)
@@ -394,12 +424,11 @@ static int32_t a2dp_source_pcm_encode_cb(uint8_t type, uint8_t *in_addr, uint32_
     ...
     return 0;
 }
-
 ```
 
+<a id="ble-gap"></a>
 
-### 6.5 ble gap初始化[](#ble-gap "永久链接至标题")
-
+### 6.5 ble gap初始化
 
 ```
 int dm_gatt_main(cli_gatt_param_t *param)
@@ -444,12 +473,11 @@ int dm_gatt_main(cli_gatt_param_t *param)
     //设置gatt mtu
     bk_ble_gatt_set_local_mtu(517);
 }
-
 ```
 
+<a id="ble-gatts"></a>
 
-### 6.6 ble gatts初始化[](#ble-gatts "永久链接至标题")
-
+### 6.6 ble gatts初始化
 
 ```
 int dm_gatts_main(cli_gatt_param_t *param)
@@ -501,12 +529,11 @@ int dm_gatts_main(cli_gatt_param_t *param)
 
     ...
 }
-
 ```
 
+<a id="ble-gattc"></a>
 
-### 6.7 ble gattc初始化[](#ble-gattc "永久链接至标题")
-
+### 6.7 ble gattc初始化
 
 ```
 int dm_gattc_main(cli_gatt_param_t *param)
@@ -543,12 +570,11 @@ int dm_gattc_main(cli_gatt_param_t *param)
 
     ...
 }
-
 ```
 
+<a id="id15"></a>
 
-### 6.8 ble gattc 连接[](#id15 "永久链接至标题")
-
+### 6.8 ble gattc 连接
 
 ```
 int32_t dm_gattc_connect(uint8_t *addr, uint32_t addr_type)
@@ -592,124 +618,140 @@ int32_t dm_gattc_connect(uint8_t *addr, uint32_t addr_type)
     ...
     return err;
 }
-
 ```
 
+<a id="faq"></a>
 
-## 7 常见问题FAQ[](#faq "永久链接至标题")
+## 7 常见问题FAQ
 
+<a id="bleevt"></a>
 
-### 7.1 ble连接、断连evt是怎样的顺序？[](#bleevt "永久链接至标题")
+### 7.1 ble连接、断连evt是怎样的顺序？
 
-> 1. BK_BLE_GAP_CONNECT_COMPLETE_EVT -> dm_gatts.c dm_gattc.c BK_GATTS_CONNECT_EVT|BK_GATTC_CONNECT_EVT -> 各个上层profile的 BK_GATTS_CONNECT_EVT|BK_GATTC_CONNECT_EVT
+> 1\. BK\_BLE\_GAP\_CONNECT\_COMPLETE\_EVT -\> dm\_gatts.c dm\_gattc.c BK\_GATTS\_CONNECT\_EVT\|BK\_GATTC\_CONNECT\_EVT -\> 各个上层profile的 BK\_GATTS\_CONNECT\_EVT\|BK\_GATTC\_CONNECT\_EVT
 >
-> 2. 各个上层profile的 BK_GATTS_DISCONNECT_EVT|BK_GATTC_DISCONNECT_EVT -> dm_gatts.c dm_gattc.c BK_GATTS_DISCONNECT_EVT|BK_GATTC_DISCONNECT_EVT -> BK_BLE_GAP_CONNECT_COMPLETE_EVT
+> 2\. 各个上层profile的 BK\_GATTS\_DISCONNECT\_EVT\|BK\_GATTC\_DISCONNECT\_EVT -\> dm\_gatts.c dm\_gattc.c BK\_GATTS\_DISCONNECT\_EVT\|BK\_GATTC\_DISCONNECT\_EVT -\> BK\_BLE\_GAP\_CONNECT\_COMPLETE\_EVT
 
+<a id="bt-ble"></a>
 
-### 7.2 蓝牙多模(bt/ble)链接的有哪些库？[](#bt-ble "永久链接至标题")
+### 7.2 蓝牙多模(bt/ble)链接的有哪些库？
 
-> libbluetooth_host_dm_dual.a 和 libbluetooth_controller_dual.a
+> libbluetooth\_host\_dm\_dual.a 和 libbluetooth\_controller\_dual.a
 
+<a id="ble-handle"></a>
 
-### 7.3 对于一个已存在的ble链路，有没有handle之类的以便于控制？[](#ble-handle "永久链接至标题")
+### 7.3 对于一个已存在的ble链路，有没有handle之类的以便于控制？
 
-> BK_GATTS_CONNECT_EVT和 BK_GATTC_CONNECT_EVT中有conn_id，所有gatts/gattc接口都以此作为handle。这些evt也包含对端addr可供上层作映射关系。
+> BK\_GATTS\_CONNECT\_EVT和 BK\_GATTC\_CONNECT\_EVT中有conn\_id，所有gatts/gattc接口都以此作为handle。这些evt也包含对端addr可供上层作映射关系。
 >
-> BK_BLE_GAP_CONNECT_COMPLETE_EVT也有hci_handle，但不能在gatt直接使用，需要通过转换接口。
+> BK\_BLE\_GAP\_CONNECT\_COMPLETE\_EVT也有hci\_handle，但不能在gatt直接使用，需要通过转换接口。
 
+<a id="gatts-db-attribute-handle"></a>
 
-### 7.4 如何创建gatts db，如何将其和attribute handle对应起来？[](#gatts-db-attribute-handle "永久链接至标题")
+### 7.4 如何创建gatts db，如何将其和attribute handle对应起来？
 
-> 1.请参考dm_gatts.c的表结构。
+> 1.请参考dm\_gatts.c的表结构。
 >
-> 2.表reg成功后会上报BK_GATTS_CREAT_ATTR_TAB_EVT，handles对应表每一行的attribute handle(其中char decl/char value只有后者有效)
+> 2.表reg成功后会上报BK\_GATTS\_CREAT\_ATTR\_TAB\_EVT，handles对应表每一行的attribute handle(其中char decl/char value只有后者有效)
 
+<a id="bk-ble-gap-register-callback-profileevt"></a>
 
-### 7.5 bk_ble_gap_register_callback能不能复用，比如多个profile都想收到evt？[](#bk-ble-gap-register-callback-profileevt "永久链接至标题")
+### 7.5 bk\_ble\_gap\_register\_callback能不能复用，比如多个profile都想收到evt？
 
-> 不能，但在dm_gatt.c里有个dm_gatt_add_gap_callback通过bk_ble_gap_register_callback封装了这个功能，更多细节请参考dm_gatts.c dm_gattc.c及现有profile的实现
+> 不能，但在dm\_gatt.c里有个dm\_gatt\_add\_gap\_callback通过bk\_ble\_gap\_register\_callback封装了这个功能，更多细节请参考dm\_gatts.c dm\_gattc.c及现有profile的实现
 
+<a id="attribute-handleevtprofile"></a>
 
-### 7.6 attribute handle的evt能不能分别给到各个profile？[](#attribute-handleevtprofile "永久链接至标题")
+### 7.6 attribute handle的evt能不能分别给到各个profile？
 
-> 请参考dm_gatts_reg_db的实现
+> 请参考dm\_gatts\_reg\_db的实现
 
+<a id="profilegattsevt"></a>
 
-### 7.7 各个profile能否收到gatts的evt？[](#profilegattsevt "永久链接至标题")
+### 7.7 各个profile能否收到gatts的evt？
 
-> 请参考dm_gatts_reg_db的实现，目前已添加了几个evt，可以根据需要修改
+> 请参考dm\_gatts\_reg\_db的实现，目前已添加了几个evt，可以根据需要修改
 
+<a id="evt"></a>
 
-### 7.8 配对相关的evt有哪些流程？[](#evt "永久链接至标题")
+### 7.8 配对相关的evt有哪些流程？
 
-> BK_BLE_GAP_SEC_REQ_EVT 配对请求
+> BK\_BLE\_GAP\_SEC\_REQ\_EVT 配对请求
 >
-> BK_BLE_GAP_AUTH_CMPL_EVT 配对结果
+> BK\_BLE\_GAP\_AUTH\_CMPL\_EVT 配对结果
 >
-> BK_BLE_GAP_BOND_KEY_GENERATE_EVT key生成
+> BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT key生成
 >
-> BK_BLE_GAP_PASSKEY_NOTIF_EVT passkey生成通知
+> BK\_BLE\_GAP\_PASSKEY\_NOTIF\_EVT passkey生成通知
 >
-> BK_BLE_GAP_PASSKEY_REQ_EVT 本地输入passkey req evt
+> BK\_BLE\_GAP\_PASSKEY\_REQ\_EVT 本地输入passkey req evt
 >
-> BK_BLE_GAP_NC_REQ_EVT 本地number compare请求
+> BK\_BLE\_GAP\_NC\_REQ\_EVT 本地number compare请求
 >
-> 大致流程是BK_BLE_GAP_SEC_REQ_EVT -> passkey、number compare(如果有) -> BK_BLE_GAP_BOND_KEY_GENERATE_EVT -> BK_BLE_GAP_AUTH_CMPL_EVT
+> 大致流程是BK\_BLE\_GAP\_SEC\_REQ\_EVT -\> passkey、number compare(如果有) -\> BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT -\> BK\_BLE\_GAP\_AUTH\_CMPL\_EVT
 
+<a id="appkey"></a>
 
-### 7.9 app应该存储key吗？[](#appkey "永久链接至标题")
+### 7.9 app应该存储key吗？
 
-> 需要，BK_BLE_GAP_BOND_KEY_GENERATE_EVT需要存入flash
+> 需要，BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT需要存入flash
 
+<a id="bond"></a>
 
-### 7.10 绑定(bond)和解绑流程？[](#bond "永久链接至标题")
+### 7.10 绑定(bond)和解绑流程？
 
-> 1.绑定：BK_BLE_GAP_BOND_KEY_GENERATE_EVT后需要存入flash
+> 1.绑定：BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT后需要存入flash
 >
-> 2.解绑：通过bk_ble_gap_bond_dev_list_operation 删除(有限制)
+> 2.解绑：通过bk\_ble\_gap\_bond\_dev\_list\_operation 删除(有限制)
 
+<a id="id16"></a>
 
-### 7.11 绑定相关还有哪些注意事项？[](#id16 "永久链接至标题")
+### 7.11 绑定相关还有哪些注意事项？
 
 > 1.绑定涉及到的存储分app部分和sdk部分
 >
-> 2.配对成功后，sdk上报BK_BLE_GAP_BOND_KEY_GENERATE_EVT，app需要将key存入flash中以备下次开机使用。sdk也会存储这部分key但只是在ram里。
+> 2.配对成功后，sdk上报BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT，app需要将key存入flash中以备下次开机使用。sdk也会存储这部分key但只是在ram里。
 >
-> 3.配对成功后，如果断连并第二次连接，如果对端请求加密、鉴权，结果也会在BK_BLE_GAP_AUTH_CMPL_EVT体现
+> 3.配对成功后，如果断连并第二次连接，如果对端请求加密、鉴权，结果也会在BK\_BLE\_GAP\_AUTH\_CMPL\_EVT体现
 >
-> 4.配对失败(或者加密、鉴权失败)，auth_cmpl.success为0，则app需要将对应key从flash删除
+> 4.配对失败(或者加密、鉴权失败)，auth\_cmpl.success为0，则app需要将对应key从flash删除
 >
-> 5.一旦app决定要删除key，则同时还需要调用bk_ble_gap_bond_dev_list_operation删除sdk存储的key
+> 5.一旦app决定要删除key，则同时还需要调用bk\_ble\_gap\_bond\_dev\_list\_operation删除sdk存储的key
 >
-> 6.使用bk_ble_gap_bond_dev_list_operation时，要保证当前ble不在广播、扫描状态。
+> 6.使用bk\_ble\_gap\_bond\_dev\_list\_operation时，要保证当前ble不在广播、扫描状态。
 >
-> 7.使用bk_ble_gap_bond_dev_list_operation删除或清空key时，sdk不会断开涉及的链路
+> 7.使用bk\_ble\_gap\_bond\_dev\_list\_operation删除或清空key时，sdk不会断开涉及的链路
 >
-> 8.开机蓝牙初始化后，开广播、扫描前，需要用bk_ble_gap_bond_dev_list_operation将先前BK_BLE_GAP_BOND_KEY_GENERATE_EVT的key添加给sdk
+> 8.开机蓝牙初始化后，开广播、扫描前，需要用bk\_ble\_gap\_bond\_dev\_list\_operation将先前BK\_BLE\_GAP\_BOND\_KEY\_GENERATE\_EVT的key添加给sdk
 
+<a id="ble"></a>
 
-### 7.12 如何修改ble地址？[](#ble "永久链接至标题")
+### 7.12 如何修改ble地址？
 
-> 1.如果是public，则通过bk_get_mac获取，可以通过bk_set_base_mac设置(具体请参考对应文档)。bk_ble_gap_ext_adv_params_t.own_addr_type = BLE_ADDR_TYPE_PUBLIC; bk_gap_create_conn_params_t.local_addr_type = BLE_ADDR_TYPE_PUBLIC
+> 1.如果是public，则通过bk\_get\_mac获取，可以通过bk\_set\_base\_mac设置(具体请参考对应文档)。bk\_ble\_gap\_ext\_adv\_params\_t.own\_addr\_type \= BLE\_ADDR\_TYPE\_PUBLIC; bk\_gap\_create\_conn\_params\_t.local\_addr\_type \= BLE\_ADDR\_TYPE\_PUBLIC
 >
-> 2.如果是random，对于发adv：bk_ble_gap_set_adv_rand_addr设置地址且bk_ble_gap_ext_adv_params_t.own_addr_type = BLE_ADDR_TYPE_RANDOM; 对于master或扫描：bk_ble_gap_set_rand_addr设置地址且bk_gap_create_conn_params_t.local_addr_type = BLE_ADDR_TYPE_RANDOM
+> 2.如果是random，对于发adv：bk\_ble\_gap\_set\_adv\_rand\_addr设置地址且bk\_ble\_gap\_ext\_adv\_params\_t.own\_addr\_type \= BLE\_ADDR\_TYPE\_RANDOM; 对于master或扫描：bk\_ble\_gap\_set\_rand\_addr设置地址且bk\_gap\_create\_conn\_params\_t.local\_addr\_type \= BLE\_ADDR\_TYPE\_RANDOM
 
+<a id="btble-public-addr"></a>
 
-### 7.13 bt、ble public addr能否不一样？[](#btble-public-addr "永久链接至标题")
+### 7.13 bt、ble public addr能否不一样？
 
 > 目前只能一样
 
+<a id="rpa"></a>
 
-### 7.14 rpa是什么意思？[](#rpa "永久链接至标题")
+### 7.14 rpa是什么意思？
 
 > RPA(resolvable private address): ble一种防止跟踪的随机地址生成、使用机制，基于random addr，开启后adv、scan、connect的local addr由特殊算法生成，在空口上看是随机的。
 
+<a id="blerpa"></a>
 
-### 7.15 ble如何使用rpa？[](#blerpa "永久链接至标题")
+### 7.15 ble如何使用rpa？
 
-> dm_gatt.c dm_gatts.c dm_gattc.c里，g_dm_gap_use_rpa = 1; s_dm_gattc_local_addr_is_public = 0; s_dm_gatts_local_addr_is_public = 0;
+> dm\_gatt.c dm\_gatts.c dm\_gattc.c里，g\_dm\_gap\_use\_rpa \= 1; s\_dm\_gattc\_local\_addr\_is\_public \= 0; s\_dm\_gatts\_local\_addr\_is\_public \= 0;
 
+<a id="id17"></a>
 
-### 7.16 ble如果配对使用，推荐用哪种地址？[](#id17 "永久链接至标题")
+### 7.16 ble如果配对使用，推荐用哪种地址？
 
 > 只推荐public或rpa，单纯random addr会在与手机交互的场景里出现兼容性问题。

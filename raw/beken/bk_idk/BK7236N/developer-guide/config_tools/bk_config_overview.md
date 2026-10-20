@@ -1,131 +1,104 @@
-# 系统配置[](#bk-config-overview "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/config_tools/bk_config_overview.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="bk-config-overview"></a>
+
+<a id="id1"></a>
+
+# 系统配置
 
 Armino 系统配置主要指 Kconfig 配置，分区配置，安全配置等，处理过程如下图所示：
 
-![8](../../_images/config_overview.svg)
+![8](../../../../_assets/6397e8b7039f6de314d2-config_overview.svg)
 
 图中标号所对应的处理为：
 
 > - 1. 代码生成，编译前构建系统先扫描配置文件，生成编译所需的头文件或者配置文件。
-> - 2. 生成 BIN - 编译，链接并生成原始二进制文件。
+> - 2. 生成 BIN \- 编译，链接并生成原始二进制文件。
 > - 3. 再次扫描配置文件，依据配置项打包，包括加 CRC，加密，加签等，最终生成 all-app.bin，all-app-no-bl.bin, ota.bin。
 > - 4. 将生成的 OTP/EFUSE 配置文件部署到板子上。
 
+<a id="id2"></a>
 
-## 配置文件[](#id2 "永久链接至标题")
+## 配置文件
 
 Armino 支持下述几种配置文件：
 
-> - Kconfig - 组件配置，生成 sdkconfig.h。详情请参考 [Kconfig 配置](bk_config_kconfig.md#bk-config-kconfig "bk_config_kconfig.md#bk-config-kconfig")。
-> - csv - CSV 格式配置文件，包括:
+> - Kconfig \- 组件配置，生成 sdkconfig.h。详情请参考 [Kconfig 配置](bk_config_kconfig.md#bk-config-kconfig)。
+> - csv \- CSV 格式配置文件，包括:
 >
->   - partitions.csv - 分区配置表，用于生成 partitions_gen.h。详情请参考 [分区配置](bk_config_partitions.md#bk-config-partitions "bk_config_partitions.md#bk-config-partitions")。
->   - mpc.csv - 安全块外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
->   - ppc.csv - 安全外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
->   - gpio.csv - 外设与 GPIO 映射表，结合 ppc.csv 一起生成 GPIO 安全属性。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
->   - security.csv - 安全配置，用于生成 security.h 与 otp_efuse_otp.json，也用于打包处理。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。。
->   - ota.csv - 安全 OTA 配置，用于配置 OTA 策略，版本安全计数器等。详情请参考 [安全配置](bk_config_ota.md#bk-config-ota "bk_config_ota.md#bk-config-ota")。
-> - key - 配置安全相关的 KEY，如 FLASH AES KEY，安全启动公钥对等。详情请参考 [安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security")。
+>   - partitions.csv \- 分区配置表，用于生成 partitions\_gen.h。详情请参考 [分区配置](bk_config_partitions.md#bk-config-partitions)。
+>   - mpc.csv \- 安全块外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security)。
+>   - ppc.csv \- 安全外设配置表，用于生成 security.h。详情请参考 [安全配置](bk_config_security.md#bk-config-security)。
+>   - gpio.csv \- 外设与 GPIO 映射表，结合 ppc.csv 一起生成 GPIO 安全属性。详情请参考 [安全配置](bk_config_security.md#bk-config-security)。
+>   - security.csv \- 安全配置，用于生成 security.h 与 otp\_efuse\_otp.json，也用于打包处理。详情请参考 [安全配置](bk_config_security.md#bk-config-security)。。
+>   - ota.csv \- 安全 OTA 配置，用于配置 OTA 策略，版本安全计数器等。详情请参考 [安全配置](bk_config_ota.md#bk-config-ota)。
+> - key \- 配置安全相关的 KEY，如 FLASH AES KEY，安全启动公钥对等。详情请参考 [安全配置](bk_config_security.md#bk-config-security)。
 
+<a id="id3"></a>
 
-## 文件部署[](#id3 "永久链接至标题")
+## 文件部署
 
 配置文件在 Armino 中部署如下图所示：
 
-
 ```
-
 - armino/
-
     - components/
-
         - c1/
-
             - Kconfig
-
     - middleware/
-
         - boards/
-
             - bk7236n/
-
                 - csv
-
                     - mpc.csv
-
                     - ppc.csv
-
                     - ota.csv
-
                     - partitions.csv
-
                     - security.csv
-
                 - key
-
                     - root_ec256_pubkey.pem
-
                     - root_ec256_privkey.pem
-
         - soc/
-
             - bk7236n/
-
                 - bk7236n.defconfig
-
     - projects/
-
         - my_project/
-
             - config/
-
                 - common
-
                     - config
-
                 - bk7236n
-
                     - config
-
                     - mpc.csv
-
                     - ppc.csv
-
                     - ota.csv
-
                     - partitions.csv
-
                     - security.csv
-
                     - root_ec256_pubkey.pem
-
                     - root_ec256_privkey.pem
-
                 - bk7258
-
                     - config
-
                     - partitions.csv
-
             - Kconfig.projbuild
-
             - main/
-
                 - Kconfig
-
             - components/
-
                 - c1/
-
                     - Kconfig
-
 ```
 
 对于同名配置文件或者配置项，优先级规则为：
 
-> - 工程配置 > Middleware 配置 > 组件配置。
-> - 对于同目录下配置文件：特定芯片配置项 > 通用配置项。
+> - 工程配置 \> Middleware 配置 \> 组件配置。
+> - 对于同目录下配置文件：特定芯片配置项 \> 通用配置项。
 
 备注
 

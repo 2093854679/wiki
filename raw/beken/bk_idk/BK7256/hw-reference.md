@@ -1,70 +1,88 @@
 ---
-aliases:
-- 'BK7256 › hw-reference'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/hw-reference/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# H/W 参考文档[](#h-w "永久链接至标题")
+
+<a id="h-w"></a>
+
+# H/W 参考文档
+
+<a id="id1"></a>
+
+## 芯片及硬件文档
+
+- [BK7256 技术规格书](../../_assets/3a935304b2749d0b0673-BK7256-Datasheet.pdf)
+- [BK7256 技术参考手册](https://wiki.bekencorp.com/display/BK7256)
+- [BK7256 QFN68硬件参考设计](../../_assets/9e54f7b434eae6de29ba-SCH-BK7256_QFN68_8X8_Reference.pdf)
+- [BK7256 QFN80硬件参考设计](../../_assets/065eb4eaa744a6efb1c6-SCH-BK7256_QFN80_8X8_Reference.pdf)
+
+<a id="evb-demo"></a>
+
+## EVB Demo板资料
+
+- [BK7256 EVB使用说明](../../_assets/386ee2ba8de3dd9080ce-BK7256-EVB-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%89%8B%E5%86%8C.pdf)
+- [BK7256 EVB原理图](../../_assets/94358fc99fe9abbedac4-SCH-BK7256-DEMO-MAIN.pdf)
+- [BK7256 EVB片位图](../../_assets/14f453eccd1fbade1370-BK7256-DEMO-MAIN%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf)
+- [BK7256 LCD显示板原理图](../../_assets/faf9176f2b8162b15e8b-SCH-LCD.pdf)
+- [BK7256 LCD显示板片位图](../../_assets/09ce51345eb628bce27b-LCD%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf)
+
+<a id="id2"></a>
+
+## EVB Demo板展示
+
+- [淘宝购买链接](https://item.taobao.com/item.htm)
+
+<a id="id3"></a>
+![BK7256 EVB front](../../_assets/bf9571166c27f4b42154-HW_BK7256_evb_a.png)
 
 
+BK7256 EVB front
 
-## 芯片及硬件文档[](#id1 "永久链接至标题")
-
-
-- [BK7256 技术规格书](http://docs.bekencorp.com/spec/BK7256/BK7256%C2%A0Datasheet.pdf "http://docs.bekencorp.com/spec/BK7256/BK7256%C2%A0Datasheet.pdf")
-
-- [BK7256 技术参考手册](https://wiki.bekencorp.com/display/BK7256 "https://wiki.bekencorp.com/display/BK7256")
-
-- [BK7256 QFN68硬件参考设计](https://docs.bekencorp.com/HW/SCH-HDK/SCH-BK7256_QFN68_8X8_Reference.pdf "https://docs.bekencorp.com/HW/SCH-HDK/SCH-BK7256_QFN68_8X8_Reference.pdf")
-
-- [BK7256 QFN80硬件参考设计](https://docs.bekencorp.com/HW/SCH-HDK/SCH-BK7256_QFN80_8X8_Reference.pdf "https://docs.bekencorp.com/HW/SCH-HDK/SCH-BK7256_QFN80_8X8_Reference.pdf")
+<a id="id4"></a>
+![BK7256 EVB with 4-inch LCD](../../_assets/298fcb4c78524b547de9-HW_BK7256_evb_lcd4.png)
 
 
-## EVB Demo板资料[](#evb-demo "永久链接至标题")
+BK7256 EVB with 4-inch LCD
+
+<a id="id5"></a>
+![BK7256 EVB with 5-inch LCD](../../_assets/689d741b5979bfb65e20-HW_BK7256_evb_lcd5.png)
 
 
-- [BK7256 EVB使用说明](https://docs.bekencorp.com/HW/Demo-EVB/BK7256%20EVB%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%89%8B%E5%86%8C.pdf "https://docs.bekencorp.com/HW/Demo-EVB/BK7256%20EVB%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%89%8B%E5%86%8C.pdf")
+BK7256 EVB with 5-inch LCD
 
-- [BK7256 EVB原理图](https://docs.bekencorp.com/HW/Demo-EVB/SCH-BK7256-DEMO%20MAIN.pdf "https://docs.bekencorp.com/HW/Demo-EVB/SCH-BK7256-DEMO%20MAIN.pdf")
-
-- [BK7256 EVB片位图](https://docs.bekencorp.com/HW/Demo-EVB/BK7256-DEMO-MAIN%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf "https://docs.bekencorp.com/HW/Demo-EVB/BK7256-DEMO-MAIN%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf")
-
-- [BK7256 LCD显示板原理图](https://docs.bekencorp.com/HW/Demo-EVB/SCH-LCD.pdf "https://docs.bekencorp.com/HW/Demo-EVB/SCH-LCD.pdf")
-
-- [BK7256 LCD显示板片位图](https://docs.bekencorp.com/HW/Demo-EVB/LCD%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf "https://docs.bekencorp.com/HW/Demo-EVB/LCD%E5%85%83%E4%BB%B6%E4%BD%8D%E5%8F%B7%E5%9B%BE.pdf")
+<a id="id6"></a>
+![BK7256 EVB with 7-inch LCD](../../_assets/1cbd6fcddf3af8b56c2f-HW_BK7256_evb_lcd7.png)
 
 
-## EVB Demo板展示[](#id2 "永久链接至标题")
+BK7256 EVB with 7-inch LCD
+
+<a id="id7"></a>
+![BK7256 EVB lcd](../../_assets/f54953ce6b89cb6b76f6-HW_BK7256_evb_b.png)
 
 
-- [淘宝购买链接](https://item.taobao.com/item.htm?id=730415888906 "https://item.taobao.com/item.htm?id=730415888906")
+BK7256 EVB lcd
 
-![BK7256 EVB front](../_images/HW_BK7256_evb_a.png)
+<a id="id8"></a>
+![BK7256 QFN80](../../_assets/ba4eb412883a595c6d88-HW_BK7256QFN80_min.png)
 
-BK7256 EVB front[](#id3 "永久链接至图片")
 
-![BK7256 EVB with 4-inch LCD](../_images/HW_BK7256_evb_lcd4.png)
+BK7256 QFN80
 
-BK7256 EVB with 4-inch LCD[](#id4 "永久链接至图片")
+<a id="id9"></a>
+![BK7256 QFN68](../../_assets/4b0b074427c91d57e923-HW_BK7256QFN68_mini.png)
 
-![BK7256 EVB with 5-inch LCD](../_images/HW_BK7256_evb_lcd5.png)
 
-BK7256 EVB with 5-inch LCD[](#id5 "永久链接至图片")
+BK7256 QFN68
 
-![BK7256 EVB with 7-inch LCD](../_images/HW_BK7256_evb_lcd7.png)
+<a id="id10"></a>
+![BK7256 EVB fittings](../../_assets/6529fdf90a0f95b093de-HW_BK7256_evb_c.png)
 
-BK7256 EVB with 7-inch LCD[](#id6 "永久链接至图片")
 
-![BK7256 EVB lcd](../_images/HW_BK7256_evb_b.png)
-
-BK7256 EVB lcd[](#id7 "永久链接至图片")
-
-![BK7256 QFN80](../_images/HW_BK7256QFN80_min.png)
-
-BK7256 QFN80[](#id8 "永久链接至图片")
-
-![BK7256 QFN68](../_images/HW_BK7256QFN68_mini.png)
-
-BK7256 QFN68[](#id9 "永久链接至图片")
-
-![BK7256 EVB fittings](../_images/HW_BK7256_evb_c.png)
-
-BK7256 EVB fittings[](#id10 "永久链接至图片")
+BK7256 EVB fittings

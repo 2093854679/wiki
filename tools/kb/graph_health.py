@@ -14,7 +14,7 @@ import click
 from .llm import get_config
 
 WIKILINK_RE = re.compile(r"\[\[([^\]]+)\]\]")
-GENERATED_WIKI_FILES = {"index.md", "WIKI.md"}
+GENERATED_WIKI_FILES = {"index.md", "WIKI.md", "AI-SEARCH.md"}
 
 
 def _file_hash(path: Path) -> str:

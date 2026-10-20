@@ -167,10 +167,13 @@ def build_metadata_cache(raw_dir: Path, cache_path: Path):
 @click.command("metadata")
 @click.option("--chip", help="Filter by chip, e.g. BK7258")
 @click.option("--module", help="Filter by module, e.g. api-reference")
+@click.option("--family", help="Filter by SDK family, e.g. bk_avdk_smp")
+@click.option("--processor", type=click.Choice(["AP", "CP", "SMP"], case_sensitive=False), help="Filter processor side")
 @click.option("--all-files", is_flag=True, help="Include non-markdown files")
+@click.option("--include-historical", is_flag=True, help="Include historical unverified official documents")
 @click.option("--limit", default=30, help="Max rows to print")
 @click.option("--json-output", is_flag=True, help="Output as JSON")
-def cmd_metadata(chip, module, all_files, limit, json_output):
+def cmd_metadata(chip, module, family, processor, all_files, include_historical, limit, json_output):
     """Inspect inferred raw metadata."""
     cfg = get_config()
     raw_dir = Path(cfg["paths"]["raw_dir"])
@@ -180,12 +183,18 @@ def cmd_metadata(chip, module, all_files, limit, json_output):
 
     data = json.loads(cache_path.read_text(encoding="utf-8"))
     rows = list(data.values())
+    if not include_historical:
+        rows = [r for r in rows if r.get("mirror_status") != "historical-unverified"]
     if not all_files:
         rows = [r for r in rows if r.get("path", "").lower().endswith(".md")]
     if chip:
-        rows = [r for r in rows if r.get("chip", "").lower() == chip.lower()]
+        rows = [r for r in rows if r.get("chip", "").lower() == chip.lower() or chip.lower() in {c.lower() for c in r.get("chips", [])}]
     if module:
         rows = [r for r in rows if r.get("module", "").lower() == module.lower()]
+    if family:
+        rows = [r for r in rows if r.get("sdk_family", "").lower() == family.lower()]
+    if processor:
+        rows = [r for r in rows if r.get("processor", "").lower() == processor.lower()]
 
     if json_output:
         click.echo(json.dumps(rows[:limit], indent=2, ensure_ascii=False))
@@ -196,4 +205,6 @@ def cmd_metadata(chip, module, all_files, limit, json_output):
         click.echo(
             f"- {row['workspace_path']} | chip={row.get('chip') or '-'} "
             f"module={row.get('module') or '-'} type={row.get('doc_type') or '-'}"
+            f" family={row.get('sdk_family') or '-'} version={row.get('sdk_version') or '-'}"
+            f" processor={row.get('processor') or '-'}"
         )

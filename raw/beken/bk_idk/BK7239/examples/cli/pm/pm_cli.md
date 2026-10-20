@@ -1,31 +1,41 @@
-# **Power Manager cli命令**[](#power-manager-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/cli/pm/pm_cli.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="power-manager-cli"></a>
+
+<a id="pm-cli"></a>
+
+# **Power Manager cli命令**
 
 重要
 
-
 *支持平台power manager（normal sleep、low voltage 、deepsleep）*
 
+- [pm](#pm-pm) :平台power manager
+- [pm\_vote](#pm-pm-vote) :WIFI保活来唤醒低压设备
 
-- [pm](#pm-pm "#pm-pm") :平台power manager
+<a id="pm-power-manager-normal-sleeplow-voltage-deepsleep"></a>
 
-- [pm_vote](#pm-pm-vote "#pm-pm-vote") :WIFI保活来唤醒低压设备
+<a id="pm-pm"></a>
 
-
-## [pm](#pm-cli "#pm-cli") **:平台power manager(normal sleep、low voltage 、deepsleep)**[](#pm-power-manager-normal-sleeplow-voltage-deepsleep "永久链接至标题")
-
+## [pm](#pm-cli) **:平台power manager(normal sleep、low voltage 、deepsleep)**
 
 **命令**
 
-
 ```
 pm [sleep_mode] [wake_source] [vote1] [vote2] [vote3] [param1] [param2] [param3]
-
 ```
 
-
 **参数**
-
 
 ```
 sleep_mode：代表休眠模式(参数范围：0-3):
@@ -83,12 +93,9 @@ param2：根据唤醒源有不同含义:
             RTC和touch：唤醒时不用该参数，默认是0
 
 param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设置的时间1000000000（100s）,设置这么大的值为了使用BT模块内部模块设置的时间为准
-
 ```
 
-
 **使用场景**
-
 
 ```
 示例1：使用GPIO作为唤醒源来唤醒deepsleep设备:
@@ -119,6 +126,7 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
 
         3）deepsleep之后的功耗符合预期为15ua-20ua左右。
 
+
 示例2：使用RTC设置唤醒时间来唤醒deepsleep设备:
 
     1）开机启动5s之后（开机之后，BT、WIFI、CPU做初始化）；
@@ -138,6 +146,7 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
         2）同时通过使用精密电源来测量整个deepsleep到唤醒过程的功耗；
 
         3）deepsleep之后的功耗符合预期为15ua-20ua左右。
+
 
 示例3：使用触摸(touch)作为唤醒源来唤醒deepsleep设备:
 
@@ -162,6 +171,7 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
         2）同时通过使用精密电源来测量整个deepsleep到唤醒过程的功耗；
 
         3）deepsleep之后的功耗符合预期为15ua-20ua左右。
+
 
 示例4：使用GPIO来唤醒低压设备:
 
@@ -189,7 +199,9 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
 
     2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗。
 
+
     为了最优的功耗，BT使用完毕后，请关闭，关闭命令：AT+BLEPOWER=0!!!
+
 
 示例5：使用RTC作为唤醒源来唤醒低压设备:
 
@@ -215,6 +227,7 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
 
     2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗；
 
+
 示例6：使用RTC作为唤醒源来唤醒低压设备:
 
     1）开机启动5s之后，（开机之后，BT、WIFI、CPU做初始化）；
@@ -237,41 +250,35 @@ param3：BT休眠时间，该参数对于发送命令是兼容接口，建议设
 
     2）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗;
 
-    为了最优的功耗，BT使用完毕后，请关闭，关闭命令：AT+BLEPOWER=0!!!
 
+    为了最优的功耗，BT使用完毕后，请关闭，关闭命令：AT+BLEPOWER=0!!!
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
+*本命令在CONFIG\_MCU\_PS开启下生效!*
 
-*本命令在CONFIG_MCU_PS开启下生效!*
+<a id="pm-vote-wifi"></a>
 
+<a id="pm-pm-vote"></a>
 
-## [pm_vote](#pm-cli "#pm-cli") **:WIFI保活来唤醒低压设备**[](#pm-vote-wifi "永久链接至标题")
-
+## [pm\_vote](#pm-cli) **:WIFI保活来唤醒低压设备**
 
 **命令**
 
-
 ```
 pm_vote [sleep_mode] [pm_vote] [pm_vote_value] [pm_sleep_time]
-
 ```
 
-
 **参数**
-
 
 ```
 sleep_mode：代表休眠模式(参数范围：0-3): 0:normal sleep; 1:low voltage; 2:deep sleep;3:none
@@ -281,15 +288,13 @@ pm_vote:代表投的票（取值范围8(BT)，9(WIFI)，12(APP)）
 pm_vote_value：投票值（取值范围0：MODULE_STATE_ON   1：MODULE_STATE_OFF）
 
 pm_sleep_time：BT休眠时间，该参数对于发送命令是兼容接口，建议设置的时间1000000000（100s）,设置这么大的值为了使用BT模块内部模块设置的时间为准
-
 ```
-
 
 **使用场景**
 
-
 ```
 示例1：使用RTC作为唤醒源来唤醒低压设备:
+
 
     1）开机启动5s之后，（开机之后，BT、WIFI、CPU做初始化）；
 
@@ -306,21 +311,16 @@ pm_sleep_time：BT休眠时间，该参数对于发送命令是兼容接口，�
     3）在low voltage过程中，通过测量VDDDIG的电压会变成设定的电压值，（例如0.6或0.9v）；唤醒之后，VDDDIG的电压会变成1.1v；
 
     4）同时通过使用精密电源来测量整个low voltage到唤醒过程的功耗。
-
 ```
 
-
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
 备注
 
-
-*本命令在CONFIG_MCU_PS开启下生效!*
+*本命令在CONFIG\_MCU\_PS开启下生效!*

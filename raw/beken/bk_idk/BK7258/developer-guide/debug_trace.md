@@ -1,24 +1,34 @@
 ---
-aliases:
-- 'BK7258 › developer-guide › debug_trace'
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/debug_trace/index.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 系统调试[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 系统调试
 
-## Armino平台BK7258系统调试命令[](#arminobk7258 "永久链接至标题")
+<a id="arminobk7258"></a>
 
-> - BK7258 CPU0的log通过串口DL_UART0输出(默认波特率为115200)
-> - BK7258 CPU1的log通过mailbox转发到CPU0串口DL_UART0输出(默认波特率为115200)
+## Armino平台BK7258系统调试命令
+
+> - BK7258 CPU0的log通过串口DL\_UART0输出(默认波特率为115200)
+> - BK7258 CPU1的log通过mailbox转发到CPU0串口DL\_UART0输出(默认波特率为115200)
 > - BK7258 CPU2的log通过串口UART2输出(默认波特率为115200)
-> - 通过这三个宏CONFIG_SYS_PRINT_DEV_MAILBOX=n，CONFIG_SYS_PRINT_DEV_UART=y，CONFIG_UART_PRINT_PORT=0
+> - 通过这三个宏CONFIG\_SYS\_PRINT\_DEV\_MAILBOX\=n，CONFIG\_SYS\_PRINT\_DEV\_UART\=y，CONFIG\_UART\_PRINT\_PORT\=0
 >   可以改变CPU1的Log输出方式（上述设置是CPU1的Log通过UART0输出）
 >   注：CPU0是主核，且CPU0与CPU2之间没有MailBox通道，所以上述方式目前仅支持CPU1
 > - CPU1 log带cpu1标签（异常log除外）
 > - 由于内存缓冲区的限制，每条log数据的字节数，要小于128字节。超过这个大小的log都会被shell 模块丢弃，并输出一条 !!some LOGs discarded!! 如果log数量太多，来不及输出导致log堆积，缓冲区用完，也会输出这条提示字符串。
 > - 通过串口输入log命令查看当前log配置
-> - 宏CONFIG_UART_ATE_PORT表示使用哪一个PIN管脚检测ATE模式；宏CONFIG_UART_PRINT_PORT表示默认初始化时，LOG的UART口；CONFIG_UART_ATE_PRINT_PORT表示ATE检测时，将LOG的UART口做一次切换（但此时LOG口还没有初始化,初始化时，根据CONFIG_UART_ATE_PRINT_PORT选择）
->   示例：ate识别用uart1的tx，正常应用的日志用uart1，进ate模式后，log及命令行用uart0，配置如下：CONFIG_UART_ATE_PORT=1，CONFIG_UART_PRINT_PORT=1，CONFIG_UART_ATE_PRINT_PORT=0
+> - 宏CONFIG\_UART\_ATE\_PORT表示使用哪一个PIN管脚检测ATE模式；宏CONFIG\_UART\_PRINT\_PORT表示默认初始化时，LOG的UART口；CONFIG\_UART\_ATE\_PRINT\_PORT表示ATE检测时，将LOG的UART口做一次切换（但此时LOG口还没有初始化,初始化时，根据CONFIG\_UART\_ATE\_PRINT\_PORT选择）
+>   示例：ate识别用uart1的tx，正常应用的日志用uart1，进ate模式后，log及命令行用uart0，配置如下：CONFIG\_UART\_ATE\_PORT\=1，CONFIG\_UART\_PRINT\_PORT\=1，CONFIG\_UART\_ATE\_PRINT\_PORT\=0
 > - 通过串口输入help命令查看当前支持的调试命令：
 >
 > > ```
@@ -259,7 +269,6 @@ aliases:
 > > $wifi_diag: Wi-Fi HW diagnostics config
 > > ```
 
-
 - 可以通过bootcore 1 1命令手动启动cpu1:
 
   ```
@@ -269,9 +278,7 @@ aliases:
   cli:I(102152):boot_cpu_core end.
   $wakeup
   ```
-
 - 可以通过bootcore 2 1命令手动启动cpu2
-
 - 可以通过cpu1 help的命令格式，输入cpu1的调试命令：
 
   ```
@@ -284,10 +291,11 @@ aliases:
   #
   ```
 
+<a id="arminobk7258jtag"></a>
 
-## Armino平台BK7258系统jtag调试[](#arminobk7258jtag "永久链接至标题")
+## Armino平台BK7258系统jtag调试
 
-> - JLink环境通过Eclipse集成JLink gdb server + gdb 工具
+> - JLink环境通过Eclipse集成JLink gdb server \+ gdb 工具
 > - Jlink和BK7258连线:
 >
 >   ```
@@ -297,38 +305,39 @@ aliases:
 >   20# GND   ---- GND
 >   ```
 > - JLink软件版本
->   [https://www.segger.com/downloads/jlink/JLink_Windows_V768_x86_64.exe](https://www.segger.com/downloads/jlink/JLink_Windows_V768_x86_64.exe "https://www.segger.com/downloads/jlink/JLink_Windows_V768_x86_64.exe")
+>   <https://www.segger.com/downloads/jlink/JLink_Windows_V768_x86_64.exe>
 > - Arm工具链版本
->   [https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.exe](https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.exe "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.exe")
+>   <https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.exe>
 > - Eclipse版本
->   eclipse-embedcpp-2020-12-R-win32-x86_64.zip
+>   eclipse-embedcpp-2020-12-R-win32-x86\_64.zip
 > - Eclipse工程配置
 >
-> > ![BK7258 JLink configuration](../../_images/bk7236_jlink_config.png)
+> > ![BK7258 JLink configuration](../../../_assets/2c956537fb00fe15a5e3-bk7236_jlink_config.png)
 > >
-> > ![BK7258 JLink configuration](../../_images/bk7236_jlink_config2.png)
+> > ![BK7258 JLink configuration](../../../_assets/a3265c576e6a2cfece93-bk7236_jlink_config2.png)
 > >
-> > ![BK7258 JLink configuration](../../_images/bk7236_jlink_config3.png)
+> > ![BK7258 JLink configuration](../../../_assets/1ec5800520c427e890cc-bk7236_jlink_config3.png)
 >
 > - 默认jtag连接cpu0，BK7258有两个Jtag口(grou1/group2)
 > - 可以通过setjtagmode cpu0 group1命令设置jtag连接cpu0
 > - 可以通过setjtagmode cpu1 group1设置jtag连接cpu1
 > - 可以通过jtagmode命令查看当前jtag状态
 
+<a id="arminobk7258-dump"></a>
 
-## Armino平台BK7258 异常dump一键恢复现场工具[](#arminobk7258-dump "永久链接至标题")
+## Armino平台BK7258 异常dump一键恢复现场工具
 
 > - 请参考发布工具中使用文档:
->   [https://dl.bekencorp.com/tools/Debug_tool/BK7258-debug.zip](https://dl.bekencorp.com/tools/Debug_tool/BK7258-debug.zip "https://dl.bekencorp.com/tools/Debug_tool/BK7258-debug.zip")
+>   <https://dl.bekencorp.com/tools/Debug_tool/BK7258-debug.zip>
 > - BK7258 dump工具常见问题:
 >
->   - 默认Release版本dump功能是关闭的, 可以通过CONFIG_DUMP_ENABLE配置打开
+>   - 默认Release版本dump功能是关闭的, 可以通过CONFIG\_DUMP\_ENABLE配置打开
 >   - BK7258有CPU0、CPU1、CPU2, 可以通过三个cpu的config文件修改打开dump功能
 >   - Dump工具恢复现场的原理是脚本通过分析log,解析出regs,itcm,dtcm,sram内容,然后通过gdb将这些内容恢复到qemu虚拟机中
 >   - Log文件的后缀支持txt, log, DAT
->   - Log文件的编码当前只支持utf-8, 其他编码格式可用通过notepad++手动转换为utf-8编码格式
+>   - Log文件的编码当前只支持utf-8, 其他编码格式可用通过notepad\+\+手动转换为utf-8编码格式
 >   - 如果工具目录下有多份Log, 或者Log中有多次Dump, 工具会分析最后一次Dump, 需要保证工具目录下只有一份Log, 且Log中只有一份dump
->   - Dump工具可以自动去掉日志里规则的时间戳: [2024-02-03 14:35:13.375193], 如果遇到不规则的时间戳, 需要手动去除
+>   - Dump工具可以自动去掉日志里规则的时间戳: \[2024-02-03 14:35:13.375193\], 如果遇到不规则的时间戳, 需要手动去除
 >   - Dump过程中如果出现2次异常, 常见的如检测内存越界时, 遇到Assert, 会多打印一次寄存器, 解析时需要删掉第二次寄存器打印
 >   - BK7258 任一个cpu Dump都会将当前cpu的寄存器, itcm, dtcm, 以及640k sram全部dump出来
 >   - 默认BK7258 cpu0的Log和Dump通过UART0输出
@@ -406,7 +415,7 @@ aliases:
 >     > >>>>stack mem dump begin, stack_top=28020000, stack end=28040000
 >     > <<<<stack mem dump end. stack_top=28020000, stack end=28040000
 >     > ```
->   - 当系统打开CONFIG_MEM_DEBUG时, Dump过程会将当前系统正在使用的Heap内存全部打印出来, 并检查是否有内存越界:
+>   - 当系统打开CONFIG\_MEM\_DEBUG时, Dump过程会将当前系统正在使用的Heap内存全部打印出来, 并检查是否有内存越界:
 >
 >     ```
 >     tick       addr         size   line    func                               task

@@ -1,13 +1,28 @@
-# **Wi-Fi Getting_started**[](#wi-fi-getting-started "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/api-reference/network/bk_wifi_demos.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="wi-fi-getting-started"></a>
 
-在 [example](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi") 中提供了几个独立的 Wi-Fi 驱动程序的 Demo，用户可以根据指导单独编译烧录后直接运行，后续还将继续补充更多的应用程序 Demo
+# **Wi-Fi Getting\_started**
 
+在 [example](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi) 中提供了几个独立的 Wi-Fi 驱动程序的 Demo，用户可以根据指导单独编译烧录后直接运行，后续还将继续补充更多的应用程序 Demo
 
-## **Wi-Fi Scan Demo**[](#wi-fi-scan-demo "永久链接至标题")
+<a id="wi-fi-scan-demo"></a>
 
-[scan_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/scan/main "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/scan/main") 中定义了 Wi-Fi Scan Demo 的参数：
+<a id="id1"></a>
 
+## **Wi-Fi Scan Demo**
+
+[scan\_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/scan/main) 中定义了 Wi-Fi Scan Demo 的参数：
 
 ```
 menu "Example Configuration"
@@ -20,32 +35,25 @@ menu "Example Configuration"
     depends on !EXAMPLE_SCAN_ALL_SSID
         default "aclsemi"                            //指定 SSID 扫描
 endmenu
-
 ```
 
 按照上述配置项说明，客户根据自己的应用进行相应的配置、保存，执行编译命令、烧录版本，开机即可实现开机自动扫描。编译命令如下：
 
-
 ```
 make bk7258 PROJECT=wifi/scan
-
 ```
 
 编译成功后生成的烧录文件路径：
 
-
 ```
 build/scan/bk7258/all-app.bin
-
 ```
 
 执行 Log 参考如下：
 
-
 ```
 wifi:I(1134):scan found 4 AP                   //指定 SSID 扫描
 SSID                             BSSID               RSSI chan security
-
 -------------------------------- -----------------   ---- ---- ---------
 aclsemi                          74:50:4e:3f:48:b0    -29  6 WPA2-AES
 aclsemi                          74:50:4e:3f:84:d0    -32  1 WPA2-AES
@@ -53,7 +61,6 @@ aclsemi                          74:50:4e:3f:99:50    -33  6 WPA2-AES
 aclsemi                          74:50:4e:3f:82:50    -58 11 WPA2-AES
 wifi:I(1136):scan found 32 AP                  //全信道扫描
 SSID                             BSSID               RSSI chan security
-
 -------------------------------- -----------------   ---- ---- ---------
 Redmi_253C                       24:cf:24:3a:25:3e    -24  4 WPA2-MIX
 TP-LINK-1                        18:f2:2c:74:1d:dd    -30  1 WPA2-AES
@@ -65,14 +72,15 @@ aclsemi                          74:50:4e:3f:84:d0    -36  1 WPA2-AES
 PowerTest                        c8:3a:35:7f:7e:e0    -38 11 WPA2-AES
 MP                               c0:61:18:2b:82:b4    -44 11 WPA2-AES
 ChinaNet-HeLg                    cc:c2:e0:6e:0f:a9    -45 13 WPA2-MIX
-
 ```
 
+<a id="wi-fi-sta-connect-demo"></a>
 
-## **Wi-Fi Sta_connect Demo**[](#wi-fi-sta-connect-demo "永久链接至标题")
+<a id="id2"></a>
 
-Wi-Fi Station Demo 是通过配置好目标 AP 的 SSID 和 Password，编译并烧录版本后，开机后 Armino Wi-Fi 驱动程序会自动扫描并连接至配置的目标 AP。[sta_connect_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/sta_connect/main "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/sta_connect/main") 配置如下：
+## **Wi-Fi Sta\_connect Demo**
 
+Wi-Fi Station Demo 是通过配置好目标 AP 的 SSID 和 Password，编译并烧录版本后，开机后 Armino Wi-Fi 驱动程序会自动扫描并连接至配置的目标 AP。[sta\_connect\_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/sta_connect/main) 配置如下：
 
 ```
 menu "Example Configuration"
@@ -84,42 +92,37 @@ menu "Example Configuration"
         string "Wi-Fi Password"
         default "ACL8semi"                           //目标 SSID 密码
 endmenu
-
 ```
 
 编译命令：
 
-
 ```
 make bk7258 PROJECT=wifi/sta_connect
-
 ```
 
 编译成功后生成的烧录文件路径：
 
-
 ```
 build/sta_connect/bk7258/all-app.bin
-
 ```
 
 执行 Log 参考如下：
-
 
 ```
 wifi:I(308):wifi inited(1) ret(0)              //开机后初始化完成
 example:I(310):ssid:aclsemi password:ACL8semi  //连接指定 SSID、Password
 example:I(3618):STA connected to aclsemi       //连接成功
 example:I(3658):STA got ip                     //获取 IP 地址
-
 ```
 
+<a id="wi-fi-ap-demo"></a>
 
-## **Wi-Fi AP Demo**[](#wi-fi-ap-demo "永久链接至标题")
+<a id="wi-fi-softap-demo"></a>
 
-Armino Wi-Fi 开启热点的 Demo 跟之前的 scan、sta_connect 类似，都是配置好参数后，编译并烧录版本。
-[softap_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/ap/main "https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/ap/main") 参数说明如下：
+## **Wi-Fi AP Demo**
 
+Armino Wi-Fi 开启热点的 Demo 跟之前的 scan、sta\_connect 类似，都是配置好参数后，编译并烧录版本。
+[softap\_Kconfig.projbuild](https://gitlab.bekencorp.com/armino/bk_idk/-/tree/release/v2.0.1/projects/wifi/ap/main) 参数说明如下：
 
 ```
 menu "Example Configuration"
@@ -142,27 +145,21 @@ menu "Example Configuration"
         string "DNS address of AP"
         default "192.168.10.1"
 endmenu
-
 ```
 
 编译命令：
 
-
 ```
 make bk7258 PROJECT=wifi/ap
-
 ```
 
 编译成功后生成的烧录文件路径：
 
-
 ```
 build/ap/bk7258/all-app.bin
-
 ```
 
 执行 Log 参考如下：
-
 
 ```
 wifi:I(310):wifi inited(1) ret(0)
@@ -174,5 +171,4 @@ wifi:I(320):init 1st vif
 hitf:I(544):start apm success, vif0, channel0, bcmc2
 os:I(6070):create dhcp-server, tcb=30029de0, stack=[30030280-30030880:1536], prio=2
 wifi:I(6072):ap started
-
 ```

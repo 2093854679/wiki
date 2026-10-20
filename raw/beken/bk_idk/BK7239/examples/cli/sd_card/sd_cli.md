@@ -1,54 +1,54 @@
-# **SD Card cli命令**[](#sd-card-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/cli/sd_card/sd_cli.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="sd-card-cli"></a>
+
+<a id="sd-cli"></a>
+
+# **SD Card cli命令**
 
 重要
 
+*sd\_card功能需要使用fatfstest命令进行测试。与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
-*sd_card功能需要使用fatfstest命令进行测试。与sd_card测试用例需要打开CONFIG_FATFS宏*
+- [fatfstest M](#sd-sdm) :执行对sd card进行挂载
+- [fatfstest U](#sd-sdu) :执行对sd card进行卸载
+- [fatfstest G](#sd-sdg) :查询sd card当前剩余空间
+- [fatfstest S](#sd-sds) :扫描sd card文件
+- [fatfstest F](#sd-sdf) :格式化sd card设备
+- [fatfstest R](#sd-sdr) :读取sd card中文件
+- [fatfstest W](#sd-sdw) :向sd card中文件中写入内容
+- [fatfstest D](#sd-sdd) :dump sd card中文件内容到一个空间
+- [fatfstest A](#sd-sda) :自动测试写入文件
 
+<a id="fatfstest-m-sd-card"></a>
 
-- [fatfstest M](#sd-sdm "#sd-sdm") :执行对sd card进行挂载
+<a id="sd-sdm"></a>
 
-- [fatfstest U](#sd-sdu "#sd-sdu") :执行对sd card进行卸载
-
-- [fatfstest G](#sd-sdg "#sd-sdg") :查询sd card当前剩余空间
-
-- [fatfstest S](#sd-sds "#sd-sds") :扫描sd card文件
-
-- [fatfstest F](#sd-sdf "#sd-sdf") :格式化sd card设备
-
-- [fatfstest R](#sd-sdr "#sd-sdr") :读取sd card中文件
-
-- [fatfstest W](#sd-sdw "#sd-sdw") :向sd card中文件中写入内容
-
-- [fatfstest D](#sd-sdd "#sd-sdd") :dump sd card中文件内容到一个空间
-
-- [fatfstest A](#sd-sda "#sd-sda") :自动测试写入文件
-
-
-## [fatfstest M](#sd-cli "#sd-cli") **:执行对sd card进行挂载**[](#fatfstest-m-sd-card "永久链接至标题")
-
+## [fatfstest M](#sd-cli) **:执行对sd card进行挂载**
 
 **命令**
 
-
 ```
 fatfstest M {DISK_NUMBER}
-
 ```
-
 
 **参数**
 
-
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -83,54 +83,43 @@ sd_card:I(68862010):sdio clock freq:7->11
 Fatfs:I(68862016):f_mount OK!
 
 Fatfs:I(68862016):----- test_mount 1 over  -----
-
 ```
 
 备注
-
 
 *打印error file name,use defaultfilename.txt是由于测试命令中会扫描defaultfilename.txt文件，无此文件会打印error*
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-u-sd-card"></a>
 
-## [fatfstest U](#sd-cli "#sd-cli") **:执行对sd card进行卸载**[](#fatfstest-u-sd-card "永久链接至标题")
+<a id="sd-sdu"></a>
 
+## [fatfstest U](#sd-cli) **:执行对sd card进行卸载**
 
 **命令**
 
-
 ```
 fatfstest U {DISK_NUMBER}
-
 ```
-
 
 **参数**
 
-
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -150,49 +139,39 @@ $(404554):error file name,use defaultfilename.txt
 (404554):----- test_unmount 1 over  -----
 
 (404554):unmount:sdio_sd
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-g-sd-card"></a>
 
-## [fatfstest G](#sd-cli "#sd-cli") **:查询sd card当前剩余空间**[](#fatfstest-g-sd-card "永久链接至标题")
+<a id="sd-sdg"></a>
 
+## [fatfstest G](#sd-cli) **:查询sd card当前剩余空间**
 
 **命令**
 
-
 ```
 fatfstest G {DISK_NUMBER}
-
 ```
-
 
 **参数**
 
-
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -224,49 +203,39 @@ sd_card:I(69876344):sdio clock freq:7->11
 (69876540):----- test_getfree 1 over  -----
 
 (69876540):getfree:sdio_sd
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-s-sd-card"></a>
 
-## [fatfstest S](#sd-cli "#sd-cli") **:扫描sd card文件**[](#fatfstest-s-sd-card "永久链接至标题")
+<a id="sd-sds"></a>
 
+## [fatfstest S](#sd-cli) **:扫描sd card文件**
 
 **命令**
 
-
 ```
 fatfstest S {DISK_NUMBER}
-
 ```
-
 
 **参数**
 
-
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -276,7 +245,6 @@ DISK_NUMBER：磁盘号，1表示SD卡
 扫描成功会显示scan_files OK!，打印内容如下：
 
 Fatfs:I(70912942):
-
 
 ----- scan_file_system 1 start -----
 
@@ -315,49 +283,39 @@ Fatfs:I(70913118):scan_files OK!
 Fatfs:I(70913118):----- scan_file_system 1 over  -----
 
 (70913118):scan
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-f-sd-card"></a>
 
-## [fatfstest F](#sd-cli "#sd-cli") **:格式化sd card设备**[](#fatfstest-f-sd-card "永久链接至标题")
+<a id="sd-sdf"></a>
 
+## [fatfstest F](#sd-cli) **:格式化sd card设备**
 
 **命令**
 
-
 ```
 fatfstest F {DISK_NUMBER}
-
 ```
-
 
 **参数**
 
-
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
-
 ```
 
-
 **使用场景**
-
 
 ```
 输入：
@@ -391,40 +349,33 @@ sd_card:I(439496):card ver=2.0,size:0x073e8000 sector(sector=512bytes)
 Fatfs:I(441532):f_mkfs OK!
 
 (441532):format :1
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-r-sd-card"></a>
 
-## [fatfstest R](#sd-cli "#sd-cli") **:读取sd card中文件**[](#fatfstest-r-sd-card "永久链接至标题")
+<a id="sd-sdr"></a>
 
+## [fatfstest R](#sd-cli) **:读取sd card中文件**
 
 **命令**
 
-
 ```
 fatfstest R {DISK_NUMBER} {file_name} {length}
-
 ```
 
-
 **参数**
-
 
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
@@ -432,12 +383,9 @@ DISK_NUMBER：磁盘号，1表示SD卡
 file_name: 读取的文件名
 
 length: 读取内容长度
-
 ```
 
-
 **使用场景**
-
 
 ```
  在SD卡挂载情况下，输入:
@@ -445,7 +393,6 @@ length: 读取内容长度
     fatfstest R 1 test.txt 10
 
 读取成功会输出文件内容，打印内容如下：
-
 
  ----- test_fatfs 1 start -----
 
@@ -484,40 +431,33 @@ length: 读取内容长度
  Fatfs:I(71732688):f_close OK
 
  Fatfs:I(71732688):----- test_fatfs 1 over  -----
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-w-sd-card"></a>
 
-## [fatfstest W](#sd-cli "#sd-cli") **:向sd card中文件中写入内容**[](#fatfstest-w-sd-card "永久链接至标题")
+<a id="sd-sdw"></a>
 
+## [fatfstest W](#sd-cli) **:向sd card中文件中写入内容**
 
 **命令**
 
-
 ```
 fatfstest W {DISK_NUMBER} {file_name} {content} {length}
-
 ```
 
-
 **参数**
-
 
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
@@ -527,12 +467,9 @@ file_name: 写入的文件名
 content: 写入内容
 
 length: 写入内容长度，一次最多64字节
-
 ```
 
-
 **使用场景**
-
 
 ```
 在SD卡挂载情况下，输入:
@@ -542,7 +479,6 @@ length: 写入内容长度，一次最多64字节
 写入成功会输出append and write:autotest.txt,Aclsemi，打印内容如下：
 
 Fatfs:I(82556592):
-
 
 ----- test_fatfs 1 start -----
 
@@ -569,40 +505,33 @@ Fatfs:I(82556778):.Fatfs:I(82556794):f_close OK
 Fatfs:I(82556794):----- test_fatfs 1 over  -----
 
 $(82556794):append and write:autotest.txt,Aclsemi
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-d-dump-sd-card"></a>
 
-## [fatfstest D](#sd-cli "#sd-cli") **:dump sd card中文件内容到一个空间**[](#fatfstest-d-dump-sd-card "永久链接至标题")
+<a id="sd-sdd"></a>
 
+## [fatfstest D](#sd-cli) **:dump sd card中文件内容到一个空间**
 
 **命令**
 
-
 ```
 fatfstest D {DISK_NUMBER} {file_name} {start_addr} {length}
-
 ```
 
-
 **参数**
-
 
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
@@ -612,12 +541,9 @@ file_name: 写入的文件名
 start_addr: dump起始地址
 
 length:内容长度
-
 ```
 
-
 **使用场景**
-
 
 ```
 在SD卡挂载情况下，输入:
@@ -627,7 +553,6 @@ length:内容长度
 dump成功输出一下内容：
 
 Fatfs:I(116672):
-
 
 ----- test_fatfs_dump 1 start -----
 
@@ -658,40 +583,33 @@ Fatfs:I(116794):f_write end len = 16
 Fatfs:I(116794):f_lseek start
 
 Fatfs:I(116794):f_close start
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```
 
+<a id="fatfstest-a"></a>
 
-## [fatfstest A](#sd-cli "#sd-cli") **:自动测试写入文件**[](#fatfstest-a "永久链接至标题")
+<a id="sd-sda"></a>
 
+## [fatfstest A](#sd-cli) **:自动测试写入文件**
 
 **命令**
 
-
 ```
 fatfstest A {DISK_NUMBER} {file_name} {length} {test_cnt} {start_addr}
-
 ```
 
-
 **参数**
-
 
 ```
 DISK_NUMBER：磁盘号，1表示SD卡
@@ -703,12 +621,9 @@ length:内容长度
 test_cnt:自动循环写入的次数
 
 start_addr:起始地址
-
 ```
 
-
 **使用场景**
-
 
 ```
 在SD卡挂载情况下，输入:
@@ -734,21 +649,16 @@ sd_card:I(28794):sd card class:0x5b5
 sd_card:I(28802):sdio clock freq:7->11
 
 Fatfs:I(28814):auto test succ
-
 ```
 
 备注
 
-
-*与sd_card测试用例需要打开CONFIG_FATFS宏*
-
+*与sd\_card测试用例需要打开CONFIG\_FATFS宏*
 
 **响应**
-
 
 ```
 CMDRSP:OK
 
 CMDRSP:ERROR
-
 ```

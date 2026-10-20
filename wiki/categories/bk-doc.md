@@ -1,15 +1,19 @@
 # BK Docs
 
-*6 summaries from `bk_doc`.*
+*18 summaries from `bk_doc`.*
 
 ## Chip Hubs
 
+- **[BK3298](bk-doc/bk3298)**
+- **[BK3633](bk-doc/bk3633)**
 - **[BK7235](bk-doc/bk7235)**
 - **[BK7236](bk-doc/bk7236)**
 - **[BK7236N](bk-doc/bk7236n)**
 - **[BK7239](bk-doc/bk7239)**
+- **[BK7239N](bk-doc/bk7239n)**
 - **[BK7256](bk-doc/bk7256)**
 - **[BK7258](bk-doc/bk7258)**
+- **[BK7259](bk-doc/bk7259)**
 - **[BK Matter](bk-doc/matter)**
 
 Open a chip hub for module navigation, curated summaries, and raw document links.

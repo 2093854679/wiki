@@ -1,31 +1,43 @@
-# 系统状态机说明[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/power_save/bk_fsm.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
-![../../_images/pm_pcm.png](../../_images/pm_pcm.png)
+# 系统状态机说明
+
+![../../_images/pm_pcm.png](../../../../_assets/e4a5834dba0bab8eb361-pm_pcm.png)
 
 系统支持不同的睡眠模式:
 :   - active
-
     - normal sleep
-
     - low voltage
-
     - deepsleep
-
     - shut down
 
+<a id="active"></a>
 
-## active(正常工作)[](#active "永久链接至标题")
+## active(正常工作)
 
 > - CPU处于工作状态和WIFI,BT可以正常收发数据。
 
+<a id="normal-sleep"></a>
 
-### normal sleep(普通睡眠)[](#normal-sleep "永久链接至标题")
+### normal sleep(普通睡眠)
 
 > - RTOS没有任务需要处理时，系统进入IDLE任务中，在IDLE任务中，CPU会进入WFI睡眠；当有任何中断到来时，都能让系统退出WFI状态，进入正常工作。
 
+<a id="low-voltage"></a>
 
-### low voltage(低压睡眠)[](#low-voltage "永久链接至标题")
+### low voltage(低压睡眠)
 
 > - 低压睡眠是一种相对比较节省功耗的睡眠模式。在该模式下系统只有32K时钟，此时只有部分硬件模块在工作，除了AON模块其他硬件模块在低压下暂停运行。
 > - 低压睡眠模式AON的电压会减低，VDDDIG的电压也会减低。
@@ -33,13 +45,12 @@
 
 当唤醒信号触发后，系统退出低压状态，AON,VDDDIG电压升级到正常电压。
 :   - 处于低压状态下，以下唤醒源(GPIO,RTC,Touch,WIFI,BT)可以让系统退出低压。注意：WIFI,BT进入低压是根据WIFI，BT的业务场景来投票进入，比较特殊。
-
-    - 该模式下32K的时钟源可以根据自己业务的场景选择，时钟源可以参考<时钟说明>。
-
+    - 该模式下32K的时钟源可以根据自己业务的场景选择，时钟源可以参考\<时钟说明\>。
     - 为了达到最优功耗，不需要的模块，进入低压前请关闭，退出低压后，可以再开启。
 
+<a id="deep-sleep"></a>
 
-### deep sleep(深度睡眠)[](#deep-sleep "永久链接至标题")
+### deep sleep(深度睡眠)
 
 > - 深度睡眠是一种相对最节省功耗的睡眠模式。在该模式下系统只有32K时钟，此时只有部分硬件模块在工作，除了AON模块其他硬件模块都已经下电。
 
@@ -49,13 +60,15 @@
 > - 该模式下32K的时钟源默认是使用ROSC的32K。
 > - 进入深度睡眠的条件:1)RTOS没有任务需要处理时，系统进入IDLE任务中;2)满足了进入深度睡眠的票（BT和WIFI进入sleep,多媒体关闭，APP的票置上）
 
+<a id="shut-down"></a>
 
-## shut down(关机)[](#shut-down "永久链接至标题")
+## shut down(关机)
 
 > - 整个系统都已经下电
 
+<a id="id2"></a>
 
-# 状态机切换说明[](#id2 "永久链接至标题")
+# 状态机切换说明
 
 > - 低压睡眠和深度睡眠是系统性(整个芯片)睡眠，如果系统进入了低压低压睡眠和深度睡眠，个别模块还在工作，该模块的异常退出对系统从低压和深度睡眠中唤醒后，可能不能正常工作，
 >

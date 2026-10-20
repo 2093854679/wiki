@@ -1,27 +1,43 @@
-# OS[](#os "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/platform/bk_os.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="os"></a>
 
+# OS
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 介绍OS相关的cli命令使用。
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`components\bk_cli\cli_os.c` `components\bk_cli\cli_mem.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 > demo运行依赖的宏配置：
 >
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_FREERTOS | support FreeRTOS | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_FREERTOS_V9 | support FreeRTOS V9 | `middleware\soc\bk7239n\bk7239n.defconfig` | n |
-> | CONFIG_FREERTOS_V10 | support FreeRTOS V10 | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_CUSTOMIZE_HEAP_SIZE | customize freerots heap size(byte) | `middleware\soc\bk7239n\bk7239n.defconfig` | 217088 |
+> | CONFIG\_FREERTOS | support FreeRTOS | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_FREERTOS\_V9 | support FreeRTOS V9 | `middleware\soc\bk7239n\bk7239n.defconfig` | n |
+> | CONFIG\_FREERTOS\_V10 | support FreeRTOS V10 | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_CUSTOMIZE\_HEAP\_SIZE | customize freerots heap size(byte) | `middleware\soc\bk7239n\bk7239n.defconfig` | 217088 |
 >
 > demo支持的命令如下表：
 >
@@ -37,8 +53,9 @@
 > | memdump {addr} {length} | {addr}: start address | output data of specified length from the specified address |
 > | {length}:dump length |
 
+<a id="id3"></a>
 
-## 4 演示介绍[](#id3 "永久链接至标题")
+## 4 演示介绍
 
 > 1、显示os任务列表
 >

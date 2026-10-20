@@ -6,6 +6,7 @@ import click
 
 from .llm import complete_with_context, get_config
 from .search_engine import SearchEngine
+from .retrieval_engine import filter_options
 
 SYSTEM_PROMPT = """You are a research assistant answering questions against a personal knowledge base.
 You have access to relevant wiki articles and raw technical documents provided as context documents.
@@ -58,25 +59,6 @@ def _load_documents(workspace_dir: Path, paths: list[str]) -> list[dict]:
     return docs
 
 
-def _load_default_documents(wiki_dir: Path, max_docs: int = 15) -> list[dict]:
-    """Load a small default set of wiki documents."""
-    docs = []
-    for md in sorted(wiki_dir.rglob("*.md")):
-        if md.name == "index.md":
-            continue
-        try:
-            content = md.read_text(encoding="utf-8")
-            if len(content) > 6000:
-                content = content[:6000] + "\n\n[... truncated ...]"
-            docs.append({
-                "path": str(md.relative_to(wiki_dir)).replace("\\", "/"),
-                "content": content,
-            })
-        except Exception:
-            pass
-    return docs[:max_docs]
-
-
 @click.command("query")
 @click.argument("question")
 @click.option("--format", "-f", "output_format",
@@ -86,9 +68,10 @@ def _load_default_documents(wiki_dir: Path, max_docs: int = 15) -> list[dict]:
               help="Specific documents to include (wiki-relative or raw-relative paths)")
 @click.option("--search", "-s", "use_search", is_flag=True, default=True,
               help="Use search to find relevant documents")
-@click.option("--max-docs", default=15, help="Max documents to load")
+@click.option("--max-docs", default=15, type=click.IntRange(1, 30), help="Max passages to load")
 @click.option("--save/--no-save", default=True, help="Save output to wiki/outputs/")
-def cmd_query(question, output_format, docs, use_search, max_docs, save):
+@filter_options
+def cmd_query(question, output_format, docs, use_search, max_docs, save, **filters):
     """Ask a question against the knowledge base and get an LLM-researched answer."""
     cfg = get_config()
     wiki_dir = Path(cfg["paths"]["wiki_dir"])
@@ -104,21 +87,14 @@ def cmd_query(question, output_format, docs, use_search, max_docs, save):
     if list(docs):
         documents = _load_documents(workspace_dir, list(docs))
         click.echo(f"Loaded {len(documents)} specified documents.")
-    elif use_search:
+    else:
         engine = SearchEngine(Path(cfg["paths"]["search_db"]))
         if engine.document_count == 0 and (wiki_dir.exists() or raw_dir.exists()):
             click.echo("Indexing wiki and raw docs...")
             engine.index(wiki_dir, raw_dir)
-        results = engine.search(question, limit=max_docs)
-        if results:
-            documents = _load_documents(workspace_dir, [r["workspace_path"] for r in results])
-            click.echo(f"Search found {len(documents)} relevant documents.")
-        else:
-            documents = _load_default_documents(wiki_dir, max_docs)
-            click.echo(f"Loaded {len(documents)} documents (search index empty, using defaults).")
-    else:
-        documents = _load_default_documents(wiki_dir, max_docs)
-        click.echo(f"Loaded {len(documents)} documents.")
+        pack = engine.context(question, limit=min(max_docs, 12), max_chars=18000, **filters)
+        documents = [{"path": r["citation"], "content": r["content"]} for r in pack["documents"]]
+        click.echo(f"Search found {len(documents)} relevant passages.")
 
     if not documents:
         click.echo("No documents found to answer the question.")

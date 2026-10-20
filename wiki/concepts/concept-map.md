@@ -11,6 +11,8 @@ aliases:
 
 ## 快速路由
 
+- 问官网产品分类、SDK 版本、BK7258/BK7259 SMP 与 AP/CP：先看 [Beken 官方文档分类](../categories/beken-official.md)，架构边界看 [[bk-smp-ap-cp-boundaries]]。
+
 - 问 BK 芯片、ARMINO、WiFi API、低功耗、OTA、安全启动：先看 [[bk-armino-framework]]，再到 [[bk-wifi-ble-coexistence]]、[[wifi-networking-stack]]、[[freertos-kernel-mechanisms]] 或 [BK Docs](../categories/bk-doc.md)。
 - 问 C 语言、指针、内存、编译链接、启动流程：先看 [[c-language-core-system]]，再到 [[arm-cortex-m-embedded-fundamentals]]。
 - 问 RTOS 任务、调度、上下文切换、IPC、堆内存：先看 [[freertos-kernel-mechanisms]]、[[freertos-task-management]]、[[freertos-memory-management]]。

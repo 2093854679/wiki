@@ -1,15 +1,50 @@
 ---
-aliases:
-- 'BK7256 › examples › video'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/video/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 用例指南[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 用例指南
 
-- [LCD Display](video/lcd.md "lcd/index.md")
+- [LCD Display](video/lcd.md)
+- [Camera](video/camera.md)
+- [DMA2D](video/dma2d.md)
+- [QR-Code Generator](video/qrcodegen.md)
 
-- [Camera](video/camera.md "camera/index.md")
+## 模块导航
 
-- [DMA2D](video/dma2d.md "dma2d.md")
-
-- [QR-Code Generator](video/qrcodegen.md "qrcodegen.md")
+- [简介](../introduction.md)
+- [快速入门](../get-started.md)
+- [H/W 参考手册](../hw-reference.md)
+- [API 参考手册](../api-reference.md)
+- [开发者指南](../developer-guide.md)
+- [OS 相关参考](../os.md)
+- [样例演示](../examples.md)
+- [LCD Display](video/lcd.md)
+- [Camera](video/camera.md)
+- [DMA2D](video/dma2d.md)
+- [QR-Code Generator](video/qrcodegen.md)
+- [音频](audio.md)
+- [蓝牙](bluetooth.md)
+- [门铃](doorbell.md)
+- [命令](cli.md)
+- [外设](peripheral.md)
+- [平台](platform.md)
+- [LVGL](lvgl/lvgl.md)
+- [尚云P2P](cs2_p2p.md)
+- [wifi](wifi.md)
+- [VND_CAL](vnd_cal/vnd_cal.md)
+- [应用开发](../application.md)
+- [工程](../projects_work.md)
+- [产品解决方案](../projects.md)
+- [开发与贡献代码流程](../process.md)
+- [云平台](../clounds.md)
+- [版本](../release-notes.md)

@@ -1,62 +1,74 @@
-# EFUSE[](#efuse "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/security/bk_security_efuse.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="efuse"></a>
 
+<a id="bk-securify-efuse"></a>
 
-## 概述[](#id1 "永久链接至标题")
+# EFUSE
+
+<a id="id1"></a>
+
+## 概述
 
 EFUSE (Electrically Programming Efuse) 用于配置 BK7236N 中与安全相关的特性，只能由 0 配置成 1，无法由 1 配置成 0。
 
-BK7236N EFUSE 共有 4x8 共 32 Bits, 在安全启动使能前，可以通过 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil") 配置，详情请参考 [EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse")。
+BK7236N EFUSE 共有 4x8 共 32 Bits, 在安全启动使能前，可以通过 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil) 配置，详情请参考 [EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse)。
 
 | 位 | 名字 | 描述 |
 | --- | --- | --- |
-| 0 | security boot enable | 0: 不使能安全启动。1: 使能安全启动。 |
-| 1 | security boot debug mode | 0: 使能安全启动调试信息。1: 关闭安全启动调试信息。 |
-| 2 | fast boot disable | 0: 使能快速启动；1: 关闭快速启动。 |
-| 3 | boot mode | 0：传统下载模式；1: 安全启动模式。 |
-| 4 | security boot clock select | 0: 安全启动使用 XTAL 时钟；1: 安全启动使能 PLL。 |
-| 5 | random delay enable | 0: 关闭了随机延时；1: 使能随机延迟。 |
-| 6 | direct jump enable | 0: 关闭安全启动直接跳转；1: 使能安全启动直接跳转。 |
-| 7 | security boot critical error | 0: 使能安全启动中严重错误打印；1: 关闭安全启动中严重错误打印。 |
-| 8~19 | reserved | 保留位 |
-| 20 | attack_nmi_enable | 0: 检测到注入攻击时不产生 NMI；1: 检测到注入攻击时产生 NMI。 |
-| 21 | spi_to_ahb_disable | 0：SPI 到 AHB 通路不关闭；1: SPI 到 AHB 通路关闭。 |
-| 22 | auto_reset_enable[0] | 温度电压异常复位 |
-| 23 | auto_reset_enable[1] | 温度电压异常复位 |
-| 24~28 | reserved | 保留位 |
-| 29 | flash aes enable | 0: FLASH AES 加密未使能；1: FLASH AES 加密使能。 |
-| 30 | spi_dld_disable | 0: SPI 下载使能；1: SPI 下载关闭。 |
-| 31 | swd_disable | 0: 使能 CPU SWD; 1: 关闭 CPU SWD。 |
+| 0 | secure\_boot | 0: 安全启动未强制使能；1: 强制使能安全启动。 |
+| 1 | secure\_boot\_debug\_disable | 0: 使能安全启动调试信息；1: 关闭安全启动调试信息。 |
+| 2 | fast\_boot\_disable | 0: 使能快速启动；1: 关闭快速启动。 |
+| 3 | download\_disable | 0: 下载模式使能；1: 下载模式禁用，使能安全启动模式。 |
+| 4 | pll\_enable | 0: 安全启动使用 XTAL 时钟；1: 安全启动使能 PLL。 |
+| 5 | fih\_delay\_enable | 0: 关闭随机延时；1: 使能随机延迟 (FIH delay)。 |
+| 6 | power\_on\_fastboot\_disable | 0: power on 时跳过验签；1: power on 时不跳过验签。 |
+| 7 | critical\_err\_disable | 0: 使能安全启动中严重错误打印；1: 关闭安全启动中严重错误打印。 |
+| 8 | reserved | 保留位。 |
+| 9 | flash\_ctrl\_access\_disable | 0: 允许通过 HCI 访问 flash 控制寄存器；1: 禁止通过 HCI 访问 flash 控制寄存器。 |
+| 10 | deep\_lv\_fast\_boot\_disable | 0: Deep LV 快速启动到 RAM 使能；1: Deep LV 快速启动到 RAM 禁用。 |
+| 11 | long\_version\_length | 0: BL1 security counter 占用 4 Bytes；1: BL1 security counter 占用 68 Bytes。 |
+| 12 | secure\_download | 0: 安全下载关闭；1: 安全下载使能。 |
+| 13 | bkfil\_channel\_ctrl\[0\] | bit 13/14/15 组合使用，1/7 \- BKFIL 通道关闭，0/2/3/4/5/6 \- BKFIL 通道使能。 |
+| 14 | bkfil\_channel\_ctrl\[1\] | bit 13/14/15 组合使用，1/7 \- BKFIL 通道关闭，0/2/3/4/5/6 \- BKFIL 通道使能。 |
+| 15 | bkfil\_channel\_ctrl\[2\] | bit 13/14/15 组合使用，1/7 \- BKFIL 通道关闭，0/2/3/4/5/6 \- BKFIL 通道使能。 |
+| 16 | legacy\_boot\_high\_freq\_disable\| 0: 传统下载高频使能；1: 传统下载高频禁用。 | |
+| 17 | cpu\_120m\_enable | 0: CPU 80M；1: CPU 120M。 |
+| 18 | flash\_high\_freq\_enable | 0: flash XTAL 40M；1: flash 80M。 |
+| 19 | cbus\_disable | 0: CBUS 端口使能；1: CBUS 端口禁用。 |
+| 20 | attack\_nmi\_enable | 0: 检测到注入攻击时不产生 NMI；1: 检测到注入攻击时产生 NMI。 |
+| 21 | spi\_to\_ahb\_disable | 0: SPI 到 AHB 通路不关闭；1: SPI 到 AHB 通路关闭。 |
+| 22 | auto\_reset\_enable\[0\] | 温度电压异常复位控制位 0。 |
+| 23 | auto\_reset\_enable\[1\] | 温度电压异常复位控制位 1。 |
+| 24 | memchk\_bps\_enable | 0: 冷启动执行 memchk；1: 冷启动不做 memchk。 |
+| 25 | debug\_hw\_disable | 0: 硬件调试 (JTAG) 未关闭；1: 硬件调试 (JTAG) 关闭。 |
+| 26 | shanhai\_clk\_gating\_enable | 0: 硬件未使能 clk\_gating；1: 硬件使能 clk\_gating。 |
+| 27 | flash\_no\_crc | 0: CRC mode；1: no CRC mode。 |
+| 28 | flash\_aes\_mode | 0: FLASH AES-XTS-128 模式；1: FLASH AES-XTS-256 模式。 |
+| 29 | flash\_aes\_enable | 0: FLASH AES 加密未使能；1: FLASH AES 加密使能。 |
+| 30 | spi\_download\_disable | 0: SPI 下载使能；1: SPI 下载关闭。 |
+| 31 | jtag\_disable | 0: 使能 CPU SWD；1: 关闭 CPU SWD。 |
 
+<a id="bit-1-secure-boot-debug-disable"></a>
 
-### BIT(0) - security boot enable[](#bit-0-security-boot-enable "永久链接至标题")
+<a id="efuse-bit1"></a>
 
-EFUSE 中有两位与安全启动使能相关：
-
-> - [BIT(3)](#efuse-bit3 "#efuse-bit3") - boot mode 用于设置启动模式。0 表示传统下载模式，此时可通过 UART 下载版本；1 表示安全启动模式，
->   设置成安全启动模式之后还需要将 [BIT(3)](#efuse-bit3 "#efuse-bit3") 置 1 才能使能安全启动。
-> - [BIT(0)](#efuse-bit0 "#efuse-bit0") - 使能安全启动。仅在 [BIT(3)](#efuse-bit3 "#efuse-bit3") 设置成 1（安全启动模式）时有效，表示是否使能安全启动。
-
-当 [BIT(0)](#efuse-bit0 "#efuse-bit0") 置 0 时，表示安全启动未使能，此时 BL1 认为 IMAGE 中的公钥合法，即不会使用 IMAGE 中的公钥与 OTP 中的
-[BL1 ROTPK HASH](bk_security_otp.md#otp-bl1-rotpk-hash "bk_security_otp.md#otp-bl1-rotpk-hash") 做比对，仅做 IMAGE 完整性验证。这时 OTP 中即使不配置公钥 HASH 系统依然能启动。
-
-当 [BIT(0)](#efuse-bit0 "#efuse-bit0") 置 1 时，表示安全启动使能，要求 OTP 中必须配置 [BL1 ROTPK HASH](bk_security_otp.md#otp-bl1-rotpk-hash "bk_security_otp.md#otp-bl1-rotpk-hash")，否则启动失败。
-
-重要
-
-在安全启动使能前，BKFIL 是通过与 BootROM 通信进行烧录的，此时可以烧录 BL2（bootloader）。
-安全启动一经使能，BKFIL 就无法利用 BootROM 进行烧录，此时必须依赖 BL2 中的安全下载，安全下载
-支持除 BL2 之外的其他 IMAGE 及 OTP/EFUSE 的下载，但无法再烧录 BL2! 但在
-[SPI to AHB，EFUSE BIT21](#efuse-bit21 "#efuse-bit21") 未禁用前可通过 SPI 接口重新烧录 BL2。因此，在使能
-安全启动前，务必确保烧录了稳定可靠的 BL2。
-
-
-### BIT(1) - security boot debug mode[](#bit-1-security-boot-debug-mode "永久链接至标题")
+### BIT(1) \- secure\_boot\_debug\_disable
 
 BL1 定义了两级调试信息来供用户定位问题：
 
-> - [BIT(1)](#efuse-bit1 "#efuse-bit1") - 控制普通调试信息。
-> - [BIT(7)](#efuse-bit7 "#efuse-bit7") - 控制严重错误。
+> - [BIT(1)](#efuse-bit1) \- 控制普通调试信息。
+> - [BIT(7)](#efuse-bit7) \- 控制严重错误。
 
 普通调试信息除了错误之外，还包括一些流程性的日志打印。严重错误通常是指会导致 BL1 启动失败的错误，当前 BL1 支持下述严重错误:
 
@@ -91,8 +103,11 @@ BL1 定义了两级调试信息来供用户定位问题：
 一般在开发阶段，尤其是尚未在任何板子上成功配置过安全启动之前，建议开启普通日志，这样，可以看到更多调试信息；
 在熟悉了安全启动配置之后，或者在量产阶段，应该关闭普通日志。严重错误则建议在量产版本中也不要关闭。
 
+<a id="bit-2-fast-boot-disable"></a>
 
-### BIT(2) - fast boot disable[](#bit-2-fast-boot-disable "永久链接至标题")
+<a id="efuse-bit2"></a>
+
+### BIT(2) \- fast boot disable
 
 BIT(2) 置 0 时使能 Fast Boot 启动，置 1 时关闭 Fast Boot 启动。
 
@@ -104,13 +119,22 @@ Fast Boot 用于控制系统从 Deep Sleep 醒来的流程，当 Fast Boot 使�
 Fast Boot 使能时，启动速度更快，但不够安全；Fast Boot 关闭时，启动速度较慢，但安全可靠。
 应用应该依据实际需求决定是否开关 Fast Boot。
 
+<a id="bit-3-download-disable"></a>
 
-### BIT(3) - boot mode[](#bit-3-boot-mode "永久链接至标题")
+<a id="efuse-bit3"></a>
 
-用于配置启动模式，请参考 [BIT(0)](#efuse-bit0 "#efuse-bit0")。
+### BIT(3) \- download\_disable
 
+用于禁用下载模式，使能安全启动：
 
-### BIT(4) - secure boot clock select[](#bit-4-secure-boot-clock-select "永久链接至标题")
+> - 0 \- 下载模式使能，支持传统下载。
+> - 1 \- 下载模式禁用，使能安全启动模式。
+
+<a id="bit-4-secure-boot-clock-select"></a>
+
+<a id="efuse-bit4"></a>
+
+### BIT(4) \- secure boot clock select
 
 BIT(4) 用于使能/关闭安全启动高频模式。
 
@@ -119,78 +143,95 @@ BIT(4) 用于使能/关闭安全启动高频模式。
 
 在高频模式。在高频模式下，安全启动速度更快，对启动性能有要求的应用一般建议使能高频模式。
 
+<a id="bit-5-random-delay-enable"></a>
 
-### BIT(5) - random delay enable[](#bit-5-random-delay-enable "永久链接至标题")
+<a id="efuse-bit5"></a>
+
+### BIT(5) \- random delay enable
 
 BIT(5) 用于控制 BootROM 中关闭判断语句的随机延迟:
 
 > - 0 表示随机延时关闭。
-> - 1 表示开启。当随机延时开启时，BL1 在调用关键函数前，都会做一个随机 delay，通过这种机制减缓 [故障注入攻击](bk_security_fih.md#fault-injection-attack "bk_security_fih.md#fault-injection-attack") 带来的影响。
+> - 1 表示开启。当随机延时开启时，BL1 在调用关键函数前，都会做一个随机 delay，通过这种机制减缓 [故障注入攻击](bk_security_fih.md#fault-injection-attack) 带来的影响。
 
 备注
 
 随机延时使能会增加安全启动时间，除非对注入攻击防范特别高的应用，通常不建议打开随机延迟功能!
 
+<a id="bit-6-power-on-fastboot-disable"></a>
 
-### BIT(6) - Direct Jump[](#bit-6-direct-jump "永久链接至标题")
+<a id="efuse-bit6"></a>
 
-BIT(6) 用于配置 BL1 验签完成之后的跳转到 Bootloader 的方式:
+### BIT(6) \- power\_on\_fastboot\_disable
 
-> - 0 表示间接跳转。使用间接跳转时，BL1 在验签完之后不是直接跳转到 BL2，而是先跳转到一个中间 BIN，然后由中间 BIN 再跳转到 BL2。
-> - 1 表示直接跳转。使用直接跳转时，BL1 在验签完成之后直接跳转到 BL2。
+BIT(6) 用于配置 BL1 是否跳过验签流程:
 
-备注
+> - 0 表示每次power on启动时，都直接进入到快速验签过程。
+> - 1 标志任何安全启动场景下，都需要进行完整的验签过程。
 
-当使用间接跳转时，中间 BIN 也会包含在 BL2 中一起验签，因此是安全的。
+<a id="bit-7-critical-err-disable"></a>
 
+<a id="efuse-bit7"></a>
 
-### BIT(7) - security boot critical error[](#bit-7-security-boot-critical-error "永久链接至标题")
+### BIT(7) \- critical\_err\_disable
 
-请参考 [BIT(1)](#efuse-bit1 "#efuse-bit1")。。
+请参考 [BIT(1)](#efuse-bit1)。。
 
+<a id="bit-20-attack-nmi"></a>
 
-### BIT(20) - attack NMI[](#bit-20-attack-nmi "永久链接至标题")
+<a id="efuse-bit20"></a>
 
-BIT(20) 用于配置在检测到 [故障注入攻击](bk_security_fih.md#fault-injection-attack "bk_security_fih.md#fault-injection-attack") 之后是否产生 NMI 异常：
+### BIT(20) \- attack NMI
 
-> - 0 - BL1 不会进行硬件层面的故障注入攻击检测。
-> - 1 - BL1 进行硬件层面的故障注入攻击检测，当检测到攻击时产生 NMI 异常。
+BIT(20) 用于配置在检测到 [故障注入攻击](bk_security_fih.md#fault-injection-attack) 之后是否产生 NMI 异常：
+
+> - 0 \- BL1 不会进行硬件层面的故障注入攻击检测。
+> - 1 \- BL1 进行硬件层面的故障注入攻击检测，当检测到攻击时产生 NMI 异常。
 
 备注
 
 对故障注入攻击特别关注的应用，建议打开这个开关。
 
+<a id="bit-21-spi-to-ahb-disable"></a>
 
-### BIT(21) - spi to ahb disable[](#bit-21-spi-to-ahb-disable "永久链接至标题")
+<a id="efuse-bit21"></a>
+
+### BIT(21) \- spi to ahb disable
 
 BIT(21) 用于禁用 SPI 到 AHB 通道：
 
-> - 0 - SPI 到 AHB 通道使能。此时，通过 SPI 接口可直接操作 BK7236N 寄存器。
-> - 1 - SPI 到 AHB 通道关闭。此时，无法通过 SPI 接口操作 BK7236N 寄存器。
+> - 0 \- SPI 到 AHB 通道使能。此时，通过 SPI 接口可直接操作 BK7236N 寄存器。
+> - 1 \- SPI 到 AHB 通道关闭。此时，无法通过 SPI 接口操作 BK7236N 寄存器。
 
-需要注意，BIT(21) 与 [BIT(30) spi flash download disable](#efuse-bit30 "#efuse-bit30") 相互独立，需要分别配置。
+需要注意，BIT(21) 与 [BIT(30) spi flash download disable](#efuse-bit30) 相互独立，需要分别配置。
 
 重要
 
 在安全启动使能时，SPI to AHB 接必须关闭。
 
+<a id="bit-29-flash-aes-enable"></a>
 
-### BIT(29) - flash aes enable[](#bit-29-flash-aes-enable "永久链接至标题")
+<a id="efuse-bit29"></a>
+
+### BIT(29) \- flash\_aes\_enable
 
 BIT(29) 用于使能 FLASH AES 加密：
 
-> - 0 - FLASH AES 加密不使能。
-> - 1 - FLASH AES 加密使能。此必需要配置 [FASH AES KEY](bk_security_otp.md#otp-flash-aes-key "bk_security_otp.md#otp-flash-aes-key")。
+> - 0 \- FLASH AES 加密不使能。
+> - 1 \- FLASH AES 加密使能。此必需要配置 [FASH AES KEY](bk_security_otp.md#otp-flash-aes-key)。
 
+<a id="bit-30-spi-download-disable"></a>
 
-### BIT(30) - spi download disable[](#bit-30-spi-download-disable "永久链接至标题")
+<a id="efuse-bit30"></a>
+
+### BIT(30) \- spi\_download\_disable
 
 关闭 SPI 下载功能:
 
-> - 0 - 内部 SPI FLASH 通道使能，支持 SPI 下载。
-> - 1 - 内部 SPI FLASH 通道关闭，不支持 SPI 下载。
+> - 0 \- 内部 SPI FLASH 通道使能，支持 SPI 下载。
+> - 1 \- 内部 SPI FLASH 通道关闭，不支持 SPI 下载。
 
-需要注意，BIT(30) 与 [BIT(21) spi to ahb disable](#efuse-bit21 "#efuse-bit21") 相互独立，需要分别配置。
+需要注意，BIT(30) 与 [BIT(21) spi to ahb disable](#efuse-bit21) 相互独立，需要分别配置。
 
 重要
 
@@ -198,13 +239,16 @@ BIT(29) 用于使能 FLASH AES 加密：
 这样，当安全启动部署失败时，依然可通过 SPI 下载将版本下载到 FLASH。否则，一旦安全启动部署失败，就再
 也无法下载版本，板子变砖。
 
+<a id="bit-31-jtag-disable"></a>
 
-### BIT(31) - SWD 调试[](#bit-31-swd "永久链接至标题")
+<a id="efuse-bit31"></a>
+
+### BIT(31) \- jtag\_disable
 
 BIT(31) 用于控制 CPU 调试口的开关:
 
-> - 0 - CPU 调试开启，BK7236N 支持 SWD 调试。
-> - 1 - CPU 调试关闭。此时，必须通过 [安全调试](bk_security_debug.md#security-secure-debug "bk_security_debug.md#security-secure-debug") 才能使能 CPU 调试功能。
+> - 0 \- CPU 调试开启，BK7236N 支持 SWD 调试。
+> - 1 \- CPU 调试关闭。此时，必须通过 [安全调试](bk_security_debug.md#security-secure-debug) 才能使能 CPU 调试功能。
 
 重要
 

@@ -1,9 +1,24 @@
-# 关闭多媒体模块接口参考[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/power_save/bk_close_multimedia.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="id1"></a>
+
+# 关闭多媒体模块接口参考
 
 注意:开启和关闭多媒体接口，只使用于支持多媒体的项目，不支持多媒体的项目，可以不用关注。
 
+<a id="id2"></a>
 
-## 多媒体模块接口[](#id2 "永久链接至标题")
+## 多媒体模块接口
 
 多媒体功能大部分场景都是在CPU1上执行，各个硬件模块都有对应的时钟配置、电源管理，如PSRAM、LCD、H264、USB、DMA2D等。为了实现低功耗，开关需要对称使用。
 
@@ -51,4 +66,3 @@
 >   打开：media_app_lvgl_open(void *lcd_open)*
 >   关闭：media_app_lvgl_close(void)
 >   ```
-

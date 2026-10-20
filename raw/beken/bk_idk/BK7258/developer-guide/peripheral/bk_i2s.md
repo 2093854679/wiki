@@ -1,8 +1,22 @@
-# I2S 使用指南[](#i2s "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/peripheral/bk_i2s.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="i2s"></a>
 
+# I2S 使用指南
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 I2S/PCM总线接口是一个双向的4线接口，主要用于音频数据的传输。该接口可以支持I2S模式的各种格式，如Philips、Left Justified、Right Justified；还可以支持PCM模式的各种格式，如Short Sync、Long Sync、GCI、IDL等。
 
@@ -11,69 +25,88 @@ I2S/PCM总线接口是一个双向的4线接口，主要用于音频数据的传
 I2S (Philips)
 :   在此工作模式下信号传输时序图如 `图1` 所示:
 
-![Philips_mode_time_sequence_diagram](../../_images/i2s_Philips.png)
+<a id="id8"></a>
+![Philips_mode_time_sequence_diagram](../../../../_assets/cecc532f5ede2eb66c61-i2s_Philips.png)
 
-Figure 1. Philips mode time sequence diagram[](#id8 "永久链接至图片")
+
+Figure 1\. Philips mode time sequence diagram
 
 Left Justified
 :   在此工作模式下信号传输时序图如 `图2` 所示:
 
-![Left Justified mode time sequence diagram](../../_images/i2s_Left_Justified.png)
+<a id="id9"></a>
+![Left Justified mode time sequence diagram](../../../../_assets/09eb7c964d9229710f7a-i2s_Left_Justified.png)
 
-Figure 2. Left Justified mode time sequence diagram[](#id9 "永久链接至图片")
+
+Figure 2\. Left Justified mode time sequence diagram
 
 Right Justified
 :   在此工作模式下信号传输时序图如 `图3` 所示:
 
-![Right Justified mode time sequence diagram](../../_images/i2s_RightJustified.png)
+<a id="id10"></a>
+![Right Justified mode time sequence diagram](../../../../_assets/6352a4e59b1ce9438fa4-i2s_RightJustified.png)
 
-Figure 3. Right Justified mode time sequence diagram[](#id10 "永久链接至图片")
+
+Figure 3\. Right Justified mode time sequence diagram
 
 Short Frame Sync
 :   在此工作模式下信号传输时序图如 `图4` 所示:
 
-![Short Frame Sync mode time sequence diagram](../../_images/i2s_ShortSyncFrame.png)
+<a id="id11"></a>
+![Short Frame Sync mode time sequence diagram](../../../../_assets/6e719c7e82d9d813b6db-i2s_ShortSyncFrame.png)
 
-Figure 4. Short Frame Sync mode time sequence diagram[](#id11 "永久链接至图片")
+
+Figure 4\. Short Frame Sync mode time sequence diagram
 
 Long Frame Sync
 :   在此工作模式下信号传输时序图如 `图5` 所示:
 
-![Long Frame Sync mode time sequence diagram](../../_images/i2s_LongSyncFrame.png)
+<a id="id12"></a>
+![Long Frame Sync mode time sequence diagram](../../../../_assets/ee337f0bdcd2eac96382-i2s_LongSyncFrame.png)
 
-Figure 5. Long Frame Sync mode time sequence diagram[](#id12 "永久链接至图片")
 
-Normal 2B+D
+Figure 5\. Long Frame Sync mode time sequence diagram
+
+Normal 2B\+D
 :   在此工作模式下信号传输时序图如 `图6和图7` 所示:
 
-![Normal 2B+D mode time sequence diagram](../../_images/i2s_Normal2BD_D0.png)
+<a id="id13"></a>
+![Normal 2B+D mode time sequence diagram](../../../../_assets/268f8afead9cb56f4d6e-i2s_Normal2BD_D0.png)
 
-Figure 6. Normal 2B+D mode time sequence diagram[](#id13 "永久链接至图片")
 
-![Normal 2B+D mode time sequence diagram](../../_images/i2s_Normal2BD_Dx.png)
+Figure 6\. Normal 2B\+D mode time sequence diagram
 
-Figure 7. Normal 2B+D mode time sequence diagram[](#id14 "永久链接至图片")
+<a id="id14"></a>
+![Normal 2B+D mode time sequence diagram](../../../../_assets/8650a8aa7b9a90ae39e3-i2s_Normal2BD_Dx.png)
 
-Delay 2B+D
+
+Figure 7\. Normal 2B\+D mode time sequence diagram
+
+Delay 2B\+D
 :   在此工作模式下信号传输时序图如 `图8和图9` 所示:
 
-![Delay 2B+D mode time sequence diagram](../../_images/i2s_Delay2BD_D0.png)
-
-Figure 8. Delay 2B+D mode time sequence diagram[](#id15 "永久链接至图片")
-
-![Delay 2B+D mode time sequence diagram](../../_images/i2s_Delay2BD_Dx.png)
-
-Figure 9. Delay 2B+D mode time sequence diagram[](#id16 "永久链接至图片")
+<a id="id15"></a>
+![Delay 2B+D mode time sequence diagram](../../../../_assets/88931bfe58ef1759e5c1-i2s_Delay2BD_D0.png)
 
 
-## 硬件连接[](#id2 "永久链接至标题")
+Figure 8\. Delay 2B\+D mode time sequence diagram
+
+<a id="id16"></a>
+![Delay 2B+D mode time sequence diagram](../../../../_assets/f0f30356473f0250351f-i2s_Delay2BD_Dx.png)
+
+
+Figure 9\. Delay 2B\+D mode time sequence diagram
+
+<a id="id2"></a>
+
+## 硬件连接
 
 I2S通讯的引脚说明如下：
 
 | GPIO | in/out | 说明 |
 | --- | --- | --- |
-| SCLK | in&out | I2S工作的时钟信号，也称为BCLK |
-| LRCK | in&out | 左右声道时钟，也称WS（PCM中是sync时钟） |
+| SCLK | in\&out | I2S工作的时钟信号，也称为BCLK |
+| LRCK | in\&out | 左右声道时钟，也称WS（PCM中是sync时钟） |
 | DIN | in | 数据输入引脚 |
 | DOUT | out | 数据输出引脚 |
 
@@ -81,10 +114,10 @@ BK7258存在三路I2S，每路I2S的GPIO引脚如下表所示：
 
 | GPIO | Group 0 | Group 1 | Group 2 |
 | --- | --- | --- | --- |
-| SCLK | GPIO_6 | GPIO_40 | GPIO_44 |
-| LRCK | GPIO_7 | GPIO_41 | GPIO_45 |
-| DIN | GPIO_8 | GPIO_42 | GPIO_46 |
-| DOUT | GPIO_9 | GPIO_43 | GPIO_47 |
+| SCLK | GPIO\_6 | GPIO\_40 | GPIO\_44 |
+| LRCK | GPIO\_7 | GPIO\_41 | GPIO\_45 |
+| DIN | GPIO\_8 | GPIO\_42 | GPIO\_46 |
+| DOUT | GPIO\_9 | GPIO\_43 | GPIO\_47 |
 
 BK7258每路I2S下有一个或多个通道用于数据的收发，通道信息如下表所示：
 
@@ -98,16 +131,18 @@ BK7258每路I2S下有一个或多个通道用于数据的收发，通道信息�
 
 一般情况下，一个通道就能够满足应用的使用，多个通道主要用于时分服用模式（DTM）。
 
+<a id="id3"></a>
 
-## I2S调试注意事项[](#id3 "永久链接至标题")
+## I2S调试注意事项
 
 > 1. I2S通讯时，两个设备分别为 `master` 和 `slave`， `SCLK` 和 `LRCK` 由 `master` 提供。
 > 2. 调用接口前需要确认设备的角色、工作模式、采样率、声道数、位宽、数据发送顺序、数据存储格式等信息，根据这些信息来配置I2S。
 > 3. 针对I2S四种典型的工作模式，驱动提供了默认的配置，你可以在默认配置的基础上根据实际应用调整。
 > 4. slave的配置需要和master保持一致，如果不确定master的工作模式，可以通过逻辑分析仪抓取master的引脚波形进行分析。
 
+<a id="id4"></a>
 
-## I2S 接口使用说明[](#id4 "永久链接至标题")
+## I2S 接口使用说明
 
 I2S接口的使用流程如下：
 
@@ -120,7 +155,6 @@ I2S接口的使用流程如下：
 接下来以I2S模式下的收发为例，对接口的配置使用进行详细说明。
 
 主机工作在I2S模式下发送数据示例如下：
-
 
 ```
 /* 创建通道的TX回调，并在回调中不断向通道发送固定的数据 */
@@ -162,11 +196,9 @@ os_printf("ring_buffer_write, size: %d \n", size);
 os_free(temp_data);
 /* 启动I2S开始发送数据 */
 bk_i2s_start();
-
 ```
 
 I2S的配置信息如下：
-
 
 ```
     #define DEFAULT_I2S_CONFIG() {                     \
@@ -182,28 +214,19 @@ I2S的配置信息如下：
     .samp_rate = I2S_SAMP_RATE_8000,               \
     .pcm_chl_num = 2,                              \
 }
-
 ```
 
 备注
 
-
 - `lrck_invert` 用于配置 `LRCK` 信号是否反转（仅在传输双声道数据的I2S工作模式下有效），默认情况下 `LRCK` 的低电平表示右声道，高电平表示左声道。
-
-- `sck_invert` 用于配置``SLCK`` 信号是否反转，默认情况下输入数据在 `SCLK` 的上升沿采样，输出数据在 `SCLK` 的下降沿变化。
-
+- `sck_invert` 用于配置\`\`SLCK\`\` 信号是否反转，默认情况下输入数据在 `SCLK` 的上升沿采样，输出数据在 `SCLK` 的下降沿变化。
 - `lsb_first_en` 用于配置是否数据的发送时序，如果使能则先发送低位再发送高位，默认情况下先发送高位再发送低位。
-
 - `sync_length` 用于配置同步的bit位数（仅在PCM工作模式下有效），I2S模式下可忽略。
-
 - `data_length` 用于配置单声道数据的位数，需要注意是单声道的位数。
-
 - `pcm_dlength` 用于配置PCM数据的位数（仅在PCM工作模式下有效），I2S模式下可忽略。
-
-- `store_mode` 用于配置通道内数据的存储模式，I2S_LRCOM_STORE_16R16L：左右声道数据拼成一个32bit同时写入PCM_DAT中，低16bit对应左声道，高16bit对应右声道，即{R,L}->{R,L}->……（仅当数据长度小于16时才能配置此模式）。I2S_LRCOM_STORE_LRLR：左右声道数据按时间顺序交替写入PCM_DAT中，即L->R->L->R->…… 。
+- `store_mode` 用于配置通道内数据的存储模式，I2S\_LRCOM\_STORE\_16R16L：左右声道数据拼成一个32bit同时写入PCM\_DAT中，低16bit对应左声道，高16bit对应右声道，即{R,L}-\>{R,L}-\>……（仅当数据长度小于16时才能配置此模式）。I2S\_LRCOM\_STORE\_LRLR：左右声道数据按时间顺序交替写入PCM\_DAT中，即L-\>R-\>L-\>R-\>…… 。
 
 从机工作在I2S模式下接收送数据示例如下：
-
 
 ```
 /* 创建通道的RX回调，并在回调中不断读取通道接收到的数据 */
@@ -215,6 +238,7 @@ static int ch1_rx_data_handle_cb(uint32_t size)
 
         return size;
 }
+
 
 /* 采用默认的I2S配置 */
 i2s_config_t i2s_config = DEFAULT_I2S_CONFIG();
@@ -242,14 +266,14 @@ if (ret != BK_OK) {
 
 /* 启动I2S开始接收数据 */
 bk_i2s_start();
-
 ```
 
+<a id="id5"></a>
 
-## 参考链接[](#id5 "永久链接至标题")
+## 参考链接
 
-> [API 参考 :](../../api-reference/peripheral/bk_i2s.md "../../api-reference/peripheral/bk_i2s.md") 介绍I2S API接口
+> [API 参考 :](../../api-reference/peripheral/bk_i2s.md) 介绍I2S API接口
 >
-> [用户开发指南 :](../../developer-guide/peripheral/bk_i2s.md "../../developer-guide/peripheral/bk_i2s.md") 介绍I2S调试开发流程
+> [用户开发指南 :](bk_i2s.md) 介绍I2S调试开发流程
 >
-> [示例 :](../../examples/peripheral/bk_i2s.md "../../examples/peripheral/bk_i2s.md") 介绍I2S测试demo的使用
+> [示例 :](../../examples/peripheral/bk_i2s.md) 介绍I2S测试demo的使用

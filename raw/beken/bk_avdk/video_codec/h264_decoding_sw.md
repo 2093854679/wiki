@@ -1,32 +1,51 @@
-# H264软解码[](#h264 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/h264_decoding_sw/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="h264"></a>
 
+# H264软解码
 
-## 1、H264解码[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、H264解码
 
 > H264解码部分在手机端实现，本文使用ffmpeg库进行解码。
 
+<a id="ffmpeg"></a>
 
-## 2、ffmpeg官网地址[](#ffmpeg "永久链接至标题")
+## 2、ffmpeg官网地址
 
-> [https://ffmpeg.org/](https://ffmpeg.org/ "https://ffmpeg.org/")
+> <https://ffmpeg.org/>
+
+<a id="id2"></a>
+
+## 3、解码流程图
+
+<a id="id4"></a>
+![fill specific color](../../_assets/01f640c14be48fa69336-ffmpeg_h264_decode_flow.png)
 
 
-## 3、解码流程图[](#id2 "永久链接至标题")
+Figure 1\. decode\_flow
 
-![fill specific color](_images/ffmpeg_h264_decode_flow.png)
+<a id="id3"></a>
 
-Figure 1. decode_flow[](#id4 "永久链接至图片")
-
-
-## 4、流程说明[](#id3 "永久链接至标题")
+## 4、流程说明
 
 1. 注册解码器:`avcodec_register_all`
 
    用于注册所有已编译的编解码器
 2. 查找解码器:`avcodec_find_decoder`
 
-   根据指定的解码器ID查找对应的解码器,h264解码器对应ID为：AV_CODEC_ID_H264
+   根据指定的解码器ID查找对应的解码器,h264解码器对应ID为：AV\_CODEC\_ID\_H264
 3. 初始化解析器:`av_parser_init`
 
    初始化解析器上下文。解析器在处理数据流之前，可以用于预处理输入数据，例如找到帧边界、提取关键信息等。
@@ -48,3 +67,24 @@ Figure 1. decode_flow[](#id4 "永久链接至图片")
 9. 接收解码以后的数据帧:`avcodec_receive_frame`
 
    用于从解码器接收解码后的帧。在使用 `avcodec_send_packet` 函数发送数据包进行解码后，可以使用 `avcodec_receive_frame` 来获取解码器解码出的图像帧。
+
+## 模块导航
+
+- [快速入门](../get-started.md)
+- [H/W 参考](../hw-reference.md)
+- [API 参考](../api-reference.md)
+- [支持外设](../support_peripherals.md)
+- [摄像头](../camera.md)
+- [DISPLAY](../display.md)
+- [PSRAM内存分配](../psram_config.md)
+- [视频编解码](../video_codec.md)
+- [H264硬编码](h264_encoding_hw.md)
+- [JPEG硬编码](jpeg_encoding_hw.md)
+- [JPEG软编码](jpeg_encoding_sw.md)
+- [JPEG硬解码](jpeg_decoding_hw.md)
+- [JPEG软解码](jpeg_decoding_sw.md)
+- [图形用户界面](../gui.md)
+- [参考工程](../projects.md)
+- [低功耗](../power_save.md)
+- [音频算法](../audio_algorithms.md)
+- [FAQ](../FAQ.md)

@@ -1,52 +1,76 @@
-# 播放sdcard MP3音乐工程[](#sdcard-mp3 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/media/audio_play_sdcard_mp3_music/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="sdcard-mp3"></a>
 
+# 播放sdcard MP3音乐工程
 
-## 1. 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 简介
 
 本工程是播放sdcard mp3音乐的一个demo，支持从sdcard中读取mp3歌曲文件，并解码播放。
 
+<a id="id2"></a>
 
-### 1.1 规格[](#id2 "永久链接至标题")
+### 1.1 规格
 
 > - 硬件配置：
->   :   - 核心板，**BK7258_QFN88_9X9_V3.2**
->       - 喇叭小板，**BK_Module_Speaker_V1.1**
+>   :   - 核心板，**BK7258\_QFN88\_9X9\_V3.2**
+>       - 喇叭小板，**BK\_Module\_Speaker\_V1.1**
 >       - PSRAM 8M/16M
 >       - tfcard
 > - 支持，UAC
 
+<a id="id3"></a>
 
-### 1.2 路径[](#id3 "永久链接至标题")
+### 1.2 路径
 
 > 工程路径: `<bk_avdk源代码路径>/media/audio_play_sdcard_mp3_music`
 
+<a id="id4"></a>
 
-## 2. 框架图[](#id4 "永久链接至标题")
+## 2\. 框架图
 
+<a id="id5"></a>
 
-### 2.1 软件模块架构图[](#id5 "永久链接至标题")
+### 2.1 软件模块架构图
 
 > 如下图所示，speaker数据播放运行在 `cpu1` 上，读取sdcard音乐，mp3解码运行在cpu0上。
 
-![module architecture Overview](../_images/audio_play_sdcard_mp3_music_arch.png)
-
-Figure 1. software module architecture
-audio_play_sdcard_mp3_music software module architecture[](#id11 "永久链接至图片")
+<a id="id11"></a>
+![module architecture Overview](../../../_assets/55a1c3a4a2aa140219e4-audio_play_sdcard_mp3_music_arch.png)
 
 
-### 2.2 代码模块关系图[](#id6 "永久链接至标题")
+Figure 1\. software module architecture
+audio\_play\_sdcard\_mp3\_music software module architecture
 
-> 如下图所示，音频播放接口和mp3解码接口分别定义在 **aud_intf.h** 和 **mp3dec.h** 中。
+<a id="id6"></a>
 
-![relationship diagram Overview](../_images/audio_play_sdcard_mp3_music_sw_relationship_diag.png)
+### 2.2 代码模块关系图
 
-Figure 1. module relationship diagram[](#id12 "永久链接至图片")
+> 如下图所示，音频播放接口和mp3解码接口分别定义在 **aud\_intf.h** 和 **mp3dec.h** 中。
 
-audio_play_sdcard_mp3_music relationship diagram
+<a id="id12"></a>
+![relationship diagram Overview](../../../_assets/92a1d299effa36ef25b7-audio_play_sdcard_mp3_music_sw_relationship_diag.png)
 
 
-## 3. 演示说明[](#id7 "永久链接至标题")
+Figure 1\. module relationship diagram
+
+audio\_play\_sdcard\_mp3\_music relationship diagram
+
+<a id="id7"></a>
+
+## 3\. 演示说明
 
 > 通过发送uart命令来控制mp3音乐播放，命令说明如下：
 >
@@ -63,16 +87,17 @@ audio_play_sdcard_mp3_music relationship diagram
 启动播放后无法自动停止，需要上层应用根据文件的读取结果（是否已经读取完毕）来主动控制停止播放。
 :   demo中会打印log `playback is over, please input the stop command!`
 
+<a id="id8"></a>
 
-## 4. 代码讲解[](#id8 "永久链接至标题")
+## 4\. 代码讲解
 
+<a id="id9"></a>
 
-### 4.1 启动播放[](#id9 "永久链接至标题")
-
+### 4.1 启动播放
 
 ```
 //Path      ： projects/media/audio_play_sdcard_mp3_music/main/audio_play.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
     //获取speaker数据的回调函数
 static bk_err_t mp3_decode_handler(unsigned int size)
@@ -210,16 +235,15 @@ bk_err_t audio_play_sdcard_mp3_music_start(char *file_name)
 
     ...
 }
-
 ```
 
+<a id="id10"></a>
 
-### 4.2 停止播放[](#id10 "永久链接至标题")
-
+### 4.2 停止播放
 
 ```
 //Path      ： projects/media/audio_play_sdcard_mp3_music/main/audio_play.c
-//Loaction  :  CPU0
+//Location  :  CPU0
 
 bk_err_t audio_play_sdcard_mp3_music_stop(void)
 {
@@ -250,5 +274,4 @@ bk_err_t audio_play_sdcard_mp3_music_stop(void)
     ...
 
 }
-
 ```

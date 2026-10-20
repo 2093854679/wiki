@@ -1,29 +1,44 @@
-# FreeRTOS[](#freertos "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/os/bk_freertos.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="freertos"></a>
 
+# FreeRTOS
 
-## FreeRTOS简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## FreeRTOS简介
 
 > - FreeRTOS是一个迷你的实时操作系统内核。
 > - 作为一个轻量级的操作系统，功能包括：任务管理、时间管理、信号量、消息队列、内存管理、记录功能、软件定时器、协程等，可基本满足较小系统的需要
 > - FreeRTOS能在小RAM单片机上运行。FreeRTOS操作系统是完全免费的开源操作系统，具有源码公开、可移植、可裁减、调度策略灵活的特点，可以方便地移植到各种单片机上运行
 
+<a id="id2"></a>
 
-## FreeRTOS通用架构[](#id2 "永久链接至标题")
+## FreeRTOS通用架构
 
-![FreeRTOS Architecture](../_images/freertos_arch.png)
+<a id="id7"></a>
+![FreeRTOS Architecture](../../../_assets/6a2debccb8e04673031c-freertos_arch.png)
 
-FreeRTOS 架构[](#id7 "永久链接至图片")
 
+FreeRTOS 架构
 
-- 一个FreeRTOS 系统主要由BSP驱动+内核+组件组成（如上图）。内核包含多任务调度、内存管理、任务间通信的功能，组件包含网络协议、外设支持等。
-
+- 一个FreeRTOS 系统主要由BSP驱动\+内核\+组件组成（如上图）。内核包含多任务调度、内存管理、任务间通信的功能，组件包含网络协议、外设支持等。
 - FreeRTOS内核是可剪裁的，组件也是可选的。由于嵌入式应用往往对内存空间的要求十分苛刻，所以一个可剪裁的RTOS对于嵌入式应用非常重要。这使得FreeRTOS的核心代码只有9000行左右。
+- Armino平台FreeRTOS通用架构使用的是内核代码路径: components/os\_source/freertos\_v10
 
-- Armino平台FreeRTOS通用架构使用的是内核代码路径: components/os_source/freertos_v10
+<a id="id3"></a>
 
-
-## 功能和特点[](#id3 "永久链接至标题")
+## 功能和特点
 
 > - 用户可配置内核功能
 > - 多平台的支持
@@ -39,66 +54,65 @@ FreeRTOS 架构[](#id7 "永久链接至图片")
 > - 优先级继承
 > - 免费开源的源代码
 
+<a id="id4"></a>
 
-## FreeRTOS 小结[](#id4 "永久链接至标题")
+## FreeRTOS 小结
 
 > - 作为一个轻量级的操作系统，FreeRTOS提供的功能包括：任务管理、时间管理、信号量、消息队列、内存管理、记录功能等，可基本满足较小系统的需要。FreeRTOS内核支持优先级调度算法，每个任务可根据重要程度的不同被赋予一定的优先级，CPU总是让处于就绪态的、优先级最高的任务先运行。FreeRTOS内核同时支持轮换调度算法，系统允许不同的任务使用相同的优先级，在没有更高优先级任务就绪的情况下，同一优先级的任务共享CPU的使用时间。
 > - FreeRTOS的内核可根据用户需要设置为可剥夺型内核或不可剥夺型内核。当FreeRTOS被设置为可剥夺型内核时，处于就绪态的高优先级任务能剥夺低优先级任务的CPU使用权，这样可保证系统满足实时性的要求；当FreeRTOS被设置为不可剥夺型内核时，处于就绪态的高优先级任务只有等当前运行任务主动释放CPU的使用权后才能获得运行，这样可提高CPU的运行效率。
 > - 在嵌入式领域，FreeRTOS是不多的同时具有实时性，开源性，可靠性，易用性，多平台支持等特点的嵌入式操作系统。目前，FreeRTOS已经发展到支持包含X86，Xilinx，Altera等多达30种的硬件平台，其广阔的应用前景已经越来越受到业内人士的瞩目。
 
+<a id="freertos-smp"></a>
 
-## FreeRTOS SMP架构[](#freertos-smp "永久链接至标题")
+## FreeRTOS SMP架构
 
+<a id="smp"></a>
 
-### SMP简介[](#smp "永久链接至标题")
+### SMP简介
 
-> - Armino平台FreeRTOS SMP架构使用的是内核代码路径: components/os_source/freertos_smp
+> - Armino平台FreeRTOS SMP架构使用的是内核代码路径: components/os\_source/freertos\_smp
 > - 当涉及到多处理器系统（Multiprocessor Systems）时，Symmetric Multiprocessing（SMP）是一种常见的架构。
 > - BK7258 支持FreeRTOS SMP架构
 > - 以下是对SMP的基本概念、在FreeRTOS中实现SMP的目的和优势的简要介绍：
 
+<a id="symmetric-multiprocessing-smp"></a>
 
-### Symmetric Multiprocessing（SMP）的基本概念：[](#symmetric-multiprocessing-smp "永久链接至标题")
+### Symmetric Multiprocessing（SMP）的基本概念：
 
 1. **多处理器系统（Multiprocessor Systems）**：
-
-   - 多处理器系统是由多个处理器核心组成的计算机系统。每个处理器核心都能够独立执行任务和运行程序。
+   \- 多处理器系统是由多个处理器核心组成的计算机系统。每个处理器核心都能够独立执行任务和运行程序。
 2. **对称性（Symmetric）**：
-
-   - SMP系统中，所有处理器核心都具有对称的地位，即它们都能够执行相同的任务和访问相同的系统资源。
+   \- SMP系统中，所有处理器核心都具有对称的地位，即它们都能够执行相同的任务和访问相同的系统资源。
 3. **共享内存（Shared Memory）**：
+   \- SMP系统中的处理器核心通过共享相同的内存空间来进行通信。这使得数据共享更加容易，但也需要采取措施来防止竞态条件等问题。
 
-   - SMP系统中的处理器核心通过共享相同的内存空间来进行通信。这使得数据共享更加容易，但也需要采取措施来防止竞态条件等问题。
+<a id="freertossmp"></a>
 
-
-### 在FreeRTOS中实现SMP的目的和优势：[](#freertossmp "永久链接至标题")
+### 在FreeRTOS中实现SMP的目的和优势：
 
 1. **提高性能**：
-
-   - SMP允许多个处理器核心同时执行任务，从而提高系统整体性能。特别是在处理大量并行任务时，SMP能够有效地分担负载，加速系统的响应速度。
+   \- SMP允许多个处理器核心同时执行任务，从而提高系统整体性能。特别是在处理大量并行任务时，SMP能够有效地分担负载，加速系统的响应速度。
 2. **任务并行执行**：
-
-   - 在SMP系统中，不同的处理器核心可以独立执行不同的任务。这种并行性有助于提高系统的吞吐量和响应能力。
+   \- 在SMP系统中，不同的处理器核心可以独立执行不同的任务。这种并行性有助于提高系统的吞吐量和响应能力。
 3. **更好的资源利用**：
-
-   - SMP允许系统在不同的处理器核心上同时执行任务，有效地利用了硬件资源。这对于处理实时任务和对性能要求较高的应用程序非常重要。
+   \- SMP允许系统在不同的处理器核心上同时执行任务，有效地利用了硬件资源。这对于处理实时任务和对性能要求较高的应用程序非常重要。
 4. **系统灵活性**：
-
-   - SMP架构使系统更具灵活性，可以根据需要扩展处理能力。增加处理器核心的数量可以简化系统的升级和维护过程。
+   \- SMP架构使系统更具灵活性，可以根据需要扩展处理能力。增加处理器核心的数量可以简化系统的升级和维护过程。
 5. **实时性能**：
-
-   - 对于实时操作系统如FreeRTOS，SMP的实现可以提供更好的实时性能，确保任务在规定的时间内得到执行，从而满足实时系统的要求。
+   \- 对于实时操作系统如FreeRTOS，SMP的实现可以提供更好的实时性能，确保任务在规定的时间内得到执行，从而满足实时系统的要求。
 
 在FreeRTOS中实现SMP需要考虑处理器间同步、共享资源管理和任务调度等方面的挑战，但通过正确的实现，可以显著提高系统的性能和响应能力。
 
+<a id="id5"></a>
 
-### 在FreeRTOS SMP架构中资源同步：[](#id5 "永久链接至标题")
+### 在FreeRTOS SMP架构中资源同步：
 
-![SMP Architecture Resource](../_images/smp_resource.png)
+![SMP Architecture Resource](../../../_assets/302631f6d1c7017ea9b3-smp_resource.png)
+<a id="id8"></a>
+![SMP Architecture Resource Synchronization](../../../_assets/0a21cbfff4a3a591f294-smp_resource_sync.png)
 
-![SMP Architecture Resource Synchronization](../_images/smp_resource_sync.png)
 
-SMP 架构共享资源同步[](#id8 "永久链接至图片")
+SMP 架构共享资源同步
 
 1. **Task间共享资源同步**：
 
@@ -112,8 +126,9 @@ SMP 架构共享资源同步[](#id8 "永久链接至图片")
 
    > - 自旋锁(SpinLock)
 
+<a id="freertos-smpapi"></a>
 
-### 在FreeRTOS SMP架构中API介绍：[](#freertos-smpapi "永久链接至标题")
+### 在FreeRTOS SMP架构中API介绍：
 
 > - 创建smp task到指定cpu:
 >
@@ -177,8 +192,9 @@ SMP 架构共享资源同步[](#id8 "永久链接至图片")
 >   rtos_exit_critical(state);
 >   ```
 
+<a id="id6"></a>
 
-### 在FreeRTOS SMP架构工程配置：[](#id6 "永久链接至标题")
+### 在FreeRTOS SMP架构工程配置：
 
 > - BK7258 默认app工程是AMP架构
 > - BK7258 smp工程是FreeRTOS SMP架构, 工程配置如下:

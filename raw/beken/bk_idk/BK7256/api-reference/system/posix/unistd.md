@@ -1,40 +1,58 @@
-# unistd接口介绍[](#unistd "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/api-reference/system/posix/unistd.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
-> - 需要包含头文件#include <posix/unistd.h>;
+<a id="unistd"></a>
+
+# unistd接口介绍
+
+> - 需要包含头文件#include \<posix/unistd.h\>;
 > - 定义了系统sleep相关的接口
 
+<a id="header-file"></a>
 
+## Header File
 
-## Header File[](#header-file "永久链接至标题")
+- [unistd.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/unistd.h)
 
+<a id="functions"></a>
 
-- [unistd.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/unistd.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/unistd.h")
+## Functions
 
+<a id="_CPPv45sleepj"></a>
 
-## Functions[](#functions "永久链接至标题")
-
-unsigned sleep(unsigned seconds)[](#_CPPv45sleepj "永久链接至目标")
+<a id="_CPPv35sleepj"></a> <a id="_CPPv25sleepj"></a> <a id="sleep__unsigned"></a> <a id="unistd_8h_1ad4669b3813c3b4a616a738317fdc974f"></a> unsigned sleep(unsigned seconds)
 :   Suspend execution for an interval of time.
 
-    [http://pubs.opengroup.org/onlinepubs/9699919799/functions/sleep.html](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sleep.html "http://pubs.opengroup.org/onlinepubs/9699919799/functions/sleep.html")
+    <http://pubs.opengroup.org/onlinepubs/9699919799/functions/sleep.html>
 
     备注
 
     Return value of a positive number is not yet supported.
 
     参数
-    :   **seconds** – **[in]** The number of seconds to suspend execution.
+    :   **seconds** – **\[in\]** The number of seconds to suspend execution.
 
     Return values
-    :   **0** – - Upon successful completion.
+    :   **0** – \- Upon successful completion.
 
-int usleep(useconds_t usec)[](#_CPPv46usleep10useconds_t "永久链接至目标")
+<a id="_CPPv46usleep10useconds_t"></a>
+
+<a id="_CPPv36usleep10useconds_t"></a> <a id="_CPPv26usleep10useconds_t"></a> <a id="usleep__useconds_t"></a> <a id="unistd_8h_1ac0383719bafa9b5b2aa25fabc586bd1f"></a> int usleep(useconds\_t usec)
 :   Suspend execution for microsecond intervals.
 
     This is a useful, non-POSIX function.
 
     参数
-    :   **usec** – **[in]** The number of microseconds to suspend execution.
+    :   **usec** – **\[in\]** The number of microseconds to suspend execution.
 
     Return values
-    :   **0** – - Upon successful completion.
+    :   **0** – \- Upon successful completion.

@@ -1,56 +1,73 @@
-# DOORBELL[](#doorbell "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/doorbell/bk_doorbell.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="doorbell"></a>
 
+# DOORBELL
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 门铃的主要功能是联合多个模块，实时的进行图像采集，屏幕显示，声音的双向采集和播放。
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`./components/media/cli/media_cli.c`, `./components/media/camera/camera_act.c`, `./components/media/transfer/transfer_act.c`, `./components/media/lcd/lcd_act.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 > demo支持的命令如下表：
 >
 > | Command | Param | Description |
 > | --- | --- | --- |
-> | ap param1 param2 | param1:softap_ssid | setup a softap and set name |
-> | param2:softap_key | set softap connect key |
-> | sta param1 param2 | param1:station_ssid | connect a station and set name |
-> | param2:station_key | set station connect key |
-> | doorbell param1 [param2] | param1:3 | open doorbell function |
+> | ap param1 param2 | param1:softap\_ssid | setup a softap and set name |
+> | param2:softap\_key | set softap connect key |
+> | sta param1 param2 | param1:station\_ssid | connect a station and set name |
+> | param2:station\_key | set station connect key |
+> | doorbell param1 \[param2\] | param1:3 | open doorbell function |
 > | param2:if open uvc, choosable | set open/disopen uvc 1/0 |
-> | media dvp open [param] | param:dvp resolution, choosable | set sensor resolution, and open dvp |
+> | media dvp open \[param\] | param:dvp resolution, choosable | set sensor resolution, and open dvp |
 > | media dvp close | NULL | close dvp sensor |
-> | media lcd open [param1] [param2] | param1:LCD PIXEL | default:480X272 |
+> | media lcd open \[param1\] \[param2\] | param1:LCD PIXEL | default:480X272 |
 > | param2:rotate or null | rotate open or not |
 > | media lcd close | NULL | close lcd function, and jpeg decode |
-> | media lcd dma2d_blend [param1][param2] | param1:clock,wifi,data,ver | blend icon type |
+> | media lcd dma2d\_blend \[param1\]\[param2\] | param1:clock,wifi,data,ver | blend icon type |
 > | param2:12:30 , 0-4 | 0:wifi none, 4:wifi full |
-> | media lcd dma2d_blend close [param] | NULL or wifi/clock | close all blend or one blend |
+> | media lcd dma2d\_blend close \[param\] | NULL or wifi/clock | close all blend or one blend |
 > | media capture param | param:xxx.jpg | capture save to sdcard, and set name |
-> | media uvc open [param] | param:uvc resolution, choosable | set sensor resolution, and open uvc |
+> | media uvc open \[param\] | param:uvc resolution, choosable | set sensor resolution, and open uvc |
 > | media uvc close | NULL | close uvc sensor |
 >
 > demo运行依赖的宏配置：
 >
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_DOORBELL | support DOORBELL | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_JPEG_ENCODE | suport hw jpeg ecoder | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_CAMERA | suport use dvp camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_CAMERA_USE_I2C1 | suport use I2C1 | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_AUDIO | support audio function | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_LCD | support LCD function | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_USB_UVC | support UVC camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
-> | CONFIG_LCD_FONT_BLEND | support font/image blend | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_DOORBELL | support DOORBELL | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_JPEG\_ENCODE | suport hw jpeg ecoder | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_CAMERA | suport use dvp camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_CAMERA\_USE\_I2C1 | suport use I2C1 | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_AUDIO | support audio function | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_LCD | support LCD function | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_USB\_UVC | support UVC camera | `middleware\soc\bk7256\bk7256.defconfig` | y |
+> | CONFIG\_LCD\_FONT\_BLEND | support font/image blend | `middleware\soc\bk7256\bk7256.defconfig` | y |
 
+<a id="id3"></a>
 
-## 4 演示介绍[](#id3 "永久链接至标题")
+## 4 演示介绍
 
 > demo执行的步骤如下：
 >
@@ -58,7 +75,7 @@
 >
 > 2、起一个softap:
 >
-> > ap doorbell_test 1234567890
+> > ap doorbell\_test 1234567890
 >
 > 3、手机连接这个ap
 >
@@ -72,8 +89,9 @@
 >
 > > media lcd open
 
+<a id="app"></a>
 
-## 5 app使用流程[](#app "永久链接至标题")
+## 5 app使用流程
 
 > 以下流程以板子作为softap为例，介绍apk的使用，在手机连接到板子使能的ap后：
 >
@@ -97,9 +115,9 @@
 >
 > > 其中，设置说明如下，设置完成后返回图2主界面
 > >
-> > - 1：设置解决方案，当前支持video_transfer和doorbell，此处选择doorbell；
+> > - 1：设置解决方案，当前支持video\_transfer和doorbell，此处选择doorbell；
 > > - 2：设置数据传输模式，当前支持UDP和TCP，默认选择UDP；
-> > - 3：设置对端的ip地址，ap模式下默认为``192.168.0.1``不用修改，sta模式下设置为对端的ip地址；
+> > - 3：设置对端的ip地址，ap模式下默认为\`\`192.168.0.1\`\`不用修改，sta模式下设置为对端的ip地址；
 > > - 4：设置摄像头类型，当前支持DVP和UVC，根据自己使用摄像头类型进行设置；
 > > - 5：设置摄像头的输出分辨率；
 > > - 6：设置LCD输出的分辨率，根据自己使用的LCD屏幕分辨率进行设置；
@@ -115,40 +133,50 @@
 
 备注
 
-在图4中设置对端IP地址，当板子为softap时，默认为``192.168.0.1``，当板子作为staion时，手机和板子连接同一个ap，填入的IP地址可以通过命令``ip``获得。
-另外该app还支持手机图传功能，即命令``video_transfer -a|s ssid key``，但是必须将图4步骤1设置为``video_transfer``模式。
-apk的下载地址如下：[http://dl.bekencorp.com/apk/RealtimeVideo.apk](http://dl.bekencorp.com/apk/RealtimeVideo.apk "http://dl.bekencorp.com/apk/RealtimeVideo.apk")
+在图4中设置对端IP地址，当板子为softap时，默认为\`\`192.168.0.1\`\`，当板子作为staion时，手机和板子连接同一个ap，填入的IP地址可以通过命令\`\`ip\`\`获得。
+另外该app还支持手机图传功能，即命令\`\`video\_transfer -a\|s ssid key\`\`，但是必须将图4步骤1设置为\`\`video\_transfer\`\`模式。
+apk的下载地址如下：<http://dl.bekencorp.com/apk/RealtimeVideo.apk>
 
-![RealtimeVideo_app](../../_images/RealtimeVideo_app.jpg)
-
-Figure 1. doorbell apk[](#id9 "永久链接至图片")
-
-![RealtimeVideo_app_screen](../../_images/RealtimeVideo_set0.jpg)
-
-Figure 2. RealtimeVideo_app Main screen[](#id10 "永久链接至图片")
-
-![RealtimeVideo_app_set_menu](../../_images/RealtimeVideo_set1.jpg)
-
-Figure 3. RealtimeVideo_app Set menu[](#id11 "永久链接至图片")
-
-![RealtimeVideo_app_set](../../_images/RealtimeVideo_set2.jpg)
-
-Figure 4. RealtimeVideo_app set[](#id12 "永久链接至图片")
-
-![RealtimeVideo_function_set](../../_images/RealtimeVideo_set3.jpg)
-
-Figure 5. RealtimeVideo_function set[](#id13 "永久链接至图片")
+<a id="id9"></a>
+![RealtimeVideo_app](../../../../_assets/ce8b26f9e440d6b93f45-RealtimeVideo_app.jpg)
 
 
-## 6 新增屏幕适配[](#id4 "永久链接至标题")
+Figure 1\. doorbell apk
 
-doorbel工程可以根据用户的需求增加新的屏幕驱动以适应不同的产品需求，新增屏幕驱动代码请参考 `./middleware/driver/lcd` 路径下新增lcd_xxx.c, 比如lcd_st7282.c;
+<a id="id10"></a>
+![RealtimeVideo_app_screen](../../../../_assets/69b5357486c30a2392ae-RealtimeVideo_set0.jpg)
+
+
+Figure 2\. RealtimeVideo\_app Main screen
+
+<a id="id11"></a>
+![RealtimeVideo_app_set_menu](../../../../_assets/2d78a8503b11363c6399-RealtimeVideo_set1.jpg)
+
+
+Figure 3\. RealtimeVideo\_app Set menu
+
+<a id="id12"></a>
+![RealtimeVideo_app_set](../../../../_assets/4da9efd51067aea49953-RealtimeVideo_set2.jpg)
+
+
+Figure 4\. RealtimeVideo\_app set
+
+<a id="id13"></a>
+![RealtimeVideo_function_set](../../../../_assets/a3b916371e953fe91ac9-RealtimeVideo_set3.jpg)
+
+
+Figure 5\. RealtimeVideo\_function set
+
+<a id="id4"></a>
+
+## 6 新增屏幕适配
+
+doorbel工程可以根据用户的需求增加新的屏幕驱动以适应不同的产品需求，新增屏幕驱动代码请参考 `./middleware/driver/lcd` 路径下新增lcd\_xxx.c, 比如lcd\_st7282.c;
 
 > 客户可以将任一文件拷贝，重命名为新增屏幕名，在新增驱动代码中主要做以下配置：
 
-1) cmake 添加新增的lcd_xxx.c文件，使lcd_xxx.c文件参与编译
-在 `./middleware/driver` 目录下打开CMakeLists.txt, 在CONFIG_LCD的宏控下添加文件:
-
+1\) cmake 添加新增的lcd\_xxx.c文件，使lcd\_xxx.c文件参与编译
+在 `./middleware/driver` 目录下打开CMakeLists.txt, 在CONFIG\_LCD的宏控下添加文件:
 
 ```
 if (CONFIG_LCD)
@@ -167,11 +195,9 @@ if (CONFIG_LCD)
                 "lcd/lcd_xxx.c"         //新增lcd_xxx.c
                 )
 endif()
-
 ```
 
-2. 针对RGB屏幕需要根据lcd spec 修改hsync/vsync proch，取值范围参考 `./include/lcd_types.h` 结构体lcd_rgb_t注释。
-
+2. 针对RGB屏幕需要根据lcd spec 修改hsync/vsync proch，取值范围参考 `./include/lcd_types.h` 结构体lcd\_rgb\_t注释。
 
 ```
 static const lcd_rgb_t lcd_rgb =
@@ -186,17 +212,17 @@ static const lcd_rgb_t lcd_rgb =
         .vsync_back_porch = 8,
         .vsync_front_porch = 8,
 };
-
 ```
 
-![RealtimeVideo_app](../../_images/st7282_lcd_sync.png)
+<a id="id14"></a>
+![RealtimeVideo_app](../../../../_assets/be85274f5fc73e8e3e49-st7282_lcd_sync.png)
 
-Figure 6. rgb sync params config[](#id14 "永久链接至图片")
+
+Figure 6\. rgb sync params config
 
 3. 背光接口配置
 
 如果屏幕的背光由PWM控制，则用户需要初始化PWM引脚，调节PWM的输出占空比
-
 
 ```
 static void lcd_backlight_open(void)
@@ -222,11 +248,9 @@ static void lcd_set_backlight(uint8_t percent)
         bk_pwm_set_period_duty(LCD_RGB_PWM_BACKLIGHT, &config);
 #endif
 }
-
 ```
 
 如果屏幕的背光控制是由GPIO(比如GPIO34)口控制：
-
 
 ```
 static void lcd_gc9503v_backlight_io_init(void)
@@ -248,13 +272,11 @@ static void gc9503v_lcd_backlight_close(void)
 {
         bk_gpio_set_output_low(34);
 }
-
 ```
 
 4. 初始化屏幕结构体参数
 
-类似lcd_st7282屏幕不需要初始化，其结构体参数初始化如下：
-
+类似lcd\_st7282屏幕不需要初始化，其结构体参数初始化如下：
 
 ```
 const lcd_device_t lcd_device_st7282 =
@@ -270,12 +292,10 @@ const lcd_device_t lcd_device_st7282 =
         .backlight_close = lcd_backlight_close,//注册关闭背光函数
         .lcd_off = NULL,                       //屏幕没有关闭命令或关闭引脚
 };
-
 ```
 
 其中屏幕分辨率未定义，需要在 `./include/driver/media_types.h` 中定义。
 新增的屏幕ID需要在 `./include/driver/lcd_types.h` 中定义，如下：
-
 
 ```
 typedef enum {
@@ -286,11 +306,9 @@ LCD_DEVICE_GC9503V, /**< 480X800 RGB  */
 LCD_DEVICE_ST7796S, /**< 320X480 MCU  */
 LCD_DEVICE_NT35512,
 } lcd_device_id_t;
-
 ```
 
 该屏幕结构需要在 `./middleware/driver/lcd/lcd_driver.c` 中定义, 并在 `./middleware/driver/lcd/lcd_device.h` 中声明：
-
 
 ```
 const lcd_device_t *lcd_devices[] =
@@ -307,19 +325,15 @@ extern const lcd_device_t lcd_device_hx8282;
 extern const lcd_device_t lcd_device_st7796s;
 extern const lcd_device_t lcd_device_gc9503v;
 extern const lcd_device_t lcd_device_nt35512;
-
 ```
 
-类似lcd_gc9503v屏幕需要初始化，其结构体中需要注册初始化函数：
-
+类似lcd\_gc9503v屏幕需要初始化，其结构体中需要注册初始化函数：
 
 ```
 .init = lcd_gc9503v_init,
-
 ```
 
-lcd_gc9503v_init函数一般是屏幕厂商提供，需要硬件接口模拟SPI或I2C接口，所以需要初始化GPIO，以及根据初始化命令适配对应的SPI或I2C协议，目前SDK中已适配了SPI3线和4线协议。
-
+lcd\_gc9503v\_init函数一般是屏幕厂商提供，需要硬件接口模拟SPI或I2C接口，所以需要初始化GPIO，以及根据初始化命令适配对应的SPI或I2C协议，目前SDK中已适配了SPI3线和4线协议。
 
 ```
 void lcd_spi_init_gpio(void)
@@ -348,15 +362,13 @@ void lcd_spi_init_gpio(void)
         bk_gpio_set_output_high(LCD_SPI_CSX_GPIO);
         delay_us(200);
 }
-
 ```
 
 至此，屏幕驱动的适配已经完成。
 
 接下来的一个简单的适配是确保用户输入命令或传参（屏幕分辨率或名字），SDK中可以找到相应的设备：
 
-1. 获取LCD设备名的判断，在media_cli.c中添加新增屏幕名字的判断
-
+1. 获取LCD设备名的判断，在media\_cli.c中添加新增屏幕名字的判断
 
 ```
 char * get_string_to_name(char *string, char * pre)
@@ -378,11 +390,9 @@ char * get_string_to_name(char *string, char * pre)
 
         return value;
 }
-
 ```
 
-2. 获取LCD设备像素的判断，在media_cli.c中添加新增像素的判断
-
+2. 获取LCD设备像素的判断，在media\_cli.c中添加新增像素的判断
 
 ```
 uint32_t get_string_to_ppi(char *string, uint32_t pre)
@@ -403,56 +413,54 @@ uint32_t get_string_to_ppi(char *string, uint32_t pre)
 
         return value;
 }
-
 ```
 
 至此, 屏幕驱动的适配和调用参数一适配完成
 
 接下来就可以使用新屏幕显示啦！
 
-
 ```
 lcd_open_t lcd_open;
 lcd_open.device_ppi = 480X800;
 lcd_open.device_name = "nt35512";
 ret = media_app_lcd_open(&lcd_open);
-
 ```
 
 另外，有一点需要特别注意：
 :   - 对于lcd设备有多个设备有相同的分辨率的情况下，必须添加使用名字传参， 不然只有分辨率不能找到指定的屏幕。
-
     - 对于设备中的分辨率是唯一的（没有其他LCD有相同的分辨率），使用分辨率或者名字之一也可以找到指定的屏幕。
 
+<a id="id5"></a>
 
-## 7 图标融合[](#id5 "永久链接至标题")
+## 7 图标融合
 
 1. 关于DMA2D的使用指南请参考 `html/bk7256/zh_CN/latest/examples/video/dma2d.html` 里面详细介绍了前景图标的数据格式支持的类型，本文档就常见的ARGB8888以及RGB565的数据展开说明。
 2. 准备需要融合的小图标的png图片或者jpg图片（又称前景图片）.
 
-3) 将png转换为rgba8888的数据，该转换可以实现保持png的透明度，适合融合背景是透明的图标。
+3\) 将png转换为rgba8888的数据，该转换可以实现保持png的透明度，适合融合背景是透明的图标。
 判断图片背景是否透明，可以用photoshop查看背景是否是镂空。
 
 > - 工具路径： `components/media/tools/ffmpeg_bat/png2argb` 将所有的png图片访在该路径下，双击run.bat.
 >
-> ![RealtimeVideo_app](../../_images/png2rgba.png)
+> <a id="id15"></a>
+> ![RealtimeVideo_app](../../../../_assets/bd49156453082ecb4536-png2rgba.png)
 >
 >
-> Figure 7. png to rgba8888.rgb[](#id15 "永久链接至图片")
+> Figure 7\. png to rgba8888.rgb
 
 或将jpg转换为rgb565(大端)的数据，该转换过程中将所有不透明的jpg像素默认转换为不透明，适合融合背景和图标背景相近的图标，或对背景框没有要求的融合。
 
 > - 工具路径： `components/media/tools/ffmpeg_bat/jpeg2rgb565` 将所有的jpg图片访在该路径下，双击run.bat.
 >
-> ![RealtimeVideo_app](../../_images/jpg2rgb565.png)
+> <a id="id16"></a>
+> ![RealtimeVideo_app](../../../../_assets/61c0033884e5835b23b3-jpg2rgb565.png)
 >
 >
-> Figure 8. png to rgb565le.rgb[](#id16 "永久链接至图片")
+> Figure 8\. png to rgb565le.rgb
 
 4. 使用 “HxD”或其他工具将rgb数据转成const数组并保存到flash中。
 
-在 “components/media/include/blend_logo.h” 中定义前景图片，以及前景图片的长和宽:
-
+在 “components/media/include/blend\_logo.h” 中定义前景图片，以及前景图片的长和宽:
 
 ```
 #define WIFI_LOGO_W 32
@@ -463,25 +471,21 @@ const unsigned char wifi_full_rgb565[2304] = {
         0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
         ....
 };
-
 ```
 
 如果想要将前景图标融合在LCD屏幕的固定位置，还需要设置前景融合的坐标
 比如：想要将版本号的前景图标(16x36)从屏幕(480x800)的第500行，居中的位置开始融合，可以这样设置：
 
-
 ```
 #define VERSION_POSTION_Y   500   //HIGH 800
 #define VERSION_POSTION_X   144   //WIDTH 480 "BK7 V1.23.45"  (480-(12*16))/2    12个字节, 图标宽16
-
 ```
 
 4. DMA2D实现融合
 
-准备好了图片数据以及融合的位置，接下来就配置实际融合的参数，请参考lcd_act.c 中API 接口：lcd_blend_handler
+准备好了图片数据以及融合的位置，接下来就配置实际融合的参数，请参考lcd\_act.c 中API 接口：lcd\_blend\_handler
 
-比如要融合的wifi图标在在屏幕的右上角，即屏幕坐标(lcd_width-logo_width,0)处开始融合，其 lcd_blend.pbg_addr 就要设置 地址偏移量(frame->frame + (frame->width - WIFI_LOGO_W) * 2。 如何设置偏移在DMA2D的用例指南有详细介绍。
-
+比如要融合的wifi图标在在屏幕的右上角，即屏幕坐标(lcd\_width-logo\_width,0)处开始融合，其 lcd\_blend.pbg\_addr 就要设置 地址偏移量(frame-\>frame \+ (frame-\>width \- WIFI\_LOGO\_W) \* 2。 如何设置偏移在DMA2D的用例指南有详细介绍。
 
 ```
 if ((g_blend_data.lcd_blend_type & LCD_BLEND_WIFI) != 0)
@@ -497,21 +501,19 @@ if ((g_blend_data.lcd_blend_type & LCD_BLEND_WIFI) != 0)
         lcd_blend.fg_data_format = ARGB8888;
         lcd_driver_blend(&lcd_blend);
 }
-
 ```
 
+<a id="id6"></a>
 
-## 8 新增摄像头配置[](#id6 "永久链接至标题")
+## 8 新增摄像头配置
 
 > 在应用过程中使用的摄像头不仅仅是当前支持的这些，肯定还需要适配其他的dvp摄像头或者uvc摄像头，下面分开来说明一下针对两种不同类型的摄像头如何适配
-
 
 - 1.dvp摄像头的适配
 
   > dvp摄像头是通过I2C通信来配置摄像头的输出，主要是配置sensor寄存器的值，达到预期的图像效果（分辨率、帧率等）
   >
   > 1)参考驱动代码：`middleware/driver/camera/dvp_gc0328c.c`，首先需要适配dvp摄像头的参数结构体：`dvp_sensor_config_t`;
-
 
 ```
 typedef struct
@@ -522,13 +524,9 @@ typedef struct
         uint16 id;  /**< 摄像头类型（枚举值，需要自己添加）, 参考枚举类型sensor_id_t */
         uint8 clk;  /**< 摄像头协议规定的输入MCLK，而这个MCLK是从JPEG模块的CLK分出来，需要自己配置 */
         /**@example
-
         * JPEG_96M_MCLK_24M：表示这个摄像头协议规定MCLK输入的是24MHz，而此时JPEG模块工作的时钟是96MHz，96MHz四分频可以得到24MHz
-
         * 另外需要注意的是，JPEG的工作时钟是在CLK(480MHz和320MHz)中分出来的，分频系数范围F=[0, 15]，分频计算公式JPEG_CLK=CLK/(1+F);
-
         * 而JPEG内部支持分频的只有：0：4分频，1：6分频，2：2分频，3：3分频
-
         **/
         uint16 address;  /**< 摄像头通过I2C配置寄存器的地址，一般datasheet上会告知 */
         uint16 fps_cap;  /**< 摄像头支持配置的帧率，根据需求输出不同的帧率 */
@@ -541,11 +539,9 @@ typedef struct
         int (*dump_register)(const dvp_camera_i2c_callback_t *cb, media_ppi_t ppi);  /**< 调试接口，查看所有寄存器配置的值 */
         void (*read_register)(bool enable);  /**< 使能寄存器检查接口，在配置的过程中检查配置寄存器的值与期望的值一致*/
 } dvp_sensor_config_t;
-
 ```
 
 2)参考使能摄像头驱动代码：`middleware/driver/camera/dvp_camera.c`，在函数：`bk_dvp_camera_driver_init()`，可能需要增加新摄像头的MCLK输入配置；
-
 
 ```
 switch (current_sensor->clk)
@@ -573,13 +569,11 @@ switch (current_sensor->clk)
         default:
                 break;
 }
-
 ```
 
 备注
 
 注意：上面JPEG的注视中默认选择的是480MHz，当前并没有开放SDK接口来配置选择480MHz或者320MHz。如果需要选用320MHz，请参考JPEG驱动代码：`middleware/driver/jpeg_enc/jpeg_driver.c`.
-
 
 ```
 static void jpeg_power_config_set(const jpeg_config_t *config)
@@ -589,7 +583,6 @@ static void jpeg_power_config_set(const jpeg_config_t *config)
         sys_drv_set_jpeg_disckg(1);
         bk_pm_clock_ctrl(PM_CLK_ID_JPEG, CLK_PWR_CTRL_PWR_UP);
 }
-
 ```
 
 2.uvc摄像头的适配
@@ -598,7 +591,7 @@ static void jpeg_power_config_set(const jpeg_config_t *config)
 >
 > 1)当前暂不支持客户独立添加新的分辨率，后续会修改，因为当前增加新的分辨率需要开发人员单独给客户新的libusb.a文件，替换路径：`components/bk_libs/bk7256_app/libs/libusb.a`
 >
-> 2)替换好新的libusb.a文件后，参考头文件：`include/driver/media_types.h`，枚举类型``media_ppi_t``，里面的参数需要添加，如果没有。
+> 2)替换好新的libusb.a文件后，参考头文件：`include/driver/media_types.h`，枚举类型\`\`media\_ppi\_t\`\`，里面的参数需要添加，如果没有。
 
 3.命令行增加新的分辨率
 
@@ -610,16 +603,17 @@ static void jpeg_power_config_set(const jpeg_config_t *config)
 
 注意: 摄像头的分辨率的width 要能被16整除(比如864/16), height 要被8（比如 480/8）整除。否则硬件解码会失败。
 
+<a id="id7"></a>
 
-## 9 图像旋转[](#id7 "永久链接至标题")
+## 9 图像旋转
 
 当屏幕和图片像素相反，比如屏幕是480X800， 摄像头是800X480，可以进行图像旋转显示。
 
+<a id="id8"></a>
 
-## 10 字库融合[](#id8 "永久链接至标题")
+## 10 字库融合
 
 SDK中支持字库的抗锯齿融合,字库以内部库的方式提供给用户，目前支持的字库有:
-
 
 ```
 #define FONT_ANTI4BPP_ROBOTO_53           1   /* 罗马数字*/
@@ -643,13 +637,11 @@ extern const gui_font_digit_struct *const font_digit_black24;
 #if FONT_ANTI4BPP_BLACK48
 extern const gui_font_digit_struct *const font_digit_black48;
 #endif
-
 ```
 
 目前字的添加是根据不同的客户需求所添加，如果不满足客户需求，请联系支持。
 
-字库融合的代码请参考 `middleware/driver/lcd_driver.c` API:lcd_driver_font_blend
-
+字库融合的代码请参考 `middleware/driver/lcd_driver.c` API:lcd\_driver\_font\_blend
 
 ```
 font_t font;
@@ -666,11 +658,9 @@ for(int i = 0; i < lcd_font->str_num; i++)
         font.y_pos = lcd_font->str[i].y_pos;
         lcd_draw_font(&font);
 }
-
 ```
 
 各参数的值输入如下：
-
 
 ```
 //融合位置的配置
@@ -697,5 +687,4 @@ lcd_font_config.bg_data_format = frame->fmt;  ///背景数据格式
 lcd_font_config.bg_width = frame->width;      ///背景图片size
 lcd_font_config.bg_height = frame->height;
 lcd_driver_font_blend(&lcd_font_config);
-
 ```

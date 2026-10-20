@@ -1,11 +1,26 @@
-# DMA2D APIs[](#dma2d-apis "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/api-reference/multi_media/bk_dma2d.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="dma2d-apis"></a>
 
+# DMA2D APIs
 
-## DMA2D Interface[](#dma2d-interface "永久链接至标题")
+<a id="dma2d-interface"></a>
 
+## DMA2D Interface
 
-## DMA2D Features[](#dma2d-features "永久链接至标题")
+<a id="dma2d-features"></a>
+
+## DMA2D Features
 
 > - fill specific color
 >   :   Fill part or all of the target image with a specific color
@@ -17,8 +32,9 @@
 >   :   Part or all of the two source images with different pixel formats are mixed,
 >       and the result is copied to the part or the entire target :image with different color formats
 
+<a id="dma2d-api-categories"></a>
 
-## DMA2D API Categories[](#dma2d-api-categories "永久链接至标题")
+## DMA2D API Categories
 
 | DMA2D API | Description |
 | --- | --- |
@@ -37,154 +53,161 @@
 | [`bk_dma2d_isr_register()`](#_CPPv421bk_dma2d_isr_register11dma2d_isr_t "bk_dma2d_isr_register") | register dma2d cpu int isr |
 | `bk_dma2d_register_int_callback_isr()` | register dma2d int type isr |
 
+<a id="dma2d-work-config"></a>
 
-## DMA2D Work Config[](#dma2d-work-config "永久链接至标题")
+## DMA2D Work Config
 
 1、fill specific color
 
-![fill specific color](../_images/dma2d_fill_color.png)
+<a id="id2"></a>
+![fill specific color](../../../_assets/69fd730b7ae7e848903a-dma2d_fill_color.png)
 
-Figure 1. dma2d_fill_color[](#id2 "永久链接至图片")
+
+Figure 1\. dma2d\_fill\_color
 
 2、mem to mem copy
 
-![fill specific color](../_images/dma2d_mem_to_mem.png)
+<a id="id3"></a>
+![fill specific color](../../../_assets/26c0e3d1a2da16576ef2-dma2d_mem_to_mem.png)
 
-Figure 2. dma2d_mem_to_mem[](#id3 "永久链接至图片")
+
+Figure 2\. dma2d\_mem\_to\_mem
 
 3、mem to mem with pixel conversion
 
-> The Figure API is the same as dma2d_mem_to_mem
+> The Figure API is the same as dma2d\_mem\_to\_mem
 > please reference the API Reference for the different config
 
 4、mem to mem with pixel conversion and blending
 
-![fill specific color](../_images/dma2d_mem_to_mem_with_pixel_conv_blend.png)
-
-Figure 3. dma2d_mem_to_mem_with_pixel_conversion_and_blending[](#id4 "永久链接至图片")
-
-
-## API Reference[](#api-reference "永久链接至标题")
+<a id="id4"></a>
+![fill specific color](../../../_assets/efa5a9fff8a25522e204-dma2d_mem_to_mem_with_pixel_conv_blend.png)
 
 
-### Header File[](#header-file "永久链接至标题")
+Figure 3\. dma2d\_mem\_to\_mem\_with\_pixel\_conversion\_and\_blending
 
+<a id="api-reference"></a>
 
-- [dma2d.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/dma2d.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/dma2d.h")
+## API Reference
 
+<a id="header-file"></a>
 
-### Functions[](#functions "永久链接至标题")
+### Header File
 
-bk_err_t bk_dma2d_driver_init(void)[](#_CPPv420bk_dma2d_driver_initv "永久链接至目标")
+- [dma2d.h](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/_header_files/bk_idk/include/driver/dma2d.h)
+
+<a id="functions"></a>
+
+### Functions
+
+<a id="_CPPv420bk_dma2d_driver_initv"></a>
+
+<a id="_CPPv320bk_dma2d_driver_initv"></a> <a id="_CPPv220bk_dma2d_driver_initv"></a> <a id="bk_dma2d_driver_init__void"></a> <a id="group__DMA2D_1gacd4677f0907e52e4bd4dd0a6952db102"></a> bk\_err\_t bk\_dma2d\_driver\_init(void)
 :   initializes the DMA2D system and peripheral registers
-
 
     - open dma2d sys interrupt enable
 
-
     **Attention**
-    :   you can reference cli_dma2d.c for all API usage
+    :   you can reference cli\_dma2d.c for all API usage
 
     参数
-    :   **dma2d_config** – pointer to a [dma2d_config_t](#structdma2d__config__t "#structdma2d__config__t") structure that contains the configuration information for the DMA2D.
+    :   **dma2d\_config** – pointer to a [dma2d\_config\_t](#structdma2d__config__t) structure that contains the configuration information for the DMA2D.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_init([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d)[](#_CPPv413bk_dma2d_initP14dma2d_config_t "永久链接至目标")
+<a id="_CPPv413bk_dma2d_initP14dma2d_config_t"></a>
+
+<a id="_CPPv313bk_dma2d_initP14dma2d_config_t"></a> <a id="_CPPv213bk_dma2d_initP14dma2d_config_t"></a> <a id="bk_dma2d_init__dma2d_config_tP"></a> <a id="group__DMA2D_1ga61013f9a5fe504956da3bf61b3b8f7c7"></a> bk\_err\_t bk\_dma2d\_init([dma2d\_config\_t](#_CPPv414dma2d_config_t "dma2d_config_t") \*dma2d)
 :   config dma2d work mode/ data format/ offset etc.
 
     Usage example:
 
     ```
            dma2d_config_t dma2d_config = {0};
-           dma2d_config.init.mode = DMA2D_R2M;                     Mode Register to Memory
+           dma2d_config.init.mode = DMA2D_R2M;                     Mode Register to Memory 
            dma2d_config.init.color_mode = DMA2D_OUTPUT_RGB565;       DMA2D Output color mode is ARGB4444 (16 bpp)
-           dma2d_config.init.output_offset = 0;            No offset in output
-           dma2d_config.init.red_blue_swap = DMA2D_RB_REGULAR;       No R&B swap for the output image
+           dma2d_config.init.output_offset = 0;            No offset in output 
+           dma2d_config.init.red_blue_swap = DMA2D_RB_REGULAR;       No R&B swap for the output image 
            dma2d_config.init.alpha_inverted = DMA2D_REGULAR_ALPHA;   No alpha inversion for the output image
            bk_dma2d_init(&dma2d_config);
     ```
 
-
     **Attention**
-    :   you can reference cli_dma2d.c for all API usage
+    :   you can reference cli\_dma2d.c for all API usage
 
     参数
-    :   **dma2d_config** – pointer to a [dma2d_config_t](#structdma2d__config__t "#structdma2d__config__t") structure that contains the configuration information for the DMA2D.
+    :   **dma2d\_config** – pointer to a [dma2d\_config\_t](#structdma2d__config__t) structure that contains the configuration information for the DMA2D.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_driver_deinit(void)[](#_CPPv422bk_dma2d_driver_deinitv "永久链接至目标")
-:   Deinitializes the DMA2D peripheral registers to their default reset values.
+<a id="_CPPv422bk_dma2d_driver_deinitv"></a>
 
+<a id="_CPPv322bk_dma2d_driver_deinitv"></a> <a id="_CPPv222bk_dma2d_driver_deinitv"></a> <a id="bk_dma2d_driver_deinit__void"></a> <a id="group__DMA2D_1ga065b473ac0959628a21852d2f522e7ee"></a> bk\_err\_t bk\_dma2d\_driver\_deinit(void)
+:   Deinitializes the DMA2D peripheral registers to their default reset values.
 
     - reset the dma2d driver init reg
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_layer_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t layer_idx)[](#_CPPv421bk_dma2d_layer_configP14dma2d_config_t8uint32_t "永久链接至目标")
+<a id="_CPPv421bk_dma2d_layer_configP14dma2d_config_t8uint32_t"></a>
+
+<a id="_CPPv321bk_dma2d_layer_configP14dma2d_config_t8uint32_t"></a> <a id="_CPPv221bk_dma2d_layer_configP14dma2d_config_t8uint32_t"></a> <a id="bk_dma2d_layer_config__dma2d_config_tP.uint32_t"></a> <a id="group__DMA2D_1ga44a7554faf181d6863343db770d17ee1"></a> bk\_err\_t bk\_dma2d\_layer\_config([dma2d\_config\_t](#_CPPv414dma2d_config_t "dma2d_config_t") \*dma2d, uint32\_t layer\_idx)
 :   Configure the DMA2D background or foreground Layer include layer offset, color mode, alpha value etc.
 
     Usage example:
 
     ```
            dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].alpha_mode = DMA2D_REPLACE_ALPHA;
-           dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].input_alpha = alpha_value;
+           dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].input_alpha = alpha_value; 
            dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].input_color_mode = DMA2D_INPUT_RGB565;
            dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].input_offset = fg_offline;
            dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].red_blue_swap  = DMA2D_RB_REGULAR;
            dma2d_config.layer_cfg[DMA2D_FOREGROUND_LAYER].alpha_inverted = DMA2D_REGULAR_ALPHA;
 
-           Background layer Configuration
+           Background layer Configuration 
            dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].alpha_mode  = DMA2D_REPLACE_ALPHA;
            dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].input_alpha   = 0x80;
            dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].input_color_mode = DMA2D_INPUT_RGB565;
            dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].input_offset   = bg_offline;
            dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].red_blue_swap   = DMA2D_RB_REGULAR;
-           dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].alpha_inverted  = DMA2D_REGULAR_ALPHA;
+           dma2d_config.layer_cfg[DMA2D_BACKGROUND_LAYER].alpha_inverted  = DMA2D_REGULAR_ALPHA; 
 
            bk_dma2d_layer_config(&dma2d_config, DMA2D_FOREGROUND_LAYER);
            bk_dma2d_layer_config(&dma2d_config, DMA2D_BACKGROUND_LAYER);
     ```
 
     参数
-    :   **-** – dma2d Pointer to a [dma2d_config_t](#structdma2d__config__t "#structdma2d__config__t") structure that contains the configuration information for the DMA2D.
+    :   **\-** – dma2d Pointer to a [dma2d\_config\_t](#structdma2d__config__t) structure that contains the configuration information for the DMA2D.
 
-
-        - LayerIdx DMA2D Layer index. This parameter can be one of the following values: DMA2D_BACKGROUND_LAYER(0) / DMA2D_FOREGROUND_LAYER(1)
+        - LayerIdx DMA2D Layer index. This parameter can be one of the following values: DMA2D\_BACKGROUND\_LAYER(0) / DMA2D\_FOREGROUND\_LAYER(1)
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_transfer_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t pdata, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv424bk_dma2d_transfer_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
-:   Start the DMA2D Transfer when you use (bk_dma2d_driver_init) and (bk_dma2d_layer_config) API, then use this API start dma2d work.
+<a id="_CPPv424bk_dma2d_transfer_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t"></a>
 
+<a id="_CPPv324bk_dma2d_transfer_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="_CPPv224bk_dma2d_transfer_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="bk_dma2d_transfer_config__dma2d_config_tP.uint32_t.uint32_t.uint32_t.uint32_t"></a> <a id="group__DMA2D_1ga0eaa4c5fa377969e79810e3d1dd9c291"></a> bk\_err\_t bk\_dma2d\_transfer\_config([dma2d\_config\_t](#_CPPv414dma2d_config_t "dma2d_config_t") \*dma2d, uint32\_t pdata, uint32\_t dst\_addr, uint32\_t width, uint32\_t height)
+:   Start the DMA2D Transfer when you use (bk\_dma2d\_driver\_init) and (bk\_dma2d\_layer\_config) API, then use this API start dma2d work.
 
-    - dst_addr: The destination memory Buffer address.
-
+    - dst\_addr: The destination memory Buffer address.
     - Width: The width of data to be transferred from source to destination (expressed in number of pixels per line).
-
     - Height: The height of data to be transferred from source to destination (expressed in number of lines).
 
     Usage example:
 
     ```
            dma2d_config_t dma2d_config = {0};
-           dma2d_config.init.mode   = DMA2D_R2M;                     Mode Register to Memory
+           dma2d_config.init.mode   = DMA2D_R2M;                     Mode Register to Memory 
            dma2d_config.init.color_mode = DMA2D_OUTPUT_RGB565;       DMA2D Output color mode is ARGB4444 (16 bpp)
-           dma2d_config.init.output_offset = 0;          No offset in output
-           dma2d_config.init.red_blue_swap = DMA2D_RB_REGULAR;       No R&B swap for the output image
+           dma2d_config.init.output_offset = 0;          No offset in output 
+           dma2d_config.init.red_blue_swap = DMA2D_RB_REGULAR;       No R&B swap for the output image 
            dma2d_config.init.alpha_inverted = DMA2D_REGULAR_ALPHA;   No alpha inversion for the output image
 
            bk_dma2d_driver_init(&dma2d_config);
@@ -192,21 +215,20 @@ bk_err_t bk_dma2d_transfer_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2
     ```
 
     参数
-    :   **-** – dma2d: Pointer to a [dma2d_config_t](#structdma2d__config__t "#structdma2d__config__t") structure that contains the configuration information for the DMA2D.
-
+    :   **\-** – dma2d: Pointer to a [dma2d\_config\_t](#structdma2d__config__t) structure that contains the configuration information for the DMA2D.
 
         - pdata: have two means:
 
           - 1: if the Memory-to-Memory or Memory-to-Memory with pixel format select, should Configure the source memory Buffer address
-
           - 2: if Register-to-Memory mode is selected, should configure the color value
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_blending_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2d_config_t") *dma2d, uint32_t fg_addr, uint32_t bg_addr, uint32_t dst_addr, uint32_t width, uint32_t height)[](#_CPPv424bk_dma2d_blending_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv424bk_dma2d_blending_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv324bk_dma2d_blending_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="_CPPv224bk_dma2d_blending_configP14dma2d_config_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="bk_dma2d_blending_config__dma2d_config_tP.uint32_t.uint32_t.uint32_t.uint32_t.uint32_t"></a> <a id="group__DMA2D_1gac109caf44f3edf92da5c66d2c56d46e6"></a> bk\_err\_t bk\_dma2d\_blending\_config([dma2d\_config\_t](#_CPPv414dma2d_config_t "dma2d_config_t") \*dma2d, uint32\_t fg\_addr, uint32\_t bg\_addr, uint32\_t dst\_addr, uint32\_t width, uint32\_t height)
 :   Start the multi-source DMA2D Transfer. start foreground layer and background layer blending.
 
     Usage example:
@@ -218,47 +240,43 @@ bk_err_t bk_dma2d_blending_config([dma2d_config_t](#_CPPv414dma2d_config_t "dma2
            4:bk_dma2d_blending_start(&dma2d_config, (uint32_t)pFgaddr, (uint32_t)pBgaddr, (uint32_t)pDst, xsize ,ysize);
     ```
 
-
     **Attention**
-    :   you can reference cli_dma2d.c for API usage
+    :   you can reference cli\_dma2d.c for API usage
 
     参数
-    :   **-** – dma2d: Pointer to a [dma2d_config_t](#structdma2d__config__t "#structdma2d__config__t") structure that contains the configuration information for the DMA2D.
+    :   **\-** – dma2d: Pointer to a [dma2d\_config\_t](#structdma2d__config__t) structure that contains the configuration information for the DMA2D.
 
-
-        - fg_addr: The source memory Buffer address for the foreground layer.
-
-        - bg_addr: The source memory Buffer address for the background layer.
-
-        - dst_addr: The destination memory Buffer address.
-
+        - fg\_addr: The source memory Buffer address for the foreground layer.
+        - bg\_addr: The source memory Buffer address for the background layer.
+        - dst\_addr: The destination memory Buffer address.
         - Width: The width of data to be transferred from source to destination (expressed in number of pixels per line).
-
         - Height: The height of data to be transferred from source to destination (expressed in number of lines).
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bool bk_dma2d_is_transfer_busy(void)[](#_CPPv425bk_dma2d_is_transfer_busyv "永久链接至目标")
+<a id="_CPPv425bk_dma2d_is_transfer_busyv"></a>
+
+<a id="_CPPv325bk_dma2d_is_transfer_busyv"></a> <a id="_CPPv225bk_dma2d_is_transfer_busyv"></a> <a id="bk_dma2d_is_transfer_busy__void"></a> <a id="group__DMA2D_1gac3efde61ac58e36cb607c1ed0f1e01fb"></a> bool bk\_dma2d\_is\_transfer\_busy(void)
 :   this API is check dma2d is transfer busy or not
 
     Usage example:
 
     ```
            1: bk_dma2d_driver_init(&dma2d_config);
-           2: bk_dma2d_start_transfer(&dma2d_config, color, (uint32_t)dst_addr, width, high);
+           2: bk_dma2d_start_transfer(&dma2d_config, color, (uint32_t)dst_addr, width, high); 
            3: while (bk_dma2d_get_transfer_status()) {}
     ```
 
     返回
     :   return 0: transfer stop or transfer done;
 
-
         - return 1 dma2d is work or transfer not done
 
-bk_err_t bk_dma2d_int_enable([dma2d_int_type_t](#_CPPv416dma2d_int_type_t "dma2d_int_type_t") int_type, bool enable)[](#_CPPv419bk_dma2d_int_enable16dma2d_int_type_tb "永久链接至目标")
+<a id="_CPPv419bk_dma2d_int_enable16dma2d_int_type_tb"></a>
+
+<a id="_CPPv319bk_dma2d_int_enable16dma2d_int_type_tb"></a> <a id="_CPPv219bk_dma2d_int_enable16dma2d_int_type_tb"></a> <a id="bk_dma2d_int_enable__dma2d_int_type_t.b"></a> <a id="group__DMA2D_1ga1eb5253e5abc2539ade95ed42ea269a7"></a> bk\_err\_t bk\_dma2d\_int\_enable([dma2d\_int\_type\_t](#_CPPv416dma2d_int_type_t "dma2d_int_type_t") int\_type, bool enable)
 :   dma2d int enable.
 
     Usage example:
@@ -272,29 +290,24 @@ bk_err_t bk_dma2d_int_enable([dma2d_int_type_t](#_CPPv416dma2d_int_type_t "dma2d
     ```
 
     参数
-    :   - **int_type** – select from dma2d_int_type_t, include int type:
+    :   - **int\_type** – select from dma2d\_int\_type\_t, include int type:
 
-          - DMA2D_CFG_ERROR
-
-          - DMA2D_CLUT_TRANS_COMPLETE
-
-          - DMA2D_CLUT_TRANS_ERROR
-
-          - DMA2D_WARTERMARK_INT
-
-          - DMA2D_TRANS_COMPLETE
-
-          - DMA2D_TRANS_ERROR
-
+          - DMA2D\_CFG\_ERROR
+          - DMA2D\_CLUT\_TRANS\_COMPLETE
+          - DMA2D\_CLUT\_TRANS\_ERROR
+          - DMA2D\_WARTERMARK\_INT
+          - DMA2D\_TRANS\_COMPLETE
+          - DMA2D\_TRANS\_ERROR
         - **enable** – 1:enable int, 0 disable int
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-uint32_t bk_dma2d_int_status_get(void)[](#_CPPv423bk_dma2d_int_status_getv "永久链接至目标")
-:   bk_dma2d_int_status_get.
+<a id="_CPPv423bk_dma2d_int_status_getv"></a>
+
+<a id="_CPPv323bk_dma2d_int_status_getv"></a> <a id="_CPPv223bk_dma2d_int_status_getv"></a> <a id="bk_dma2d_int_status_get__void"></a> <a id="group__DMA2D_1ga3980fd51f11863185e421bbadb01b7e3"></a> uint32\_t bk\_dma2d\_int\_status\_get(void)
+:   bk\_dma2d\_int\_status\_get.
 
     Usage example:
 
@@ -308,760 +321,1214 @@ uint32_t bk_dma2d_int_status_get(void)[](#_CPPv423bk_dma2d_int_status_getv "�
     ```
 
     返回
-    :   return uint32_t value of all int status,
+    :   return uint32\_t value of all int status,
 
-
-        - can used by value & dma2d_int_status_t check which int triggered. typedef enum { DMA2D_TRANS_ERROR_STATUS = 0x1, DMA2D_TRANS_COMPLETE_STATUS, DMA2D_WARTERMARK_INT_STATUS, DMA2D_CLUT_TRANS_ERROR_STATUS, DMA2D_CLUT_TRANS_COMPLETE_STATUS, DMA2D_CFG_ERROR_STATUS }dma2d_int_status_t;
+        - can used by value \& dma2d\_int\_status\_t check which int triggered. typedef enum { DMA2D\_TRANS\_ERROR\_STATUS \= 0x1, DMA2D\_TRANS\_COMPLETE\_STATUS, DMA2D\_WARTERMARK\_INT\_STATUS, DMA2D\_CLUT\_TRANS\_ERROR\_STATUS, DMA2D\_CLUT\_TRANS\_COMPLETE\_STATUS, DMA2D\_CFG\_ERROR\_STATUS }dma2d\_int\_status\_t;
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_int_status_clear([dma2d_int_status_t](#_CPPv418dma2d_int_status_t "dma2d_int_status_t") int_status)[](#_CPPv425bk_dma2d_int_status_clear18dma2d_int_status_t "永久链接至目标")
+<a id="_CPPv425bk_dma2d_int_status_clear18dma2d_int_status_t"></a>
+
+<a id="_CPPv325bk_dma2d_int_status_clear18dma2d_int_status_t"></a> <a id="_CPPv225bk_dma2d_int_status_clear18dma2d_int_status_t"></a> <a id="bk_dma2d_int_status_clear__dma2d_int_status_t"></a> <a id="group__DMA2D_1ga0eb11d5cc360b2f77182028307d53f73"></a> bk\_err\_t bk\_dma2d\_int\_status\_clear([dma2d\_int\_status\_t](#_CPPv418dma2d_int_status_t "dma2d_int_status_t") int\_status)
 :   clear dma2d int status
 
     参数
-    :   **int_status** – select from dma2d_int_status_t include: DMA2D_TRANS_ERROR_STATUS DMA2D_TRANS_COMPLETE_STATUS DMA2D_WARTERMARK_INT_STATUS DMA2D_CLUT_TRANS_ERROR_STATUS DMA2D_CLUT_TRANS_COMPLETE_STATUS DMA2D_CFG_ERROR_STATUS
+    :   **int\_status** – select from dma2d\_int\_status\_t include: DMA2D\_TRANS\_ERROR\_STATUS DMA2D\_TRANS\_COMPLETE\_STATUS DMA2D\_WARTERMARK\_INT\_STATUS DMA2D\_CLUT\_TRANS\_ERROR\_STATUS DMA2D\_CLUT\_TRANS\_COMPLETE\_STATUS DMA2D\_CFG\_ERROR\_STATUS
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_isr_register([dma2d_isr_t](#_CPPv411dma2d_isr_t "dma2d_isr_t") dma2d_isr)[](#_CPPv421bk_dma2d_isr_register11dma2d_isr_t "永久链接至目标")
+<a id="_CPPv421bk_dma2d_isr_register11dma2d_isr_t"></a>
+
+<a id="_CPPv321bk_dma2d_isr_register11dma2d_isr_t"></a> <a id="_CPPv221bk_dma2d_isr_register11dma2d_isr_t"></a> <a id="bk_dma2d_isr_register__dma2d_isr_t"></a> <a id="group__DMA2D_1ga598e7afdd7ff99b62382caaf2d554820"></a> bk\_err\_t bk\_dma2d\_isr\_register([dma2d\_isr\_t](#_CPPv411dma2d_isr_t "dma2d_isr_t") dma2d\_isr)
 :   register dma2d cpu int isr
 
     参数
-    :   **dma2d_isr** – the function you registr isr
+    :   **dma2d\_isr** – the function you registr isr
 
     Return values
-    :   **bk_err_t** – status
+    :   **bk\_err\_t** – status
 
-bk_err_t bk_dma2d_offset_blend([dma2d_offset_blend_t](#_CPPv420dma2d_offset_blend_t "dma2d_offset_blend_t") *dma2d_blend)[](#_CPPv421bk_dma2d_offset_blendP20dma2d_offset_blend_t "永久链接至目标")
+<a id="_CPPv421bk_dma2d_offset_blendP20dma2d_offset_blend_t"></a>
+
+<a id="_CPPv321bk_dma2d_offset_blendP20dma2d_offset_blend_t"></a> <a id="_CPPv221bk_dma2d_offset_blendP20dma2d_offset_blend_t"></a> <a id="bk_dma2d_offset_blend__dma2d_offset_blend_tP"></a> <a id="group__DMA2D_1ga6da10035f6fe0fd53801e3dc226c16ea"></a> bk\_err\_t bk\_dma2d\_offset\_blend([dma2d\_offset\_blend\_t](#_CPPv420dma2d_offset_blend_t "dma2d_offset_blend_t") \*dma2d\_blend)
 :   config dma2d blend
 
     参数
-    :   **-** – [dma2d_offset_blend_t](#structdma2d__offset__blend__t "#structdma2d__offset__blend__t") struct to config blend params
+    :   **\-** – [dma2d\_offset\_blend\_t](#structdma2d__offset__blend__t) struct to config blend params
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_blend([dma2d_blend_t](#_CPPv413dma2d_blend_t "dma2d_blend_t") *dma2d_blend)[](#_CPPv414bk_dma2d_blendP13dma2d_blend_t "永久链接至目标")
+<a id="_CPPv414bk_dma2d_blendP13dma2d_blend_t"></a>
+
+<a id="_CPPv314bk_dma2d_blendP13dma2d_blend_t"></a> <a id="_CPPv214bk_dma2d_blendP13dma2d_blend_t"></a> <a id="bk_dma2d_blend__dma2d_blend_tP"></a> <a id="group__DMA2D_1gaa0e5454f4f636f9025c0074228aa33e6"></a> bk\_err\_t bk\_dma2d\_blend([dma2d\_blend\_t](#_CPPv413dma2d_blend_t "dma2d_blend_t") \*dma2d\_blend)
 :   config dma2d blend
 
     参数
-    :   **-** – dma2d_blend struct to config blend params
+    :   **\-** – dma2d\_blend struct to config blend params
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-void bk_dma2d_memcpy_or_pixel_convert([dma2d_memcpy_pfc_t](#_CPPv418dma2d_memcpy_pfc_t "dma2d_memcpy_pfc_t") *pixel_convert)[](#_CPPv432bk_dma2d_memcpy_or_pixel_convertP18dma2d_memcpy_pfc_t "永久链接至目标")
+<a id="_CPPv432bk_dma2d_memcpy_or_pixel_convertP18dma2d_memcpy_pfc_t"></a>
+
+<a id="_CPPv332bk_dma2d_memcpy_or_pixel_convertP18dma2d_memcpy_pfc_t"></a> <a id="_CPPv232bk_dma2d_memcpy_or_pixel_convertP18dma2d_memcpy_pfc_t"></a> <a id="bk_dma2d_memcpy_or_pixel_convert__dma2d_memcpy_pfc_tP"></a> <a id="group__DMA2D_1ga933b1f7a7e3177464429ee678285164b"></a> void bk\_dma2d\_memcpy\_or\_pixel\_convert([dma2d\_memcpy\_pfc\_t](#_CPPv418dma2d_memcpy_pfc_t "dma2d_memcpy_pfc_t") \*pixel\_convert)
 :   config dma2d pixel revert
 
     参数
-    :   **-** – dma2d_pixel_convert_t struct to config pixel convert params
+    :   **\-** – dma2d\_pixel\_convert\_t struct to config pixel convert params
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t dma2d_fill([dma2d_fill_t](#_CPPv412dma2d_fill_t "dma2d_fill_t") *fill)[](#_CPPv410dma2d_fillP12dma2d_fill_t "永久链接至目标")
+<a id="_CPPv410dma2d_fillP12dma2d_fill_t"></a>
+
+<a id="_CPPv310dma2d_fillP12dma2d_fill_t"></a> <a id="_CPPv210dma2d_fillP12dma2d_fill_t"></a> <a id="dma2d_fill__dma2d_fill_tP"></a> <a id="group__DMA2D_1ga4e1ceab13ea44632decb6a1a2144b155"></a> bk\_err\_t dma2d\_fill([dma2d\_fill\_t](#_CPPv412dma2d_fill_t "dma2d_fill_t") \*fill)
 :   config dma2d fill color
 
     参数
-    :   **-** – [dma2d_fill_t](#structdma2d__fill__t "#structdma2d__fill__t") struct to config dma2d fill params
+    :   **\-** – [dma2d\_fill\_t](#structdma2d__fill__t) struct to config dma2d fill params
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_start_transfer(void)[](#_CPPv423bk_dma2d_start_transferv "永久链接至目标")
+<a id="_CPPv423bk_dma2d_start_transferv"></a>
+
+<a id="_CPPv323bk_dma2d_start_transferv"></a> <a id="_CPPv223bk_dma2d_start_transferv"></a> <a id="bk_dma2d_start_transfer__void"></a> <a id="group__DMA2D_1gad00f31bc2a6bb4288d00c49f50c27002"></a> bk\_err\_t bk\_dma2d\_start\_transfer(void)
 :   start dma2d transfer
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bk_err_t bk_dma2d_stop_transfer(void)[](#_CPPv422bk_dma2d_stop_transferv "永久链接至目标")
+<a id="_CPPv422bk_dma2d_stop_transferv"></a>
+
+<a id="_CPPv322bk_dma2d_stop_transferv"></a> <a id="_CPPv222bk_dma2d_stop_transferv"></a> <a id="bk_dma2d_stop_transfer__void"></a> <a id="group__DMA2D_1ga0d519b11cc3287d7921e101b3dd071cf"></a> bk\_err\_t bk\_dma2d\_stop\_transfer(void)
 :   stop dma2d transfer
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-void dma2d_memcpy_psram(void *Psrc, void *Pdst, uint32_t xsize, uint32_t ysize, uint32_t src_offline, uint32_t dest_offline)[](#_CPPv418dma2d_memcpy_psramPvPv8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
-:   dma2d_memcpy for src and dst addr is in psram
+<a id="_CPPv418dma2d_memcpy_psramPvPv8uint32_t8uint32_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv318dma2d_memcpy_psramPvPv8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="_CPPv218dma2d_memcpy_psramPvPv8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="dma2d_memcpy_psram__voidP.voidP.uint32_t.uint32_t.uint32_t.uint32_t"></a> <a id="group__DMA2D_1gae73d9dd6ac4097ce45e38c1ad9ee0fb0"></a> void dma2d\_memcpy\_psram(void \*Psrc, void \*Pdst, uint32\_t xsize, uint32\_t ysize, uint32\_t src\_offline, uint32\_t dest\_offline)
+:   dma2d\_memcpy for src and dst addr is in psram
 
     参数
     :   - **Psrc.** – memcpy or partical copy start addr, in other word, the lcd frame addr add offset addr is the start copy addr.
-
         - **Pdst.** – memcpy or partical copy dst addr, in other word, the dst frame addr add dst offset addr is the end copy addr.
-
         - **xsize** – the memcpy or partical copy width
-
         - **ysize** – the memcpy or partical copy hight
-
-        - **src_offline.** – for partical copy this is to calculate start copy addr based frame addr, uint by pixel
-
-        - **dest_offline** – for partical copy this is to calculate copy to dst addr based frame addr, uint by pixel
+        - **src\_offline.** – for partical copy this is to calculate start copy addr based frame addr, uint by pixel
+        - **dest\_offline** – for partical copy this is to calculate copy to dst addr based frame addr, uint by pixel
 
     返回
     :   none
 
-void dma2d_memcpy_psram_for_lvgl(void *Psrc, uint32_t src_xsize, uint32_t src_ysize, void *Pdst, uint32_t dst_xsize, uint32_t dst_ysize, uint32_t src_xpos, uint32_t src_ypos, uint32_t dst_xpos, uint32_t dst_ypos)[](#_CPPv427dma2d_memcpy_psram_for_lvglPv8uint32_t8uint32_tPv8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv427dma2d_memcpy_psram_for_lvglPv8uint32_t8uint32_tPv8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a>
 
-void dma2d_driver_transfes_ability([dma2d_trans_ability_t](#_CPPv421dma2d_trans_ability_t "dma2d_trans_ability_t") trans_ability)[](#_CPPv429dma2d_driver_transfes_ability21dma2d_trans_ability_t "永久链接至目标")
+<a id="_CPPv327dma2d_memcpy_psram_for_lvglPv8uint32_t8uint32_tPv8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="_CPPv227dma2d_memcpy_psram_for_lvglPv8uint32_t8uint32_tPv8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t8uint32_t"></a> <a id="dma2d_memcpy_psram_for_lvgl__voidP.uint32_t.uint32_t.voidP.uint32_t.uint32_t.uint32_t.uint32_t.uint32_t.uint32_t"></a> <a id="group__DMA2D_1ga93501626b48c0140a011594c3abe9683"></a> void dma2d\_memcpy\_psram\_for\_lvgl(void \*Psrc, uint32\_t src\_xsize, uint32\_t src\_ysize, void \*Pdst, uint32\_t dst\_xsize, uint32\_t dst\_ysize, uint32\_t src\_xpos, uint32\_t src\_ypos, uint32\_t dst\_xpos, uint32\_t dst\_ypos)
+
+<a id="_CPPv429dma2d_driver_transfes_ability21dma2d_trans_ability_t"></a>
+
+<a id="_CPPv329dma2d_driver_transfes_ability21dma2d_trans_ability_t"></a> <a id="_CPPv229dma2d_driver_transfes_ability21dma2d_trans_ability_t"></a> <a id="dma2d_driver_transfes_ability__dma2d_trans_ability_t"></a> <a id="group__DMA2D_1gae44662c15d847dcfbb319b3b81477670"></a> void dma2d\_driver\_transfes\_ability([dma2d\_trans\_ability\_t](#_CPPv421dma2d_trans_ability_t "dma2d_trans_ability_t") trans\_ability)
 :   set dma2d transtfer ability
 
     参数
-    :   **select** – from dma2d_trans_ability_t
+    :   **select** – from dma2d\_trans\_ability\_t
 
-void bk_dma2d_soft_reset(void)[](#_CPPv419bk_dma2d_soft_resetv "永久链接至目标")
+<a id="_CPPv419bk_dma2d_soft_resetv"></a>
+
+<a id="_CPPv319bk_dma2d_soft_resetv"></a> <a id="_CPPv219bk_dma2d_soft_resetv"></a> <a id="bk_dma2d_soft_reset__void"></a> <a id="group__DMA2D_1ga9fabf4fcc6dca6b948be24bfe4424196"></a> void bk\_dma2d\_soft\_reset(void)
 :   reset dma2d hardware logal , keep the config value
 
     Retval
 
+<a id="api-typedefs"></a>
 
-## API Typedefs[](#api-typedefs "永久链接至标题")
+## API Typedefs
 
+<a id="id1"></a>
 
-### Header File[](#id1 "永久链接至标题")
+### Header File
 
+- [dma2d\_types.h](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/_header_files/bk_idk/include/driver/dma2d_types.h)
 
-- [dma2d_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/dma2d_types.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/dma2d_types.h")
+<a id="structures"></a>
 
+### Structures
 
-### Structures[](#structures "永久链接至标题")
+<a id="_CPPv412dma2d_init_t"></a>
 
-struct dma2d_init_t[](#_CPPv412dma2d_init_t "永久链接至目标")
+<a id="_CPPv312dma2d_init_t"></a> <a id="_CPPv212dma2d_init_t"></a> <a id="dma2d_init_t"></a> <a id="structdma2d__init__t"></a> struct dma2d\_init\_t
 :   DMA2D Init structure definition.
 
+    <a id="breathe-section-title-public-members"></a>
+
     Public Members
 
-    [dma2d_mode_t](#_CPPv412dma2d_mode_t "dma2d_mode_t") mode[](#_CPPv4N12dma2d_init_t4modeE "永久链接至目标")
-    :   Configures the DMA2D transfer mode.his parameter can be one value of DMA2D_Mode.
+    <a id="_CPPv4N12dma2d_init_t4modeE"></a>
 
-    uint32_t color_mode[](#_CPPv4N12dma2d_init_t10color_modeE "永久链接至目标")
-    :   Configures the color format of the output image. This parameter can be one value of DMA2D_Output_Color_Mode.
+    <a id="_CPPv3N12dma2d_init_t4modeE"></a> <a id="_CPPv2N12dma2d_init_t4modeE"></a> <a id="dma2d_init_t::mode__dma2d_mode_t"></a> <a id="structdma2d__init__t_1a305eaea157b708df4f192e805b2e7592"></a> [dma2d\_mode\_t](#_CPPv412dma2d_mode_t "dma2d_mode_t") mode
+    :   Configures the DMA2D transfer mode.his parameter can be one value of DMA2D\_Mode.
 
-    uint32_t output_offset[](#_CPPv4N12dma2d_init_t13output_offsetE "永久链接至目标")
-    :   Specifies the Offset value. This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0x3FFF.
+    <a id="_CPPv4N12dma2d_init_t10color_modeE"></a>
 
-    uint32_t alpha_inverted[](#_CPPv4N12dma2d_init_t14alpha_invertedE "永久链接至目标")
-    :   Select regular or inverted alpha value for the output pixel format converter. This parameter can be one value of DMA2D_Alpha_Inverted.
+    <a id="_CPPv3N12dma2d_init_t10color_modeE"></a> <a id="_CPPv2N12dma2d_init_t10color_modeE"></a> <a id="dma2d_init_t::color_mode__uint32_t"></a> <a id="structdma2d__init__t_1a7999d8ed0c3c81849245aa88d44d44fa"></a> uint32\_t color\_mode
+    :   Configures the color format of the output image. This parameter can be one value of DMA2D\_Output\_Color\_Mode.
 
-    uint32_t line_offset_mode[](#_CPPv4N12dma2d_init_t16line_offset_modeE "永久链接至目标")
-    :   Configures how is expressed the line offset for the foreground, background and output. This parameter can be one value of DMA2D_Line_Offset_Mode.
+    <a id="_CPPv4N12dma2d_init_t13output_offsetE"></a>
 
-    uint8_t red_blue_swap[](#_CPPv4N12dma2d_init_t13red_blue_swapE "永久链接至目标")
-    :   Select regular mode (RGB or ARGB) or swap mode (BGR or ABGR) for the output pixel format converter. This parameter can be one value of DMA2D_RB_Swap.
+    <a id="_CPPv3N12dma2d_init_t13output_offsetE"></a> <a id="_CPPv2N12dma2d_init_t13output_offsetE"></a> <a id="dma2d_init_t::output_offset__uint32_t"></a> <a id="structdma2d__init__t_1ad40b010301ac57cfef31d0eaf9f0c5b4"></a> uint32\_t output\_offset
+    :   Specifies the Offset value. This parameter must be a number between Min\_Data \= 0x0000 and Max\_Data \= 0x3FFF.
 
-    uint8_t out_byte_by_byte_reverse[](#_CPPv4N12dma2d_init_t24out_byte_by_byte_reverseE "永久链接至目标")
-    :   DMA2D_BYTE_REVERSE or DMA2D_NO_REVERSE , normally for 32bit color of yuv format
+    <a id="_CPPv4N12dma2d_init_t14alpha_invertedE"></a>
 
-    [dma2d_trans_ability_t](#_CPPv421dma2d_trans_ability_t "dma2d_trans_ability_t") trans_ability[](#_CPPv4N12dma2d_init_t13trans_abilityE "永久链接至目标")
-    :   set defult MAX_TRANS_256BYTES
+    <a id="_CPPv3N12dma2d_init_t14alpha_invertedE"></a> <a id="_CPPv2N12dma2d_init_t14alpha_invertedE"></a> <a id="dma2d_init_t::alpha_inverted__uint32_t"></a> <a id="structdma2d__init__t_1a653738cfd9d725f10de91ed59ec0f365"></a> uint32\_t alpha\_inverted
+    :   Select regular or inverted alpha value for the output pixel format converter. This parameter can be one value of DMA2D\_Alpha\_Inverted.
 
-struct dma2d_layer_cfg_t[](#_CPPv417dma2d_layer_cfg_t "永久链接至目标")
+    <a id="_CPPv4N12dma2d_init_t16line_offset_modeE"></a>
+
+    <a id="_CPPv3N12dma2d_init_t16line_offset_modeE"></a> <a id="_CPPv2N12dma2d_init_t16line_offset_modeE"></a> <a id="dma2d_init_t::line_offset_mode__uint32_t"></a> <a id="structdma2d__init__t_1ad7d9613c2e8686ad86d4de2dddd22c10"></a> uint32\_t line\_offset\_mode
+    :   Configures how is expressed the line offset for the foreground, background and output. This parameter can be one value of DMA2D\_Line\_Offset\_Mode.
+
+    <a id="_CPPv4N12dma2d_init_t13red_blue_swapE"></a>
+
+    <a id="_CPPv3N12dma2d_init_t13red_blue_swapE"></a> <a id="_CPPv2N12dma2d_init_t13red_blue_swapE"></a> <a id="dma2d_init_t::red_blue_swap__uint8_t"></a> <a id="structdma2d__init__t_1a4eb523949fe135e16c5063fcb9f1ff7e"></a> uint8\_t red\_blue\_swap
+    :   Select regular mode (RGB or ARGB) or swap mode (BGR or ABGR) for the output pixel format converter. This parameter can be one value of DMA2D\_RB\_Swap.
+
+    <a id="_CPPv4N12dma2d_init_t24out_byte_by_byte_reverseE"></a>
+
+    <a id="_CPPv3N12dma2d_init_t24out_byte_by_byte_reverseE"></a> <a id="_CPPv2N12dma2d_init_t24out_byte_by_byte_reverseE"></a> <a id="dma2d_init_t::out_byte_by_byte_reverse__uint8_t"></a> <a id="structdma2d__init__t_1a9836ae01620b0bf98d8af1a61b4e8154"></a> uint8\_t out\_byte\_by\_byte\_reverse
+    :   DMA2D\_BYTE\_REVERSE or DMA2D\_NO\_REVERSE , normally for 32bit color of yuv format
+
+    <a id="_CPPv4N12dma2d_init_t13trans_abilityE"></a>
+
+    <a id="_CPPv3N12dma2d_init_t13trans_abilityE"></a> <a id="_CPPv2N12dma2d_init_t13trans_abilityE"></a> <a id="dma2d_init_t::trans_ability__dma2d_trans_ability_t"></a> <a id="structdma2d__init__t_1a70f63adfbabfb0a7273a94a4da2b3723"></a> [dma2d\_trans\_ability\_t](#_CPPv421dma2d_trans_ability_t "dma2d_trans_ability_t") trans\_ability
+    :   set defult MAX\_TRANS\_256BYTES
+
+<a id="_CPPv417dma2d_layer_cfg_t"></a>
+
+<a id="_CPPv317dma2d_layer_cfg_t"></a> <a id="_CPPv217dma2d_layer_cfg_t"></a> <a id="dma2d_layer_cfg_t"></a> <a id="structdma2d__layer__cfg__t"></a> struct dma2d\_layer\_cfg\_t
 :   DMA2D Layer structure definition
 
+    <a id="breathe-section-title-public-members"></a>
+
     Public Members
 
-    uint32_t input_offset[](#_CPPv4N17dma2d_layer_cfg_t12input_offsetE "永久链接至目标")
-    :   Configures the DMA2D foreground or background offset. This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0x3FFF.
+    <a id="_CPPv4N17dma2d_layer_cfg_t12input_offsetE"></a>
 
-    uint32_t input_color_mode[](#_CPPv4N17dma2d_layer_cfg_t16input_color_modeE "永久链接至目标")
-    :   Configures the DMA2D foreground or background color mode. This parameter can be one value of DMA2D_Input_Color_Mode.
+    <a id="_CPPv3N17dma2d_layer_cfg_t12input_offsetE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t12input_offsetE"></a> <a id="dma2d_layer_cfg_t::input_offset__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1acbeffa0425574bbba06ac27760093af3"></a> uint32\_t input\_offset
+    :   Configures the DMA2D foreground or background offset. This parameter must be a number between Min\_Data \= 0x0000 and Max\_Data \= 0x3FFF.
 
-    uint32_t alpha_mode[](#_CPPv4N17dma2d_layer_cfg_t10alpha_modeE "永久链接至目标")
-    :   Configures the DMA2D foreground or background alpha mode.This parameter can be one value of DMA2D_Alpha_Mode.
+    <a id="_CPPv4N17dma2d_layer_cfg_t16input_color_modeE"></a>
 
-    uint32_t input_color[](#_CPPv4N17dma2d_layer_cfg_t11input_colorE "永久链接至目标")
+    <a id="_CPPv3N17dma2d_layer_cfg_t16input_color_modeE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t16input_color_modeE"></a> <a id="dma2d_layer_cfg_t::input_color_mode__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1a90430c0e8335983abef91117b0ac151d"></a> uint32\_t input\_color\_mode
+    :   Configures the DMA2D foreground or background color mode. This parameter can be one value of DMA2D\_Input\_Color\_Mode.
+
+    <a id="_CPPv4N17dma2d_layer_cfg_t10alpha_modeE"></a>
+
+    <a id="_CPPv3N17dma2d_layer_cfg_t10alpha_modeE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t10alpha_modeE"></a> <a id="dma2d_layer_cfg_t::alpha_mode__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1a2aa8ff3a0501d97a4e84d3230774c734"></a> uint32\_t alpha\_mode
+    :   Configures the DMA2D foreground or background alpha mode.This parameter can be one value of DMA2D\_Alpha\_Mode.
+
+    <a id="_CPPv4N17dma2d_layer_cfg_t11input_colorE"></a>
+
+    <a id="_CPPv3N17dma2d_layer_cfg_t11input_colorE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t11input_colorE"></a> <a id="dma2d_layer_cfg_t::input_color__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1a92892df93cc6e80d1eeacc7d14c72f1f"></a> uint32\_t input\_color
     :   Specifies color value in case of A8 or A4 color mode.
 
         备注
 
-        In case of A8 or A4 color mode (ARGB), this parameter must be a number between Min_Data = 0x00000000 and Max_Data = 0xFFFFFF where
+        In case of A8 or A4 color mode (ARGB), this parameter must be a number between Min\_Data \= 0x00000000 and Max\_Data \= 0xFFFFFF where
 
+        - Inputcolor\[16:23\] is the red value RED\[0:7\]
+        - Inputcolor\[8:15\] is the green value GREEN\[0:7\]
+        - Inputcolor\[0:7\] is the blue value BLUE\[0:7\].
 
-        - Inputcolor[16:23] is the red value RED[0:7]
+    <a id="_CPPv4N17dma2d_layer_cfg_t14alpha_invertedE"></a>
 
-        - Inputcolor[8:15] is the green value GREEN[0:7]
+    <a id="_CPPv3N17dma2d_layer_cfg_t14alpha_invertedE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t14alpha_invertedE"></a> <a id="dma2d_layer_cfg_t::alpha_inverted__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1ad3dbdf64bd2c2efab11344de7b57501b"></a> uint32\_t alpha\_inverted
+    :   Select regular or inverted alpha value.This parameter can be one value of DMA2D\_Alpha\_Inverted.
 
-        - Inputcolor[0:7] is the blue value BLUE[0:7].
+    <a id="_CPPv4N17dma2d_layer_cfg_t13red_blue_swapE"></a>
 
-    uint32_t alpha_inverted[](#_CPPv4N17dma2d_layer_cfg_t14alpha_invertedE "永久链接至目标")
-    :   Select regular or inverted alpha value.This parameter can be one value of DMA2D_Alpha_Inverted.
+    <a id="_CPPv3N17dma2d_layer_cfg_t13red_blue_swapE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t13red_blue_swapE"></a> <a id="dma2d_layer_cfg_t::red_blue_swap__uint32_t"></a> <a id="structdma2d__layer__cfg__t_1a29a8d404754a57d864f813e83b6bc36d"></a> uint32\_t red\_blue\_swap
+    :   Select regular mode (RGB or ARGB) or swap mode (BGR or ABGR). This parameter can be one value of DMA2D\_RB\_Swap.
 
-    uint32_t red_blue_swap[](#_CPPv4N17dma2d_layer_cfg_t13red_blue_swapE "永久链接至目标")
-    :   Select regular mode (RGB or ARGB) or swap mode (BGR or ABGR). This parameter can be one value of DMA2D_RB_Swap.
+    <a id="_CPPv4N17dma2d_layer_cfg_t18input_data_reverseE"></a>
 
-    [date_reverse_t](#_CPPv414date_reverse_t "date_reverse_t") input_data_reverse[](#_CPPv4N17dma2d_layer_cfg_t18input_data_reverseE "永久链接至目标")
+    <a id="_CPPv3N17dma2d_layer_cfg_t18input_data_reverseE"></a> <a id="_CPPv2N17dma2d_layer_cfg_t18input_data_reverseE"></a> <a id="dma2d_layer_cfg_t::input_data_reverse__date_reverse_t"></a> <a id="structdma2d__layer__cfg__t_1adc9142f1758588a46be9821de9c946ce"></a> [date\_reverse\_t](#_CPPv414date_reverse_t "date_reverse_t") input\_data\_reverse
     :   input formart for yuv format, reverse data byte by byte or halfword by halfword.
 
-struct dma2d_config_t[](#_CPPv414dma2d_config_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv414dma2d_config_t"></a>
 
-    [dma2d_init_t](#_CPPv412dma2d_init_t "dma2d_init_t") init[](#_CPPv4N14dma2d_config_t4initE "永久链接至目标")
-    :   dma2d init config, is the value of struct [dma2d_init_t](#structdma2d__init__t "#structdma2d__init__t")
+<a id="_CPPv314dma2d_config_t"></a> <a id="_CPPv214dma2d_config_t"></a> <a id="dma2d_config_t"></a> <a id="structdma2d__config__t"></a> struct dma2d\_config\_t
+:   <a id="breathe-section-title-public-members"></a>
 
-    [dma2d_layer_cfg_t](#_CPPv417dma2d_layer_cfg_t "dma2d_layer_cfg_t") layer_cfg[MAX_DMA2D_LAYER][](#_CPPv4N14dma2d_config_t9layer_cfgE "永久链接至目标")
-    :   dma2d layer config, is the value of struct [dma2d_layer_cfg_t](#structdma2d__layer__cfg__t "#structdma2d__layer__cfg__t") the param MAX_DMA2D_LAYER is select from DMA2D_BACKGROUND_LAYER and DMA2D_FOREGROUND_LAYER
+    Public Members
 
-struct dma2d_blend_t[](#_CPPv413dma2d_blend_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv4N14dma2d_config_t4initE"></a>
 
-    void *pfg_addr[](#_CPPv4N13dma2d_blend_t8pfg_addrE "永久链接至目标")
+    <a id="_CPPv3N14dma2d_config_t4initE"></a> <a id="_CPPv2N14dma2d_config_t4initE"></a> <a id="dma2d_config_t::init__dma2d_init_t"></a> <a id="structdma2d__config__t_1a8d2526741d849cf17fbde00a609b9c5b"></a> [dma2d\_init\_t](#_CPPv412dma2d_init_t "dma2d_init_t") init
+    :   dma2d init config, is the value of struct [dma2d\_init\_t](#structdma2d__init__t)
+
+    <a id="_CPPv4N14dma2d_config_t9layer_cfgE"></a>
+
+    <a id="_CPPv3N14dma2d_config_t9layer_cfgE"></a> <a id="_CPPv2N14dma2d_config_t9layer_cfgE"></a> <a id="dma2d_config_t::layer_cfg__dma2d_layer_cfg_tA"></a> <a id="structdma2d__config__t_1ad42aae62c7c3aa32311858a1cc336313"></a> [dma2d\_layer\_cfg\_t](#_CPPv417dma2d_layer_cfg_t "dma2d_layer_cfg_t") layer\_cfg\[MAX\_DMA2D\_LAYER\]
+    :   dma2d layer config, is the value of struct [dma2d\_layer\_cfg\_t](#structdma2d__layer__cfg__t) the param MAX\_DMA2D\_LAYER is select from DMA2D\_BACKGROUND\_LAYER and DMA2D\_FOREGROUND\_LAYER
+
+<a id="_CPPv413dma2d_blend_t"></a>
+
+<a id="_CPPv313dma2d_blend_t"></a> <a id="_CPPv213dma2d_blend_t"></a> <a id="dma2d_blend_t"></a> <a id="structdma2d__blend__t"></a> struct dma2d\_blend\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N13dma2d_blend_t8pfg_addrE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t8pfg_addrE"></a> <a id="_CPPv2N13dma2d_blend_t8pfg_addrE"></a> <a id="dma2d_blend_t::pfg_addr__voidP"></a> <a id="structdma2d__blend__t_1a40428df5fc3579cdac34b57f2c1e3516"></a> void \*pfg\_addr
     :   The source memory Buffer address for the foreground layer..
 
-    void *pbg_addr[](#_CPPv4N13dma2d_blend_t8pbg_addrE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t8pbg_addrE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t8pbg_addrE"></a> <a id="_CPPv2N13dma2d_blend_t8pbg_addrE"></a> <a id="dma2d_blend_t::pbg_addr__voidP"></a> <a id="structdma2d__blend__t_1a979684d78195e03570dc2e13c027d500"></a> void \*pbg\_addr
     :   he source memory Buffer address for the background layer…
 
-    void *pdst_addr[](#_CPPv4N13dma2d_blend_t9pdst_addrE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t9pdst_addrE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t9pdst_addrE"></a> <a id="_CPPv2N13dma2d_blend_t9pdst_addrE"></a> <a id="dma2d_blend_t::pdst_addr__voidP"></a> <a id="structdma2d__blend__t_1ae6ec5ddf3a1ddbbcc03edc924f190634"></a> void \*pdst\_addr
     :   The output memory Buffer address ..
 
-    [input_color_mode_t](#_CPPv418input_color_mode_t "input_color_mode_t") fg_color_mode[](#_CPPv4N13dma2d_blend_t13fg_color_modeE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t13fg_color_modeE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t13fg_color_modeE"></a> <a id="_CPPv2N13dma2d_blend_t13fg_color_modeE"></a> <a id="dma2d_blend_t::fg_color_mode__input_color_mode_t"></a> <a id="structdma2d__blend__t_1a0f7943b68abf2b7f5ffa41acd2c7ccf4"></a> [input\_color\_mode\_t](#_CPPv418input_color_mode_t "input_color_mode_t") fg\_color\_mode
     :   fg color mode..
 
-    [input_color_mode_t](#_CPPv418input_color_mode_t "input_color_mode_t") bg_color_mode[](#_CPPv4N13dma2d_blend_t13bg_color_modeE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t13bg_color_modeE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t13bg_color_modeE"></a> <a id="_CPPv2N13dma2d_blend_t13bg_color_modeE"></a> <a id="dma2d_blend_t::bg_color_mode__input_color_mode_t"></a> <a id="structdma2d__blend__t_1a4f9f536e20feefe324477f240530985c"></a> [input\_color\_mode\_t](#_CPPv418input_color_mode_t "input_color_mode_t") bg\_color\_mode
     :   bg color mode..
 
-    [out_color_mode_t](#_CPPv416out_color_mode_t "out_color_mode_t") dst_color_mode[](#_CPPv4N13dma2d_blend_t14dst_color_modeE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t14dst_color_modeE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t14dst_color_modeE"></a> <a id="_CPPv2N13dma2d_blend_t14dst_color_modeE"></a> <a id="dma2d_blend_t::dst_color_mode__out_color_mode_t"></a> <a id="structdma2d__blend__t_1a87718b3144cc420d3bd40a956d955ba8"></a> [out\_color\_mode\_t](#_CPPv416out_color_mode_t "out_color_mode_t") dst\_color\_mode
     :   out color mode..
 
-    uint32_t fg_offline[](#_CPPv4N13dma2d_blend_t10fg_offlineE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t10fg_offlineE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t10fg_offlineE"></a> <a id="_CPPv2N13dma2d_blend_t10fg_offlineE"></a> <a id="dma2d_blend_t::fg_offline__uint32_t"></a> <a id="structdma2d__blend__t_1a6e432d08771985457aa95d1d2751aa1c"></a> uint32\_t fg\_offline
     :   for partical copy this is to calculate start addr based on fg frame addr, uint by pixel
 
-    uint32_t bg_offline[](#_CPPv4N13dma2d_blend_t10bg_offlineE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t10bg_offlineE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t10bg_offlineE"></a> <a id="_CPPv2N13dma2d_blend_t10bg_offlineE"></a> <a id="dma2d_blend_t::bg_offline__uint32_t"></a> <a id="structdma2d__blend__t_1a3a5de1915539514f16e812027939c671"></a> uint32\_t bg\_offline
     :   for partical copy this is to calculate start addr based on bg frame addr, uint by pixel
 
-    uint32_t dest_offline[](#_CPPv4N13dma2d_blend_t12dest_offlineE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t12dest_offlineE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t12dest_offlineE"></a> <a id="_CPPv2N13dma2d_blend_t12dest_offlineE"></a> <a id="dma2d_blend_t::dest_offline__uint32_t"></a> <a id="structdma2d__blend__t_1a4f64b255fb9705122450df2740f501db"></a> uint32\_t dest\_offline
     :   for partical copy this is to calculate output addr based on dst frame addr, uint by pixel
 
-    uint32 xsize[](#_CPPv4N13dma2d_blend_t5xsizeE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t5xsizeE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t5xsizeE"></a> <a id="_CPPv2N13dma2d_blend_t5xsizeE"></a> <a id="dma2d_blend_t::xsize__uint32"></a> <a id="structdma2d__blend__t_1a0a65a09f26f118ab825a6767da734d2e"></a> uint32 xsize
     :   dma2d blend x size..
 
-    uint32 ysize[](#_CPPv4N13dma2d_blend_t5ysizeE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t5ysizeE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t5ysizeE"></a> <a id="_CPPv2N13dma2d_blend_t5ysizeE"></a> <a id="dma2d_blend_t::ysize__uint32"></a> <a id="structdma2d__blend__t_1ace08fabc7b6cf42df7380c30a5980e1f"></a> uint32 ysize
     :   dma2d blend y size..
 
-    uint8_t fg_alpha_value[](#_CPPv4N13dma2d_blend_t14fg_alpha_valueE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t14fg_alpha_valueE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t14fg_alpha_valueE"></a> <a id="_CPPv2N13dma2d_blend_t14fg_alpha_valueE"></a> <a id="dma2d_blend_t::fg_alpha_value__uint8_t"></a> <a id="structdma2d__blend__t_1aefe2f2421dbb08bcab13cd5f0cd7e040"></a> uint8\_t fg\_alpha\_value
     :   config fg alpha..
 
-    uint8_t bg_alpha_value[](#_CPPv4N13dma2d_blend_t14bg_alpha_valueE "永久链接至目标")
+    <a id="_CPPv4N13dma2d_blend_t14bg_alpha_valueE"></a>
+
+    <a id="_CPPv3N13dma2d_blend_t14bg_alpha_valueE"></a> <a id="_CPPv2N13dma2d_blend_t14bg_alpha_valueE"></a> <a id="dma2d_blend_t::bg_alpha_value__uint8_t"></a> <a id="structdma2d__blend__t_1a412da2cc9c57f814c82b47d8faa51d7e"></a> uint8\_t bg\_alpha\_value
     :   config bg alpha.
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") red_bule_swap[](#_CPPv4N13dma2d_blend_t13red_bule_swapE "永久链接至目标")
-    :   DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv4N13dma2d_blend_t13red_bule_swapE"></a>
 
-struct dma2d_offset_blend_t[](#_CPPv420dma2d_offset_blend_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv3N13dma2d_blend_t13red_bule_swapE"></a> <a id="_CPPv2N13dma2d_blend_t13red_bule_swapE"></a> <a id="dma2d_blend_t::red_bule_swap__red_blue_swap_t"></a> <a id="structdma2d__blend__t_1ab37bec59e303f9af8e5d71d1ca0d3403"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") red\_bule\_swap
+    :   DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
 
-    void *pfg_addr[](#_CPPv4N20dma2d_offset_blend_t8pfg_addrE "永久链接至目标")
+<a id="_CPPv420dma2d_offset_blend_t"></a>
+
+<a id="_CPPv320dma2d_offset_blend_t"></a> <a id="_CPPv220dma2d_offset_blend_t"></a> <a id="dma2d_offset_blend_t"></a> <a id="structdma2d__offset__blend__t"></a> struct dma2d\_offset\_blend\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N20dma2d_offset_blend_t8pfg_addrE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t8pfg_addrE"></a> <a id="_CPPv2N20dma2d_offset_blend_t8pfg_addrE"></a> <a id="dma2d_offset_blend_t::pfg_addr__voidP"></a> <a id="structdma2d__offset__blend__t_1a39daa18202b925b12f6a69adc7074fd6"></a> void \*pfg\_addr
     :   The source memory Buffer address for the foreground layer..
 
-    void *pbg_addr[](#_CPPv4N20dma2d_offset_blend_t8pbg_addrE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t8pbg_addrE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t8pbg_addrE"></a> <a id="_CPPv2N20dma2d_offset_blend_t8pbg_addrE"></a> <a id="dma2d_offset_blend_t::pbg_addr__voidP"></a> <a id="structdma2d__offset__blend__t_1ae3c4e6c6850ac8c390a710c3409934e3"></a> void \*pbg\_addr
     :   he source memory Buffer address for the background layer…
 
-    void *pdst_addr[](#_CPPv4N20dma2d_offset_blend_t9pdst_addrE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t9pdst_addrE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t9pdst_addrE"></a> <a id="_CPPv2N20dma2d_offset_blend_t9pdst_addrE"></a> <a id="dma2d_offset_blend_t::pdst_addr__voidP"></a> <a id="structdma2d__offset__blend__t_1a61689cf9a484a18c2e6b58d3692513bc"></a> void \*pdst\_addr
     :   The output memory Buffer address ..
 
-    [input_color_mode_t](#_CPPv418input_color_mode_t "input_color_mode_t") fg_color_mode[](#_CPPv4N20dma2d_offset_blend_t13fg_color_modeE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t13fg_color_modeE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t13fg_color_modeE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13fg_color_modeE"></a> <a id="dma2d_offset_blend_t::fg_color_mode__input_color_mode_t"></a> <a id="structdma2d__offset__blend__t_1a828b5531dbfb457cb0757e9dfa84627b"></a> [input\_color\_mode\_t](#_CPPv418input_color_mode_t "input_color_mode_t") fg\_color\_mode
     :   fg color mode..
 
-    [input_color_mode_t](#_CPPv418input_color_mode_t "input_color_mode_t") bg_color_mode[](#_CPPv4N20dma2d_offset_blend_t13bg_color_modeE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t13bg_color_modeE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t13bg_color_modeE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13bg_color_modeE"></a> <a id="dma2d_offset_blend_t::bg_color_mode__input_color_mode_t"></a> <a id="structdma2d__offset__blend__t_1a6c58a929f52e6f10105cdc56f17d8a2c"></a> [input\_color\_mode\_t](#_CPPv418input_color_mode_t "input_color_mode_t") bg\_color\_mode
     :   bg color mode..
 
-    [out_color_mode_t](#_CPPv416out_color_mode_t "out_color_mode_t") dst_color_mode[](#_CPPv4N20dma2d_offset_blend_t14dst_color_modeE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t14dst_color_modeE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14dst_color_modeE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14dst_color_modeE"></a> <a id="dma2d_offset_blend_t::dst_color_mode__out_color_mode_t"></a> <a id="structdma2d__offset__blend__t_1af2fea9200f8821a0b148083260928c0b"></a> [out\_color\_mode\_t](#_CPPv416out_color_mode_t "out_color_mode_t") dst\_color\_mode
     :   out color mode..
 
-    uint16_t fg_frame_xpos[](#_CPPv4N20dma2d_offset_blend_t13fg_frame_xposE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t13fg_frame_xposE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t13fg_frame_xposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13fg_frame_xposE"></a> <a id="dma2d_offset_blend_t::fg_frame_xpos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1ad8a4195e3b359c081643163ba20d90d9"></a> uint16\_t fg\_frame\_xpos
     :   src img start copy/pfc x pos
 
-    uint16_t fg_frame_ypos[](#_CPPv4N20dma2d_offset_blend_t13fg_frame_yposE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t13fg_frame_yposE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t13fg_frame_yposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13fg_frame_yposE"></a> <a id="dma2d_offset_blend_t::fg_frame_ypos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a52324c4aeca5df18c92acb813fb65abd"></a> uint16\_t fg\_frame\_ypos
     :   src img start copy/pfc y pos
 
-    uint16_t bg_frame_xpos[](#_CPPv4N20dma2d_offset_blend_t13bg_frame_xposE "永久链接至目标")
-    :   dma2d fill x pos based on frame_xsize
+    <a id="_CPPv4N20dma2d_offset_blend_t13bg_frame_xposE"></a>
 
-    uint16_t bg_frame_ypos[](#_CPPv4N20dma2d_offset_blend_t13bg_frame_yposE "永久链接至目标")
-    :   dma2d fill y pos based on frame_ysize
+    <a id="_CPPv3N20dma2d_offset_blend_t13bg_frame_xposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13bg_frame_xposE"></a> <a id="dma2d_offset_blend_t::bg_frame_xpos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a7fd46974d7a34c55ed1efda98d7cff9e"></a> uint16\_t bg\_frame\_xpos
+    :   dma2d fill x pos based on frame\_xsize
 
-    uint16_t dst_frame_xpos[](#_CPPv4N20dma2d_offset_blend_t14dst_frame_xposE "永久链接至目标")
-    :   dma2d fill x pos based on frame_xsize
+    <a id="_CPPv4N20dma2d_offset_blend_t13bg_frame_yposE"></a>
 
-    uint16_t dst_frame_ypos[](#_CPPv4N20dma2d_offset_blend_t14dst_frame_yposE "永久链接至目标")
-    :   dma2d fill y pos based on frame_ysize
+    <a id="_CPPv3N20dma2d_offset_blend_t13bg_frame_yposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t13bg_frame_yposE"></a> <a id="dma2d_offset_blend_t::bg_frame_ypos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a9501a4c359ad85f9f5da9c66f8cac416"></a> uint16\_t bg\_frame\_ypos
+    :   dma2d fill y pos based on frame\_ysize
 
-    uint16_t fg_frame_width[](#_CPPv4N20dma2d_offset_blend_t14fg_frame_widthE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t14dst_frame_xposE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14dst_frame_xposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14dst_frame_xposE"></a> <a id="dma2d_offset_blend_t::dst_frame_xpos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a708d1cb89d7fffc43f2d94456ed216c8"></a> uint16\_t dst\_frame\_xpos
+    :   dma2d fill x pos based on frame\_xsize
+
+    <a id="_CPPv4N20dma2d_offset_blend_t14dst_frame_yposE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14dst_frame_yposE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14dst_frame_yposE"></a> <a id="dma2d_offset_blend_t::dst_frame_ypos__uint16_t"></a> <a id="structdma2d__offset__blend__t_1adc7f37d91c60012c95fbd37c93339084"></a> uint16\_t dst\_frame\_ypos
+    :   dma2d fill y pos based on frame\_ysize
+
+    <a id="_CPPv4N20dma2d_offset_blend_t14fg_frame_widthE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14fg_frame_widthE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14fg_frame_widthE"></a> <a id="dma2d_offset_blend_t::fg_frame_width__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a327a5d1381e939b033c98f835e678bc9"></a> uint16\_t fg\_frame\_width
     :   src image width
 
-    uint16_t fg_frame_height[](#_CPPv4N20dma2d_offset_blend_t15fg_frame_heightE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t15fg_frame_heightE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t15fg_frame_heightE"></a> <a id="_CPPv2N20dma2d_offset_blend_t15fg_frame_heightE"></a> <a id="dma2d_offset_blend_t::fg_frame_height__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a5ce93fbca83adc9e81af65958ce0c722"></a> uint16\_t fg\_frame\_height
     :   src image height
 
-    uint16_t bg_frame_width[](#_CPPv4N20dma2d_offset_blend_t14bg_frame_widthE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t14bg_frame_widthE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14bg_frame_widthE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14bg_frame_widthE"></a> <a id="dma2d_offset_blend_t::bg_frame_width__uint16_t"></a> <a id="structdma2d__offset__blend__t_1a2acc70ca0399fd69fc0d68fbf49f9592"></a> uint16\_t bg\_frame\_width
     :   src image width
 
-    uint16_t bg_frame_height[](#_CPPv4N20dma2d_offset_blend_t15bg_frame_heightE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t15bg_frame_heightE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t15bg_frame_heightE"></a> <a id="_CPPv2N20dma2d_offset_blend_t15bg_frame_heightE"></a> <a id="dma2d_offset_blend_t::bg_frame_height__uint16_t"></a> <a id="structdma2d__offset__blend__t_1aaae0b284f5b72c95952f02c98f635823"></a> uint16\_t bg\_frame\_height
     :   src image height
 
-    uint16_t dst_frame_width[](#_CPPv4N20dma2d_offset_blend_t15dst_frame_widthE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t15dst_frame_widthE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t15dst_frame_widthE"></a> <a id="_CPPv2N20dma2d_offset_blend_t15dst_frame_widthE"></a> <a id="dma2d_offset_blend_t::dst_frame_width__uint16_t"></a> <a id="structdma2d__offset__blend__t_1aeeb37a8a1ea691ae7648430b46cc9c34"></a> uint16\_t dst\_frame\_width
     :   src image width
 
-    uint16_t dst_frame_height[](#_CPPv4N20dma2d_offset_blend_t16dst_frame_heightE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t16dst_frame_heightE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t16dst_frame_heightE"></a> <a id="_CPPv2N20dma2d_offset_blend_t16dst_frame_heightE"></a> <a id="dma2d_offset_blend_t::dst_frame_height__uint16_t"></a> <a id="structdma2d__offset__blend__t_1af034edeb962df3f017cd376d43bd6442"></a> uint16\_t dst\_frame\_height
     :   src image height
 
-    uint32 dma2d_width[](#_CPPv4N20dma2d_offset_blend_t11dma2d_widthE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t11dma2d_widthE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t11dma2d_widthE"></a> <a id="_CPPv2N20dma2d_offset_blend_t11dma2d_widthE"></a> <a id="dma2d_offset_blend_t::dma2d_width__uint32"></a> <a id="structdma2d__offset__blend__t_1a4158cf0add6e778f7986f58d76e0b901"></a> uint32 dma2d\_width
     :   dma2d blend x size..
 
-    uint32 dma2d_height[](#_CPPv4N20dma2d_offset_blend_t12dma2d_heightE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t12dma2d_heightE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t12dma2d_heightE"></a> <a id="_CPPv2N20dma2d_offset_blend_t12dma2d_heightE"></a> <a id="dma2d_offset_blend_t::dma2d_height__uint32"></a> <a id="structdma2d__offset__blend__t_1a18a66243fb92ca3ac46cede7eab20cf2"></a> uint32 dma2d\_height
     :   dma2d blend y size..
 
-    uint8_t fg_alpha_value[](#_CPPv4N20dma2d_offset_blend_t14fg_alpha_valueE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t14fg_alpha_valueE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14fg_alpha_valueE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14fg_alpha_valueE"></a> <a id="dma2d_offset_blend_t::fg_alpha_value__uint8_t"></a> <a id="structdma2d__offset__blend__t_1a05f6ef2dabbd5079f3969a06427dd534"></a> uint8\_t fg\_alpha\_value
     :   config fg alpha..
 
-    uint8_t bg_alpha_value[](#_CPPv4N20dma2d_offset_blend_t14bg_alpha_valueE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t14bg_alpha_valueE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t14bg_alpha_valueE"></a> <a id="_CPPv2N20dma2d_offset_blend_t14bg_alpha_valueE"></a> <a id="dma2d_offset_blend_t::bg_alpha_value__uint8_t"></a> <a id="structdma2d__offset__blend__t_1a3dedf0e7365edbf4f9f08016b916820a"></a> uint8\_t bg\_alpha\_value
     :   config bg alpha.
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") fg_red_blue_swap[](#_CPPv4N20dma2d_offset_blend_t16fg_red_blue_swapE "永久链接至目标")
-    :   fg img red blue swap, select DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv4N20dma2d_offset_blend_t16fg_red_blue_swapE"></a>
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") bg_red_blue_swap[](#_CPPv4N20dma2d_offset_blend_t16bg_red_blue_swapE "永久链接至目标")
-    :   bg img red blue swap, select DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv3N20dma2d_offset_blend_t16fg_red_blue_swapE"></a> <a id="_CPPv2N20dma2d_offset_blend_t16fg_red_blue_swapE"></a> <a id="dma2d_offset_blend_t::fg_red_blue_swap__red_blue_swap_t"></a> <a id="structdma2d__offset__blend__t_1a2148ac0e2471ef49abe01bda37f0da99"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") fg\_red\_blue\_swap
+    :   fg img red blue swap, select DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") dst_red_blue_swap[](#_CPPv4N20dma2d_offset_blend_t17dst_red_blue_swapE "永久链接至目标")
-    :   dst img red blue swap, select DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv4N20dma2d_offset_blend_t16bg_red_blue_swapE"></a>
 
-struct dma2d_memcpy_pfc_t[](#_CPPv418dma2d_memcpy_pfc_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv3N20dma2d_offset_blend_t16bg_red_blue_swapE"></a> <a id="_CPPv2N20dma2d_offset_blend_t16bg_red_blue_swapE"></a> <a id="dma2d_offset_blend_t::bg_red_blue_swap__red_blue_swap_t"></a> <a id="structdma2d__offset__blend__t_1a4605f3cd633966c8353fc4c904e2e192"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") bg\_red\_blue\_swap
+    :   bg img red blue swap, select DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
 
-    void *input_addr[](#_CPPv4N18dma2d_memcpy_pfc_t10input_addrE "永久链接至目标")
+    <a id="_CPPv4N20dma2d_offset_blend_t17dst_red_blue_swapE"></a>
+
+    <a id="_CPPv3N20dma2d_offset_blend_t17dst_red_blue_swapE"></a> <a id="_CPPv2N20dma2d_offset_blend_t17dst_red_blue_swapE"></a> <a id="dma2d_offset_blend_t::dst_red_blue_swap__red_blue_swap_t"></a> <a id="structdma2d__offset__blend__t_1a11759d0630c43b117ded5077c2abb597"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") dst\_red\_blue\_swap
+    :   dst img red blue swap, select DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
+
+<a id="_CPPv418dma2d_memcpy_pfc_t"></a>
+
+<a id="_CPPv318dma2d_memcpy_pfc_t"></a> <a id="_CPPv218dma2d_memcpy_pfc_t"></a> <a id="dma2d_memcpy_pfc_t"></a> <a id="structdma2d__memcpy__pfc__t"></a> struct dma2d\_memcpy\_pfc\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t10input_addrE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t10input_addrE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t10input_addrE"></a> <a id="dma2d_memcpy_pfc_t::input_addr__voidP"></a> <a id="structdma2d__memcpy__pfc__t_1a9b5ca498b096335601eeecaac8836b0e"></a> void \*input\_addr
     :   The image memcpy or pixel convert src addr
 
-    void *output_addr[](#_CPPv4N18dma2d_memcpy_pfc_t11output_addrE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t11output_addrE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t11output_addrE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t11output_addrE"></a> <a id="dma2d_memcpy_pfc_t::output_addr__voidP"></a> <a id="structdma2d__memcpy__pfc__t_1a13abb87f52ce444b5f92eb1db8c8f7ae"></a> void \*output\_addr
     :   The mage memcpy or pixel convert dst addr
 
-    uint16_t src_frame_width[](#_CPPv4N18dma2d_memcpy_pfc_t15src_frame_widthE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t15src_frame_widthE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t15src_frame_widthE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t15src_frame_widthE"></a> <a id="dma2d_memcpy_pfc_t::src_frame_width__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1a530f5910445d72c58d9e3b04f87a3212"></a> uint16\_t src\_frame\_width
     :   memcpy or pfc src image width
 
-    uint16_t src_frame_height[](#_CPPv4N18dma2d_memcpy_pfc_t16src_frame_heightE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t16src_frame_heightE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t16src_frame_heightE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t16src_frame_heightE"></a> <a id="dma2d_memcpy_pfc_t::src_frame_height__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1ad02d84ae9983f3609ee543eb34992764"></a> uint16\_t src\_frame\_height
     :   imemcpy or pfc src image height
 
-    uint16_t src_frame_xpos[](#_CPPv4N18dma2d_memcpy_pfc_t14src_frame_xposE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t14src_frame_xposE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t14src_frame_xposE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t14src_frame_xposE"></a> <a id="dma2d_memcpy_pfc_t::src_frame_xpos__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1abb9b5dd4965174e1dfddb39a9012dcdd"></a> uint16\_t src\_frame\_xpos
     :   src img start copy/pfc x pos
 
-    uint16_t src_frame_ypos[](#_CPPv4N18dma2d_memcpy_pfc_t14src_frame_yposE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t14src_frame_yposE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t14src_frame_yposE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t14src_frame_yposE"></a> <a id="dma2d_memcpy_pfc_t::src_frame_ypos__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1aa1f03c54eac7ff802e2b911cfb1ebbc5"></a> uint16\_t src\_frame\_ypos
     :   src img start copy/pfc y pos
 
-    uint16_t dst_frame_width[](#_CPPv4N18dma2d_memcpy_pfc_t15dst_frame_widthE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t15dst_frame_widthE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t15dst_frame_widthE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t15dst_frame_widthE"></a> <a id="dma2d_memcpy_pfc_t::dst_frame_width__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1ab61e60a1f301572b54d5239e8c032aeb"></a> uint16\_t dst\_frame\_width
     :   memcpy to dst image, the dst image width
 
-    uint16_t dst_frame_height[](#_CPPv4N18dma2d_memcpy_pfc_t16dst_frame_heightE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t16dst_frame_heightE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t16dst_frame_heightE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t16dst_frame_heightE"></a> <a id="dma2d_memcpy_pfc_t::dst_frame_height__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1ac038660fa40681437bc5d0eb4e20abc8"></a> uint16\_t dst\_frame\_height
     :   memcpy to dst image, the dst image height
 
-    uint16_t dst_frame_xpos[](#_CPPv4N18dma2d_memcpy_pfc_t14dst_frame_xposE "永久链接至目标")
-    :   dma2d fill x pos based on frame_xsize
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t14dst_frame_xposE"></a>
 
-    uint16_t dst_frame_ypos[](#_CPPv4N18dma2d_memcpy_pfc_t14dst_frame_yposE "永久链接至目标")
-    :   dma2d fill y pos based on frame_ysize
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t14dst_frame_xposE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t14dst_frame_xposE"></a> <a id="dma2d_memcpy_pfc_t::dst_frame_xpos__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1ac7dc3c3bef0d499fb741d41fa94e18fb"></a> uint16\_t dst\_frame\_xpos
+    :   dma2d fill x pos based on frame\_xsize
 
-    uint16_t dma2d_width[](#_CPPv4N18dma2d_memcpy_pfc_t11dma2d_widthE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t14dst_frame_yposE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t14dst_frame_yposE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t14dst_frame_yposE"></a> <a id="dma2d_memcpy_pfc_t::dst_frame_ypos__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1a56abbebd99f154f4947c486bf5f67473"></a> uint16\_t dst\_frame\_ypos
+    :   dma2d fill y pos based on frame\_ysize
+
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t11dma2d_widthE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t11dma2d_widthE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t11dma2d_widthE"></a> <a id="dma2d_memcpy_pfc_t::dma2d_width__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1a65e4988c40cd64d6ce4f7b5038d2caf6"></a> uint16\_t dma2d\_width
     :   dma2d memcpy or pfc width
 
-    uint16_t dma2d_height[](#_CPPv4N18dma2d_memcpy_pfc_t12dma2d_heightE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t12dma2d_heightE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t12dma2d_heightE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t12dma2d_heightE"></a> <a id="dma2d_memcpy_pfc_t::dma2d_height__uint16_t"></a> <a id="structdma2d__memcpy__pfc__t_1acd3323719be6727c9c28b4b2023e4877"></a> uint16\_t dma2d\_height
     :   dma2d memcpy or pfc height
 
-    [input_color_mode_t](#_CPPv418input_color_mode_t "input_color_mode_t") input_color_mode[](#_CPPv4N18dma2d_memcpy_pfc_t16input_color_modeE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t16input_color_modeE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t16input_color_modeE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t16input_color_modeE"></a> <a id="dma2d_memcpy_pfc_t::input_color_mode__input_color_mode_t"></a> <a id="structdma2d__memcpy__pfc__t_1a38258522b3e6c3f315cd330682ad79e8"></a> [input\_color\_mode\_t](#_CPPv418input_color_mode_t "input_color_mode_t") input\_color\_mode
     :   The pixel convert src color mode
 
-    [out_color_mode_t](#_CPPv416out_color_mode_t "out_color_mode_t") output_color_mode[](#_CPPv4N18dma2d_memcpy_pfc_t17output_color_modeE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t17output_color_modeE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t17output_color_modeE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t17output_color_modeE"></a> <a id="dma2d_memcpy_pfc_t::output_color_mode__out_color_mode_t"></a> <a id="structdma2d__memcpy__pfc__t_1ab814d8d2e65d2a2f0eb5bb43ffd13297"></a> [out\_color\_mode\_t](#_CPPv416out_color_mode_t "out_color_mode_t") output\_color\_mode
     :   The pixel convert dst color mode
 
-    uint8_t input_alpha[](#_CPPv4N18dma2d_memcpy_pfc_t11input_alphaE "永久链接至目标")
-    :   src data alpha, depend on alpha_mode
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t11input_alphaE"></a>
 
-    uint8_t output_alpha[](#_CPPv4N18dma2d_memcpy_pfc_t12output_alphaE "永久链接至目标")
-    :   dst data alpha,depend on alpha_mode
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t11input_alphaE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t11input_alphaE"></a> <a id="dma2d_memcpy_pfc_t::input_alpha__uint8_t"></a> <a id="structdma2d__memcpy__pfc__t_1a56964ee3380b218c05c95ee75f6c8086"></a> uint8\_t input\_alpha
+    :   src data alpha, depend on alpha\_mode
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") input_red_blue_swap[](#_CPPv4N18dma2d_memcpy_pfc_t19input_red_blue_swapE "永久链接至目标")
-    :   src img red blue swap, select DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t12output_alphaE"></a>
 
-    [red_blue_swap_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") output_red_blue_swap[](#_CPPv4N18dma2d_memcpy_pfc_t20output_red_blue_swapE "永久链接至目标")
-    :   src img red blue swap, select DMA2D_RB_SWAP or DMA2D_RB_REGULAR
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t12output_alphaE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t12output_alphaE"></a> <a id="dma2d_memcpy_pfc_t::output_alpha__uint8_t"></a> <a id="structdma2d__memcpy__pfc__t_1a4a93f2abc75732490ec5b2cb35383e9e"></a> uint8\_t output\_alpha
+    :   dst data alpha,depend on alpha\_mode
 
-struct dma2d_fill_t[](#_CPPv412dma2d_fill_t "永久链接至目标")
-:   Public Members
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t19input_red_blue_swapE"></a>
 
-    void *frameaddr[](#_CPPv4N12dma2d_fill_t9frameaddrE "永久链接至目标")
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t19input_red_blue_swapE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t19input_red_blue_swapE"></a> <a id="dma2d_memcpy_pfc_t::input_red_blue_swap__red_blue_swap_t"></a> <a id="structdma2d__memcpy__pfc__t_1af316c5ebd5296dc8c84428b848adbde4"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") input\_red\_blue\_swap
+    :   src img red blue swap, select DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
+
+    <a id="_CPPv4N18dma2d_memcpy_pfc_t20output_red_blue_swapE"></a>
+
+    <a id="_CPPv3N18dma2d_memcpy_pfc_t20output_red_blue_swapE"></a> <a id="_CPPv2N18dma2d_memcpy_pfc_t20output_red_blue_swapE"></a> <a id="dma2d_memcpy_pfc_t::output_red_blue_swap__red_blue_swap_t"></a> <a id="structdma2d__memcpy__pfc__t_1a02fa23d715acdef2b905dd47b560c8a4"></a> [red\_blue\_swap\_t](#_CPPv415red_blue_swap_t "red_blue_swap_t") output\_red\_blue\_swap
+    :   src img red blue swap, select DMA2D\_RB\_SWAP or DMA2D\_RB\_REGULAR
+
+<a id="_CPPv412dma2d_fill_t"></a>
+
+<a id="_CPPv312dma2d_fill_t"></a> <a id="_CPPv212dma2d_fill_t"></a> <a id="dma2d_fill_t"></a> <a id="structdma2d__fill__t"></a> struct dma2d\_fill\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N12dma2d_fill_t9frameaddrE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t9frameaddrE"></a> <a id="_CPPv2N12dma2d_fill_t9frameaddrE"></a> <a id="dma2d_fill_t::frameaddr__voidP"></a> <a id="structdma2d__fill__t_1a6d17b2ee3a1bd5ae940098ddae878229"></a> void \*frameaddr
     :   dma2d fill frame baseaddr , normally LCD start frame addr
 
-    uint16_t frame_xsize[](#_CPPv4N12dma2d_fill_t11frame_xsizeE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_fill_t11frame_xsizeE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t11frame_xsizeE"></a> <a id="_CPPv2N12dma2d_fill_t11frame_xsizeE"></a> <a id="dma2d_fill_t::frame_xsize__uint16_t"></a> <a id="structdma2d__fill__t_1aba8b9601b06aa4dcee80794564275b05"></a> uint16\_t frame\_xsize
     :   img/lcd x size
 
-    uint16_t frame_ysize[](#_CPPv4N12dma2d_fill_t11frame_ysizeE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_fill_t11frame_ysizeE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t11frame_ysizeE"></a> <a id="_CPPv2N12dma2d_fill_t11frame_ysizeE"></a> <a id="dma2d_fill_t::frame_ysize__uint16_t"></a> <a id="structdma2d__fill__t_1a52168c4de9e2b10bf21c5b8b6c48864a"></a> uint16\_t frame\_ysize
     :   img/lcd y size
 
-    uint16_t xpos[](#_CPPv4N12dma2d_fill_t4xposE "永久链接至目标")
-    :   dma2d fill x pos based on frame_xsize
+    <a id="_CPPv4N12dma2d_fill_t4xposE"></a>
 
-    uint16_t ypos[](#_CPPv4N12dma2d_fill_t4yposE "永久链接至目标")
-    :   dma2d fill y pos based on frame_ysize
+    <a id="_CPPv3N12dma2d_fill_t4xposE"></a> <a id="_CPPv2N12dma2d_fill_t4xposE"></a> <a id="dma2d_fill_t::xpos__uint16_t"></a> <a id="structdma2d__fill__t_1a40ebf60e15548b9e0ea216cb357237bc"></a> uint16\_t xpos
+    :   dma2d fill x pos based on frame\_xsize
 
-    uint16_t width[](#_CPPv4N12dma2d_fill_t5widthE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_fill_t4yposE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t4yposE"></a> <a id="_CPPv2N12dma2d_fill_t4yposE"></a> <a id="dma2d_fill_t::ypos__uint16_t"></a> <a id="structdma2d__fill__t_1a66336b49301c678071cd60f5f1d69a8c"></a> uint16\_t ypos
+    :   dma2d fill y pos based on frame\_ysize
+
+    <a id="_CPPv4N12dma2d_fill_t5widthE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t5widthE"></a> <a id="_CPPv2N12dma2d_fill_t5widthE"></a> <a id="dma2d_fill_t::width__uint16_t"></a> <a id="structdma2d__fill__t_1a0153840d36aa4c6d9bf2282d97bf6617"></a> uint16\_t width
     :   dma2d fill width
 
-    uint16_t height[](#_CPPv4N12dma2d_fill_t6heightE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_fill_t6heightE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t6heightE"></a> <a id="_CPPv2N12dma2d_fill_t6heightE"></a> <a id="dma2d_fill_t::height__uint16_t"></a> <a id="structdma2d__fill__t_1a6fbef130ccc7198ac9767a3787a73b00"></a> uint16\_t height
     :   dma2d fill height
 
-    uint32_t color[](#_CPPv4N12dma2d_fill_t5colorE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_fill_t5colorE"></a>
+
+    <a id="_CPPv3N12dma2d_fill_t5colorE"></a> <a id="_CPPv2N12dma2d_fill_t5colorE"></a> <a id="dma2d_fill_t::color__uint32_t"></a> <a id="structdma2d__fill__t_1ae2e444bedb25c6be8f48020d5f73207b"></a> uint32\_t color
     :   dma2d fill color , if YUV datat fill , should fill RGB888 color data
 
+<a id="macros"></a>
 
-### Macros[](#macros "永久链接至标题")
+### Macros
 
-BK_ERR_DMA2D_NOT_INIT[](#c.BK_ERR_DMA2D_NOT_INIT "永久链接至目标")
+<a id="c.BK_ERR_DMA2D_NOT_INIT"></a>
+
+<a id="dma2d__types_8h_1a51a646536850bff5b450f8cdc74c281f"></a> BK\_ERR\_DMA2D\_NOT\_INIT
 :   dma2d macos define
 
     LCD driver not init
 
-USE_HAL_DMA2D_REGISTER_CALLBACKS[](#c.USE_HAL_DMA2D_REGISTER_CALLBACKS "永久链接至目标")
-:   if use int type isr register, set this value 1. always use with API @refs bk_dma2d_register_int_callback_isr
+<a id="c.USE_HAL_DMA2D_REGISTER_CALLBACKS"></a>
 
-COLOR_BLACK[](#c.COLOR_BLACK "永久链接至目标")
+<a id="dma2d__types_8h_1ad3fd64734f71ef9c872f38dd0d0b8cb0"></a> USE\_HAL\_DMA2D\_REGISTER\_CALLBACKS
+:   if use int type isr register, set this value 1\. always use with API @refs bk\_dma2d\_register\_int\_callback\_isr
 
-COLOR_NAVY[](#c.COLOR_NAVY "永久链接至目标")
+<a id="c.COLOR_BLACK"></a>
 
-COLOR_DARKGREEN[](#c.COLOR_DARKGREEN "永久链接至目标")
+<a id="dma2d__types_8h_1aba2a7fe77a7501e5844370eec0185207"></a> COLOR\_BLACK
 
-COLOR_DARKCYAN[](#c.COLOR_DARKCYAN "永久链接至目标")
+<a id="c.COLOR_NAVY"></a>
 
-COLOR_MAROON[](#c.COLOR_MAROON "永久链接至目标")
+<a id="dma2d__types_8h_1ac353684a9f431de76b1ea9443265d917"></a> COLOR\_NAVY
 
-COLOR_PURPLE[](#c.COLOR_PURPLE "永久链接至目标")
+<a id="c.COLOR_DARKGREEN"></a>
 
-COLOR_OLIVE[](#c.COLOR_OLIVE "永久链接至目标")
+<a id="dma2d__types_8h_1a60f33bc1f24aede8bbf12d47f90f982e"></a> COLOR\_DARKGREEN
 
-COLOR_LIGHTGREY[](#c.COLOR_LIGHTGREY "永久链接至目标")
+<a id="c.COLOR_DARKCYAN"></a>
 
-COLOR_DARKGREY[](#c.COLOR_DARKGREY "永久链接至目标")
+<a id="dma2d__types_8h_1acf2525b31291a9f1e17788dc0ac2e4e2"></a> COLOR\_DARKCYAN
 
-COLOR_BLUE[](#c.COLOR_BLUE "永久链接至目标")
+<a id="c.COLOR_MAROON"></a>
 
-COLOR_GREEN[](#c.COLOR_GREEN "永久链接至目标")
+<a id="dma2d__types_8h_1abc11c9ea14211945d71a0bea2e05c597"></a> COLOR\_MAROON
 
-COLOR_CYAN[](#c.COLOR_CYAN "永久链接至目标")
+<a id="c.COLOR_PURPLE"></a>
 
-COLOR_RED[](#c.COLOR_RED "永久链接至目标")
+<a id="dma2d__types_8h_1a361bd41194ac13caf9169f3f689dc179"></a> COLOR\_PURPLE
 
-COLOR_MAGENTA[](#c.COLOR_MAGENTA "永久链接至目标")
+<a id="c.COLOR_OLIVE"></a>
 
-COLOR_YELLOW[](#c.COLOR_YELLOW "永久链接至目标")
+<a id="dma2d__types_8h_1a3d28ef5dfbf3f7af50d52bff322a6c01"></a> COLOR\_OLIVE
 
-COLOR_WHITE[](#c.COLOR_WHITE "永久链接至目标")
+<a id="c.COLOR_LIGHTGREY"></a>
 
-COLOR_ORANGE[](#c.COLOR_ORANGE "永久链接至目标")
+<a id="dma2d__types_8h_1a2b8184cd58de122a35084154c001aef0"></a> COLOR\_LIGHTGREY
 
-COLOR_GREENYELLOW[](#c.COLOR_GREENYELLOW "永久链接至目标")
+<a id="c.COLOR_DARKGREY"></a>
 
-COLOR_PINK[](#c.COLOR_PINK "永久链接至目标")
+<a id="dma2d__types_8h_1a4ebd2c7b809dfb04565bd99ff6029c08"></a> COLOR\_DARKGREY
 
-COLOR_SILVER[](#c.COLOR_SILVER "永久链接至目标")
+<a id="c.COLOR_BLUE"></a>
 
-COLOR_GRAY[](#c.COLOR_GRAY "永久链接至目标")
+<a id="dma2d__types_8h_1a23c70d699a5a775bc2e1ebeb8603f630"></a> COLOR\_BLUE
 
-COLOR_LIME[](#c.COLOR_LIME "永久链接至目标")
+<a id="c.COLOR_GREEN"></a>
 
-COLOR_TEAL[](#c.COLOR_TEAL "永久链接至目标")
+<a id="dma2d__types_8h_1afc9149f5de51bd9ac4f5ebbfa153f018"></a> COLOR\_GREEN
 
-COLOR_FUCHSIA[](#c.COLOR_FUCHSIA "永久链接至目标")
+<a id="c.COLOR_CYAN"></a>
 
-COLOR_ESP_BKGD[](#c.COLOR_ESP_BKGD "永久链接至目标")
+<a id="dma2d__types_8h_1a82573859711fce56f1aa0a76b18a9b18"></a> COLOR\_CYAN
 
-DMA2D_OCOLR_BLUE_1[](#c.DMA2D_OCOLR_BLUE_1 "永久链接至目标")
-:   define Mode_ARGB8888/RGB888 Blue Value
+<a id="c.COLOR_RED"></a>
 
-DMA2D_OCOLR_GREEN_1[](#c.DMA2D_OCOLR_GREEN_1 "永久链接至目标")
-:   define Mode_ARGB8888/RGB888 Green Value
+<a id="dma2d__types_8h_1ad86358bf19927183dd7b4ae215a29731"></a> COLOR\_RED
 
-DMA2D_OCOLR_RED_1[](#c.DMA2D_OCOLR_RED_1 "永久链接至目标")
-:   define Mode_ARGB8888/RGB888 Red Value
+<a id="c.COLOR_MAGENTA"></a>
 
-DMA2D_OCOLR_YELLOW_1[](#c.DMA2D_OCOLR_YELLOW_1 "永久链接至目标")
-:   define Mode_ARGB8888/RGB888 yellow Value
+<a id="dma2d__types_8h_1a8deb0beccea721b35bdb1b4f7264fe75"></a> COLOR\_MAGENTA
 
-DMA2D_OCOLR_ALPHA_1[](#c.DMA2D_OCOLR_ALPHA_1 "永久链接至目标")
-:   define Mode_ARGB8888/RGB888Alpha Channel Value
+<a id="c.COLOR_YELLOW"></a>
 
-DMA2D_OCOLR_BLUE_3[](#c.DMA2D_OCOLR_BLUE_3 "永久链接至目标")
-:   define Mode_ARGB1555 Blue Value
+<a id="dma2d__types_8h_1a4534b577b74a58b0f4b7be027af664e0"></a> COLOR\_YELLOW
 
-DMA2D_OCOLR_GREEN_3[](#c.DMA2D_OCOLR_GREEN_3 "永久链接至目标")
-:   define Mode_ARGB1555Green Value
+<a id="c.COLOR_WHITE"></a>
 
-DMA2D_OCOLR_RED_3[](#c.DMA2D_OCOLR_RED_3 "永久链接至目标")
-:   define Mode_ARGB1555 Red Value
+<a id="dma2d__types_8h_1a9b44987ffdc2af19b635206b94334b69"></a> COLOR\_WHITE
 
-DMA2D_OCOLR_ALPHA_3[](#c.DMA2D_OCOLR_ALPHA_3 "永久链接至目标")
-:   define Mode_ARGB1555 Alpha Channel Value
+<a id="c.COLOR_ORANGE"></a>
 
-DMA2D_OCOLR_BLUE_4[](#c.DMA2D_OCOLR_BLUE_4 "永久链接至目标")
-:   define Mode_ARGB4444 Blue Value
+<a id="dma2d__types_8h_1aef75f616b9a3fdb10d38395dfb996873"></a> COLOR\_ORANGE
 
-DMA2D_OCOLR_GREEN_4[](#c.DMA2D_OCOLR_GREEN_4 "永久链接至目标")
-:   define Mode_ARGB4444 Green Value
+<a id="c.COLOR_GREENYELLOW"></a>
 
-DMA2D_OCOLR_RED_4[](#c.DMA2D_OCOLR_RED_4 "永久链接至目标")
-:   define Mode_ARGB4444 Red Value
+<a id="dma2d__types_8h_1af44aaf067cf7d36a10185c238e54e43c"></a> COLOR\_GREENYELLOW
 
-DMA2D_OCOLR_ALPHA_4[](#c.DMA2D_OCOLR_ALPHA_4 "永久链接至目标")
-:   define Mode_ARGB4444 Alpha Channel Value
+<a id="c.COLOR_PINK"></a>
 
-DMA2D_BACKGROUND_LAYER[](#c.DMA2D_BACKGROUND_LAYER "永久链接至目标")
-:   DMA2D Background Layer (layer 0)
+<a id="dma2d__types_8h_1adc400e6efc54843fb9400270bbc61368"></a> COLOR\_PINK
 
-DMA2D_FOREGROUND_LAYER[](#c.DMA2D_FOREGROUND_LAYER "永久链接至目标")
-:   DMA2D Foreground Layer (layer 1)
+<a id="c.COLOR_SILVER"></a>
 
-MAX_DMA2D_LAYER[](#c.MAX_DMA2D_LAYER "永久链接至目标")
+<a id="dma2d__types_8h_1a222ba410c8d99aaacadef5ecd4d7952e"></a> COLOR\_SILVER
+
+<a id="c.COLOR_GRAY"></a>
+
+<a id="dma2d__types_8h_1a3aaf3b0287d26dfb6ecb3b1c46e950c8"></a> COLOR\_GRAY
+
+<a id="c.COLOR_LIME"></a>
+
+<a id="dma2d__types_8h_1aa817719ae6665a0e4e0862eb45ea2a0d"></a> COLOR\_LIME
+
+<a id="c.COLOR_TEAL"></a>
+
+<a id="dma2d__types_8h_1a4b267232e4d63357f019b51df51eaef2"></a> COLOR\_TEAL
+
+<a id="c.COLOR_FUCHSIA"></a>
+
+<a id="dma2d__types_8h_1afd03a600e34232de72c0dac0792d3770"></a> COLOR\_FUCHSIA
+
+<a id="c.COLOR_ESP_BKGD"></a>
+
+<a id="dma2d__types_8h_1af53f8b0bdde13070b950a94e3d114527"></a> COLOR\_ESP\_BKGD
+
+<a id="c.DMA2D_OCOLR_BLUE_1"></a>
+
+<a id="dma2d__types_8h_1a164c96762ec6cbaac2bff45dd84b97cf"></a> DMA2D\_OCOLR\_BLUE\_1
+:   define Mode\_ARGB8888/RGB888 Blue Value
+
+<a id="c.DMA2D_OCOLR_GREEN_1"></a>
+
+<a id="dma2d__types_8h_1a8545d0dcde8b511d0ec64eb0c338fe2c"></a> DMA2D\_OCOLR\_GREEN\_1
+:   define Mode\_ARGB8888/RGB888 Green Value
+
+<a id="c.DMA2D_OCOLR_RED_1"></a>
+
+<a id="dma2d__types_8h_1ad3928724c5937ffda60f29f272dda4fc"></a> DMA2D\_OCOLR\_RED\_1
+:   define Mode\_ARGB8888/RGB888 Red Value
+
+<a id="c.DMA2D_OCOLR_YELLOW_1"></a>
+
+<a id="dma2d__types_8h_1ad2a37df334a031ee85dacdf336e1ce68"></a> DMA2D\_OCOLR\_YELLOW\_1
+:   define Mode\_ARGB8888/RGB888 yellow Value
+
+<a id="c.DMA2D_OCOLR_ALPHA_1"></a>
+
+<a id="dma2d__types_8h_1aaada795f8e861c5a220054e78c31c512"></a> DMA2D\_OCOLR\_ALPHA\_1
+:   define Mode\_ARGB8888/RGB888Alpha Channel Value
+
+<a id="c.DMA2D_OCOLR_BLUE_3"></a>
+
+<a id="dma2d__types_8h_1a0aa0634e409fb6d9fc68ecf9533c8d9c"></a> DMA2D\_OCOLR\_BLUE\_3
+:   define Mode\_ARGB1555 Blue Value
+
+<a id="c.DMA2D_OCOLR_GREEN_3"></a>
+
+<a id="dma2d__types_8h_1acf4c97dc43e39e09956c2f4d8e092d17"></a> DMA2D\_OCOLR\_GREEN\_3
+:   define Mode\_ARGB1555Green Value
+
+<a id="c.DMA2D_OCOLR_RED_3"></a>
+
+<a id="dma2d__types_8h_1aea63157a41a08d213f6cb8395373b385"></a> DMA2D\_OCOLR\_RED\_3
+:   define Mode\_ARGB1555 Red Value
+
+<a id="c.DMA2D_OCOLR_ALPHA_3"></a>
+
+<a id="dma2d__types_8h_1abc0bf21946366343cedce1a2e9b07259"></a> DMA2D\_OCOLR\_ALPHA\_3
+:   define Mode\_ARGB1555 Alpha Channel Value
+
+<a id="c.DMA2D_OCOLR_BLUE_4"></a>
+
+<a id="dma2d__types_8h_1add2439915c875a33bf9119382276cb89"></a> DMA2D\_OCOLR\_BLUE\_4
+:   define Mode\_ARGB4444 Blue Value
+
+<a id="c.DMA2D_OCOLR_GREEN_4"></a>
+
+<a id="dma2d__types_8h_1a801078def8b64717b6fa0688483e3b78"></a> DMA2D\_OCOLR\_GREEN\_4
+:   define Mode\_ARGB4444 Green Value
+
+<a id="c.DMA2D_OCOLR_RED_4"></a>
+
+<a id="dma2d__types_8h_1a3dd8ba291eeaec6bdf282570dc94699f"></a> DMA2D\_OCOLR\_RED\_4
+:   define Mode\_ARGB4444 Red Value
+
+<a id="c.DMA2D_OCOLR_ALPHA_4"></a>
+
+<a id="dma2d__types_8h_1ab0b00eb37c77d6852cfbb731b603a9d5"></a> DMA2D\_OCOLR\_ALPHA\_4
+:   define Mode\_ARGB4444 Alpha Channel Value
+
+<a id="c.DMA2D_BACKGROUND_LAYER"></a>
+
+<a id="dma2d__types_8h_1a62a5bfb546997e74c4171bcda44e70c5"></a> DMA2D\_BACKGROUND\_LAYER
+:   DMA2D Background Layer (layer 0\)
+
+<a id="c.DMA2D_FOREGROUND_LAYER"></a>
+
+<a id="dma2d__types_8h_1a1a0116b4054c07eb00609bfdb2b06716"></a> DMA2D\_FOREGROUND\_LAYER
+:   DMA2D Foreground Layer (layer 1\)
+
+<a id="c.MAX_DMA2D_LAYER"></a>
+
+<a id="dma2d__types_8h_1a1f76fcd25373b98c2ddd245de4a9c7bd"></a> MAX\_DMA2D\_LAYER
 :   DMA2D maximum number of layers
 
-DMA2D_REGULAR_ALPHA[](#c.DMA2D_REGULAR_ALPHA "永久链接至目标")
+<a id="c.DMA2D_REGULAR_ALPHA"></a>
+
+<a id="dma2d__types_8h_1a727afc37b9c65346f5bb0bcdfedbb0be"></a> DMA2D\_REGULAR\_ALPHA
 :   No modification of the alpha channel value
 
-DMA2D_INVERTED_ALPHA[](#c.DMA2D_INVERTED_ALPHA "永久链接至目标")
+<a id="c.DMA2D_INVERTED_ALPHA"></a>
+
+<a id="dma2d__types_8h_1aafd4c3a0adaf2f8a925c3059ead37f7c"></a> DMA2D\_INVERTED\_ALPHA
 :   Invert the alpha channel value
 
-DMA2D_NO_REVERSE[](#c.DMA2D_NO_REVERSE "永久链接至目标")
+<a id="c.DMA2D_NO_REVERSE"></a>
+
+<a id="dma2d__types_8h_1a1ab50a0a62ff833b33ee035980275677"></a> DMA2D\_NO\_REVERSE
 :   dma2d in/out put data in order not flip
 
-DMA2D_BYTE_REVERSE[](#c.DMA2D_BYTE_REVERSE "永久链接至目标")
+<a id="c.DMA2D_BYTE_REVERSE"></a>
+
+<a id="dma2d__types_8h_1ab38287212f2740e7ae666f19de75290f"></a> DMA2D\_BYTE\_REVERSE
 :   input/output data reerse byte by byte for 32 bits color of YUV
 
-DMA2D_HFWORD_REVERSE[](#c.DMA2D_HFWORD_REVERSE "永久链接至目标")
+<a id="c.DMA2D_HFWORD_REVERSE"></a>
+
+<a id="dma2d__types_8h_1ad87026afd1f4d6ad57be770afc873fdc"></a> DMA2D\_HFWORD\_REVERSE
 :   input/output data reerse half-word by half-word for 32 bits color of YUV
 
-DMA2D_ISR_NUM[](#c.DMA2D_ISR_NUM "永久链接至目标")
+<a id="c.DMA2D_ISR_NUM"></a>
 
+<a id="group__DMA2D__ISR__NUM_1ga1fe0dc754388e44c29a7050009c9b7a0"></a> DMA2D\_ISR\_NUM
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+<a id="type-definitions"></a>
 
-typedef void (*dma2d_isr_t)(void)[](#_CPPv411dma2d_isr_t "永久链接至目标")
+### Type Definitions
 
+<a id="_CPPv411dma2d_isr_t"></a>
 
-### Enumerations[](#enumerations "永久链接至标题")
+<a id="_CPPv311dma2d_isr_t"></a> <a id="_CPPv211dma2d_isr_t"></a> <a id="dma2d_isr_t"></a> <a id="dma2d__types_8h_1aaa93dbae5d016a755082842a74c634e2"></a> typedef void (\*dma2d\_isr\_t)(void)
 
-enum dm2d_isr_id_t[](#_CPPv413dm2d_isr_id_t "永久链接至目标")
-:   if USE_HAL_DMA2D_REGISTER_CALLBACKS = 1, define int isr register id
+<a id="enumerations"></a>
 
+### Enumerations
+
+<a id="_CPPv413dm2d_isr_id_t"></a>
+
+<a id="_CPPv313dm2d_isr_id_t"></a> <a id="_CPPv213dm2d_isr_id_t"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbca"></a> enum dm2d\_isr\_id\_t
+:   if USE\_HAL\_DMA2D\_REGISTER\_CALLBACKS \= 1, define int isr register id
 
     *Values:*
 
-    enumerator DMA2D_CFG_ERROR_ISR[](#_CPPv4N13dm2d_isr_id_t19DMA2D_CFG_ERROR_ISRE "永久链接至目标")
+    <a id="_CPPv4N13dm2d_isr_id_t19DMA2D_CFG_ERROR_ISRE"></a>
 
-    enumerator DMA2D_CLUT_TRANS_COMPLETE_ISR[](#_CPPv4N13dm2d_isr_id_t29DMA2D_CLUT_TRANS_COMPLETE_ISRE "永久链接至目标")
+    <a id="_CPPv3N13dm2d_isr_id_t19DMA2D_CFG_ERROR_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t19DMA2D_CFG_ERROR_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaa2ade09af47d1b4080af5e6d94c1c360b"></a> enumerator DMA2D\_CFG\_ERROR\_ISR
 
-    enumerator DMA2D_CLUT_TRANS_ERROR_ISR[](#_CPPv4N13dm2d_isr_id_t26DMA2D_CLUT_TRANS_ERROR_ISRE "永久链接至目标")
+    <a id="_CPPv4N13dm2d_isr_id_t29DMA2D_CLUT_TRANS_COMPLETE_ISRE"></a>
 
-    enumerator DMA2D_WARTERMARK_INT_ISR[](#_CPPv4N13dm2d_isr_id_t24DMA2D_WARTERMARK_INT_ISRE "永久链接至目标")
+    <a id="_CPPv3N13dm2d_isr_id_t29DMA2D_CLUT_TRANS_COMPLETE_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t29DMA2D_CLUT_TRANS_COMPLETE_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaa1ee51bce10ad0196ad8eeceb16324f0c"></a> enumerator DMA2D\_CLUT\_TRANS\_COMPLETE\_ISR
 
-    enumerator DMA2D_TRANS_COMPLETE_ISR[](#_CPPv4N13dm2d_isr_id_t24DMA2D_TRANS_COMPLETE_ISRE "永久链接至目标")
+    <a id="_CPPv4N13dm2d_isr_id_t26DMA2D_CLUT_TRANS_ERROR_ISRE"></a>
 
-    enumerator DMA2D_TRANS_ERROR_ISR[](#_CPPv4N13dm2d_isr_id_t21DMA2D_TRANS_ERROR_ISRE "永久链接至目标")
+    <a id="_CPPv3N13dm2d_isr_id_t26DMA2D_CLUT_TRANS_ERROR_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t26DMA2D_CLUT_TRANS_ERROR_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaa3abda4ecd3cff1b2c82cd58ec6598b79"></a> enumerator DMA2D\_CLUT\_TRANS\_ERROR\_ISR
 
-enum dma2d_mode_t[](#_CPPv412dma2d_mode_t "永久链接至目标")
+    <a id="_CPPv4N13dm2d_isr_id_t24DMA2D_WARTERMARK_INT_ISRE"></a>
+
+    <a id="_CPPv3N13dm2d_isr_id_t24DMA2D_WARTERMARK_INT_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t24DMA2D_WARTERMARK_INT_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaa890946575e171c1825bf94a0b45d2947"></a> enumerator DMA2D\_WARTERMARK\_INT\_ISR
+
+    <a id="_CPPv4N13dm2d_isr_id_t24DMA2D_TRANS_COMPLETE_ISRE"></a>
+
+    <a id="_CPPv3N13dm2d_isr_id_t24DMA2D_TRANS_COMPLETE_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t24DMA2D_TRANS_COMPLETE_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaae3ee8176e5b7e0c25c2073d1bd5a1c92"></a> enumerator DMA2D\_TRANS\_COMPLETE\_ISR
+
+    <a id="_CPPv4N13dm2d_isr_id_t21DMA2D_TRANS_ERROR_ISRE"></a>
+
+    <a id="_CPPv3N13dm2d_isr_id_t21DMA2D_TRANS_ERROR_ISRE"></a> <a id="_CPPv2N13dm2d_isr_id_t21DMA2D_TRANS_ERROR_ISRE"></a> <a id="group__DMA2D__ISR__NUM_1gabc05d8f28e027bd19161486b543bdbcaa83cf266c2c127cf8b2fbbd52dfcde596"></a> enumerator DMA2D\_TRANS\_ERROR\_ISR
+
+<a id="_CPPv412dma2d_mode_t"></a>
+
+<a id="_CPPv312dma2d_mode_t"></a> <a id="_CPPv212dma2d_mode_t"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5"></a> enum dma2d\_mode\_t
 :   DMA2D enum defines.
 
-    DMA2D_Mode
-
+    DMA2D\_Mode
 
     *Values:*
 
-    enumerator DMA2D_M2M[](#_CPPv4N12dma2d_mode_t9DMA2D_M2ME "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t9DMA2D_M2ME"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t9DMA2D_M2ME"></a> <a id="_CPPv2N12dma2d_mode_t9DMA2D_M2ME"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5ab4c23b4221ad43235a0251e1c0ace8b4"></a> enumerator DMA2D\_M2M
     :   DMA2D memory to memory transfer mode
 
-    enumerator DMA2D_M2M_PFC[](#_CPPv4N12dma2d_mode_t13DMA2D_M2M_PFCE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t13DMA2D_M2M_PFCE"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t13DMA2D_M2M_PFCE"></a> <a id="_CPPv2N12dma2d_mode_t13DMA2D_M2M_PFCE"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5af455e3664ff46d21b0140517b5117e09"></a> enumerator DMA2D\_M2M\_PFC
     :   DMA2D memory to memory with pixel format conversion transfer mode
 
-    enumerator DMA2D_M2M_BLEND[](#_CPPv4N12dma2d_mode_t15DMA2D_M2M_BLENDE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t15DMA2D_M2M_BLENDE"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t15DMA2D_M2M_BLENDE"></a> <a id="_CPPv2N12dma2d_mode_t15DMA2D_M2M_BLENDE"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5aefeff04036abac70f74b476e4be9db39"></a> enumerator DMA2D\_M2M\_BLEND
     :   DMA2D memory to memory with blending transfer mode
 
-    enumerator DMA2D_R2M[](#_CPPv4N12dma2d_mode_t9DMA2D_R2ME "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t9DMA2D_R2ME"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t9DMA2D_R2ME"></a> <a id="_CPPv2N12dma2d_mode_t9DMA2D_R2ME"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5a224cd974482f6059b0d53952b09d8b81"></a> enumerator DMA2D\_R2M
     :   DMA2D register to memory transfer mode
 
-    enumerator DMA2D_M2M_BLEND_FG[](#_CPPv4N12dma2d_mode_t18DMA2D_M2M_BLEND_FGE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t18DMA2D_M2M_BLEND_FGE"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t18DMA2D_M2M_BLEND_FGE"></a> <a id="_CPPv2N12dma2d_mode_t18DMA2D_M2M_BLEND_FGE"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5a25316c91e294f4769f6f0ff1a83c79b6"></a> enumerator DMA2D\_M2M\_BLEND\_FG
     :   DMA2D memory to memory with blending transfer mode and fixed color FG
 
-    enumerator DMA2D_M2M_BLEND_BG[](#_CPPv4N12dma2d_mode_t18DMA2D_M2M_BLEND_BGE "永久链接至目标")
+    <a id="_CPPv4N12dma2d_mode_t18DMA2D_M2M_BLEND_BGE"></a>
+
+    <a id="_CPPv3N12dma2d_mode_t18DMA2D_M2M_BLEND_BGE"></a> <a id="_CPPv2N12dma2d_mode_t18DMA2D_M2M_BLEND_BGE"></a> <a id="dma2d__types_8h_1a2281f69de0c11a61edada2a9aed202b5adb4f2ca3726d9535653efbb3d950ef8d"></a> enumerator DMA2D\_M2M\_BLEND\_BG
     :   DMA2D memory to memory with blending transfer mode and fixed color BG
 
-enum date_reverse_t[](#_CPPv414date_reverse_t "永久链接至目标")
+<a id="_CPPv414date_reverse_t"></a>
+
+<a id="_CPPv314date_reverse_t"></a> <a id="_CPPv214date_reverse_t"></a> <a id="dma2d__types_8h_1ad3d4ed7554d680f6e7015f862191afa6"></a> enum date\_reverse\_t
 :   *Values:*
 
-    enumerator NO_REVERSE[](#_CPPv4N14date_reverse_t10NO_REVERSEE "永久链接至目标")
+    <a id="_CPPv4N14date_reverse_t10NO_REVERSEE"></a>
+
+    <a id="_CPPv3N14date_reverse_t10NO_REVERSEE"></a> <a id="_CPPv2N14date_reverse_t10NO_REVERSEE"></a> <a id="dma2d__types_8h_1ad3d4ed7554d680f6e7015f862191afa6ad9e8b8eb800a7a9f3282273f61987e00"></a> enumerator NO\_REVERSE
     :   in output 32bit color(yuv) formart, not reverse data byte by byte
 
-    enumerator BYTE_BY_BYTE_REVERSE[](#_CPPv4N14date_reverse_t20BYTE_BY_BYTE_REVERSEE "永久链接至目标")
+    <a id="_CPPv4N14date_reverse_t20BYTE_BY_BYTE_REVERSEE"></a>
+
+    <a id="_CPPv3N14date_reverse_t20BYTE_BY_BYTE_REVERSEE"></a> <a id="_CPPv2N14date_reverse_t20BYTE_BY_BYTE_REVERSEE"></a> <a id="dma2d__types_8h_1ad3d4ed7554d680f6e7015f862191afa6a8f0362fa635f2a631203bb306220964c"></a> enumerator BYTE\_BY\_BYTE\_REVERSE
     :   in output 32bit color(yuv) formart, reverse data byte by byte
 
-    enumerator HFWORD_BY_HFWORD_REVERSE[](#_CPPv4N14date_reverse_t24HFWORD_BY_HFWORD_REVERSEE "永久链接至目标")
+    <a id="_CPPv4N14date_reverse_t24HFWORD_BY_HFWORD_REVERSEE"></a>
+
+    <a id="_CPPv3N14date_reverse_t24HFWORD_BY_HFWORD_REVERSEE"></a> <a id="_CPPv2N14date_reverse_t24HFWORD_BY_HFWORD_REVERSEE"></a> <a id="dma2d__types_8h_1ad3d4ed7554d680f6e7015f862191afa6afa57674ca40c7d7d625f806288223897"></a> enumerator HFWORD\_BY\_HFWORD\_REVERSE
     :   in output 32bit color(yuv) formart, reverse data byte by byte
 
-enum out_color_mode_t[](#_CPPv416out_color_mode_t "永久链接至目标")
-:   DMA2D_Output_Color_Mode , used for fillfmt / memcpy dst fmt/ blend output fmt
+<a id="_CPPv416out_color_mode_t"></a>
 
+<a id="_CPPv316out_color_mode_t"></a> <a id="_CPPv216out_color_mode_t"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7"></a> enum out\_color\_mode\_t
+:   DMA2D\_Output\_Color\_Mode , used for fillfmt / memcpy dst fmt/ blend output fmt
 
     *Values:*
 
-    enumerator DMA2D_OUTPUT_ARGB8888[](#_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB8888E "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB8888E"></a>
+
+    <a id="_CPPv3N16out_color_mode_t21DMA2D_OUTPUT_ARGB8888E"></a> <a id="_CPPv2N16out_color_mode_t21DMA2D_OUTPUT_ARGB8888E"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7a8c8e4c059ec93d76aeba77b3ab2e1263"></a> enumerator DMA2D\_OUTPUT\_ARGB8888
     :   ARGB8888 DMA2D color mode
 
-    enumerator DMA2D_OUTPUT_RGB888[](#_CPPv4N16out_color_mode_t19DMA2D_OUTPUT_RGB888E "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t19DMA2D_OUTPUT_RGB888E"></a>
+
+    <a id="_CPPv3N16out_color_mode_t19DMA2D_OUTPUT_RGB888E"></a> <a id="_CPPv2N16out_color_mode_t19DMA2D_OUTPUT_RGB888E"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7ac4640719178927386325412a7e652ab6"></a> enumerator DMA2D\_OUTPUT\_RGB888
     :   RGB888 DMA2D color mode
 
-    enumerator DMA2D_OUTPUT_RGB565[](#_CPPv4N16out_color_mode_t19DMA2D_OUTPUT_RGB565E "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t19DMA2D_OUTPUT_RGB565E"></a>
+
+    <a id="_CPPv3N16out_color_mode_t19DMA2D_OUTPUT_RGB565E"></a> <a id="_CPPv2N16out_color_mode_t19DMA2D_OUTPUT_RGB565E"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7a3f88fe21358f8521c73193e01f9ea5ba"></a> enumerator DMA2D\_OUTPUT\_RGB565
     :   RGB565 DMA2D color mode
 
-    enumerator DMA2D_OUTPUT_ARGB1555[](#_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB1555E "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB1555E"></a>
+
+    <a id="_CPPv3N16out_color_mode_t21DMA2D_OUTPUT_ARGB1555E"></a> <a id="_CPPv2N16out_color_mode_t21DMA2D_OUTPUT_ARGB1555E"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7a269775fb36b22a74db22dfc6365369bf"></a> enumerator DMA2D\_OUTPUT\_ARGB1555
     :   ARGB1555 DMA2D color mode
 
-    enumerator DMA2D_OUTPUT_ARGB4444[](#_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB4444E "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t21DMA2D_OUTPUT_ARGB4444E"></a>
+
+    <a id="_CPPv3N16out_color_mode_t21DMA2D_OUTPUT_ARGB4444E"></a> <a id="_CPPv2N16out_color_mode_t21DMA2D_OUTPUT_ARGB4444E"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7acfab7422b5ad7376de6cb31e0db66b83"></a> enumerator DMA2D\_OUTPUT\_ARGB4444
     :   ARGB4444 DMA2D color mode
 
-    enumerator DMA2D_OUTPUT_YUYV[](#_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_YUYVE "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_YUYVE"></a>
 
-    enumerator DMA2D_OUTPUT_UYVY[](#_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_UYVYE "永久链接至目标")
+    <a id="_CPPv3N16out_color_mode_t17DMA2D_OUTPUT_YUYVE"></a> <a id="_CPPv2N16out_color_mode_t17DMA2D_OUTPUT_YUYVE"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7abc8aed5ee408a33fb1cf4846a687aebb"></a> enumerator DMA2D\_OUTPUT\_YUYV
 
-    enumerator DMA2D_OUTPUT_YYUV[](#_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_YYUVE "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_UYVYE"></a>
 
-    enumerator DMA2D_OUTPUT_UVYY[](#_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_UVYYE "永久链接至目标")
+    <a id="_CPPv3N16out_color_mode_t17DMA2D_OUTPUT_UYVYE"></a> <a id="_CPPv2N16out_color_mode_t17DMA2D_OUTPUT_UYVYE"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7a81824a044650bb18458823e2c9b156da"></a> enumerator DMA2D\_OUTPUT\_UYVY
 
-    enumerator DMA2D_OUTPUT_VUYY[](#_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_VUYYE "永久链接至目标")
+    <a id="_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_YYUVE"></a>
 
-enum input_color_mode_t[](#_CPPv418input_color_mode_t "永久链接至目标")
-:   DMA2D_Input_Color_Mode, the members in order
+    <a id="_CPPv3N16out_color_mode_t17DMA2D_OUTPUT_YYUVE"></a> <a id="_CPPv2N16out_color_mode_t17DMA2D_OUTPUT_YYUVE"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7aad17c4da4ac18bcb6ccfb24abfd9412a"></a> enumerator DMA2D\_OUTPUT\_YYUV
 
+    <a id="_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_UVYYE"></a>
+
+    <a id="_CPPv3N16out_color_mode_t17DMA2D_OUTPUT_UVYYE"></a> <a id="_CPPv2N16out_color_mode_t17DMA2D_OUTPUT_UVYYE"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7ab1607b8c1c605f37226b6541d1cf0511"></a> enumerator DMA2D\_OUTPUT\_UVYY
+
+    <a id="_CPPv4N16out_color_mode_t17DMA2D_OUTPUT_VUYYE"></a>
+
+    <a id="_CPPv3N16out_color_mode_t17DMA2D_OUTPUT_VUYYE"></a> <a id="_CPPv2N16out_color_mode_t17DMA2D_OUTPUT_VUYYE"></a> <a id="dma2d__types_8h_1a12dfb66554675f98f5a8c9223f5390d7ad962ea705561b4f2ba2a938e0fc2fb3e"></a> enumerator DMA2D\_OUTPUT\_VUYY
+
+<a id="_CPPv418input_color_mode_t"></a>
+
+<a id="_CPPv318input_color_mode_t"></a> <a id="_CPPv218input_color_mode_t"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793e"></a> enum input\_color\_mode\_t
+:   DMA2D\_Input\_Color\_Mode, the members in order
 
     *Values:*
 
-    enumerator DMA2D_INPUT_ARGB8888[](#_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB8888E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB8888E"></a>
+
+    <a id="_CPPv3N18input_color_mode_t20DMA2D_INPUT_ARGB8888E"></a> <a id="_CPPv2N18input_color_mode_t20DMA2D_INPUT_ARGB8888E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea21ac464db71c078c0fec407396240e9d"></a> enumerator DMA2D\_INPUT\_ARGB8888
     :   ARGB8888 DMA2D color mode
 
-    enumerator DMA2D_INPUT_RGB888[](#_CPPv4N18input_color_mode_t18DMA2D_INPUT_RGB888E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t18DMA2D_INPUT_RGB888E"></a>
+
+    <a id="_CPPv3N18input_color_mode_t18DMA2D_INPUT_RGB888E"></a> <a id="_CPPv2N18input_color_mode_t18DMA2D_INPUT_RGB888E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea6de0d3b45bb036eff87dfdfea70b6a56"></a> enumerator DMA2D\_INPUT\_RGB888
     :   RGB888 DMA2D color mode
 
-    enumerator DMA2D_INPUT_RGB565[](#_CPPv4N18input_color_mode_t18DMA2D_INPUT_RGB565E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t18DMA2D_INPUT_RGB565E"></a>
+
+    <a id="_CPPv3N18input_color_mode_t18DMA2D_INPUT_RGB565E"></a> <a id="_CPPv2N18input_color_mode_t18DMA2D_INPUT_RGB565E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea9c5aad132a779d4d25c793c9b5284a5f"></a> enumerator DMA2D\_INPUT\_RGB565
     :   RGB565 DMA2D color mode
 
-    enumerator DMA2D_INPUT_ARGB1555[](#_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB1555E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB1555E"></a>
+
+    <a id="_CPPv3N18input_color_mode_t20DMA2D_INPUT_ARGB1555E"></a> <a id="_CPPv2N18input_color_mode_t20DMA2D_INPUT_ARGB1555E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ead26602d4750419bf0a4386e102311cf5"></a> enumerator DMA2D\_INPUT\_ARGB1555
     :   ARGB1555 DMA2D color mode
 
-    enumerator DMA2D_INPUT_ARGB4444[](#_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB4444E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t20DMA2D_INPUT_ARGB4444E"></a>
+
+    <a id="_CPPv3N18input_color_mode_t20DMA2D_INPUT_ARGB4444E"></a> <a id="_CPPv2N18input_color_mode_t20DMA2D_INPUT_ARGB4444E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea6845c5d28916eb38d7f1fc91875a2cbb"></a> enumerator DMA2D\_INPUT\_ARGB4444
     :   ARGB4444 DMA2D color mode
 
-    enumerator DMA2D_INPUT_L8[](#_CPPv4N18input_color_mode_t14DMA2D_INPUT_L8E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t14DMA2D_INPUT_L8E"></a>
 
-    enumerator DMA2D_INPUT_AL44[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_AL44E "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t14DMA2D_INPUT_L8E"></a> <a id="_CPPv2N18input_color_mode_t14DMA2D_INPUT_L8E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea96791c6736d6ac30ac876fbe5e315eb6"></a> enumerator DMA2D\_INPUT\_L8
 
-    enumerator DMA2D_INPUT_AL88[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_AL88E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_AL44E"></a>
 
-    enumerator DMA2D_INPUT_L4[](#_CPPv4N18input_color_mode_t14DMA2D_INPUT_L4E "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_AL44E"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_AL44E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea537a233ec5470dc2ad69bde0415fabbc"></a> enumerator DMA2D\_INPUT\_AL44
 
-    enumerator DMA2D_INPUT_A8[](#_CPPv4N18input_color_mode_t14DMA2D_INPUT_A8E "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_AL88E"></a>
 
-    enumerator DMA2D_INPUT_A4[](#_CPPv4N18input_color_mode_t14DMA2D_INPUT_A4E "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_AL88E"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_AL88E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea51cc30807bb6a1ee1ad2152e412083df"></a> enumerator DMA2D\_INPUT\_AL88
 
-    enumerator DMA2D_INPUT_YUYV[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_YUYVE "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t14DMA2D_INPUT_L4E"></a>
 
-    enumerator DMA2D_INPUT_UYVY[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_UYVYE "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t14DMA2D_INPUT_L4E"></a> <a id="_CPPv2N18input_color_mode_t14DMA2D_INPUT_L4E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea9db488b5acf1f7d10935c98177fbacad"></a> enumerator DMA2D\_INPUT\_L4
 
-    enumerator DMA2D_INPUT_YYUV[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_YYUVE "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t14DMA2D_INPUT_A8E"></a>
 
-    enumerator DMA2D_INPUT_UVYY[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_UVYYE "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t14DMA2D_INPUT_A8E"></a> <a id="_CPPv2N18input_color_mode_t14DMA2D_INPUT_A8E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea05c690235d572fddddc39fb2ec4e68f7"></a> enumerator DMA2D\_INPUT\_A8
 
-    enumerator DMA2D_INPUT_VUYY[](#_CPPv4N18input_color_mode_t16DMA2D_INPUT_VUYYE "永久链接至目标")
+    <a id="_CPPv4N18input_color_mode_t14DMA2D_INPUT_A4E"></a>
 
-enum dma2d_int_type_t[](#_CPPv416dma2d_int_type_t "永久链接至目标")
+    <a id="_CPPv3N18input_color_mode_t14DMA2D_INPUT_A4E"></a> <a id="_CPPv2N18input_color_mode_t14DMA2D_INPUT_A4E"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea8f1993a03f955f004b175ac365fc8e50"></a> enumerator DMA2D\_INPUT\_A4
+
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_YUYVE"></a>
+
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_YUYVE"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_YUYVE"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793eae017f4ff93c1f84317b4b6ea29f0003f"></a> enumerator DMA2D\_INPUT\_YUYV
+
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_UYVYE"></a>
+
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_UYVYE"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_UYVYE"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea97dbfacd1e38f45159dd6f84edbff8b2"></a> enumerator DMA2D\_INPUT\_UYVY
+
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_YYUVE"></a>
+
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_YYUVE"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_YYUVE"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea59c002ac655a3ed8555dcfec29f3a123"></a> enumerator DMA2D\_INPUT\_YYUV
+
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_UVYYE"></a>
+
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_UVYYE"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_UVYYE"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793ea041524ed01e9cb09a8c6edff468b691b"></a> enumerator DMA2D\_INPUT\_UVYY
+
+    <a id="_CPPv4N18input_color_mode_t16DMA2D_INPUT_VUYYE"></a>
+
+    <a id="_CPPv3N18input_color_mode_t16DMA2D_INPUT_VUYYE"></a> <a id="_CPPv2N18input_color_mode_t16DMA2D_INPUT_VUYYE"></a> <a id="dma2d__types_8h_1a441ff49e3cfa3f19468412bea504793eabe67fe2d4e84b075a7d9b198571d0712"></a> enumerator DMA2D\_INPUT\_VUYY
+
+<a id="_CPPv416dma2d_int_type_t"></a>
+
+<a id="_CPPv316dma2d_int_type_t"></a> <a id="_CPPv216dma2d_int_type_t"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762"></a> enum dma2d\_int\_type\_t
 :   dma2d int type
 
-
     *Values:*
 
-    enumerator DMA2D_CFG_ERROR[](#_CPPv4N16dma2d_int_type_t15DMA2D_CFG_ERRORE "永久链接至目标")
+    <a id="_CPPv4N16dma2d_int_type_t15DMA2D_CFG_ERRORE"></a>
 
-    enumerator DMA2D_CLUT_TRANS_COMPLETE[](#_CPPv4N16dma2d_int_type_t25DMA2D_CLUT_TRANS_COMPLETEE "永久链接至目标")
+    <a id="_CPPv3N16dma2d_int_type_t15DMA2D_CFG_ERRORE"></a> <a id="_CPPv2N16dma2d_int_type_t15DMA2D_CFG_ERRORE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a34e43318f2c7f4a8d627121c482ab1ec"></a> enumerator DMA2D\_CFG\_ERROR
 
-    enumerator DMA2D_CLUT_TRANS_ERROR[](#_CPPv4N16dma2d_int_type_t22DMA2D_CLUT_TRANS_ERRORE "永久链接至目标")
+    <a id="_CPPv4N16dma2d_int_type_t25DMA2D_CLUT_TRANS_COMPLETEE"></a>
 
-    enumerator DMA2D_WARTERMARK_INT[](#_CPPv4N16dma2d_int_type_t20DMA2D_WARTERMARK_INTE "永久链接至目标")
+    <a id="_CPPv3N16dma2d_int_type_t25DMA2D_CLUT_TRANS_COMPLETEE"></a> <a id="_CPPv2N16dma2d_int_type_t25DMA2D_CLUT_TRANS_COMPLETEE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a7a063a54163156e5d69bbd2f541b8130"></a> enumerator DMA2D\_CLUT\_TRANS\_COMPLETE
 
-    enumerator DMA2D_TRANS_COMPLETE[](#_CPPv4N16dma2d_int_type_t20DMA2D_TRANS_COMPLETEE "永久链接至目标")
+    <a id="_CPPv4N16dma2d_int_type_t22DMA2D_CLUT_TRANS_ERRORE"></a>
 
-    enumerator DMA2D_TRANS_ERROR[](#_CPPv4N16dma2d_int_type_t17DMA2D_TRANS_ERRORE "永久链接至目标")
+    <a id="_CPPv3N16dma2d_int_type_t22DMA2D_CLUT_TRANS_ERRORE"></a> <a id="_CPPv2N16dma2d_int_type_t22DMA2D_CLUT_TRANS_ERRORE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a8219ce7cc6e314e4f189cccbe09c44ff"></a> enumerator DMA2D\_CLUT\_TRANS\_ERROR
 
-    enumerator DMA2D_ALL_INI[](#_CPPv4N16dma2d_int_type_t13DMA2D_ALL_INIE "永久链接至目标")
+    <a id="_CPPv4N16dma2d_int_type_t20DMA2D_WARTERMARK_INTE"></a>
 
-enum dma2d_int_status_t[](#_CPPv418dma2d_int_status_t "永久链接至目标")
+    <a id="_CPPv3N16dma2d_int_type_t20DMA2D_WARTERMARK_INTE"></a> <a id="_CPPv2N16dma2d_int_type_t20DMA2D_WARTERMARK_INTE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a7b9dbb6138ec3e83e5f6bbe38b35fa76"></a> enumerator DMA2D\_WARTERMARK\_INT
+
+    <a id="_CPPv4N16dma2d_int_type_t20DMA2D_TRANS_COMPLETEE"></a>
+
+    <a id="_CPPv3N16dma2d_int_type_t20DMA2D_TRANS_COMPLETEE"></a> <a id="_CPPv2N16dma2d_int_type_t20DMA2D_TRANS_COMPLETEE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a78650903c721e01829672ee824cc6157"></a> enumerator DMA2D\_TRANS\_COMPLETE
+
+    <a id="_CPPv4N16dma2d_int_type_t17DMA2D_TRANS_ERRORE"></a>
+
+    <a id="_CPPv3N16dma2d_int_type_t17DMA2D_TRANS_ERRORE"></a> <a id="_CPPv2N16dma2d_int_type_t17DMA2D_TRANS_ERRORE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762ace29072fa5692d0d883aada80f51be62"></a> enumerator DMA2D\_TRANS\_ERROR
+
+    <a id="_CPPv4N16dma2d_int_type_t13DMA2D_ALL_INIE"></a>
+
+    <a id="_CPPv3N16dma2d_int_type_t13DMA2D_ALL_INIE"></a> <a id="_CPPv2N16dma2d_int_type_t13DMA2D_ALL_INIE"></a> <a id="dma2d__types_8h_1a33c1eda950ec92bfc1b91cf3669e5762a318bdccd4e36d8990c94db36a5e2f254"></a> enumerator DMA2D\_ALL\_INI
+
+<a id="_CPPv418dma2d_int_status_t"></a>
+
+<a id="_CPPv318dma2d_int_status_t"></a> <a id="_CPPv218dma2d_int_status_t"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046ac"></a> enum dma2d\_int\_status\_t
 :   dma2d int status
 
-
     *Values:*
 
-    enumerator DMA2D_TRANS_ERROR_STATUS[](#_CPPv4N18dma2d_int_status_t24DMA2D_TRANS_ERROR_STATUSE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_int_status_t24DMA2D_TRANS_ERROR_STATUSE"></a>
 
-    enumerator DMA2D_TRANS_COMPLETE_STATUS[](#_CPPv4N18dma2d_int_status_t27DMA2D_TRANS_COMPLETE_STATUSE "永久链接至目标")
+    <a id="_CPPv3N18dma2d_int_status_t24DMA2D_TRANS_ERROR_STATUSE"></a> <a id="_CPPv2N18dma2d_int_status_t24DMA2D_TRANS_ERROR_STATUSE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046aca383e4f485e63621f28745587f56625ac"></a> enumerator DMA2D\_TRANS\_ERROR\_STATUS
 
-    enumerator DMA2D_WARTERMARK_INT_STATUS[](#_CPPv4N18dma2d_int_status_t27DMA2D_WARTERMARK_INT_STATUSE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_int_status_t27DMA2D_TRANS_COMPLETE_STATUSE"></a>
 
-    enumerator DMA2D_CLUT_TRANS_ERROR_STATUS[](#_CPPv4N18dma2d_int_status_t29DMA2D_CLUT_TRANS_ERROR_STATUSE "永久链接至目标")
+    <a id="_CPPv3N18dma2d_int_status_t27DMA2D_TRANS_COMPLETE_STATUSE"></a> <a id="_CPPv2N18dma2d_int_status_t27DMA2D_TRANS_COMPLETE_STATUSE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046aca7b80f49b4d1095e325a76b45129124df"></a> enumerator DMA2D\_TRANS\_COMPLETE\_STATUS
 
-    enumerator DMA2D_CLUT_TRANS_COMPLETE_STATU[](#_CPPv4N18dma2d_int_status_t31DMA2D_CLUT_TRANS_COMPLETE_STATUE "永久链接至目标")
+    <a id="_CPPv4N18dma2d_int_status_t27DMA2D_WARTERMARK_INT_STATUSE"></a>
 
-    enumerator DMA2D_CFG_ERROR_STATUS[](#_CPPv4N18dma2d_int_status_t22DMA2D_CFG_ERROR_STATUSE "永久链接至目标")
+    <a id="_CPPv3N18dma2d_int_status_t27DMA2D_WARTERMARK_INT_STATUSE"></a> <a id="_CPPv2N18dma2d_int_status_t27DMA2D_WARTERMARK_INT_STATUSE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046acacfe9e7092b029622687e02fa8b8e0ed6"></a> enumerator DMA2D\_WARTERMARK\_INT\_STATUS
 
-enum dma2d_trans_ability_t[](#_CPPv421dma2d_trans_ability_t "永久链接至目标")
+    <a id="_CPPv4N18dma2d_int_status_t29DMA2D_CLUT_TRANS_ERROR_STATUSE"></a>
+
+    <a id="_CPPv3N18dma2d_int_status_t29DMA2D_CLUT_TRANS_ERROR_STATUSE"></a> <a id="_CPPv2N18dma2d_int_status_t29DMA2D_CLUT_TRANS_ERROR_STATUSE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046aca3e184134b1353ea3040065d4f9f25ac9"></a> enumerator DMA2D\_CLUT\_TRANS\_ERROR\_STATUS
+
+    <a id="_CPPv4N18dma2d_int_status_t31DMA2D_CLUT_TRANS_COMPLETE_STATUE"></a>
+
+    <a id="_CPPv3N18dma2d_int_status_t31DMA2D_CLUT_TRANS_COMPLETE_STATUE"></a> <a id="_CPPv2N18dma2d_int_status_t31DMA2D_CLUT_TRANS_COMPLETE_STATUE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046aca9a646cda23e22e215a07d0a39750f3b0"></a> enumerator DMA2D\_CLUT\_TRANS\_COMPLETE\_STATU
+
+    <a id="_CPPv4N18dma2d_int_status_t22DMA2D_CFG_ERROR_STATUSE"></a>
+
+    <a id="_CPPv3N18dma2d_int_status_t22DMA2D_CFG_ERROR_STATUSE"></a> <a id="_CPPv2N18dma2d_int_status_t22DMA2D_CFG_ERROR_STATUSE"></a> <a id="dma2d__types_8h_1a9447b8aeb2f86e30825a8f37565046aca13f702c1c99f5e315695a9e98e030e3b"></a> enumerator DMA2D\_CFG\_ERROR\_STATUS
+
+<a id="_CPPv421dma2d_trans_ability_t"></a>
+
+<a id="_CPPv321dma2d_trans_ability_t"></a> <a id="_CPPv221dma2d_trans_ability_t"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74"></a> enum dma2d\_trans\_ability\_t
 :   *Values:*
 
-    enumerator MAX_TRANS_256BYTES[](#_CPPv4N21dma2d_trans_ability_t18MAX_TRANS_256BYTESE "永久链接至目标")
+    <a id="_CPPv4N21dma2d_trans_ability_t18MAX_TRANS_256BYTESE"></a>
 
-    enumerator TRANS_128BYTES[](#_CPPv4N21dma2d_trans_ability_t14TRANS_128BYTESE "永久链接至目标")
+    <a id="_CPPv3N21dma2d_trans_ability_t18MAX_TRANS_256BYTESE"></a> <a id="_CPPv2N21dma2d_trans_ability_t18MAX_TRANS_256BYTESE"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74a4a34310917509c731191fa261f9f0da6"></a> enumerator MAX\_TRANS\_256BYTES
 
-    enumerator TRANS_64BYTES[](#_CPPv4N21dma2d_trans_ability_t13TRANS_64BYTESE "永久链接至目标")
+    <a id="_CPPv4N21dma2d_trans_ability_t14TRANS_128BYTESE"></a>
 
-    enumerator TRANS_32BYTES[](#_CPPv4N21dma2d_trans_ability_t13TRANS_32BYTESE "永久链接至目标")
+    <a id="_CPPv3N21dma2d_trans_ability_t14TRANS_128BYTESE"></a> <a id="_CPPv2N21dma2d_trans_ability_t14TRANS_128BYTESE"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74a49b046d70041dc5036be0b23e70c2f46"></a> enumerator TRANS\_128BYTES
 
-    enumerator TRANS_16BYTES[](#_CPPv4N21dma2d_trans_ability_t13TRANS_16BYTESE "永久链接至目标")
+    <a id="_CPPv4N21dma2d_trans_ability_t13TRANS_64BYTESE"></a>
 
-enum blend_alpha_mode_t[](#_CPPv418blend_alpha_mode_t "永久链接至目标")
+    <a id="_CPPv3N21dma2d_trans_ability_t13TRANS_64BYTESE"></a> <a id="_CPPv2N21dma2d_trans_ability_t13TRANS_64BYTESE"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74a1baa4ef777ac4fc68537c11a224b97db"></a> enumerator TRANS\_64BYTES
+
+    <a id="_CPPv4N21dma2d_trans_ability_t13TRANS_32BYTESE"></a>
+
+    <a id="_CPPv3N21dma2d_trans_ability_t13TRANS_32BYTESE"></a> <a id="_CPPv2N21dma2d_trans_ability_t13TRANS_32BYTESE"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74ac8ca6f77c11d1541c84ad00da7bcfcc5"></a> enumerator TRANS\_32BYTES
+
+    <a id="_CPPv4N21dma2d_trans_ability_t13TRANS_16BYTESE"></a>
+
+    <a id="_CPPv3N21dma2d_trans_ability_t13TRANS_16BYTESE"></a> <a id="_CPPv2N21dma2d_trans_ability_t13TRANS_16BYTESE"></a> <a id="dma2d__types_8h_1afa43bff619ad5dd629d5037302e1ff74ab57858b729a2a795fbbf523bd1d818cf"></a> enumerator TRANS\_16BYTES
+
+<a id="_CPPv418blend_alpha_mode_t"></a>
+
+<a id="_CPPv318blend_alpha_mode_t"></a> <a id="_CPPv218blend_alpha_mode_t"></a> <a id="dma2d__types_8h_1a174a9a6be32e0178d2ffbbdaab931834"></a> enum blend\_alpha\_mode\_t
 :   *Values:*
 
-    enumerator DMA2D_NO_MODIF_ALPHA[](#_CPPv4N18blend_alpha_mode_t20DMA2D_NO_MODIF_ALPHAE "永久链接至目标")
+    <a id="_CPPv4N18blend_alpha_mode_t20DMA2D_NO_MODIF_ALPHAE"></a>
 
-    enumerator DMA2D_REPLACE_ALPHA[](#_CPPv4N18blend_alpha_mode_t19DMA2D_REPLACE_ALPHAE "永久链接至目标")
+    <a id="_CPPv3N18blend_alpha_mode_t20DMA2D_NO_MODIF_ALPHAE"></a> <a id="_CPPv2N18blend_alpha_mode_t20DMA2D_NO_MODIF_ALPHAE"></a> <a id="dma2d__types_8h_1a174a9a6be32e0178d2ffbbdaab931834a944e897f7c45ab32facc01d4375620cd"></a> enumerator DMA2D\_NO\_MODIF\_ALPHA
 
-    enumerator DMA2D_COMBINE_ALPHA[](#_CPPv4N18blend_alpha_mode_t19DMA2D_COMBINE_ALPHAE "永久链接至目标")
+    <a id="_CPPv4N18blend_alpha_mode_t19DMA2D_REPLACE_ALPHAE"></a>
 
-enum red_blue_swap_t[](#_CPPv415red_blue_swap_t "永久链接至目标")
+    <a id="_CPPv3N18blend_alpha_mode_t19DMA2D_REPLACE_ALPHAE"></a> <a id="_CPPv2N18blend_alpha_mode_t19DMA2D_REPLACE_ALPHAE"></a> <a id="dma2d__types_8h_1a174a9a6be32e0178d2ffbbdaab931834ab4278df22f0b7c1af037a778f8e0a190"></a> enumerator DMA2D\_REPLACE\_ALPHA
+
+    <a id="_CPPv4N18blend_alpha_mode_t19DMA2D_COMBINE_ALPHAE"></a>
+
+    <a id="_CPPv3N18blend_alpha_mode_t19DMA2D_COMBINE_ALPHAE"></a> <a id="_CPPv2N18blend_alpha_mode_t19DMA2D_COMBINE_ALPHAE"></a> <a id="dma2d__types_8h_1a174a9a6be32e0178d2ffbbdaab931834ae7704f5083ad09f46ff4f6de512e5c9a"></a> enumerator DMA2D\_COMBINE\_ALPHA
+
+<a id="_CPPv415red_blue_swap_t"></a>
+
+<a id="_CPPv315red_blue_swap_t"></a> <a id="_CPPv215red_blue_swap_t"></a> <a id="dma2d__types_8h_1ab9f0f0496be7caf3178f4bce151ef8b9"></a> enum red\_blue\_swap\_t
 :   *Values:*
 
-    enumerator DMA2D_RB_REGULAR[](#_CPPv4N15red_blue_swap_t16DMA2D_RB_REGULARE "永久链接至目标")
+    <a id="_CPPv4N15red_blue_swap_t16DMA2D_RB_REGULARE"></a>
+
+    <a id="_CPPv3N15red_blue_swap_t16DMA2D_RB_REGULARE"></a> <a id="_CPPv2N15red_blue_swap_t16DMA2D_RB_REGULARE"></a> <a id="dma2d__types_8h_1ab9f0f0496be7caf3178f4bce151ef8b9a681cedec1b226d7dd13a5380ef8f9bd1"></a> enumerator DMA2D\_RB\_REGULAR
     :   Select regular mode (RGB or ARGB)
 
-    enumerator DMA2D_RB_SWAP[](#_CPPv4N15red_blue_swap_t13DMA2D_RB_SWAPE "永久链接至目标")
-    :   Select swap mode (BGR or ABGR) * = 0
+    <a id="_CPPv4N15red_blue_swap_t13DMA2D_RB_SWAPE"></a>
 
-enum color_bytes_t[](#_CPPv413color_bytes_t "永久链接至目标")
+    <a id="_CPPv3N15red_blue_swap_t13DMA2D_RB_SWAPE"></a> <a id="_CPPv2N15red_blue_swap_t13DMA2D_RB_SWAPE"></a> <a id="dma2d__types_8h_1ab9f0f0496be7caf3178f4bce151ef8b9a8c41084cb63c180c67254046c6d16931"></a> enumerator DMA2D\_RB\_SWAP
+    :   Select swap mode (BGR or ABGR) \* \= 0
+
+<a id="_CPPv413color_bytes_t"></a>
+
+<a id="_CPPv313color_bytes_t"></a> <a id="_CPPv213color_bytes_t"></a> <a id="dma2d__types_8h_1adab734214366b31d83036a2d3549af05"></a> enum color\_bytes\_t
 :   *Values:*
 
-    enumerator TWO_BYTES[](#_CPPv4N13color_bytes_t9TWO_BYTESE "永久链接至目标")
+    <a id="_CPPv4N13color_bytes_t9TWO_BYTESE"></a>
 
-    enumerator THREE_BYTES[](#_CPPv4N13color_bytes_t11THREE_BYTESE "永久链接至目标")
+    <a id="_CPPv3N13color_bytes_t9TWO_BYTESE"></a> <a id="_CPPv2N13color_bytes_t9TWO_BYTESE"></a> <a id="dma2d__types_8h_1adab734214366b31d83036a2d3549af05a3528c04355484cbd4eccb72eedbc39b4"></a> enumerator TWO\_BYTES
 
-    enumerator FOUR_BYTES[](#_CPPv4N13color_bytes_t10FOUR_BYTESE "永久链接至目标")
+    <a id="_CPPv4N13color_bytes_t11THREE_BYTESE"></a>
+
+    <a id="_CPPv3N13color_bytes_t11THREE_BYTESE"></a> <a id="_CPPv2N13color_bytes_t11THREE_BYTESE"></a> <a id="dma2d__types_8h_1adab734214366b31d83036a2d3549af05ada1aada2f7100abc69c7af969eee4653"></a> enumerator THREE\_BYTES
+
+    <a id="_CPPv4N13color_bytes_t10FOUR_BYTESE"></a>
+
+    <a id="_CPPv3N13color_bytes_t10FOUR_BYTESE"></a> <a id="_CPPv2N13color_bytes_t10FOUR_BYTESE"></a> <a id="dma2d__types_8h_1adab734214366b31d83036a2d3549af05a8fad8c5fadaf09d2c403930df2a71896"></a> enumerator FOUR\_BYTES

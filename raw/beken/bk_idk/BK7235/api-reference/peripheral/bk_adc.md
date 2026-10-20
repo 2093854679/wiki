@@ -1,10 +1,24 @@
-# SARADC[](#saradc "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/api-reference/peripheral/bk_adc.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="saradc"></a>
+
+# SARADC
 
 Beken chip supports get every adc channel value function for user.
 
+<a id="adc-api-status"></a>
 
-## ADC API Status[](#adc-api-status "永久链接至标题")
+## ADC API Status
 
 | API | BK7235A | BK7235B | BK7235 |
 | --- | --- | --- | --- |
@@ -33,43 +47,47 @@ Beken chip supports get every adc channel value function for user.
 | [`bk_adc_set_mode()`](#_CPPv415bk_adc_set_mode10adc_mode_t "bk_adc_set_mode") | Y | Y | Y |
 | [`bk_adc_get_mode()`](#_CPPv415bk_adc_get_modev "bk_adc_get_mode") | Y | Y | Y |
 
+<a id="adc-channel-number"></a>
 
-## ADC Channel Number[](#adc-channel-number "永久链接至标题")
+## ADC Channel Number
 
 | Capability | BK7235A | BK7235B | BK7235 |
 | --- | --- | --- | --- |
 | Channel Number | 6 | 6 | 6 |
 
+<a id="adc-api-reference"></a>
 
-## ADC API Reference[](#adc-api-reference "永久链接至标题")
+## ADC API Reference
 
+<a id="header-file"></a>
 
-### Header File[](#header-file "永久链接至标题")
+### Header File
 
+- [adc.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc.h)
 
-- [adc.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc.h")
+<a id="functions"></a>
 
+### Functions
 
-### Functions[](#functions "永久链接至标题")
+<a id="_CPPv418bk_adc_driver_initv"></a>
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_init(void)[](#_CPPv418bk_adc_driver_initv "永久链接至目标")
+<a id="_CPPv318bk_adc_driver_initv"></a> <a id="_CPPv218bk_adc_driver_initv"></a> <a id="bk_adc_driver_init__void"></a> <a id="group__bk__api__adc_1ga684e48484c76e3b06cb958deab3bb31c"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_driver\_init(void)
 :   Init the ADC driver.
 
     This API init the resoure common to all ADC id:
 
-
     - Init ADC driver control memory
 
-
     **Attention**
-    :   1. This API should be called before any other ADC APIs.
+    :   1\. This API should be called before any other ADC APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_acquire(void)[](#_CPPv414bk_adc_acquirev "永久链接至目标")
+<a id="_CPPv414bk_adc_acquirev"></a>
+
+<a id="_CPPv314bk_adc_acquirev"></a> <a id="_CPPv214bk_adc_acquirev"></a> <a id="bk_adc_acquire__void"></a> <a id="group__bk__api__adc_1gad5680a6994fc0fb9d511b99ddbaf413a"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_acquire(void)
 :   lock the runing ADC channel
 
     This API lock ADC channel which is runing.
@@ -78,11 +96,12 @@ Beken chip supports get every adc channel value function for user.
     :   **id** – ADC id
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_release()[](#_CPPv414bk_adc_releasev "永久链接至目标")
+<a id="_CPPv414bk_adc_releasev"></a>
+
+<a id="_CPPv314bk_adc_releasev"></a> <a id="_CPPv214bk_adc_releasev"></a> <a id="bk_adc_release"></a> <a id="group__bk__api__adc_1ga64ed3c9fd2993162237fcbfd5ece8938"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_release()
 :   release the runing ADC channel
 
     This API release ADC channel which is runing.
@@ -91,281 +110,273 @@ Beken chip supports get every adc channel value function for user.
     :   **id** – ADC id
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_driver_deinit(void)[](#_CPPv420bk_adc_driver_deinitv "永久链接至目标")
+<a id="_CPPv420bk_adc_driver_deinitv"></a>
+
+<a id="_CPPv320bk_adc_driver_deinitv"></a> <a id="_CPPv220bk_adc_driver_deinitv"></a> <a id="bk_adc_driver_deinit__void"></a> <a id="group__bk__api__adc_1ga1cab56766442da4369c77b089f07ef9b"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_driver\_deinit(void)
 :   Deinit the ADC driver.
 
     This API free all resource related to ADC and power down all ADC.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_init([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv411bk_adc_init10adc_chan_t "永久链接至目标")
+<a id="_CPPv411bk_adc_init10adc_chan_t"></a>
+
+<a id="_CPPv311bk_adc_init10adc_chan_t"></a> <a id="_CPPv211bk_adc_init10adc_chan_t"></a> <a id="bk_adc_init__adc_chan_t"></a> <a id="group__bk__api__adc_1ga99c945973b47e3eca9edc063e174cc7f"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_init([adc\_chan\_t](#_CPPv410adc_chan_t "adc_chan_t") adc\_id)
 :   Init the ADC.
 
     This API init the ADC:
 
-
     - Power up the ADC
-
     - Map the ADC id to dedicated GPIO port
-
     - Set adc work channel
 
     参数
     :   - **id** – ADC channel
-
         - **size** – ADC recieve data size
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_NOT_INIT: ADC driver not init
-
-        - BK_ERR_ADC_INVALID_ID: ADC id is invalid
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_NOT\_INIT: ADC driver not init
+        - BK\_ERR\_ADC\_INVALID\_ID: ADC id is invalid
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_deinit([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") id)[](#_CPPv413bk_adc_deinit10adc_chan_t "永久链接至目标")
+<a id="_CPPv413bk_adc_deinit10adc_chan_t"></a>
+
+<a id="_CPPv313bk_adc_deinit10adc_chan_t"></a> <a id="_CPPv213bk_adc_deinit10adc_chan_t"></a> <a id="bk_adc_deinit__adc_chan_t"></a> <a id="group__bk__api__adc_1ga23b94dc65f032ae17da87e868aec3f04"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_deinit([adc\_chan\_t](#_CPPv410adc_chan_t "adc_chan_t") id)
 :   Deinit the ADC id.
 
     This API deinit the ADC id:
 
-
     - Stop the ADC
-
     - Disable the ADC id interrupt
-
     - Power down the ADC
-
     - Unmap gpio id
 
-
     **Attention**
-    :   1. This API should be called before use adc.
+    :   1\. This API should be called before use adc.
 
     参数
     :   **id** – ADC id
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_NOT_INIT: ADC driver not init
-
-        - BK_ERR_ADC_INVALID_ID: ADC id is invalid
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_NOT\_INIT: ADC driver not init
+        - BK\_ERR\_ADC\_INVALID\_ID: ADC id is invalid
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_start(void)[](#_CPPv412bk_adc_startv "永久链接至目标")
+<a id="_CPPv412bk_adc_startv"></a>
+
+<a id="_CPPv312bk_adc_startv"></a> <a id="_CPPv212bk_adc_startv"></a> <a id="bk_adc_start__void"></a> <a id="group__bk__api__adc_1ga252d590fe1c9e9e5718c65a31f8c4559"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_start(void)
 :   Start the ADC.
 
     This API start adc:
 
-
     - enable the ADC id interrupt
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_BUSY: ADC is busy
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_BUSY: ADC is busy
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_stop(void)[](#_CPPv411bk_adc_stopv "永久链接至目标")
+<a id="_CPPv411bk_adc_stopv"></a>
+
+<a id="_CPPv311bk_adc_stopv"></a> <a id="_CPPv211bk_adc_stopv"></a> <a id="bk_adc_stop__void"></a> <a id="group__bk__api__adc_1gaa9fd8fac599692028959169fc54768ad"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_stop(void)
 :   Stop the ADC.
 
     This API stop adc:
 
-
     - disable the ADC en bit
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_BUSY: ADC is busy
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_BUSY: ADC is busy
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_read_raw(uint16_t *read_buf, uint32_t size, uint32_t timeout)[](#_CPPv415bk_adc_read_rawP8uint16_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv415bk_adc_read_rawP8uint16_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv315bk_adc_read_rawP8uint16_t8uint32_t8uint32_t"></a> <a id="_CPPv215bk_adc_read_rawP8uint16_t8uint32_t8uint32_t"></a> <a id="bk_adc_read_raw__uint16_tP.uint32_t.uint32_t"></a> <a id="group__bk__api__adc_1ga810b203a3974846f6f68e84358aa6e35"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_read\_raw(uint16\_t \*read\_buf, uint32\_t size, uint32\_t timeout)
 :   Start read the raw ADC data.
 
-
     **Attention**
-    :   1. The read_buf is in unit of uint16_t, the application needs to malloc (size * 2) bytes for read_buf.
+    :   1\. The read\_buf is in unit of uint16\_t, the application needs to malloc (size \* 2\) bytes for read\_buf.
 
-        2. The maximum value of size is CONFIG_ADC_BUF_SIZE, if the size exceeds CONFIG_ADC_BUF_SIZE, the API returns BK_ERR_ADC_SIZE_TOO_BIG.
+        2\. The maximum value of size is CONFIG\_ADC\_BUF\_SIZE, if the size exceeds CONFIG\_ADC\_BUF\_SIZE, the API returns BK\_ERR\_ADC\_SIZE\_TOO\_BIG.
 
     参数
-    :   - **read_buf** – application malloc buffer which save the current adc value
-
-        - **size** – the size of read_buf, the unit of size is uint16_t
-
+    :   - **read\_buf** – application malloc buffer which save the current adc value
+        - **size** – the size of read\_buf, the unit of size is uint16\_t
         - **timeout** – adc read semaphore timeout
 
     返回
-    :   - BK_ERR_ADC_BUSY: ADC is busy
-
-        - BK_ERR_ADC_INVALID_MODE: ADC mode is invalid
-
-        - BK_ERR_ADC_SIZE_TOO_BIG: size is too big
-
+    :   - BK\_ERR\_ADC\_BUSY: ADC is busy
+        - BK\_ERR\_ADC\_INVALID\_MODE: ADC mode is invalid
+        - BK\_ERR\_ADC\_SIZE\_TOO\_BIG: size is too big
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_read(uint16_t *data, uint32_t timeout)[](#_CPPv411bk_adc_readP8uint16_t8uint32_t "永久链接至目标")
+<a id="_CPPv411bk_adc_readP8uint16_t8uint32_t"></a>
+
+<a id="_CPPv311bk_adc_readP8uint16_t8uint32_t"></a> <a id="_CPPv211bk_adc_readP8uint16_t8uint32_t"></a> <a id="bk_adc_read__uint16_tP.uint32_t"></a> <a id="group__bk__api__adc_1ga648053302fa9186907fc723c77b3f17f"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_read(uint16\_t \*data, uint32\_t timeout)
 :   Start read the average value of sampling data.
 
-
-    - BK_ERR_ADC_BUSY: ADC is busy
-
-    - BK_ERR_ADC_INVALID_MODE: ADC mode is invalid
-
+    - BK\_ERR\_ADC\_BUSY: ADC is busy
+    - BK\_ERR\_ADC\_INVALID\_MODE: ADC mode is invalid
     - others: other errors.
 
     参数
     :   - **data** – store the average value of all sample values in ADC software buffers
-
         - **timeout** – adc read semaphore timeout
 
     返回
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_register_isr([adc_isr_t](#_CPPv49adc_isr_t "adc_isr_t") isr, uint32_t param)[](#_CPPv419bk_adc_register_isr9adc_isr_t8uint32_t "永久链接至目标")
+<a id="_CPPv419bk_adc_register_isr9adc_isr_t8uint32_t"></a>
+
+<a id="_CPPv319bk_adc_register_isr9adc_isr_t8uint32_t"></a> <a id="_CPPv219bk_adc_register_isr9adc_isr_t8uint32_t"></a> <a id="bk_adc_register_isr__adc_isr_t.uint32_t"></a> <a id="group__bk__api__adc_1ga127f9b2b6913c420df064aa8f35dd679"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_register\_isr([adc\_isr\_t](#_CPPv49adc_isr_t "adc_isr_t") isr, uint32\_t param)
 :   Register the adc interrupt service routine.
 
     参数
     :   - **isr** – ADC intterrupt callback
-
         - **param** – ADC sample data size which depend on user
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_NOT_INIT: adc not init
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_NOT\_INIT: adc not init
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_clk([adc_src_clk_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src_clk, uint32_t clk)[](#_CPPv414bk_adc_set_clk13adc_src_clk_t8uint32_t "永久链接至目标")
+<a id="_CPPv414bk_adc_set_clk13adc_src_clk_t8uint32_t"></a>
+
+<a id="_CPPv314bk_adc_set_clk13adc_src_clk_t8uint32_t"></a> <a id="_CPPv214bk_adc_set_clk13adc_src_clk_t8uint32_t"></a> <a id="bk_adc_set_clk__adc_src_clk_t.uint32_t"></a> <a id="group__bk__api__adc_1ga6b62c0998f5a21a36e3b5d6e6a430b09"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_clk([adc\_src\_clk\_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src\_clk, uint32\_t clk)
 :   set ADC source clock and work frequence
 
     This API set adc clock source and frequence
 
     参数
-    :   - **src_clk** – adc source clock
-
+    :   - **src\_clk** – adc source clock
         - **clk** – adc work clock :adc clk
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_INVALID_SCLK_MODE: ADC source clock is invalid
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_INVALID\_SCLK\_MODE: ADC source clock is invalid
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_channel([adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") adc_id)[](#_CPPv418bk_adc_set_channel10adc_chan_t "永久链接至目标")
+<a id="_CPPv418bk_adc_set_channel10adc_chan_t"></a>
+
+<a id="_CPPv318bk_adc_set_channel10adc_chan_t"></a> <a id="_CPPv218bk_adc_set_channel10adc_chan_t"></a> <a id="bk_adc_set_channel__adc_chan_t"></a> <a id="group__bk__api__adc_1ga6bbf3cfb04b3864819eb8a85c325954e"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_channel([adc\_chan\_t](#_CPPv410adc_chan_t "adc_chan_t") adc\_id)
 :   set ADC work channel
 
     This API set adc work channel
 
     参数
-    :   **adc_id** – adc channel
+    :   **adc\_id** – adc channel
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_INVALID_ID: ADC invalid id
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_INVALID\_ID: ADC invalid id
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_rate(uint32_t sample_rate)[](#_CPPv422bk_adc_set_sample_rate8uint32_t "永久链接至目标")
+<a id="_CPPv422bk_adc_set_sample_rate8uint32_t"></a>
+
+<a id="_CPPv322bk_adc_set_sample_rate8uint32_t"></a> <a id="_CPPv222bk_adc_set_sample_rate8uint32_t"></a> <a id="bk_adc_set_sample_rate__uint32_t"></a> <a id="group__bk__api__adc_1ga8968ce1f7c61824cfdb967cddc3478f1"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_sample\_rate(uint32\_t sample\_rate)
 :   set ADC sample rate
 
-    This API set adc work sample rate, period = (16 + sample_rate)*adc_clk mcu output 16 adc_clks every period
+    This API set adc work sample rate, period \= (16 \+ sample\_rate)\*adc\_clk mcu output 16 adc\_clks every period
 
     参数
-    :   **sample_rate** – adc sample rate
+    :   **sample\_rate** – adc sample rate
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_filter(uint32_t filter)[](#_CPPv417bk_adc_set_filter8uint32_t "永久链接至目标")
+<a id="_CPPv417bk_adc_set_filter8uint32_t"></a>
+
+<a id="_CPPv317bk_adc_set_filter8uint32_t"></a> <a id="_CPPv217bk_adc_set_filter8uint32_t"></a> <a id="bk_adc_set_filter__uint32_t"></a> <a id="group__bk__api__adc_1ga51e961413bd4719c4c5986dad53841ca"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_filter(uint32\_t filter)
 :   set ADC filter
 
-    This API set adc filter, the value default < 64, data output rate = period/(filter + 1)
+    This API set adc filter, the value default \< 64, data output rate \= period/(filter \+ 1\)
 
     参数
     :   **filter** – adc filter
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_steady_time(uint32_t steady_ctrl)[](#_CPPv422bk_adc_set_steady_time8uint32_t "永久链接至目标")
+<a id="_CPPv422bk_adc_set_steady_time8uint32_t"></a>
+
+<a id="_CPPv322bk_adc_set_steady_time8uint32_t"></a> <a id="_CPPv222bk_adc_set_steady_time8uint32_t"></a> <a id="bk_adc_set_steady_time__uint32_t"></a> <a id="group__bk__api__adc_1ga313e473f2d3e33d19e6378ba095c6122"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_steady\_time(uint32\_t steady\_ctrl)
 :   set ADC steady time
 
-    This API set adc filter, adc wait (steady_ctrl +1)*8 adc_clks to send valid
+    This API set adc filter, adc wait (steady\_ctrl \+1)\*8 adc\_clks to send valid
 
     参数
-    :   **steady_ctrl** – adc steady time
+    :   **steady\_ctrl** – adc steady time
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_sample_cnt(uint32_t cnt)[](#_CPPv421bk_adc_set_sample_cnt8uint32_t "永久链接至目标")
+<a id="_CPPv421bk_adc_set_sample_cnt8uint32_t"></a>
+
+<a id="_CPPv321bk_adc_set_sample_cnt8uint32_t"></a> <a id="_CPPv221bk_adc_set_sample_cnt8uint32_t"></a> <a id="bk_adc_set_sample_cnt__uint32_t"></a> <a id="group__bk__api__adc_1gaa8eca5b05e2e634defd34861c3475c7f"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_sample\_cnt(uint32\_t cnt)
 :   set ADC sample cnt
 
-    This API sets ADC sample cnt per-interrupt, the ADC raises the interrupt when every time it samples number of cnt times. The maximum value of cnt is 32.
+    This API sets ADC sample cnt per-interrupt, the ADC raises the interrupt when every time it samples number of cnt times. The maximum value of cnt is 32\.
 
     参数
     :   **cnt** – per-interrupt sample cnt
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_saturate_mode([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") mode)[](#_CPPv424bk_adc_set_saturate_mode19adc_saturate_mode_t "永久链接至目标")
+<a id="_CPPv424bk_adc_set_saturate_mode19adc_saturate_mode_t"></a>
+
+<a id="_CPPv324bk_adc_set_saturate_mode19adc_saturate_mode_t"></a> <a id="_CPPv224bk_adc_set_saturate_mode19adc_saturate_mode_t"></a> <a id="bk_adc_set_saturate_mode__adc_saturate_mode_t"></a> <a id="group__bk__api__adc_1ga76871725d13d595bb993ad31ecc0e855"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_saturate\_mode([adc\_saturate\_mode\_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") mode)
 :   set adc saturate
 
-    This API set adc saturate, auto process adc fifo data in cpu ,just get the data from reg ADC_DATA_16
+    This API set adc saturate, auto process adc fifo data in cpu ,just get the data from reg ADC\_DATA\_16
 
     参数
     :   **mode** – adc saturate
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_get_saturate([adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") *mode)[](#_CPPv419bk_adc_get_saturateP19adc_saturate_mode_t "永久链接至目标")
+<a id="_CPPv419bk_adc_get_saturateP19adc_saturate_mode_t"></a>
+
+<a id="_CPPv319bk_adc_get_saturateP19adc_saturate_mode_t"></a> <a id="_CPPv219bk_adc_get_saturateP19adc_saturate_mode_t"></a> <a id="bk_adc_get_saturate__adc_saturate_mode_tP"></a> <a id="group__bk__api__adc_1gad7b6ea9ea20167759fd1713ab4275dbc"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_get\_saturate([adc\_saturate\_mode\_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") \*mode)
 :   get adc saturate
 
     This API get adc saturate
 
     返回
-    :   - adc_saturate_mode_t: adc saturate mode
+    :   - adc\_saturate\_mode\_t: adc saturate mode
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_enable_bypass_clalibration(void)[](#_CPPv433bk_adc_enable_bypass_clalibrationv "永久链接至目标")
+<a id="_CPPv433bk_adc_enable_bypass_clalibrationv"></a>
+
+<a id="_CPPv333bk_adc_enable_bypass_clalibrationv"></a> <a id="_CPPv233bk_adc_enable_bypass_clalibrationv"></a> <a id="bk_adc_enable_bypass_clalibration__void"></a> <a id="group__bk__api__adc_1ga0657e69221bb57e9c10af2b6ce929899"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_enable\_bypass\_clalibration(void)
 :   enable ADC bypass calibration
 
     返回
-    :   - BK_OK: succeed
+    :   - BK\_OK: succeed
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_disable_bypass_clalibration(void)[](#_CPPv434bk_adc_disable_bypass_clalibrationv "永久链接至目标")
+<a id="_CPPv434bk_adc_disable_bypass_clalibrationv"></a>
+
+<a id="_CPPv334bk_adc_disable_bypass_clalibrationv"></a> <a id="_CPPv234bk_adc_disable_bypass_clalibrationv"></a> <a id="bk_adc_disable_bypass_clalibration__void"></a> <a id="group__bk__api__adc_1ga41d941cee2d5a3461e37baeb4f0b1272"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_disable\_bypass\_clalibration(void)
 :   disable ADC bypass calibration
 
     返回
-    :   - BK_OK: succeed
+    :   - BK\_OK: succeed
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_config([adc_config_t](#_CPPv412adc_config_t "adc_config_t") *config)[](#_CPPv417bk_adc_set_configP12adc_config_t "永久链接至目标")
+<a id="_CPPv417bk_adc_set_configP12adc_config_t"></a>
+
+<a id="_CPPv317bk_adc_set_configP12adc_config_t"></a> <a id="_CPPv217bk_adc_set_configP12adc_config_t"></a> <a id="bk_adc_set_config__adc_config_tP"></a> <a id="group__bk__api__adc_1ga90a99d57dfe3020a02fb9d9e96f2c6db"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_config([adc\_config\_t](#_CPPv412adc_config_t "adc_config_t") \*config)
 :   adc set config
 
     This API config adc params
@@ -374,19 +385,16 @@ Beken chip supports get every adc channel value function for user.
     :   **config** – adc parameter settings
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_NULL_PARAM : param is null
-
-        - BK_ERR_ADC_INVALID_MODE:adc invalid mode
-
-        - BK_ERR_ADC_INVALID_SCLK_MODE: ADC source clock is invalid
-
-        - BK_ERR_ADC_INVALID_ID: ADC id is invalid
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_NULL\_PARAM : param is null
+        - BK\_ERR\_ADC\_INVALID\_MODE:adc invalid mode
+        - BK\_ERR\_ADC\_INVALID\_SCLK\_MODE: ADC source clock is invalid
+        - BK\_ERR\_ADC\_INVALID\_ID: ADC id is invalid
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_adc_set_mode([adc_mode_t](#_CPPv410adc_mode_t "adc_mode_t") adc_mode)[](#_CPPv415bk_adc_set_mode10adc_mode_t "永久链接至目标")
+<a id="_CPPv415bk_adc_set_mode10adc_mode_t"></a>
+
+<a id="_CPPv315bk_adc_set_mode10adc_mode_t"></a> <a id="_CPPv215bk_adc_set_mode10adc_mode_t"></a> <a id="bk_adc_set_mode__adc_mode_t"></a> <a id="group__bk__api__adc_1ga4c279ac3f55d129745f1ecd81230f9af"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_adc\_set\_mode([adc\_mode\_t](#_CPPv410adc_mode_t "adc_mode_t") adc\_mode)
 :   adc set mode
 
     This API config adc mode
@@ -394,226 +402,364 @@ Beken chip supports get every adc channel value function for user.
     参数
     :   **mode** – : adc mode:
 
-
         - 0: sleep mode: adc is power down in this mode
-
         - 1: single step mode: adc finish sample data convesion once after enable adc and wait mcu to read sample data. The mode will turn to sleep mode after mcu read this sample date It must be enabled again when you want to sample next data.
-
         - 2: software control mode: adc gengerate interrupt after sample data convesion wait mcu to read sample data. adc will convert sample data after mcu reading this sample date from data register and software cleaning int flag.
-
-        - 3: continous mode:adc wait adc_setting time to sample data, and generate int flag after finish sample data convesion, then always repeat last sample way. This mode don’t depend on muc reading data register.
+        - 3: continous mode:adc wait adc\_setting time to sample data, and generate int flag after finish sample data convesion, then always repeat last sample way. This mode don’t depend on muc reading data register.
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_ADC_INVALID_MODE:adc invalid mode
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_ADC\_INVALID\_MODE:adc invalid mode
         - others: other errors.
 
-[adc_mode_t](#_CPPv410adc_mode_t "adc_mode_t") bk_adc_get_mode(void)[](#_CPPv415bk_adc_get_modev "永久链接至目标")
+<a id="_CPPv415bk_adc_get_modev"></a>
+
+<a id="_CPPv315bk_adc_get_modev"></a> <a id="_CPPv215bk_adc_get_modev"></a> <a id="bk_adc_get_mode__void"></a> <a id="group__bk__api__adc_1ga66a8f42fe602d669b99c568eadfd4506"></a> [adc\_mode\_t](#_CPPv410adc_mode_t "adc_mode_t") bk\_adc\_get\_mode(void)
 :   get adc mode
 
     This API get adc work mode
 
     返回
-    :   - adc_mode_t: adc_mode
+    :   - adc\_mode\_t: adc\_mode
 
+<a id="adc-api-typedefs"></a>
 
-## ADC API Typedefs[](#adc-api-typedefs "永久链接至标题")
+## ADC API Typedefs
 
+<a id="id1"></a>
 
-### Header File[](#id1 "永久链接至标题")
+### Header File
 
+- [adc\_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc_types.h)
 
-- [adc_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc_types.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/adc_types.h")
+<a id="macros"></a>
 
+### Macros
 
-### Macros[](#macros "永久链接至标题")
+<a id="c.BK_ERR_ADC_NOT_INIT"></a>
 
-BK_ERR_ADC_NOT_INIT[](#c.BK_ERR_ADC_NOT_INIT "永久链接至目标")
+<a id="group__bk__api__adc__defs_1ga350f0dde45b4a51614db477f64b48353"></a> BK\_ERR\_ADC\_NOT\_INIT
 :   ADC driver not init
 
-BK_ERR_ADC_INVALID_CHAN[](#c.BK_ERR_ADC_INVALID_CHAN "永久链接至目标")
+<a id="c.BK_ERR_ADC_INVALID_CHAN"></a>
+
+<a id="group__bk__api__adc__defs_1ga0c3d590294f1e20ea111ea721a0daf83"></a> BK\_ERR\_ADC\_INVALID\_CHAN
 :   ADC chan number is invalid
 
-BK_ERR_ADC_BUSY[](#c.BK_ERR_ADC_BUSY "永久链接至目标")
+<a id="c.BK_ERR_ADC_BUSY"></a>
+
+<a id="group__bk__api__adc__defs_1gafef8ce1c14945a1213248b17fa61f675"></a> BK\_ERR\_ADC\_BUSY
 :   ADC channel is busy
 
-BK_ERR_ADC_INVALID_MODE[](#c.BK_ERR_ADC_INVALID_MODE "永久链接至目标")
+<a id="c.BK_ERR_ADC_INVALID_MODE"></a>
+
+<a id="group__bk__api__adc__defs_1gae1993ad295e7e596d84e508581cffaa2"></a> BK\_ERR\_ADC\_INVALID\_MODE
 :   ADC invalid mode
 
-BK_ERR_ADC_CHAN_NOT_INIT[](#c.BK_ERR_ADC_CHAN_NOT_INIT "永久链接至目标")
+<a id="c.BK_ERR_ADC_CHAN_NOT_INIT"></a>
+
+<a id="group__bk__api__adc__defs_1ga8dfcab3444843e3ab071edf63de2cf8b"></a> BK\_ERR\_ADC\_CHAN\_NOT\_INIT
 :   ADC chan not init
 
-BK_ERR_ADC_INVALID_SCLK_MODE[](#c.BK_ERR_ADC_INVALID_SCLK_MODE "永久链接至目标")
+<a id="c.BK_ERR_ADC_INVALID_SCLK_MODE"></a>
+
+<a id="group__bk__api__adc__defs_1gae84ab7f2ec81ab02d23182e1e1eddca1"></a> BK\_ERR\_ADC\_INVALID\_SCLK\_MODE
 :   ADC no such source clock
 
-BK_ERR_ADC_INIT_MUTEX[](#c.BK_ERR_ADC_INIT_MUTEX "永久链接至目标")
+<a id="c.BK_ERR_ADC_INIT_MUTEX"></a>
+
+<a id="group__bk__api__adc__defs_1gaf7ab363e33889917104dfcaf62c921bc"></a> BK\_ERR\_ADC\_INIT\_MUTEX
 :   ADC mutex lock
 
-BK_ERR_ADC_GET_READ_SEMA[](#c.BK_ERR_ADC_GET_READ_SEMA "永久链接至目标")
+<a id="c.BK_ERR_ADC_GET_READ_SEMA"></a>
+
+<a id="group__bk__api__adc__defs_1ga5ffe8762f3bf5d19d649908a51de76af"></a> BK\_ERR\_ADC\_GET\_READ\_SEMA
 :   ADC get semaphore error
 
-BK_ERR_ADC_INIT_READ_SEMA[](#c.BK_ERR_ADC_INIT_READ_SEMA "永久链接至目标")
+<a id="c.BK_ERR_ADC_INIT_READ_SEMA"></a>
+
+<a id="group__bk__api__adc__defs_1ga9abd36057cd64cba90f90a528d9bc41b"></a> BK\_ERR\_ADC\_INIT\_READ\_SEMA
 :   ADC read data error
 
-BK_ERR_ADC_SIZE_TOO_BIG[](#c.BK_ERR_ADC_SIZE_TOO_BIG "永久链接至目标")
+<a id="c.BK_ERR_ADC_SIZE_TOO_BIG"></a>
+
+<a id="group__bk__api__adc__defs_1gafaaecb00e1127f8e5ef834e5d9a728d4"></a> BK\_ERR\_ADC\_SIZE\_TOO\_BIG
 :   ADC read size is bigger than adc driver buffer size
 
-CONFIG_ADC_BUF_SIZE[](#c.CONFIG_ADC_BUF_SIZE "永久链接至目标")
+<a id="c.CONFIG_ADC_BUF_SIZE"></a>
 
+<a id="group__bk__api__adc__defs_1ga274c074e9d56014405a269a629583af7"></a> CONFIG\_ADC\_BUF\_SIZE
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+<a id="type-definitions"></a>
 
-typedef void (*adc_isr_t)(uint32_t param)[](#_CPPv49adc_isr_t "永久链接至目标")
+### Type Definitions
+
+<a id="_CPPv49adc_isr_t"></a>
+
+<a id="_CPPv39adc_isr_t"></a> <a id="_CPPv29adc_isr_t"></a> <a id="adc_isr_t"></a> <a id="group__bk__api__adc__defs_1ga8f1bfab940d8981e83e9be5c55103fbb"></a> typedef void (\*adc\_isr\_t)(uint32\_t param)
 :   ADC interrupt service routine.
 
+<a id="id2"></a>
 
-### Header File[](#id2 "永久链接至标题")
+### Header File
 
+- [hal/hal\_adc\_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/hal/hal_adc_types.h)
 
-- [hal/hal_adc_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/hal/hal_adc_types.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/hal/hal_adc_types.h")
+<a id="structures"></a>
 
+### Structures
 
-### Structures[](#structures "永久链接至标题")
+<a id="_CPPv412adc_config_t"></a>
 
-struct adc_config_t[](#_CPPv412adc_config_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv312adc_config_t"></a> <a id="_CPPv212adc_config_t"></a> <a id="adc_config_t"></a> <a id="structadc__config__t"></a> struct adc\_config\_t
+:   <a id="breathe-section-title-public-members"></a>
 
-    uint32_t clk[](#_CPPv4N12adc_config_t3clkE "永久链接至目标")
-    :   ADC sample clock division: adc_clk=clk/[2*(pre_div +1)]
+    Public Members
 
-    uint32_t sample_rate[](#_CPPv4N12adc_config_t11sample_rateE "永久链接至目标")
-    :   ADC sample rate, every period ouput 16 adc_clks in continuous mode period = (16+samp_rate)*adc_clk
+    <a id="_CPPv4N12adc_config_t3clkE"></a>
 
-    uint32_t adc_filter[](#_CPPv4N12adc_config_t10adc_filterE "永久链接至目标")
-    :   ADC filter: the output data rate = period/(adc_filter +1)
+    <a id="_CPPv3N12adc_config_t3clkE"></a> <a id="_CPPv2N12adc_config_t3clkE"></a> <a id="adc_config_t::clk__uint32_t"></a> <a id="structadc__config__t_1af0b68a20a8a2316501f80cdcc42e376d"></a> uint32\_t clk
+    :   ADC sample clock division: adc\_clk\=clk/\[2\*(pre\_div \+1)\]
 
-    uint32_t steady_ctrl[](#_CPPv4N12adc_config_t11steady_ctrlE "永久链接至目标")
-    :   ADC steady_ctrl : steady time = (steady_ctrl +1)*8 adc_clk
+    <a id="_CPPv4N12adc_config_t11sample_rateE"></a>
 
-    [adc_mode_t](#_CPPv410adc_mode_t "adc_mode_t") adc_mode[](#_CPPv4N12adc_config_t8adc_modeE "永久链接至目标")
+    <a id="_CPPv3N12adc_config_t11sample_rateE"></a> <a id="_CPPv2N12adc_config_t11sample_rateE"></a> <a id="adc_config_t::sample_rate__uint32_t"></a> <a id="structadc__config__t_1abb995fe6c62563de88fbff31fb4a7222"></a> uint32\_t sample\_rate
+    :   ADC sample rate, every period ouput 16 adc\_clks in continuous mode period \= (16\+samp\_rate)\*adc\_clk
+
+    <a id="_CPPv4N12adc_config_t10adc_filterE"></a>
+
+    <a id="_CPPv3N12adc_config_t10adc_filterE"></a> <a id="_CPPv2N12adc_config_t10adc_filterE"></a> <a id="adc_config_t::adc_filter__uint32_t"></a> <a id="structadc__config__t_1a93db228d9839ed42f03e1ccf508f8aab"></a> uint32\_t adc\_filter
+    :   ADC filter: the output data rate \= period/(adc\_filter \+1)
+
+    <a id="_CPPv4N12adc_config_t11steady_ctrlE"></a>
+
+    <a id="_CPPv3N12adc_config_t11steady_ctrlE"></a> <a id="_CPPv2N12adc_config_t11steady_ctrlE"></a> <a id="adc_config_t::steady_ctrl__uint32_t"></a> <a id="structadc__config__t_1adff3f8a8b72393ba4245a3df336d4d68"></a> uint32\_t steady\_ctrl
+    :   ADC steady\_ctrl : steady time \= (steady\_ctrl \+1)\*8 adc\_clk
+
+    <a id="_CPPv4N12adc_config_t8adc_modeE"></a>
+
+    <a id="_CPPv3N12adc_config_t8adc_modeE"></a> <a id="_CPPv2N12adc_config_t8adc_modeE"></a> <a id="adc_config_t::adc_mode__adc_mode_t"></a> <a id="structadc__config__t_1a05418731a8959fe4a90a5734e7badabc"></a> [adc\_mode\_t](#_CPPv410adc_mode_t "adc_mode_t") adc\_mode
     :   ADC mode set
 
-    [adc_src_clk_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src_clk[](#_CPPv4N12adc_config_t7src_clkE "永久链接至目标")
+    <a id="_CPPv4N12adc_config_t7src_clkE"></a>
+
+    <a id="_CPPv3N12adc_config_t7src_clkE"></a> <a id="_CPPv2N12adc_config_t7src_clkE"></a> <a id="adc_config_t::src_clk__adc_src_clk_t"></a> <a id="structadc__config__t_1a5ce7fc423f75706d114b59e544e1e997"></a> [adc\_src\_clk\_t](#_CPPv413adc_src_clk_t "adc_src_clk_t") src\_clk
     :   ADC source clcok choose
 
-    [adc_chan_t](#_CPPv410adc_chan_t "adc_chan_t") chan[](#_CPPv4N12adc_config_t4chanE "永久链接至目标")
+    <a id="_CPPv4N12adc_config_t4chanE"></a>
+
+    <a id="_CPPv3N12adc_config_t4chanE"></a> <a id="_CPPv2N12adc_config_t4chanE"></a> <a id="adc_config_t::chan__adc_chan_t"></a> <a id="structadc__config__t_1ace079218c300783ed088479feb849005"></a> [adc\_chan\_t](#_CPPv410adc_chan_t "adc_chan_t") chan
     :   ADC work channel
 
-    [adc_saturate_mode_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") saturate_mode[](#_CPPv4N12adc_config_t13saturate_modeE "永久链接至目标")
-    :   ADC saturate_mode
+    <a id="_CPPv4N12adc_config_t13saturate_modeE"></a>
 
-    uint32_t is_open[](#_CPPv4N12adc_config_t7is_openE "永久链接至目标")
+    <a id="_CPPv3N12adc_config_t13saturate_modeE"></a> <a id="_CPPv2N12adc_config_t13saturate_modeE"></a> <a id="adc_config_t::saturate_mode__adc_saturate_mode_t"></a> <a id="structadc__config__t_1a17af80ccd84d7975291d40a295c667aa"></a> [adc\_saturate\_mode\_t](#_CPPv419adc_saturate_mode_t "adc_saturate_mode_t") saturate\_mode
+    :   ADC saturate\_mode
+
+    <a id="_CPPv4N12adc_config_t7is_openE"></a>
+
+    <a id="_CPPv3N12adc_config_t7is_openE"></a> <a id="_CPPv2N12adc_config_t7is_openE"></a> <a id="adc_config_t::is_open__uint32_t"></a> <a id="structadc__config__t_1ab6d1bb5689d757bf606d55c22ed20df5"></a> uint32\_t is\_open
     :   ADC channel is open or not
 
-    uint16_t *output_buf[](#_CPPv4N12adc_config_t10output_bufE "永久链接至目标")
+    <a id="_CPPv4N12adc_config_t10output_bufE"></a>
+
+    <a id="_CPPv3N12adc_config_t10output_bufE"></a> <a id="_CPPv2N12adc_config_t10output_bufE"></a> <a id="adc_config_t::output_buf__uint16_tP"></a> <a id="structadc__config__t_1ac2c8808df59a2b21970da040a26504b0"></a> uint16\_t \*output\_buf
     :   ADC channel output buffer
 
-    int32_t output_buf_len[](#_CPPv4N12adc_config_t14output_buf_lenE "永久链接至目标")
+    <a id="_CPPv4N12adc_config_t14output_buf_lenE"></a>
+
+    <a id="_CPPv3N12adc_config_t14output_buf_lenE"></a> <a id="_CPPv2N12adc_config_t14output_buf_lenE"></a> <a id="adc_config_t::output_buf_len__int32_t"></a> <a id="structadc__config__t_1a80c54bd7fa448065048b8705f4726030"></a> int32\_t output\_buf\_len
     :   ADC channel output buffer length
 
-struct adc_gpio_map_t[](#_CPPv414adc_gpio_map_t "永久链接至目标")
+<a id="_CPPv414adc_gpio_map_t"></a>
 
+<a id="_CPPv314adc_gpio_map_t"></a> <a id="_CPPv214adc_gpio_map_t"></a> <a id="adc_gpio_map_t"></a> <a id="structadc__gpio__map__t"></a> struct adc\_gpio\_map\_t
 
-### Macros[](#id3 "永久链接至标题")
+<a id="id3"></a>
 
-CONFIG_ADC_STATIS[](#c.CONFIG_ADC_STATIS "永久链接至目标")
+### Macros
 
-ADC_ACURACY_10_BIT[](#c.ADC_ACURACY_10_BIT "永久链接至目标")
+<a id="c.CONFIG_ADC_STATIS"></a>
 
-ADC_ACURACY_12_BIT[](#c.ADC_ACURACY_12_BIT "永久链接至目标")
+<a id="hal__adc__types_8h_1a90244032a35b93d9f0575e29f202a622"></a> CONFIG\_ADC\_STATIS
 
-ADC_READ_SEMAPHORE_WAIT_TIME[](#c.ADC_READ_SEMAPHORE_WAIT_TIME "永久链接至目标")
+<a id="c.ADC_ACURACY_10_BIT"></a>
 
-ADC_SRC_DCO_CLK[](#c.ADC_SRC_DCO_CLK "永久链接至目标")
+<a id="group__bk__api__adc__defs_1ga2a88682036d2ab2c1d40c1e6ab57e7d8"></a> ADC\_ACURACY\_10\_BIT
 
-ADC_SRC_DPLL_CLK[](#c.ADC_SRC_DPLL_CLK "永久链接至目标")
+<a id="c.ADC_ACURACY_12_BIT"></a>
 
-ADC_SRC_26M_CLK[](#c.ADC_SRC_26M_CLK "永久链接至目标")
+<a id="group__bk__api__adc__defs_1ga02d4ff8893fa30cbdb57de3817ac93f7"></a> ADC\_ACURACY\_12\_BIT
 
-ADC_SRC_32M_CLK[](#c.ADC_SRC_32M_CLK "永久链接至目标")
+<a id="c.ADC_READ_SEMAPHORE_WAIT_TIME"></a>
 
-ADC_FIFO_LEVEL_MAX[](#c.ADC_FIFO_LEVEL_MAX "永久链接至目标")
+<a id="group__bk__api__adc__defs_1gaf8907bd90fcc2ff383673953fc9a615e"></a> ADC\_READ\_SEMAPHORE\_WAIT\_TIME
 
+<a id="c.ADC_SRC_DCO_CLK"></a>
 
-### Enumerations[](#enumerations "永久链接至标题")
+<a id="group__bk__api__adc__defs_1gaf045e0adda21dd020ca5c46fa1f78500"></a> ADC\_SRC\_DCO\_CLK
 
-enum adc_src_clk_t[](#_CPPv413adc_src_clk_t "永久链接至目标")
+<a id="c.ADC_SRC_DPLL_CLK"></a>
+
+<a id="group__bk__api__adc__defs_1ga738a619dbc2e8945e931dbab272ffaee"></a> ADC\_SRC\_DPLL\_CLK
+
+<a id="c.ADC_SRC_26M_CLK"></a>
+
+<a id="group__bk__api__adc__defs_1ga55383acb27379f77d2c4bebb6313912e"></a> ADC\_SRC\_26M\_CLK
+
+<a id="c.ADC_SRC_32M_CLK"></a>
+
+<a id="group__bk__api__adc__defs_1ga46fe6b556bf3f5f5d313ff5204791b92"></a> ADC\_SRC\_32M\_CLK
+
+<a id="c.ADC_FIFO_LEVEL_MAX"></a>
+
+<a id="group__bk__api__adc__defs_1gab4e15d68d8022fe5504e274fe43dab29"></a> ADC\_FIFO\_LEVEL\_MAX
+
+<a id="enumerations"></a>
+
+### Enumerations
+
+<a id="_CPPv413adc_src_clk_t"></a>
+
+<a id="_CPPv313adc_src_clk_t"></a> <a id="_CPPv213adc_src_clk_t"></a> <a id="group__bk__api__adc__enum_1gac2b917bbd3309983d6399fd5f850eae2"></a> enum adc\_src\_clk\_t
 :   *Values:*
 
-    enumerator ADC_SCLK_DCO[](#_CPPv4N13adc_src_clk_t12ADC_SCLK_DCOE "永久链接至目标")
+    <a id="_CPPv4N13adc_src_clk_t12ADC_SCLK_DCOE"></a>
+
+    <a id="_CPPv3N13adc_src_clk_t12ADC_SCLK_DCOE"></a> <a id="_CPPv2N13adc_src_clk_t12ADC_SCLK_DCOE"></a> <a id="group__bk__api__adc__enum_1ggac2b917bbd3309983d6399fd5f850eae2a08a9fa1307f766f2dd174befd429b49b"></a> enumerator ADC\_SCLK\_DCO
     :   ADC source clock dco
 
-    enumerator ADC_SCLK_XTAL_26M[](#_CPPv4N13adc_src_clk_t17ADC_SCLK_XTAL_26ME "永久链接至目标")
+    <a id="_CPPv4N13adc_src_clk_t17ADC_SCLK_XTAL_26ME"></a>
+
+    <a id="_CPPv3N13adc_src_clk_t17ADC_SCLK_XTAL_26ME"></a> <a id="_CPPv2N13adc_src_clk_t17ADC_SCLK_XTAL_26ME"></a> <a id="group__bk__api__adc__enum_1ggac2b917bbd3309983d6399fd5f850eae2a83d5b3d6c70e0fcfafaf1159a03e064b"></a> enumerator ADC\_SCLK\_XTAL\_26M
     :   ADC source clock xtal 26M
 
-    enumerator ADC_SCLK_DPLL[](#_CPPv4N13adc_src_clk_t13ADC_SCLK_DPLLE "永久链接至目标")
+    <a id="_CPPv4N13adc_src_clk_t13ADC_SCLK_DPLLE"></a>
+
+    <a id="_CPPv3N13adc_src_clk_t13ADC_SCLK_DPLLE"></a> <a id="_CPPv2N13adc_src_clk_t13ADC_SCLK_DPLLE"></a> <a id="group__bk__api__adc__enum_1ggac2b917bbd3309983d6399fd5f850eae2a4596be204b310c9feb998c1c2bf680db"></a> enumerator ADC\_SCLK\_DPLL
     :   ADC source clock dpll
 
-    enumerator ADC_SCLK_32M[](#_CPPv4N13adc_src_clk_t12ADC_SCLK_32ME "永久链接至目标")
+    <a id="_CPPv4N13adc_src_clk_t12ADC_SCLK_32ME"></a>
+
+    <a id="_CPPv3N13adc_src_clk_t12ADC_SCLK_32ME"></a> <a id="_CPPv2N13adc_src_clk_t12ADC_SCLK_32ME"></a> <a id="group__bk__api__adc__enum_1ggac2b917bbd3309983d6399fd5f850eae2ae50c0be0103fa72de108028913f09443"></a> enumerator ADC\_SCLK\_32M
     :   ADC source clock 32M
 
-    enumerator ADC_SCLK_NONE[](#_CPPv4N13adc_src_clk_t13ADC_SCLK_NONEE "永久链接至目标")
+    <a id="_CPPv4N13adc_src_clk_t13ADC_SCLK_NONEE"></a>
+
+    <a id="_CPPv3N13adc_src_clk_t13ADC_SCLK_NONEE"></a> <a id="_CPPv2N13adc_src_clk_t13ADC_SCLK_NONEE"></a> <a id="group__bk__api__adc__enum_1ggac2b917bbd3309983d6399fd5f850eae2ac692c76705bc66f6e8966f85ac3f7ef3"></a> enumerator ADC\_SCLK\_NONE
     :   ADC has not such source clock
 
-enum adc_mode_t[](#_CPPv410adc_mode_t "永久链接至目标")
+<a id="_CPPv410adc_mode_t"></a>
+
+<a id="_CPPv310adc_mode_t"></a> <a id="_CPPv210adc_mode_t"></a> <a id="group__bk__api__adc__enum_1ga760a8dafdcddcfadfea0aa3e01159164"></a> enum adc\_mode\_t
 :   *Values:*
 
-    enumerator ADC_SLEEP_MODE[](#_CPPv4N10adc_mode_t14ADC_SLEEP_MODEE "永久链接至目标")
+    <a id="_CPPv4N10adc_mode_t14ADC_SLEEP_MODEE"></a>
+
+    <a id="_CPPv3N10adc_mode_t14ADC_SLEEP_MODEE"></a> <a id="_CPPv2N10adc_mode_t14ADC_SLEEP_MODEE"></a> <a id="group__bk__api__adc__enum_1gga760a8dafdcddcfadfea0aa3e01159164a35fd0f9784510f4d64ec80b1c5bdea7e"></a> enumerator ADC\_SLEEP\_MODE
     :   ADC sleep mode
 
-    enumerator ADC_SINGLE_STEP_MODE[](#_CPPv4N10adc_mode_t20ADC_SINGLE_STEP_MODEE "永久链接至目标")
+    <a id="_CPPv4N10adc_mode_t20ADC_SINGLE_STEP_MODEE"></a>
+
+    <a id="_CPPv3N10adc_mode_t20ADC_SINGLE_STEP_MODEE"></a> <a id="_CPPv2N10adc_mode_t20ADC_SINGLE_STEP_MODEE"></a> <a id="group__bk__api__adc__enum_1gga760a8dafdcddcfadfea0aa3e01159164a6f76882b6c8e57b4f690bdc0adf5ce7f"></a> enumerator ADC\_SINGLE\_STEP\_MODE
     :   ADC single step mode
 
-    enumerator ADC_SOFTWARE_CONTRL_MODE[](#_CPPv4N10adc_mode_t24ADC_SOFTWARE_CONTRL_MODEE "永久链接至目标")
+    <a id="_CPPv4N10adc_mode_t24ADC_SOFTWARE_CONTRL_MODEE"></a>
+
+    <a id="_CPPv3N10adc_mode_t24ADC_SOFTWARE_CONTRL_MODEE"></a> <a id="_CPPv2N10adc_mode_t24ADC_SOFTWARE_CONTRL_MODEE"></a> <a id="group__bk__api__adc__enum_1gga760a8dafdcddcfadfea0aa3e01159164aa8d0f586eb7153600330be62df83b13d"></a> enumerator ADC\_SOFTWARE\_CONTRL\_MODE
     :   ADC software control mode
 
-    enumerator ADC_CONTINUOUS_MODE[](#_CPPv4N10adc_mode_t19ADC_CONTINUOUS_MODEE "永久链接至目标")
+    <a id="_CPPv4N10adc_mode_t19ADC_CONTINUOUS_MODEE"></a>
+
+    <a id="_CPPv3N10adc_mode_t19ADC_CONTINUOUS_MODEE"></a> <a id="_CPPv2N10adc_mode_t19ADC_CONTINUOUS_MODEE"></a> <a id="group__bk__api__adc__enum_1gga760a8dafdcddcfadfea0aa3e01159164ae2a4cdf355c05733b7d576963c9100c0"></a> enumerator ADC\_CONTINUOUS\_MODE
     :   ADC continuous mode
 
-    enumerator ADC_NONE_MODE[](#_CPPv4N10adc_mode_t13ADC_NONE_MODEE "永久链接至目标")
+    <a id="_CPPv4N10adc_mode_t13ADC_NONE_MODEE"></a>
 
-enum adc_chan_t[](#_CPPv410adc_chan_t "永久链接至目标")
+    <a id="_CPPv3N10adc_mode_t13ADC_NONE_MODEE"></a> <a id="_CPPv2N10adc_mode_t13ADC_NONE_MODEE"></a> <a id="group__bk__api__adc__enum_1gga760a8dafdcddcfadfea0aa3e01159164ab7be33f484976aeae6dc7d48ee29cca2"></a> enumerator ADC\_NONE\_MODE
+
+<a id="_CPPv410adc_chan_t"></a>
+
+<a id="_CPPv310adc_chan_t"></a> <a id="_CPPv210adc_chan_t"></a> <a id="group__bk__api__adc__enum_1ga1e38e6e0ab10be4c51bbb48d72e3bad3"></a> enum adc\_chan\_t
 :   *Values:*
 
-    enumerator ADC_1[](#_CPPv4N10adc_chan_t5ADC_1E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_1E"></a>
 
-    enumerator ADC_2[](#_CPPv4N10adc_chan_t5ADC_2E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_1E"></a> <a id="_CPPv2N10adc_chan_t5ADC_1E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3ac7f9ee52a56e7cb14a6f4ab1104436a1"></a> enumerator ADC\_1
 
-    enumerator ADC_3[](#_CPPv4N10adc_chan_t5ADC_3E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_2E"></a>
 
-    enumerator ADC_4[](#_CPPv4N10adc_chan_t5ADC_4E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_2E"></a> <a id="_CPPv2N10adc_chan_t5ADC_2E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a9b15ce3dc96b90458f5c3a1c8e05f8e6"></a> enumerator ADC\_2
 
-    enumerator ADC_5[](#_CPPv4N10adc_chan_t5ADC_5E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_3E"></a>
 
-    enumerator ADC_6[](#_CPPv4N10adc_chan_t5ADC_6E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_3E"></a> <a id="_CPPv2N10adc_chan_t5ADC_3E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3ae2c2b7b21e22e66c73894b8b1423b332"></a> enumerator ADC\_3
 
-    enumerator ADC_7[](#_CPPv4N10adc_chan_t5ADC_7E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_4E"></a>
 
-    enumerator ADC_8[](#_CPPv4N10adc_chan_t5ADC_8E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_4E"></a> <a id="_CPPv2N10adc_chan_t5ADC_4E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a02dd8ff053e7f4a2e090b55f4cab2238"></a> enumerator ADC\_4
 
-    enumerator ADC_9[](#_CPPv4N10adc_chan_t5ADC_9E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_5E"></a>
 
-    enumerator ADC_10[](#_CPPv4N10adc_chan_t6ADC_10E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_5E"></a> <a id="_CPPv2N10adc_chan_t5ADC_5E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a2fff1c2f268d83011737ff7ac38370c0"></a> enumerator ADC\_5
 
-    enumerator ADC_11[](#_CPPv4N10adc_chan_t6ADC_11E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_6E"></a>
 
-    enumerator ADC_12[](#_CPPv4N10adc_chan_t6ADC_12E "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_6E"></a> <a id="_CPPv2N10adc_chan_t5ADC_6E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a76a5bdfd79c729ab14b6cf77498e75fc"></a> enumerator ADC\_6
 
-    enumerator ADC_13[](#_CPPv4N10adc_chan_t6ADC_13E "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_7E"></a>
 
-    enumerator ADC_MAX[](#_CPPv4N10adc_chan_t7ADC_MAXE "永久链接至目标")
+    <a id="_CPPv3N10adc_chan_t5ADC_7E"></a> <a id="_CPPv2N10adc_chan_t5ADC_7E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3acde258d896f735fd042a121f9a231dbc"></a> enumerator ADC\_7
 
-enum adc_saturate_mode_t[](#_CPPv419adc_saturate_mode_t "永久链接至目标")
+    <a id="_CPPv4N10adc_chan_t5ADC_8E"></a>
+
+    <a id="_CPPv3N10adc_chan_t5ADC_8E"></a> <a id="_CPPv2N10adc_chan_t5ADC_8E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3aab7fe862b2625e2af4c67441f0eeeddc"></a> enumerator ADC\_8
+
+    <a id="_CPPv4N10adc_chan_t5ADC_9E"></a>
+
+    <a id="_CPPv3N10adc_chan_t5ADC_9E"></a> <a id="_CPPv2N10adc_chan_t5ADC_9E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3ab940d890c3734d5474baf92af3c7f0df"></a> enumerator ADC\_9
+
+    <a id="_CPPv4N10adc_chan_t6ADC_10E"></a>
+
+    <a id="_CPPv3N10adc_chan_t6ADC_10E"></a> <a id="_CPPv2N10adc_chan_t6ADC_10E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3aa9f719a27f29b98faff5c817fd0c7a39"></a> enumerator ADC\_10
+
+    <a id="_CPPv4N10adc_chan_t6ADC_11E"></a>
+
+    <a id="_CPPv3N10adc_chan_t6ADC_11E"></a> <a id="_CPPv2N10adc_chan_t6ADC_11E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3ab80bf877dae1b8e84879661e850df113"></a> enumerator ADC\_11
+
+    <a id="_CPPv4N10adc_chan_t6ADC_12E"></a>
+
+    <a id="_CPPv3N10adc_chan_t6ADC_12E"></a> <a id="_CPPv2N10adc_chan_t6ADC_12E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3ae39fdb757f98ce6b4ae835d8c413be88"></a> enumerator ADC\_12
+
+    <a id="_CPPv4N10adc_chan_t6ADC_13E"></a>
+
+    <a id="_CPPv3N10adc_chan_t6ADC_13E"></a> <a id="_CPPv2N10adc_chan_t6ADC_13E"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a0992532ff2d28601e0c5354a56bef0ba"></a> enumerator ADC\_13
+
+    <a id="_CPPv4N10adc_chan_t7ADC_MAXE"></a>
+
+    <a id="_CPPv3N10adc_chan_t7ADC_MAXE"></a> <a id="_CPPv2N10adc_chan_t7ADC_MAXE"></a> <a id="group__bk__api__adc__enum_1gga1e38e6e0ab10be4c51bbb48d72e3bad3a2caf3ec827224fca2fe75224519064e5"></a> enumerator ADC\_MAX
+
+<a id="_CPPv419adc_saturate_mode_t"></a>
+
+<a id="_CPPv319adc_saturate_mode_t"></a> <a id="_CPPv219adc_saturate_mode_t"></a> <a id="group__bk__api__adc__enum_1gad205831ed2346df0491bfc6009ee2651"></a> enum adc\_saturate\_mode\_t
 :   *Values:*
 
-    enumerator ADC_SATURATE_MODE_NONE[](#_CPPv4N19adc_saturate_mode_t22ADC_SATURATE_MODE_NONEE "永久链接至目标")
+    <a id="_CPPv4N19adc_saturate_mode_t22ADC_SATURATE_MODE_NONEE"></a>
 
-    enumerator ADC_SATURATE_MODE_0[](#_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_0E "永久链接至目标")
+    <a id="_CPPv3N19adc_saturate_mode_t22ADC_SATURATE_MODE_NONEE"></a> <a id="_CPPv2N19adc_saturate_mode_t22ADC_SATURATE_MODE_NONEE"></a> <a id="group__bk__api__adc__enum_1ggad205831ed2346df0491bfc6009ee2651add8b6d28e77036ad8454fe8b5bc20e06"></a> enumerator ADC\_SATURATE\_MODE\_NONE
 
-    enumerator ADC_SATURATE_MODE_1[](#_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_1E "永久链接至目标")
+    <a id="_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_0E"></a>
 
-    enumerator ADC_SATURATE_MODE_2[](#_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_2E "永久链接至目标")
+    <a id="_CPPv3N19adc_saturate_mode_t19ADC_SATURATE_MODE_0E"></a> <a id="_CPPv2N19adc_saturate_mode_t19ADC_SATURATE_MODE_0E"></a> <a id="group__bk__api__adc__enum_1ggad205831ed2346df0491bfc6009ee2651aa1fc454bd7eb921d49f98c995f8a523b"></a> enumerator ADC\_SATURATE\_MODE\_0
 
-    enumerator ADC_SATURATE_MODE_3[](#_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_3E "永久链接至目标")
+    <a id="_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_1E"></a>
+
+    <a id="_CPPv3N19adc_saturate_mode_t19ADC_SATURATE_MODE_1E"></a> <a id="_CPPv2N19adc_saturate_mode_t19ADC_SATURATE_MODE_1E"></a> <a id="group__bk__api__adc__enum_1ggad205831ed2346df0491bfc6009ee2651a0a3e2c3550159f3ecde78612a7eab90c"></a> enumerator ADC\_SATURATE\_MODE\_1
+
+    <a id="_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_2E"></a>
+
+    <a id="_CPPv3N19adc_saturate_mode_t19ADC_SATURATE_MODE_2E"></a> <a id="_CPPv2N19adc_saturate_mode_t19ADC_SATURATE_MODE_2E"></a> <a id="group__bk__api__adc__enum_1ggad205831ed2346df0491bfc6009ee2651a23cc86e130111f25dc1779f3d8eeec55"></a> enumerator ADC\_SATURATE\_MODE\_2
+
+    <a id="_CPPv4N19adc_saturate_mode_t19ADC_SATURATE_MODE_3E"></a>
+
+    <a id="_CPPv3N19adc_saturate_mode_t19ADC_SATURATE_MODE_3E"></a> <a id="_CPPv2N19adc_saturate_mode_t19ADC_SATURATE_MODE_3E"></a> <a id="group__bk__api__adc__enum_1ggad205831ed2346df0491bfc6009ee2651a0f1e407de174704dd50b0e29f4ecedd6"></a> enumerator ADC\_SATURATE\_MODE\_3

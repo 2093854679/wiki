@@ -1,11 +1,24 @@
-# USB[](#usb "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/api-reference/peripheral/bk_usb.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="usb"></a>
 
+# USB
 
-- [USB Host UVC+UAC](usb/bk_usbh_uvc_uac.md "usb/bk_usbh_uvc_uac.md")
+- [USB Host UVC\+UAC](usb/bk_usbh_uvc_uac.md)
 
+<a id="id1"></a>
 
-## USB 简介[](#id1 "永久链接至标题")
+## USB 简介
 
 USB（Universal Serial Bus）是一种通用的总线标准，用于连接主机和外设设备。USB 主机可以通过 USB 接口与 USB 设备连接，实现数据传输、电源供给等功能。
 
@@ -13,60 +26,77 @@ USB IF（USB Implementers Forum）是 USB 标准的制定者，它制定了 USB 
 
 博通BK7258芯片支持各种各样的 USB 应用，包括 USB 多媒体类应用，USB 通信类应用，USB 存储类应用，USB 人机交互类应用等。
 
+<a id="id2"></a>
 
-## USB 基本使用[](#id2 "永久链接至标题")
+## USB 基本使用
 
-![usb open close](../../_images/usb_open_close.png)
+<a id="id5"></a>
+![usb open close](../../../../_assets/ec35e6a4de2c0bdc6485-usb_open_close.png)
 
-USB open/close[](#id5 "永久链接至图片")
 
+USB open/close
 
-## USB 测试示例[](#id3 "永久链接至标题")
+<a id="id3"></a>
+
+## USB 测试示例
 
 注：BK7258 USB 默认运行在CPU2，使用默认avdk调试需要连接UART2协助输入命令测试，依赖CLI命令打开编译后调试。 测试目标：USB模块开关正常，枚举正常，解析正常，断开/连接等状态记录正常。
 
-作为HOST 识别枚举Video+Audio融合设备为例，输入命令和LOG信息如下图所示：
+作为HOST 识别枚举Video\+Audio融合设备为例，输入命令和LOG信息如下图所示：
 
 1、在默认串口输入 bootcore 2 1 启动CPU2 ，log如下
 
-![usb open close](../../_images/cli_boot_cpu2.png)
+<a id="id6"></a>
+![usb open close](../../../../_assets/1dbc187ee4df145ecc83-cli_boot_cpu2.png)
 
-CLI Boot CPU2[](#id6 "永久链接至图片")
+
+CLI Boot CPU2
 
 2、uart2 串口输入usb power 1c 1，log如下
 
-![usb power on](../../_images/cli_usb_power_on.png)
+<a id="id7"></a>
+![usb power on](../../../../_assets/b6095826ee944dd14e39-cli_usb_power_on.png)
 
-CLI USB PowerON[](#id7 "永久链接至图片")
 
-3、uart2 串口输入usb open_host，枚举成功log如下
+CLI USB PowerON
 
-![usb open_host](../../_images/cli_usb_open_host.png)
+3、uart2 串口输入usb open\_host，枚举成功log如下
 
-CLI USB Open Host[](#id8 "永久链接至图片")
+<a id="id8"></a>
+![usb open_host](../../../../_assets/e76afa5c9fbc2b8f31d8-cli_usb_open_host.png)
 
-4、uart2 串口输入usb check_dev 0(是否支持video)/usb check_dev 1(是否支持mic)/usb check_dev 2(是否支持speaker)，支持需要的类设备log如下
 
-![usb open_host](../../_images/cli_usb_check_support_dev.png)
+CLI USB Open Host
 
-CLI USB Check video/mic/speaker[](#id9 "永久链接至图片")
+4、uart2 串口输入usb check\_dev 0(是否支持video)/usb check\_dev 1(是否支持mic)/usb check\_dev 2(是否支持speaker)，支持需要的类设备log如下
+
+<a id="id9"></a>
+![usb open_host](../../../../_assets/2b33ac00898a062750f7-cli_usb_check_support_dev.png)
+
+
+CLI USB Check video/mic/speaker
 
 5、uart2 串口输入usb close,log如下
 
-![usb open_host](../../_images/cli_usb_close.png)
+<a id="id10"></a>
+![usb open_host](../../../../_assets/418f5eaf5efba7c9add3-cli_usb_close.png)
 
-CLI USB Close[](#id10 "永久链接至图片")
+
+CLI USB Close
 
 6、uart2 串口输入usb power 1c 0,log如下
 
-![usb open_host](../../_images/cli_usb_power_down.png)
+<a id="id11"></a>
+![usb open_host](../../../../_assets/ce000ee43f99dd5d534c-cli_usb_power_down.png)
 
-CLI USB PowerDown[](#id11 "永久链接至图片")
 
+CLI USB PowerDown
 
-## USB API Status[](#usb-api-status "永久链接至标题")
+<a id="usb-api-status"></a>
 
-| API | BK7258_cp2 |
+## USB API Status
+
+| API | BK7258\_cp2 |
 | --- | --- |
 | [`bk_usb_driver_init()`](#_CPPv418bk_usb_driver_initv "bk_usb_driver_init") | Y |
 | [`bk_usb_driver_deinit()`](#_CPPv420bk_usb_driver_deinitv "bk_usb_driver_deinit") | Y |
@@ -80,52 +110,57 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
 | [`bk_usb_get_device_connect_status()`](#_CPPv432bk_usb_get_device_connect_statusv "bk_usb_get_device_connect_status") | Y |
 | [`bk_usb_check_device_supported()`](#_CPPv429bk_usb_check_device_supported14E_USB_DEVICE_T "bk_usb_check_device_supported") | Y |
 
+<a id="usb-port-number"></a>
 
-## USB Port Number[](#usb-port-number "永久链接至标题")
+## USB Port Number
 
-| Capability | BK7258_cp1 | BK7258_cp2 |
+| Capability | BK7258\_cp1 | BK7258\_cp2 |
 | --- | --- | --- |
 | Port Number | 1 | 1 |
 
+<a id="usb-pin-and-gpio-map"></a>
 
-## USB Pin and GPIO Map[](#usb-pin-and-gpio-map "永久链接至标题")
+## USB Pin and GPIO Map
 
-| USB Pin | BK7258_cp1 | BK7258_cp2 |
+| USB Pin | BK7258\_cp1 | BK7258\_cp2 |
 | --- | --- | --- |
 | USB DP | 12 | 12 |
 | USB DN | 13 | 13 |
 | USB power | 28 | 28 |
 
+<a id="usb-api-reference"></a>
 
-## USB API Reference[](#usb-api-reference "永久链接至标题")
+## USB API Reference
 
+<a id="header-file"></a>
 
-### Header File[](#header-file "永久链接至标题")
+### Header File
 
+- [usb.h](https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/_header_files/include/components/usb.h)
 
-- [usb.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/usb.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/usb.h")
+<a id="functions"></a>
 
+### Functions
 
-### Functions[](#functions "永久链接至标题")
+<a id="_CPPv418bk_usb_driver_initv"></a>
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_init(void)[](#_CPPv418bk_usb_driver_initv "永久链接至目标")
+<a id="_CPPv318bk_usb_driver_initv"></a> <a id="_CPPv218bk_usb_driver_initv"></a> <a id="bk_usb_driver_init__void"></a> <a id="usb_8h_1a61ee930ba0a949d90286534c11675ede"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_driver\_init(void)
 :   USB Driver initialization.
 
     Register the adaptation layer and pass the function pointers used by the closed source library. Register the current USB Class type to be supported, and it can be uninstalled and reinitialized during execution. But be sure to do so before calling other interfaces.
 
-
     - Configure Interrupt handling function registration
-
     - Configure Class Driver Registration
 
     This API should be called before any other USB APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_driver_deinit(void)[](#_CPPv420bk_usb_driver_deinitv "永久链接至目标")
+<a id="_CPPv420bk_usb_driver_deinitv"></a>
+
+<a id="_CPPv320bk_usb_driver_deinitv"></a> <a id="_CPPv220bk_usb_driver_deinitv"></a> <a id="bk_usb_driver_deinit__void"></a> <a id="usb_8h_1a345ce9b732b59145b01fb92641d975ce"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_driver\_deinit(void)
 :   USB Driver uninstallation.
 
     Turn off the USB main interrupt switch Unregister Total Interrupt Handling Function Unregistered Class Driver
@@ -133,546 +168,919 @@ CLI USB PowerDown[](#id11 "永久链接至图片")
     This API should be called after any other USB APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_power_ops(uint32_t gpio_id, bool ops)[](#_CPPv416bk_usb_power_ops8uint32_tb "永久链接至目标")
+<a id="_CPPv416bk_usb_power_ops8uint32_tb"></a>
+
+<a id="_CPPv316bk_usb_power_ops8uint32_tb"></a> <a id="_CPPv216bk_usb_power_ops8uint32_tb"></a> <a id="bk_usb_power_ops__uint32_t.b"></a> <a id="usb_8h_1a74ba405168673ef5fdf9a2611944bd6b"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_power\_ops(uint32\_t gpio\_id, bool ops)
 :   Pin controlled USB Vbus.
 
     This API controls VBUS for USB:
 
-
-    - Determine whether to output voltage through the high and low levels of a GPIO output parameter: gpio_id Select the corresponding pin number ops Choose to power on or off
-
+    - Determine whether to output voltage through the high and low levels of a GPIO output parameter: gpio\_id Select the corresponding pin number ops Choose to power on or off
     - Configure whether USB is power on
 
     When the fusion device is working, if there is a device voting for use, it cannot be directly turned off.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_open(uint32_t usb_mode)[](#_CPPv411bk_usb_open8uint32_t "永久链接至目标")
+<a id="_CPPv411bk_usb_open8uint32_t"></a>
+
+<a id="_CPPv311bk_usb_open8uint32_t"></a> <a id="_CPPv211bk_usb_open8uint32_t"></a> <a id="bk_usb_open__uint32_t"></a> <a id="usb_8h_1a9ff1ed19438e52293dd1fdd3bf3e8fbd"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_open(uint32\_t usb\_mode)
 :   open the USB
 
     This API configure the resoure common to USB:
 
-
-    - Select the identity as host or slave parameter: usb_mode USB_HOST_MODE = 0 USB_DEVICE_MODE = 1
-
+    - Select the identity as host or slave parameter: usb\_mode USB\_HOST\_MODE \= 0 USB\_DEVICE\_MODE \= 1
     - Configure USB common clock
-
     - Configure USB common registers
 
     This API should be called before any other USB APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_close(void)[](#_CPPv412bk_usb_closev "永久链接至目标")
+<a id="_CPPv412bk_usb_closev"></a>
+
+<a id="_CPPv312bk_usb_closev"></a> <a id="_CPPv212bk_usb_closev"></a> <a id="bk_usb_close__void"></a> <a id="usb_8h_1a84d007b8ce2c6c1c07312e5777bb8948"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_close(void)
 :   close the USB
 
     This API release USB resources:
 
-
     - Restore register
-
     - Turn off the power and clock
 
     This API should be called after any other USB APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_init(void)[](#_CPPv428bk_usb_control_transfer_initv "永久链接至目标")
+<a id="_CPPv428bk_usb_control_transfer_initv"></a>
+
+<a id="_CPPv328bk_usb_control_transfer_initv"></a> <a id="_CPPv228bk_usb_control_transfer_initv"></a> <a id="bk_usb_control_transfer_init__void"></a> <a id="usb_8h_1a5107747a6bec2b4303cde3f280fd1bc6"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_control\_transfer\_init(void)
 :   Initializes the control transfer request resource.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer_deinit(void)[](#_CPPv430bk_usb_control_transfer_deinitv "永久链接至目标")
+<a id="_CPPv430bk_usb_control_transfer_deinitv"></a>
+
+<a id="_CPPv330bk_usb_control_transfer_deinitv"></a> <a id="_CPPv230bk_usb_control_transfer_deinitv"></a> <a id="bk_usb_control_transfer_deinit__void"></a> <a id="usb_8h_1a7392e4d7035e2990653a9e6130d0792c"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_control\_transfer\_deinit(void)
 :   Unmount control transfer to release resource.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_control_transfer([s_usb_device_request](#_CPPv420s_usb_device_request "s_usb_device_request") *pSetup, [s_usb_transfer_buffer_info](#_CPPv426s_usb_transfer_buffer_info "s_usb_transfer_buffer_info") *buffer_info)[](#_CPPv423bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info "永久链接至目标")
+<a id="_CPPv423bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info"></a>
+
+<a id="_CPPv323bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info"></a> <a id="_CPPv223bk_usb_control_transferP20s_usb_device_requestP26s_usb_transfer_buffer_info"></a> <a id="bk_usb_control_transfer__s_usb_device_requestP.s_usb_transfer_buffer_infoP"></a> <a id="usb_8h_1acc4f6fe3c4f5b29585f7b807a05dda89"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_control\_transfer([s\_usb\_device\_request](#_CPPv420s_usb_device_request "s_usb_device_request") \*pSetup, [s\_usb\_transfer\_buffer\_info](#_CPPv426s_usb_transfer_buffer_info "s_usb_transfer_buffer_info") \*buffer\_info)
 :   Control command and data interface fucntion to be passed.
 
     This API is used to send commands and transfer data:
 
+    - Two parameters pSetup/buffer\_info.
+    - [s\_usb\_device\_request](#structs__usb__device__request): The command format is specified by the USB protocol
+    - [s\_usb\_transfer\_buffer\_info](#structs__usb__transfer__buffer__info): Buffer informataion for sending and receiving data.
 
-    - Two parameters pSetup/buffer_info.
-
-    - [s_usb_device_request](#structs__usb__device__request "#structs__usb__device__request"): The command format is specified by the USB protocol
-
-    - [s_usb_transfer_buffer_info](#structs__usb__transfer__buffer__info "#structs__usb__transfer__buffer__info"): Buffer informataion for sending and receiving data.
-
-      example: Reference UVC_OTA demo
+      example: Reference UVC\_OTA demo
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-void bk_usb_device_set_using_status(bool use_or_no, [E_USB_DEVICE_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") dev)[](#_CPPv430bk_usb_device_set_using_statusb14E_USB_DEVICE_T "永久链接至目标")
+<a id="_CPPv430bk_usb_device_set_using_statusb14E_USB_DEVICE_T"></a>
+
+<a id="_CPPv330bk_usb_device_set_using_statusb14E_USB_DEVICE_T"></a> <a id="_CPPv230bk_usb_device_set_using_statusb14E_USB_DEVICE_T"></a> <a id="bk_usb_device_set_using_status__b.E_USB_DEVICE_T"></a> <a id="usb_8h_1a809ee3115efaa15dd04ac69b1bb884ae"></a> void bk\_usb\_device\_set\_using\_status(bool use\_or\_no, [E\_USB\_DEVICE\_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") dev)
 :   A voting function is currently in use.
 
-    This API requires two parameters to be filled in for voting to prevent it from being closed parameter: use_or_no TRUE USBING FALSE NOT used dev USB_UVC_DEVICE USB_UAC_MIC_DEVICE USB_UAC_SPEAKER_DEVICE USB_MSD_DEVICE USB_OTA_DEVICE USB_USER_CHECK_DEVICE
+    This API requires two parameters to be filled in for voting to prevent it from being closed parameter: use\_or\_no TRUE USBING FALSE NOT used dev USB\_UVC\_DEVICE USB\_UAC\_MIC\_DEVICE USB\_UAC\_SPEAKER\_DEVICE USB\_MSD\_DEVICE USB\_OTA\_DEVICE USB\_USER\_CHECK\_DEVICE
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-bool bk_usb_get_device_connect_status(void)[](#_CPPv432bk_usb_get_device_connect_statusv "永久链接至目标")
+<a id="_CPPv432bk_usb_get_device_connect_statusv"></a>
+
+<a id="_CPPv332bk_usb_get_device_connect_statusv"></a> <a id="_CPPv232bk_usb_get_device_connect_statusv"></a> <a id="bk_usb_get_device_connect_status__void"></a> <a id="usb_8h_1ae4bee4e0e4f3af5fbee8b15fec1f8d5f"></a> bool bk\_usb\_get\_device\_connect\_status(void)
 :   Obtain whether there is currently a device connection.
 
     返回
     :   - TRUE: connect
-
         - FALSE: disconnect
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_check_device_supported([E_USB_DEVICE_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") usb_dev)[](#_CPPv429bk_usb_check_device_supported14E_USB_DEVICE_T "永久链接至目标")
+<a id="_CPPv429bk_usb_check_device_supported14E_USB_DEVICE_T"></a>
+
+<a id="_CPPv329bk_usb_check_device_supported14E_USB_DEVICE_T"></a> <a id="_CPPv229bk_usb_check_device_supported14E_USB_DEVICE_T"></a> <a id="bk_usb_check_device_supported__E_USB_DEVICE_T"></a> <a id="usb_8h_1aed4eadab1e7f1ee32e52c4ee44b655b9"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_check\_device\_supported([E\_USB\_DEVICE\_T](#_CPPv414E_USB_DEVICE_T "E_USB_DEVICE_T") usb\_dev)
 :   Check if the corresponding device class is supported.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_usb_get_device_descriptor(struct [usb_device_descriptor_t](#_CPPv423usb_device_descriptor_t "usb_device_descriptor_t") *dev_descriptor)[](#_CPPv428bk_usb_get_device_descriptorP23usb_device_descriptor_t "永久链接至目标")
+<a id="_CPPv428bk_usb_get_device_descriptorP23usb_device_descriptor_t"></a>
+
+<a id="_CPPv328bk_usb_get_device_descriptorP23usb_device_descriptor_t"></a> <a id="_CPPv228bk_usb_get_device_descriptorP23usb_device_descriptor_t"></a> <a id="bk_usb_get_device_descriptor__usb_device_descriptor_tP"></a> <a id="usb_8h_1a64f80b634f24530c0e8cfba1a7ba357f"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_usb\_get\_device\_descriptor(struct [usb\_device\_descriptor\_t](#_CPPv423usb_device_descriptor_t "usb_device_descriptor_t") \*dev\_descriptor)
 :   Obtain device descriptor.
 
-    dev_descriptor: uint8_t bLength; Descriptor size in bytes = 18 uint8_t bDescriptorType; DEVICE descriptor type = 1 uint16_t bcdUSB; USB spec in BCD, e.g. 0x0200 uint8_t bDeviceClass; Class code, if 0 see interface uint8_t bDeviceSubClass; Sub-Class code, 0 if class = 0 uint8_t bDeviceProtocol; Protocol, if 0 see interface uint8_t bMaxPacketSize0; Endpoint 0 max. size uint16_t idVendor; Vendor ID per USB-IF uint16_t idProduct; Product ID per manufacture uint16_t bcdDevice; Device release # in BCD uint8_t iManufacturer; Index to manufacturer string uint8_t iProduct; Index to product string uint8_t iSerialNumber; Index to serial number string uint8_t bNumConfigurations; Number of possible configurations
+    dev\_descriptor: uint8\_t bLength; Descriptor size in bytes \= 18 uint8\_t bDescriptorType; DEVICE descriptor type \= 1 uint16\_t bcdUSB; USB spec in BCD, e.g. 0x0200 uint8\_t bDeviceClass; Class code, if 0 see interface uint8\_t bDeviceSubClass; Sub-Class code, 0 if class \= 0 uint8\_t bDeviceProtocol; Protocol, if 0 see interface uint8\_t bMaxPacketSize0; Endpoint 0 max. size uint16\_t idVendor; Vendor ID per USB-IF uint16\_t idProduct; Product ID per manufacture uint16\_t bcdDevice; Device release \# in BCD uint8\_t iManufacturer; Index to manufacturer string uint8\_t iProduct; Index to product string uint8\_t iSerialNumber; Index to serial number string uint8\_t bNumConfigurations; Number of possible configurations
 
-void bk_usb_mailbox_sw_master_init(void)[](#_CPPv429bk_usb_mailbox_sw_master_initv "永久链接至目标")
+<a id="_CPPv429bk_usb_mailbox_sw_master_initv"></a>
+
+<a id="_CPPv329bk_usb_mailbox_sw_master_initv"></a> <a id="_CPPv229bk_usb_mailbox_sw_master_initv"></a> <a id="bk_usb_mailbox_sw_master_init__void"></a> <a id="usb_8h_1a0fd655d797503fd5b9d54eda9dd97790"></a> void bk\_usb\_mailbox\_sw\_master\_init(void)
 :   Initialize the USB master mailbox software.
 
-void bk_usb_mailbox_sw_slave_init(void)[](#_CPPv428bk_usb_mailbox_sw_slave_initv "永久链接至目标")
+<a id="_CPPv428bk_usb_mailbox_sw_slave_initv"></a>
+
+<a id="_CPPv328bk_usb_mailbox_sw_slave_initv"></a> <a id="_CPPv228bk_usb_mailbox_sw_slave_initv"></a> <a id="bk_usb_mailbox_sw_slave_init__void"></a> <a id="usb_8h_1af6d3e1789b4a5b547363b9c69589c3e3"></a> void bk\_usb\_mailbox\_sw\_slave\_init(void)
 :   Initialize the USB slave mailbox software.
 
-void bk_usb_mailbox_sw_master_deinit(void)[](#_CPPv431bk_usb_mailbox_sw_master_deinitv "永久链接至目标")
+<a id="_CPPv431bk_usb_mailbox_sw_master_deinitv"></a>
+
+<a id="_CPPv331bk_usb_mailbox_sw_master_deinitv"></a> <a id="_CPPv231bk_usb_mailbox_sw_master_deinitv"></a> <a id="bk_usb_mailbox_sw_master_deinit__void"></a> <a id="usb_8h_1a6b765aba54bd4b7e2cd083677ab42432"></a> void bk\_usb\_mailbox\_sw\_master\_deinit(void)
 :   Uninstall the USB master mailbox software.
 
-void bk_usb_mailbox_sw_slave_deinit(void)[](#_CPPv430bk_usb_mailbox_sw_slave_deinitv "永久链接至目标")
+<a id="_CPPv430bk_usb_mailbox_sw_slave_deinitv"></a>
+
+<a id="_CPPv330bk_usb_mailbox_sw_slave_deinitv"></a> <a id="_CPPv230bk_usb_mailbox_sw_slave_deinitv"></a> <a id="bk_usb_mailbox_sw_slave_deinit__void"></a> <a id="usb_8h_1a631cef37a5f2ce7f5eb3aeda56c6c53d"></a> void bk\_usb\_mailbox\_sw\_slave\_deinit(void)
 :   Uninstall the USB slave mailbox software.
 
+<a id="usb-api-typedefs"></a>
 
-## USB API Typedefs[](#usb-api-typedefs "永久链接至标题")
+## USB API Typedefs
 
+<a id="id4"></a>
 
-### Header File[](#id4 "永久链接至标题")
+### Header File
 
+- [usb\_types.h](https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/_header_files/include/components/usb_types.h)
 
-- [usb_types.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/usb_types.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/usb_types.h")
+<a id="structures"></a>
 
+### Structures
 
-### Structures[](#structures "永久链接至标题")
+<a id="_CPPv423usb_device_descriptor_t"></a>
 
-struct usb_device_descriptor_t[](#_CPPv423usb_device_descriptor_t "永久链接至目标")
+<a id="_CPPv323usb_device_descriptor_t"></a> <a id="_CPPv223usb_device_descriptor_t"></a> <a id="usb_device_descriptor_t"></a> <a id="structusb__device__descriptor__t"></a> struct usb\_device\_descriptor\_t
 
-struct usb_configuration_descriptor_t[](#_CPPv430usb_configuration_descriptor_t "永久链接至目标")
+<a id="_CPPv430usb_configuration_descriptor_t"></a>
 
-struct usb_interface_association_descriptor_t[](#_CPPv438usb_interface_association_descriptor_t "永久链接至目标")
+<a id="_CPPv330usb_configuration_descriptor_t"></a> <a id="_CPPv230usb_configuration_descriptor_t"></a> <a id="usb_configuration_descriptor_t"></a> <a id="structusb__configuration__descriptor__t"></a> struct usb\_configuration\_descriptor\_t
 
-struct usb_interface_descriptor_t[](#_CPPv426usb_interface_descriptor_t "永久链接至目标")
+<a id="_CPPv438usb_interface_association_descriptor_t"></a>
 
-struct usb_audio_endpoint_general_descriptor_t[](#_CPPv439usb_audio_endpoint_general_descriptor_t "永久链接至目标")
+<a id="_CPPv338usb_interface_association_descriptor_t"></a> <a id="_CPPv238usb_interface_association_descriptor_t"></a> <a id="usb_interface_association_descriptor_t"></a> <a id="structusb__interface__association__descriptor__t"></a> struct usb\_interface\_association\_descriptor\_t
 
-struct s_bk_usb_endpoint_descriptor[](#_CPPv428s_bk_usb_endpoint_descriptor "永久链接至目标")
+<a id="_CPPv426usb_interface_descriptor_t"></a>
 
-struct bk_uvc_format_index[](#_CPPv419bk_uvc_format_index "永久链接至目标")
+<a id="_CPPv326usb_interface_descriptor_t"></a> <a id="_CPPv226usb_interface_descriptor_t"></a> <a id="usb_interface_descriptor_t"></a> <a id="structusb__interface__descriptor__t"></a> struct usb\_interface\_descriptor\_t
 
-struct bk_uvc_frame[](#_CPPv412bk_uvc_frame "永久链接至目标")
+<a id="_CPPv439usb_audio_endpoint_general_descriptor_t"></a>
 
-struct bk_uvc_all_frame[](#_CPPv416bk_uvc_all_frame "永久链接至目标")
+<a id="_CPPv339usb_audio_endpoint_general_descriptor_t"></a> <a id="_CPPv239usb_audio_endpoint_general_descriptor_t"></a> <a id="usb_audio_endpoint_general_descriptor_t"></a> <a id="structusb__audio__endpoint__general__descriptor__t"></a> struct usb\_audio\_endpoint\_general\_descriptor\_t
 
-struct bk_uvc_device_brief_info_t[](#_CPPv426bk_uvc_device_brief_info_t "永久链接至目标")
+<a id="_CPPv428s_bk_usb_endpoint_descriptor"></a>
 
-struct bk_uvc_config_t[](#_CPPv415bk_uvc_config_t "永久链接至目标")
+<a id="_CPPv328s_bk_usb_endpoint_descriptor"></a> <a id="_CPPv228s_bk_usb_endpoint_descriptor"></a> <a id="s_bk_usb_endpoint_descriptor"></a> <a id="structs__bk__usb__endpoint__descriptor"></a> struct s\_bk\_usb\_endpoint\_descriptor
 
-struct audio_packet_t[](#_CPPv414audio_packet_t "永久链接至目标")
+<a id="_CPPv419bk_uvc_format_index"></a>
 
-struct audio_packet_control_t[](#_CPPv422audio_packet_control_t "永久链接至目标")
+<a id="_CPPv319bk_uvc_format_index"></a> <a id="_CPPv219bk_uvc_format_index"></a> <a id="bk_uvc_format_index"></a> <a id="structbk__uvc__format__index"></a> struct bk\_uvc\_format\_index
 
-struct bk_uac_ring_buffer_t[](#_CPPv420bk_uac_ring_buffer_t "永久链接至目标")
+<a id="_CPPv412bk_uvc_frame"></a>
 
-struct bk_uac_device_brief_info_t[](#_CPPv426bk_uac_device_brief_info_t "永久链接至目标")
+<a id="_CPPv312bk_uvc_frame"></a> <a id="_CPPv212bk_uvc_frame"></a> <a id="bk_uvc_frame"></a> <a id="structbk__uvc__frame"></a> struct bk\_uvc\_frame
 
-struct bk_uac_mic_config_t[](#_CPPv419bk_uac_mic_config_t "永久链接至目标")
+<a id="_CPPv416bk_uvc_all_frame"></a>
 
-struct bk_uac_spk_config_t[](#_CPPv419bk_uac_spk_config_t "永久链接至目标")
+<a id="_CPPv316bk_uvc_all_frame"></a> <a id="_CPPv216bk_uvc_all_frame"></a> <a id="bk_uvc_all_frame"></a> <a id="structbk__uvc__all__frame"></a> struct bk\_uvc\_all\_frame
 
-struct bk_uac_config_t[](#_CPPv415bk_uac_config_t "永久链接至目标")
+<a id="_CPPv426bk_uvc_device_brief_info_t"></a>
 
-struct bk_uvc_uac_app_callback[](#_CPPv423bk_uvc_uac_app_callback "永久链接至目标")
+<a id="_CPPv326bk_uvc_device_brief_info_t"></a> <a id="_CPPv226bk_uvc_device_brief_info_t"></a> <a id="bk_uvc_device_brief_info_t"></a> <a id="structbk__uvc__device__brief__info__t"></a> struct bk\_uvc\_device\_brief\_info\_t
 
-struct s_usb_device_request[](#_CPPv420s_usb_device_request "永久链接至目标")
+<a id="_CPPv415bk_uvc_config_t"></a>
 
-struct s_usb_transfer_buffer_info[](#_CPPv426s_usb_transfer_buffer_info "永久链接至目标")
+<a id="_CPPv315bk_uvc_config_t"></a> <a id="_CPPv215bk_uvc_config_t"></a> <a id="bk_uvc_config_t"></a> <a id="structbk__uvc__config__t"></a> struct bk\_uvc\_config\_t
 
+<a id="_CPPv414audio_packet_t"></a>
 
-### Macros[](#macros "永久链接至标题")
+<a id="_CPPv314audio_packet_t"></a> <a id="_CPPv214audio_packet_t"></a> <a id="audio_packet_t"></a> <a id="structaudio__packet__t"></a> struct audio\_packet\_t
 
-BK_ERR_USB_NOT_POWER[](#c.BK_ERR_USB_NOT_POWER "永久链接至目标")
+<a id="_CPPv422audio_packet_control_t"></a>
+
+<a id="_CPPv322audio_packet_control_t"></a> <a id="_CPPv222audio_packet_control_t"></a> <a id="audio_packet_control_t"></a> <a id="structaudio__packet__control__t"></a> struct audio\_packet\_control\_t
+
+<a id="_CPPv420bk_uac_ring_buffer_t"></a>
+
+<a id="_CPPv320bk_uac_ring_buffer_t"></a> <a id="_CPPv220bk_uac_ring_buffer_t"></a> <a id="bk_uac_ring_buffer_t"></a> <a id="structbk__uac__ring__buffer__t"></a> struct bk\_uac\_ring\_buffer\_t
+
+<a id="_CPPv426bk_uac_device_brief_info_t"></a>
+
+<a id="_CPPv326bk_uac_device_brief_info_t"></a> <a id="_CPPv226bk_uac_device_brief_info_t"></a> <a id="bk_uac_device_brief_info_t"></a> <a id="structbk__uac__device__brief__info__t"></a> struct bk\_uac\_device\_brief\_info\_t
+
+<a id="_CPPv419bk_uac_mic_config_t"></a>
+
+<a id="_CPPv319bk_uac_mic_config_t"></a> <a id="_CPPv219bk_uac_mic_config_t"></a> <a id="bk_uac_mic_config_t"></a> <a id="structbk__uac__mic__config__t"></a> struct bk\_uac\_mic\_config\_t
+
+<a id="_CPPv419bk_uac_spk_config_t"></a>
+
+<a id="_CPPv319bk_uac_spk_config_t"></a> <a id="_CPPv219bk_uac_spk_config_t"></a> <a id="bk_uac_spk_config_t"></a> <a id="structbk__uac__spk__config__t"></a> struct bk\_uac\_spk\_config\_t
+
+<a id="_CPPv415bk_uac_config_t"></a>
+
+<a id="_CPPv315bk_uac_config_t"></a> <a id="_CPPv215bk_uac_config_t"></a> <a id="bk_uac_config_t"></a> <a id="structbk__uac__config__t"></a> struct bk\_uac\_config\_t
+
+<a id="_CPPv423bk_uvc_uac_app_callback"></a>
+
+<a id="_CPPv323bk_uvc_uac_app_callback"></a> <a id="_CPPv223bk_uvc_uac_app_callback"></a> <a id="bk_uvc_uac_app_callback"></a> <a id="structbk__uvc__uac__app__callback"></a> struct bk\_uvc\_uac\_app\_callback
+
+<a id="_CPPv420s_usb_device_request"></a>
+
+<a id="_CPPv320s_usb_device_request"></a> <a id="_CPPv220s_usb_device_request"></a> <a id="s_usb_device_request"></a> <a id="structs__usb__device__request"></a> struct s\_usb\_device\_request
+
+<a id="_CPPv426s_usb_transfer_buffer_info"></a>
+
+<a id="_CPPv326s_usb_transfer_buffer_info"></a> <a id="_CPPv226s_usb_transfer_buffer_info"></a> <a id="s_usb_transfer_buffer_info"></a> <a id="structs__usb__transfer__buffer__info"></a> struct s\_usb\_transfer\_buffer\_info
+
+<a id="macros"></a>
+
+### Macros
+
+<a id="c.BK_ERR_USB_NOT_POWER"></a>
+
+<a id="usb__types_8h_1ae342dc30db10f42691e3412446c953e0"></a> BK\_ERR\_USB\_NOT\_POWER
 :   USB vbus poweron, etc
 
-BK_ERR_USB_NOT_OPEN[](#c.BK_ERR_USB_NOT_OPEN "永久链接至目标")
+<a id="c.BK_ERR_USB_NOT_OPEN"></a>
+
+<a id="usb__types_8h_1acf7f4df0a4092f3bcbd726024fd5c1d2"></a> BK\_ERR\_USB\_NOT\_OPEN
 :   USB dose not turn on clock and power, etc
 
-BK_ERR_USB_NOT_CLOSE[](#c.BK_ERR_USB_NOT_CLOSE "永久链接至目标")
+<a id="c.BK_ERR_USB_NOT_CLOSE"></a>
+
+<a id="usb__types_8h_1ac555acef69b5a00363983dd332031680"></a> BK\_ERR\_USB\_NOT\_CLOSE
 :   USB dose not turn off clock and power, etc
 
-BK_ERR_USB_NOT_CONNECT[](#c.BK_ERR_USB_NOT_CONNECT "永久链接至目标")
+<a id="c.BK_ERR_USB_NOT_CONNECT"></a>
+
+<a id="usb__types_8h_1ab046162f499d3e34e9e783c752e57c0a"></a> BK\_ERR\_USB\_NOT\_CONNECT
 :   USB device not connected
 
-BK_ERR_USB_OPERATION_NULL_POINTER[](#c.BK_ERR_USB_OPERATION_NULL_POINTER "永久链接至目标")
+<a id="c.BK_ERR_USB_OPERATION_NULL_POINTER"></a>
+
+<a id="usb__types_8h_1a8fb925e2e8d31d318e5c8fe4559a3092"></a> BK\_ERR\_USB\_OPERATION\_NULL\_POINTER
 :   USB Operated with null pointer
 
-BK_ERR_USB_UVC_NOT_START[](#c.BK_ERR_USB_UVC_NOT_START "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_NOT_START"></a>
+
+<a id="usb__types_8h_1aa4373075c1c27d8778d9e6356da23600"></a> BK\_ERR\_USB\_UVC\_NOT\_START
 :   UVC Transfer not started
 
-BK_ERR_USB_UVC_NOT_STOP[](#c.BK_ERR_USB_UVC_NOT_STOP "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_NOT_STOP"></a>
+
+<a id="usb__types_8h_1a14183723df05bacd705f7d393b2d24a7"></a> BK\_ERR\_USB\_UVC\_NOT\_STOP
 :   UVC Transfer not stopped
 
-BK_ERR_USB_UVC_NOT_PAUSE[](#c.BK_ERR_USB_UVC_NOT_PAUSE "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_NOT_PAUSE"></a>
+
+<a id="usb__types_8h_1aa3f2bf77aea12db3dafb53b13e14dc6b"></a> BK\_ERR\_USB\_UVC\_NOT\_PAUSE
 :   UVC Transfer not paused
 
-BK_ERR_USB_UVC_GET_PARAMETER_FAILED[](#c.BK_ERR_USB_UVC_GET_PARAMETER_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_GET_PARAMETER_FAILED"></a>
+
+<a id="usb__types_8h_1a9cea19f1d1c7d63469262125ff9ac7ba"></a> BK\_ERR\_USB\_UVC\_GET\_PARAMETER\_FAILED
 :   UVC The command to obtain parameters did not respond
 
-BK_ERR_USB_UVC_SET_PARAMETER_FAILED[](#c.BK_ERR_USB_UVC_SET_PARAMETER_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_SET_PARAMETER_FAILED"></a>
+
+<a id="usb__types_8h_1a550b3b9c80aec730b554bf0d99244ca8"></a> BK\_ERR\_USB\_UVC\_SET\_PARAMETER\_FAILED
 :   UVC Configuration parameter command did not respond
 
-BK_ERR_USB_UVC_SET_INTERFACE_FAILED[](#c.BK_ERR_USB_UVC_SET_INTERFACE_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_SET_INTERFACE_FAILED"></a>
+
+<a id="usb__types_8h_1a774ff87f04c7594700bf3d42c3cdae8c"></a> BK\_ERR\_USB\_UVC\_SET\_INTERFACE\_FAILED
 :   UVC The set port command did not respond
 
-BK_ERR_USB_UVC_NOSUPPORT_ATTRIBUTE[](#c.BK_ERR_USB_UVC_NOSUPPORT_ATTRIBUTE "永久链接至目标")
+<a id="c.BK_ERR_USB_UVC_NOSUPPORT_ATTRIBUTE"></a>
+
+<a id="usb__types_8h_1a5b80b32ba4d5608015fec289d8b2fad4"></a> BK\_ERR\_USB\_UVC\_NOSUPPORT\_ATTRIBUTE
 :   UVC The attribute configuration is not supported
 
-BK_ERR_USB_UAC_NOT_START[](#c.BK_ERR_USB_UAC_NOT_START "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_NOT_START"></a>
+
+<a id="usb__types_8h_1a91c239b528c260cb385bfb3f940a7e44"></a> BK\_ERR\_USB\_UAC\_NOT\_START
 :   UAC Transfer not started
 
-BK_ERR_USB_UAC_NOT_STOP[](#c.BK_ERR_USB_UAC_NOT_STOP "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_NOT_STOP"></a>
+
+<a id="usb__types_8h_1aa3a4ffd1582f2cf354a312efaf967137"></a> BK\_ERR\_USB\_UAC\_NOT\_STOP
 :   UAC Transfer not stopped
 
-BK_ERR_USB_UAC_NOT_PAUSE[](#c.BK_ERR_USB_UAC_NOT_PAUSE "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_NOT_PAUSE"></a>
+
+<a id="usb__types_8h_1a89f3e52eef2a7c02e3d9d22bee4bae44"></a> BK\_ERR\_USB\_UAC\_NOT\_PAUSE
 :   UAC Transfer not paused
 
-BK_ERR_USB_UAC_GET_PARAMETER_FAILED[](#c.BK_ERR_USB_UAC_GET_PARAMETER_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_GET_PARAMETER_FAILED"></a>
+
+<a id="usb__types_8h_1a94e6af71e65b2e4badfb0e7e1f75294e"></a> BK\_ERR\_USB\_UAC\_GET\_PARAMETER\_FAILED
 :   UAC The command to obtain parameters did not respond
 
-BK_ERR_USB_UAC_SET_PARAMETER_FAILED[](#c.BK_ERR_USB_UAC_SET_PARAMETER_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_SET_PARAMETER_FAILED"></a>
+
+<a id="usb__types_8h_1afc8ee34ebacbc925f250640fae384620"></a> BK\_ERR\_USB\_UAC\_SET\_PARAMETER\_FAILED
 :   UAC Configuration parameter command did not respond
 
-BK_ERR_USB_UAC_SET_INTERFACE_FAILED[](#c.BK_ERR_USB_UAC_SET_INTERFACE_FAILED "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_SET_INTERFACE_FAILED"></a>
+
+<a id="usb__types_8h_1a94a6d8a0a36fb567f2b88967fb2948a4"></a> BK\_ERR\_USB\_UAC\_SET\_INTERFACE\_FAILED
 :   UAC The set port command did not respond
 
-BK_ERR_USB_UAC_NOSUPPORT_ATTRIBUTE[](#c.BK_ERR_USB_UAC_NOSUPPORT_ATTRIBUTE "永久链接至目标")
+<a id="c.BK_ERR_USB_UAC_NOSUPPORT_ATTRIBUTE"></a>
+
+<a id="usb__types_8h_1a70b134093038a924d9128a285bdb4588"></a> BK\_ERR\_USB\_UAC\_NOSUPPORT\_ATTRIBUTE
 :   UAC The attribute configuration is not supported
 
-BK_USB_ENDPOINT_XFERTYPE_MASK[](#c.BK_USB_ENDPOINT_XFERTYPE_MASK "永久链接至目标")
+<a id="c.BK_USB_ENDPOINT_XFERTYPE_MASK"></a>
 
+<a id="usb__types_8h_1aa6777a6aa0333f1bc42fa87ab7c8b82d"></a> BK\_USB\_ENDPOINT\_XFERTYPE\_MASK
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+<a id="type-definitions"></a>
 
-typedef void (*control_irpcomplete)(void*, void*)[](#_CPPv419control_irpcomplete "永久链接至目标")
+### Type Definitions
 
+<a id="_CPPv419control_irpcomplete"></a>
 
-### Enumerations[](#enumerations "永久链接至标题")
+<a id="_CPPv319control_irpcomplete"></a> <a id="_CPPv219control_irpcomplete"></a> <a id="control_irpcomplete"></a> <a id="usb__types_8h_1a1f5ff6dbe882f0a33c26273375c925b4"></a> typedef void (\*control\_irpcomplete)(void\*, void\*)
 
-enum E_USB_MODE[](#_CPPv410E_USB_MODE "永久链接至目标")
+<a id="enumerations"></a>
+
+### Enumerations
+
+<a id="_CPPv410E_USB_MODE"></a>
+
+<a id="_CPPv310E_USB_MODE"></a> <a id="_CPPv210E_USB_MODE"></a> <a id="usb__types_8h_1ab0d6996efe8639524a1d4fabab3c5cdd"></a> enum E\_USB\_MODE
 :   *Values:*
 
-    enumerator USB_HOST_MODE[](#_CPPv4N10E_USB_MODE13USB_HOST_MODEE "永久链接至目标")
+    <a id="_CPPv4N10E_USB_MODE13USB_HOST_MODEE"></a>
 
-    enumerator USB_DEVICE_MODE[](#_CPPv4N10E_USB_MODE15USB_DEVICE_MODEE "永久链接至目标")
+    <a id="_CPPv3N10E_USB_MODE13USB_HOST_MODEE"></a> <a id="_CPPv2N10E_USB_MODE13USB_HOST_MODEE"></a> <a id="usb__types_8h_1ab0d6996efe8639524a1d4fabab3c5cdda142f736df9dbdc48900865328d62ced4"></a> enumerator USB\_HOST\_MODE
 
-enum E_USB_CONNECTION_STATUS[](#_CPPv423E_USB_CONNECTION_STATUS "永久链接至目标")
+    <a id="_CPPv4N10E_USB_MODE15USB_DEVICE_MODEE"></a>
+
+    <a id="_CPPv3N10E_USB_MODE15USB_DEVICE_MODEE"></a> <a id="_CPPv2N10E_USB_MODE15USB_DEVICE_MODEE"></a> <a id="usb__types_8h_1ab0d6996efe8639524a1d4fabab3c5cddaeeaed6848b639f7608b4a3df5b7256a3"></a> enumerator USB\_DEVICE\_MODE
+
+<a id="_CPPv423E_USB_CONNECTION_STATUS"></a>
+
+<a id="_CPPv323E_USB_CONNECTION_STATUS"></a> <a id="_CPPv223E_USB_CONNECTION_STATUS"></a> <a id="usb__types_8h_1ae328ddc4897101d0a3fe851aef045d29"></a> enum E\_USB\_CONNECTION\_STATUS
 :   *Values:*
 
-    enumerator USB_DEVICE_DISCONNECT[](#_CPPv4N23E_USB_CONNECTION_STATUS21USB_DEVICE_DISCONNECTE "永久链接至目标")
+    <a id="_CPPv4N23E_USB_CONNECTION_STATUS21USB_DEVICE_DISCONNECTE"></a>
 
-    enumerator USB_DEVICE_CONNECT[](#_CPPv4N23E_USB_CONNECTION_STATUS18USB_DEVICE_CONNECTE "永久链接至目标")
+    <a id="_CPPv3N23E_USB_CONNECTION_STATUS21USB_DEVICE_DISCONNECTE"></a> <a id="_CPPv2N23E_USB_CONNECTION_STATUS21USB_DEVICE_DISCONNECTE"></a> <a id="usb__types_8h_1ae328ddc4897101d0a3fe851aef045d29a1f2bbbe5ed3d5d4f8ce50a1a4795d814"></a> enumerator USB\_DEVICE\_DISCONNECT
 
-enum E_FRAME_RATE_ID[](#_CPPv415E_FRAME_RATE_ID "永久链接至目标")
+    <a id="_CPPv4N23E_USB_CONNECTION_STATUS18USB_DEVICE_CONNECTE"></a>
+
+    <a id="_CPPv3N23E_USB_CONNECTION_STATUS18USB_DEVICE_CONNECTE"></a> <a id="_CPPv2N23E_USB_CONNECTION_STATUS18USB_DEVICE_CONNECTE"></a> <a id="usb__types_8h_1ae328ddc4897101d0a3fe851aef045d29a7e8bcc465dab897c0a2097c71b67a677"></a> enumerator USB\_DEVICE\_CONNECT
+
+<a id="_CPPv415E_FRAME_RATE_ID"></a>
+
+<a id="_CPPv315E_FRAME_RATE_ID"></a> <a id="_CPPv215E_FRAME_RATE_ID"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749c"></a> enum E\_FRAME\_RATE\_ID
 :   *Values:*
 
-    enumerator FPS_60[](#_CPPv4N15E_FRAME_RATE_ID6FPS_60E "永久链接至目标")
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_60E"></a>
 
-    enumerator FPS_30[](#_CPPv4N15E_FRAME_RATE_ID6FPS_30E "永久链接至目标")
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_60E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_60E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749ca4e9e16d822c672d29d29f3750f97a9e4"></a> enumerator FPS\_60
 
-    enumerator FPS_25[](#_CPPv4N15E_FRAME_RATE_ID6FPS_25E "永久链接至目标")
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_30E"></a>
 
-    enumerator FPS_20[](#_CPPv4N15E_FRAME_RATE_ID6FPS_20E "永久链接至目标")
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_30E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_30E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749caf7794f29353c4771e2875068b9efb3f0"></a> enumerator FPS\_30
 
-    enumerator FPS_15[](#_CPPv4N15E_FRAME_RATE_ID6FPS_15E "永久链接至目标")
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_25E"></a>
 
-    enumerator FPS_10[](#_CPPv4N15E_FRAME_RATE_ID6FPS_10E "永久链接至目标")
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_25E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_25E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749ca28958ab86fa6dd4be0974ce70782840f"></a> enumerator FPS\_25
 
-    enumerator FPS_5[](#_CPPv4N15E_FRAME_RATE_ID5FPS_5E "永久链接至目标")
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_20E"></a>
 
-enum E_USB_DEVICE_T[](#_CPPv414E_USB_DEVICE_T "永久链接至目标")
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_20E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_20E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749ca56d753e189a9e6f8e64c8a84fdb08813"></a> enumerator FPS\_20
+
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_15E"></a>
+
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_15E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_15E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749cae1d0c7a25ad26139d2dea48cfac471af"></a> enumerator FPS\_15
+
+    <a id="_CPPv4N15E_FRAME_RATE_ID6FPS_10E"></a>
+
+    <a id="_CPPv3N15E_FRAME_RATE_ID6FPS_10E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID6FPS_10E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749ca07a0de8b13b66ec6f0294b1cce75eb02"></a> enumerator FPS\_10
+
+    <a id="_CPPv4N15E_FRAME_RATE_ID5FPS_5E"></a>
+
+    <a id="_CPPv3N15E_FRAME_RATE_ID5FPS_5E"></a> <a id="_CPPv2N15E_FRAME_RATE_ID5FPS_5E"></a> <a id="usb__types_8h_1a960101fe35e0c5ded720bf9ff124749ca3fe08a5e6fbf9e328b1253be8294fc53"></a> enumerator FPS\_5
+
+<a id="_CPPv414E_USB_DEVICE_T"></a>
+
+<a id="_CPPv314E_USB_DEVICE_T"></a> <a id="_CPPv214E_USB_DEVICE_T"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbc"></a> enum E\_USB\_DEVICE\_T
 :   *Values:*
 
-    enumerator USB_UVC_DEVICE[](#_CPPv4N14E_USB_DEVICE_T14USB_UVC_DEVICEE "永久链接至目标")
+    <a id="_CPPv4N14E_USB_DEVICE_T14USB_UVC_DEVICEE"></a>
 
-    enumerator USB_UAC_MIC_DEVICE[](#_CPPv4N14E_USB_DEVICE_T18USB_UAC_MIC_DEVICEE "永久链接至目标")
+    <a id="_CPPv3N14E_USB_DEVICE_T14USB_UVC_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T14USB_UVC_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbcad8b5bbdbb27b221ef460fd32463358c1"></a> enumerator USB\_UVC\_DEVICE
 
-    enumerator USB_UAC_SPEAKER_DEVICE[](#_CPPv4N14E_USB_DEVICE_T22USB_UAC_SPEAKER_DEVICEE "永久链接至目标")
+    <a id="_CPPv4N14E_USB_DEVICE_T18USB_UAC_MIC_DEVICEE"></a>
 
-    enumerator USB_MSD_DEVICE[](#_CPPv4N14E_USB_DEVICE_T14USB_MSD_DEVICEE "永久链接至目标")
+    <a id="_CPPv3N14E_USB_DEVICE_T18USB_UAC_MIC_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T18USB_UAC_MIC_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbca91adec9d7b9eabe9c83d275caa1d352d"></a> enumerator USB\_UAC\_MIC\_DEVICE
 
-    enumerator USB_OTA_DEVICE[](#_CPPv4N14E_USB_DEVICE_T14USB_OTA_DEVICEE "永久链接至目标")
+    <a id="_CPPv4N14E_USB_DEVICE_T22USB_UAC_SPEAKER_DEVICEE"></a>
 
-    enumerator USB_USER_CHECK_DEVICE[](#_CPPv4N14E_USB_DEVICE_T21USB_USER_CHECK_DEVICEE "永久链接至目标")
+    <a id="_CPPv3N14E_USB_DEVICE_T22USB_UAC_SPEAKER_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T22USB_UAC_SPEAKER_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbca27e54b919b86a6e9ee4f19b19ab7718c"></a> enumerator USB\_UAC\_SPEAKER\_DEVICE
 
-    enumerator USB_CDC_DEVICE[](#_CPPv4N14E_USB_DEVICE_T14USB_CDC_DEVICEE "永久链接至目标")
+    <a id="_CPPv4N14E_USB_DEVICE_T14USB_MSD_DEVICEE"></a>
 
-    enumerator USB_DEVICE_MAX[](#_CPPv4N14E_USB_DEVICE_T14USB_DEVICE_MAXE "永久链接至目标")
+    <a id="_CPPv3N14E_USB_DEVICE_T14USB_MSD_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T14USB_MSD_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbcaeb943a64cbe00d9c0c53baa4bb8da2fa"></a> enumerator USB\_MSD\_DEVICE
 
-enum E_USB_ENDPOINT_TRANSFER_MODE_T[](#_CPPv430E_USB_ENDPOINT_TRANSFER_MODE_T "永久链接至目标")
+    <a id="_CPPv4N14E_USB_DEVICE_T14USB_OTA_DEVICEE"></a>
+
+    <a id="_CPPv3N14E_USB_DEVICE_T14USB_OTA_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T14USB_OTA_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbcad5b425c27c1b0d97bf70665e6708211b"></a> enumerator USB\_OTA\_DEVICE
+
+    <a id="_CPPv4N14E_USB_DEVICE_T21USB_USER_CHECK_DEVICEE"></a>
+
+    <a id="_CPPv3N14E_USB_DEVICE_T21USB_USER_CHECK_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T21USB_USER_CHECK_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbca3babedb04cb05d745a27cc1a00e36334"></a> enumerator USB\_USER\_CHECK\_DEVICE
+
+    <a id="_CPPv4N14E_USB_DEVICE_T14USB_CDC_DEVICEE"></a>
+
+    <a id="_CPPv3N14E_USB_DEVICE_T14USB_CDC_DEVICEE"></a> <a id="_CPPv2N14E_USB_DEVICE_T14USB_CDC_DEVICEE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbca4249a202d9a21cdf5fa61b6f2a750de0"></a> enumerator USB\_CDC\_DEVICE
+
+    <a id="_CPPv4N14E_USB_DEVICE_T14USB_DEVICE_MAXE"></a>
+
+    <a id="_CPPv3N14E_USB_DEVICE_T14USB_DEVICE_MAXE"></a> <a id="_CPPv2N14E_USB_DEVICE_T14USB_DEVICE_MAXE"></a> <a id="usb__types_8h_1abe4bdd7729b0cfe2767786259fc3bbbcaf7fd9a4c5b6ea3514c9bf85cb7d15592"></a> enumerator USB\_DEVICE\_MAX
+
+<a id="_CPPv430E_USB_ENDPOINT_TRANSFER_MODE_T"></a>
+
+<a id="_CPPv330E_USB_ENDPOINT_TRANSFER_MODE_T"></a> <a id="_CPPv230E_USB_ENDPOINT_TRANSFER_MODE_T"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006d"></a> enum E\_USB\_ENDPOINT\_TRANSFER\_MODE\_T
 :   *Values:*
 
-    enumerator USB_ENDPOINT_CONTROL_TRANSFER[](#_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_CONTROL_TRANSFERE "永久链接至目标")
+    <a id="_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_CONTROL_TRANSFERE"></a>
 
-    enumerator USB_ENDPOINT_ISOCH_TRANSFER[](#_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T27USB_ENDPOINT_ISOCH_TRANSFERE "永久链接至目标")
+    <a id="_CPPv3N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_CONTROL_TRANSFERE"></a> <a id="_CPPv2N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_CONTROL_TRANSFERE"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006da7b0946fc6864f8f358768ba8c576952a"></a> enumerator USB\_ENDPOINT\_CONTROL\_TRANSFER
 
-    enumerator USB_ENDPOINT_BULK_TRANSFER[](#_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T26USB_ENDPOINT_BULK_TRANSFERE "永久链接至目标")
+    <a id="_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T27USB_ENDPOINT_ISOCH_TRANSFERE"></a>
 
-    enumerator USB_ENDPOINT_INT_TRANSFER[](#_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T25USB_ENDPOINT_INT_TRANSFERE "永久链接至目标")
+    <a id="_CPPv3N30E_USB_ENDPOINT_TRANSFER_MODE_T27USB_ENDPOINT_ISOCH_TRANSFERE"></a> <a id="_CPPv2N30E_USB_ENDPOINT_TRANSFER_MODE_T27USB_ENDPOINT_ISOCH_TRANSFERE"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006da0a43ea38e01179d4f84fa45ac2c610db"></a> enumerator USB\_ENDPOINT\_ISOCH\_TRANSFER
 
-    enumerator USB_ENDPOINT_INVALID_TRANSFER[](#_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_INVALID_TRANSFERE "永久链接至目标")
+    <a id="_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T26USB_ENDPOINT_BULK_TRANSFERE"></a>
 
-enum bk_usb_drv_op_t[](#_CPPv415bk_usb_drv_op_t "永久链接至目标")
+    <a id="_CPPv3N30E_USB_ENDPOINT_TRANSFER_MODE_T26USB_ENDPOINT_BULK_TRANSFERE"></a> <a id="_CPPv2N30E_USB_ENDPOINT_TRANSFER_MODE_T26USB_ENDPOINT_BULK_TRANSFERE"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006daba5bf639dea24c882a1c8f51d888f221"></a> enumerator USB\_ENDPOINT\_BULK\_TRANSFER
+
+    <a id="_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T25USB_ENDPOINT_INT_TRANSFERE"></a>
+
+    <a id="_CPPv3N30E_USB_ENDPOINT_TRANSFER_MODE_T25USB_ENDPOINT_INT_TRANSFERE"></a> <a id="_CPPv2N30E_USB_ENDPOINT_TRANSFER_MODE_T25USB_ENDPOINT_INT_TRANSFERE"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006da6ffee1b8fc6c4496c5b3b0c8e2a36578"></a> enumerator USB\_ENDPOINT\_INT\_TRANSFER
+
+    <a id="_CPPv4N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_INVALID_TRANSFERE"></a>
+
+    <a id="_CPPv3N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_INVALID_TRANSFERE"></a> <a id="_CPPv2N30E_USB_ENDPOINT_TRANSFER_MODE_T29USB_ENDPOINT_INVALID_TRANSFERE"></a> <a id="usb__types_8h_1a8a0494314c57c095f522df510c88006da0646db08831f5641c28408db150e5802"></a> enumerator USB\_ENDPOINT\_INVALID\_TRANSFER
+
+<a id="_CPPv415bk_usb_drv_op_t"></a>
+
+<a id="_CPPv315bk_usb_drv_op_t"></a> <a id="_CPPv215bk_usb_drv_op_t"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0e"></a> enum bk\_usb\_drv\_op\_t
 :   *Values:*
 
-    enumerator USB_DRV_IDLE[](#_CPPv4N15bk_usb_drv_op_t12USB_DRV_IDLEE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t12USB_DRV_IDLEE"></a>
 
-    enumerator USB_DRV_EXIT[](#_CPPv4N15bk_usb_drv_op_t12USB_DRV_EXITE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t12USB_DRV_IDLEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t12USB_DRV_IDLEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eae5b20d8289ea5dc814fa82bc94c7e033"></a> enumerator USB\_DRV\_IDLE
 
-    enumerator USB_POWER_OPS[](#_CPPv4N15bk_usb_drv_op_t13USB_POWER_OPSE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t12USB_DRV_EXITE"></a>
 
-    enumerator USB_DRV_USB_INIT[](#_CPPv4N15bk_usb_drv_op_t16USB_DRV_USB_INITE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t12USB_DRV_EXITE"></a> <a id="_CPPv2N15bk_usb_drv_op_t12USB_DRV_EXITE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea86e0130864a5cace6d4f423b61edadfe"></a> enumerator USB\_DRV\_EXIT
 
-    enumerator USB_DRV_USB_DEINIT[](#_CPPv4N15bk_usb_drv_op_t18USB_DRV_USB_DEINITE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t13USB_POWER_OPSE"></a>
 
-    enumerator USB_DRV_SET_DEV_USE[](#_CPPv4N15bk_usb_drv_op_t19USB_DRV_SET_DEV_USEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t13USB_POWER_OPSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t13USB_POWER_OPSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eac36767174e367d7713574fb27df6e69f"></a> enumerator USB\_POWER\_OPS
 
-    enumerator USB_DRV_USB_OPEN[](#_CPPv4N15bk_usb_drv_op_t16USB_DRV_USB_OPENE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t16USB_DRV_USB_INITE"></a>
 
-    enumerator USB_DRV_USB_CLOSE[](#_CPPv4N15bk_usb_drv_op_t17USB_DRV_USB_CLOSEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t16USB_DRV_USB_INITE"></a> <a id="_CPPv2N15bk_usb_drv_op_t16USB_DRV_USB_INITE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea262a1a8798e849366046e7341a02d3ae"></a> enumerator USB\_DRV\_USB\_INIT
 
-    enumerator USB_DRV_CONNECT_HANDLE[](#_CPPv4N15bk_usb_drv_op_t22USB_DRV_CONNECT_HANDLEE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t18USB_DRV_USB_DEINITE"></a>
 
-    enumerator USB_DRV_DISCONNECT_HANDLE[](#_CPPv4N15bk_usb_drv_op_t25USB_DRV_DISCONNECT_HANDLEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t18USB_DRV_USB_DEINITE"></a> <a id="_CPPv2N15bk_usb_drv_op_t18USB_DRV_USB_DEINITE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eac82fae4166924c9a2a147201b2cd4673"></a> enumerator USB\_DRV\_USB\_DEINIT
 
-    enumerator USB_DRV_GET_DEV_CONNECT_STATUS[](#_CPPv4N15bk_usb_drv_op_t30USB_DRV_GET_DEV_CONNECT_STATUSE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t19USB_DRV_SET_DEV_USEE"></a>
 
-    enumerator USB_DRV_CHECK_DEV_SUPPORT[](#_CPPv4N15bk_usb_drv_op_t25USB_DRV_CHECK_DEV_SUPPORTE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t19USB_DRV_SET_DEV_USEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t19USB_DRV_SET_DEV_USEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eae44c2a2e54468f957ab91b1ac0899423"></a> enumerator USB\_DRV\_SET\_DEV\_USE
 
-    enumerator USB_DRV_PRASE_DESCRIPTOR[](#_CPPv4N15bk_usb_drv_op_t24USB_DRV_PRASE_DESCRIPTORE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t16USB_DRV_USB_OPENE"></a>
 
-    enumerator USB_DRV_INIT_CONTROL_TRANS[](#_CPPv4N15bk_usb_drv_op_t26USB_DRV_INIT_CONTROL_TRANSE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t16USB_DRV_USB_OPENE"></a> <a id="_CPPv2N15bk_usb_drv_op_t16USB_DRV_USB_OPENE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea132d0e5fb266c52756d07411226dc120"></a> enumerator USB\_DRV\_USB\_OPEN
 
-    enumerator USB_DRV_DEINIT_CONTROL_TRANS[](#_CPPv4N15bk_usb_drv_op_t28USB_DRV_DEINIT_CONTROL_TRANSE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t17USB_DRV_USB_CLOSEE"></a>
 
-    enumerator USB_DRV_CONTROL_TRANSFER[](#_CPPv4N15bk_usb_drv_op_t24USB_DRV_CONTROL_TRANSFERE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t17USB_DRV_USB_CLOSEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t17USB_DRV_USB_CLOSEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea676de86224337b08c54eb439c849ccb0"></a> enumerator USB\_DRV\_USB\_CLOSE
 
-    enumerator USB_DRV_UVC_REGISTER_CONNECT_CB[](#_CPPv4N15bk_usb_drv_op_t31USB_DRV_UVC_REGISTER_CONNECT_CBE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t22USB_DRV_CONNECT_HANDLEE"></a>
 
-    enumerator USB_DRV_UVC_REGISTER_DISCONNECT_CB[](#_CPPv4N15bk_usb_drv_op_t34USB_DRV_UVC_REGISTER_DISCONNECT_CBE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t22USB_DRV_CONNECT_HANDLEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t22USB_DRV_CONNECT_HANDLEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea0736dce3f774eb08a3eef0a67f249980"></a> enumerator USB\_DRV\_CONNECT\_HANDLE
 
-    enumerator USB_DRV_UVC_GET_PARAM[](#_CPPv4N15bk_usb_drv_op_t21USB_DRV_UVC_GET_PARAME "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t25USB_DRV_DISCONNECT_HANDLEE"></a>
 
-    enumerator USB_DRV_UVC_SET_PARAM[](#_CPPv4N15bk_usb_drv_op_t21USB_DRV_UVC_SET_PARAME "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t25USB_DRV_DISCONNECT_HANDLEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t25USB_DRV_DISCONNECT_HANDLEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eab2203fa340722412367f3f7fef117abe"></a> enumerator USB\_DRV\_DISCONNECT\_HANDLE
 
-    enumerator USB_DRV_UVC_REGISTER_TRANSFER_OPS[](#_CPPv4N15bk_usb_drv_op_t33USB_DRV_UVC_REGISTER_TRANSFER_OPSE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t30USB_DRV_GET_DEV_CONNECT_STATUSE"></a>
 
-    enumerator USB_DRV_UVC_TRANSFER_BUFFER_MALLOC[](#_CPPv4N15bk_usb_drv_op_t34USB_DRV_UVC_TRANSFER_BUFFER_MALLOCE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t30USB_DRV_GET_DEV_CONNECT_STATUSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t30USB_DRV_GET_DEV_CONNECT_STATUSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea116249c4fbe45c0e2c1e8c46360e46a3"></a> enumerator USB\_DRV\_GET\_DEV\_CONNECT\_STATUS
 
-    enumerator USB_DRV_UVC_TRANSFER_BUFFER_PUSH[](#_CPPv4N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_PUSHE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t25USB_DRV_CHECK_DEV_SUPPORTE"></a>
 
-    enumerator USB_DRV_UVC_TRANSFER_BUFFER_POP[](#_CPPv4N15bk_usb_drv_op_t31USB_DRV_UVC_TRANSFER_BUFFER_POPE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t25USB_DRV_CHECK_DEV_SUPPORTE"></a> <a id="_CPPv2N15bk_usb_drv_op_t25USB_DRV_CHECK_DEV_SUPPORTE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ead314e493254135c2f2f8db5c6ff56c26"></a> enumerator USB\_DRV\_CHECK\_DEV\_SUPPORT
 
-    enumerator USB_DRV_UVC_TRANSFER_BUFFER_FREE[](#_CPPv4N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_FREEE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t24USB_DRV_PRASE_DESCRIPTORE"></a>
 
-    enumerator USB_DRV_VIDEO_OPEN_PIPE[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_OPEN_PIPEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t24USB_DRV_PRASE_DESCRIPTORE"></a> <a id="_CPPv2N15bk_usb_drv_op_t24USB_DRV_PRASE_DESCRIPTORE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaa3c809d5ca9b33aa114d80a4fdac370c"></a> enumerator USB\_DRV\_PRASE\_DESCRIPTOR
 
-    enumerator USB_DRV_VIDEO_CLOSE_PIPE[](#_CPPv4N15bk_usb_drv_op_t24USB_DRV_VIDEO_CLOSE_PIPEE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t26USB_DRV_INIT_CONTROL_TRANSE"></a>
 
-    enumerator USB_DRV_VIDEO_START[](#_CPPv4N15bk_usb_drv_op_t19USB_DRV_VIDEO_STARTE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t26USB_DRV_INIT_CONTROL_TRANSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t26USB_DRV_INIT_CONTROL_TRANSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea96ee48b83de0370d4a3736bf9cf6dc02"></a> enumerator USB\_DRV\_INIT\_CONTROL\_TRANS
 
-    enumerator USB_DRV_VIDEO_STOP[](#_CPPv4N15bk_usb_drv_op_t18USB_DRV_VIDEO_STOPE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t28USB_DRV_DEINIT_CONTROL_TRANSE"></a>
 
-    enumerator USB_DRV_VIDEO_RX[](#_CPPv4N15bk_usb_drv_op_t16USB_DRV_VIDEO_RXE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t28USB_DRV_DEINIT_CONTROL_TRANSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t28USB_DRV_DEINIT_CONTROL_TRANSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eac1e4560bac31a02553aee9b07029844a"></a> enumerator USB\_DRV\_DEINIT\_CONTROL\_TRANS
 
-    enumerator USB_DRV_VIDEO_RXED[](#_CPPv4N15bk_usb_drv_op_t18USB_DRV_VIDEO_RXEDE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t24USB_DRV_CONTROL_TRANSFERE"></a>
 
-    enumerator USB_DRV_UAC_REGISTER_CONNECT_CB[](#_CPPv4N15bk_usb_drv_op_t31USB_DRV_UAC_REGISTER_CONNECT_CBE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t24USB_DRV_CONTROL_TRANSFERE"></a> <a id="_CPPv2N15bk_usb_drv_op_t24USB_DRV_CONTROL_TRANSFERE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ead2aa5eff53fe11c17e38a39c6c44db68"></a> enumerator USB\_DRV\_CONTROL\_TRANSFER
 
-    enumerator USB_DRV_UAC_REGISTER_DISCONNECT_CB[](#_CPPv4N15bk_usb_drv_op_t34USB_DRV_UAC_REGISTER_DISCONNECT_CBE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t31USB_DRV_UVC_REGISTER_CONNECT_CBE"></a>
 
-    enumerator USB_DRV_UAC_GET_PARAM[](#_CPPv4N15bk_usb_drv_op_t21USB_DRV_UAC_GET_PARAME "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t31USB_DRV_UVC_REGISTER_CONNECT_CBE"></a> <a id="_CPPv2N15bk_usb_drv_op_t31USB_DRV_UVC_REGISTER_CONNECT_CBE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaee7ad298b8577dbe050822f565c5cc93"></a> enumerator USB\_DRV\_UVC\_REGISTER\_CONNECT\_CB
 
-    enumerator USB_DRV_UAC_SET_PARAM[](#_CPPv4N15bk_usb_drv_op_t21USB_DRV_UAC_SET_PARAME "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t34USB_DRV_UVC_REGISTER_DISCONNECT_CBE"></a>
 
-    enumerator USB_DRV_UAC_REGISTER_TRANSFER_OPS[](#_CPPv4N15bk_usb_drv_op_t33USB_DRV_UAC_REGISTER_TRANSFER_OPSE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t34USB_DRV_UVC_REGISTER_DISCONNECT_CBE"></a> <a id="_CPPv2N15bk_usb_drv_op_t34USB_DRV_UVC_REGISTER_DISCONNECT_CBE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea18d88db082e9edab446080de59bdfbc5"></a> enumerator USB\_DRV\_UVC\_REGISTER\_DISCONNECT\_CB
 
-    enumerator USB_DRV_UAC_TRANSFER_BUFFER_MALLOC[](#_CPPv4N15bk_usb_drv_op_t34USB_DRV_UAC_TRANSFER_BUFFER_MALLOCE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t21USB_DRV_UVC_GET_PARAME"></a>
 
-    enumerator USB_DRV_UAC_TRANSFER_BUFFER_PUSH[](#_CPPv4N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_PUSHE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t21USB_DRV_UVC_GET_PARAME"></a> <a id="_CPPv2N15bk_usb_drv_op_t21USB_DRV_UVC_GET_PARAME"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaaab5adab0bf77f6eecbcdd0efb264161"></a> enumerator USB\_DRV\_UVC\_GET\_PARAM
 
-    enumerator USB_DRV_UAC_TRANSFER_BUFFER_POP[](#_CPPv4N15bk_usb_drv_op_t31USB_DRV_UAC_TRANSFER_BUFFER_POPE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t21USB_DRV_UVC_SET_PARAME"></a>
 
-    enumerator USB_DRV_UAC_TRANSFER_BUFFER_FREE[](#_CPPv4N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_FREEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t21USB_DRV_UVC_SET_PARAME"></a> <a id="_CPPv2N15bk_usb_drv_op_t21USB_DRV_UVC_SET_PARAME"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaa0875c556f91ce6da5d13efc5ad314ae"></a> enumerator USB\_DRV\_UVC\_SET\_PARAM
 
-    enumerator USB_DRV_AUDIO_OPEN_PIPE[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_OPEN_PIPEE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t33USB_DRV_UVC_REGISTER_TRANSFER_OPSE"></a>
 
-    enumerator USB_DRV_AUDIO_CLOSE_PIPE[](#_CPPv4N15bk_usb_drv_op_t24USB_DRV_AUDIO_CLOSE_PIPEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t33USB_DRV_UVC_REGISTER_TRANSFER_OPSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t33USB_DRV_UVC_REGISTER_TRANSFER_OPSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaa772fc1be1c5138d71a2dcc5a6373a85"></a> enumerator USB\_DRV\_UVC\_REGISTER\_TRANSFER\_OPS
 
-    enumerator USB_DRV_AUDIO_MIC_START[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_MIC_STARTE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t34USB_DRV_UVC_TRANSFER_BUFFER_MALLOCE"></a>
 
-    enumerator USB_DRV_AUDIO_MIC_STOP[](#_CPPv4N15bk_usb_drv_op_t22USB_DRV_AUDIO_MIC_STOPE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t34USB_DRV_UVC_TRANSFER_BUFFER_MALLOCE"></a> <a id="_CPPv2N15bk_usb_drv_op_t34USB_DRV_UVC_TRANSFER_BUFFER_MALLOCE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaf548c7fc658fe2246d2c73f6d8d856ee"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_BUFFER\_MALLOC
 
-    enumerator USB_DRV_AUDIO_SPK_START[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_SPK_STARTE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_PUSHE"></a>
 
-    enumerator USB_DRV_AUDIO_SPK_STOP[](#_CPPv4N15bk_usb_drv_op_t22USB_DRV_AUDIO_SPK_STOPE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_PUSHE"></a> <a id="_CPPv2N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_PUSHE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eac33d7424b4db3b1f7cb7464326f90952"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_BUFFER\_PUSH
 
-    enumerator USB_DRV_AUDIO_RX[](#_CPPv4N15bk_usb_drv_op_t16USB_DRV_AUDIO_RXE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t31USB_DRV_UVC_TRANSFER_BUFFER_POPE"></a>
 
-    enumerator USB_DRV_AUDIO_RXED[](#_CPPv4N15bk_usb_drv_op_t18USB_DRV_AUDIO_RXEDE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t31USB_DRV_UVC_TRANSFER_BUFFER_POPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t31USB_DRV_UVC_TRANSFER_BUFFER_POPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea4c7c69726e9d11a556ab83efeef0a0ac"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_BUFFER\_POP
 
-    enumerator USB_DRV_AUDIO_TX[](#_CPPv4N15bk_usb_drv_op_t16USB_DRV_AUDIO_TXE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_FREEE"></a>
 
-    enumerator USB_DRV_AUDIO_TXED[](#_CPPv4N15bk_usb_drv_op_t18USB_DRV_AUDIO_TXEDE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_FREEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t32USB_DRV_UVC_TRANSFER_BUFFER_FREEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eada915ae1706aa8864981794fe9c7151d"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_BUFFER\_FREE
 
-    enumerator USB_DRV_UVC_TRANSFER_DUAL_BUFFER_MALLOC[](#_CPPv4N15bk_usb_drv_op_t39USB_DRV_UVC_TRANSFER_DUAL_BUFFER_MALLOCE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_OPEN_PIPEE"></a>
 
-    enumerator USB_DRV_UVC_TRANSFER_DUAL_BUFFER_PUSH[](#_CPPv4N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_PUSHE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_VIDEO_OPEN_PIPEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_VIDEO_OPEN_PIPEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea10dd300765bf3fb39e2e45dcf488087d"></a> enumerator USB\_DRV\_VIDEO\_OPEN\_PIPE
 
-    enumerator USB_DRV_UVC_TRANSFER_DUAL_BUFFER_POP[](#_CPPv4N15bk_usb_drv_op_t36USB_DRV_UVC_TRANSFER_DUAL_BUFFER_POPE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t24USB_DRV_VIDEO_CLOSE_PIPEE"></a>
 
-    enumerator USB_DRV_UVC_TRANSFER_DUAL_BUFFER_FREE[](#_CPPv4N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_FREEE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t24USB_DRV_VIDEO_CLOSE_PIPEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t24USB_DRV_VIDEO_CLOSE_PIPEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea9b4d7e6712caac9de3009c0153bafaa2"></a> enumerator USB\_DRV\_VIDEO\_CLOSE\_PIPE
 
-    enumerator USB_DRV_VIDEO_DUAL_START[](#_CPPv4N15bk_usb_drv_op_t24USB_DRV_VIDEO_DUAL_STARTE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t19USB_DRV_VIDEO_STARTE"></a>
 
-    enumerator USB_DRV_VIDEO_DUAL_STOP[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_STOPE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t19USB_DRV_VIDEO_STARTE"></a> <a id="_CPPv2N15bk_usb_drv_op_t19USB_DRV_VIDEO_STARTE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaefc89d8b7edd958b9bf97e8f6571c96c"></a> enumerator USB\_DRV\_VIDEO\_START
 
-    enumerator USB_DRV_VIDEO_DUAL_RX[](#_CPPv4N15bk_usb_drv_op_t21USB_DRV_VIDEO_DUAL_RXE "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t18USB_DRV_VIDEO_STOPE"></a>
 
-    enumerator USB_DRV_VIDEO_DUAL_RXED[](#_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_RXEDE "永久链接至目标")
+    <a id="_CPPv3N15bk_usb_drv_op_t18USB_DRV_VIDEO_STOPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t18USB_DRV_VIDEO_STOPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea614c6891b79e2b082fd16918e86bc08f"></a> enumerator USB\_DRV\_VIDEO\_STOP
 
-enum E_USB_ATTRIBUTE_OP[](#_CPPv418E_USB_ATTRIBUTE_OP "永久链接至目标")
+    <a id="_CPPv4N15bk_usb_drv_op_t16USB_DRV_VIDEO_RXE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t16USB_DRV_VIDEO_RXE"></a> <a id="_CPPv2N15bk_usb_drv_op_t16USB_DRV_VIDEO_RXE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eafea3e5f310948b0c334d8745796018e5"></a> enumerator USB\_DRV\_VIDEO\_RX
+
+    <a id="_CPPv4N15bk_usb_drv_op_t18USB_DRV_VIDEO_RXEDE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t18USB_DRV_VIDEO_RXEDE"></a> <a id="_CPPv2N15bk_usb_drv_op_t18USB_DRV_VIDEO_RXEDE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eafe626a5ab9415ed343678d7d6d86471d"></a> enumerator USB\_DRV\_VIDEO\_RXED
+
+    <a id="_CPPv4N15bk_usb_drv_op_t31USB_DRV_UAC_REGISTER_CONNECT_CBE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t31USB_DRV_UAC_REGISTER_CONNECT_CBE"></a> <a id="_CPPv2N15bk_usb_drv_op_t31USB_DRV_UAC_REGISTER_CONNECT_CBE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea39c4bb841f6475a4a9f04e4fc69c81af"></a> enumerator USB\_DRV\_UAC\_REGISTER\_CONNECT\_CB
+
+    <a id="_CPPv4N15bk_usb_drv_op_t34USB_DRV_UAC_REGISTER_DISCONNECT_CBE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t34USB_DRV_UAC_REGISTER_DISCONNECT_CBE"></a> <a id="_CPPv2N15bk_usb_drv_op_t34USB_DRV_UAC_REGISTER_DISCONNECT_CBE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea87ba1203d2d62ffa1d344c7a30f108fc"></a> enumerator USB\_DRV\_UAC\_REGISTER\_DISCONNECT\_CB
+
+    <a id="_CPPv4N15bk_usb_drv_op_t21USB_DRV_UAC_GET_PARAME"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t21USB_DRV_UAC_GET_PARAME"></a> <a id="_CPPv2N15bk_usb_drv_op_t21USB_DRV_UAC_GET_PARAME"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea76593c0981e06731324425411be8e541"></a> enumerator USB\_DRV\_UAC\_GET\_PARAM
+
+    <a id="_CPPv4N15bk_usb_drv_op_t21USB_DRV_UAC_SET_PARAME"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t21USB_DRV_UAC_SET_PARAME"></a> <a id="_CPPv2N15bk_usb_drv_op_t21USB_DRV_UAC_SET_PARAME"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eafbef8db5bdc639b5c30d4745527bd22b"></a> enumerator USB\_DRV\_UAC\_SET\_PARAM
+
+    <a id="_CPPv4N15bk_usb_drv_op_t33USB_DRV_UAC_REGISTER_TRANSFER_OPSE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t33USB_DRV_UAC_REGISTER_TRANSFER_OPSE"></a> <a id="_CPPv2N15bk_usb_drv_op_t33USB_DRV_UAC_REGISTER_TRANSFER_OPSE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eae17e7beaeafb058f8edd39638fc49544"></a> enumerator USB\_DRV\_UAC\_REGISTER\_TRANSFER\_OPS
+
+    <a id="_CPPv4N15bk_usb_drv_op_t34USB_DRV_UAC_TRANSFER_BUFFER_MALLOCE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t34USB_DRV_UAC_TRANSFER_BUFFER_MALLOCE"></a> <a id="_CPPv2N15bk_usb_drv_op_t34USB_DRV_UAC_TRANSFER_BUFFER_MALLOCE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea49b6a338e5f988834b8e0724c045fc17"></a> enumerator USB\_DRV\_UAC\_TRANSFER\_BUFFER\_MALLOC
+
+    <a id="_CPPv4N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_PUSHE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_PUSHE"></a> <a id="_CPPv2N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_PUSHE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea7d57654f8048a478037c2bf76972cd11"></a> enumerator USB\_DRV\_UAC\_TRANSFER\_BUFFER\_PUSH
+
+    <a id="_CPPv4N15bk_usb_drv_op_t31USB_DRV_UAC_TRANSFER_BUFFER_POPE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t31USB_DRV_UAC_TRANSFER_BUFFER_POPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t31USB_DRV_UAC_TRANSFER_BUFFER_POPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eac7881c7d7611f3b7725a4b371f4cc92b"></a> enumerator USB\_DRV\_UAC\_TRANSFER\_BUFFER\_POP
+
+    <a id="_CPPv4N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_FREEE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_FREEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t32USB_DRV_UAC_TRANSFER_BUFFER_FREEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea92a753611584844d97c753dfdf81fdfa"></a> enumerator USB\_DRV\_UAC\_TRANSFER\_BUFFER\_FREE
+
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_OPEN_PIPEE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_AUDIO_OPEN_PIPEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_AUDIO_OPEN_PIPEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eade453d52aaa93be886759fe67c8d63be"></a> enumerator USB\_DRV\_AUDIO\_OPEN\_PIPE
+
+    <a id="_CPPv4N15bk_usb_drv_op_t24USB_DRV_AUDIO_CLOSE_PIPEE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t24USB_DRV_AUDIO_CLOSE_PIPEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t24USB_DRV_AUDIO_CLOSE_PIPEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea2f595035141814d06b4e0fe7de6fded2"></a> enumerator USB\_DRV\_AUDIO\_CLOSE\_PIPE
+
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_MIC_STARTE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_AUDIO_MIC_STARTE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_AUDIO_MIC_STARTE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea0dee62afe974e289b0e89fddacd292e7"></a> enumerator USB\_DRV\_AUDIO\_MIC\_START
+
+    <a id="_CPPv4N15bk_usb_drv_op_t22USB_DRV_AUDIO_MIC_STOPE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t22USB_DRV_AUDIO_MIC_STOPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t22USB_DRV_AUDIO_MIC_STOPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea1c80bb403212aa2198d9fffc6c16c293"></a> enumerator USB\_DRV\_AUDIO\_MIC\_STOP
+
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_AUDIO_SPK_STARTE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_AUDIO_SPK_STARTE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_AUDIO_SPK_STARTE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea45dd42107c99e005a97d05269bd76a42"></a> enumerator USB\_DRV\_AUDIO\_SPK\_START
+
+    <a id="_CPPv4N15bk_usb_drv_op_t22USB_DRV_AUDIO_SPK_STOPE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t22USB_DRV_AUDIO_SPK_STOPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t22USB_DRV_AUDIO_SPK_STOPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaa1a833f62c56f8c97679b4a6c981482b"></a> enumerator USB\_DRV\_AUDIO\_SPK\_STOP
+
+    <a id="_CPPv4N15bk_usb_drv_op_t16USB_DRV_AUDIO_RXE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t16USB_DRV_AUDIO_RXE"></a> <a id="_CPPv2N15bk_usb_drv_op_t16USB_DRV_AUDIO_RXE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea6e18bb87769d4d2b495fd54e9939c437"></a> enumerator USB\_DRV\_AUDIO\_RX
+
+    <a id="_CPPv4N15bk_usb_drv_op_t18USB_DRV_AUDIO_RXEDE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t18USB_DRV_AUDIO_RXEDE"></a> <a id="_CPPv2N15bk_usb_drv_op_t18USB_DRV_AUDIO_RXEDE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea3a0703905f5dd10de863ffc960dd0d9b"></a> enumerator USB\_DRV\_AUDIO\_RXED
+
+    <a id="_CPPv4N15bk_usb_drv_op_t16USB_DRV_AUDIO_TXE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t16USB_DRV_AUDIO_TXE"></a> <a id="_CPPv2N15bk_usb_drv_op_t16USB_DRV_AUDIO_TXE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea9ed23b63be421b5d6bb67232c62b1824"></a> enumerator USB\_DRV\_AUDIO\_TX
+
+    <a id="_CPPv4N15bk_usb_drv_op_t18USB_DRV_AUDIO_TXEDE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t18USB_DRV_AUDIO_TXEDE"></a> <a id="_CPPv2N15bk_usb_drv_op_t18USB_DRV_AUDIO_TXEDE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea0541d9c8ac87913312c1cfc42ee0371b"></a> enumerator USB\_DRV\_AUDIO\_TXED
+
+    <a id="_CPPv4N15bk_usb_drv_op_t39USB_DRV_UVC_TRANSFER_DUAL_BUFFER_MALLOCE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t39USB_DRV_UVC_TRANSFER_DUAL_BUFFER_MALLOCE"></a> <a id="_CPPv2N15bk_usb_drv_op_t39USB_DRV_UVC_TRANSFER_DUAL_BUFFER_MALLOCE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ead8ecd1b3d271f7fa433c637e6e04c9ba"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_DUAL\_BUFFER\_MALLOC
+
+    <a id="_CPPv4N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_PUSHE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_PUSHE"></a> <a id="_CPPv2N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_PUSHE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea03df6a0cb6b8c1a438ed3f770495a48b"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_DUAL\_BUFFER\_PUSH
+
+    <a id="_CPPv4N15bk_usb_drv_op_t36USB_DRV_UVC_TRANSFER_DUAL_BUFFER_POPE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t36USB_DRV_UVC_TRANSFER_DUAL_BUFFER_POPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t36USB_DRV_UVC_TRANSFER_DUAL_BUFFER_POPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea3bcbb9451489651842a1db9de7b2c9c6"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_DUAL\_BUFFER\_POP
+
+    <a id="_CPPv4N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_FREEE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_FREEE"></a> <a id="_CPPv2N15bk_usb_drv_op_t37USB_DRV_UVC_TRANSFER_DUAL_BUFFER_FREEE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea507414113d22d17a34a7f4b8e6105da4"></a> enumerator USB\_DRV\_UVC\_TRANSFER\_DUAL\_BUFFER\_FREE
+
+    <a id="_CPPv4N15bk_usb_drv_op_t24USB_DRV_VIDEO_DUAL_STARTE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t24USB_DRV_VIDEO_DUAL_STARTE"></a> <a id="_CPPv2N15bk_usb_drv_op_t24USB_DRV_VIDEO_DUAL_STARTE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0eaa217e902d121c32f4b9137abf5e178d2"></a> enumerator USB\_DRV\_VIDEO\_DUAL\_START
+
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_STOPE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_STOPE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_STOPE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea91f6ec5adbec153a60d74c81e5f1857b"></a> enumerator USB\_DRV\_VIDEO\_DUAL\_STOP
+
+    <a id="_CPPv4N15bk_usb_drv_op_t21USB_DRV_VIDEO_DUAL_RXE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t21USB_DRV_VIDEO_DUAL_RXE"></a> <a id="_CPPv2N15bk_usb_drv_op_t21USB_DRV_VIDEO_DUAL_RXE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea5666d33305ba143af8d09135fa8688ce"></a> enumerator USB\_DRV\_VIDEO\_DUAL\_RX
+
+    <a id="_CPPv4N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_RXEDE"></a>
+
+    <a id="_CPPv3N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_RXEDE"></a> <a id="_CPPv2N15bk_usb_drv_op_t23USB_DRV_VIDEO_DUAL_RXEDE"></a> <a id="usb__types_8h_1aa9ea0c0ae69e7bea991362a9190adb0ea2dfabb77f3c4d7adacd63ce0ee6cbd4a"></a> enumerator USB\_DRV\_VIDEO\_DUAL\_RXED
+
+<a id="_CPPv418E_USB_ATTRIBUTE_OP"></a>
+
+<a id="_CPPv318E_USB_ATTRIBUTE_OP"></a> <a id="_CPPv218E_USB_ATTRIBUTE_OP"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6"></a> enum E\_USB\_ATTRIBUTE\_OP
 :   *Values:*
 
-    enumerator USB_ATTRIBUTE_RC_UNDEFINED[](#_CPPv4N18E_USB_ATTRIBUTE_OP26USB_ATTRIBUTE_RC_UNDEFINEDE "永久链接至目标")
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP26USB_ATTRIBUTE_RC_UNDEFINEDE"></a>
 
-    enumerator USB_ATTRIBUTE_SET_CUR[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_SET_CURE "永久链接至目标")
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP26USB_ATTRIBUTE_RC_UNDEFINEDE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP26USB_ATTRIBUTE_RC_UNDEFINEDE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6a09d7c72d8fc4524589951ada6cd026e6"></a> enumerator USB\_ATTRIBUTE\_RC\_UNDEFINED
 
-    enumerator USB_ATTRIBUTE_GET_CUR[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_CURE "永久链接至目标")
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_SET_CURE"></a>
 
-    enumerator USB_ATTRIBUTE_GET_MIN[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MINE "永久链接至目标")
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_SET_CURE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_SET_CURE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6ae1a1826fe68971aaaa17eb612eccd4c7"></a> enumerator USB\_ATTRIBUTE\_SET\_CUR
 
-    enumerator USB_ATTRIBUTE_GET_MAX[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MAXE "永久链接至目标")
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_CURE"></a>
 
-    enumerator USB_ATTRIBUTE_GET_RES[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_RESE "永久链接至目标")
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_CURE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_CURE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6aaa96904c47af48f71ae3b8ab8a619eba"></a> enumerator USB\_ATTRIBUTE\_GET\_CUR
 
-    enumerator USB_ATTRIBUTE_GET_LEN[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_LENE "永久链接至目标")
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MINE"></a>
 
-    enumerator USB_ATTRIBUTE_GET_INFO[](#_CPPv4N18E_USB_ATTRIBUTE_OP22USB_ATTRIBUTE_GET_INFOE "永久链接至目标")
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MINE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MINE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6abcd14c8f7ae9697340f3f11013214a20"></a> enumerator USB\_ATTRIBUTE\_GET\_MIN
 
-    enumerator USB_ATTRIBUTE_GET_DEF[](#_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_DEFE "永久链接至目标")
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MAXE"></a>
 
-enum E_UVC_ATTRIBUTE_T[](#_CPPv417E_UVC_ATTRIBUTE_T "永久链接至目标")
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MAXE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_MAXE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6ae3dbd5ceaf8af25c85a364130707c116"></a> enumerator USB\_ATTRIBUTE\_GET\_MAX
+
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_RESE"></a>
+
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_RESE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_RESE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6ade64a96e9cc5260de778be22948d96bf"></a> enumerator USB\_ATTRIBUTE\_GET\_RES
+
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_LENE"></a>
+
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_LENE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_LENE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6a988a1181a8765513f8c32eb0593a045f"></a> enumerator USB\_ATTRIBUTE\_GET\_LEN
+
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP22USB_ATTRIBUTE_GET_INFOE"></a>
+
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP22USB_ATTRIBUTE_GET_INFOE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP22USB_ATTRIBUTE_GET_INFOE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6ac926d795432612c0c6e041bf092c6f66"></a> enumerator USB\_ATTRIBUTE\_GET\_INFO
+
+    <a id="_CPPv4N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_DEFE"></a>
+
+    <a id="_CPPv3N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_DEFE"></a> <a id="_CPPv2N18E_USB_ATTRIBUTE_OP21USB_ATTRIBUTE_GET_DEFE"></a> <a id="usb__types_8h_1afdedffc83cd2eef446c50329998df7b6a2064bcd82d9b5a960c39bf8b13a93a8a"></a> enumerator USB\_ATTRIBUTE\_GET\_DEF
+
+<a id="_CPPv417E_UVC_ATTRIBUTE_T"></a>
+
+<a id="_CPPv317E_UVC_ATTRIBUTE_T"></a> <a id="_CPPv217E_UVC_ATTRIBUTE_T"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0"></a> enum E\_UVC\_ATTRIBUTE\_T
 :   *Values:*
 
-    enumerator UVC_ATTRIBUTE_CONTROL_UNDEFINED[](#_CPPv4N17E_UVC_ATTRIBUTE_T31UVC_ATTRIBUTE_CONTROL_UNDEFINEDE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T31UVC_ATTRIBUTE_CONTROL_UNDEFINEDE"></a>
 
-    enumerator UVC_ATTRIBUTE_BACKLIGHT_COMPENSATION[](#_CPPv4N17E_UVC_ATTRIBUTE_T36UVC_ATTRIBUTE_BACKLIGHT_COMPENSATIONE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T31UVC_ATTRIBUTE_CONTROL_UNDEFINEDE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T31UVC_ATTRIBUTE_CONTROL_UNDEFINEDE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a3e23661b5cebe52eedfe004486476e4d"></a> enumerator UVC\_ATTRIBUTE\_CONTROL\_UNDEFINED
 
-    enumerator UVC_ATTRIBUTE_BRIGHTNESS[](#_CPPv4N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_BRIGHTNESSE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T36UVC_ATTRIBUTE_BACKLIGHT_COMPENSATIONE"></a>
 
-    enumerator UVC_ATTRIBUTE_CONTRAST[](#_CPPv4N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_CONTRASTE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T36UVC_ATTRIBUTE_BACKLIGHT_COMPENSATIONE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T36UVC_ATTRIBUTE_BACKLIGHT_COMPENSATIONE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0ae0ed136589f07ca592fe358c5cfc1042"></a> enumerator UVC\_ATTRIBUTE\_BACKLIGHT\_COMPENSATION
 
-    enumerator UVC_ATTRIBUTE_GAIN[](#_CPPv4N17E_UVC_ATTRIBUTE_T18UVC_ATTRIBUTE_GAINE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_BRIGHTNESSE"></a>
 
-    enumerator UVC_ATTRIBUTE_POWER_LINE_FREQUENCY[](#_CPPv4N17E_UVC_ATTRIBUTE_T34UVC_ATTRIBUTE_POWER_LINE_FREQUENCYE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_BRIGHTNESSE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_BRIGHTNESSE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a97235e2f8616c446954257c2b06dbeae"></a> enumerator UVC\_ATTRIBUTE\_BRIGHTNESS
 
-    enumerator UVC_ATTRIBUTE_HUE[](#_CPPv4N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_HUEE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_CONTRASTE"></a>
 
-    enumerator UVC_ATTRIBUTE_SATURATION[](#_CPPv4N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_SATURATIONE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_CONTRASTE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_CONTRASTE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a756e0758412ec8ebb6baca3d38a0b4fb"></a> enumerator UVC\_ATTRIBUTE\_CONTRAST
 
-    enumerator UVC_ATTRIBUTE_SHARPNESS[](#_CPPv4N17E_UVC_ATTRIBUTE_T23UVC_ATTRIBUTE_SHARPNESSE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T18UVC_ATTRIBUTE_GAINE"></a>
 
-    enumerator UVC_ATTRIBUTE_GAMMA[](#_CPPv4N17E_UVC_ATTRIBUTE_T19UVC_ATTRIBUTE_GAMMAE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T18UVC_ATTRIBUTE_GAINE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T18UVC_ATTRIBUTE_GAINE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0af09bf96019ce7163453a4b3e75373eda"></a> enumerator UVC\_ATTRIBUTE\_GAIN
 
-    enumerator UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE[](#_CPPv4N17E_UVC_ATTRIBUTE_T39UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATUREE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T34UVC_ATTRIBUTE_POWER_LINE_FREQUENCYE"></a>
 
-    enumerator UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE_AUTO[](#_CPPv4N17E_UVC_ATTRIBUTE_T44UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE_AUTOE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T34UVC_ATTRIBUTE_POWER_LINE_FREQUENCYE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T34UVC_ATTRIBUTE_POWER_LINE_FREQUENCYE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a531f2c814d7200d29597a4bffdc10fae"></a> enumerator UVC\_ATTRIBUTE\_POWER\_LINE\_FREQUENCY
 
-    enumerator UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT[](#_CPPv4N17E_UVC_ATTRIBUTE_T37UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENTE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_HUEE"></a>
 
-    enumerator UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT_AUTO[](#_CPPv4N17E_UVC_ATTRIBUTE_T42UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT_AUTOE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_HUEE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_HUEE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a45bcbd011f8968a02ba6794bf609984f"></a> enumerator UVC\_ATTRIBUTE\_HUE
 
-    enumerator UVC_ATTRIBUTE_DIGITAL_MULTIPLIER[](#_CPPv4N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_DIGITAL_MULTIPLIERE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_SATURATIONE"></a>
 
-    enumerator UVC_ATTRIBUTE_DIGITAL_MULTIPLIER_LIMIT[](#_CPPv4N17E_UVC_ATTRIBUTE_T38UVC_ATTRIBUTE_DIGITAL_MULTIPLIER_LIMITE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_SATURATIONE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T24UVC_ATTRIBUTE_SATURATIONE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a0c20681ace5de6928f8100998ddf3cb5"></a> enumerator UVC\_ATTRIBUTE\_SATURATION
 
-    enumerator UVC_ATTRIBUTE_HUE_AUTO[](#_CPPv4N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_HUE_AUTOE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T23UVC_ATTRIBUTE_SHARPNESSE"></a>
 
-    enumerator UVC_ATTRIBUTE_ANALOG_VIDEO_STANDARD[](#_CPPv4N17E_UVC_ATTRIBUTE_T35UVC_ATTRIBUTE_ANALOG_VIDEO_STANDARDE "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T23UVC_ATTRIBUTE_SHARPNESSE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T23UVC_ATTRIBUTE_SHARPNESSE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0ac8453e7299ece5a993df1b39b4b75515"></a> enumerator UVC\_ATTRIBUTE\_SHARPNESS
 
-    enumerator UVC_ATTRIBUTE_ANALOG_LOCK_STATUS[](#_CPPv4N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_ANALOG_LOCK_STATUSE "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T19UVC_ATTRIBUTE_GAMMAE"></a>
 
-    enumerator UVC_ATTRIBUTE_NUM[](#_CPPv4N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_NUME "永久链接至目标")
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T19UVC_ATTRIBUTE_GAMMAE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T19UVC_ATTRIBUTE_GAMMAE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0aedd1f51cbfdcf3da9a4332a126288554"></a> enumerator UVC\_ATTRIBUTE\_GAMMA
 
-enum E_UAC_ATTRIBUTE_T[](#_CPPv417E_UAC_ATTRIBUTE_T "永久链接至目标")
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T39UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATUREE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T39UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATUREE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T39UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATUREE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0ae4bd75f258a94f8909fc9f237f4fb263"></a> enumerator UVC\_ATTRIBUTE\_WHITE\_BALANCE\_TEMPERATURE
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T44UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE_AUTOE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T44UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE_AUTOE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T44UVC_ATTRIBUTE_WHITE_BALANCE_TEMPERATURE_AUTOE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a914c347fd0804f607d1e16a6f96361e8"></a> enumerator UVC\_ATTRIBUTE\_WHITE\_BALANCE\_TEMPERATURE\_AUTO
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T37UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENTE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T37UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENTE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T37UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENTE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a8951142b7575d72f2650aea3797d945d"></a> enumerator UVC\_ATTRIBUTE\_WHITE\_BALANCE\_COMPONENT
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T42UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT_AUTOE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T42UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT_AUTOE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T42UVC_ATTRIBUTE_WHITE_BALANCE_COMPONENT_AUTOE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a288e2e7da735348cb0a9ea1419edbc45"></a> enumerator UVC\_ATTRIBUTE\_WHITE\_BALANCE\_COMPONENT\_AUTO
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_DIGITAL_MULTIPLIERE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_DIGITAL_MULTIPLIERE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_DIGITAL_MULTIPLIERE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a5ae742c3d1579492159e35902501e5b2"></a> enumerator UVC\_ATTRIBUTE\_DIGITAL\_MULTIPLIER
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T38UVC_ATTRIBUTE_DIGITAL_MULTIPLIER_LIMITE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T38UVC_ATTRIBUTE_DIGITAL_MULTIPLIER_LIMITE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T38UVC_ATTRIBUTE_DIGITAL_MULTIPLIER_LIMITE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a6d880b53a970e666cefaa1568481802a"></a> enumerator UVC\_ATTRIBUTE\_DIGITAL\_MULTIPLIER\_LIMIT
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_HUE_AUTOE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_HUE_AUTOE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T22UVC_ATTRIBUTE_HUE_AUTOE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a9376cfda9549b05aa66f4a9d95b48010"></a> enumerator UVC\_ATTRIBUTE\_HUE\_AUTO
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T35UVC_ATTRIBUTE_ANALOG_VIDEO_STANDARDE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T35UVC_ATTRIBUTE_ANALOG_VIDEO_STANDARDE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T35UVC_ATTRIBUTE_ANALOG_VIDEO_STANDARDE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a46c442e92b17ef08597db3ee9db6d6e9"></a> enumerator UVC\_ATTRIBUTE\_ANALOG\_VIDEO\_STANDARD
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_ANALOG_LOCK_STATUSE"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_ANALOG_LOCK_STATUSE"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T32UVC_ATTRIBUTE_ANALOG_LOCK_STATUSE"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a31e72bab48cbba191acf7cecbcab85cc"></a> enumerator UVC\_ATTRIBUTE\_ANALOG\_LOCK\_STATUS
+
+    <a id="_CPPv4N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_NUME"></a>
+
+    <a id="_CPPv3N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_NUME"></a> <a id="_CPPv2N17E_UVC_ATTRIBUTE_T17UVC_ATTRIBUTE_NUME"></a> <a id="usb__types_8h_1ae753f271f5ae961463135c1f533370e0a53f3f4f90ee783bf7c73f348347fd1c2"></a> enumerator UVC\_ATTRIBUTE\_NUM
+
+<a id="_CPPv417E_UAC_ATTRIBUTE_T"></a>
+
+<a id="_CPPv317E_UAC_ATTRIBUTE_T"></a> <a id="_CPPv217E_UAC_ATTRIBUTE_T"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04"></a> enum E\_UAC\_ATTRIBUTE\_T
 :   *Values:*
 
-    enumerator UAC_ATTRIBUTE_UNDEF[](#_CPPv4N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_UNDEFE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_UNDEFE"></a>
 
-    enumerator UAC_ATTRIBUTE_MUTE[](#_CPPv4N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_MUTEE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_UNDEFE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_UNDEFE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04ab7a4d9fa576be50aca52f055140f287f"></a> enumerator UAC\_ATTRIBUTE\_UNDEF
 
-    enumerator UAC_ATTRIBUTE_VOLUME[](#_CPPv4N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_VOLUMEE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_MUTEE"></a>
 
-    enumerator UAC_ATTRIBUTE_BASS[](#_CPPv4N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_BASSE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_MUTEE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_MUTEE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04ae68f7e21cda511ecaac8fb5ff99b36d5"></a> enumerator UAC\_ATTRIBUTE\_MUTE
 
-    enumerator UAC_ATTRIBUTE_MID[](#_CPPv4N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_MIDE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_VOLUMEE"></a>
 
-    enumerator UAC_ATTRIBUTE_TREBLE[](#_CPPv4N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_TREBLEE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_VOLUMEE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_VOLUMEE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a3079f022f9fe79c026e92334eec0ae0e"></a> enumerator UAC\_ATTRIBUTE\_VOLUME
 
-    enumerator UAC_ATTRIBUTE_GRAPHIC_EQUALIZER[](#_CPPv4N17E_UAC_ATTRIBUTE_T31UAC_ATTRIBUTE_GRAPHIC_EQUALIZERE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_BASSE"></a>
 
-    enumerator UAC_ATTRIBUTE_AUTOMATIC_GAIN[](#_CPPv4N17E_UAC_ATTRIBUTE_T28UAC_ATTRIBUTE_AUTOMATIC_GAINE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_BASSE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T18UAC_ATTRIBUTE_BASSE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04adf7833231e1e35d712e831b0f946b94a"></a> enumerator UAC\_ATTRIBUTE\_BASS
 
-    enumerator UAC_ATTRIBUTE_DEALY[](#_CPPv4N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_DEALYE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_MIDE"></a>
 
-    enumerator UAC_ATTRIBUTE_BASS_BOOST[](#_CPPv4N17E_UAC_ATTRIBUTE_T24UAC_ATTRIBUTE_BASS_BOOSTE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_MIDE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_MIDE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a45a35bc12ebceeff1d699452f35a4fd9"></a> enumerator UAC\_ATTRIBUTE\_MID
 
-    enumerator UAC_ATTRIBUTE_LOUDNESS[](#_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_LOUDNESSE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_TREBLEE"></a>
 
-    enumerator UAC_ATTRIBUTE_INP_GAIN[](#_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_INP_GAINE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_TREBLEE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T20UAC_ATTRIBUTE_TREBLEE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04aa5222fcb4fb8dedc913cba8aa985abc3"></a> enumerator UAC\_ATTRIBUTE\_TREBLE
 
-    enumerator UAC_ATTRIBUTE_INP_GAIN_PAD[](#_CPPv4N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_INP_GAIN_PADE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T31UAC_ATTRIBUTE_GRAPHIC_EQUALIZERE"></a>
 
-    enumerator UAC_ATTRIBUTE_PHASE_INVERT[](#_CPPv4N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_PHASE_INVERTE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T31UAC_ATTRIBUTE_GRAPHIC_EQUALIZERE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T31UAC_ATTRIBUTE_GRAPHIC_EQUALIZERE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a64fa86d701318c7c6f0e92e0cddefb69"></a> enumerator UAC\_ATTRIBUTE\_GRAPHIC\_EQUALIZER
 
-    enumerator UAC_ATTRIBUTE_UNDERFLOW[](#_CPPv4N17E_UAC_ATTRIBUTE_T23UAC_ATTRIBUTE_UNDERFLOWE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T28UAC_ATTRIBUTE_AUTOMATIC_GAINE"></a>
 
-    enumerator UAC_ATTRIBUTE_OVERFLOW[](#_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_OVERFLOWE "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T28UAC_ATTRIBUTE_AUTOMATIC_GAINE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T28UAC_ATTRIBUTE_AUTOMATIC_GAINE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a8b3b978bb827d9abb95d6d871429eca4"></a> enumerator UAC\_ATTRIBUTE\_AUTOMATIC\_GAIN
 
-    enumerator UAC_ATTRIBUTE_LATENCY[](#_CPPv4N17E_UAC_ATTRIBUTE_T21UAC_ATTRIBUTE_LATENCYE "永久链接至目标")
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_DEALYE"></a>
 
-    enumerator UAC_ATTRIBUTE_NUM[](#_CPPv4N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_NUME "永久链接至目标")
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_DEALYE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T19UAC_ATTRIBUTE_DEALYE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04ae65e4bb81ae16004835743025af430fe"></a> enumerator UAC\_ATTRIBUTE\_DEALY
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T24UAC_ATTRIBUTE_BASS_BOOSTE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T24UAC_ATTRIBUTE_BASS_BOOSTE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T24UAC_ATTRIBUTE_BASS_BOOSTE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a86e110f4e83191df732e1d318145a27d"></a> enumerator UAC\_ATTRIBUTE\_BASS\_BOOST
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_LOUDNESSE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_LOUDNESSE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_LOUDNESSE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04ad1ffd57fbf4c59ce41b7d8cdd46d3e03"></a> enumerator UAC\_ATTRIBUTE\_LOUDNESS
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_INP_GAINE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_INP_GAINE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_INP_GAINE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a1601448a0166bd422c13c125ab138337"></a> enumerator UAC\_ATTRIBUTE\_INP\_GAIN
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_INP_GAIN_PADE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_INP_GAIN_PADE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_INP_GAIN_PADE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04ade47b7e7d7ab6ad5db716d8d774ae215"></a> enumerator UAC\_ATTRIBUTE\_INP\_GAIN\_PAD
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_PHASE_INVERTE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_PHASE_INVERTE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T26UAC_ATTRIBUTE_PHASE_INVERTE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a5f251c3a23012addcded73b31e25ab00"></a> enumerator UAC\_ATTRIBUTE\_PHASE\_INVERT
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T23UAC_ATTRIBUTE_UNDERFLOWE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T23UAC_ATTRIBUTE_UNDERFLOWE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T23UAC_ATTRIBUTE_UNDERFLOWE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a13ffe14e5dfbafe6a4b3bf829674e3b3"></a> enumerator UAC\_ATTRIBUTE\_UNDERFLOW
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_OVERFLOWE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_OVERFLOWE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T22UAC_ATTRIBUTE_OVERFLOWE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a9a35007f0fba5f85e946805684ec4fc5"></a> enumerator UAC\_ATTRIBUTE\_OVERFLOW
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T21UAC_ATTRIBUTE_LATENCYE"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T21UAC_ATTRIBUTE_LATENCYE"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T21UAC_ATTRIBUTE_LATENCYE"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04aa2b2dc1c8496db7f36577e620d40df6a"></a> enumerator UAC\_ATTRIBUTE\_LATENCY
+
+    <a id="_CPPv4N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_NUME"></a>
+
+    <a id="_CPPv3N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_NUME"></a> <a id="_CPPv2N17E_UAC_ATTRIBUTE_T17UAC_ATTRIBUTE_NUME"></a> <a id="usb__types_8h_1a77c6c838c167e1236fce0adaa667bc04a38a4beb69ae7c441fef3272e36cde98e"></a> enumerator UAC\_ATTRIBUTE\_NUM

@@ -1,42 +1,62 @@
-# OTP/EFUSE 配置[](#otp-efuse "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/config_tools/bk_config_otp_efuse.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="otp-efuse"></a>
+
+<a id="bk-config-otp-efuse"></a>
+
+# OTP/EFUSE 配置
 
 重要
 
 OTP/EFUSE 配置出错可能导致板子变砖，因此，在正式部署之前请确保您了解:
 
 > - OTP/EFUSE 一经配置，就无法更改。
-> - [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit21 "../../security/bk_security_efuse.md#efuse-bit21") 使能后，无法再通过 HID Download Tool 配置 OTP/EFUSE。
-> - [SPI Flash Download，EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30 "../../security/bk_security_efuse.md#efuse-bit30") 使能后，无法再通过 HID Download Tool 进行版本下载。
+> - [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit21) 使能后，无法再通过 HID Download Tool 配置 OTP/EFUSE。
+> - [SPI Flash Download，EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30) 使能后，无法再通过 HID Download Tool 进行版本下载。
 
-理解其他 [EFUSE](../../security/bk_security_efuse.md#bk-securify-efuse "../../security/bk_security_efuse.md#bk-securify-efuse") 与 [OTP](../../security/bk_security_otp.md#security-otp "../../security/bk_security_otp.md#security-otp") 项的含义及影响。
+理解其他 [EFUSE](../../security/bk_security_efuse.md#bk-securify-efuse) 与 [OTP](../../security/bk_security_otp.md#security-otp) 项的含义及影响。
 
+<a id="id1"></a>
 
-## 概述[](#id1 "永久链接至标题")
+## 概述
 
 有三种方式来配置 OTP/EFUSE:
 
-> - 通过 [JSON 脚本](#bk-config-otp-efuse-scripts "#bk-config-otp-efuse-scripts") 使用 [BKFIL](bk_tool_bkfil.md#bk-tool-bkfil "bk_tool_bkfil.md#bk-tool-bkfil") 进行配置，这是推荐配置方式。特别是在批量部署时，应该使用这种方式。
->   [UART 下载](../../security/bk_security_efuse.md#efuse-bit3 "../../security/bk_security_efuse.md#efuse-bit3") 禁用之前可用。
-> - 通过 HID Download Tool 经由 SPI 接口配置，在 [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit21 "../../security/bk_security_efuse.md#efuse-bit21") 禁用前可用。一般仅在 BKFIL 无法部署时才选用这种方式。
+> - 通过 [JSON 脚本](#bk-config-otp-efuse-scripts) 使用 [BKFIL](bk_tool_bkfil.md#bk-tool-bkfil) 进行配置，这是推荐配置方式。特别是在批量部署时，应该使用这种方式。
+>   [UART 下载](../../security/bk_security_efuse.md#efuse-bit3) 禁用之前可用。
+> - 通过 HID Download Tool 经由 SPI 接口配置，在 [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit21) 禁用前可用。一般仅在 BKFIL 无法部署时才选用这种方式。
 > - 通过 CLI 命令进行配置。通常是在 BKFIL 被禁用，或者 BKFIL 与 HID Download Tool 都被禁用时，才使用这种方式。
 
+<a id="bkfil-otp-efuse"></a>
 
-## 使用 BKFIL 配置 OTP/EFUSE[](#bkfil-otp-efuse "永久链接至标题")
+## 使用 BKFIL 配置 OTP/EFUSE
 
+<a id="bk-config-otp-efuse-scripts"></a>
 
-### 配置脚本[](#bk-config-otp-efuse-scripts "永久链接至标题")
+<a id="id2"></a>
 
-[BKFIL](bk_tool_bkfil.md#bk-tool-bkfil "bk_tool_bkfil.md#bk-tool-bkfil") 通过一个 JSON 配置脚本来部署 OTP/EFUSE。
+### 配置脚本
+
+[BKFIL](bk_tool_bkfil.md#bk-tool-bkfil) 通过一个 JSON 配置脚本来部署 OTP/EFUSE。
 
 备注
 
-为简化配置，构建系统在构建时会基于 [系统安全配置](bk_config_security.md#bk-config-security "bk_config_security.md#bk-config-security") 自动生成 OTP/EFUSE JSON 配置脚本 otp_efuse_config.json，
+为简化配置，构建系统在构建时会基于 [系统安全配置](bk_config_security.md#bk-config-security) 自动生成 OTP/EFUSE JSON 配置脚本 otp\_efuse\_config.json，
 强烈建议您以自动生成的脚本为基础进行配置。
 
+<a id="id3"></a>
 
-#### 脚本示例[](#id3 "永久链接至标题")
-
+#### 脚本示例
 
 ```
 {
@@ -101,114 +121,122 @@ OTP/EFUSE 配置出错可能导致板子变砖，因此，在正式部署之前�
        }
    ]
 }
-
 ```
 
 脚本分四个逻辑配置区：
 
-> - 用户配置区 - 由 `User_Operate_Enable` 与 `User_Operate` 配置，用户定义的 OTP 配置通常放在这个区，在自动生成的配置脚本中，这个区为空。
-> - 安全控制区 - 由 `Security_Ctrl_Enable` 与 `Security_Ctrl` 配置，在 BK7236N 中指 EFUSE 配置。
-> - 安全数据区 - 由 `Security_Data_Enable` 与 `Security_Data` 配置，在 BK7236N 中指 OTP 配置。
-> - EFUSE 区 - 由 `eFuse_Enable` 与 `eFuse` 配置，在 BK7236N 中该字段已废弃。
+> - 用户配置区 \- 由 `User_Operate_Enable` 与 `User_Operate` 配置，用户定义的 OTP 配置通常放在这个区，在自动生成的配置脚本中，这个区为空。
+> - 安全控制区 \- 由 `Security_Ctrl_Enable` 与 `Security_Ctrl` 配置，在 BK7236N 中指 EFUSE 配置。
+> - 安全数据区 \- 由 `Security_Data_Enable` 与 `Security_Data` 配置，在 BK7236N 中指 OTP 配置。
+> - EFUSE 区 \- 由 `eFuse_Enable` 与 `eFuse` 配置，在 BK7236N 中该字段已废弃。
 
+<a id="id4"></a>
 
-#### 全局字段[](#id4 "永久链接至标题")
+#### 全局字段
 
 全局字段特指配置表中第一级字段:
 
-> - `User_Operate_Enable` - true/false，表示是否通过 BKFIL 部署 User_Operate 中的数据到板子上。
-> - `Security_Ctrl_Enable` - true/false，表示是否通过 BKFIL 部署 Security_Ctrl 中的数据到板子上。
-> - `Security_data_Enable` - true/false，表示是否通过 BKFIL 部署 Security_data 中的数据到板子上。
-> - `eFuse_Enable` - BK7236N 中已废弃。
-> - `User_Operate` - 用户区配置数据。
-> - `Security_Ctrl` - 安全控制区配置数据。
-> - `Security_data` - 安全数据区配置数据。
-> - `eFuse` - BK7236N 中已废弃。
+> - `User_Operate_Enable` \- true/false，表示是否通过 BKFIL 部署 User\_Operate 中的数据到板子上。
+> - `Security_Ctrl_Enable` \- true/false，表示是否通过 BKFIL 部署 Security\_Ctrl 中的数据到板子上。
+> - `Security_data_Enable` \- true/false，表示是否通过 BKFIL 部署 Security\_data 中的数据到板子上。
+> - `eFuse_Enable` \- BK7236N 中已废弃。
+> - `User_Operate` \- 用户区配置数据。
+> - `Security_Ctrl` \- 安全控制区配置数据。
+> - `Security_data` \- 安全数据区配置数据。
+> - `eFuse` \- BK7236N 中已废弃。
 
 备注
 
 所有全局字段名不能修改，也不能缺少，否则 BKFIL 会报告出错。
 
+<a id="efuse"></a>
 
-#### 安全控制/EFUSE 区配置[](#efuse "永久链接至标题")
+#### 安全控制/EFUSE 区配置
 
 安全控制区用于配置 EFUSE 各 BIT，格式如下:
 
-
 ```
 "flash_aes_enable": "3,5,0",
-
 ```
 
 含义如下:
 
-> - flash_aes_enable 表示 EFUSE 控制位的描述，由用户定义。
-> - “3,5,0” 表示具体配置，含义为将 EFUSE 第三字节的 BIT(5) 配置成 0，或者说，将 [EFUSE BIT29](../../security/bk_security_efuse.md#efuse-bit29 "../../security/bk_security_efuse.md#efuse-bit29") 配置成 0。
+> - flash\_aes\_enable 表示 EFUSE 控制位的描述，由用户定义。
+> - “3,5,0” 表示具体配置，含义为将 EFUSE 第三字节的 BIT(5) 配置成 0，或者说，将 [EFUSE BIT29](../../security/bk_security_efuse.md#efuse-bit29) 配置成 0。
 
-EFUSE 中各 BIT 含义请参考 [EFUSE](../../security/bk_security_efuse.md#bk-securify-efuse "../../security/bk_security_efuse.md#bk-securify-efuse")。
+EFUSE 中各 BIT 含义请参考 [EFUSE](../../security/bk_security_efuse.md#bk-securify-efuse)。
 
+<a id="id5"></a>
 
-#### 用户区与安全数据区配置[](#id5 "永久链接至标题")
+#### 用户区与安全数据区配置
 
 用户区与安全数据区配置相同，各字段具体含义如下:
 
-> - `name` - 必选项，为配置项取一个名字。
-> - `mode` - 必选项，可取 write 或 read，write 表示写 OTP，read 表示读。
-> - `permission` - 仅针对 mode 为 write 时有效，取值为:
+> - `name` \- 必选项，为配置项取一个名字。
+> - `mode` \- 必选项，可取 write 或 read，write 表示写 OTP，read 表示读。
+> - `permission` \- 仅针对 mode 为 write 时有效，取值为:
 >
->   - WR - 操作完之后，将操作单元权限配置成可读，可写。
->   - RO - 操作完之后，将操作单元权限配置成只读。
->   - NA - 操作完之后，将操作单元权限配置成不可访问。
-> - `start_addr` - 必选项，表示配置单元起始地址，为绝对地址。OTP 绝对值地址计算方式为: 0x4b100000 + OTP 内部偏移地址。
->   OTP 各字段内部偏移可参考 [OTP 布局](../../security/bk_security_otp.md#security-otp "../../security/bk_security_otp.md#security-otp")。以 FLASH AES KEY 为例，偏移为 0x460，因此 start_addr 为 0x4b100460。
-> - `byte_len` - 必选项，表示配置长度，为十六进制度。
-> - `data` - 必选项，表示配置数据。
-> - `data_type` - 必选项，表示配置数据格式，可取值为 hex 与 ascii。
-> - `status` - 必选项，表示是否将该配置部署到板子上，true 时部署到板子上，false 时不部署。
+>   - WR \- 操作完之后，将操作单元权限配置成可读，可写。
+>   - RO \- 操作完之后，将操作单元权限配置成只读。
+>   - NA \- 操作完之后，将操作单元权限配置成不可访问。
+> - `start_addr` \- 必选项，表示配置单元起始地址，为绝对地址。OTP 绝对值地址计算方式为: 0x4b100000 \+ OTP 内部偏移地址。
+>   OTP 各字段内部偏移可参考 [OTP 布局](../../security/bk_security_otp.md#security-otp)。以 FLASH AES KEY 为例，偏移为 0x460，因此 start\_addr 为 0x4b100460。
+> - `byte_len` \- 必选项，表示配置长度，为十六进制度。
+> - `data` \- 必选项，表示配置数据。
+> - `data_type` \- 必选项，表示配置数据格式，可取值为 hex 与 ascii。
+> - `status` \- 必选项，表示是否将该配置部署到板子上，true 时部署到板子上，false 时不部署。
 
+<a id="bk-config-otp-efuse-tools"></a>
 
-### 部署配置文件[](#bk-config-otp-efuse-tools "永久链接至标题")
+<a id="id6"></a>
 
-设置好配置文件之后，可通过使用 [BKFIL](bk_tool_bkfil.md#bk-tool-bkfil "bk_tool_bkfil.md#bk-tool-bkfil") 将配置表文件部署到开发板上。或者在 BKFIL 命令行模式时使用 –safe-json 选项进行部署。
+### 部署配置文件
+
+设置好配置文件之后，可通过使用 [BKFIL](bk_tool_bkfil.md#bk-tool-bkfil) 将配置表文件部署到开发板上。或者在 BKFIL 命令行模式时使用 –safe-json 选项进行部署。
 
 使用 BKFIL 界面部署截图:
 
-![8](../../_images/otp_bkfil.png)
+![8](../../../../_assets/daeaf322fa4e65c48ab8-otp_bkfil.png)
 
+<a id="hid-download-tool-otp-efuse"></a>
 
-## 使用 HID Download Tool 配置 OTP/EFUSE[](#hid-download-tool-otp-efuse "永久链接至标题")
+## 使用 HID Download Tool 配置 OTP/EFUSE
 
 SPI to AHB 未被禁用时使用 HID Download Tool 配置。
 
 重要
 
-HID Download Tool 使用的前提是 [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit29 "../../security/bk_security_efuse.md#efuse-bit29") 未置 1，因此，使用 HID Download Tool 进行配置时，
-[SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit29 "../../security/bk_security_efuse.md#efuse-bit29") 应该最后配置。
+HID Download Tool 使用的前提是 [SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit29) 未置 1，因此，使用 HID Download Tool 进行配置时，
+[SPI to AHB，EFUSE BIT21](../../security/bk_security_efuse.md#efuse-bit29) 应该最后配置。
 
+<a id="hid-download-tool"></a>
 
-### HID Download Tool 版本[](#hid-download-tool "永久链接至标题")
+### HID Download Tool 版本
 
 请确保您使用最新 HID Download Tool V2.10.2 或者之后的版本。
 
+<a id="id7"></a>
 
-### 配置方法[](#id7 "永久链接至标题")
+### 配置方法
 
 HID Download Tool 按四字节为单位进行读写，操作界面如下图所示:
 
-![8](../../_images/hid_download_tool_otp.png)
+![8](../../../../_assets/ee10513253752388eb65-hid_download_tool_otp.png)
 
+<a id="id8"></a>
 
-### 应用场景示例[](#id8 "永久链接至标题")
+### 应用场景示例
 
 使用 HID Download Tool 一个可能场景如下:
 
-> - 使能了安全启动，同时烧录了不支持安全下载的 BL2，但 [SPI to AHB, EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30 "../../security/bk_security_efuse.md#efuse-bit30") 接口未禁用。
-> - 当确认安全启动版本升级功能无误之后，将通过 HID Download Tool 将 [Secure boot debug EFUSE BIT1](../../security/bk_security_efuse.md#efuse-bit1 "../../security/bk_security_efuse.md#efuse-bit1")/[Secure boot critical error, EFUSE BIT7](../../security/bk_security_efuse.md#efuse-bit7 "../../security/bk_security_efuse.md#efuse-bit7") 以及
->   [SPI 下载 EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30 "../../security/bk_security_efuse.md#efuse-bit30") 禁用。
-> - 通过 HID Download Tool 最后禁用 [SPI to AHB, EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30 "../../security/bk_security_efuse.md#efuse-bit30")。
+> - 使能了安全启动，同时烧录了不支持安全下载的 BL2，但 [SPI to AHB, EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30) 接口未禁用。
+> - 当确认安全启动版本升级功能无误之后，将通过 HID Download Tool 将 [Secure boot debug EFUSE BIT1](../../security/bk_security_efuse.md#efuse-bit1)/[Secure boot critical error, EFUSE BIT7](../../security/bk_security_efuse.md#efuse-bit7) 以及
+>   [SPI 下载 EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30) 禁用。
+> - 通过 HID Download Tool 最后禁用 [SPI to AHB, EFUSE BIT30](../../security/bk_security_efuse.md#efuse-bit30)。
 
+<a id="cli-otp-efuse"></a>
 
-## 通过 CLI 配置 OTP/EFUSE[](#cli-otp-efuse "永久链接至标题")
+## 通过 CLI 配置 OTP/EFUSE
 
 当开发板了已经下载了支持 OTP/EFUSE 的 IMAGE 时，如果 BKFIL 与 HID Download Tool 均被禁用了，则使用 IMAGE 上的 CLI 命令进行 OTP/EFUSE 配置。
 通常不推荐使用这种试进行部署，仅在内部调试时使用。

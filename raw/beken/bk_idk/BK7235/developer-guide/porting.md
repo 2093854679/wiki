@@ -1,15 +1,24 @@
 ---
-aliases:
-- 'BK7235 › developer-guide › porting'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/developer-guide/porting/index.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# OS移植介绍[](#os "永久链接至标题")
 
+<a id="os"></a>
+
+# OS移植介绍
 
 本章节以BK7256 RISC-V架构鸿蒙OS移植为例
 
-> - 操作系统内核源码路径：components/os_source/
-> - 操作系统内核源码在components/os_source/CMakeLists.txt中修改添加到Armino平台编译
-> - 在components/bk_rtos/Kconfig中定义操作系统相关的宏
+> - 操作系统内核源码路径：components/os\_source/
+> - 操作系统内核源码在components/os\_source/CMakeLists.txt中修改添加到Armino平台编译
+> - 在components/bk\_rtos/Kconfig中定义操作系统相关的宏
 >
 >   ```
 >   menu "LITEOS_M"
@@ -42,8 +51,8 @@ aliases:
 >   CONFIG_FREERTOS_V9=n
 >   CONFIG_FREERTOS_V10=n
 >   ```
-> - 实现OS抽象层接口：components/bk_rtos/liteos_m_v3/rtos_pub.c
-> - 创建系统启动汇编代码：middleware/arch/riscv/boot_vectors_liteos_m.S
+> - 实现OS抽象层接口：components/bk\_rtos/liteos\_m\_v3/rtos\_pub.c
+> - 创建系统启动汇编代码：middleware/arch/riscv/boot\_vectors\_liteos\_m.S
 > - RISC-V的关键寄存器：设置中断和异常入口：
 >
 >   ```
@@ -51,8 +60,8 @@ aliases:
 >   la t0, HalTrapVector
 >   csrw mtvec, t0
 >   ```
-> - 适配异常处理函数：trap_handler
->   在components/os_source/liteos_m_v3/kernel/arch/risc-v/riscv32/gcc/los_exc.S中修改HalTrapEntry
+> - 适配异常处理函数：trap\_handler
+>   在components/os\_source/liteos\_m\_v3/kernel/arch/risc-v/riscv32/gcc/los\_exc.S中修改HalTrapEntry
 > - 中断入口：HalHwiInterruptDone
 > - 注册Armino平台外部中断处理函数：vPortSetupMEXTInterrupt
 > - 注册Armino平台MTIME中断处理函数：vPortSetupTimerInterrupt

@@ -1,8 +1,22 @@
-# JPEG硬解码[](#jpeg "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/jpeg_decoding_hw/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="jpeg"></a>
 
+# JPEG硬解码
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 本文档主要介绍了硬件解码的API使用方法。
 
@@ -13,28 +27,29 @@
 1. 解码支持输入分辨率的列必须是16的整数倍，行必须是8的整数倍。
 2. 解码的输出格式只支持下面四种YUV格式，默认为YUYV
 
-> - 格式1：y0uy1v(高位<–>低位)（byte3，byte2，byte1，byte0）
-> - 格式2：vuy1y0(高位<–>低位)（byte3，byte2，byte1，byte0）
-> - 格式3：vy1uy0(高位<–>低位)（byte3，byte2，byte1，byte0）
-> - 格式4：y0y1uv(高位<–>低位)（byte3，byte2，byte1，byte0）
+> - 格式1：y0uy1v(高位\<–\>低位)（byte3，byte2，byte1，byte0）
+> - 格式2：vuy1y0(高位\<–\>低位)（byte3，byte2，byte1，byte0）
+> - 格式3：vy1uy0(高位\<–\>低位)（byte3，byte2，byte1，byte0）
+> - 格式4：y0y1uv(高位\<–\>低位)（byte3，byte2，byte1，byte0）
 
 3)解码输入的jpeg只支持YUV422压缩编码的jpeg/jpg，不支持YUV420编码的图片解码；
 
+<a id="id2"></a>
 
-## 2、参考代码[](#id2 "永久链接至标题")
+## 2、参考代码
 
-> 硬解码的驱动API请参考 [API Reference :](../../api-reference/multi_media/bk_jpegdec_hw.md "../../api-reference/multi_media/bk_jpegdec_hw.md")
+> 硬解码的驱动API请参考 [API Reference :](../api-reference/multi_media/bk_jpegdec_hw.md)
 >
 > 硬解码的组件代码请参考 `components/multimedia/lcd/lcd_decode.c` 和 `components/image_codec_unit/src/pipeline/jpeg_decode_pipeline.c`
 
+<a id="id3"></a>
 
-## 3、JPEG硬解码流程[](#id3 "永久链接至标题")
+## 3、JPEG硬解码流程
 
 JPEG硬解码主要流程如下：
 
 1. 首先有yuv422编码的jpeg数据；
 2. 初始化解码模块，并注册中断函数, 解码支持整帧解码和按行解码，其中按行解码时，行数有以下选择:
-
 
 ```
 typedef enum _line_num {
@@ -46,13 +61,11 @@ typedef enum _line_num {
         LINE_48,
 
 }line_num_t;
-
 ```
 
 即当行数为8/16/..时，行解码结束，进入行中断。
 
 初始化代码：
-
 
 ```
 bk_jpeg_dec_driver_init();
@@ -73,19 +86,15 @@ else
 {
         bk_jpeg_dec_isr_register(DEC_END_OF_FRAME, jpeg_decode_frame_complete_handler);
 }
-
 ```
 
 2. 然后调用API执行硬件解码:
 
-
 ```
 bk_err_t bk_jpeg_dec_hw_start(uint32_t length, unsigned char *input_buf, unsigned char * output_buf)
-
 ```
 
 3. 解码完成后会进入解码完成中断，用户可以在解码完成中断中获取图片的像素
-
 
 ```
 /** jpeg dec isr return value */
@@ -96,7 +105,6 @@ typedef struct
         uint16_t pixel_y;  /**< jpeg y pixel */
         uint32_t size;     /**< jpeg size */
 } jpeg_dec_res_t;
-
 ```
 
 5. 当解码进入 `jpeg_decode_err_handler` 中断，说明解码错误，可能的原因是：
@@ -104,14 +112,12 @@ typedef struct
 > - jpeg头解析错误，比如量化表或霍夫曼表解析错误
 > - 图片数据不完整
 > - 解析出来的头和数据不一致，图片数据找到破坏
-> - 图片可能是带DRI(FF D0~D7)，工程默认配置不支持DRI的图片解码，需要将支持DRI的宏打开，即
->   :   在工程目录<config/bk7258_cp1/bk7558_cp1/config>文件中添加CONFIG_JPEGDEC_HW_SUPPORT_DRI=y
+> - 图片可能是带DRI(FF D0\~D7)，工程默认配置不支持DRI的图片解码，需要将支持DRI的宏打开，即
+>   :   在工程目录\<config/bk7258\_cp1/bk7558\_cp1/config\>文件中添加CONFIG\_JPEGDEC\_HW\_SUPPORT\_DRI\=y
 > - 其他原因
 
 6. 如果硬件解码失败，也可以调用API获取当前图片的编码格式：
 
-
 ```
 yuv_enc_fmt_t bk_get_original_jpeg_encode_data_format(uint8_t *src_buf, uint32_t length)
-
 ```

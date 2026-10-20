@@ -1,4 +1,20 @@
-# Armino 1.2.0[](#armino-1-2-0 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/release-notes/release-notes-1.0.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="armino-1-2-0"></a>
+
+<a id="armino-1-0"></a>
+
+# Armino 1.2.0
 
 We are pleased to announce the release of Armino version 1.2.0.
 
@@ -11,66 +27,40 @@ release notes.
 
 Major enhancements with this release include:
 
-
 - Support new software architecture, such as components and middleware etc
-
 - Support boot for RISC-V
-
 - Support new APIs for following drivers:
 
-
   - ADC
-
   - GPIO
-
   - DMA
-
   - UART
-
   - SPI
-
   - QSPI
-
   - Timer
-
   - TRNG
-
   - MailBox
-
   - Interrupt
-
   - Watchdog
-
   - Efusea
-
   - PWM
-
   - Vault
-
 - Support Wi-Fi 6 stack
-
 - Support new APIs for Wi-Fi
-
 - Support new APIs for BLE
-
 - Support BLE 5.x stack
-
 - Support POSIX for FreeRTOS
-
 - Upgrade FreeRTOS to v10.0
-
 - Upgrade LWIP to v2.1.2
-
 - Support CMake build
-
 - Support Kconfig and per-soc and per-project configuration
-
 - Support new documentation
 
 The following sections provide detailed lists of changes by component.
 
+<a id="software-architecture"></a>
 
-## Software Architecture[](#software-architecture "永久链接至标题")
+## Software Architecture
 
 The software architecture has been redesigned:
 
@@ -79,66 +69,72 @@ The software architecture has been redesigned:
 > - A dedicated layer `projects` has been added to contains all applications, projects or examples.
 > - The FreeRTOS have been moved to Armino, Armino supports FreeRTOS by default.
 
+<a id="freertos"></a>
 
-## FreeRTOS[](#freertos "永久链接至标题")
+## FreeRTOS
 
 The FreeRTOS has been upgrade from v9.0 to v10.0.
 
+<a id="posix-apis"></a>
 
-## Posix APIs[](#posix-apis "永久链接至标题")
+## Posix APIs
 
 The POSIX APIs has been supported.
 
+<a id="wi-fi"></a>
 
-## Wi-Fi[](#wi-fi "永久链接至标题")
+## Wi-Fi
 
 > - Support Wi-Fi 6 stack
 > - Support new Wi-Fi APIs
 >
-> > - [`bk_wifi_init()`](../api-reference/wifi/bk_wifi.md#_CPPv412bk_wifi_initPK18wifi_init_config_t "bk_wifi_init") - init WiFi
-> > - [`bk_wifi_deinit()`](../api-reference/wifi/bk_wifi.md#_CPPv414bk_wifi_deinitv "bk_wifi_deinit") - deinit WiFi
-> > - [`bk_wifi_set_country()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_set_countryPK14wifi_country_t "bk_wifi_set_country") - set country code
-> > - [`bk_wifi_get_country()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_get_countryP14wifi_country_t "bk_wifi_get_country") - get country code
-> > - [`bk_wifi_send_raw()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_send_rawP7uint8_ti "bk_wifi_send_raw") - send raw 802.11 frame
-> > - [`bk_wifi_sta_start()`](../api-reference/wifi/bk_wifi.md#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") - start BK STA
-> > - [`bk_wifi_sta_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") - stop BK STA
-> > - [`bk_wifi_sta_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") - set **basic** configurations BK STA, such as SSID etc
-> > - [`bk_wifi_sta_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv422bk_wifi_sta_get_configP17wifi_sta_config_t "bk_wifi_sta_get_config") - get basic configuration of BK STA
-> > - [`bk_wifi_sta_get_link_status()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_sta_get_link_statusP18wifi_link_status_t "bk_wifi_sta_get_link_status") - get link status of BK STA
-> > - [`bk_wifi_sta_get_mac()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_sta_get_macP7uint8_t "bk_wifi_sta_get_mac") - get STA MAC address
-> > - [`bk_wifi_ap_start()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_ap_startv "bk_wifi_ap_start") - start BK AP
-> > - [`bk_wifi_ap_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv415bk_wifi_ap_stopv "bk_wifi_ap_stop") - stop BK AP
-> > - [`bk_wifi_ap_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") - set the **basic** configuration of BK AP, such as SSID etc
-> > - [`bk_wifi_ap_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_ap_get_configP16wifi_ap_config_t "bk_wifi_ap_get_config") - get the basic configuration of BK AP
-> > - [`bk_wifi_ap_get_mac()`](../api-reference/wifi/bk_wifi.md#_CPPv418bk_wifi_ap_get_macP7uint8_t "bk_wifi_ap_get_mac") - get AP MAC address
-> > - [`bk_wifi_monitor_start()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_monitor_startv "bk_wifi_monitor_start") - start the monitor
-> > - [`bk_wifi_monitor_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv420bk_wifi_monitor_stopv "bk_wifi_monitor_stop") - stop the monitor
-> > - [`bk_wifi_monitor_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_monitor_set_configPK21wifi_monitor_config_t "bk_wifi_monitor_set_config") - set **basic** configuration of the monitor
-> > - [`bk_wifi_monitor_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_monitor_get_configP21wifi_monitor_config_t "bk_wifi_monitor_get_config") - get basic configuration of the monitor
-> > - [`bk_wifi_monitor_register_cb()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_monitor_register_cbK17wifi_monitor_cb_t "bk_wifi_monitor_register_cb") - register monitor callback function
-> > - [`bk_wifi_monitor_set_channel()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_monitor_set_channelPK14wifi_channel_t "bk_wifi_monitor_set_channel") - set the channel of monitor
-> > - `bk_wifi_scan_register_cb()` - register scan callback function
-> > - [`bk_wifi_scan_start()`](../api-reference/wifi/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") - start the scan
-> > - [`bk_wifi_scan_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") - stop the scan
-> > - [`bk_wifi_scan_get_result()`](../api-reference/wifi/bk_wifi.md#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") - get the scan result
-> > - [`bk_wifi_scan_dump_result()`](../api-reference/wifi/bk_wifi.md#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") - dump the scan result
-> > - [`bk_wifi_scan_free_result()`](../api-reference/wifi/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") - dump the scan result
-> > - [`bk_wifi_filter_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv425bk_wifi_filter_set_configPK20wifi_filter_config_t "bk_wifi_filter_set_config") - set filter configuration
-> > - [`bk_wifi_filter_register_cb()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_filter_register_cbK16wifi_filter_cb_t "bk_wifi_filter_register_cb") - register the filter callback function
+> > - [`bk_wifi_init()`](../api-reference/wifi/bk_wifi.md#_CPPv412bk_wifi_initPK18wifi_init_config_t "bk_wifi_init") \- init WiFi
+> > - [`bk_wifi_deinit()`](../api-reference/wifi/bk_wifi.md#_CPPv414bk_wifi_deinitv "bk_wifi_deinit") \- deinit WiFi
+> > - [`bk_wifi_set_country()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_set_countryPK14wifi_country_t "bk_wifi_set_country") \- set country code
+> > - [`bk_wifi_get_country()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_get_countryP14wifi_country_t "bk_wifi_get_country") \- get country code
+> > - [`bk_wifi_send_raw()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_send_rawP7uint8_ti "bk_wifi_send_raw") \- send raw 802.11 frame
+> > - [`bk_wifi_sta_start()`](../api-reference/wifi/bk_wifi.md#_CPPv417bk_wifi_sta_startv "bk_wifi_sta_start") \- start BK STA
+> > - [`bk_wifi_sta_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_sta_stopv "bk_wifi_sta_stop") \- stop BK STA
+> > - [`bk_wifi_sta_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv422bk_wifi_sta_set_configPK17wifi_sta_config_t "bk_wifi_sta_set_config") \- set **basic** configurations BK STA, such as SSID etc
+> > - [`bk_wifi_sta_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv422bk_wifi_sta_get_configP17wifi_sta_config_t "bk_wifi_sta_get_config") \- get basic configuration of BK STA
+> > - [`bk_wifi_sta_get_link_status()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_sta_get_link_statusP18wifi_link_status_t "bk_wifi_sta_get_link_status") \- get link status of BK STA
+> > - [`bk_wifi_sta_get_mac()`](../api-reference/wifi/bk_wifi.md#_CPPv419bk_wifi_sta_get_macP7uint8_t "bk_wifi_sta_get_mac") \- get STA MAC address
+> > - [`bk_wifi_ap_start()`](../api-reference/wifi/bk_wifi.md#_CPPv416bk_wifi_ap_startv "bk_wifi_ap_start") \- start BK AP
+> > - [`bk_wifi_ap_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv415bk_wifi_ap_stopv "bk_wifi_ap_stop") \- stop BK AP
+> > - [`bk_wifi_ap_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_ap_set_configPK16wifi_ap_config_t "bk_wifi_ap_set_config") \- set the **basic** configuration of BK AP, such as SSID etc
+> > - [`bk_wifi_ap_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_ap_get_configP16wifi_ap_config_t "bk_wifi_ap_get_config") \- get the basic configuration of BK AP
+> > - [`bk_wifi_ap_get_mac()`](../api-reference/wifi/bk_wifi.md#_CPPv418bk_wifi_ap_get_macP7uint8_t "bk_wifi_ap_get_mac") \- get AP MAC address
+> > - [`bk_wifi_monitor_start()`](../api-reference/wifi/bk_wifi.md#_CPPv421bk_wifi_monitor_startv "bk_wifi_monitor_start") \- start the monitor
+> > - [`bk_wifi_monitor_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv420bk_wifi_monitor_stopv "bk_wifi_monitor_stop") \- stop the monitor
+> > - [`bk_wifi_monitor_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_monitor_set_configPK21wifi_monitor_config_t "bk_wifi_monitor_set_config") \- set **basic** configuration of the monitor
+> > - [`bk_wifi_monitor_get_config()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_monitor_get_configP21wifi_monitor_config_t "bk_wifi_monitor_get_config") \- get basic configuration of the monitor
+> > - [`bk_wifi_monitor_register_cb()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_monitor_register_cbK17wifi_monitor_cb_t "bk_wifi_monitor_register_cb") \- register monitor callback function
+> > - [`bk_wifi_monitor_set_channel()`](../api-reference/wifi/bk_wifi.md#_CPPv427bk_wifi_monitor_set_channelPK14wifi_channel_t "bk_wifi_monitor_set_channel") \- set the channel of monitor
+> > - `bk_wifi_scan_register_cb()` \- register scan callback function
+> > - [`bk_wifi_scan_start()`](../api-reference/wifi/bk_wifi.md#_CPPv418bk_wifi_scan_startPK18wifi_scan_config_t "bk_wifi_scan_start") \- start the scan
+> > - [`bk_wifi_scan_stop()`](../api-reference/wifi/bk_wifi.md#_CPPv417bk_wifi_scan_stopv "bk_wifi_scan_stop") \- stop the scan
+> > - [`bk_wifi_scan_get_result()`](../api-reference/wifi/bk_wifi.md#_CPPv423bk_wifi_scan_get_resultP18wifi_scan_result_t "bk_wifi_scan_get_result") \- get the scan result
+> > - [`bk_wifi_scan_dump_result()`](../api-reference/wifi/bk_wifi.md#_CPPv424bk_wifi_scan_dump_resultPK18wifi_scan_result_t "bk_wifi_scan_dump_result") \- dump the scan result
+> > - [`bk_wifi_scan_free_result()`](../api-reference/wifi/bk_wifi.md#_CPPv424bk_wifi_scan_free_resultP18wifi_scan_result_t "bk_wifi_scan_free_result") \- dump the scan result
+> > - [`bk_wifi_filter_set_config()`](../api-reference/wifi/bk_wifi.md#_CPPv425bk_wifi_filter_set_configPK20wifi_filter_config_t "bk_wifi_filter_set_config") \- set filter configuration
+> > - [`bk_wifi_filter_register_cb()`](../api-reference/wifi/bk_wifi.md#_CPPv426bk_wifi_filter_register_cbK16wifi_filter_cb_t "bk_wifi_filter_register_cb") \- register the filter callback function
 
+<a id="ble"></a>
 
-## BLE[](#ble "永久链接至标题")
+## BLE
 
+<a id="driver"></a>
 
-## Driver[](#driver "永久链接至标题")
+## Driver
 
 The driver architecture has been redesigned:
 
 > - The driver has been divided to 3 layers, the Driver layer, HAL layer and SoC Layer.
 > - Some driver of the peripherals are re-implemented based on the new driver architecture, such as ADC etc.
 
+<a id="adc"></a>
 
-### ADC[](#adc "永久链接至标题")
+### ADC
 
 ADC are re-designed in this release, here are the new ADC APIs:
 
@@ -167,8 +163,9 @@ ADC are re-designed in this release, here are the new ADC APIs:
 > - [`bk_adc_set_mode()`](../api-reference/peripheral/bk_adc.md#_CPPv415bk_adc_set_mode10adc_mode_t "bk_adc_set_mode")
 > - [`bk_adc_get_mode()`](../api-reference/peripheral/bk_adc.md#_CPPv415bk_adc_get_modev "bk_adc_get_mode")
 
+<a id="gpio"></a>
 
-### GPIO[](#gpio "永久链接至标题")
+### GPIO
 
 GPIO are re-designed in this release, here are the new GPIO APIs:
 
@@ -191,8 +188,9 @@ GPIO are re-designed in this release, here are the new GPIO APIs:
 > - [`bk_gpio_disable_interrupt()`](../api-reference/peripheral/bk_gpio.md#_CPPv425bk_gpio_disable_interrupt9gpio_id_t "bk_gpio_disable_interrupt")
 > - [`bk_gpio_set_interrupt_type()`](../api-reference/peripheral/bk_gpio.md#_CPPv426bk_gpio_set_interrupt_type9gpio_id_t15gpio_int_type_t "bk_gpio_set_interrupt_type")
 
+<a id="pwm"></a>
 
-### PWM[](#pwm "永久链接至标题")
+### PWM
 
 PWM are re-designed in this release, here are the new PWM APIs:
 
@@ -218,8 +216,9 @@ PWM are re-designed in this release, here are the new PWM APIs:
 > - [`bk_pwm_capture_stop()`](../api-reference/peripheral/bk_pwm.md#_CPPv419bk_pwm_capture_stop10pwm_chan_t "bk_pwm_capture_stop")
 > - [`bk_pwm_capture_get_value()`](../api-reference/peripheral/bk_pwm.md#_CPPv424bk_pwm_capture_get_value10pwm_chan_t "bk_pwm_capture_get_value")
 
+<a id="dma"></a>
 
-### DMA[](#dma "永久链接至标题")
+### DMA
 
 DMA are re-designed in this release, here are the new DMA APIs:
 
@@ -241,8 +240,9 @@ DMA are re-designed in this release, here are the new DMA APIs:
 > - [`bk_dma_set_dest_addr()`](../api-reference/peripheral/bk_dma.md#_CPPv420bk_dma_set_dest_addr8dma_id_t8uint32_t8uint32_t "bk_dma_set_dest_addr")
 > - [`bk_dma_get_remain_len()`](../api-reference/peripheral/bk_dma.md#_CPPv421bk_dma_get_remain_len8dma_id_t "bk_dma_get_remain_len")
 
+<a id="uart"></a>
 
-### UART[](#uart "永久链接至标题")
+### UART
 
 UART are re-designed in this release, here are the new UART APIs:
 
@@ -272,8 +272,9 @@ UART are re-designed in this release, here are the new UART APIs:
 > - [`bk_uart_enable_sw_fifo()`](../api-reference/peripheral/bk_uart.md#_CPPv422bk_uart_enable_sw_fifo9uart_id_t "bk_uart_enable_sw_fifo")
 > - [`bk_uart_disable_sw_fifo()`](../api-reference/peripheral/bk_uart.md#_CPPv423bk_uart_disable_sw_fifo9uart_id_t "bk_uart_disable_sw_fifo")
 
+<a id="spi"></a>
 
-### SPI[](#spi "永久链接至标题")
+### SPI
 
 SPI are re-designed in this release, here are the new SPI APIs:
 
@@ -295,8 +296,9 @@ SPI are re-designed in this release, here are the new SPI APIs:
 > - `bk_spi_dma_read_bytes()`
 > - `bk_spi_dma_transmit()`
 
+<a id="qspi"></a>
 
-### QSPI[](#qspi "永久链接至标题")
+### QSPI
 
 QSPI driver are re-designed in this release, here are the new QSPI APIs:
 
@@ -320,8 +322,9 @@ QSPI driver are re-designed in this release, here are the new QSPI APIs:
 > - [`bk_qspi_psram_write()`](../api-reference/peripheral/bk_qspi.md#_CPPv419bk_qspi_psram_write8uint32_tPKv8uint32_t "bk_qspi_psram_write")
 > - [`bk_qspi_psram_read()`](../api-reference/peripheral/bk_qspi.md#_CPPv418bk_qspi_psram_read8uint32_tPv8uint32_t "bk_qspi_psram_read")
 
+<a id="timer"></a>
 
-### Timer[](#timer "永久链接至标题")
+### Timer
 
 Timer driver are re-designed in this release, here are the new Timer APIs:
 
@@ -334,8 +337,9 @@ Timer driver are re-designed in this release, here are the new Timer APIs:
 > - [`bk_timer_disable()`](../api-reference/peripheral/bk_timer.md#_CPPv416bk_timer_disable10timer_id_t "bk_timer_disable")
 > - [`bk_timer_get_period()`](../api-reference/peripheral/bk_timer.md#_CPPv419bk_timer_get_period10timer_id_t "bk_timer_get_period")
 
+<a id="trng"></a>
 
-### TRNG[](#trng "永久链接至标题")
+### TRNG
 
 TRNG driver are re-designed in this release, here are the new TRNG APIs:
 
@@ -345,8 +349,9 @@ TRNG driver are re-designed in this release, here are the new TRNG APIs:
 > - [`bk_trng_stop()`](../api-reference/peripheral/bk_trng.md#_CPPv412bk_trng_stopv "bk_trng_stop")
 > - [`bk_rand()`](../api-reference/peripheral/bk_trng.md#_CPPv47bk_randv "bk_rand")
 
+<a id="efuse"></a>
 
-### EFUSE[](#efuse "永久链接至标题")
+### EFUSE
 
 Efuse driver are re-designed in this release, here are the new Efuse APIs:
 
@@ -355,8 +360,9 @@ Efuse driver are re-designed in this release, here are the new Efuse APIs:
 > - `bk_efuse_write()`
 > - `bk_efuse_read()`
 
+<a id="mailbox"></a>
 
-### MailBox[](#mailbox "永久链接至标题")
+### MailBox
 
 Mailbox driver are re-designed in this release, here are the new Mailbox APIs:
 
@@ -367,8 +373,9 @@ Mailbox driver are re-designed in this release, here are the new Mailbox APIs:
 > - `mailbox_recv_callback_unregister()`
 > - `mailbox_send()`
 
+<a id="interrupt"></a>
 
-### Interrupt[](#interrupt "永久链接至标题")
+### Interrupt
 
 Interrupt control are re-designed in this release, here are the new Interrupt APIs:
 
@@ -379,8 +386,9 @@ Interrupt control are re-designed in this release, here are the new Interrupt AP
 > - `bk_get_int_statis()`
 > - `bk_dump_int_statis()`
 
+<a id="watchdog"></a>
 
-### Watchdog[](#watchdog "永久链接至标题")
+### Watchdog
 
 Watchdog are re-designed in this release, here are the new Watchdog APIs:
 
@@ -390,22 +398,25 @@ Watchdog are re-designed in this release, here are the new Watchdog APIs:
 > - [`bk_wdt_stop()`](../api-reference/peripheral/bk_wdt.md#_CPPv411bk_wdt_stopv "bk_wdt_stop")
 > - [`bk_wdt_feed()`](../api-reference/peripheral/bk_wdt.md#_CPPv411bk_wdt_feedv "bk_wdt_feed")
 
+<a id="build-system"></a>
 
-## Build System[](#build-system "永久链接至标题")
+## Build System
 
 The legacy GNU Makefile build system has been removed and the CMake build system has been supported.
 
+<a id="log"></a>
 
-## Log[](#log "永久链接至标题")
+## Log
 
 Following log APIs have been added:
 
-> - BK_LOGI
-> - BK_LOGD
-> - BK_LOGV
+> - BK\_LOGI
+> - BK\_LOGD
+> - BK\_LOGV
 
+<a id="event"></a>
 
-## Event[](#event "永久链接至标题")
+## Event
 
 Following Event APIs have been added:
 
@@ -413,8 +424,9 @@ Following Event APIs have been added:
 > - [`bk_event_unregister_cb()`](../api-reference/system/bk_event.md#_CPPv422bk_event_unregister_cb14event_module_ti10event_cb_t "bk_event_unregister_cb")
 > - [`bk_event_post()`](../api-reference/system/bk_event.md#_CPPv413bk_event_post14event_module_tiPv6size_t8uint32_t "bk_event_post")
 
+<a id="netif"></a>
 
-## Netif[](#netif "永久链接至标题")
+## Netif
 
 Following Netif APIs have been added:
 
@@ -422,26 +434,28 @@ Following Netif APIs have been added:
 > - [`bk_netif_set_ip4_config()`](../api-reference/tcpip/bk_netif.md#_CPPv423bk_netif_set_ip4_config10netif_if_tPK18netif_ip4_config_t "bk_netif_set_ip4_config")
 > - [`bk_netif_get_ip4_config()`](../api-reference/tcpip/bk_netif.md#_CPPv423bk_netif_get_ip4_config10netif_if_tP18netif_ip4_config_t "bk_netif_get_ip4_config")
 
+<a id="documentation"></a>
 
-## Documentation[](#documentation "永久链接至标题")
+## Documentation
 
 New documentation framework has been added to this release.
 
+<a id="examples"></a>
 
-## Examples[](#examples "永久链接至标题")
+## Examples
 
 Following examples has been added:
 
-> - [hello world](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/get-started/hello_world "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/get-started/hello_world")
-> - [ADC](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/adc "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/adc")
-> - [DMA](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/dma "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/dma")
-> - [GPIO](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/gpio "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/gpio")
-> - [Interrupt](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/icu "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/icu")
-> - [PWM](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/pwm "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/pwm")
-> - [SPI](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/spi "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/spi")
-> - [Timer](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/timer "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/timer")
-> - [Uart](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/uart "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/uart")
-> - [Soft-AP](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/ap "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/ap")
-> - [Wi-Fi Scan](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/scan "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/scan")
-> - [Station](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/sta "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/sta")
-> - [Build System](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/build_system "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/build_system")
+> - [hello world](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/get-started/hello_world)
+> - [ADC](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/adc)
+> - [DMA](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/dma)
+> - [GPIO](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/gpio)
+> - [Interrupt](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/icu)
+> - [PWM](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/pwm)
+> - [SPI](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/spi)
+> - [Timer](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/timer)
+> - [Uart](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/peripherals/uart)
+> - [Soft-AP](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/ap)
+> - [Wi-Fi Scan](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/scan)
+> - [Station](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/wifi/sta)
+> - [Build System](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/examples/build_system)

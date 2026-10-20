@@ -3,19 +3,24 @@
 import os
 from pathlib import Path
 import yaml
-import anthropic
 
 
 def _load_config():
     cfg_path = Path(__file__).resolve().parents[2] / "config.yaml"
     with open(cfg_path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        cfg = yaml.safe_load(f)
+    for key, value in cfg.get("paths", {}).items():
+        path = Path(value)
+        if not path.is_absolute():
+            cfg["paths"][key] = str((cfg_path.parent / path).resolve())
+    return cfg
 
 
 _config = _load_config()
 
 
-def get_client() -> anthropic.Anthropic:
+def get_client():
+    import anthropic
     api_key = _config["llm"].get("api_key") or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError(

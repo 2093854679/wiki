@@ -1,8 +1,22 @@
-# audio常见问题[](#audio "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/FAQ/audio/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="audio"></a>
 
+# audio常见问题
 
-## 1. 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 简介
 
 > 在开发audio应用时，有些常见的问题，可能会遇到，下面提供一些调试方法。
 >
@@ -34,7 +48,7 @@
 > A：按照下述步骤排查：
 > :   - 1.检查语音通话打开流程的log，看是否有异常报错。
 >     - 2.需要检查设备端Rx接收数据量统计log `[AUD Rx] 7KB/s` ，如果数据量为0，则说明wifi收包异常。
->     - 3.检查PA是否打开，如果PA没有打开，设备端端speaker一定是无声的。
+>     - 3.检查PA是否打开，如果PA没有打开，设备端speaker一定是无声的。
 >     - 4.如果数据量和PA检查正常，则需要在手机apk端把发送的mic数据dump到文件中，在pc上检查mic数据是否正常。如果数据不正常（例如数据全是0、数据不对等），则说明是apk采集的mic存在问题；如果数据正常，则说明wifi收包和软件处理的流程存在异常，需要使用uart将数据dump出来逐级分析。
 >
 > Q：打开语音通话手机端听到的声音卡顿？

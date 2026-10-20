@@ -1,38 +1,49 @@
-# 设置WIFI低压保活说明[](#wifi "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/developer-guide/power_save/bk_wifi_alive.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="wifi"></a>
 
-## 设置WIFI低压保活调用函数和调用顺序说明[](#id1 "永久链接至标题")
+# 设置WIFI低压保活说明
 
+<a id="id1"></a>
 
-- 1. 当使用BT配置完网络，不要使用BT时，可以把它，这样可以达到更低的功耗
-  > bk_bluetooth_deinit();
+## 设置WIFI低压保活调用函数和调用顺序说明
+
+- 1. 当使用BLE配置完网络，不要使用BLE时，可以关闭BLE，以达到更低的功耗;
+  > bk\_bluetooth\_deinit();
   >
-  > 关闭BT
+  > 关闭BLE
+- 2.bk\_wifi\_send\_listen\_interval\_req(10);
 
-- 2.bk_wifi_send_listen_interval_req(10);
-
-  > 设置DTIM10(1:DTIM1)
-
-- 3. bk_pm_sleep_mode_set(PM_MODE_LOW_VOLTAGE);
+  > 设置listen interval为10;
+- 3. bk\_pm\_sleep\_mode\_set(PM\_MODE\_LOW\_VOLTAGE);
   > 设置睡眠模式，进入低压睡眠。
-
-- 4. demo_sta_app_init(“a”, “b”);
-  > 连接路由器（a:路由器的名字;b:路由器的密码）
-
-- 5. bk_pm_module_vote_sleep_ctrl(PM_SLEEP_MODULE_NAME_APP,0x1,0x0);
+- 4. demo\_sta\_app\_init(“ssid”, password”);
+  > 连接路由器（ssid:路由器的名字;password:路由器的密码）
+- 5. bk\_pm\_module\_vote\_sleep\_ctrl(PM\_SLEEP\_MODULE\_NAME\_APP,0x1,0x0);
   > 向系统中投应用程序的票。
 
-(备注：一定需要设备连接上路由器，拿到IP地址，才调用以上函数bk_pm_module_vote_sleep_ctrl()投APP的票，不然移动设备不能网络唤醒测试设备)
+(备注：一定需要设备连接上路由器，拿到IP地址，才调用以上函数bk\_pm\_module\_vote\_sleep\_ctrl()投APP的票，不然移动设备不能网络唤醒测试设备)
 
 备注：
 
-> - 1. BT和WIFI的票，BT和WIFI模块内部进入睡眠后自己投上，SDK内部做好，应用程序不用关注
-> - 2. 当系统中BT或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票。
+> - 1. BLE和WIFI的票，BLE和WIFI模块内部进入睡眠后自己投上，SDK内部做好，应用程序不用关注
+> - 2. 当系统中BLE或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票。
 
+<a id="id2"></a>
 
-## WiFi低压保活参考数据[](#id2 "永久链接至标题")
+## WiFi低压保活参考数据
 
-系统默认配置CONFIG_DPD_CALI=y，下表列出了不同供电电压和不同WiFi频段下的低压保活功耗参考数据，测试条件为DTIM=10，设备已连接到路由器并关闭蓝牙，进入低压睡眠模式：
+系统默认配置CONFIG\_DPD\_CALI\=y，下表列出了不同供电电压和不同WiFi频段下的低压保活功耗参考数据，测试条件为DTIM\=10，设备已连接到路由器并关闭蓝牙，进入低压睡眠模式：
 
 | 供电电压 | WiFi频段 | 典型电流值 |
 | --- | --- | --- |
@@ -41,7 +52,7 @@
 | 5V | 2.4G | 约115uA |
 | 5V | 5G | 约118uA |
 
-当配置CONFIG_DPD_CALI=n时，代码可以放在RAM中执行，此时可以达到更低的极限功耗。以下是在相同测试条件下测得的极限功耗数据：
+当配置CONFIG\_DPD\_CALI\=n时，代码可以放在RAM中执行，此时可以达到更低的极限功耗。以下是在相同测试条件下测得的极限功耗数据：
 
 | 供电电压 | WiFi频段 | 极限电流值 |
 | --- | --- | --- |
@@ -52,7 +63,6 @@
 
 备注
 
-1. 极限功耗测试条件与标准测试条件相同：DTIM=10，设备已连接到路由器并关闭蓝牙
-2. 配置`CONFIG_DPD_CALI=n`时，系统会将关键代码放置在RAM中执行，减少唤醒时从Flash加载代码的功耗
+1. 极限功耗测试条件与标准测试条件相同：DTIM\=10，设备已连接到路由器并关闭蓝牙
+2. 配置\`CONFIG\_DPD\_CALI\=n\`时，系统会将关键代码放置在RAM中执行，减少唤醒时从Flash加载代码的功耗
 3. 实际功耗可能因具体应用场景、硬件版本和环境因素而略有差异
-

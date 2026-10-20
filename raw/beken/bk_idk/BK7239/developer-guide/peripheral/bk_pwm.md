@@ -1,8 +1,22 @@
-# PWM[](#pwm "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/developer-guide/peripheral/bk_pwm.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="pwm"></a>
 
+# PWM
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 bk7239n TIM 配置寄存器共有4个group，每个group为3个TIM的配置，共有12个TIM定时器。
 
@@ -25,8 +39,9 @@ bk7239n TIM 配置寄存器共有4个group，每个group为3个TIM的配置，�
 
 因此，bk7239n 共支持12个channel，对应软件中的 `PWM_ID_0` 到 `PWM_ID_11`。
 
+<a id="id2"></a>
 
-## 工作模式[](#id2 "永久链接至标题")
+## 工作模式
 
 定时器可以工作在3种模式下：
 
@@ -34,74 +49,82 @@ bk7239n TIM 配置寄存器共有4个group，每个group为3个TIM的配置，�
 > 2. 互补输出模式
 > 3. 输入捕获模式
 
+<a id="id3"></a>
 
-## 功能框图[](#id3 "永久链接至标题")
+## 功能框图
 
-![PWM block diagram](../../_images/pwm_block_diagram.png)
+![PWM block diagram](../../../../_assets/2ae5644616096d52ba1d-pwm_block_diagram.png)
+<a id="id4"></a>
 
-
-### 时钟源[](#id4 "永久链接至标题")
+### 时钟源
 
 PWM 控制器 有两个时钟源可选：
 
-> - clk_32K
+> - 80MHz
 > - XTAL(40MHz)
 
-可通过 `SYSTEM_REG0x8` 配置。
+可通过 `SYSTEM_REG0x8` 配置。软件默认使用XTAL作为时钟源，若使用80MHz时钟源，可配置 `CONFIG_PWM_SCLK_80M=y`。
 
+<a id="psc"></a>
 
-### PSC[](#psc "永久链接至标题")
+### PSC
 
-预分频器，对输入时钟(clk_32K或XTAL)进行分频，输出CLK_CNT用来驱动计数器TIM计数。
+预分频器，对输入时钟(80MHz或XTAL)进行分频，输出CLK\_CNT用来驱动计数器TIM计数。
 
 其中，group0 PSC的设置可通过 `PWM_REG_0x4a` 来配置，可实现1-256分频。
 
 例如：
 
-当我们时钟源选择XTAL=40MHz，配置PSC1=39时，计数器TIM1时钟则为1MHz，若计数器+1，则+1us。
+当我们时钟源选择XTAL\=40MHz，配置PSC1\=39时，计数器TIM1时钟则为1MHz，若计数器\+1，则\+1us。
 
 备注
 
 由于4个group寄存器配置完全相同，为方便描述，以下寄存器均以group0为参考。
 
+<a id="ccr"></a>
 
-### CCR[](#ccr "永久链接至标题")
+### CCR
 
-当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG_0x44寄存器中）会置位。
+当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG\_0x44寄存器中）会置位。
 然后OCxREF再经过一系列的控制之后输出PWM信号。
 
 BK7239 每个TIM 对应3个 `CCR` ，即在一个周期内，信号的极性可以翻转3次，其中
 
-> - CCR1,CCR2,CCE3(REG_0x51-REG_0x53)对应TIM1
-> - CCR4,CCR5,CCE6(REG_0x54-REG_0x56)对应TIM2
-> - CCR7,CCR8,CCE9(REG_0x57-REG_0x59)对应TIM3
+> - CCR1,CCR2,CCE3(REG\_0x51-REG\_0x53)对应TIM1
+> - CCR4,CCR5,CCE6(REG\_0x54-REG\_0x56)对应TIM2
+> - CCR7,CCR8,CCE9(REG\_0x57-REG\_0x59)对应TIM3
 
 当用作PWM输出模式时，输出方波信号的占空比由CCR决定。
 
+<a id="arr"></a>
 
-### ARR[](#arr "永久链接至标题")
+### ARR
 
-自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end_value。
+自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end\_value。
 
 PWM输出方波信号的频率由ARR值决定。
 
+<a id="deadtime-generator"></a>
 
-### Deadtime Generator[](#deadtime-generator "永久链接至标题")
+### Deadtime Generator
 
 在生成的参考信号OCxREF的基础上，可以插入deadtime，用于生成两路互补的输出信号。
 
 死区时间的大小具体由 `REG_0x5a` 的 DTx 配置。
 
+<a id="id5"></a>
 
-## PWM 输出模式[](#id5 "永久链接至标题")
+## PWM 输出模式
 
+<a id="id6"></a>
 
-### 输出单路方波信号[](#id6 "永久链接至标题")
+### 输出单路方波信号
 
 bk7239n 由于每路PWM连接到12个独立的TIM上，所以共支持12路 PWM 独立输出。
 
+<a id="id7"></a>
 
-### 输出互补带死区PWM[](#id7 "永久链接至标题")
+### 输出互补带死区PWM
 
 bk7239n 互补输出功能，均由硬件实现，可配置任意两通道作为互补输出，通过配置 `PWM_REG_0x10` 至 `PWM_REG_0x1b` ，连接任意两通道到相同TIM的 P N 极即可。
 

@@ -1,120 +1,49 @@
+---
+type: concept
+aliases:
+  - BK ARMINO 开发框架
+  - Beken SDK 选型与导航
+verified_at: 2026-10-21
+---
+
 # BK ARMINO 开发框架
 
-> **TLDR:** ARMINO 是博通集成(Beken)的新一代 AIoT 软件开发框架，基于 CMake+Kconfig 构建系统，支持多芯片(BK7235/7236/7236N/7239)、多 RTOS(FreeRTOS/AliOS/LiteOS/RT-Thread)、WiFi+BT+低功耗+多媒体+安全启动的全功能 IoT 开发平台。
+> **TLDR:** Beken 文档应按 IDK 底座、AVDK 音视频、SMP 平台及产品方案分层检索；芯片、SDK 版本和 AP／CP 是使用 API 前必须确认的范围。
 
-## 框架定位
+## 文档族与开发任务
 
-ARMINO = **Ar** (ARM) + **mino** (minimal, 精简)，寓意轻量级 ARM IoT 框架。
+- [[bk-armino-overview]]：IDK 的组件、构建配置、驱动、网络与安全入口；不同芯片的能力由各自文档和工程配置确认。
+- [[bk-avdk-overview]]：BK7258 AVDK v2.0.1 的音视频、PSRAM 与媒体模块功耗。
+- [[bk7258-smp-architecture]]、[[bk7259-smp-architecture]]：各自版本的 AP／CP 分工、构建和资源边界。
+- [[bk-ai-solution-overview]]、[[bk-smp-product-solutions-overview]]：AI、仪表、门铃和 IPC 等产品业务及接入流程。
+- [[bk-toolkit-overview]]：烧录、射频、音频、UI 与开发环境工具。
 
-对标 ESP-IDF (Espressif)，提供：
-- 硬件无关的开发抽象层
-- CMake 灵活构建 + Kconfig 配置
-- 事件驱动的 WiFi/BT 驱动模型
-- 完整的物联网安全框架
-- 多 RTOS 适配层
+所有产品、版本与模块入口见 [Beken 官方文档分类](../categories/beken-official.md)。官网默认版本不等同于所有历史版本，工具的 `latest` 也不代表统一的 SDK 发布版本。
 
-## 芯片矩阵
+## 构建与配置
 
-```
-BK7235 ——— 第一代 Armino，WiFi+BT，基础多媒体
-   └─ BK7236  ——— 第二代 ARMINO IDK，双核(ARM+RISC-V)，安全启动，A/B OTA
-       ├─ BK7236N ——— BK7236 增强版，新增 USB、更多低功耗模式
-       └─ BK7239  ——— 旗舰，WiFi+BT+DVP Camera，强化安全
-```
+IDK 文档将目标芯片、项目和组件区分：CMake 组织组件依赖与构建，Kconfig 定义配置项，实际值由芯片与工程配置共同决定。图形菜单是否可用必须查对应版本；[BK7236 v2.0.1 配置说明](../../raw/beken/bk_idk/BK7236/developer-guide/config_tools/bk_config_kconfig.md) 明确不支持 menuconfig。
 
-关键差异：
-- **BK7235** 只有 ARM 核；**BK7236/7236N/7239** 支持 ARM+RISC-V 双核
-- **BK7236N** 在 BK7236 基础上新增 USB、Close Multimedia 低功耗、CPU 投票频率
-- **BK7239** 新增 DVP Camera 接口、mem API、更多安全特性
-- WiFi API 在 BK7236+ 上统一为 v2.0（事件驱动，更灵活）
+## 网络、安全与升级
 
-## 核心架构
+- [[bk-wifi-api-v2]] 只核验 BK7236 IDK v2.0.1：关注初始化、事件、接口限制和函数支持状态。
+- [[bk-security-framework]] 区分 TrustZone 隔离、安全启动和 Flash AES／CRC；目录中的章节不等于已给出完整实现说明。
+- [[bk-bootloader-ota]] 区分常规 OTA、A/B 位置无关升级和 TF-M 安全升级；镜像布局、确认和回退条件应按所选方案读取。
+- [[bk-low-power]] 区分普通睡眠、低压保持与深度睡眠；功耗量级需要具体板卡和业务测量。
 
-### 构建系统
+这里不再沿用缺少来源的芯片代际表、跨芯片 CPU 拓扑或“所有芯片统一五层安全”的推断。
 
-```
-CMakeLists.txt (项目级)
-  ├─ Kconfig (菜单配置)
-  ├─ components/ (组件目录)
-  │   ├─ wifi/
-  │   ├─ bluetooth/
-  │   ├─ peripheral/
-  │   └─ ...
-  └─ projects/ (项目模板)
-      ├─ wifi/sta_connect/
-      ├─ bluetooth/gatt_server/
-      └─ ...
-```
+## 检索顺序
 
-- CMake 管理组件依赖和编译
-- Kconfig 生成 `sdkconfig` 配置
-- 支持纯 CMake 项目和 Makefile 项目集成
-- `bkfil` 工具用于 OTP/eFuse 烧录
-
-### 驱动模型
-
-三层抽象：
-1. **BSP 层** — 芯片寄存器级驱动
-2. **HAL 层** — 硬件抽象接口（如 `bk_gpio_t`, `bk_i2c_t`）
-3. **Framework 层** — 事件驱动的应用接口（如 WiFi STA/AP/Monitor）
-
-### WiFi 架构
-
-```
-App
- ├─ bk_wifi_sta_start/stop/connect/disconnect  (STA 操作)
- ├─ bk_wifi_ap_start/stop/set_config            (AP 操作)
- ├─ bk_wifi_monitor_start/stop                  (Monitor 模式)
- ├─ bk_wifi_scan_start/get_result               (扫描)
- └─ Event callback (EVENT_WIFI_STA_CONNECTED / DISCONNECTED / SCAN_DONE)
-     ↓
-WiFi Driver (supplicant + hardware)
-```
-
-### 安全体系
-
-五层安全保障：
-1. **Secure Boot** — 启动链校验（ROM → Bootloader → App）
-2. **Flash AES** — 固件加密存储
-3. **eFuse/OTP** — 硬件唯一标识和密钥存储
-4. **LCS** (Life Cycle State) — 芯片生命周期管理（开发→量产→报废）
-5. **FIH** (Fault Injection Hardening) — 抗故障注入攻击
-
-## 关键技术点
-
-### WiFi API v2.0 设计原则
-- 事件驱动：调用 API 操作硬件，结果通过 Event 回调通知
-- 配置结构体预留字段必须清零（保证前向兼容）
-- 使用 `WIFI_DEFAULT_INIT_CONFIG()` 等宏初始化
-- 不要在回调中做繁重处理，relay 到应用任务
-
-### 低功耗方案
-- DTIM 机制：基于 DTIM 间隔或 Listen Interval 唤醒
-- RTC Sleep：深度睡眠，支持 GPIO/Touch 唤醒
-- CPU 频率投票：根据外设需求动态调频
-- 32K 时钟源选择：内部/外部 32K
-- WiFi 保活：定时唤醒维持 TCP 连接
-
-### A/B OTA 升级
-- 双分区无位置依赖升级
-- Hash 校验确保固件完整性
-- 回滚机制：升级失败自动回退
-
-## 与其他平台的对比
-
-| | ARMINO (BK) | ESP-IDF (Espressif) |
-|---|---|---|
-| 构建系统 | CMake + Kconfig | CMake + Kconfig |
-| WiFi 协议栈 | 自研 | 自研 (lwIP) |
-| RTOS | FreeRTOS/AliOS/LiteOS/RTT | FreeRTOS |
-| 双核 | ARM+RISC-V | Xtensa LX6/LX7 |
-| 安全 | 五层安全体系 | Secure Boot + Flash Enc |
+1. 明确芯片、文档族和版本；SMP 还需明确 AP 或 CP。
+2. 架构问题先读概览，函数参数直接查目标 raw API。
+3. 实现前同时核对同芯片、同侧的指南和示例。
+4. 原文冲突、缺失或标为 TBC 时明确记录，不补猜结论。
 
 ## Related
 
-- [[iot-communication-protocols|物联网通信协议全景]]
-- [[wifi-networking-stack|WiFi网络技术栈]]
-- [[freertos-kernel-mechanisms|FreeRTOS内核机制全景]]
-- [[embedded-software-design-patterns|嵌入式软件设计模式]]
-- [[embedded-communication-protocols|嵌入式外设通信协议全景对比]]
-- [BK Docs 分类页面](../categories/bk-doc.md)
+- [[bk-smp-ap-cp-boundaries]]
+- [[wifi-networking-stack]]
+- [[freertos-kernel-mechanisms]]
+- [[embedded-software-design-patterns]]
+- [[iot-communication-protocols]]

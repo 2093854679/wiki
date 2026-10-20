@@ -1,22 +1,38 @@
-# JPEG硬编码[](#jpeg "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/jpeg_encoding_hw/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="jpeg"></a>
 
+# JPEG硬编码
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > JPEG编码主要用于将YUV422的数据通过硬件编码，输出JPEG图像数据，并且压缩图像数据量。当前JPEG功能主要用在DVP摄像头，DVP摄像头输出YUV422数据给
 
-芯片，芯片压缩成JPEG图像。也支持将外部YUV422数据，压缩成JPEG图像。由于BK7258有一个专门处理YUV数据的模块YUV_BUF，JPEG模块也需要依赖它。
+芯片，芯片压缩成JPEG图像。也支持将外部YUV422数据，压缩成JPEG图像。由于BK7258有一个专门处理YUV数据的模块YUV\_BUF，JPEG模块也需要依赖它。
 
+<a id="id2"></a>
 
-## 2、开发资料[](#id2 "永久链接至标题")
+## 2、开发资料
 
 > 当前avdk提供了详细的sdk接口，参考文件路径：`.\bk_idk\include\driver\jpeg_enc.h`，`.\bk_idk\include\driver\jpeg_enc.h`
 >
 > 为了方便客户使用，重新封装了编码功能，当前只需要开关摄像头，然后针对图像质量，也提供一个api接口去调节，参考文件：`.\components\multimedia\app\media_app.c`.
 
+<a id="id3"></a>
 
-## 3、接口说明[](#id3 "永久链接至标题")
+## 3、接口说明
 
 > > BK7258支持将DVP摄像头数据的数据编码成JPEG、H264以及同步输出YUV422数据用于LCD显示。
 >
@@ -32,7 +48,6 @@
 >   ```
 
 需要注意传入形参的数据结构
-
 
 ```
 typedef enum
@@ -61,11 +76,10 @@ typedef struct {
         pixel_format_t fmt;  /**< camera output data format */
         frame_info_t   info; /**< camera output resolution and fps */
 } media_camera_device_t;
-
 ```
 
-根据上述的数据结构，配置对应的参数，传入到接口中，以达到相应的期望结果。比如当前使用DVP摄像头，则摄像头类型为DVP_CAMERA，如果要同时输出JPEG和YUV数据
-则yuv模式设为JPEG_YUV_MODE，如果只需要JPEG图像，则yuv模式设为YUV_MODE。
+根据上述的数据结构，配置对应的参数，传入到接口中，以达到相应的期望结果。比如当前使用DVP摄像头，则摄像头类型为DVP\_CAMERA，如果要同时输出JPEG和YUV数据
+则yuv模式设为JPEG\_YUV\_MODE，如果只需要JPEG图像，则yuv模式设为YUV\_MODE。
 
 > - 调整压缩率的接口:
 >
@@ -74,7 +88,6 @@ typedef struct {
 >   ```
 
 根据传入参数的数据结构，是支持JPEG和H264两种方式的压缩率调节，此接口支持在编码过程中调用
-
 
 ```
 typedef struct {
@@ -86,14 +99,14 @@ typedef struct {
         uint16_t imb_bits;/**< h264编码，目标I帧输出大小上限，单位byte */
         uint16_t pmb_bits;/**< h264编码，目标P帧输出大小上限，单位byte */
 } compress_ratio_t;
-
 ```
 
-根据上述的数据结构，配置对应的参数，传入到接口中，以达到相应的期望结果。比如调整JPEG编码压缩率，mode设为JPEG_MODE，jpeg编码过程中，当输出一帧
-图像的大小超过jpeg_up，会进一步压缩，使得数据量不超过jpeg_up且不小于jpeg_low。
+根据上述的数据结构，配置对应的参数，传入到接口中，以达到相应的期望结果。比如调整JPEG编码压缩率，mode设为JPEG\_MODE，jpeg编码过程中，当输出一帧
+图像的大小超过jpeg\_up，会进一步压缩，使得数据量不超过jpeg\_up且不小于jpeg\_low。
 
+<a id="id4"></a>
 
-## 4、驱动代码[](#id4 "永久链接至标题")
+## 4、驱动代码
 
 DVP摄像头驱动代码路径：`.\bk_idk\middleware\camera\dvp_camera.c`.
 

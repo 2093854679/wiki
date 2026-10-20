@@ -1,10 +1,24 @@
-# OTP和eFuse的配置及读写方法[](#otpefuse "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/security/bk_OTP_and_eFuse_usermenu.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="otpefuse"></a>
 
-OTP和eFuse需要使用配置表（example:[`otp_efuse_config.json`](../../_downloads/1b85bc21feaf883a99bb2e9edf04c071/otp_efuse_config.json "../../_downloads/1b85bc21feaf883a99bb2e9edf04c071/otp_efuse_config.json")）进行数据配置后，通过BKFIL工具进行读写。
+# OTP和eFuse的配置及读写方法
 
+OTP和eFuse需要使用配置表（example:[`otp_efuse_config.json`](https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/_downloads/1b85bc21feaf883a99bb2e9edf04c071/otp_efuse_config.json)）进行数据配置后，通过BKFIL工具进行读写。
 
-## 一、配置方法[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 一、配置方法
 
 配置表包含以下配置区域：
 
@@ -14,8 +28,9 @@ OTP和eFuse需要使用配置表（example:[`otp_efuse_config.json`](../../_down
 > - 安全控制配置区
 > - 安全数据配置区
 
+<a id="id2"></a>
 
-### 区域总开关[](#id2 "永久链接至标题")
+### 区域总开关
 
 配置表中包含四个区域总开关，分别控制用户可操作区域、Efuse区域、安全控制区域、安全数据区域的开关，用户根据操作需要进行配置，开关定义见下表：
 
@@ -26,17 +41,16 @@ OTP和eFuse需要使用配置表（example:[`otp_efuse_config.json`](../../_down
 > "Security_data_Enable": "false",     #定义“安全数据区域” 为true，即表示后面配置”安全数据区域”均会执行，如果此处为false，即表示后面配置”安全数据区域”均不会执行；
 > ```
 
+<a id="id3"></a>
 
-### 用户可配置区参数说明[](#id3 "永久链接至标题")
+### 用户可配置区参数说明
 
-> 用户可配置的区域，当User_Operate_Status设置为true时该配置区域生效。按照以下格式，根据需求配置实现OTP bank0读写操作，可多项配置对多个地址段进行读写。
+> 用户可配置的区域，当User\_Operate\_Status设置为true时该配置区域生效。按照以下格式，根据需求配置实现OTP bank0读写操作，可多项配置对多个地址段进行读写。
 
 重要
 
-
-- OTP的bank0供用户自由分配，地址范围为0x4B004000–0x4B0047FF，start_addr+byte_len应该小于0x4B0047FF;当在APP中读取OTP时，对应的地址范围为0x0–0x7FF。
-
-- 读写OTP时，name应包含otp_前缀，写入区域不能够重叠。
+- OTP的bank0供用户自由分配，地址范围为0x4B004000–0x4B0047FF，start\_addr\+byte\_len应该小于0x4B0047FF;当在APP中读取OTP时，对应的地址范围为0x0–0x7FF。
+- 读写OTP时，name应包含otp\_前缀，写入区域不能够重叠。
 
 数据格式如下：
 
@@ -89,10 +103,11 @@ example：
 > ],
 > ```
 
+<a id="efuse"></a>
 
-### eFuse配置区参数说明[](#efuse "永久链接至标题")
+### eFuse配置区参数说明
 
-用于系统信息配置，默认值为0，该区域不需要用户配置。当Efuse_Status设置为true时该配置区域生效，数据格式如下：
+用于系统信息配置，默认值为0，该区域不需要用户配置。当Efuse\_Status设置为true时该配置区域生效，数据格式如下：
 
 > ```
 > "name":            "PASSWORD_1",      #定义当前区域的作用域，仅用于区分含义，不包含任何其他功能
@@ -142,10 +157,11 @@ example：
 > ],
 > ```
 
+<a id="id4"></a>
 
-### 安全控制配置区参数说明[](#id4 "永久链接至标题")
+### 安全控制配置区参数说明
 
-用于安全控制信息的配置，默认值为0。用户有安全需求时，需根据安全需求进行配置。当Security_ctrl_Status设置为true时该配置区域生效，数据格式如下：
+用于安全控制信息的配置，默认值为0。用户有安全需求时，需根据安全需求进行配置。当Security\_ctrl\_Status设置为true时该配置区域生效，数据格式如下：
 
 > ```
 > "disJtag":               "31,7,0",   #表示Byte31 中Bit[7] 置0，当前功能状态：1 关闭 JTAG 接口和 SPI2AHB 接口；0 使用 JTAG 接口和 SPI2AHB 接口
@@ -163,13 +179,13 @@ example：
 
 重要
 
+- security\_boot和enEncryptWord位配置生效前必须先配置安全数据配置区和烧写支持安全的bin镜像。
 
-- security_boot和enEncryptWord位配置生效前必须先配置安全数据配置区和烧写支持安全的bin镜像。
+<a id="id5"></a>
 
+### 安全数据配置区参数说明
 
-### 安全数据配置区参数说明[](#id5 "永久链接至标题")
-
-用于安全密钥等关键数据的配置，包含验签的公钥、flash加密的密钥、OTA解密的密钥等。当Security_data_Status设置为true时该配置区域生效，数据格式如下：
+用于安全密钥等关键数据的配置，包含验签的公钥、flash加密的密钥、OTA解密的密钥等。当Security\_data\_Status设置为true时该配置区域生效，数据格式如下：
 
 > ```
 > "name":              "OTA_IV",     #定义当前区域的作用域，仅用于区分含义，不包含任何其他功能
@@ -184,12 +200,9 @@ example：
 
 重要
 
-
-- 安全数据配置中，name、start_addr、last_valid_addr、byte_len、data_type等各项配置已经固定，用户不能配置。
-
-- OTA_key、OTA_IV和aes_key的data部分由密钥生成工具生成密文，data_type固定为”ascii”；
-
-- bootloader_public_key和bootrom_public_key由签名工具生成，data_type固定为”hex”。
+- 安全数据配置中，name、start\_addr、last\_valid\_addr、byte\_len、data\_type等各项配置已经固定，用户不能配置。
+- OTA\_key、OTA\_IV和aes\_key的data部分由密钥生成工具生成密文，data\_type固定为”ascii”；
+- bootloader\_public\_key和bootrom\_public\_key由签名工具生成，data\_type固定为”hex”。
 
 example：
 
@@ -351,21 +364,25 @@ example：
 > ]
 > ```
 
+<a id="id6"></a>
 
-## 二、读写步骤[](#id6 "永久链接至标题")
+## 二、读写步骤
 
 > - 1.BKFIL工具选择配置界面
 > - 2.仅当secureboot使能时，必须选择首次烧写对应的安全镜像；当用于读取数据或者烧写OTP bank0时可不选择镜像
-> - 3.选择”eFuse密钥”文件选择按钮,选择配置好的otp_efuse_config.json
+> - 3.选择”eFuse密钥”文件选择按钮,选择配置好的otp\_efuse\_config.json
 > - 4.勾选”OTP”或者”烧录eFuse”选项
 > - 5.BKFIL工具选择主界面，点击”烧录”按钮
 
-![BKFIL download step](../../_images/BKFIL_RW_OTP&eFuse.png)
+<a id="id8"></a>
+![BKFIL download step](../../../../_assets/c73b81abc8a5d684af9b-BKFIL_RW_OTP-eFuse.png)
 
-BKFIL读写OTP、eFuse步骤[](#id8 "永久链接至图片")
 
+BKFIL读写OTP、eFuse步骤
 
-## 三、常见问题分析[](#id7 "永久链接至标题")
+<a id="id7"></a>
+
+## 三、常见问题分析
 
 > - 1. json格式错误
 

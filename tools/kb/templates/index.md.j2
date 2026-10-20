@@ -1,57 +1,35 @@
-# Wiki Index
+# 知识库入口
 
-*Auto-generated dashboard for {{ total_count }} articles - {{ summary_count }} summaries, {{ concept_count }} concepts.*
+{{ total_count }} 篇文章：{{ summary_count }} 篇摘要、{{ concept_count }} 篇概念。原始 API 按需检索，无需逐篇摘要。
 
----
+## AI 先检索
 
-## Semantic Map
+[AI 检索指南](AI-SEARCH.md)：`python kb.py context "问题" --json-output`，从仓库根目录运行。
+已知芯片、SDK、版本、AP／CP 时加对应筛选；用返回的文件路径和行号核对原文。
 
-- [Concept Map](concepts/concept-map.md) - LLM routing layer across domains, concepts, summaries, and raw sources
+## 按问题进入
 
-{% if groups %}
-## Categories
+- Beken 芯片、SDK、默认版本、API → [官网文档目录](categories/beken-official.md)
+- RTOS 任务、调度、同步 → [任务管理](concepts/freertos-task-management.md)；堆栈、内存 → [内存管理](concepts/freertos-memory-management.md)
+- Wi-Fi、TCP/IP、配网 → [网络栈](concepts/wifi-networking-stack.md)；I2C、SPI、UART → [外设通信](concepts/embedded-communication-protocols.md)
+- C 语言、指针、数据结构 → [C 语言体系](concepts/c-language-core-system.md)
+- 桌面宠物、GIF、LVGL、SD 卡 → [项目文档摘要](summaries/projects/desktop-pet-docs.md)
+- 网页抓取、Markdown 整理 → [文档清理流程](concepts/web-to-markdown-cleanup.md)
 
+## 完整目录
+
+- [全部概念](categories/concepts.md) · [概念关系图](concepts/concept-map.md)
 {% for group in groups %}
-- [{{ group.display_name }}](categories/{{ group.slug }}.md) - {{ group["items"] | length }} summaries
+- [{{ group.display_name }}](categories/{{ group.slug }}.md)：{{ group["items"] | length }} 篇摘要
 {% endfor %}
-
-{% endif %}
-{% if sections.manual_categories %}
-## Doc Families
-
-{% for item in sections.manual_categories %}
-- [{{ item.display_name }}]({{ item.path }})
-{% endfor %}
-
-{% endif %}
-{% if sections.core_concepts %}
-## Core Concepts
-
-{% for item in sections.core_concepts %}
-- [{{ item.title }}]({{ item.path }}){% if item.tldr %} - {{ item.tldr }}{% endif %}
-{% endfor %}
-
-{% endif %}
-## Concepts ({{ concept_count }})
-
-{% for item in sections.concepts %}
-- [{{ item.title }}]({{ item.path }}){% if item.tldr %} - {{ item.tldr }}{% endif %}
-{% endfor %}
-
 {% if sections.outputs %}
-## Outputs ({{ sections.outputs | length }})
-
+## 输出记录
 {% for item in sections.outputs %}
 - [{{ item.title }}]({{ item.path }})
 {% endfor %}
-
 {% endif %}
-## Maintenance
+## 维护
 
-- `python -m tools.kb ingest --status new` - detect new raw files
-- `python -m tools.kb index` - rebuild this dashboard and category pages
-- `python -m tools.kb graph-health` - inspect unresolved links, orphans, and manifest drift
-- `python -m tools.kb stats` - count current wiki articles
+`python kb.py ingest --status new` → 按层处理 → `python kb.py index` → `python kb.py stats`。
 
----
-*Run `kb index` to regenerate.*
+*由 `kb index` 生成。*

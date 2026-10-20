@@ -1,32 +1,53 @@
 ---
-aliases:
-- 'BK7256 › examples'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 用例指南[](#id1 "永久链接至标题")
 
-- [LVGLlvgl 永久链接至标题](examples/lvgl.md)
-- [VND_CALvnd-cal 永久链接至标题](examples/vnd_cal.md)
+<a id="id1"></a>
 
+# 用例指南
 
+- [视频](examples/video.md)
+- [音频](examples/audio.md)
+- [蓝牙](examples/bluetooth.md)
+- [门铃](examples/doorbell.md)
+- [命令](examples/cli.md)
+- [外设](examples/peripheral.md)
+- [平台](examples/platform.md)
+- [LVGL](examples/lvgl/lvgl.md)
+- [尚云P2P](examples/cs2_p2p.md)
+- [wifi](examples/wifi.md)
+- [VND\_CAL](examples/vnd_cal/vnd_cal.md)
 
-- [视频](examples/video.md "video/index.md")
+## 模块导航
 
-- [音频](examples/audio.md "audio/index.md")
-
-- [蓝牙](examples/bluetooth.md "bluetooth/index.md")
-
-- [门铃](examples/doorbell.md "doorbell/index.md")
-
-- [命令](examples/cli.md "cli/index.md")
-
-- [外设](examples/peripheral.md "peripheral/index.md")
-
-- [平台](examples/platform.md "platform/index.md")
-
-- [LVGL](examples/lvgl.md "lvgl/lvgl.md")
-
-- [尚云P2P](examples/cs2_p2p.md "cs2_p2p/index.md")
-
-- [wifi](examples/wifi.md "wifi/index.md")
-
-- [VND_CAL](examples/vnd_cal.md "vnd_cal/vnd_cal.md")
+- [简介](introduction.md)
+- [快速入门](get-started.md)
+- [H/W 参考手册](hw-reference.md)
+- [API 参考手册](api-reference.md)
+- [开发者指南](developer-guide.md)
+- [OS 相关参考](os.md)
+- [视频](examples/video.md)
+- [音频](examples/audio.md)
+- [蓝牙](examples/bluetooth.md)
+- [门铃](examples/doorbell.md)
+- [命令](examples/cli.md)
+- [外设](examples/peripheral.md)
+- [平台](examples/platform.md)
+- [LVGL](examples/lvgl/lvgl.md)
+- [尚云P2P](examples/cs2_p2p.md)
+- [wifi](examples/wifi.md)
+- [VND_CAL](examples/vnd_cal/vnd_cal.md)
+- [应用开发](application.md)
+- [工程](projects_work.md)
+- [产品解决方案](projects.md)
+- [开发与贡献代码流程](process.md)
+- [云平台](clounds.md)
+- [版本](release-notes.md)

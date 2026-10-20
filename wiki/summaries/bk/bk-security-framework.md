@@ -1,70 +1,30 @@
-﻿# BK 安全框架
+---
+type: summary
+source_root: beken
+sdk_family: bk_idk
+chip: BK7236
+sdk_version: v2.0.1
+processor: null
+---
 
-> **TLDR:** BK 芯片五层安全体系——Secure Boot(启动链校验)、Flash AES(固件加密)、eFuse/OTP(硬件密钥)、LCS(生命周期管理)、FIH(抗故障注入)；支持安全 OTA 升级和完整的证书管理流程。
+# BK7236 安全架构概览
 
-> **Source:** [security/index.md](../../../raw/beken/bk_idk/BK7236/security/index.md)
+> **TLDR:** BK7236 安全文档围绕 M33 TrustZone、外设/内存隔离、BL1/BL2 验签和 Flash AES/CRC 展开；各能力依赖具体配置，生命周期章节尚为 TBC，不能据此补出完整状态机。
+> **Source:** [安全总目录](../../../raw/beken/bk_idk/BK7236/security.md)、[安全架构](../../../raw/beken/bk_idk/BK7236/security/bk_security_overview.md)、[安全启动](../../../raw/beken/bk_idk/BK7236/security/bk_security_boot.md)、[Flash AES/CRC](../../../raw/beken/bk_idk/BK7236/security/bk_flash_aes.md)、[生命周期](../../../raw/beken/bk_idk/BK7236/security/bk_security_lcs.md)
 
-## 五层安全体系
+## 关键要点
 
-```
-┌─────────────────────────────────┐
-│ 5. FIH (故障注入加固)            │ ← 运行时抗攻击
-├─────────────────────────────────┤
-│ 4. LCS (生命周期状态)            │ ← 芯片状态机管理
-├─────────────────────────────────┤
-│ 3. eFuse / OTP                  │ ← 硬件唯一 ID + 密钥存储
-├─────────────────────────────────┤
-│ 2. Flash AES                    │ ← 静态数据加密
-├─────────────────────────────────┤
-│ 1. Secure Boot                  │ ← 启动链可信验证
-└─────────────────────────────────┘
-```
+- **先理解隔离边界。** M33 TrustZone 区分安全/非安全世界，PPC 管外设属性、MPC 管内存块属性；软件划分为 SPE 与 NSPE，安全世界包含启动链与安全服务。[安全架构](../../../raw/beken/bk_idk/BK7236/security/bk_security_overview.md)
+- **安全启动是显式模式。** 文档区分传统下载与安全启动，安全模式下 BL1 验证 BL2，再由 BL2 验证后续镜像；密钥、分区、安全配置及 OTP/EFUSE 部署需要配合完成。[安全启动](../../../raw/beken/bk_idk/BK7236/security/bk_security_boot.md)
+- **Flash 加密不能脱离地址与 CRC。** 指令口经 Flash Controller 进行 CRC 与 AES 处理，数据口访问路径不同；文档说明密钥配置到 OTP，并在 EFUSE 使能相应功能，不能简写为“eFuse 保存所有密钥”。[Flash AES/CRC](../../../raw/beken/bk_idk/BK7236/security/bk_flash_aes.md)
+- **已发布目录与已完成说明要区分。** 目录包含 FIH、调试、OTP、EFUSE 等主题，但生命周期正文仅为 `TBC`；这份原文不支持既有摘要中的 Raw→Test→Provisioning→Secure→RMA 状态机，也不支持将所有安全特性写成默认开启。[目录](../../../raw/beken/bk_idk/BK7236/security.md)／[生命周期原文](../../../raw/beken/bk_idk/BK7236/security/bk_security_lcs.md)
 
-### 1. Secure Boot (安全启动)
-- ROM → Bootloader → Application 逐级校验
-- 支持 XIP (eXecute In Place) 和 Overwrite 两种模式
-- 镜像签名 + Hash 校验防止篡改
+## 适用范围
 
-### 2. Flash AES
-- 固件以 AES 密文存储于 Flash
-- 运行时硬件解密，不影响性能
-- 密钥由 eFuse 提供，不可软件读取
-
-### 3. eFuse / OTP
-- **eFuse**: 一次性可编程存储（不可擦除）
-  - UID (唯一设备标识)
-  - Security Boot 密钥
-  - Flash AES 密钥
-- **OTP**: 类似 eFuse，容量更大
-- 通过 `bkfil` 工具烧录
-
-### 4. LCS (Life Cycle State)
-芯片生命周期状态机：
-```
-Raw → Test → Provisioning → Secure → RMA (Return Merchandise Authorization)
-```
-- **Raw**: 出厂默认
-- **Secure**: 量产发货状态，所有安全功能启用
-- **RMA**: 返修模式，允许重新编程
-
-### 5. FIH (Fault Injection Hardening)
-- 抗电压毛刺、时钟毛刺、激光注入等物理攻击
-- 关键逻辑冗余 + 随机化执行
-- 安全 Bug Report 机制（非公开披露）
-
-## 安全 OTA
-
-- 固件包签名验证
-- A/B 分区回滚保护
-- 版本防降级
-
-## 关键工具
-
-- **bkfil** — OTP/eFuse 烧录工具
-- **BK_SignTool** — 固件签名工具
-- **安全调试** — 需认证后才能开启 JTAG/SWD
+只覆盖 BK7236 IDK v2.0.1 的公开说明。本文不声称 Flash 解密无性能开销，不泛化认证等级或量产状态，也不推定其它芯片具备相同安全架构。具体密钥、锁定位及升级方式需核对交付 SDK 和对应原文。
 
 ## Related
 
-- [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
-- [[../../categories/bk-doc|BK Docs 分类页面]]
+- [[bk-armino-framework]]
+- [[bk-bootloader-ota]]
+- [[bk-armino-overview]]

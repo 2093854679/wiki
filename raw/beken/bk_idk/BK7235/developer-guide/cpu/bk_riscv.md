@@ -1,69 +1,84 @@
-# RISC-V Guide[](#risc-v-guide "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/developer-guide/cpu/bk_riscv.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="risc-v-guide"></a>
 
+# RISC-V Guide
 
-## 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 简介
 
 BK7235使用的是Andes Technology(晶心科技)的CPU（D25F核），基于RISC-V指令集架构
 
+<a id="andes"></a>
 
-## Andes官网[](#andes "永久链接至标题")
+## Andes官网
 
-> - Andes官网： [http://www.andestech.com](http://www.andestech.com "http://www.andestech.com")
-> - AndeSight 工具下载路径： [https://github.com/andestech/Andes-Development-Kit/releases](https://github.com/andestech/Andes-Development-Kit/releases "https://github.com/andestech/Andes-Development-Kit/releases")
-> - Andes CPU (D25F核)编译工具链开源代码: [https://github.com/andestech/nds-gnu-toolchain](https://github.com/andestech/nds-gnu-toolchain "https://github.com/andestech/nds-gnu-toolchain")
+> - Andes官网： <http://www.andestech.com>
+> - AndeSight 工具下载路径： <https://github.com/andestech/Andes-Development-Kit/releases>
+> - Andes CPU (D25F核)编译工具链开源代码: <https://github.com/andestech/nds-gnu-toolchain>
 
+<a id="id2"></a>
 
-## Andes相关文档[](#id2 "永久链接至标题")
+## Andes相关文档
 
-> > 软件安装之后，在安装目录下：以Windows为例，D:ToolsAndestechAndeSight_STD_v510doc
+> > 软件安装之后，在安装目录下：以Windows为例，D:ToolsAndestechAndeSight\_STD\_v510doc
 >
-> - 《AMSI_Drivers_and_Demos_Application_Note_AN031_V1.3.pdf》
+> - 《AMSI\_Drivers\_and\_Demos\_Application\_Note\_AN031\_V1.3.pdf》
 >   :   —Andes MCU Software Interface (AMSI) Drivers and Demos Application Note
-> - 《AndeSight_STD_v5.1_IDE_Quick_Start_Guide_UM250_V1.0.pdf》
+> - 《AndeSight\_STD\_v5.1\_IDE\_Quick\_Start\_Guide\_UM250\_V1.0.pdf》
 >   :   —AndeSight IDE用户快速入门向导手册
-> - 《AndeSight_STD_v5.0_IDE_User_Manual_UM230_V1.1.pdf》
+> - 《AndeSight\_STD\_v5.0\_IDE\_User\_Manual\_UM230\_V1.1.pdf》
 >   :   —AndeSight IDE用户手册
-> - 《AndeSight_STD_v5.1_Installation_Guide_UM251_V1.0.pdf》
+> - 《AndeSight\_STD\_v5.1\_Installation\_Guide\_UM251\_V1.0.pdf》
 >   :   —AndeSight IDE安装手册
-> - 《AndeSight_STD_v5.1_Release_Notes_RN312_V1.0.pdf》
+> - 《AndeSight\_STD\_v5.1\_Release\_Notes\_RN312\_V1.0.pdf》
 >   :   —AndeSight IDE软件Release Note
-> - 《AndeSight_v5.1_BSP_User_Manual_UM255_V1.0.pdf》
+> - 《AndeSight\_v5.1\_BSP\_User\_Manual\_UM255\_V1.0.pdf》
 >   :   —AndeSight BSP用户手册
-> - 《AndeStar_V5_CLIC_Spec_UM205_V1.0.pdf》
+> - 《AndeStar\_V5\_CLIC\_Spec\_UM205\_V1.0.pdf》
 >   :   —Andes CLIC架构介绍，Armino平台7256系列产品使用PLIC架构
-> - 《AndeStar_V5_SPA_UM164_V1.5.pdf》
+> - 《AndeStar\_V5\_SPA\_UM164\_V1.5.pdf》
 >   :   —AndeStar系统架构和CSR文档
-> - 《AndeStar_V5_ISA_Spec_UM165_V1.4.pdf》
+> - 《AndeStar\_V5\_ISA\_Spec\_UM165\_V1.4.pdf》
 >   :   —AndeStar V5 Instruction Extension Specification 扩展指令介绍
-> - 《AndeStar_V5_PLIC_UM166_V1.3.pdf》
+> - 《AndeStar\_V5\_PLIC\_UM166\_V1.3.pdf》
 >   :   —Andes PLIC架构介绍，Armino平台7256系列产品使用PLIC架构
-> - 《AndeStar_V5_SPA_UM164_V1.5.pdf》
+> - 《AndeStar\_V5\_SPA\_UM164\_V1.5.pdf》
 >   :   —AndeStar系统架构和CSR文档
-> - 《AndeStar_V5_Timer_UM167_V1.1.pdf》
+> - 《AndeStar\_V5\_Timer\_UM167\_V1.1.pdf》
 >   :   —Andes CPU内部mtimer相关介绍
-> - 《Andes_AMP_System_for_Bare_Metal_and_RTOS_Application_Note_AN060_V1.0.pdf》
-> - 《Andes_DSP_Library_V5_User_Manual_UM179_V2.1.pdf》
-> - 《Andes_ICE_Management_Software_UM067_V3.3.pdf》
+> - 《Andes\_AMP\_System\_for\_Bare\_Metal\_and\_RTOS\_Application\_Note\_AN060\_V1.0.pdf》
+> - 《Andes\_DSP\_Library\_V5\_User\_Manual\_UM179\_V2.1.pdf》
+> - 《Andes\_ICE\_Management\_Software\_UM067\_V3.3.pdf》
 >   :   —Andes ICE Management软件介绍，类似JLink的GDBServer
-> - 《Andes_Neural_Network_Library_User_Manual_UM232_V2.1.pdf》
-> - 《Andes_Programming_Guide_for_ISA_V5_PG012_V2.6.pdf》
+> - 《Andes\_Neural\_Network\_Library\_User\_Manual\_UM232\_V2.1.pdf》
+> - 《Andes\_Programming\_Guide\_for\_ISA\_V5\_PG012\_V2.6.pdf》
 >   :   —Andes编程指南
-> - 《The_RISC-V_Instruction_Set_Manual_Volume_II_Privileged_Architecture_TD002_V1.10.pdf》
+> - 《The\_RISC-V\_Instruction\_Set\_Manual\_Volume\_II\_Privileged\_Architecture\_TD002\_V1.10.pdf》
 >   :   —Andes RISCV指令集
-> - 《The_RISC-V_Instruction_Set_Manual_Volume_I_User-Level_ISA_TD001_V2.2.pdf》
+> - 《The\_RISC-V\_Instruction\_Set\_Manual\_Volume\_I\_User-Level\_ISA\_TD001\_V2.2.pdf》
 >   :   —Andes RISCV指令集(User-Level)
 
+<a id="andes-sagld"></a>
 
-## Andes sag转ld文件方法[](#andes-sagld "永久链接至标题")
+## Andes sag转ld文件方法
 
-> 1. 通过D:\Tools\Andestech\AndeSight_STD_v510\toolchains\nds32le-elf-mculib-v5\cygwin-andes.bat 进入cygwin
-> 2. 进入D:\Tools\Andestech\AndeSight_STD_v510\utils目录，将sag文件放入该目录下
+> 1. 通过D:\\Tools\\Andestech\\AndeSight\_STD\_v510\\toolchains\\nds32le-elf-mculib-v5\\cygwin-andes.bat 进入cygwin
+> 2. 进入D:\\Tools\\Andestech\\AndeSight\_STD\_v510\\utils目录，将sag文件放入该目录下
 
 在cygwin环境执行如下命令:
 
-
 ```
 nds_ldsag.exe --version=v5 -t ./nds32_template_v5.txt bk7235_bsp.sag -o bk7235_bsp.ld
-
 ```

@@ -1,29 +1,47 @@
-# FLASH PARTITION[](#flash-partition "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/api-reference/peripheral/bk_flash_partition.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="flash-partition"></a>
 
+# FLASH PARTITION
 
-## FLASH PARTITION API Status[](#flash-partition-api-status "永久链接至标题")
+<a id="flash-partition-api-status"></a>
 
-| API | BK7258 | BK7258_cp1 |
+## FLASH PARTITION API Status
+
+| API | BK7258 | BK7258\_cp1 |
 | --- | --- | --- |
 | [`bk_flash_partition_get_info()`](#_CPPv427bk_flash_partition_get_info14bk_partition_t "bk_flash_partition_get_info") | Y | Y |
 | [`bk_flash_partition_erase()`](#_CPPv424bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t "bk_flash_partition_erase") | Y | Y |
 | [`bk_flash_partition_write()`](#_CPPv424bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t "bk_flash_partition_write") | Y | Y |
 | [`bk_flash_partition_read()`](#_CPPv423bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t "bk_flash_partition_read") | Y | Y |
 
+<a id="flash-partition-api-reference"></a>
 
-## FLASH PARTITION API Reference[](#flash-partition-api-reference "永久链接至标题")
+## FLASH PARTITION API Reference
 
+<a id="header-file"></a>
 
-### Header File[](#header-file "永久链接至标题")
+### Header File
 
+- [flash\_partition.h](https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/_header_files/include/driver/flash_partition.h)
 
-- [flash_partition.h](http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/flash_partition.h "http://192.168.0.46/gerrit/plugins/gitiles/iot/wcn/projects/+/refs/heads/armino_main/components/flash_partition.h")
+<a id="functions"></a>
 
+### Functions
 
-### Functions[](#functions "永久链接至标题")
+<a id="_CPPv427bk_flash_partition_get_info14bk_partition_t"></a>
 
-[bk_logic_partition_t](#_CPPv420bk_logic_partition_t "bk_logic_partition_t") *bk_flash_partition_get_info([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition)[](#_CPPv427bk_flash_partition_get_info14bk_partition_t "永久链接至目标")
+<a id="_CPPv327bk_flash_partition_get_info14bk_partition_t"></a> <a id="_CPPv227bk_flash_partition_get_info14bk_partition_t"></a> <a id="bk_flash_partition_get_info__bk_partition_t"></a> <a id="flash__partition_8h_1a6a40bf54d95fcf7edbd41d996068cf42"></a> [bk\_logic\_partition\_t](#_CPPv420bk_logic_partition_t "bk_logic_partition_t") \*bk\_flash\_partition\_get\_info([bk\_partition\_t](#_CPPv414bk_partition_t "bk_partition_t") partition)
 :   Get the infomation of the specified flash area.
 
     参数
@@ -32,7 +50,9 @@
     返回
     :   bk flash logic partition struct
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_erase([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint32_t offset, uint32_t size)[](#_CPPv424bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv424bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv324bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t"></a> <a id="_CPPv224bk_flash_partition_erase14bk_partition_t8uint32_t8uint32_t"></a> <a id="bk_flash_partition_erase__bk_partition_t.uint32_t.uint32_t"></a> <a id="flash__partition_8h_1a69bd54922de9134d527a2cd597449f18"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_flash\_partition\_erase([bk\_partition\_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint32\_t offset, uint32\_t size)
 :   Erase an area on a Flash logical partition.
 
     备注
@@ -41,148 +61,209 @@
 
     参数
     :   - **partition** – The target flash logical partition which should be erased
-
         - **offset** – Start address of the erased flash area
-
         - **size** – Size of the erased flash area
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_write([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv424bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv424bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv324bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a> <a id="_CPPv224bk_flash_partition_write14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a> <a id="bk_flash_partition_write__bk_partition_t.uint8_tCP.uint32_t.uint32_t"></a> <a id="flash__partition_8h_1a0d8277d82a5816e7611cca4c9ba6afa2"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_flash\_partition\_write([bk\_partition\_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8\_t \*buffer, uint32\_t offset, uint32\_t buffer\_len)
 :   Write data to an area on a Flash logical partition.
 
     参数
     :   - **partition** – The target flash logical partition which should be written
-
         - **buffer** – Pointer to the data buffer that will be written to flash
-
-        - **off_set** – The offset of write address
-
-        - **buffer_len** – The length of the buffer
+        - **off\_set** – The offset of write address
+        - **buffer\_len** – The length of the buffer
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_flash_partition_read([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint8_t *out_buffer, uint32_t offset, uint32_t buffer_len)[](#_CPPv423bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv423bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv323bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t"></a> <a id="_CPPv223bk_flash_partition_read14bk_partition_tP7uint8_t8uint32_t8uint32_t"></a> <a id="bk_flash_partition_read__bk_partition_t.uint8_tP.uint32_t.uint32_t"></a> <a id="flash__partition_8h_1a23fcd8caef7255dc7546f6f96aa3d357"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_flash\_partition\_read([bk\_partition\_t](#_CPPv414bk_partition_t "bk_partition_t") partition, uint8\_t \*out\_buffer, uint32\_t offset, uint32\_t buffer\_len)
 :   Read data from an area on a Flash to data buffer in RAM.
 
     参数
     :   - **partition** – The target flash logical partition which should be read
-
-        - **out_buffer** – Pointer to the data buffer that stores the data read from flash
-
+        - **out\_buffer** – Pointer to the data buffer that stores the data read from flash
         - **offsets** – The offset of read address
-
-        - **buffer_len** – The length of the buffer
+        - **buffer\_len** – The length of the buffer
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_spec_flash_write_bytes([bk_partition_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8_t *user_buf, uint32_t size, uint32_t offset)[](#_CPPv425bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t "永久链接至目标")
+<a id="_CPPv425bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a>
+
+<a id="_CPPv325bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a> <a id="_CPPv225bk_spec_flash_write_bytes14bk_partition_tPK7uint8_t8uint32_t8uint32_t"></a> <a id="bk_spec_flash_write_bytes__bk_partition_t.uint8_tCP.uint32_t.uint32_t"></a> <a id="flash__partition_8h_1a20dcf931fdefca108317b144f9088ec3"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_spec\_flash\_write\_bytes([bk\_partition\_t](#_CPPv414bk_partition_t "bk_partition_t") partition, const uint8\_t \*user\_buf, uint32\_t size, uint32\_t offset)
 :   Write data to flash (only operating 4k flash space)
 
     参数
-    :   - **partition** – partition to write (eg:partition BK_PARTITION_RF_FIRMWARE)
-
-        - **user_buf** – the pointer to data which is to write
-
+    :   - **partition** – partition to write (eg:partition BK\_PARTITION\_RF\_FIRMWARE)
+        - **user\_buf** – the pointer to data which is to write
         - **size** – size to write
-
         - **offset** – offset to write
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_FLASH_ADDR_OUT_OF_RANGE: flash address is out of range
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_FLASH\_ADDR\_OUT\_OF\_RANGE: flash address is out of range
         - others: other errors.
 
+<a id="structures"></a>
 
-### Structures[](#structures "永久链接至标题")
+### Structures
 
-struct bk_logic_partition_t[](#_CPPv420bk_logic_partition_t "永久链接至目标")
-:   Public Members
+<a id="_CPPv420bk_logic_partition_t"></a>
 
-    [bk_flash_t](#_CPPv410bk_flash_t "bk_flash_t") partition_owner[](#_CPPv4N20bk_logic_partition_t15partition_ownerE "永久链接至目标")
+<a id="_CPPv320bk_logic_partition_t"></a> <a id="_CPPv220bk_logic_partition_t"></a> <a id="bk_logic_partition_t"></a> <a id="structbk__logic__partition__t"></a> struct bk\_logic\_partition\_t
+:   <a id="breathe-section-title-public-members"></a>
+
+    Public Members
+
+    <a id="_CPPv4N20bk_logic_partition_t15partition_ownerE"></a>
+
+    <a id="_CPPv3N20bk_logic_partition_t15partition_ownerE"></a> <a id="_CPPv2N20bk_logic_partition_t15partition_ownerE"></a> <a id="bk_logic_partition_t::partition_owner__bk_flash_t"></a> <a id="structbk__logic__partition__t_1a4a84f0f2dc9f7a965d7d474dd2c45fbb"></a> [bk\_flash\_t](#_CPPv410bk_flash_t "bk_flash_t") partition\_owner
     :   flash partition owners
 
-    const char *partition_description[](#_CPPv4N20bk_logic_partition_t21partition_descriptionE "永久链接至目标")
+    <a id="_CPPv4N20bk_logic_partition_t21partition_descriptionE"></a>
+
+    <a id="_CPPv3N20bk_logic_partition_t21partition_descriptionE"></a> <a id="_CPPv2N20bk_logic_partition_t21partition_descriptionE"></a> <a id="bk_logic_partition_t::partition_description__cCP"></a> <a id="structbk__logic__partition__t_1a6cc1bc293ee15fedcdc0f7f2313e39cc"></a> const char \*partition\_description
     :   flash partition description
 
-    uint32_t partition_start_addr[](#_CPPv4N20bk_logic_partition_t20partition_start_addrE "永久链接至目标")
+    <a id="_CPPv4N20bk_logic_partition_t20partition_start_addrE"></a>
+
+    <a id="_CPPv3N20bk_logic_partition_t20partition_start_addrE"></a> <a id="_CPPv2N20bk_logic_partition_t20partition_start_addrE"></a> <a id="bk_logic_partition_t::partition_start_addr__uint32_t"></a> <a id="structbk__logic__partition__t_1a406dee3af89af369a3a0e036af3b5bd6"></a> uint32\_t partition\_start\_addr
     :   flash partition start address
 
-    uint32_t partition_length[](#_CPPv4N20bk_logic_partition_t16partition_lengthE "永久链接至目标")
+    <a id="_CPPv4N20bk_logic_partition_t16partition_lengthE"></a>
+
+    <a id="_CPPv3N20bk_logic_partition_t16partition_lengthE"></a> <a id="_CPPv2N20bk_logic_partition_t16partition_lengthE"></a> <a id="bk_logic_partition_t::partition_length__uint32_t"></a> <a id="structbk__logic__partition__t_1a4fca2a7e34c6b94ca186c6371954bc52"></a> uint32\_t partition\_length
     :   flash partition length
 
-    uint32_t partition_options[](#_CPPv4N20bk_logic_partition_t17partition_optionsE "永久链接至目标")
+    <a id="_CPPv4N20bk_logic_partition_t17partition_optionsE"></a>
+
+    <a id="_CPPv3N20bk_logic_partition_t17partition_optionsE"></a> <a id="_CPPv2N20bk_logic_partition_t17partition_optionsE"></a> <a id="bk_logic_partition_t::partition_options__uint32_t"></a> <a id="structbk__logic__partition__t_1af56d447fab2e36c000a10033a298b704"></a> uint32\_t partition\_options
     :   flash partition options
 
+<a id="macros"></a>
 
-### Macros[](#macros "永久链接至标题")
+### Macros
 
-PAR_OPT_READ_POS[](#c.PAR_OPT_READ_POS "永久链接至目标")
+<a id="c.PAR_OPT_READ_POS"></a>
 
-PAR_OPT_READ_DIS[](#c.PAR_OPT_READ_DIS "永久链接至目标")
+<a id="flash__partition_8h_1ab1e58b6e8ff6f3761bdf24c04478c7f6"></a> PAR\_OPT\_READ\_POS
 
-PAR_OPT_READ_EN[](#c.PAR_OPT_READ_EN "永久链接至目标")
+<a id="c.PAR_OPT_READ_DIS"></a>
 
-PAR_OPT_WRITE_POS[](#c.PAR_OPT_WRITE_POS "永久链接至目标")
+<a id="flash__partition_8h_1a4f5a8817f87909dd93f8b655236bfa97"></a> PAR\_OPT\_READ\_DIS
 
-PAR_OPT_WRITE_DIS[](#c.PAR_OPT_WRITE_DIS "永久链接至目标")
+<a id="c.PAR_OPT_READ_EN"></a>
 
-PAR_OPT_WRITE_EN[](#c.PAR_OPT_WRITE_EN "永久链接至目标")
+<a id="flash__partition_8h_1ad38fd963b47f4417058bde27626cec60"></a> PAR\_OPT\_READ\_EN
 
-PAR_OPT_EXECUTE_POS[](#c.PAR_OPT_EXECUTE_POS "永久链接至目标")
+<a id="c.PAR_OPT_WRITE_POS"></a>
 
-PAR_OPT_EXECUTE_DIS[](#c.PAR_OPT_EXECUTE_DIS "永久链接至目标")
+<a id="flash__partition_8h_1a68ff33d27eb40be97075ac7acc28b1dc"></a> PAR\_OPT\_WRITE\_POS
 
-PAR_OPT_EXECUTE_EN[](#c.PAR_OPT_EXECUTE_EN "永久链接至目标")
+<a id="c.PAR_OPT_WRITE_DIS"></a>
 
+<a id="flash__partition_8h_1a2e3aedc128cf4fc5c1962e9229ef00e9"></a> PAR\_OPT\_WRITE\_DIS
 
-### Enumerations[](#enumerations "永久链接至标题")
+<a id="c.PAR_OPT_WRITE_EN"></a>
 
-enum bk_flash_t[](#_CPPv410bk_flash_t "永久链接至目标")
+<a id="flash__partition_8h_1a06797fb3f63772e5b3b7b72edd7ae86b"></a> PAR\_OPT\_WRITE\_EN
+
+<a id="c.PAR_OPT_EXECUTE_POS"></a>
+
+<a id="flash__partition_8h_1a4b859874465b68d0b73f199cb63a6a4e"></a> PAR\_OPT\_EXECUTE\_POS
+
+<a id="c.PAR_OPT_EXECUTE_DIS"></a>
+
+<a id="flash__partition_8h_1af195043b4881e393d9ae1771bfa79141"></a> PAR\_OPT\_EXECUTE\_DIS
+
+<a id="c.PAR_OPT_EXECUTE_EN"></a>
+
+<a id="flash__partition_8h_1ad3cbc9b409aa5a152c6f96e74b207055"></a> PAR\_OPT\_EXECUTE\_EN
+
+<a id="enumerations"></a>
+
+### Enumerations
+
+<a id="_CPPv410bk_flash_t"></a>
+
+<a id="_CPPv310bk_flash_t"></a> <a id="_CPPv210bk_flash_t"></a> <a id="flash__partition_8h_1a4269a42fcd5cccdf95cc910a91c515f8"></a> enum bk\_flash\_t
 :   *Values:*
 
-    enumerator BK_FLASH_EMBEDDED[](#_CPPv4N10bk_flash_t17BK_FLASH_EMBEDDEDE "永久链接至目标")
+    <a id="_CPPv4N10bk_flash_t17BK_FLASH_EMBEDDEDE"></a>
 
-    enumerator BK_FLASH_SPI[](#_CPPv4N10bk_flash_t12BK_FLASH_SPIE "永久链接至目标")
+    <a id="_CPPv3N10bk_flash_t17BK_FLASH_EMBEDDEDE"></a> <a id="_CPPv2N10bk_flash_t17BK_FLASH_EMBEDDEDE"></a> <a id="flash__partition_8h_1a4269a42fcd5cccdf95cc910a91c515f8a18d4385876664c390fb5dd7f411d72db"></a> enumerator BK\_FLASH\_EMBEDDED
 
-    enumerator BK_FLASH_MAX[](#_CPPv4N10bk_flash_t12BK_FLASH_MAXE "永久链接至目标")
+    <a id="_CPPv4N10bk_flash_t12BK_FLASH_SPIE"></a>
 
-    enumerator BK_FLASH_NONE[](#_CPPv4N10bk_flash_t13BK_FLASH_NONEE "永久链接至目标")
+    <a id="_CPPv3N10bk_flash_t12BK_FLASH_SPIE"></a> <a id="_CPPv2N10bk_flash_t12BK_FLASH_SPIE"></a> <a id="flash__partition_8h_1a4269a42fcd5cccdf95cc910a91c515f8ad29e6e471dea17232cabc86fea92d5d0"></a> enumerator BK\_FLASH\_SPI
 
-enum bk_partition_t[](#_CPPv414bk_partition_t "永久链接至目标")
+    <a id="_CPPv4N10bk_flash_t12BK_FLASH_MAXE"></a>
+
+    <a id="_CPPv3N10bk_flash_t12BK_FLASH_MAXE"></a> <a id="_CPPv2N10bk_flash_t12BK_FLASH_MAXE"></a> <a id="flash__partition_8h_1a4269a42fcd5cccdf95cc910a91c515f8a2dd397b52046e6b78c3aec143626d038"></a> enumerator BK\_FLASH\_MAX
+
+    <a id="_CPPv4N10bk_flash_t13BK_FLASH_NONEE"></a>
+
+    <a id="_CPPv3N10bk_flash_t13BK_FLASH_NONEE"></a> <a id="_CPPv2N10bk_flash_t13BK_FLASH_NONEE"></a> <a id="flash__partition_8h_1a4269a42fcd5cccdf95cc910a91c515f8ab37cc8aea703f16be396c045c6ddf474"></a> enumerator BK\_FLASH\_NONE
+
+<a id="_CPPv414bk_partition_t"></a>
+
+<a id="_CPPv314bk_partition_t"></a> <a id="_CPPv214bk_partition_t"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9"></a> enum bk\_partition\_t
 :   *Values:*
 
-    enumerator BK_PARTITION_BOOTLOADER[](#_CPPv4N14bk_partition_t23BK_PARTITION_BOOTLOADERE "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t23BK_PARTITION_BOOTLOADERE"></a>
 
-    enumerator BK_PARTITION_APPLICATION[](#_CPPv4N14bk_partition_t24BK_PARTITION_APPLICATIONE "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t23BK_PARTITION_BOOTLOADERE"></a> <a id="_CPPv2N14bk_partition_t23BK_PARTITION_BOOTLOADERE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a176a73f92f9618b019a0d9aa1eeda66a"></a> enumerator BK\_PARTITION\_BOOTLOADER
 
-    enumerator BK_PARTITION_OTA[](#_CPPv4N14bk_partition_t16BK_PARTITION_OTAE "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t24BK_PARTITION_APPLICATIONE"></a>
 
-    enumerator BK_PARTITION_APPLICATION1[](#_CPPv4N14bk_partition_t25BK_PARTITION_APPLICATION1E "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t24BK_PARTITION_APPLICATIONE"></a> <a id="_CPPv2N14bk_partition_t24BK_PARTITION_APPLICATIONE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9aa160cea4191ffe440e7a82ad67aa1ea5"></a> enumerator BK\_PARTITION\_APPLICATION
 
-    enumerator BK_PARTITION_MATTER_FLASH[](#_CPPv4N14bk_partition_t25BK_PARTITION_MATTER_FLASHE "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t16BK_PARTITION_OTAE"></a>
 
-    enumerator BK_PARTITION_RF_FIRMWARE[](#_CPPv4N14bk_partition_t24BK_PARTITION_RF_FIRMWAREE "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t16BK_PARTITION_OTAE"></a> <a id="_CPPv2N14bk_partition_t16BK_PARTITION_OTAE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9ad11f2d152167a9365e6952777b60e60e"></a> enumerator BK\_PARTITION\_OTA
 
-    enumerator BK_PARTITION_NET_PARAM[](#_CPPv4N14bk_partition_t22BK_PARTITION_NET_PARAME "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t25BK_PARTITION_APPLICATION1E"></a>
 
-    enumerator BK_PARTITION_USR_CONFIG[](#_CPPv4N14bk_partition_t23BK_PARTITION_USR_CONFIGE "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t25BK_PARTITION_APPLICATION1E"></a> <a id="_CPPv2N14bk_partition_t25BK_PARTITION_APPLICATION1E"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a900a646d219fed47301d2c572d131d2b"></a> enumerator BK\_PARTITION\_APPLICATION1
 
-    enumerator BK_PARTITION_OTA_FINA_EXECUTIVE[](#_CPPv4N14bk_partition_t31BK_PARTITION_OTA_FINA_EXECUTIVEE "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t25BK_PARTITION_MATTER_FLASHE"></a>
 
-    enumerator BK_PARTITION_APPLICATION2[](#_CPPv4N14bk_partition_t25BK_PARTITION_APPLICATION2E "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t25BK_PARTITION_MATTER_FLASHE"></a> <a id="_CPPv2N14bk_partition_t25BK_PARTITION_MATTER_FLASHE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a6a8fb80f41b5a16c0e4b6265dee6849b"></a> enumerator BK\_PARTITION\_MATTER\_FLASH
 
-    enumerator BK_PARTITION_EASYFLASH[](#_CPPv4N14bk_partition_t22BK_PARTITION_EASYFLASHE "永久链接至目标")
+    <a id="_CPPv4N14bk_partition_t24BK_PARTITION_RF_FIRMWAREE"></a>
 
-    enumerator BK_PARTITION_MAX[](#_CPPv4N14bk_partition_t16BK_PARTITION_MAXE "永久链接至目标")
+    <a id="_CPPv3N14bk_partition_t24BK_PARTITION_RF_FIRMWAREE"></a> <a id="_CPPv2N14bk_partition_t24BK_PARTITION_RF_FIRMWAREE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a3941635e851e2a1f4646d3e21267e69e"></a> enumerator BK\_PARTITION\_RF\_FIRMWARE
+
+    <a id="_CPPv4N14bk_partition_t22BK_PARTITION_NET_PARAME"></a>
+
+    <a id="_CPPv3N14bk_partition_t22BK_PARTITION_NET_PARAME"></a> <a id="_CPPv2N14bk_partition_t22BK_PARTITION_NET_PARAME"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a825276020e62025dcfbc735b6d161312"></a> enumerator BK\_PARTITION\_NET\_PARAM
+
+    <a id="_CPPv4N14bk_partition_t23BK_PARTITION_USR_CONFIGE"></a>
+
+    <a id="_CPPv3N14bk_partition_t23BK_PARTITION_USR_CONFIGE"></a> <a id="_CPPv2N14bk_partition_t23BK_PARTITION_USR_CONFIGE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a56a26ed1b24585889fc1f71bf119ef11"></a> enumerator BK\_PARTITION\_USR\_CONFIG
+
+    <a id="_CPPv4N14bk_partition_t31BK_PARTITION_OTA_FINA_EXECUTIVEE"></a>
+
+    <a id="_CPPv3N14bk_partition_t31BK_PARTITION_OTA_FINA_EXECUTIVEE"></a> <a id="_CPPv2N14bk_partition_t31BK_PARTITION_OTA_FINA_EXECUTIVEE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9ae22bdafce912d95172c1b2ff2832c36a"></a> enumerator BK\_PARTITION\_OTA\_FINA\_EXECUTIVE
+
+    <a id="_CPPv4N14bk_partition_t25BK_PARTITION_APPLICATION2E"></a>
+
+    <a id="_CPPv3N14bk_partition_t25BK_PARTITION_APPLICATION2E"></a> <a id="_CPPv2N14bk_partition_t25BK_PARTITION_APPLICATION2E"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9ab4ee3bfa207eb638da38eec6898e9eff"></a> enumerator BK\_PARTITION\_APPLICATION2
+
+    <a id="_CPPv4N14bk_partition_t22BK_PARTITION_EASYFLASHE"></a>
+
+    <a id="_CPPv3N14bk_partition_t22BK_PARTITION_EASYFLASHE"></a> <a id="_CPPv2N14bk_partition_t22BK_PARTITION_EASYFLASHE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9aff9258e3f57738c7d7e0361be462a5bd"></a> enumerator BK\_PARTITION\_EASYFLASH
+
+    <a id="_CPPv4N14bk_partition_t16BK_PARTITION_MAXE"></a>
+
+    <a id="_CPPv3N14bk_partition_t16BK_PARTITION_MAXE"></a> <a id="_CPPv2N14bk_partition_t16BK_PARTITION_MAXE"></a> <a id="flash__partition_8h_1a8e91777920348c971e9edb5d546ce9b9a2cc641b285d9d1ca961787cd01255e8a"></a> enumerator BK\_PARTITION\_MAX

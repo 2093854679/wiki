@@ -1,8 +1,22 @@
-# 耳机(Headset)[](#headset "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/bluetooth/headset/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="headset"></a>
 
+# 耳机(Headset)
 
-## 1. 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 功能概述
 
 > 本工程用于耳机等设备场景，主要功能有
 >
@@ -14,8 +28,9 @@
 >
 > 4.ble gatt server/gatt client（可以详见Central工程相关介绍）
 
+<a id="id2"></a>
 
-### 1.1 软件规格[](#id2 "永久链接至标题")
+### 1.1 软件规格
 
 > - a2dp:
 >   :   - avdtp sink
@@ -30,104 +45,123 @@
 >       - gatt client
 >       - smp legacy pair/secure connection pair
 
+<a id="id3"></a>
 
-### 1.2 代码路径及编译命令[](#id3 "永久链接至标题")
+### 1.2 代码路径及编译命令
 
-> Demo路径：[./projects/bluetooth/headset](https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/headset "https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/headset")
+> Demo路径：[./projects/bluetooth/headset](https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/headset)
 >
 > > 编译命令：`make bk7258 PROJECT=bluetooth/headset`
 
+<a id="cmd"></a>
 
-## 2. cmd命令简介[](#cmd "永久链接至标题")
+## 2\. cmd命令简介
 
+<a id="a2dp-avrcp"></a>
 
-### 2.1 a2dp/avrcp[](#a2dp-avrcp "永久链接至标题")
+### 2.1 a2dp/avrcp
 
 > |  |  |
 > | --- | --- |
-> | headset connect <xx:xx:xx:xx:xx:xx> | 主动连接对端设备 |
-> | headset disconnect <xx:xx:xx:xx:xx:xx> | 断开连接 |
+> | headset connect \<xx:xx:xx:xx:xx:xx\> | 主动连接对端设备 |
+> | headset disconnect \<xx:xx:xx:xx:xx:xx\> | 断开连接 |
 > | headset play | 播放 |
 > | headset pause | 暂停 |
 > | headset next | 下一曲 |
 > | headset prev | 上一曲 |
-> | headset rewind [msec] | 快退，可指定时间 |
-> | headset fast_forward [msec] | 快进，可指定时间 |
-> | headset vol_up | 音量增加 |
-> | headset vol_down | 音量减少 |
-> | headset pair_mode | 进入配对模式 |
+> | headset rewind \[msec\] | 快退，可指定时间 |
+> | headset fast\_forward \[msec\] | 快进，可指定时间 |
+> | headset vol\_up | 音量增加 |
+> | headset vol\_down | 音量减少 |
+> | headset pair\_mode | 进入配对模式 |
 
+<a id="id4"></a>
 
-## 3. 框架图[](#id4 "永久链接至标题")
+## 3\. 框架图
 
+<a id="id5"></a>
 
-### 3.1 软件模块架构图[](#id5 "永久链接至标题")
+### 3.1 软件模块架构图
 
 > 如下图所示，bluetooth负责音乐数据接收以及语音数据接收和发送；audio负责对音乐和语音数据解码播放以及采集MIC数据并编码；storage负责蓝牙关键信息存储，比如加密key
 
-![module architecture Overview](../_images/bluetooth_headset_arch.png)
+<a id="id14"></a>
+![module architecture Overview](../../../_assets/c6d57ba96d817a15984f-bluetooth_headset_arch.png)
 
-Figure 1. software module architecture[](#id14 "永久链接至图片")
 
+Figure 1\. software module architecture
 
-### 3.2 流程图[](#id6 "永久链接至标题")
+<a id="id6"></a>
+
+### 3.2 流程图
 
 > A2DP工作流程和HFP工作流程见下图
 
-![a2dp flow Overview](../_images/bluetooth_headset_a2dp_flow.png)
-
-Figure 2. a2dp flow chart[](#id15 "永久链接至图片")
-
-![hfp flow Overview](../_images/bluetooth_headset_hfp_flow.png)
-
-Figure 3. hfp flow chart[](#id16 "永久链接至图片")
+<a id="id15"></a>
+![a2dp flow Overview](../../../_assets/ee4228bd439160276191-bluetooth_headset_a2dp_flow.png)
 
 
-## 4. 配置[](#id7 "永久链接至标题")
+Figure 2\. a2dp flow chart
+
+<a id="id16"></a>
+![hfp flow Overview](../../../_assets/361b655a77e9f0d81d79-bluetooth_headset_hfp_flow.png)
 
 
-### 4.1 demo开启配置[](#demo "永久链接至标题")
+Figure 3\. hfp flow chart
+
+<a id="id7"></a>
+
+## 4\. 配置
+
+<a id="demo"></a>
+
+### 4.1 demo开启配置
 
 > 在工程路径下config/bk7258/config，修改宏来配置是否开启A2DP和HFP demo，当前默认开启A2DP demo；
 >
 > //开启A2DP demo
 >
-> CONFIG_A2DP_SINK_DEMO=y
+> CONFIG\_A2DP\_SINK\_DEMO\=y
 >
 > //开启HFP demo
 >
-> CONFIG_HFP_HF_DEMO=y
+> CONFIG\_HFP\_HF\_DEMO\=y
 
+<a id="codec"></a>
 
-### 4.2 codec方式配置[](#codec "永久链接至标题")
+### 4.2 codec方式配置
 
+<a id="a2dp"></a>
 
-#### 4.2.1 A2DP[](#a2dp "永久链接至标题")
+#### 4.2.1 A2DP
 
 > |  |  |  |  |
 > | --- | --- | --- | --- |
-> |  | CONFIG_SBC | CONFIG_AAC_DECODER | a2dp_sink_demo_init的参数 |
+> |  | CONFIG\_SBC | CONFIG\_AAC\_DECODER | a2dp\_sink\_demo\_init的参数 |
 > | 支持SBC | Y | N | 0 |
 > | 支持AAC | Y | Y | 1 |
 
+<a id="hfp"></a>
 
-#### 4.2.1 HFP[](#hfp "永久链接至标题")
+#### 4.2.1 HFP
 
 > |  |  |  |
 > | --- | --- | --- |
-> |  | CONFIG_SBC | hfp_hf_demo_init的参数 |
+> |  | CONFIG\_SBC | hfp\_hf\_demo\_init的参数 |
 > | 支持CVSD | N | 0 |
 > | 支持mSBC | Y | 1 |
 
+<a id="id8"></a>
 
-## 5. 代码讲解[](#id8 "永久链接至标题")
+## 5\. 代码讲解
 
+<a id="a2dp-demo"></a>
 
-### 5.1 A2DP demo[](#a2dp-demo "永久链接至标题")
+### 5.1 A2DP demo
 
+<a id="id9"></a>
 
-#### 5.1.1 获得蓝牙上报的音乐数据[](#id9 "永久链接至标题")
-
+#### 5.1.1 获得蓝牙上报的音乐数据
 
 ```
 void bt_audio_sink_media_data_ind(const uint8_t *data, uint16_t data_len)
@@ -159,12 +193,11 @@ void bt_audio_sink_media_data_ind(const uint8_t *data, uint16_t data_len)
 
         ...
 }
-
 ```
 
+<a id="ring-buffer"></a>
 
-#### 5.1.2 把音乐数据按帧暂存ring buffer[](#ring-buffer "永久链接至标题")
-
+#### 5.1.2 把音乐数据按帧暂存ring buffer
 
 ```
 void bt_audio_sink_demo_main(void *arg)
@@ -220,7 +253,6 @@ void bt_audio_sink_demo_main(void *arg)
                                         if (ring_buffer_node_get_free_nodes(&s_a2dp_frame_nodes))
                                         {
                                                 uint8_t *node = ring_buffer_node_get_write_node(&s_a2dp_frame_nodes);
-
                                                 *((uint32_t *)node) = inlen;
                                                 os_memcpy(node + 4, inbuf, inlen);
                                         }
@@ -251,12 +283,11 @@ void bt_audio_sink_demo_main(void *arg)
         ...
 
 }
-
 ```
 
+<a id="id10"></a>
 
-#### 5.1.3 解码音乐数据[](#id10 "永久链接至标题")
-
+#### 5.1.3 解码音乐数据
 
 ```
 static void speaker_task(void *arg)
@@ -347,15 +378,15 @@ static void speaker_task(void *arg)
 
         ...
 }
-
 ```
 
+<a id="hfp-demo"></a>
 
-### 5.2 HFP demo[](#hfp-demo "永久链接至标题")
+### 5.2 HFP demo
 
+<a id="id11"></a>
 
-#### 5.2.1 获得蓝牙上报的语音数据[](#id11 "永久链接至标题")
-
+#### 5.2.1 获得蓝牙上报的语音数据
 
 ```
 void bt_audio_hfp_client_voice_data_ind(const uint8_t *data, uint16_t data_len)
@@ -382,12 +413,11 @@ void bt_audio_hfp_client_voice_data_ind(const uint8_t *data, uint16_t data_len)
         rc = rtos_push_to_queue(&bt_audio_hf_demo_msg_que, &demo_msg, BEKEN_NO_WAIT);
         ...
 }
-
 ```
 
+<a id="id12"></a>
 
-#### 5.2.2 解码语音数据[](#id12 "永久链接至标题")
-
+#### 5.2.2 解码语音数据
 
 ```
 void bt_audio_hf_demo_main(void *arg)
@@ -446,12 +476,11 @@ void bt_audio_hf_demo_main(void *arg)
 
         ...
 }
-
 ```
 
+<a id="id13"></a>
 
-#### 5.2.3 播放语音数据[](#id13 "永久链接至标题")
-
+#### 5.2.3 播放语音数据
 
 ```
 static void speaker_task(void *arg)
@@ -478,12 +507,11 @@ static void speaker_task(void *arg)
 
    ...
 }
-
 ```
 
+<a id="mic"></a>
 
-#### 5.2.4 获取上行MIC数据[](#mic "永久链接至标题")
-
+#### 5.2.4 获取上行MIC数据
 
 ```
 static void mic_task(void *arg)
@@ -532,5 +560,4 @@ static void mic_task(void *arg)
 
         ...
 }
-
 ```

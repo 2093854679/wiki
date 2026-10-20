@@ -1,5 +1,18 @@
-# 概述[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/introduction/bk_overview.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
+
+# 概述
 
 Armino 为博通集成（BEKEN）新一代智能物联网（AIoT）软件开发框架，旨在协助开发者基于 BEKEN 芯片平台快速开发智能物联网产品，
 满足用户对 Wi-Fi/BT/低功耗/多媒体等方面的需求。
@@ -12,3 +25,19 @@ Armino 为博通集成（BEKEN）新一代智能物联网（AIoT）软件开发�
 > - 支持物联网安全框架
 > - 支持多种物联网操作系统
 > - 支持文档系统在线更新
+
+## 模块导航
+
+- [简介](../introduction.md)
+- [版权声明](bk_licensing.md)
+- [相关资源](bk_resource.md)
+- [开发者社区](bk_community.md)
+- [快速入门](../get-started.md)
+- [H/W 参考手册](../hw-reference.md)
+- [API 参考手册](../api-reference.md)
+- [开发者指南](../developer-guide.md)
+- [安全](../security.md)
+- [OS 相关参考](../os.md)
+- [购买 BK7239 开发板](../boards.md)
+- [样例 CLI 演示](../examples.md)
+- [开发与贡献代码流程](../process.md)

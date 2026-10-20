@@ -1,42 +1,58 @@
-# EQ demo[](#eq-demo "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/audio/aud_eq_demo.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="eq-demo"></a>
 
+# EQ demo
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > EQ demo主要功能是均衡dance的风格。
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > demo路径: `\components\demos\media\audio\aud`
 >
 > AUDIO DAC和EQ API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud.html`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 demo支持的命令如下表:
 
 | Command | Description |
 | --- | --- |
-| aud_eq_test {start|stop} | 均衡Dance风格 |
+| aud\_eq\_test {start\|stop} | 均衡Dance风格 |
 
 demo运行依赖的宏配置:
 
 | Name | Description | File | value |
 | --- | --- | --- | --- |
-| CONFIG_AUDIO | 配置audio功能 | `\middleware\soc\bk7256_cp1\bk7256_cp1.defconfig` | y |
-| CONFIG_AUDIO_RISCV_IP_V1_0 | 配置audio ip | `\middleware\soc\bk7256_cp1\bk7256_cp1.defconfig` | y |
-| CONFIG_AUDIO_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO | 配置audio功能 | `\middleware\soc\bk7256_cp1\bk7256_cp1.defconfig` | y |
+| CONFIG\_AUDIO\_RISCV\_IP\_V1\_0 | 配置audio ip | `\middleware\soc\bk7256_cp1\bk7256_cp1.defconfig` | y |
+| CONFIG\_AUDIO\_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
 
 demo运行依赖的库和驱动:
 :   - DMA DMA驱动
-
     - AUD audio模块驱动
 
+<a id="id3"></a>
 
-## 4、演示介绍[](#id3 "永久链接至标题")
+## 4、演示介绍
 
 demo执行的步骤如下:
 
@@ -50,11 +66,11 @@ demo执行的步骤如下:
 > 4.停止测试
 > :   - 串口工具发送指令 `cpu1 aud_eq_test stop` 停止测试
 
+<a id="id4"></a>
 
-## 5、详细配置及说明[](#id4 "永久链接至标题")
+## 5、详细配置及说明
 
 > EQ功能主要通过以下结构体进行参数的配置。EQ的参数设置主要有：A1、A2、B0、B1、B2，其中B0、B1和B2是正常配置，A1和A2符号要取反设置。
-
 
 ```
 typedef struct {
@@ -82,16 +98,14 @@ typedef struct {
         int32_t flt3_B1;
         int32_t flt3_B2;
 } aud_eq_config_t;
-
 ```
 
 具体的EQ功能主要调用以下两个API来实现EQ的使用和释放。
 
-> - [`bk_aud_eq_init()`](../../api-reference/multi_media/bk_audio.md#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "bk_aud_eq_init") - init the eq module of audio
-> - [`bk_aud_eq_deinit()`](../../api-reference/multi_media/bk_audio.md#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "bk_aud_eq_deinit") - deinit the eq module of audio
+> - [`bk_aud_eq_init()`](../../api-reference/multi_media/bk_audio.md#_CPPv414bk_aud_eq_initPK15aud_eq_config_t "bk_aud_eq_init") \- init the eq module of audio
+> - [`bk_aud_eq_deinit()`](../../api-reference/multi_media/bk_audio.md#_CPPv416bk_aud_eq_deinitP15aud_eq_config_t "bk_aud_eq_deinit") \- deinit the eq module of audio
 
 demo主要代码如下所示：
-
 
 ```
 aud_eq_config_t eq_config;
@@ -119,5 +133,4 @@ eq_config.flt3_B0 = 1038338;
 eq_config.flt3_B1 = 487698;
 eq_config.flt3_B2 = -62942;
 bk_aud_eq_init(&eq_config);
-
 ```

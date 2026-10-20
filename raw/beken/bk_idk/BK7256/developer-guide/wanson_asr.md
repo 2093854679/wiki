@@ -1,17 +1,28 @@
 ---
-aliases:
-- 'BK7256 › developer-guide › wanson_asr'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/wanson_asr/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 华镇语音识别(wanson_asr)开发指南[](#wanson-asr "永久链接至标题")
 
+<a id="wanson-asr"></a>
 
+# 华镇语音识别(wanson\_asr)开发指南
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 华镇语音识别库主要用于离线语音识别，通过模型训练可支持自定义唤醒词和命令词。
 
+<a id="id2"></a>
 
-## 2、开发资料[](#id2 "永久链接至标题")
+## 2、开发资料
 
 > armino平台已经将华镇离线语音识别库适配并集成为平台组件，并提供了用于华镇语音识别应用开发的工程，客户可基于此工程开发。
 >
@@ -25,8 +36,9 @@ aliases:
 2、华镇语音识别库基于浮点运算。
 3、当修改唤醒词或命令词后，需要替换 `libasr.a` 库。
 
+<a id="id3"></a>
 
-## 3、实时离线语音识别应用开发[](#id3 "永久链接至标题")
+## 3、实时离线语音识别应用开发
 
 > 基于华镇语音识别库开发实时离线识别的流程如下：
 >
@@ -36,7 +48,6 @@ aliases:
 > 3、打开音频采样
 >
 > 接口调用实例如下：
-
 
 ```
 /* 初始化语音识别库 */
@@ -61,16 +72,14 @@ Wanson_ASR_Recog((short*)asr_buff, 480, &text, &score);
 
 /* 开启音频采样 */
 bk_aud_intf_mic_start();
-
 ```
-
 
 ```
 完整的demo请参考源码： ``\components\demos\media\audio\audio_asr``
-
 ```
 
+<a id="id4"></a>
 
-## 参考链接[](#id4 "永久链接至标题")
+## 参考链接
 
-> [华镇离线语音识别(wanson_asr)工程](../../projects_work/thirdparty/wanson_asr.md "../../projects_work/thirdparty/wanson_asr/index.md")
+> [华镇离线语音识别(wanson\_asr)工程](../projects_work/thirdparty/wanson_asr.md)

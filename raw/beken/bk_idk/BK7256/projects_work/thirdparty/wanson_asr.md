@@ -1,17 +1,28 @@
 ---
-aliases:
-- 'BK7256 › projects_work › thirdparty › wanson_asr'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/thirdparty/wanson_asr/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 华镇语音识别工程[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 华镇语音识别工程
 
-## 1、功能概述[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 1、功能概述
 
 > 基于第三方公司 `华镇` 提供的本地语音识别库，实现本地离线语音唤醒词和命令词识别功能。
 
+<a id="id3"></a>
 
-## 2、代码路径[](#id3 "永久链接至标题")
+## 2、代码路径
 
 > demo路径: `\components\demos\media\audio\audio_asr`
 >
@@ -19,20 +30,22 @@ aliases:
 >
 > 华镇的本地语音识别 API接口的详细说明请参考源文件: `\components\bk_thirdparty\asr\wanson\include\asr.h`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 demo支持的命令如下表:
 
 | Command | Description |
 | --- | --- |
-| asr_file_test {xxx.pcm} | 识别录音 |
-| aud_intf_asr_test {start|stop} | 实时识别 |
+| asr\_file\_test {xxx.pcm} | 识别录音 |
+| aud\_intf\_asr\_test {start\|stop} | 实时识别 |
 
 project编译指令： `make bk7256 PROJECT=thirdparty/wanson_asr`
 
+<a id="id4"></a>
 
-## 4、演示介绍[](#id4 "永久链接至标题")
+## 4、演示介绍
 
 识别录音执行的步骤如下:
 
@@ -44,9 +57,7 @@ project编译指令： `make bk7256 PROJECT=thirdparty/wanson_asr`
 
 备注
 
-
 - 1、识别录音文件需要音频文件的格式是: `单声道，16K采样率，16 bit位宽`
-
 - 2、识别录音文件对cpu的算力没有要求，方便用来验证语音识别库的功能正常正常
 
 实时识别执行的步骤如下:
@@ -65,20 +76,22 @@ project编译指令： `make bk7256 PROJECT=thirdparty/wanson_asr`
 > 3.关闭实时语音识别
 > :   - demo板发送指令 `aud_intf_asr_test stop` 关闭实时语音识别
 
+<a id="id5"></a>
 
-## 5、参考链接[](#id5 "永久链接至标题")
+## 5、参考链接
 
-> [wanson—asr开发指南](../../../developer-guide/wanson_asr.md "../../../developer-guide/wanson_asr/index.md")
+> [wanson—asr开发指南](../../developer-guide/wanson_asr.md)
 
+<a id="id6"></a>
 
-## 6. 上海华镇电子科技有限公司[](#id6 "永久链接至标题")
+## 6\. 上海华镇电子科技有限公司
 
-> 官网：[http://www.wanson.cn/](http://www.wanson.cn/ "http://www.wanson.cn/")
+> 官网：<http://www.wanson.cn/>
 >
 > 总部地址：上海闵行区申旺路789号慧高光创园307-308室
-> | 深圳办地址：深圳市宝安区西乡汇一城壹中心1A栋东座2215-16
+> \| 深圳办地址：深圳市宝安区西乡汇一城壹中心1A栋东座2215-16
 >
 > 电话：021-61557858
 >
 > 手机：13524859176
-> | 13296017858
+> \| 13296017858

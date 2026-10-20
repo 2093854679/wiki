@@ -1,64 +1,85 @@
-# lcd user guide[](#lcd-user-guide "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/display/lcd_user_guide/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="lcd-user-guide"></a>
 
+# lcd user guide
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 本文档主要介绍了Display的API使用，
 
+<a id="id2"></a>
 
-## 2、参考代码[](#id2 "永久链接至标题")
+## 2、参考代码
 
-> 参考工程为 [DOORBELL工程](../../projects_work/media/doorbell/index.md "../../projects_work/media/doorbell/index.md")
+> 参考工程为 [DOORBELL工程](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/media/doorbell/index.html)
 >
 > 参考组件代码在 `components\display_service`
 >
-> Display驱动代码参考 [display驱动](../../api-reference/multi_media/bk_display.md "../../api-reference/multi_media/bk_display.md")
+> Display驱动代码参考 [display驱动](../api-reference/multi_media/bk_display.md)
 
+<a id="lcd"></a>
 
-## 3、LCD驱动接口[](#lcd "永久链接至标题")
+## 3、LCD驱动接口
 
 LCD Display模块支持3种LCD硬件接口，分别为I(intel)8080接口，RGB接口和QSPI接口。
 
+<a id="id3"></a>
 
-### 3.1、8080 接口[](#id3 "永久链接至标题")
+### 3.1、8080 接口
 
-> - 支持MCU8080接口，数据支持最大18线DB[17:0]
+> - 支持MCU8080接口，数据支持最大18线DB\[17:0\]
 > - 支持输入数据格式：RGB565, RGB888,YUV422
 > - 支持TE中断
-> - 支持输出的数据格式为RGB565，使用的D[7:0]8线传输
-> - 支持输出RGB666，使用的D[17:0]18线传输
+> - 支持输出的数据格式为RGB565，使用的D\[7:0\]8线传输
+> - 支持输出RGB666，使用的D\[17:0\]18线传输
 > - 支持输出 RGB888，包括16线输出和8线输出
-> - 支持最大的刷屏时钟为80Mhz，支持的屏幕分辨率有屏幕类型与分辨率规格见 [外设支持](../../support_peripherals/index.md "../../support_peripherals/index.md")
+> - 支持最大的刷屏时钟为80Mhz，支持的屏幕分辨率有屏幕类型与分辨率规格见 [外设支持](../support_peripherals.md)
 
+<a id="rgb"></a>
 
-### 3.2、RGB 接口[](#rgb "永久链接至标题")
+### 3.2、RGB 接口
 
 > - 数据支持最大24线，包括R,G,B 各8根
 > - 支持输入数据格式：RGB565, RGB888,YUV422
 > - 支持输出的数据格式：RGB565, RGB666, RGB888
-> - 最大刷屏时钟为80Mhz，支持的屏幕分辨率有屏幕类型与分辨率规格见 [外设支持](../../support_peripherals/index.md "../../support_peripherals/index.md")
+> - 最大刷屏时钟为80Mhz，支持的屏幕分辨率有屏幕类型与分辨率规格见 [外设支持](../support_peripherals.md)
 
+<a id="qspi"></a>
 
-### 3.3、QSPI 接口[](#qspi "永久链接至标题")
+### 3.3、QSPI 接口
 
 > - QSPI的用户使用代码请参考 `components\display_service\src\lcd_qspi_display_service.c`
 > - QSPI的驱动代码请参考 `bk_idk\middleware\driver\lcd\lcd_qspi_driver.c`
 
+<a id="spi"></a>
 
-### 3.4、SPI 接口[](#spi "永久链接至标题")
+### 3.4、SPI 接口
 
 > - SPI的用户使用代码请参考 `components\display_service\src\lcd_spi_display_service.c`
 
+<a id="id6"></a>
 
-## 4、 新增屏幕适配[](#id6 "永久链接至标题")
+## 4、 新增屏幕适配
 
+<a id="id7"></a>
 
-### 4.1、8080/RGB 接口[](#id7 "永久链接至标题")
+### 4.1、8080/RGB 接口
 
-1. 用户在 `.components/bk_peripheral/src/lcd` 路径下新增屏幕，具体可以参考其中某一个屏幕，比如新增lcd_xxx.c。
-2. 针对RGB屏幕需要根据lcd spec 修改hsync/vsync proch，取值范围参考 `./include/lcd_types.h` 结构体lcd_rgb_t注释。
-
+1. 用户在 `.components/bk_peripheral/src/lcd` 路径下新增屏幕，具体可以参考其中某一个屏幕，比如新增lcd\_xxx.c。
+2. 针对RGB屏幕需要根据lcd spec 修改hsync/vsync proch，取值范围参考 `./include/lcd_types.h` 结构体lcd\_rgb\_t注释。
 
 ```
 static const lcd_rgb_t lcd_rgb =
@@ -73,23 +94,23 @@ static const lcd_rgb_t lcd_rgb =
         .vsync_back_porch = 8,
         .vsync_front_porch = 8,
 };
-
 ```
 
-![RealtimeVideo_app](_images/st7282_lcd_sync.png)
+<a id="id10"></a>
+![RealtimeVideo_app](../../_assets/44e4c9e6389e8ce929a9-st7282_lcd_sync.png)
 
-Figure. rgb sync params config[](#id10 "永久链接至图片")
 
-3) 背光控制
+Figure. rgb sync params config
+
+3\) 背光控制
 用户的开发板可能使用和BK7258不同的背光引脚，需要在 `bk_idk/middleware/driver/lcd/lcd_driver.c` 中修改如下宏：
 
-> - #define LCD_BACKLIGHT_PWM PWM_ID_1
-> - #define LCD_BACKLIGHT_GPIO GPIO_7
+> - #define LCD\_BACKLIGHT\_PWM PWM\_ID\_1
+> - #define LCD\_BACKLIGHT\_GPIO GPIO\_7
 
 4. 初始化屏幕结构体参数
 
 其结构体参数初始化如下：
-
 
 ```
 typedef struct
@@ -108,11 +129,9 @@ typedef struct
         void (*init)(void);                   /**< lcd device initial function */
         bk_err_t (*lcd_off)(void);            /**< lcd off */
 } lcd_device_t;
-
 ```
 
-比如lcd_st7701sn屏幕:
-
+比如lcd\_st7701sn屏幕:
 
 ```
 const lcd_device_t lcd_device_st7701sn =
@@ -127,12 +146,10 @@ const lcd_device_t lcd_device_st7701sn =
         .init = lcd_st7701sn_init,  //屏幕需要初始化
         .lcd_off = NULL,
 };
-
 ```
 
 其中屏幕分辨率未定义，需要在 `./include/driver/media_types.h` 中定义。
 新增的屏幕ID需要在 `./include/driver/lcd_types.h` 中定义，如下：
-
 
 ```
 typedef enum {
@@ -143,37 +160,33 @@ typedef enum {
         LCD_DEVICE_ST7796S, /**< 320X480 MCU  */
         LCD_DEVICE_NT35512,
 } lcd_device_id_t;
-
 ```
 
-屏幕的初始化代码 lcd_st7701sn_init 函数一般是屏幕厂商提供，需要SPI接口给LCD发送初始化命令，一般为GPIO模拟SPI，所以需要初始化GPIO，以及根据初始化命令适配对应的SP，目前SDK中已适配了SPI3线和4线协议。
+屏幕的初始化代码 lcd\_st7701sn\_init 函数一般是屏幕厂商提供，需要SPI接口给LCD发送初始化命令，一般为GPIO模拟SPI，所以需要初始化GPIO，以及根据初始化命令适配对应的SP，目前SDK中已适配了SPI3线和4线协议。
 
 备注
 
-如果客户的电路板与BEKEN不同，则需要用户在 `bk_idk/middleware/driver/lcd/lcd_driver.c` 的API int32_t lcd_driver_get_spi_gpio(LCD_SPI_GPIO_TYPE_E gpio_type)中增加特定的IO;
+如果客户的电路板与BEKEN不同，则需要用户在 `bk_idk/middleware/driver/lcd/lcd_driver.c` 的API int32\_t lcd\_driver\_get\_spi\_gpio(LCD\_SPI\_GPIO\_TYPE\_E gpio\_type)中增加特定的IO;
 
 至此，屏幕驱动的适配已经完成,调用下面的接口打开屏幕。
-
 
 ```
 lcd_open_t lcd_open;
 lcd_open.device_ppi = 480X800;
 lcd_open.device_name = "nt35512";
 ret = lcd_display_open(&lcd_open);
-
 ```
 
 另外，有一点需要特别注意：
 :   - 对于lcd设备有多个设备有相同的分辨率的情况下，必须添加使用名字传参， 不然只有分辨率不能找到指定的屏幕。
-
     - 对于设备中的分辨率是唯一的（没有其他LCD有相同的分辨率），使用分辨率或者名字之一也可以找到指定的屏幕。
 
+<a id="id8"></a>
 
-### 4.2、QSPI 接口[](#id8 "永久链接至标题")
+### 4.2、QSPI 接口
 
-1. 在 `components/bk_peripheral/src/lcd/qspi` 路径下新增一个QSPI接口屏幕的.c文件，命名为lcd_qspi_xxx.c，并在config.cmake文件中添加新增的.c文件参与编译
-2. 根据新增QSPI屏的spec，确定屏幕的刷屏方式是按帧刷数据还是按行刷数据，并且确定读写寄存器的cmd（有些型号的QSPI屏不支持读寄存器）和写数据的cmd，若是按行刷数据的屏幕，还会存在帧开始同步cmd、行开始同步cmd以及帧结束的cmd，将这些CMD在lcd_qspi_xxx.c文件中进行定义
-
+1. 在 `components/bk_peripheral/src/lcd/qspi` 路径下新增一个QSPI接口屏幕的.c文件，命名为lcd\_qspi\_xxx.c，并在config.cmake文件中添加新增的.c文件参与编译
+2. 根据新增QSPI屏的spec，确定屏幕的刷屏方式是按帧刷数据还是按行刷数据，并且确定读写寄存器的cmd（有些型号的QSPI屏不支持读寄存器）和写数据的cmd，若是按行刷数据的屏幕，还会存在帧开始同步cmd、行开始同步cmd以及帧结束的cmd，将这些CMD在lcd\_qspi\_xxx.c文件中进行定义
 
 ```
 #define LCD_QSPI_ST77903_H0165Y008T_REGISTER_WRITE_COMMAND      0xDE
@@ -183,11 +196,9 @@ ret = lcd_display_open(&lcd_open);
 #define LCD_QSPI_ST77903_H0165Y008T_VSW     (1)
 #define LCD_QSPI_ST77903_H0165Y008T_HFP     (8)
 #define LCD_QSPI_ST77903_H0165Y008T_HBP     (8)
-
 ```
 
-3. 根据屏厂提供的初始化配置，在lcd_qspi_xxx.c文件中按照lcd_qspi_init_cmd_t的结构体格式编写屏幕的初始化cmd数组。其中，数据长度为0xFF时，数据的值表示延时的时间，接着定义屏幕发送数据的cmd。
-
+3. 根据屏厂提供的初始化配置，在lcd\_qspi\_xxx.c文件中按照lcd\_qspi\_init\_cmd\_t的结构体格式编写屏幕的初始化cmd数组。其中，数据长度为0xFF时，数据的值表示延时的时间，接着定义屏幕发送数据的cmd。
 
 ```
 static const lcd_qspi_init_cmd_t st77903_h0165y008t_init_cmds[] =
@@ -231,11 +242,9 @@ static const lcd_qspi_init_cmd_t st77903_h0165y008t_init_cmds[] =
     {0x00, {0x78}, 0xff},
     {0x29, {0x00}, 0},
 };
-
 ```
 
-4. 按照lcd_device_t的结构体格式，定义屏幕的一些基本信息，若没有相应的分辨率，需要在media_types.h文件的media_ppi_t中新增分辨率，并在lcd_types.h文件中新增屏幕的id，同时按照lcd_qspi_t结构体的格式编写qspi屏的具体信息。
-
+4. 按照lcd\_device\_t的结构体格式，定义屏幕的一些基本信息，若没有相应的分辨率，需要在media\_types.h文件的media\_ppi\_t中新增分辨率，并在lcd\_types.h文件中新增屏幕的id，同时按照lcd\_qspi\_t结构体的格式编写qspi屏的具体信息。
 
 ```
 static uint8_t st77903_h0165y008t_cmd[4] = {0xDE, 0x00, 0x60, 0x00};
@@ -278,11 +287,9 @@ const lcd_device_t lcd_device_st77903_h0165y008t =
     .init = NULL,
     .lcd_off = NULL,
 };
-
 ```
 
-5. 在lcd_panel_devices.c文件中的lcd_devices数组中，按照格式添加新增屏幕的设备结构体地址，直到参与编译成功，此时可以通过传入LCD ID或LCD name找到设备。
-
+5. 在lcd\_panel\_devices.c文件中的lcd\_devices数组中，按照格式添加新增屏幕的设备结构体地址，直到参与编译成功，此时可以通过传入LCD ID或LCD name找到设备。
 
 ```
 const lcd_device_t *lcd_devices[] =
@@ -314,20 +321,20 @@ const lcd_device_t *lcd_devices[] =
         &lcd_device_st7796u,
     #endif
 }
-
 ```
 
+<a id="id9"></a>
 
-### 4.3、SPI 接口[](#id9 "永久链接至标题")
+### 4.3、SPI 接口
 
-> SPI屏的初始化和QPSI屏大致一样，新增设备的lcd_spi_xxx.c可参考上述QSPI接口的内容，唯一的差异是SPI屏发送每个byte前包含一个D/CX（data/command）比特位，表示data和command的区分，当D/CX为0时表示command bye，当D/CX为1时表示发送的是data byte。此外，SPI_LCD既支持使用SPI模块刷屏，又支持使用QSPI模块一线模式刷屏，默认使用QSPI模块刷屏，可通过 `# define LCD_SPI_REFRESH_WITH_QSPI` 进行切换。
+> SPI屏的初始化和QPSI屏大致一样，新增设备的lcd\_spi\_xxx.c可参考上述QSPI接口的内容，唯一的差异是SPI屏发送每个byte前包含一个D/CX（data/command）比特位，表示data和command的区分，当D/CX为0时表示command bye，当D/CX为1时表示发送的是data byte。此外，SPI\_LCD既支持使用SPI模块刷屏，又支持使用QSPI模块一线模式刷屏，默认使用QSPI模块刷屏，可通过 `# define LCD_SPI_REFRESH_WITH_QSPI` 进行切换。
 
 关于不同的接口的API使用demo请参考：
 
-RGB LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html")”
+RGB LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk\_avdk/bk7258/zh\_CN/v2.0.1/projects\_work/peripheral/rgb\_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/rgb_lcd/index.html)”
 
-8080 LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html")”
+8080 LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk\_avdk/bk7258/zh\_CN/v2.0.1/projects\_work/peripheral/8080\_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/8080_lcd/index.html)”
 
-QSPI LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html")”
+QSPI LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk\_avdk/bk7258/zh\_CN/v2.0.1/projects\_work/peripheral/qspi\_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/qspi_lcd/index.html)”
 
-SPI LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html")”
+SPI LCD的使用请参考工程 “[https://docs.bekencorp.com/arminodoc/bk\_avdk/bk7258/zh\_CN/v2.0.1/projects\_work/peripheral/spi\_lcd/index.html](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/peripheral/spi_lcd/index.html)”

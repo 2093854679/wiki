@@ -1,7 +1,22 @@
-# FLASH AES 加密与 CRC[](#flash-aes-crc "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/security/bk_flash_aes.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="flash-aes-crc"></a>
 
-![8](../_images/security_flash.svg)
+<a id="bk-security-flash-aes-crc"></a>
+
+# FLASH AES 加密与 CRC
+
+![8](../../../_assets/5252f845ed6d65f379de-security_flash.svg)
 
 如上图所示，BK7239 FLASH 提供了两中访问接口：数据口与指令口：
 
@@ -25,27 +40,29 @@
 
 其他情况都应该走 FLASH 数据口访问 FLASH。
 
+<a id="id1"></a>
 
-## 虚拟地址与物理地址[](#id1 "永久链接至标题")
+## 虚拟地址与物理地址
 
 虚拟地址是指访问者使用的地址。物理地址是指的 SPI 访问 FLASH 的地址，也即 FLASH 自身的地址偏移。
 由于访问时 FLASH 控制器可能会对地址进行映射，因此虚拟地址可能与物理地址不同。
 
 当走数据口时，虚拟地址即为物理地址。走指令口时，虚拟地址与物理地址关系为：
 
-> physical_addr = (virtual_addr/32)*34
+> physical\_addr \= (virtual\_addr/32)\*34
 
 例如，CPU 取指时会走指令口，当 CPU 从地址 0x1000 取指时，实际访问到的物理地址为 0x1100。
 
 当不使能CRC功能时，虚拟地址与物理地址在所有情况都相同。
 
+<a id="id2"></a>
 
-## 配置[](#id2 "永久链接至标题")
+## 配置
 
 要使用 FLASH AES 加密功能，需做下述配置：
 
-> - security.csv 中使能并配置 AES KEY，请参考 [安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security "../developer-guide/config_tools/bk_config_security.md#bk-config-security")。
-> - EFUSE 中使能 FLASH AES 功能，并将 KEY 部署到 OTP 中，请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse "../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse")。
+> - security.csv 中使能并配置 AES KEY，请参考 [安全配置](../developer-guide/config_tools/bk_config_security.md#bk-config-security)。
+> - EFUSE 中使能 FLASH AES 功能，并将 KEY 部署到 OTP 中，请参考 [OTP EFUSE 配置](../developer-guide/config_tools/bk_config_otp_efuse.md#bk-config-otp-efuse)。
 
 重要
 

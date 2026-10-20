@@ -1,27 +1,48 @@
-# 安全配置[](#bk-config-security "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/config_tools/bk_config_security.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="bk-config-security"></a>
 
+<a id="id1"></a>
 
-## 通用安全配置[](#bk-config-security-security "永久链接至标题")
+# 安全配置
+
+<a id="bk-config-security-security"></a>
+
+<a id="id2"></a>
+
+## 通用安全配置
 
 安全启动配置主要用于配置 BL1 与 BL2 安全启动相关信息:
 
-> - `secureboot_en` - 可选项，表示安全启动是否使能，默认不使能。
-> - `flash_aes_en` - 可选项，表示 FLASH AES 加密是否使能，默认不使能。
-> - `flash_aes_key` - 可选项，表示 FLASH AES 加密密钥，当 `flash_aes_en` 使能时，必须配置。
-> - `root_key_type` - 可选项。默认使用 ec256。配置 BL1/BL2 签名的公钥类型，可选值为 ec256，rsa2048。
-> - `root_pubkey` - 可选项，**量产版本必须配置**。BL1/BL2 公钥文件。
-> - `root_privkey` - 可选项，**量产版本必须配置**。BL1/BL2 私钥文件。构建工具会使用私钥对 BL2 进行签名。
-> - `debug_key_type` - 可选项。默认使用 ec256。配置安全调试签名的公钥类型，可选值为 ec256，rsa2048。
-> - `debug_pubkey` - 可选项，**量产版本必须配置**。安全调试公钥文件。
-> - `debug_privkey` - 可选项，**量产版本必须配置**。安全调试私钥文件。
+> - `secureboot_en` \- 可选项，表示安全启动是否使能，默认不使能。
+> - `flash_aes_en` \- 可选项，表示 FLASH AES 加密是否使能，默认不使能。
+> - `flash_aes_key` \- 可选项，表示 FLASH AES 加密密钥，当 `flash_aes_en` 使能时，必须配置。
+> - `root_key_type` \- 可选项。默认使用 ec256。配置 BL1/BL2 签名的公钥类型，可选值为 ec256，rsa2048。
+> - `root_pubkey` \- 可选项，**量产版本必须配置**。BL1/BL2 公钥文件。
+> - `root_privkey` \- 可选项，**量产版本必须配置**。BL1/BL2 私钥文件。构建工具会使用私钥对 BL2 进行签名。
+> - `debug_key_type` \- 可选项。默认使用 ec256。配置安全调试签名的公钥类型，可选值为 ec256，rsa2048。
+> - `debug_pubkey` \- 可选项，**量产版本必须配置**。安全调试公钥文件。
+> - `debug_privkey` \- 可选项，**量产版本必须配置**。安全调试私钥文件。
 
 备注
 
 为简化配置，BL1/BL2 使用同一公钥进行签名。
 
+<a id="bk-config-security-ppc"></a>
 
-## 安全外设配置[](#bk-config-security-ppc "永久链接至标题")
+<a id="id3"></a>
+
+## 安全外设配置
 
 安全外设通过 ppc.csv 进行配置，配置示例如下：
 
@@ -34,21 +55,25 @@
 
 配置表固定三列：
 
-> - `Device` - 必选项。表示设备名字，支持的设备名字参考 [设备名字](#bk-config-security-devicename "#bk-config-security-devicename")。
-> - `Secure` - 可选项，表示设备是否属于安全外设，安全外设仅能在安全世界访问。不配置时表示非安全外设。
-> - `Privilege` - 可选项，表示设备是否属于特权外设，特权外设仅能在处理器特权状态下能访问。不配置时表示非特权外设。
+> - `Device` \- 必选项。表示设备名字，支持的设备名字参考 [设备名字](#bk-config-security-devicename)。
+> - `Secure` \- 可选项，表示设备是否属于安全外设，安全外设仅能在安全世界访问。不配置时表示非安全外设。
+> - `Privilege` \- 可选项，表示设备是否属于特权外设，特权外设仅能在处理器特权状态下能访问。不配置时表示非特权外设。
 
 备注
 
 如果可配置设备不在 ppc.csv 中，表示非安全设备，非特权设备。
 
+<a id="bk-config-security-devicename"></a>
 
-### 可配置设备[](#bk-config-security-devicename "永久链接至标题")
+<a id="id4"></a>
+
+### 可配置设备
 
 TBC
 
+<a id="id5"></a>
 
-### 代码生成[](#id5 "永久链接至标题")
+### 代码生成
 
 对于 ppc.csv 中一行，在 security.h 中会生成两个宏用于标识设备安全属性。
 
@@ -58,28 +83,27 @@ TBC
 
 以上表 uart0 配置为例，会生成下述代码:
 
-
 ```
 #define GEN_SECURITY_DEV_UART0_IS_SECURE    0
 #define GEN_SECURITY_DEV_UART0_IS_PRIVILEGE 0
-
 ```
 
 另外，还会生成四个对外接口:
-
 
 ```
 #define DEV_IS_PRIVILEGE(dev) GEN_SECURITY_DEV_##dev##_IS_PRIVILEGE
 #define DEV_ID_IS_PRIVILEGE(dev, id) GEN_SECURITY_DEV_##dev##id##_IS_PRIVILEGE
 #define DEV_IS_SECURE(dev) GEN_SECURITY_DEV_##dev##_IS_SECURE
 #define DEV_ID_IS_SECURE(dev, id) GEN_SECURITY_DEV_##dev##id##_IS_SECURE
-
 ```
 
 在 Armino 中，可通过调用上述四个对外接口就可以访问外设安全属性。
 
+<a id="bk-config-security-mpc"></a>
 
-## 安全块外设配置[](#bk-config-security-mpc "永久链接至标题")
+<a id="id6"></a>
+
+## 安全块外设配置
 
 块外设通过 mpc.csv 进行配置，配置示例如下：
 
@@ -92,27 +116,33 @@ TBC
 
 配置表固定四列：
 
-> - `Device` - 必选项。设备名字。
-> - `Offset` - 可选项。设备内部偏移。
+> - `Device` \- 必选项。设备名字。
+> - `Offset` \- 可选项。设备内部偏移。
 >
 >   - 未配置，如果为该设备首个配置块，请 Offset 为 0，否则表示上一块结束地址。
->   - Offset + Size 大小不能超过设备存储总大小。
+>   - Offset \+ Size 大小不能超过设备存储总大小。
 >   - Offset 同一设备上一块地址不能重叠。
-> - `Size` - 必选项。配置块大小。必须按设备块大小对齐。
-> - `Secure` - 可选项。配置块安全属性，未配置时值为 False。
+> - `Size` \- 必选项。配置块大小。必须按设备块大小对齐。
+> - `Secure` \- 可选项。配置块安全属性，未配置时值为 False。
 
-关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../security/bk_security_overview.md#bk-security-overview-mpc "../security/bk_security_overview.md#bk-security-overview-mpc")。
+关于可配置设备，设备存储空间大小，设备块大小，请参考 [块内存安全访问](../security/bk_security_overview.md#bk-security-overview-mpc)。
 
 备注
 
 设备块未配置时，默认为非安全。
 
+<a id="flash"></a>
 
-## FLASH 数据口安全配置[](#flash "永久链接至标题")
+<a id="bk-config-security-flash"></a>
+
+## FLASH 数据口安全配置
 
 TODO
 
+<a id="dma"></a>
 
-## DMA 安全配置[](#dma "永久链接至标题")
+<a id="bk-config-security-dma"></a>
+
+## DMA 安全配置
 
 TODO

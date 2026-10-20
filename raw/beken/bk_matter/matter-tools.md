@@ -1,29 +1,38 @@
 ---
-aliases:
-- 'bk_matter › matter-tools'
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/matter-tools/index.html
+sdk_family: bk_matter
+chip: BK7235,BK7236,BK7256,BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# matter 工具[](#matter "永久链接至标题")
 
-- [证书工具 chip-certchip-cert 永久链接至标题](matter-tools/chip-cert.md)
-- [测试工具 chip-toolchip-tool 永久链接至标题](matter-tools/chip-tool.md)
-- [factory-data 配置工具factory-data 永久链接至标题](matter-tools/factory-data.md)
-- [Matter OTA 测试工具matter-ota 永久链接至标题](matter-tools/ota-provider-app.md)
-- [Matter 生态配网测试matter 永久链接至标题](matter-tools/work-with-apple.md)
-- [配置工具 ZAPzap 永久链接至标题](matter-tools/zap.md)
+<a id="matter"></a>
 
-[[English]](../../../en/v2.0.1/matter-tools/index.html "../../../en/v2.0.1/matter-tools/index.html")
+# matter 工具
 
 这里主要介绍，在Matter开发测试过程中需要用到的各种工具。
 
+- [配置工具 ZAP](matter-tools/zap.md)
+- [测试工具 chip-tool](matter-tools/chip-tool.md)
+- [证书工具 chip-cert](matter-tools/chip-cert.md)
+- [factory-data打包工具](matter-tools/factory-data.md)
+- [Matter ota 测试](matter-tools/ota-provider-app.md)
+- [Matter 生态配网测试](matter-tools/work-with-apple.md)
 
-- [配置工具 ZAP](zap/index.html "zap/index.html")
+## 模块导航
 
-- [测试工具 chip-tool](chip-tool/index.html "chip-tool/index.html")
-
-- [证书工具 chip-cert](chip-cert/index.html "chip-cert/index.html")
-
-- [factory-data打包工具](factory-data/index.html "factory-data/index.html")
-
-- [Matter ota 测试](ota-provider-app/index.html "ota-provider-app/index.html")
-
-- [Matter 生态配网测试](work-with-apple/index.html "work-with-apple/index.html")
+- [快速入门](get-started.md)
+- [Matter 简介](matter-basic.md)
+- [Beken 的Matter 应用开发](matter-examples.md)
+- [从零开发Matter 新的设备类型产品](matter-develop.md)
+- [Matter 产品认证及量产流程](matter-production.md)
+- [配置工具 ZAP](matter-tools/zap.md)
+- [测试工具 chip-tool](matter-tools/chip-tool.md)
+- [证书工具 chip-cert](matter-tools/chip-cert.md)
+- [factory-data打包工具](matter-tools/factory-data.md)
+- [Matter ota 测试](matter-tools/ota-provider-app.md)
+- [Matter 生态配网测试](matter-tools/work-with-apple.md)

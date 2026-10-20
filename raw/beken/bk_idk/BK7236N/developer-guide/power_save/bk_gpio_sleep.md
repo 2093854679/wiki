@@ -1,84 +1,64 @@
-# 设置GPIO作为唤醒源-系统进入深度,超深度睡眠以及低压睡眠配置说明[](#gpio "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/power_save/bk_gpio_sleep.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="gpio"></a>
 
-## GPIO-深度睡眠调用函数和调用顺序说明[](#id1 "永久链接至标题")
+# 设置GPIO作为唤醒源，系统进入深度睡眠和低压睡眠说明
 
+<a id="id1"></a>
 
-- 1. bk_gpio_register_wakeup_source(GPIO_18,GPIO_INT_TYPE_FALLING_EDGE);
+## 设置GPIO作为唤醒源，系统进入深度睡眠调用函数和调用顺序说明
+
+- 1. bk\_gpio\_register\_wakeup\_source(GPIO\_18,GPIO\_INT\_TYPE\_FALLING\_EDGE);
   1. 设置唤醒的GPIO id : GPIO18
   2. 设置GPIO唤醒模式:
 
+::
+:   GPIO\_INT\_TYPE\_LOW\_LEVEL: 低电平唤醒;
+    GPIO\_INT\_TYPE\_HIGH\_LEVEL: 高电平唤醒;
+    GPIO\_INT\_TYPE\_RISING\_EDGE: 上升沿唤醒;
+    GPIO\_INT\_TYPE\_FALLING\_EDGE: 下降沿唤醒;
 
-```
-GPIO_INT_TYPE_FALLING_EDGE: 下降延唤醒;
-GPIO_INT_TYPE_RISING_EDGE: 上升延唤醒;
-GPIO_INT_TYPE_LOW_LEVEL: 低电平唤醒;
-GPIO_INT_TYPE_HIGH_LEVEL: 高电平唤醒;
-
-```
-
-
-- 2. bk_pm_wakeup_source_set(PM_WAKEUP_SOURCE_INT_GPIO, NULL);
+- 2. bk\_pm\_wakeup\_source\_set(PM\_WAKEUP\_SOURCE\_INT\_GPIO, NULL);
   > 向系统中设置GPIO方式作为唤醒源；
-
-- 3. bk_pm_sleep_mode_set(PM_MODE_DEEP_SLEEP);
+- 3. bk\_pm\_sleep\_mode\_set(PM\_MODE\_DEEP\_SLEEP);
   > 设置睡眠模式，进入深度睡眠
   >
-  > (系统从深度睡眠唤醒后，可以通过调用 - bk_gpio_get_wakeup_gpio_id() - 函数接口获取当前时哪个GPIO ID唤醒系统)
+  > (系统从深度睡眠唤醒后，可以通过调用 \- bk\_gpio\_get\_wakeup\_gpio\_id() \- 函数接口获取当前时哪个GPIO ID唤醒系统)
 
+<a id="id2"></a>
 
-## GPIO-超深度睡眠调用函数和调用顺序说明[](#id2 "永久链接至标题")
+## 设置GPIO作为唤醒源，系统进入低压睡眠调用函数和调用顺序说明
 
-
-- 1. bk_gpio_ana_register_wakeup_source(GPIO_12,GPIO_INT_TYPE_HIGH_LEVEL);
-  1. 设置唤醒的GPIO id: GPIO12
-  > (与深度睡眠不同，超深度睡眠只支持GPIO0～15作为唤醒源，且可同时作唤醒源的GPIO个数为2个)
-
-  2. 设置GPIO唤醒模式:
-  > GPIO_INT_TYPE_LOW_LEVEL: 低电平唤醒;
-  >
-  > GPIO_INT_TYPE_HIGH_LEVEL: 高电平唤醒;
-  >
-  > （超深度睡眠只支持两种唤醒模式，且同时作唤醒源的两个GPIO的唤醒模式需一致）
-
-- 2. bk_pm_sleep_mode_set(PM_MODE_SUPER_DEEP_SLEEP);
-  > 设置睡眠模式，进入超深度睡眠
-  >
-  > (系统从超深度睡眠唤醒后，同样可以通过调用 - bk_gpio_get_wakeup_gpio_id() - 函数接口获取当前时哪个GPIO ID唤醒系统)
-
-
-## GPIO-低压睡眠调用函数和调用顺序说明[](#id3 "永久链接至标题")
-
-
-- 1. bk_gpio_register_wakeup_source(GPIO_18,GPIO_INT_TYPE_FALLING_EDGE);
+- 1. bk\_gpio\_register\_wakeup\_source(GPIO\_18,GPIO\_INT\_TYPE\_FALLING\_EDGE);
 
   a.设置唤醒的GPIO id:GPIO18;
 
   b.设置GPIO唤醒模式:
 
-  > GPIO_INT_TYPE_FALLING_EDGE: 下降延唤醒;
+  > GPIO\_INT\_TYPE\_LOW\_LEVEL: 低电平唤醒;
+  > GPIO\_INT\_TYPE\_HIGH\_LEVEL: 高电平唤醒;
+  > GPIO\_INT\_TYPE\_RISING\_EDGE: 上升沿唤醒;
+  > GPIO\_INT\_TYPE\_FALLING\_EDGE: 下降沿唤醒;
   >
-  > GPIO_INT_TYPE_RISING_EDGE: 上升延唤醒;
-  >
-  > GPIO_INT_TYPE_LOW_LEVEL: 低电平唤醒;
-  >
-  > GPIO_INT_TYPE_HIGH_LEVEL: 低电平唤醒;
-
-- 2. bk_pm_wakeup_source_set(PM_WAKEUP_SOURCE_INT_GPIO, NULL);
+  > GPIO\_INT\_TYPE\_RISING\_EDGE: 上升延唤醒;
+- 2. bk\_pm\_wakeup\_source\_set(PM\_WAKEUP\_SOURCE\_INT\_GPIO, NULL);
   > 向系统中设置GPIO方式作为唤醒源；
-
-- 3. bk_pm_sleep_mode_set(PM_MODE_LOW_VOLTAGE);
+- 3. bk\_pm\_sleep\_mode\_set(PM\_MODE\_LOW\_VOLTAGE);
   > 设置睡眠模式，进入低压睡眠。(备注：当前系统默认设置为低压睡眠，只需要满足投的票，就可以进入低压睡眠)
-
-- 4. bk_pm_module_vote_sleep_ctrl(PM_SLEEP_MODULE_NAME_APP,0x1,0x0);
+- 4. bk\_pm\_module\_vote\_sleep\_ctrl(PM\_SLEEP\_MODULE\_NAME\_APP,0x1,0x0);
   > 向系统中投应用程序的票。
 
-备注
+备注：
 
-
-- 1. BT和WIFI的票，BT和WIFI模块内部进入睡眠后自己投上，SDK内部做好，应用程序不用关注。应用程序需要做的事情是，进入低压和deepsleep休眠前，把上层业务关闭，再配置唤醒源，调用接口进入睡眠。
-
-- 2. 当系统中BT或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票。
-
-- 3. 追求最优功耗时，当系统开启音频，视频，LCD，CPU1，CPU2后，进入低压睡眠前需要把音频，视频，LCD，CPU1,CPU2先关闭，再进入睡眠。
-
+> - 1. BLE和WIFI的票，BLE和WIFI模块内部进入睡眠后自己投上，SDK内部做好，应用程序不用关注；
+> - 2. 当系统中BLE或WIFI模块没有上电时，系统会自动给这两个模块投上sleep的票；

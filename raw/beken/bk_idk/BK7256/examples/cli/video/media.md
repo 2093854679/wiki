@@ -1,20 +1,36 @@
-# MEDIA Cli[](#media-cli "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/cli/video/media.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="media-cli"></a>
 
+# MEDIA Cli
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 为了便于验证MEDIA的相关功能，本文档汇集了所用到的CLI CMD。所有的MEDIA CLI命令以 `media` 开头，后面接具体命令和参数。如果命令执行成功，则返回 `CMDRSP:OK`。如果命令执行失败，则返回 `CMDRSP:ERROR`。
 >
 > 当前命令是否生效是由宏 `CONFIG_MEDIA` 控制。
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > 路径: `\components\media\cli\media_cli.c`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 支持的命令如下:
 
@@ -23,7 +39,7 @@
 > > - 功能说明
 > >   :   打开dvp摄像头相关测试
 > > - 命令格式
-> >   :   media dvp open [param1] [param2]
+> >   :   media dvp open \[param1\] \[param2\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -37,7 +53,7 @@
 > > - 功能说明
 > >   :   关闭dvp摄像头测试
 > > - 命令格式
-> >   :   media dvp close [param1]
+> >   :   media dvp close \[param1\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -50,7 +66,7 @@
 > > - 功能说明
 > >   :   打开uvc摄像头相关测试
 > > - 命令格式
-> >   :   media uvc open [param1] [param2]
+> >   :   media uvc open \[param1\] \[param2\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -75,7 +91,7 @@
 > > - 功能说明
 > >   :   打开lcd相关测试
 > > - 命令格式
-> >   :   media lcd open [param1] [param2] [param3]
+> >   :   media lcd open \[param1\] \[param2\] \[param3\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -90,12 +106,12 @@
 > 注意: SDK中适配了多种屏幕，如果有多个屏幕分辨率相同，必须传入名字;
 > 若SDK中屏幕分辨率唯一，传入分辨率或名字之一即可。
 >
-> 6. media lcd dma2d_blend
+> 6. media lcd dma2d\_blend
 >
 > > - 功能说明
 > >   :   打开lcd小图标融合相关测试
 > > - 命令格式
-> >   :   media lcd dma2d_blend [param1] [param2]
+> >   :   media lcd dma2d\_blend \[param1\] \[param2\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -104,12 +120,12 @@
 > > - 测试用例
 > >   :   打开lcd显示后，发送融合命令：`media lcd open 480X800 nt35512 rotate`, `media lcd dma2d_blend clock 15:19` 或 `media lcd dma2d_blend wifi 1`
 >
-> 7. media lcd dma2d_blend close
+> 7. media lcd dma2d\_blend close
 >
 > > - 功能说明
 > >   :   关闭lcd小图标融合相关测试
 > > - 命令格式
-> >   :   media lcd dma2d_blend [param1] [param2]
+> >   :   media lcd dma2d\_blend \[param1\] \[param2\]
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -144,12 +160,12 @@
 > > - 测试用例
 > >   :   拍照测试：`media capture 1.jpg`
 >
-> 10. media save_start
+> 10. media save\_start
 >
 > > - 功能说明
 > >   :   将摄像头中的数据连续存储到SD卡中的一个文件中,每张图片以空格分隔。
 > > - 命令格式
-> >   :   media save_start param1
+> >   :   media save\_start param1
 > >
 > >       |  |  |
 > >       | --- | --- |
@@ -157,12 +173,12 @@
 > > - 测试用例
 > >   :   拍照测试：`media start_save frame.264`
 >
-> 11. media save_stop
+> 11. media save\_stop
 >
 > > - 功能说明
 > >   :   停止将摄像头数据存入SD卡中
 > > - 命令格式
-> >   :   media save_stop
+> >   :   media save\_stop
 > >
 > >       此命令没有参数。
 > > - 测试用例

@@ -1,48 +1,63 @@
-# DAC TF卡播放PCM数据demo[](#dac-tfpcmdemo "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/audio/aud_tf_to_dac_demo.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="dac-tfpcmdemo"></a>
 
+# DAC TF卡播放PCM数据demo
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 从TF卡中读取指定的PCM音乐文件并通过DAC进行播放。
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > demo路径: `\components\demos\media\audio\aud_intf\demo\aud_intf_demo.c`
 >
-> Aud_Intf API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud_intf.html`
+> Aud\_Intf API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud_intf.html`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 demo支持的命令如下表:
 
 | Command | Description |
 | --- | --- |
-| aud_intf_play_test {init|start|pause|stop|deinit} xx.pcm | 播放xx.pcm文件 |
+| aud\_intf\_play\_test {init\|start\|pause\|stop\|deinit} xx.pcm | 播放xx.pcm文件 |
 
 demo运行依赖的宏配置:
 
 | Name | Description | File | value |
 | --- | --- | --- | --- |
-| CONFIG_AUDIO | 配置audio功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUDIO_RISCV_IP_V1_0 | 配置audio ip | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF | 配置aud_intf使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF_VER_NEW | 配置aud_intf版本使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUDIO_TRANSFER | 配置语音传输使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_TRAS_MODE_CPU0 | 配置语音传输模式 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO | 配置audio功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO\_RISCV\_IP\_V1\_0 | 配置audio ip | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF | 配置aud\_intf使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF\_VER\_NEW | 配置aud\_intf版本使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF\_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO\_TRANSFER | 配置语音传输使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_TRAS\_MODE\_CPU0 | 配置语音传输模式 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
 
 demo运行依赖的库和驱动:
 :   - DMA DMA驱动
-
     - AUD audio模块驱动
-
     - Sdcard 模块驱动
 
+<a id="id3"></a>
 
-## 4、演示介绍[](#id3 "永久链接至标题")
+## 4、演示介绍
 
 demo执行的步骤如下:
 
@@ -72,16 +87,17 @@ demo执行的步骤如下:
 
 执行测试指令，case的工作流程如下图所示：
 
-![tf_pcm_to_dac demo软件流程](../../_images/aud_pcm_to_dac.png)
+<a id="id5"></a>
+![tf_pcm_to_dac demo软件流程](../../../../_assets/67ef9dff2dbf734c74f7-aud_pcm_to_dac.png)
 
-Figure 1. tf pcm to dac demo flow chart[](#id5 "永久链接至图片")
 
+Figure 1\. tf pcm to dac demo flow chart
 
-## 5、详细配置及说明[](#id4 "永久链接至标题")
+<a id="id4"></a>
+
+## 5、详细配置及说明
 
 备注
 
-
 - 1.音频文件名需修改为字符型，汉字无效;
-
 - 2.当前demo设置DAC采样率为8K;

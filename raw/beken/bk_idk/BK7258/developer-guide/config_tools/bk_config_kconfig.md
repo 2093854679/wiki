@@ -1,64 +1,60 @@
-# Kconfig 配置[](#kconfig "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/config_tools/bk_config_kconfig.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="kconfig"></a>
 
-本节介绍 Armino Kconfig 使用过程中常见问题。关于 Kconfig 配置示例可参考 [Kconfig 配置示例](../build_config/bk_build_example.md#id30 "../build_config/bk_build_example.md#id30")。
+<a id="bk-config-kconfig"></a>
 
+# Kconfig 配置
 
-## Kconfig 配置文件[](#id1 "永久链接至标题")
+本节介绍 Armino Kconfig 使用过程中常见问题。关于 Kconfig 配置示例可参考 [Kconfig 配置示例](../build_config/bk_build_example.md#id30)。
+
+<a id="id1"></a>
+
+## Kconfig 配置文件
 
 Armino Kconfig 组织如下图所示：
 
-
 ```
-
 - armino/
-
     - components/
-
         - c1/
-
             - Kconfig
-
     - middleware/
-
         - soc/
-
             - bk7258/
-
                 - bk7258.defconfig
-
     - projects/
-
         - my_project/
-
             - config/
-
                 - bk7258/config
-
             - Kconfig.projbuild
-
             - main/
-
                 - Kconfig
-
             - components/
-
                 - c2/
-
                     - Kconfig
-
 ```
 
 可以将这些文件归为两类：
 
 > - 配置定义文件:
 >
->   - Kconfig - 通常定义在组件中。
->   - Kconfig.projbuild - 定义在组件或者工程目录下。
+>   - Kconfig \- 通常定义在组件中。
+>   - Kconfig.projbuild \- 定义在组件或者工程目录下。
 > - 配置修改文件:
 >
->   - bk7258.defconfig - Armino 提供的 BK7258 默认配置。
->   - bk7258/config - 工程中 BK7258 专有配置。
+>   - bk7258.defconfig \- Armino 提供的 BK7258 默认配置。
+>   - bk7258/config \- 工程中 BK7258 专有配置。
 
 重要
 
@@ -73,15 +69,17 @@ Kconfig.projbuild 是针对 menuconfig 来设计的，当向 Kconfig.projbuild �
 
 在 Armino 工程中，Kconfig 配置优先级为:
 
-> bk7258.config > bk7258.defconfig > 配置定义文件
+> bk7258.config \> bk7258.defconfig \> 配置定义文件
 
+<a id="menuconfig"></a>
 
-## menuconfig 支持[](#menuconfig "永久链接至标题")
+## menuconfig 支持
 
 BK7258 Kconfig 配置不支持 menuconfig 配置。
 
+<a id="id2"></a>
 
-## 配置依赖[](#id2 "永久链接至标题")
+## 配置依赖
 
 相互依赖的配置项自动更改成正确的值，仅发生在使用 menuconfig 配置时，
 Armino 不支持 menuconfig 配置，因此，当通过配置修改文件更改某项配置时，
@@ -91,8 +89,9 @@ Armino 不支持 menuconfig 配置，因此，当通过配置修改文件更改�
 
 在 Armino 中所有配置项均需显式指定，或者使用默认值。
 
+<a id="cmakelists-txt-kconfig"></a>
 
-## CMakeLists.txt 中使用 Kconfig[](#cmakelists-txt-kconfig "永久链接至标题")
+## CMakeLists.txt 中使用 Kconfig
 
 在 CMakeLists.txt 中可直接使用 Kconfig 中定义的配置项，唯一要注意的问题不要将
-armino_component_register() 放在任何配置条件中，可参考 [通过 Kconfig 禁用组件](../build_config/bk_build_example.md#build-kconfig-disable-component "../build_config/bk_build_example.md#build-kconfig-disable-component")。
+armino\_component\_register() 放在任何配置条件中，可参考 [通过 Kconfig 禁用组件](../build_config/bk_build_example.md#build-kconfig-disable-component)。

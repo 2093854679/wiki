@@ -1,11 +1,18 @@
 ---
-aliases:
-- 'BK7239 › get-started'
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/get-started/index.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 快速入门[](#id1 "永久链接至标题")
 
-- [手动安装manual-install 永久链接至标题](get-started/manual_install.md)
+<a id="id1"></a>
 
+# 快速入门
 
 本文档以 BK7239 开发板为例，通过一个简单的示例项目向您展示:
 
@@ -14,8 +21,9 @@ aliases:
 > - 工程配置；
 > - 固件编译与烧录；
 
+<a id="id2"></a>
 
-## 概述[](#id2 "永久链接至标题")
+## 概述
 
 BK7239 SoC 芯片支持以下功能:
 
@@ -32,8 +40,9 @@ BK7239 采用 22 nm 工艺制成，具有最佳的功耗性能，射频性能，
 Armino 旨在协助用户快速开发物联网(IoT)应用，可满足用户对 Wi-Fi，蓝牙，低功耗，安全
 等方面的要求。
 
+<a id="id3"></a>
 
-## 准备工作[](#id3 "永久链接至标题")
+## 准备工作
 
 硬件：
 
@@ -41,41 +50,35 @@ Armino 旨在协助用户快速开发物联网(IoT)应用，可满足用户对 W
 > - 串口烧录工具；
 > - PC；
 
+<a id="armino-sdk"></a>
 
-## Armino SDK 代码下载[](#armino-sdk "永久链接至标题")
+## Armino SDK 代码下载
 
 您可从 gitlab 上下载 Armino:
-
 
 ```
 mkdir -p ~/armino
 cd ~/armino
 git clone https://gitlab.bekencorp.com/armino/bk_idk.git
-
 ```
 
 您也可从 github 上下载 Armino:
-
 
 ```
 mkdir -p ~/armino
 cd ~/armino
 git clone https://github.com/bekencorp/bk_idk.git
-
 ```
 
 然后切换到稳定分支Tag节点, 如v2.2.1.1:
 
-
 ```
 git checkout -B your_branch_name v2.2.2.1
-
 ```
 
 警告
 
 Windows下通过git clone拉取代码，存在软链接失效及换行符的问题，会导致编译失败，请按照以下方式解决:
-
 
 - 软链接失效问题:
 
@@ -85,7 +88,6 @@ Windows下通过git clone拉取代码，存在软链接失效及换行符的问�
      git config --global core.symlinks true
      ```
   2. 在管理员权限下执行git clone命令
-
 - 换行符问题:
 
   1.下载代码前先配置git环境变量:
@@ -98,8 +100,9 @@ Windows下通过git clone拉取代码，存在软链接失效及换行符的问�
 
 github代码相对于gitlab有滞后性，如果您想获取最新的SDK代码，请从gitlab拉取，相关账号找项目上审核申请。
 
+<a id="id4"></a>
 
-## 环境部署及编译[](#id4 "永久链接至标题")
+## 环境部署及编译
 
 我们提供了一种基于Docker容器的环境部署与编译方案，支持在Linux、macOS及Windows系统上高效完成编译工作。
 借助Docker容器化技术，您无需手动安装编译所需的各类库文件及工具链，从而显著简化了部署与编译流程。
@@ -107,49 +110,46 @@ github代码相对于gitlab有滞后性，如果您想获取最新的SDK代码�
 
 对于不熟悉Docker技术或因网络条件限制无法使用Docker环境的用户，我们也提供了基于脚本命令的本地编译部署方案。本地部署方案目前仅支持Linux系统下的编译。
 
+- [本地部署](get-started/env-manual.md)
+- [Docker部署](get-started/env-docker.md)
 
-- [本地部署](get-started/env-manual.md "env-manual.md")
+<a id="id5"></a>
 
-- [Docker部署](get-started/env-docker.md "env-docker.md")
-
-
-## 配置工程[](#id5 "永久链接至标题")
+## 配置工程
 
 您可以通过工程配置文件来进行更改 Armino 默认配置或者针对不同芯片进行差异化配置:
-
 
 ```
 工程配置文件 Override 芯片配置文件 Override 默认配置
 如： bk7239n/config >> bk7239n.defconfig >> KConfig
-
 + 工程配置文件示例：
     projects/app/config/bk7239n/config
-
 + 芯片配置文件示例：
     middleware/soc/bk7239n/bk7239n.defconfig
-
 + KConfig 配置文件示例：
     middleware/arch/cm33/Kconfig
     components/bk_cli/Kconfig
-
 ```
 
-点击 [Kconfig 配置](../developer-guide/config_tools/bk_config_kconfig.md#bk-config-kconfig "../developer-guide/config_tools/bk_config_kconfig.md#bk-config-kconfig") 进一步了解 Armino 配置。
+点击 [Kconfig 配置](developer-guide/config_tools/bk_config_kconfig.md#bk-config-kconfig) 进一步了解 Armino 配置。
 
+<a id="id6"></a>
 
-## 新建工程[](#id6 "永久链接至标题")
+## 新建工程
 
 BK7239 默认工程为 projects/app，新建工程可参考 projects/app工程
 
+<a id="id7"></a>
 
-## 烧录代码[](#id7 "永久链接至标题")
+## 烧录代码
 
 Armino 支持在 Windows/Linux 平台进行固件烧录, 烧录方法参考烧录工具中指导文档。
 以Windows 平台为例， Armino 目前支持 UART 烧录。
 app工程在编译完成后，在build/app/bk7239n目录下生成all-app.bin，使用此bin文件烧录即可。安全工程首次烧录时，需要先烧录bootloader.bin，再烧录all-app.bin。
 
+<a id="id8"></a>
 
-### 通过串口烧录[](#id8 "永久链接至标题")
+### 通过串口烧录
 
 备注
 
@@ -157,27 +157,32 @@ Armino 支持 UART 烧录，推荐使用 CH340 串口工具小板进行下载。
 
 串口烧录工具如下图所示:
 
-![Uart](get-started/../_images/download_tool_uart.png)
+<a id="id9"></a>
+![Uart](../../_assets/55fb8de185e6662cbb58-download_tool_uart.png)
 
-UART[](#id9 "永久链接至图片")
+
+UART
 
 烧录工具（BKFIL）获取：
 
-> [https://dl.bekencorp.com/tools/flash/](https://dl.bekencorp.com/tools/flash/ "https://dl.bekencorp.com/tools/flash/")
-> 在此目录下获取最新版本，如：BEKEN_BKFIL_V2.1.6.0_20231123.zip
+> <https://dl.bekencorp.com/tools/flash/>
+> 在此目录下获取最新版本，如：BEKEN\_BKFIL\_V2.1.6.0\_20231123.zip
 
 BKFIL.exe 界面及相关配置如下图所示：
 
-![BKFIL GUI](get-started/../_images/download_uart_bk7239n.png)
+<a id="id10"></a>
+![BKFIL GUI](../../_assets/c77f8d400bf4cc887928-download_uart_bk7239n.png)
 
-BKFIL GUI[](#id10 "永久链接至图片")
 
-选择烧录串口 DL_UART0，点击 `烧录` 进行版本烧录, 烧录完成之后掉电重启设备。
+BKFIL GUI
 
-点击 [BKFIL](../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil "../developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil") 进一步了解 Armino 烧录工具。
+选择烧录串口 DL\_UART0，点击 `烧录` 进行版本烧录, 烧录完成之后掉电重启设备。
+
+点击 [BKFIL](developer-guide/config_tools/bk_tool_bkfil.md#bk-tool-bkfil) 进一步了解 Armino 烧录工具。
 如果烧录过程无法获取设备，卡在 `Getting Bus...` 时，可以按一下重启键，恢复cpu状态。
 
+<a id="log-command-line"></a>
 
-## 串口 Log 及 Command Line[](#log-command-line "永久链接至标题")
+## 串口 Log 及 Command Line
 
-目前 BK7239 平台，串口 Log 及 Cli 命令输入在 DL_UART0 口；可通过 help 命令查看支持命令列表。
+目前 BK7239 平台，串口 Log 及 Cli 命令输入在 DL\_UART0 口；可通过 help 命令查看支持命令列表。

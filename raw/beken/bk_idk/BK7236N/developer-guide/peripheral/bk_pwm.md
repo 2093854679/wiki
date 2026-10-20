@@ -1,26 +1,47 @@
-# PWM[](#pwm "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/peripheral/bk_pwm.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="pwm"></a>
 
+# PWM
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
 
-bk7236n 共有两组 PWM 控制器，PWM0 与 PWM1，每个PWM控制器下有3个TIM定时器，每个定时器有2个channel。
+## 概述
 
-以 PWM0 来说，TIM 与 PWM channel 对应关系如下：
+bk7236n TIM 配置寄存器共有4个group，每个group为3个TIM的配置，共有12个TIM定时器。
+
+可配置channel连接到任意一个TIM定时器，当前软件中默认配置的TIM定时器与PWM channel对应关系如下：
 
 | TIM Index | Channel Index |
 | --- | --- |
 | TIM1 | 0 |
-| 1 |
-| TIM2 | 3 |
-| 4 |
-| TIM3 | 5 |
-| 6 |
+| TIM2 | 1 |
+| TIM3 | 2 |
+| TIM4 | 3 |
+| TIM5 | 4 |
+| TIM6 | 5 |
+| TIM7 | 6 |
+| TIM8 | 7 |
+| TIM9 | 8 |
+| TIM10 | 9 |
+| TIM11 | 10 |
+| TIM12 | 11 |
 
-因此，每个 PWM 控制器有6个 channel，bk7236n共支持12个 channel，对应软件中的 `PWM_ID_0` 到 `PWM_ID_11`。
+因此，bk7236n 共支持12个channel，对应软件中的 `PWM_ID_0` 到 `PWM_ID_11`。
 
+<a id="id2"></a>
 
-## 工作模式[](#id2 "永久链接至标题")
+## 工作模式
 
 定时器可以工作在3种模式下：
 
@@ -28,84 +49,83 @@ bk7236n 共有两组 PWM 控制器，PWM0 与 PWM1，每个PWM控制器下有3�
 > 2. 互补输出模式
 > 3. 输入捕获模式
 
+<a id="id3"></a>
 
-## 功能框图[](#id3 "永久链接至标题")
+## 功能框图
 
-![PWM block diagram](../../_images/pwm_block_diagram.png)
+![PWM block diagram](../../../../_assets/13242a9aab393305ecbe-pwm_block_diagram.png)
+<a id="id4"></a>
 
-
-### 时钟源[](#id4 "永久链接至标题")
+### 时钟源
 
 PWM 控制器 有两个时钟源可选：
 
-> - clk_32K
-> - XTAL
+> - 80MHz
+> - XTAL(40MHz)
 
-可通过 `SYSTEM_REG0x8` 配置。
+可通过 `SYSTEM_REG0x8` 配置。软件默认使用XTAL作为时钟源，若使用80MHz时钟源，可配置 `CONFIG_PWM_SCLK_80M=y`。
 
+<a id="psc"></a>
 
-### PSC[](#psc "永久链接至标题")
+### PSC
 
-预分频器，对输入时钟(clk_32K或XTAL)进行分频，输出CLK_CNT用来驱动计数器TIM计数。
+预分频器，对输入时钟(80MHz或XTAL)进行分频，输出CLK\_CNT用来驱动计数器TIM计数。
 
-PSC的设置可通过 `PWM_REG_0xE` 来配置，可实现1-256分频。
+其中，group0 PSC的设置可通过 `PWM_REG_0x4a` 来配置，可实现1-256分频。
 
 例如：
 
-当我们时钟源选择XTAL=26MHz，配置PSC1=25时，计数器TIM1时钟则为1MHz，若计数器+1，则+1us。
+当我们时钟源选择XTAL\=40MHz，配置PSC1\=39时，计数器TIM1时钟则为1MHz，若计数器\+1，则\+1us。
 
+备注
 
-### CCR[](#ccr "永久链接至标题")
+由于4个group寄存器配置完全相同，为方便描述，以下寄存器均以group0为参考。
 
-当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG_0x8寄存器中）会置位。
+<a id="ccr"></a>
+
+### CCR
+
+当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG\_0x44寄存器中）会置位。
 然后OCxREF再经过一系列的控制之后输出PWM信号。
 
 BK7236N 每个TIM 对应3个 `CCR` ，即在一个周期内，信号的极性可以翻转3次，其中
 
-> - CCR1,CCR2,CCE3(REG_0x15-REG_0x17)对应TIM1
-> - CCR4,CCR5,CCE6(REG_0x18-REG_0x1a)对应TIM2
-> - CCR7,CCR8,CCE9(REG_0x1b-REG_0x1d)对应TIM3
+> - CCR1,CCR2,CCE3(REG\_0x51-REG\_0x53)对应TIM1
+> - CCR4,CCR5,CCE6(REG\_0x54-REG\_0x56)对应TIM2
+> - CCR7,CCR8,CCE9(REG\_0x57-REG\_0x59)对应TIM3
 
 当用作PWM输出模式时，输出方波信号的占空比由CCR决定。
 
-备注
+<a id="arr"></a>
 
-CCRx 需设置大于1的值。
+### ARR
 
-
-### ARR[](#arr "永久链接至标题")
-
-自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end_value。
+自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end\_value。
 
 PWM输出方波信号的频率由ARR值决定。
 
+<a id="deadtime-generator"></a>
 
-### Deadtime Generator[](#deadtime-generator "永久链接至标题")
+### Deadtime Generator
 
 在生成的参考信号OCxREF的基础上，可以插入deadtime，用于生成两路互补的输出信号。
 
-死区时间的大小具体由 `REG_0x1E` 的 DTx 配置。
+死区时间的大小具体由 `REG_0x5a` 的 DTx 配置。
 
+<a id="id5"></a>
 
-## PWM 输出模式[](#id5 "永久链接至标题")
+## PWM 输出模式
 
+<a id="id6"></a>
 
-### 输出单路方波信号[](#id6 "永久链接至标题")
+### 输出单路方波信号
 
-每组 PWM 的 相邻通道只能任选1路独立输出((0,1)相邻、(2,3)相邻、(4,5)相邻)，同时输出会相互干扰
+bk7236n 由于每路PWM连接到12个独立的TIM上，所以共支持12路 PWM 独立输出。
 
-示例： 输出5路 PWM 信号，频率为1KHz，占空比动态变化：从0%到100%，再从100%到0%。
+<a id="id7"></a>
 
-具体示例代码详见 `projects/example/peripherals/pwm/pwm_set_period_duty/main.c`
+### 输出互补带死区PWM
 
+bk7236n 互补输出功能，均由硬件实现，可配置任意两通道作为互补输出，通过配置 `PWM_REG_0x10` 至 `PWM_REG_0x1b` ，连接任意两通道到相同TIM的 P N 极即可。
 
-### 输出互补带死区PWM[](#id7 "永久链接至标题")
-
-关于互补输出，可分为硬件实现的互补模式与软件互补模式：
-
-> - 硬件：每组 PWM 可实现3个互补输出，如概述中的表格所示，仅可配置 PWMx 的 CH0与CH1, CH2与CH3, CH4与CH5 作为互补输出，有相应的死区相关的寄存器可配置，较为精准，但通道固定
-> - 软件：使用 PWM1 的 CH0, CH2, CH4 与 PWM2 的 CH0, CH2, CH4 任意两通道组成互补输出，软件实现互补功能，较为灵活，但精度不及硬件实现的方式
-
-示例： CH0 与 CH4 输出不带死区的互补波形；CH6 与 CH8 输出带死区的互补波形。
-
-具体示例代码详见 `projects/example/peripherals/pwm/complementary_outputs/main.c`
+配置DTx寄存器，可实现带死区的互补输出。

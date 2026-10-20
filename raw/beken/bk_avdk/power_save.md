@@ -1,13 +1,28 @@
-# 多媒体功耗[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/power_save/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
+# 多媒体功耗
 
-## 1、多媒体功耗概述[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 1、多媒体功耗概述
 
 > 基于BK7258的工程，多媒体功能都是在CPU1上实现的，且各个硬件模块，比如PSRAM、LCD、H264、USB等，都有对应的时钟配置、电源管理等。为了达到更低的功耗，开关需要对称使用。
 
+<a id="id3"></a>
 
-## 2、多媒体应用[](#id3 "永久链接至标题")
+## 2、多媒体应用
 
 > 多媒体SDK提供功能丰富且齐全的接口，供用户使用，且用户不需要考虑相关投票的接口的应用，是需要保证是对称调用即可，接口参考地址：`./components/multimedia/include/media_app.h`，说明如下。
 >
@@ -53,10 +68,11 @@
 > bk_err_t media_app_set_compression_ratio(compress_ratio_t * ratio);
 > ```
 >
-> 上面的接口都有对应的参考用例，请参考``./components/multimedia/cli/media_cli.c``.
+> 上面的接口都有对应的参考用例，请参考\`\`./components/multimedia/cli/media\_cli.c\`\`.
 
+<a id="id4"></a>
 
-## 3、多媒体投票[](#id4 "永久链接至标题")
+## 3、多媒体投票
 
 > 多媒体的功能都在CPU1上实现，调用SDK接口，会默认将CPU1投票上电，然后再去处理相应的流程，投票接口为:
 >
@@ -108,13 +124,13 @@
 > #define PM_POWER_SUB_MODULE_NAME_VIDP_H264             (POWER_SUB_MODULE_NAME_VIDP_H264)
 > ```
 >
-> 针对PASRAM不同模块使用时也会对其投票，保证功能正常，且功耗较低，投票接口为:
+> 针对PSRAM不同模块使用时也会对其投票，保证功能正常，且功耗较低，投票接口为:
 >
 > ```
 > bk_err_t bk_pm_module_vote_psram_ctrl(pm_power_psram_module_name_e module,pm_power_module_state_e power_state);
 > ```
 >
-> 上面接口可以通过配置不同的形参，达到不同模块对PASRAM的控制，不同模块的枚举值参考如下:
+> 上面接口可以通过配置不同的形参，达到不同模块对PSRAM的控制，不同模块的枚举值参考如下:
 >
 > ```
 > typedef enum
@@ -137,8 +153,9 @@
 > }pm_power_psram_module_name_e;
 > ```
 
+<a id="id5"></a>
 
-## 4、多媒体低功耗检查[](#id5 "永久链接至标题")
+## 4、多媒体低功耗检查
 
 > 当需要进入低功耗时，需要将外设全部关掉，包括PSRAM，保证各个模块全部掉电，可以发送下面命令进行检查:
 >
@@ -152,24 +169,24 @@
 > >
 > > 2、pm ahpb and bakp state:0x0 0x10001
 > >
-> > 3、pm low vol[module:0xffbfefff] [need module:0xffffffff]
+> > 3、pm low vol\[module:0xffbfefff\] \[need module:0xffffffff\]
 > >
-> > 4、pm deepsleep[module:0xc0][need module:0x3c0]
+> > 4、pm deepsleep\[module:0xc0\]\[need module:0x3c0\]
 > >
-> > 5、pm power and pmu state[0x200000c8][0x2f1]
+> > 5、pm power and pmu state\[0x200000c8\]\[0x2f1\]
 > >
-> > 6、Attention the bakp not power down[modulue:0x10001]
+> > 6、Attention the bakp not power down\[module:0x10001\]
 > >
-> > 7、pm_psram_ctrl_state:0x0 0x0
+> > 7、pm\_psram\_ctrl\_state:0x0 0x0
 > >
-> > 8、pm_cp1_ctrl_state:0x0
+> > 8、pm\_cp1\_ctrl\_state:0x0
 > >
-> > 9、pm_cp1_boot_ready:0x0 0xffffffff
+> > 9、pm\_cp1\_boot\_ready:0x0 0xffffffff
 > >
-> > 10、pm_module_lv_sleep_state:0x0
+> > 10、pm\_module\_lv\_sleep\_state:0x0
 >
-> 多媒体模块只需要关注第一行（表示多媒体各个模块内部电源控制，对应的票为pm_power_module_name_e，不使用时，应该都为0）、第七行（表示PSRAM电源控制，因为存在多个模块使用PARAM，
-> 不适用时，应该都为0）、第八行（表示不同模块投票让CPU1启动，对应的票为pm_boot_cp1_module_name_e，不适用时，应该都为0）。
+> 多媒体模块只需要关注第一行（表示多媒体各个模块内部电源控制，对应的票为pm\_power\_module\_name\_e，不使用时，应该都为0）、第七行（表示PSRAM电源控制，因为存在多个模块使用PSRAM，
+> 不使用时，应该都为0）、第八行（表示不同模块投票让CPU1启动，对应的票为pm\_boot\_cp1\_module\_name\_e，不使用时，应该都为0）。
 
 备注
 

@@ -1,13 +1,28 @@
-# BK-RLK Multi-media demo[](#bk-rlk-multi-media-demo "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/projects_work/wifi/bk_rlk_media.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="bk-rlk-multi-media-demo"></a>
 
+# BK-RLK Multi-media demo
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 该工程基于BK-RLK无线通信方案实现了单设备向多设备传输单向视频、双向音频及本地LCD显示功能，通过该工程可以查看如何借助BK- RLK无线通信方案实现设备发现、连接、业务数据传输和低功耗管理。
 
+<a id="demo"></a>
 
-## 2 Demo 说明[](#demo "永久链接至标题")
+## 2 Demo 说明
 
 > BK-RLK multi-media demo 是基于多个支持BK-RLK设备之间构建的多媒体通信系统,分为Client端和Server端。 该多媒体通信系统主要简单演示了BK-RLK以下功能的使用:
 >
@@ -31,19 +46,21 @@ Server端连接状态转到probing后，会处于待机状态，直到通过BK-R
 
 注意：当Client端与Server端均处在connection连接状态时，当其中一端断开连接后，均会再次自动连接过程。
 
-![BK-RLK system connection](../../_images/bk_rlk_system_connection.jpg)
+<a id="id6"></a>
+![BK-RLK system connection](../../../../_assets/b88e4890e29efe632486-bk_rlk_system_connection.jpg)
 
-Figure 1. Client端与Server端连接通信流程图[](#id6 "永久链接至图片")
+
+Figure 1\. Client端与Server端连接通信流程图
 
 Client和Server间功耗使用指南:
 :   BK-RLK multi-media demo 通信系统中Client端可进入休眠状态，并且按周期维护一段工作时间，再进入休眠状态，涉及到的信息如下表所示：
 
 | 设备所属 | 信息 | 解释 | 备注 |
 | --- | --- | --- | --- |
-| Client 端 | RLK_RTC_LOWPOWER _PS_INTERVAL | 休眠周期，默认为2秒 | 这个值决定了设备休眠的时长，该值 设置越大，对应的功耗会越低，同时 对端唤醒延时可能会变大。 |
-| RLK_RTC_LOWPOWER _KEEPALIVE_TIME _INTERVAL | 工作周期，默认为2毫秒 | 设备进入休眠后，需要周期监听是否 有业务发生。这个值决定了设备监听 时长，该值设置越小，对应的工作时 长就会越小，功耗越小，同时也可能 会对唤醒延时产生影响。 |
+| Client 端 | RLK\_RTC\_LOWPOWER \_PS\_INTERVAL | 休眠周期，默认为2秒 | 这个值决定了设备休眠的时长，该值 设置越大，对应的功耗会越低，同时 对端唤醒延时可能会变大。 |
+| RLK\_RTC\_LOWPOWER \_KEEPALIVE\_TIME \_INTERVAL | 工作周期，默认为2毫秒 | 设备进入休眠后，需要周期监听是否 有业务发生。这个值决定了设备监听 时长，该值设置越小，对应的工作时 长就会越小，功耗越小，同时也可能 会对唤醒延时产生影响。 |
 | rlkc ps | 串口命令，Client端输入 ，Client设备进入休眠模 式 | 非命令场景下也可直接调用API函数 |
-| Server 端 | rlks wakeup_peer | 串口命令，Server端输入 ，唤醒Client设备，保持 工作模式 | 非命令场景下也可直接调用API函数 |
+| Server 端 | rlks wakeup\_peer | 串口命令，Server端输入 ，唤醒Client设备，保持 工作模式 | 非命令场景下也可直接调用API函数 |
 
 功耗使用方式可分为Client端和Server端：
 Client端输入rlkc ps命令，该命令是否生效，有以下几种表现形式
@@ -51,48 +68,56 @@ Client端输入rlkc ps命令，该命令是否生效，有以下几种表现形�
 > - 正在进行的音视频会立即停止
 > - 使用电流检测工具可以看到电流峰值马上下降
 
-说明：输入该命令后，client设备会以配置好的休眠/工作周期工作。此时业务均被停止。非cli场景下，可直接调用API函数rlk_client_ps_cmd_handler()。
+说明：输入该命令后，client设备会以配置好的休眠/工作周期工作。此时业务均被停止。非cli场景下，可直接调用API函数rlk\_client\_ps\_cmd\_handler()。
 
-Server端输入rlks wakeup_peer命令，唤醒成功后会返回打印信息：WAKEUP PEER SUCCESS。
+Server端输入rlks wakeup\_peer命令，唤醒成功后会返回打印信息：WAKEUP PEER SUCCESS。
 
 说明：输入该命令后，收到成功打印信息之前，client设备仍然会以配置好的休眠/工作周期工作。业务未被恢复。收到成功打印信息之后，client电流恢复峰值，且业务重新工作。
 输入命令，到成功唤醒对端之间存在延时。这里取决于当前的空口环境及配置的休眠周期和工作周期时长。
-非cli场景下，可直接调用API函数rlk_server_wakeup_peer()
+非cli场景下，可直接调用API函数rlk\_server\_wakeup\_peer()
 
 具体唤醒流程如下Figure 2 所示：
 
-![BK-RLK system ps](../../_images/bk_rlk_system_ps.jpg)
+<a id="id7"></a>
+![BK-RLK system ps](../../../../_assets/f5627f0ff6650377753e-bk_rlk_system_ps.jpg)
 
-Figure 2. Client端与Server端ps流程图[](#id7 "永久链接至图片")
+
+Figure 2\. Client端与Server端ps流程图
 
 开放环境下,使用同一套硬件的Wi-Fi场景与BK-RLK下的功耗对比如下表所示：
 
 | 设备 | 条件 | 平均功耗 |
 | --- | --- | --- |
 | Wi-Fi | Dtim20 | 557uA |
-| BK-RLK | RLK_RTC_LOWPOWER_PS_INTERVAL = 2s RLK_RTC_LOWPOWER_KEEPALIVE_TIME_INTERVAL = 2ms | 320uA |
+| BK-RLK | RLK\_RTC\_LOWPOWER\_PS\_INTERVAL \= 2s RLK\_RTC\_LOWPOWER\_KEEPALIVE\_TIME\_INTERVAL \= 2ms | 320uA |
 
 Client和Server间视频,语音传输指南:
 :   Client端和Server端配对成功后，自动进入到语音视频传输模式。
 
+<a id="id2"></a>
 
-## 3 环境搭建[](#id2 "永久链接至标题")
+## 3 环境搭建
 
 > BK-RLK 多媒体通信系统分为Client端和Server端两部分，其环境搭建如Figure 3和Figure 4所述。
 > Figure 3 是一块作为Client端的BK7256样本设备,该设备添加一个usb摄像头，一块lcd显示屏和一个音频广播器。
 
-![BK-RLK Client](../../_images/bk_rlk_client_env.jpg)
+<a id="id8"></a>
+![BK-RLK Client](../../../../_assets/f67f55f9a8f2b8a70eb0-bk_rlk_client_env.jpg)
 
-Figure 3. Client 端环境搭建[](#id8 "永久链接至图片")
+
+Figure 3\. Client 端环境搭建
 
 Figure 4是一块作为Server端的BK7256样本设备,该设备添加一块lcd显示屏和一个音频广播器。
 
-![BK-RLK Server](../../_images/bk_rlk_server_env.jpg)
+<a id="id9"></a>
+![BK-RLK Server](../../../../_assets/d4c1bb13aa83d9c8efcf-bk_rlk_server_env.jpg)
 
-Figure 4. Server端环境搭建[](#id9 "永久链接至图片")
 
+Figure 4\. Server端环境搭建
 
-## 4 代码路径[](#id3 "永久链接至标题")
+<a id="id3"></a>
+
+## 4 代码路径
 
 > BK-RLK Multi-media 系统 demo 路径均在： `./projects/wifi`
 >
@@ -104,11 +129,12 @@ Figure 4. Server端环境搭建[](#id9 "永久链接至图片")
 >
 > Server端编译命令：`make bk7256 PROJECT=wifi/rlk_av_server`
 
+<a id="id4"></a>
 
-## 5 参考链接[](#id4 "永久链接至标题")
+## 5 参考链接
 
-> [API参考:](../../api-reference/wifi/bk_wifi.md "../../api-reference/wifi/bk_wifi.md") 介绍了BK-RLK API接口
+> [API参考:](../../api-reference/wifi/bk_wifi.md) 介绍了BK-RLK API接口
 >
-> [开发者指南:](../../developer-guide/wifi/bk_rlk.md "../../developer-guide/wifi/bk_rlk.md") 介绍了BK-RLK使用指南
+> [开发者指南:](../../developer-guide/wifi/bk_rlk.md) 介绍了BK-RLK使用指南
 >
-> [BK-RLK工程:](../../projects_work/wifi/bk_rlk_media.md "../../projects_work/wifi/bk_rlk_media.md") 介绍了BK-RLK相关工程
+> [BK-RLK工程:](bk_rlk_media.md) 介绍了BK-RLK相关工程

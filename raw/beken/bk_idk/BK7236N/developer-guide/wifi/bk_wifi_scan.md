@@ -1,27 +1,40 @@
-# Wi-Fi 扫描示例工程说明[](#wi-fi "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/wifi/bk_wifi_scan.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="wi-fi"></a>
+
+# Wi-Fi 扫描示例工程说明
 
 本工程展示了BEKEN Wi-Fi STA模式下启动扫描空中SSID并返回结果的示例.
 
+<a id="id1"></a>
 
-## 代码流程[](#id1 "永久链接至标题")
+## 代码流程
 
-
-- demo_start()入口
-  :   1. 创建线程wifi_scan_thread
-
-- wifi_scan_thread
+- demo\_start()入口
+  :   1. 创建线程wifi\_scan\_thread
+- wifi\_scan\_thread
   :   2. 调用事件回调函数 `bk_event_register_cb`
       3. 调用函数 `bk_wifi_scan_start` 开始扫描
       4. 调用函数 `show_scan_ap_result` 上报扫描结果包括AP Num、SSID、BSSID、RSSI、Channel、加密方式等
-
 - 删除线程
 
+<a id="id2"></a>
 
-## 应用示例[](#id2 "永久链接至标题")
+## 应用示例
 
+<a id="id3"></a>
 
-### 命令示例[](#id3 "永久链接至标题")
-
+### 命令示例
 
 ```
 net sta enable
@@ -29,12 +42,11 @@ net sta scan once
 net sta scan result
 或者直接执行：
 scan
-
 ```
 
+<a id="log"></a>
 
-### Log示例[](#log "永久链接至标题")
-
+### Log示例
 
 ```
 scan
@@ -45,7 +57,6 @@ hitf: I(67562368):get scan result :32
 cli: I(67562372):rx event <1 0>
 wifi: I(67562374):scan found 32 AP
 SSID                             SSID                RSSI chan security
-
 -------------------------------- -----------------   ---- ---- ---------
 yt                               b0:48:7a:4f:11:1a    -44  6   NONE
 aclsemi                          74:50:4e:3f:99:50    -29  6   WPA2-AES
@@ -56,6 +67,4 @@ D-Link                           70:62:b8:6d:61:90    -41  1   WPA2-MIX
 junbang                          02:8a:90:e9:d2:43    -44  1   WPA2-AES
 ChinaNet-HeLg                    cc:c2:e0:6e:0f:a9    -45 13   WPA2-MIX
 NETGEAR56                        6c:cd:d6:2c:10:2c    -50  1   WPA3-SAE
-
 ```
-

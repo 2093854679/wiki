@@ -1,59 +1,73 @@
-# 语音通话demo[](#demo "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/audio/voice_transfer_demo.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="demo"></a>
 
+# 语音通话demo
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 通过wifi实现板子和手机apk双向语音通话。
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > demo路径: `\components\demos\media\doorbell\src\doorbell.c`
 >
-> Aud_Intf API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud_intf.html`
+> Aud\_Intf API接口的详细说明请参考同网页: `/api-reference/multi_media/bk_aud_intf.html`
 
+<a id="cli"></a>
 
-## 3、cli命令简介[](#cli "永久链接至标题")
+## 3、cli命令简介
 
 demo支持的命令如下表:
 
 | Command | Description |
 | --- | --- |
-| video_transfer -a test 12345678 | 初始化语音通道 |
+| video\_transfer -a test 12345678 | 初始化语音通道 |
 
 demo运行依赖的宏配置:
 
 | Name | Description | File | value |
 | --- | --- | --- | --- |
-| CONFIG_AUDIO | 配置audio功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUDIO_RISCV_IP_V1_0 | 配置audio ip | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF | 配置aud_intf使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF_VER_NEW | 配置aud_intf版本使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_INTF_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUDIO_TRANSFER | 配置语音传输使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
-| CONFIG_AUD_TRAS_MODE_CPU0 | 配置语音传输模式 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO | 配置audio功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO\_RISCV\_IP\_V1\_0 | 配置audio ip | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF | 配置aud\_intf使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF\_VER\_NEW | 配置aud\_intf版本使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_INTF\_TEST | 配置demo使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUDIO\_TRANSFER | 配置语音传输使能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_AUD\_TRAS\_MODE\_CPU0 | 配置语音传输模式 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
 
 语音通话调试宏配置：
 
 | Name | Description | File |
 | --- | --- | --- |
-| CONFIG_AUD_TRAS_AEC_DUMP_DEBUG | 配置aec dump | `\middleware\soc\bk7256\bk7256.defconfig` |
-| CONFIG_AUD_TRAS_LOST_COUNT_DEBUG | 配置Tx丢包统计 | `\middleware\soc\bk7256\bk7256.defconfig` |
-| CONFIG_AUD_TRAS_AEC_MIC_DELAY_DEBUG | 配置mic延迟debug | `\middleware\soc\bk7256\bk7256.defconfig` |
-| CONFIG_AUD_TRAS_AEC_MIC_DELAY_POINTS | 配置mic延迟点数 | `\middleware\soc\bk7256\bk7256.defconfig` |
+| CONFIG\_AUD\_TRAS\_AEC\_DUMP\_DEBUG | 配置aec dump | `\middleware\soc\bk7256\bk7256.defconfig` |
+| CONFIG\_AUD\_TRAS\_LOST\_COUNT\_DEBUG | 配置Tx丢包统计 | `\middleware\soc\bk7256\bk7256.defconfig` |
+| CONFIG\_AUD\_TRAS\_AEC\_MIC\_DELAY\_DEBUG | 配置mic延迟debug | `\middleware\soc\bk7256\bk7256.defconfig` |
+| CONFIG\_AUD\_TRAS\_AEC\_MIC\_DELAY\_POINTS | 配置mic延迟点数 | `\middleware\soc\bk7256\bk7256.defconfig` |
 
 demo运行依赖的库和驱动:
 :   - DMA DMA驱动
-
     - AUD audio模块驱动
-
     - Sdcard 模块驱动
-
     - WIFI 模块
 
+<a id="id3"></a>
 
-## 4、演示介绍[](#id3 "永久链接至标题")
+## 4、演示介绍
 
 demo执行的步骤如下:
 
@@ -72,55 +86,48 @@ demo执行的步骤如下:
 > 5.停止语音通话
 > :   - 再次点击apk界面上的语音通话按钮停止语音通话
 
+<a id="id4"></a>
 
-## 5、语音通话功能适配说明[](#id4 "永久链接至标题")
+## 5、语音通话功能适配说明
 
 语音通话功能调试流程如下：
 
 1. 功能调试
    :   - 1、关闭所有的调试宏
-
        - 2、参考 `bk_aud_intf_voc_init` 接口的示例代码, 调用该接口初始化语音通话;
-
        - 3、调用 `bk_aud_intf_write_spk_data` 接口将收到apk端发送的语音数据写入板子播放;
 2. mic延迟点数调试
    :   - 1、将调试宏 `CONFIG_AUD_TRAS_AEC_DUMP_DEBUG` 和 `CONFIG_AUD_TRAS_AEC_MIC_DELAY_DEBUG` 设置为y, 编译bin进行测试, 通话一分钟, 将AEC算法的数据dump到tf卡;
-
        - 2、根据dump的数据, 计算mic的延迟点数, 并将点数值设置为宏 `CONFIG_AUD_TRAS_AEC_MIC_DELAY_POINTS` 的值(正常情况下使用默认值55即可);
 3. aec回声消除效果调试
    :   - 1、打开语音通话;
-
        - 2、根据听到的回声效果, 使用 `Realtime Video` apk (可从github上开源的armino平台下载) 在线调试AEC和NS的参数, 并记录来最后的最优值;
-
        - 3、首先调整 `echo depth` , 回声越大值设置越大, 当继续增大该值, 但是无法提升回声消除效果时停止设置该值;
-
        - 4、其次设置根据回声的大小范围设置 `max amplitude` 和 `min amplitude` 的值, 优化回声消除效果;
-
        - 5、然后根据听到的底噪大小设置 `noise level` 底噪越大，设置的值越大, 优化底噪消除效果;
-
        - 4、最后设置 `noise param` 的值, 分别设置为0、1、2，选择效果最好的值;
-
        - 5、记录下所有参数的在线调试结果, 并设置为语音初始化时的默认参数。
 
 备注
 
-
 - 1.也可以采用AT指令的方式在线调试, 通过uart发送串口指令 `aud_intf_set_aec_param_test {param value}` 设置各参数的值。具体的调试流程和上述方法一致，详情请参考 `\components\demos\media\aud\aud_intf\demo\aud_intf_demo.c` 中的示例.
-
 - 2.AEC在线调试参数设置界面如下图所示.
 
-![AEC参数设置入口界面](../../_images/aud_voc_aec_1.png)
+<a id="id5"></a>
+![AEC参数设置入口界面](../../../../_assets/aba3c7ce5d365099edab-aud_voc_aec_1.png)
 
-Figure 1. AEC参数设置入口界面[](#id5 "永久链接至图片")
 
-![AEC参数设置界面](../../_images/aud_voc_aec_2.png)
+Figure 1\. AEC参数设置入口界面
 
-Figure 1. AEC参数设置界面[](#id6 "永久链接至图片")
+<a id="id6"></a>
+![AEC参数设置界面](../../../../_assets/fe39b154b8ea623aaeb0-aud_voc_aec_2.png)
+
+
+Figure 1\. AEC参数设置界面
 
 3. 关闭所有调试宏
    :   - 调试工作完成后关闭所有调试宏
 
 备注
-
 
 - 1.当前语音通话基于单mic场景, 8K采样率;

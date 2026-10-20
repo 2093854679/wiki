@@ -1,19 +1,34 @@
-# 低功耗问题分析[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/developer-guide/power_save/bk_Lowpower_problem_analysis.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
-## 一、低压问题分析指导[](#id2 "永久链接至标题")
+# 低功耗问题分析
 
+<a id="id2"></a>
 
-### 1.进低压失败[](#id3 "永久链接至标题")
+## 一、低压问题分析指导
+
+<a id="id3"></a>
+
+### 1.进低压失败
 
 如果进低压失败，首先确认是否满足进入低压的条件：
-
 
 - 1. 业务线程可能有类似while(1)的操作,业务线程一直在运行，导致系统无法进入IDLE task。
 
 该问题debug方法：
 
-> a) 异常后，通过串口发送测试命令：pm_debug 1
+> a) 异常后，通过串口发送测试命令：pm\_debug 1
 > 观察是否有以下log打印：
 >
 > > ```
@@ -26,12 +41,11 @@
 > b) 以上问题的解决方案：
 > 线程运行不能一直while(1)进行运行或者等待，应该使用信号量或者事件标识，没有业务工作时，线程进入sleep。
 
-
 - 2. 相应的模块没有投sleep的票，导致无法进入低压。
 
 该问题debug方法：
 
-> a) 异常后，通过串口发送测试命令：pm_debug 1
+> a) 异常后，通过串口发送测试命令：pm\_debug 1
 > 有以下log打印：
 >
 > > ```
@@ -43,8 +57,8 @@
 > > 需要满足的票值：0xFFFFFFFF
 >
 > 从以上两个值对比来看，bit12的值为0，表示该位置的票没有投上，
-> 查看pm_sleep_module_name_e枚举类型，值为12的票
-> 为PM_SLEEP_MODULE_NAME_APP，则表示该APP票没有投上。
+> 查看pm\_sleep\_module\_name\_e枚举类型，值为12的票
+> 为PM\_SLEEP\_MODULE\_NAME\_APP，则表示该APP票没有投上。
 >
 > b) 以上问题的解决方案：
 > 需要在业务线程处理完响应的工作后，调用以下接口把票投上：
@@ -90,36 +104,37 @@
 > > }pm_sleep_module_name_e;
 > > ```
 
+<a id="id4"></a>
 
-### 2.低压唤醒后系统自动复位[](#id4 "永久链接至标题")
+### 2.低压唤醒后系统自动复位
 
 低压唤醒后系统自动复位，可能的原因如下：
-
 
 - 1. wdt复位:低压唤醒后，有中断没有清除掉，导致中断不断的上报，WDT无法喂狗导致
 
 该问题debug方法：
 
-> a) 该类问题，一般会进行dump，通过查看LA的地址，地址是否在pm.c出开中断后或者在mext_interrupt()或者mext_interrupt_sub()函数中，如果在，一般是这类问题。
-> 在接收中断的函数中例如：mext_interrupt()或者mext_interrupt_sub()把把中断编号irq_source的值打印出来，通过看irq_source的值，确定哪个模块，再结合代码和流程找出问题
+> a) 该类问题，一般会进行dump，通过查看LA的地址，地址是否在pm.c出开中断后或者在mext\_interrupt()或者mext\_interrupt\_sub()函数中，如果在，一般是这类问题。
+> 在接收中断的函数中例如：mext\_interrupt()或者mext\_interrupt\_sub()把把中断编号irq\_source的值打印出来，通过看irq\_source的值，确定哪个模块，再结合代码和流程找出问题
 >
 > b) 以上问题的解决方案：
 > 中断响应完后，需要把中断清除，防止中断不断往上报。
 
+<a id="id5"></a>
 
-## 二、深度睡眠问题分析指导[](#id5 "永久链接至标题")
+## 二、深度睡眠问题分析指导
 
+<a id="id6"></a>
 
-### 1.进深度睡眠失败[](#id6 "永久链接至标题")
+### 1.进深度睡眠失败
 
 如果进深度睡眠失败，首先确认是否满足进入深度睡眠的条件：
-
 
 - 1. 业务线程可能有类似while(1)的操作,业务线程一直在运行，导致系统无法进入IDLE task。
 
 该问题debug方法：
 
-> 1. 异常后，通过串口发送测试命令：pm_debug 2
+> 1. 异常后，通过串口发送测试命令：pm\_debug 2
 
 观察是否有以下log打印：
 
@@ -134,7 +149,6 @@
 
 线程运行不能一直while(1)进行运行或者等待，应该使用信号量或者事件标识，没有业务工作时，线程进入sleep。
 
-
 - 2. 没有满足了进入深度睡眠的票（BT和WIFI进入sleep并下电,多媒体关闭并下电）
 
 重要
@@ -144,7 +158,7 @@
 
 该问题debug方法：
 
-> a)异常后，通过串口发送测试命令：pm_debug 1
+> a)异常后，通过串口发送测试命令：pm\_debug 1
 
 有以下log打印：
 
@@ -157,7 +171,7 @@
 > 需要满足的票值：0x3C0
 
 从以上两个值对比来看，bit6和bit7的值为0，表示该位置的票没有投上，
-查看PM_ENTER_DEEP_SLEEP_MODULES_CONFIG定义的值，bit6为AUDIO,
+查看PM\_ENTER\_DEEP\_SLEEP\_MODULES\_CONFIG定义的值，bit6为AUDIO,
 Bit7为VIDEO，则表示以上两个模块的票没有投上。
 
 > > ```
@@ -172,4 +186,3 @@ Bit7为VIDEO，则表示以上两个模块的票没有投上。
 >
 > b)以上问题的解决方案：
 > Audio,video模块需要在进deepsleep之前，调用各自模块的接口关闭audio,video。
-

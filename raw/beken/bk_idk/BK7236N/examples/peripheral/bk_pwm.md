@@ -1,8 +1,22 @@
-# PWM[](#pwm "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/examples/peripheral/bk_pwm.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="pwm"></a>
 
+# PWM
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > 介绍的PWM模块包含三部分，分别为独立输出模式、互补输出模式以及PWM输入信号捕捉三个模式，
 > 其中独立输出与互补输出都是芯片信号输出，信号捕捉是获得外部信号。
@@ -18,58 +32,61 @@
 > | 4 | GPIO24 | 10 | GPIO36 |
 > | 5 | GPIO25 | 11 | GPIO37 |
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`components\bk_cli\cli_pwm.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 > demo运行依赖的宏配置：
 >
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_PWM | support PWM | `middleware\soc\bk7236n\bk7236n.defconfig` | y |
+> | CONFIG\_PWM | support PWM | `middleware\soc\bk7236n\bk7236n.defconfig` | y |
 >
 > demo支持的命令如下表：
 >
 > | Command | Param | Description |
 > | --- | --- | --- |
-> | pwm_driver init {26M|DCO} | 26M|DCO:clk source,default 26M | init the resoure common to all PWM channels |
-> | pwm_driver deinit | none | free all resource related to pwm |
-> | pwm {chan} init {period_v} {duty_v}  [duty2_v][duty3_v] | chan: pwm channel | power up and config the pwm channel, set the period and duty cycle  note: this chip supports 3 duty cycle , parameter duty2_v and duty3_v are optional |
-> | period_v:pwm periord |
-> | duty_v: duty cycle |
-> | duty2_v: second level reversal |
-> | duty3_v: third level reversal |
-> | pwm {chan} duty {period_v} {duty_v}  [duty2_v] [duty3_v] | chan: pwm channel | configure the period and duty cycle.  note: parameter duty2_v and duty3_v are option. |
-> | period_v:pwm periord |
-> | duty_v: duty cycl |
-> | duty2_v: second level reversal |
-> | duty3_v: third level reversal |
-> | pwm {chan} {start|stop|deinit} | chan: pwm channel | read data_size bytes of data from |
-> | start|stop|deinit: |
-> | pwm {chan} signal {low|high} | chan: pwm channel | set the initial signal to high|low |
-> | low|high: initial signal level |
-> | pwm_group init {chan1} {chan2}  {period} {chan1_duty} {chan2_duty} | chan1: pwm channel | init the PWM group  The PWM group is a channel pair that has following attributes: -The period is same -The initial signal level is opposite -Start and stop at the same time |
+> | pwm\_driver init {26M\|DCO} | 26M\|DCO:clk source,default 26M | init the resoure common to all PWM channels |
+> | pwm\_driver deinit | none | free all resource related to pwm |
+> | pwm {chan} init {period\_v} {duty\_v}  \[duty2\_v\]\[duty3\_v\] | chan: pwm channel | power up and config the pwm channel, set the period and duty cycle  note: this chip supports 3 duty cycle , parameter duty2\_v and duty3\_v are optional |
+> | period\_v:pwm periord |
+> | duty\_v: duty cycle |
+> | duty2\_v: second level reversal |
+> | duty3\_v: third level reversal |
+> | pwm {chan} duty {period\_v} {duty\_v}  \[duty2\_v\] \[duty3\_v\] | chan: pwm channel | configure the period and duty cycle.  note: parameter duty2\_v and duty3\_v are option. |
+> | period\_v:pwm periord |
+> | duty\_v: duty cycl |
+> | duty2\_v: second level reversal |
+> | duty3\_v: third level reversal |
+> | pwm {chan} {start\|stop\|deinit} | chan: pwm channel | read data\_size bytes of data from |
+> | start\|stop\|deinit: |
+> | pwm {chan} signal {low\|high} | chan: pwm channel | set the initial signal to high\|low |
+> | low\|high: initial signal level |
+> | pwm\_group init {chan1} {chan2}  {period} {chan1\_duty} {chan2\_duty} | chan1: pwm channel | init the PWM group  The PWM group is a channel pair that has following attributes: -The period is same -The initial signal level is opposite -Start and stop at the same time |
 > | chan2: pwm channel |
 > | period: pwm periord |
-> | chan1_duty: chan1 duty cycle |
-> | chan2_duty: chan2 duty cycle |
-> | pwm_group {start|stop|deinit} | chan: pwm channel | start|stop|deinit the PWM group |
-> | start|stop|deinit: |
-> | pwm_group config {group} {period}  {chan1_duty} {chan2_duty} | group: pwm channel | Configure the duty and period of a PWM group |
+> | chan1\_duty: chan1 duty cycle |
+> | chan2\_duty: chan2 duty cycle |
+> | pwm\_group {start\|stop\|deinit} | chan: pwm channel | start\|stop\|deinit the PWM group |
+> | start\|stop\|deinit: |
+> | pwm\_group config {group} {period}  {chan1\_duty} {chan2\_duty} | group: pwm channel | Configure the duty and period of a PWM group |
 > | period: pwm periord |
-> | chan1_duty: chan1 duty cycle |
-> | chan2_duty: chan2 duty cycle |
-> | pwm_capture {chan} init {pos|neg|edge} | chan: pwm channel | calculate the cycles between two different pos-edge|neg-edge|edges |
-> | pos|neg|edge: counting mode |
-> | pwm_capture {chan} {start|stop|deinit} | chan: pwm channel | start|stop|deinit pwm capture func |
-> | start|stop|deinit |
+> | chan1\_duty: chan1 duty cycle |
+> | chan2\_duty: chan2 duty cycle |
+> | pwm\_capture {chan} init {pos\|neg\|edge} | chan: pwm channel | calculate the cycles between two different pos-edge\|neg-edge\|edges |
+> | pos\|neg\|edge: counting mode |
+> | pwm\_capture {chan} {start\|stop\|deinit} | chan: pwm channel | start\|stop\|deinit pwm capture func |
+> | start\|stop\|deinit |
 
+<a id="id3"></a>
 
-## 4 演示介绍[](#id3 "永久链接至标题")
+## 4 演示介绍
 
 > demo执行的步骤如下：
 
@@ -98,9 +115,11 @@
 
 波形如下：
 
-![PWM example 1](../../_images/pwm_5_3_0_0.png)
+<a id="id4"></a>
+![PWM example 1](../../../../_assets/2c040b190791123114b8-pwm_5_3_0_0.png)
 
-Figure 1. 输出60%占空比的PWM[](#id4 "永久链接至图片")
+
+Figure 1\. 输出60%占空比的PWM
 
 2.2 一个周期内3次翻转电平
 
@@ -111,9 +130,11 @@ Figure 1. 输出60%占空比的PWM[](#id4 "永久链接至图片")
 
 波形如下：
 
-![PWM example 2](../../_images/pwm_6_1_2_3.png)
+<a id="id5"></a>
+![PWM example 2](../../../../_assets/3a7f7c60f3c17b8f4990-pwm_6_1_2_3.png)
 
-Figure 2. 一个周期内3次翻转电平，初始电平为高[](#id5 "永久链接至图片")
+
+Figure 2\. 一个周期内3次翻转电平，初始电平为高
 
 2.3 设置初始电平为低
 
@@ -125,11 +146,13 @@ Figure 2. 一个周期内3次翻转电平，初始电平为高[](#id5 "永久
 
 波形如下：
 
-![PWM example 3](../../_images/pwm_6_1_2_3_low.png)
+<a id="id6"></a>
+![PWM example 3](../../../../_assets/14d7012506138924f882-pwm_6_1_2_3_low.png)
 
-Figure 3. 一个周期内3次翻转电平，初始电平为低[](#id6 "永久链接至图片")
 
-2.4 period > (D1+D2+D3)
+Figure 3\. 一个周期内3次翻转电平，初始电平为低
+
+2.4 period \> (D1\+D2\+D3)
 
 > ```
 > pwm 0 duty 7 1 2 3
@@ -137,9 +160,11 @@ Figure 3. 一个周期内3次翻转电平，初始电平为低[](#id6 "永久
 
 波形如下：
 
-![PWM example 4](../../_images/pwm_7_1_2_3.png)
+<a id="id7"></a>
+![PWM example 4](../../../../_assets/e191aab6571c83d001dc-pwm_7_1_2_3.png)
 
-Figure 4. period > (D1+D2+D3)[](#id7 "永久链接至图片")
+
+Figure 4\. period \> (D1\+D2\+D3)
 
 3、PWM互补模式
 
@@ -157,9 +182,11 @@ Figure 4. period > (D1+D2+D3)[](#id7 "永久链接至图片")
 
 波形如下：
 
-![PWM example 5](../../_images/pwm_group_0_1_15_5_6.png)
+<a id="id8"></a>
+![PWM example 5](../../../../_assets/665b74d45c3613aae84f-pwm_group_0_1_15_5_6.png)
 
-Figure 5. 互补输出+死区控制[](#id8 "永久链接至图片")
+
+Figure 5\. 互补输出\+死区控制
 
 4、输入捕获模式
 
@@ -177,7 +204,7 @@ Figure 5. 互补输出+死区控制[](#id8 "永久链接至图片")
 > > > pwm_capture 0 start
 > > > ```
 
-在中断函数中计算出计数值 value=658f，以上升沿或者下降沿计数，则输入信号频率约为 26M/0x658f = 1k
+在中断函数中计算出计数值 value\=658f，以上升沿或者下降沿计数，则输入信号频率约为 26M/0x658f \= 1k
 
 > 输入命令：
 >
@@ -186,9 +213,9 @@ Figure 5. 互补输出+死区控制[](#id8 "永久链接至图片")
 > > pwm_capture 0 start
 > > ```
 
-在中断函数中会计算出计数值 value=32c7，以边沿计数，则输入信号频率约为 26M/0x32c7 = 2k
+在中断函数中会计算出计数值 value\=32c7，以边沿计数，则输入信号频率约为 26M/0x32c7 \= 2k
 
 备注
 
 注意：根据参数的配置，在相同周期内，占空比可以进行调整。但每次调整配置都在下一个周期才会生效；
-在PWM进行init和duty设置时，必须 period > (D1+D2+D3)。
+在PWM进行init和duty设置时，必须 period \> (D1\+D2\+D3)。

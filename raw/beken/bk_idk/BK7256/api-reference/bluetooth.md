@@ -1,15 +1,47 @@
 ---
-aliases:
-- 'BK7256 › api-reference › bluetooth'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/api-reference/bluetooth/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 蓝牙[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 蓝牙
 
-- [BLE](bluetooth/ble.md "ble.md")
+- [BLE](bluetooth/ble.md)
+- [BT](bluetooth/bt.md)
+- [DM\_BLE](bluetooth/dm_ble.md)
+- [DM\_BT](bluetooth/dm_bt.md)
 
-- [BT](bluetooth/bt.md "bt.md")
+## 模块导航
 
-- [DM_BLE](bluetooth/dm_ble.md "dm_ble.md")
-
-- [DM_BT](bluetooth/dm_bt.md "dm_bt.md")
+- [简介](../introduction.md)
+- [快速入门](../get-started.md)
+- [H/W 参考手册](../hw-reference.md)
+- [API 参考手册](../api-reference.md)
+- [概述](api_overview.md)
+- [BLE](bluetooth/ble.md)
+- [BT](bluetooth/bt.md)
+- [DM_BLE](bluetooth/dm_ble.md)
+- [DM_BT](bluetooth/dm_bt.md)
+- [Wi-Fi](wifi.md)
+- [网络](tcpip.md)
+- [外设](peripheral.md)
+- [系统](system.md)
+- [多媒体](multi_media.md)
+- [低功耗与电源管理](pm.md)
+- [开发者指南](../developer-guide.md)
+- [OS 相关参考](../os.md)
+- [样例演示](../examples.md)
+- [应用开发](../application.md)
+- [工程](../projects_work.md)
+- [产品解决方案](../projects.md)
+- [开发与贡献代码流程](../process.md)
+- [云平台](../clounds.md)
+- [版本](../release-notes.md)

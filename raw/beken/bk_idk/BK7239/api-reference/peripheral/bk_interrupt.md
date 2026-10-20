@@ -1,9 +1,24 @@
-# Interrupt Control Unit[](#interrupt-control-unit "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/api-reference/peripheral/bk_interrupt.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="interrupt-control-unit"></a>
+
+# Interrupt Control Unit
 
 Beken chip supports interrupt service function.
 
+<a id="interrupt-api-status"></a>
 
-## Interrupt API Status[](#interrupt-api-status "永久链接至标题")
+## Interrupt API Status
 
 | API | BK7239 |
 | --- | --- |
@@ -14,34 +29,38 @@ Beken chip supports interrupt service function.
 | `bk_get_int_statis()` | Y |
 | `bk_dump_int_statis()` | Y |
 
+<a id="interrupt-api-reference"></a>
 
-## Interrupt API Reference[](#interrupt-api-reference "永久链接至标题")
+## Interrupt API Reference
 
+<a id="header-file"></a>
 
-### Header File[](#header-file "永久链接至标题")
+### Header File
 
+- [int.h](https://github.com/bekencorp/armino/blob/main/components/int.h)
 
-- [int.h](https://github.com/bekencorp/armino/blob/main/components/int.h "https://github.com/bekencorp/armino/blob/main/components/int.h")
+<a id="functions"></a>
 
+### Functions
 
-### Functions[](#functions "永久链接至标题")
+<a id="_CPPv418bk_icu_driver_initv"></a>
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_init(void)[](#_CPPv418bk_icu_driver_initv "永久链接至目标")
+<a id="_CPPv318bk_icu_driver_initv"></a> <a id="_CPPv218bk_icu_driver_initv"></a> <a id="bk_icu_driver_init__void"></a> <a id="group__bk__api__icu_1gaa3be47dd1dbe66234a91ddbdf145ed9a"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_icu\_driver\_init(void)
 :   Init the ICU driver.
 
     This API init the icu modules :
-
 
     - Init ICU driver control memory, enable fiq and irq of system platform
 
     This API should be called before any other ICU APIs.
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_icu_driver_deinit(void)[](#_CPPv420bk_icu_driver_deinitv "永久链接至目标")
+<a id="_CPPv420bk_icu_driver_deinitv"></a>
+
+<a id="_CPPv320bk_icu_driver_deinitv"></a> <a id="_CPPv220bk_icu_driver_deinitv"></a> <a id="bk_icu_driver_deinit__void"></a> <a id="group__bk__api__icu_1gaeab9ff66b565fc0fe76c8d2f916c1a7b"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_icu\_driver\_deinit(void)
 :   deinit the ICU driver
 
     This API deinit the icu module
@@ -49,39 +68,40 @@ Beken chip supports interrupt service function.
     This API disable all devices’ intterrupts
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_isr_register([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") dev, int_group_isr_t isr, void *arg)[](#_CPPv419bk_int_isr_register13icu_int_src_t15int_group_isr_tPv "永久链接至目标")
+<a id="_CPPv419bk_int_isr_register13icu_int_src_t15int_group_isr_tPv"></a>
+
+<a id="_CPPv319bk_int_isr_register13icu_int_src_t15int_group_isr_tPv"></a> <a id="_CPPv219bk_int_isr_register13icu_int_src_t15int_group_isr_tPv"></a> <a id="bk_int_isr_register__icu_int_src_t.int_group_isr_t.voidP"></a> <a id="group__bk__api__icu_1gab1929863601295d456177900afef5299"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_int\_isr\_register([icu\_int\_src\_t](#_CPPv413icu_int_src_t "icu_int_src_t") dev, int\_group\_isr\_t isr, void \*arg)
 :   register interrupt service handler
 
-
     **Attention**
-    :   1. If this is called, the default interrupt handler is replaced by the new handler, the caller is fully responsible for handling the interrupt, such as, read the interrupt status, clear the interrupt status and processing the interrupt etc.
+    :   1\. If this is called, the default interrupt handler is replaced by the new handler, the caller is fully responsible for handling the interrupt, such as, read the interrupt status, clear the interrupt status and processing the interrupt etc.
 
     参数
     :   - **dev** – interrupt source device
-
         - **isr** – int service function
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_isr_unregister([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src)[](#_CPPv421bk_int_isr_unregister13icu_int_src_t "永久链接至目标")
+<a id="_CPPv421bk_int_isr_unregister13icu_int_src_t"></a>
+
+<a id="_CPPv321bk_int_isr_unregister13icu_int_src_t"></a> <a id="_CPPv221bk_int_isr_unregister13icu_int_src_t"></a> <a id="bk_int_isr_unregister__icu_int_src_t"></a> <a id="group__bk__api__icu_1ga0d78f93b9b48af2d17e5416e4462e824"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_int\_isr\_unregister([icu\_int\_src\_t](#_CPPv413icu_int_src_t "icu_int_src_t") src)
 :   unregister interrupt service handler
 
     参数
     :   **dev** – interrupt source device
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_set_priority([icu_int_src_t](#_CPPv413icu_int_src_t "icu_int_src_t") src, uint32_t int_priority)[](#_CPPv419bk_int_set_priority13icu_int_src_t8uint32_t "永久链接至目标")
+<a id="_CPPv419bk_int_set_priority13icu_int_src_t8uint32_t"></a>
+
+<a id="_CPPv319bk_int_set_priority13icu_int_src_t8uint32_t"></a> <a id="_CPPv219bk_int_set_priority13icu_int_src_t8uint32_t"></a> <a id="bk_int_set_priority__icu_int_src_t.uint32_t"></a> <a id="group__bk__api__icu_1ga4a608665a47286894f417e7ac3617dd8"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_int\_set\_priority([icu\_int\_src\_t](#_CPPv413icu_int_src_t "icu_int_src_t") src, uint32\_t int\_priority)
 :   set/change interrupt priority
 
     Every interrupt source has a two-level priority, the group priority and the priority. The interrupt source has higher group priority will be schedule first. The interrupt sources has higher priority will be schedule first if they has the same group priority.
@@ -90,154 +110,266 @@ Beken chip supports interrupt service function.
 
     参数
     :   - **dev** – interrupt source device
-
         - **isr** – int service function
 
     返回
-    :   - BK_OK: succeed
-
-        - BK_ERR_NOT_SUPPORT :not support
-
+    :   - BK\_OK: succeed
+        - BK\_ERR\_NOT\_SUPPORT :not support
         - others: other errors.
 
-[bk_err_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk_int_register_mac_ps_callback([int_mac_ps_callback_t](#_CPPv421int_mac_ps_callback_t "int_mac_ps_callback_t") mac_ps_cb)[](#_CPPv431bk_int_register_mac_ps_callback21int_mac_ps_callback_t "永久链接至目标")
+<a id="_CPPv431bk_int_register_mac_ps_callback21int_mac_ps_callback_t"></a>
+
+<a id="_CPPv331bk_int_register_mac_ps_callback21int_mac_ps_callback_t"></a> <a id="_CPPv231bk_int_register_mac_ps_callback21int_mac_ps_callback_t"></a> <a id="bk_int_register_mac_ps_callback__int_mac_ps_callback_t"></a> <a id="group__bk__api__icu_1ga69744f540cc958b374614aa39b805d50"></a> [bk\_err\_t](../system/os.md#_CPPv48bk_err_t "bk_err_t") bk\_int\_register\_mac\_ps\_callback([int\_mac\_ps\_callback\_t](#_CPPv421int_mac_ps_callback_t "int_mac_ps_callback_t") mac\_ps\_cb)
 :   Register callback for mac ps.
 
     参数
-    :   **mac_ps_cb** – mac ps callback
+    :   **mac\_ps\_cb** – mac ps callback
 
     返回
-    :   - BK_OK: succeed
-
+    :   - BK\_OK: succeed
         - others: other errors.
 
+<a id="interrupt-api-typedefs"></a>
 
-## Interrupt API Typedefs[](#interrupt-api-typedefs "永久链接至标题")
+## Interrupt API Typedefs
 
+<a id="id1"></a>
 
-### Header File[](#id1 "永久链接至标题")
+### Header File
 
+- [int\_types.h](https://github.com/bekencorp/armino/blob/main/components/int_types.h)
 
-- [int_types.h](https://github.com/bekencorp/armino/blob/main/components/int_types.h "https://github.com/bekencorp/armino/blob/main/components/int_types.h")
+<a id="macros"></a>
 
+### Macros
 
-### Macros[](#macros "永久链接至标题")
+<a id="c.BK_ERR_INT_DEVICE_NONE"></a>
 
-BK_ERR_INT_DEVICE_NONE[](#c.BK_ERR_INT_DEVICE_NONE "永久链接至目标")
+<a id="int__types_8h_1a2f4e71dd2a76888988c1bb58fea97535"></a> BK\_ERR\_INT\_DEVICE\_NONE
 :   icu device number is invalid
 
-BK_ERR_INT_NOT_EXIST[](#c.BK_ERR_INT_NOT_EXIST "永久链接至目标")
+<a id="c.BK_ERR_INT_NOT_EXIST"></a>
+
+<a id="int__types_8h_1aad2ee438dda7b43b647c6c1169300d15"></a> BK\_ERR\_INT\_NOT\_EXIST
 :   icu device number is invalid
 
+<a id="type-definitions"></a>
 
-### Type Definitions[](#type-definitions "永久链接至标题")
+### Type Definitions
 
-typedef void (*int_mac_ps_callback_t)(uint32_t status)[](#_CPPv421int_mac_ps_callback_t "永久链接至目标")
+<a id="_CPPv421int_mac_ps_callback_t"></a>
 
+<a id="_CPPv321int_mac_ps_callback_t"></a> <a id="_CPPv221int_mac_ps_callback_t"></a> <a id="int_mac_ps_callback_t"></a> <a id="int__types_8h_1a7dc91072bff9ec5d4610e065443715bc"></a> typedef void (\*int\_mac\_ps\_callback\_t)(uint32\_t status)
 
-### Enumerations[](#enumerations "永久链接至标题")
+<a id="enumerations"></a>
 
-enum icu_int_src_t[](#_CPPv413icu_int_src_t "永久链接至目标")
+### Enumerations
+
+<a id="_CPPv413icu_int_src_t"></a>
+
+<a id="_CPPv313icu_int_src_t"></a> <a id="_CPPv213icu_int_src_t"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8b"></a> enum icu\_int\_src\_t
 :   *Values:*
 
-    enumerator INT_SRC_UART0[](#_CPPv4N13icu_int_src_t13INT_SRC_UART0E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_UART0E"></a>
 
-    enumerator INT_SRC_UART1[](#_CPPv4N13icu_int_src_t13INT_SRC_UART1E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_UART0E"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_UART0E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baf818169e4a39b9c8c67502fe7e45f0df"></a> enumerator INT\_SRC\_UART0
 
-    enumerator INT_SRC_I2C0[](#_CPPv4N13icu_int_src_t12INT_SRC_I2C0E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_UART1E"></a>
 
-    enumerator INT_SRC_IRDA[](#_CPPv4N13icu_int_src_t12INT_SRC_IRDAE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_UART1E"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_UART1E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baed79fbb60003097867bafec78cc20e5f"></a> enumerator INT\_SRC\_UART1
 
-    enumerator INT_SRC_I2S[](#_CPPv4N13icu_int_src_t11INT_SRC_I2SE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_I2C0E"></a>
 
-    enumerator INT_SRC_I2C1[](#_CPPv4N13icu_int_src_t12INT_SRC_I2C1E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_I2C0E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_I2C0E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bacffc385e3df72516ef3389c6b14552d0"></a> enumerator INT\_SRC\_I2C0
 
-    enumerator INT_SRC_SPI[](#_CPPv4N13icu_int_src_t11INT_SRC_SPIE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_IRDAE"></a>
 
-    enumerator INT_SRC_GPIO[](#_CPPv4N13icu_int_src_t12INT_SRC_GPIOE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_IRDAE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_IRDAE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baa8973f07fa8d3ef2ca5bc2056cd3fc88"></a> enumerator INT\_SRC\_IRDA
 
-    enumerator INT_SRC_TIMER[](#_CPPv4N13icu_int_src_t13INT_SRC_TIMERE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_I2SE"></a>
 
-    enumerator INT_SRC_PWM[](#_CPPv4N13icu_int_src_t11INT_SRC_PWME "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_I2SE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_I2SE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba8ec4f9fd916cf39db10c0b058b39b87a"></a> enumerator INT\_SRC\_I2S
 
-    enumerator INT_SRC_AUDIO[](#_CPPv4N13icu_int_src_t13INT_SRC_AUDIOE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_I2C1E"></a>
 
-    enumerator INT_SRC_SARADC[](#_CPPv4N13icu_int_src_t14INT_SRC_SARADCE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_I2C1E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_I2C1E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baf7bfdbc161fb4724e080ae6dbed4f704"></a> enumerator INT\_SRC\_I2C1
 
-    enumerator INT_SRC_SDIO[](#_CPPv4N13icu_int_src_t12INT_SRC_SDIOE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_SPIE"></a>
 
-    enumerator INT_SRC_USB[](#_CPPv4N13icu_int_src_t11INT_SRC_USBE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_SPIE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_SPIE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba628fa04e6d232b6af770f4fcbf349a64"></a> enumerator INT\_SRC\_SPI
 
-    enumerator INT_SRC_FFT[](#_CPPv4N13icu_int_src_t11INT_SRC_FFTE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_GPIOE"></a>
 
-    enumerator INT_SRC_GDMA[](#_CPPv4N13icu_int_src_t12INT_SRC_GDMAE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_GPIOE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_GPIOE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bab3d57806551a3ea6166b73e0723ae975"></a> enumerator INT\_SRC\_GPIO
 
-    enumerator INT_SRC_MODEM[](#_CPPv4N13icu_int_src_t13INT_SRC_MODEME "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_TIMERE"></a>
 
-    enumerator INT_SRC_MAC_TXRX_TIMER[](#_CPPv4N13icu_int_src_t22INT_SRC_MAC_TXRX_TIMERE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_TIMERE"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_TIMERE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba38a6ee2e7cdc1c5c7b8b7a689be1a9c7"></a> enumerator INT\_SRC\_TIMER
 
-    enumerator INT_SRC_MAC_TXRX_MISC[](#_CPPv4N13icu_int_src_t21INT_SRC_MAC_TXRX_MISCE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_PWME"></a>
 
-    enumerator INT_SRC_MAC_RX_TRIGGER[](#_CPPv4N13icu_int_src_t22INT_SRC_MAC_RX_TRIGGERE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_PWME"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_PWME"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baef9c0d432a51ddf660b64c0c9243ced9"></a> enumerator INT\_SRC\_PWM
 
-    enumerator INT_SRC_MAC_TX_TRIGGER[](#_CPPv4N13icu_int_src_t22INT_SRC_MAC_TX_TRIGGERE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_AUDIOE"></a>
 
-    enumerator INT_SRC_MAC_PROT_TRIGGER[](#_CPPv4N13icu_int_src_t24INT_SRC_MAC_PROT_TRIGGERE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_AUDIOE"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_AUDIOE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba989d36a574864c2e055cc89e613b7625"></a> enumerator INT\_SRC\_AUDIO
 
-    enumerator INT_SRC_MAC_GENERAL[](#_CPPv4N13icu_int_src_t19INT_SRC_MAC_GENERALE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t14INT_SRC_SARADCE"></a>
 
-    enumerator INT_SRC_SDIO_DMA[](#_CPPv4N13icu_int_src_t16INT_SRC_SDIO_DMAE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t14INT_SRC_SARADCE"></a> <a id="_CPPv2N13icu_int_src_t14INT_SRC_SARADCE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bac2daa4ead630b1cde62032f1db088618"></a> enumerator INT\_SRC\_SARADC
 
-    enumerator INT_SRC_USB_PLUG_INOUT[](#_CPPv4N13icu_int_src_t22INT_SRC_USB_PLUG_INOUTE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_SDIOE"></a>
 
-    enumerator INT_SRC_SECURITY[](#_CPPv4N13icu_int_src_t16INT_SRC_SECURITYE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_SDIOE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_SDIOE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba926832b728e894fa494143fb3966732d"></a> enumerator INT\_SRC\_SDIO
 
-    enumerator INT_SRC_MAC_WAKEUP[](#_CPPv4N13icu_int_src_t18INT_SRC_MAC_WAKEUPE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_USBE"></a>
 
-    enumerator INT_SRC_HSSPI_SLAVE[](#_CPPv4N13icu_int_src_t19INT_SRC_HSSPI_SLAVEE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_USBE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_USBE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba483a24b60244b993c12624ac16012f2f"></a> enumerator INT\_SRC\_USB
 
-    enumerator INT_SRC_PLL_UNLOCK[](#_CPPv4N13icu_int_src_t18INT_SRC_PLL_UNLOCKE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_FFTE"></a>
 
-    enumerator INT_SRC_JPEG[](#_CPPv4N13icu_int_src_t12INT_SRC_JPEGE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_FFTE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_FFTE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba6a486a4a1bad84a45a606eab52d60943"></a> enumerator INT\_SRC\_FFT
 
-    enumerator INT_SRC_BLE[](#_CPPv4N13icu_int_src_t11INT_SRC_BLEE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_GDMAE"></a>
 
-    enumerator INT_SRC_PSRAM[](#_CPPv4N13icu_int_src_t13INT_SRC_PSRAME "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_GDMAE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_GDMAE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baa49a9542596419132dfe90d615537e9d"></a> enumerator INT\_SRC\_GDMA
 
-    enumerator INT_SRC_LA[](#_CPPv4N13icu_int_src_t10INT_SRC_LAE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_MODEME"></a>
 
-    enumerator INT_SRC_BTDM[](#_CPPv4N13icu_int_src_t12INT_SRC_BTDME "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_MODEME"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_MODEME"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bac9ff348d0c1a0f58552091d54d9747f0"></a> enumerator INT\_SRC\_MODEM
 
-    enumerator INT_SRC_BT[](#_CPPv4N13icu_int_src_t10INT_SRC_BTE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t22INT_SRC_MAC_TXRX_TIMERE"></a>
 
-    enumerator INT_SRC_UART2[](#_CPPv4N13icu_int_src_t13INT_SRC_UART2E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t22INT_SRC_MAC_TXRX_TIMERE"></a> <a id="_CPPv2N13icu_int_src_t22INT_SRC_MAC_TXRX_TIMERE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8badf69b8169b8458b0495c4e469ad75379"></a> enumerator INT\_SRC\_MAC\_TXRX\_TIMER
 
-    enumerator INT_SRC_I2C2[](#_CPPv4N13icu_int_src_t12INT_SRC_I2C2E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t21INT_SRC_MAC_TXRX_MISCE"></a>
 
-    enumerator INT_SRC_SPI2[](#_CPPv4N13icu_int_src_t12INT_SRC_SPI2E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t21INT_SRC_MAC_TXRX_MISCE"></a> <a id="_CPPv2N13icu_int_src_t21INT_SRC_MAC_TXRX_MISCE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bac320fda4a1a7862d68be0a6a1b62cf68"></a> enumerator INT\_SRC\_MAC\_TXRX\_MISC
 
-    enumerator INT_SRC_SPI3[](#_CPPv4N13icu_int_src_t12INT_SRC_SPI3E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t22INT_SRC_MAC_RX_TRIGGERE"></a>
 
-    enumerator INT_SRC_PWM2[](#_CPPv4N13icu_int_src_t12INT_SRC_PWM2E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t22INT_SRC_MAC_RX_TRIGGERE"></a> <a id="_CPPv2N13icu_int_src_t22INT_SRC_MAC_RX_TRIGGERE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baf42644a7696b0db1c67a74a810159876"></a> enumerator INT\_SRC\_MAC\_RX\_TRIGGER
 
-    enumerator INT_SRC_USB2[](#_CPPv4N13icu_int_src_t12INT_SRC_USB2E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t22INT_SRC_MAC_TX_TRIGGERE"></a>
 
-    enumerator INT_SRC_MAILBOX0[](#_CPPv4N13icu_int_src_t16INT_SRC_MAILBOX0E "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t22INT_SRC_MAC_TX_TRIGGERE"></a> <a id="_CPPv2N13icu_int_src_t22INT_SRC_MAC_TX_TRIGGERE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba96d038c52039189fda0104a2836e2f99"></a> enumerator INT\_SRC\_MAC\_TX\_TRIGGER
 
-    enumerator INT_SRC_MAILBOX1[](#_CPPv4N13icu_int_src_t16INT_SRC_MAILBOX1E "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t24INT_SRC_MAC_PROT_TRIGGERE"></a>
 
-    enumerator INT_SRC_BT_WDT[](#_CPPv4N13icu_int_src_t14INT_SRC_BT_WDTE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t24INT_SRC_MAC_PROT_TRIGGERE"></a> <a id="_CPPv2N13icu_int_src_t24INT_SRC_MAC_PROT_TRIGGERE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bad6ca1d3ecb6db1fa2f0b4f8ac0f8f3d0"></a> enumerator INT\_SRC\_MAC\_PROT\_TRIGGER
 
-    enumerator INT_SRC_DSP_WDT[](#_CPPv4N13icu_int_src_t15INT_SRC_DSP_WDTE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t19INT_SRC_MAC_GENERALE"></a>
 
-    enumerator INT_SRC_RTC[](#_CPPv4N13icu_int_src_t11INT_SRC_RTCE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t19INT_SRC_MAC_GENERALE"></a> <a id="_CPPv2N13icu_int_src_t19INT_SRC_MAC_GENERALE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bad551c34be50e57f72dcb74a5805ca270"></a> enumerator INT\_SRC\_MAC\_GENERAL
 
-    enumerator INT_SRC_TOUCH[](#_CPPv4N13icu_int_src_t13INT_SRC_TOUCHE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t16INT_SRC_SDIO_DMAE"></a>
 
-    enumerator INT_SRC_CEC[](#_CPPv4N13icu_int_src_t11INT_SRC_CECE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t16INT_SRC_SDIO_DMAE"></a> <a id="_CPPv2N13icu_int_src_t16INT_SRC_SDIO_DMAE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bad2580a924f6cb8dec005e214953a8044"></a> enumerator INT\_SRC\_SDIO\_DMA
 
-    enumerator INT_SRC_MODEM_RC[](#_CPPv4N13icu_int_src_t16INT_SRC_MODEM_RCE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t22INT_SRC_USB_PLUG_INOUTE"></a>
 
-    enumerator INT_SRC_MAC_HSU[](#_CPPv4N13icu_int_src_t15INT_SRC_MAC_HSUE "永久链接至目标")
+    <a id="_CPPv3N13icu_int_src_t22INT_SRC_USB_PLUG_INOUTE"></a> <a id="_CPPv2N13icu_int_src_t22INT_SRC_USB_PLUG_INOUTE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba8470fe35387a3ca9744d2f9bb86139c2"></a> enumerator INT\_SRC\_USB\_PLUG\_INOUT
 
-    enumerator INT_SRC_NONE[](#_CPPv4N13icu_int_src_t12INT_SRC_NONEE "永久链接至目标")
+    <a id="_CPPv4N13icu_int_src_t16INT_SRC_SECURITYE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t16INT_SRC_SECURITYE"></a> <a id="_CPPv2N13icu_int_src_t16INT_SRC_SECURITYE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bab925d493b608c35489a7ed71adfd6194"></a> enumerator INT\_SRC\_SECURITY
+
+    <a id="_CPPv4N13icu_int_src_t18INT_SRC_MAC_WAKEUPE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t18INT_SRC_MAC_WAKEUPE"></a> <a id="_CPPv2N13icu_int_src_t18INT_SRC_MAC_WAKEUPE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba5881228a1fa1c7bd7b5f89322f8e24e8"></a> enumerator INT\_SRC\_MAC\_WAKEUP
+
+    <a id="_CPPv4N13icu_int_src_t19INT_SRC_HSSPI_SLAVEE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t19INT_SRC_HSSPI_SLAVEE"></a> <a id="_CPPv2N13icu_int_src_t19INT_SRC_HSSPI_SLAVEE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba9251e58778ff2360fe9ffd1691e07178"></a> enumerator INT\_SRC\_HSSPI\_SLAVE
+
+    <a id="_CPPv4N13icu_int_src_t18INT_SRC_PLL_UNLOCKE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t18INT_SRC_PLL_UNLOCKE"></a> <a id="_CPPv2N13icu_int_src_t18INT_SRC_PLL_UNLOCKE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8badd2dcb87a32ae0da0b1295cd2c817710"></a> enumerator INT\_SRC\_PLL\_UNLOCK
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_JPEGE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_JPEGE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_JPEGE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba5f35fca8a76f6b61de7a6d1bc5430c93"></a> enumerator INT\_SRC\_JPEG
+
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_BLEE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_BLEE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_BLEE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba170d7dccdc49506df11150506a1b29db"></a> enumerator INT\_SRC\_BLE
+
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_PSRAME"></a>
+
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_PSRAME"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_PSRAME"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba069ff0c1a6d33bc34f58895190177ca4"></a> enumerator INT\_SRC\_PSRAM
+
+    <a id="_CPPv4N13icu_int_src_t10INT_SRC_LAE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t10INT_SRC_LAE"></a> <a id="_CPPv2N13icu_int_src_t10INT_SRC_LAE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba23cb031fc3c32a89f46c75b2b2f05c2e"></a> enumerator INT\_SRC\_LA
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_BTDME"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_BTDME"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_BTDME"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba0ef7ca7ecfe5adfc31bcd6270a262ec5"></a> enumerator INT\_SRC\_BTDM
+
+    <a id="_CPPv4N13icu_int_src_t10INT_SRC_BTE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t10INT_SRC_BTE"></a> <a id="_CPPv2N13icu_int_src_t10INT_SRC_BTE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bacf69c0a258698b411ce408ae9c51eb6c"></a> enumerator INT\_SRC\_BT
+
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_UART2E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_UART2E"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_UART2E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bad43f5da31fbdcf7f9f9397e058b6fbcf"></a> enumerator INT\_SRC\_UART2
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_I2C2E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_I2C2E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_I2C2E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bafa6c6841b875e804d66d27874a92d711"></a> enumerator INT\_SRC\_I2C2
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_SPI2E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_SPI2E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_SPI2E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba5e816cd12648c46509f8643b56ccbd6f"></a> enumerator INT\_SRC\_SPI2
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_SPI3E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_SPI3E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_SPI3E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba9121c4ec237c136fbcdb9531aec09bc5"></a> enumerator INT\_SRC\_SPI3
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_PWM2E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_PWM2E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_PWM2E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bac21b6a880a0e331e0749f93fedd08eaf"></a> enumerator INT\_SRC\_PWM2
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_USB2E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_USB2E"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_USB2E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba16271e46a4961848ee68d5507b9c62f9"></a> enumerator INT\_SRC\_USB2
+
+    <a id="_CPPv4N13icu_int_src_t16INT_SRC_MAILBOX0E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t16INT_SRC_MAILBOX0E"></a> <a id="_CPPv2N13icu_int_src_t16INT_SRC_MAILBOX0E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba6cac44bed2ade3d8f2ea8e58544b889b"></a> enumerator INT\_SRC\_MAILBOX0
+
+    <a id="_CPPv4N13icu_int_src_t16INT_SRC_MAILBOX1E"></a>
+
+    <a id="_CPPv3N13icu_int_src_t16INT_SRC_MAILBOX1E"></a> <a id="_CPPv2N13icu_int_src_t16INT_SRC_MAILBOX1E"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baf2f4e300092a3f4db568a08fcf9f28ca"></a> enumerator INT\_SRC\_MAILBOX1
+
+    <a id="_CPPv4N13icu_int_src_t14INT_SRC_BT_WDTE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t14INT_SRC_BT_WDTE"></a> <a id="_CPPv2N13icu_int_src_t14INT_SRC_BT_WDTE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8badcd1fb4a03a3d35c780f9ad4fbc71945"></a> enumerator INT\_SRC\_BT\_WDT
+
+    <a id="_CPPv4N13icu_int_src_t15INT_SRC_DSP_WDTE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t15INT_SRC_DSP_WDTE"></a> <a id="_CPPv2N13icu_int_src_t15INT_SRC_DSP_WDTE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bafd4fcd0253334dc67227d27803642909"></a> enumerator INT\_SRC\_DSP\_WDT
+
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_RTCE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_RTCE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_RTCE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba01dc958c68dff8b95be176923bacd130"></a> enumerator INT\_SRC\_RTC
+
+    <a id="_CPPv4N13icu_int_src_t13INT_SRC_TOUCHE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t13INT_SRC_TOUCHE"></a> <a id="_CPPv2N13icu_int_src_t13INT_SRC_TOUCHE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baef32ed221271315c7ed8c9f9410792a4"></a> enumerator INT\_SRC\_TOUCH
+
+    <a id="_CPPv4N13icu_int_src_t11INT_SRC_CECE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t11INT_SRC_CECE"></a> <a id="_CPPv2N13icu_int_src_t11INT_SRC_CECE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8bad7dea9323e0732c9975865e95b02e207"></a> enumerator INT\_SRC\_CEC
+
+    <a id="_CPPv4N13icu_int_src_t16INT_SRC_MODEM_RCE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t16INT_SRC_MODEM_RCE"></a> <a id="_CPPv2N13icu_int_src_t16INT_SRC_MODEM_RCE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba2eacf20832c04b6e7ab68defa82c3c8b"></a> enumerator INT\_SRC\_MODEM\_RC
+
+    <a id="_CPPv4N13icu_int_src_t15INT_SRC_MAC_HSUE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t15INT_SRC_MAC_HSUE"></a> <a id="_CPPv2N13icu_int_src_t15INT_SRC_MAC_HSUE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8baecd4b45e152c609cdbe1c74740774834"></a> enumerator INT\_SRC\_MAC\_HSU
+
+    <a id="_CPPv4N13icu_int_src_t12INT_SRC_NONEE"></a>
+
+    <a id="_CPPv3N13icu_int_src_t12INT_SRC_NONEE"></a> <a id="_CPPv2N13icu_int_src_t12INT_SRC_NONEE"></a> <a id="int__types_8h_1a260745bc02479944f2dd03630e14ce8ba23551ab375db75f1048d3b773e0ca62a"></a> enumerator INT\_SRC\_NONE

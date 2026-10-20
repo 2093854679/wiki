@@ -1,3 +1,10 @@
+---
+mirror_status: historical-unverified
+catalog_checked: '2026-10-21'
+---
+
+> 本文件未出现在本次官网默认文档目录中，按历史资料保留；当前资料请从 wiki 的 Beken 官方文档分类进入。
+
 # WiFi provisioning over BLE[](#wifi-provisioning-over-ble "永久链接至标题")
 
 [[中文]](../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.md "../../../../../zh_CN/v2.0.1/projects/bluetooth/provisioning/provisioning.md")

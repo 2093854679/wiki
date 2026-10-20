@@ -1,0 +1,428 @@
+{
+  "wiki_counts": {
+    "index.md": 1,
+    "categories": 12,
+    "concepts": 20,
+    "summaries": 58
+  },
+  "frontmatter_counts": {
+    "concepts": 11
+  },
+  "index_chars": 5413,
+  "map_chars": 2234,
+  "largest_wiki": [
+    [
+      7045,
+      "categories/study-note.md"
+    ],
+    [
+      5413,
+      "index.md"
+    ],
+    [
+      4665,
+      "categories/bk-doc/bk7236.md"
+    ],
+    [
+      3525,
+      "categories/bk-doc/bk7235.md"
+    ],
+    [
+      2844,
+      "concepts/bk-armino-framework.md"
+    ],
+    [
+      2544,
+      "categories/bk-doc/bk7236n.md"
+    ],
+    [
+      2528,
+      "concepts/embedded-software-design-patterns.md"
+    ],
+    [
+      2432,
+      "categories/bk-avdk-smp.md"
+    ]
+  ],
+  "broken_markdown_links": [
+    {
+      "file": "concepts/bk-wifi-ble-coexistence.md",
+      "line": 52,
+      "target": "../../raw/beken/bk_idk/BK7236/developer-guide/power_save/bk_wifi_alive.md"
+    },
+    {
+      "file": "summaries/bk/bk-armino-overview.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/introduction/bk_overview.md"
+    },
+    {
+      "file": "summaries/bk/bk-bootloader-ota.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-low-power.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/power_save/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-security-framework.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/security/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-wifi-api-v2.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/wifi/bk_wifi.md"
+    },
+    {
+      "file": "summaries/embedded/c-naming-conventions.md",
+      "line": 3,
+      "target": "../../../raw/Study_Note/02-编程语言/C语言/02-C语言命名规范.md"
+    },
+    {
+      "file": "summaries/embedded/isr-delay-printf-issue.md",
+      "line": 3,
+      "target": "../../../raw/Study_Note/02-嵌入式开发/MCU基础/05-浅谈中断函数中调用延时函数与printf()的问题及解决方法.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 26,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 30,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/api_overview.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 31,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/wifi.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 31,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/wifi/bk_wifi.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 32,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/bluetooth.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 32,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/bluetooth/ble.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 32,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/bluetooth/bt.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 33,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/tcpip.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 33,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/tcpip/bk_netif.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 34,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/peripheral.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 35,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/system.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 35,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/system/os.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 35,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/system/bk_event.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 35,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/system/posix.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 36,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/pm.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 36,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/pm/bk_pm.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 40,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 44,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/architecture.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 45,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/build_config.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 46,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/config_tools.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 47,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/power_save.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 48,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/driver_model.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 49,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/peripheral.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 50,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/wifi.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 51,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/bluetooth.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 52,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 53,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/event.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 54,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/error_log.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 55,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/memory_perf.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 56,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/http.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 57,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/os_abstraction.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 58,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/cpu/index.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 62,
+      "target": "../../../raw/beken/bk_idk/BK7236/examples.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 70,
+      "target": "../../../raw/beken/bk_idk/BK7236/security.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 76,
+      "target": "../../../raw/beken/bk_idk/BK7236/projects.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 82,
+      "target": "../../../raw/beken/bk_idk/BK7236/os.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236.md",
+      "line": 88,
+      "target": "../../../raw/beken/bk_idk/BK7236/get-started.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7236n.md",
+      "line": 54,
+      "target": "../../../raw/beken/bk_idk/BK7236N/developer-guide/peripheral/bk_usb.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7258.md",
+      "line": 24,
+      "target": "../../../raw/beken/bk_idk/BK7258/api-reference/wifi.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7258.md",
+      "line": 24,
+      "target": "../../../raw/beken/bk_idk/BK7258/api-reference/wifi/bk_wifi.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7258.md",
+      "line": 26,
+      "target": "../../../raw/beken/bk_idk/BK7258/api-reference/tcpip.md"
+    },
+    {
+      "file": "categories/bk-doc/bk7258.md",
+      "line": 26,
+      "target": "../../../raw/beken/bk_idk/BK7258/api-reference/tcpip/bk_netif.md"
+    }
+  ],
+  "broken_source_links": [
+    {
+      "file": "summaries/bk/bk-armino-overview.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/introduction/bk_overview.md"
+    },
+    {
+      "file": "summaries/bk/bk-bootloader-ota.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-low-power.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/developer-guide/power_save/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-security-framework.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/security/index.md"
+    },
+    {
+      "file": "summaries/bk/bk-wifi-api-v2.md",
+      "line": 5,
+      "target": "../../../raw/beken/bk_idk/BK7236/api-reference/wifi/bk_wifi.md"
+    },
+    {
+      "file": "summaries/embedded/c-naming-conventions.md",
+      "line": 3,
+      "target": "../../../raw/Study_Note/02-编程语言/C语言/02-C语言命名规范.md"
+    },
+    {
+      "file": "summaries/embedded/isr-delay-printf-issue.md",
+      "line": 3,
+      "target": "../../../raw/Study_Note/02-嵌入式开发/MCU基础/05-浅谈中断函数中调用延时函数与printf()的问题及解决方法.md"
+    }
+  ],
+  "broken_by_area": {
+    "categories": 42,
+    "summaries": 7,
+    "concepts": 1
+  },
+  "raw_files": 5465,
+  "raw_markdown": 1834,
+  "new_files": 1986,
+  "new_markdown": 689,
+  "stale_manifest": 359,
+  "duplicate_md_groups": 210,
+  "redundant_exact_copies": 286,
+  "duplicate_samples": [
+    [
+      "Study_Note/06-职业发展/面试记录/珠海泰芯面试.md",
+      "Study_Note/06-职业发展/面试记录/邦普面试.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/api-reference/api_overview.md",
+      "beken/bk_idk/BK7256/api-reference/api_overview.md",
+      "beken/bk_idk/BK7236N/api-reference/api_overview.md",
+      "beken/bk_idk/BK7235/api-reference/api_overview.md",
+      "beken/bk_avdk/api-reference/api_overview.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/introduction/bk_community.md",
+      "beken/bk_idk/BK7239/introduction/bk_community.md",
+      "beken/bk_idk/BK7236N/introduction/bk_community.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/process/bk_code_style.md",
+      "beken/bk_idk/BK7256/process/bk_code_style.md",
+      "beken/bk_idk/BK7239/process/bk_code_style.md",
+      "beken/bk_idk/BK7236N/process/bk_code_style.md",
+      "beken/bk_idk/BK7235/process/bk_code_style.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/examples/cli/saradc.md",
+      "beken/bk_idk/BK7256/examples/cli/saradc.md",
+      "beken/bk_idk/BK7236N/examples/cli/saradc.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/examples/cli/bluetooth/bt.md",
+      "beken/bk_idk/BK7236N/examples/cli/bluetooth/bt.md"
+    ]
+  ],
+  "search_index_rows": [
+    [
+      "raw",
+      1834
+    ],
+    [
+      "wiki",
+      78
+    ]
+  ],
+  "search_index_missing": [],
+  "broken_BK7236_links": 43,
+  "new_markdown_by_family": {
+    "bk_avdk": 104,
+    "bk_avdk_smp": 585
+  },
+  "duplicate_examples": [
+    [
+      "Study_Note/06-职业发展/面试记录/珠海泰芯面试.md",
+      "Study_Note/06-职业发展/面试记录/邦普面试.md"
+    ],
+    [
+      "beken/bk_idk/BK7258/api-reference/api_overview.md",
+      "beken/bk_idk/BK7256/api-reference/api_overview.md",
+      "beken/bk_idk/BK7236N/api-reference/api_overview.md",
+      "beken/bk_idk/BK7235/api-reference/api_overview.md",
+      "beken/bk_avdk/api-reference/api_overview.md"
+    ]
+  ],
+  "duplicate_core_concept_chars": 1342,
+  "scan_timestamp": "2026-10-21",
+  "new_by_type": {
+    "image": 424,
+    "markdown": 689,
+    "unknown": 873
+  },
+  "search_trial_BK7236_UART": {
+    "top_path": "raw/beken/bk_idk/BK7258/projects/examples/peripherals/uart.md",
+    "query": "BK7236 UART"
+  },
+  "SMP_UART_metadata": {
+    "chip": "",
+    "module": "bk_avdk_smp",
+    "processor_field_present": false
+  },
+  "scope": "Local filesystem link, manifest, navigation and search audit; sampled article content. No full technical correctness audit."
+}

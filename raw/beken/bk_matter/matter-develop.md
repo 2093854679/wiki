@@ -1,21 +1,32 @@
-# 从零开发Matter 新的设备类型产品[](#matter "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/matter-develop/index.html
+sdk_family: bk_matter
+chip: BK7235,BK7236,BK7256,BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
-[[English]](../../../en/v2.0.1/matter-develop/index.html "../../../en/v2.0.1/matter-develop/index.html")
+<a id="matter"></a>
 
-这一小节通过在bk_matter基础上，新建一个 **On/Off Plug** 的Matter应用，用于详细说明bk_matter创建Matter新设备类型的过程。
+# 从零开发Matter 新的设备类型产品
 
+这一小节通过在bk\_matter基础上，新建一个 **On/Off Plug** 的Matter应用，用于详细说明bk\_matter创建Matter新设备类型的过程。
 
-## zap文件配置[](#zap "永久链接至标题")
+<a id="zap"></a>
 
-zap文件是Matter的一个配置文件，可以通过参照 [matter协议](https://csa-iot.org/developer-resource/specifications-download-request/ "https://csa-iot.org/developer-resource/specifications-download-request/") `Device Library Specification` 对要实现的设备类型进行配置，关于zap工具的使用可以参考 [Matter 配置工具 ZAP](../matter-tools/zap/index.html "../matter-tools/zap/index.html") 。
+## zap文件配置
 
-关于Matter的一些基本概念的介绍可以参考 [Matter 简介](../matter-basic/index.html "../matter-basic/index.html") 。
+zap文件是Matter的一个配置文件，可以通过参照 [matter协议](https://csa-iot.org/developer-resource/specifications-download-request/) `Device Library Specification` 对要实现的设备类型进行配置，关于zap工具的使用可以参考 [Matter 配置工具 ZAP](matter-tools/zap.md) 。
+
+关于Matter的一些基本概念的介绍可以参考 [Matter 简介](matter-basic.md) 。
 
 zap工具会根据Matter的开发有多个版本，因此在目录 `components/matter/connectedhomeip/zap` 中包含了两个可执行文件：
 
-
 - zap: 用于对zap文件进行可视化的编辑。修改配置zap文件时需要用到这个工具。
-
 - zap-cli: 用于解析zap文件，在编译过程中会用到。
 
 On/Off Plug设备将会包括两个endpoint。
@@ -24,7 +35,10 @@ endpoint 0 设备类型为 0x0016(Matter Root Node)，包含了Matter所有基�
 
 endpoint 1 设备类型为 0x010A(On/Off Plug-in Unit)，对于具体cluster的配置，需要参考 `Device Library Specification` 文档。
 
-On/Off Plug-in Unit Cluster Requirements[](#id5 "永久链接至表格")
+<a id="id5"></a>
+
+On/Off Plug-in Unit Cluster Requirements
+
 
 | ID | Cluster | Client/Server | Quality | Conformance |
 | --- | --- | --- | --- | --- |
@@ -36,30 +50,26 @@ On/Off Plug-in Unit Cluster Requirements[](#id5 "永久链接至表格")
 
 将文件保存为 `on-off-plug.zap` ，在下一小节中将会用到。
 
+<a id="gn"></a>
 
-## 创建gn项目[](#gn "永久链接至标题")
+## 创建gn项目
 
 1. 首先创建一个文件夹 `components/matter/connectedhomeip/examples/on-off-plug/beken` ，用于存放新设备的代码和配置。
 
-
 ```
 mkdir -p components/matter/connectedhomeip/examples/on-off-plug/beken
-
 ```
 
 2. 创建一些软链接，引入需要的一些依赖。
-
 
 ```
 cd components/matter/connectedhomeip/examples/on-off-plug/beken
 mkdir third_party
 ln -s ../../build_overrides build_overrides
 ln -s ../../../.. connectedhomeip
-
 ```
 
 3. 创建文件 `.gn` ，gn项目的配置文件
-
 
 ```
  1# Copyright (c) 2022 Project CHIP Authors
@@ -91,11 +101,9 @@ ln -s ../../../.. connectedhomeip
 27
 28  import("//args.gni")
 29}
-
 ```
 
 4. 创建文件 `args.gn` 对项目进行一些默认配置。
-
 
 ```
  1# Copyright (c) 2022 Project CHIP Authors
@@ -144,13 +152,11 @@ ln -s ../../../.. connectedhomeip
 44chip_use_transitional_commissionable_data_provider = false
 45
 46custom_toolchain = "${chip_root}/config/beken/toolchain:beken"
-
 ```
 
 其中第20行通过 `chip_device_platform = "beken"` 制定了Matter的编译平台，编译时将会使用 `src/platform/beken` 下的源码。
 
 5. 创建 `BUILD.gn` 用于设置项目源码等。
-
 
 ```
  1# Copyright (c) 2020 Project CHIP Authors
@@ -228,7 +234,6 @@ ln -s ../../../.. connectedhomeip
 73config("config") {
 74  include_dirs = [ "include" ]
 75}
-
 ```
 
 第40-49行主要包括了此Matter device的应用层代码。
@@ -237,23 +242,23 @@ ln -s ../../../.. connectedhomeip
 因此需要将上一小节中创建的zap文件 `on-off-plug.zap` ，复制到改改目录下。
 另外，需要目录 `components/matter/connectedhomeip` 中执行
 
-
 ```
 ./scripts/tools/zap/generate.py examples/on-off-plug/beken/on-off-plug.zap
-
 ```
 
 这将会生成 `on-off-plug.matter` 文件。
 
-编译过程中将会根据这个两个文件选择需要的cluster加入源码，并生成一些代码。关于这部分的原理，可以参考Matter 的文档 [code_generation](https://project-chip.github.io/connectedhomeip-doc/code_generation.html "https://project-chip.github.io/connectedhomeip-doc/code_generation.html") 。
+编译过程中将会根据这个两个文件选择需要的cluster加入源码，并生成一些代码。关于这部分的原理，可以参考Matter 的文档 [code\_generation](https://project-chip.github.io/connectedhomeip-doc/code_generation.html) 。
 
+<a id="id3"></a>
 
-## 实现相关代码[](#id3 "永久链接至标题")
+## 实现相关代码
 
 1. 实现plug设备的基本操作，主要实现对插座设备的初始化开关等操作
 
-Plug.cpp[](#id6 "永久链接至代码")
+<a id="id6"></a>
 
+Plug.cpp
 
 ```
  1#define KEY_GPIO        GPIO_24
@@ -303,13 +308,13 @@ Plug.cpp[](#id6 "永久链接至代码")
 45    {
 46        return;
 47    }
-
 ```
 
 2. 实现Matter的回调，Matter协议接收到控制端相关属性的更改后，会调用对应的回调
 
-DeviceCallbacks.cpp[](#id7 "永久链接至代码")
+<a id="id7"></a>
 
+DeviceCallbacks.cpp
 
 ```
  1void AppDeviceCallbacks::PostAttributeChangeCallback(EndpointId endpointId, ClusterId clusterId, AttributeId attributeId,
@@ -336,13 +341,13 @@ DeviceCallbacks.cpp[](#id7 "永久链接至代码")
 22exit:
 23    return;
 24}
-
 ```
 
 3. 启动Matter进程，初始化并启动Matter CHIP进程
 
-chipinterface.cpp[](#id8 "永久链接至代码")
+<a id="id8"></a>
 
+chipinterface.cpp
 
 ```
  1static AppDeviceCallbacks EchoCallbacks;
@@ -351,9 +356,9 @@ chipinterface.cpp[](#id8 "永久链接至代码")
  4    chip::BekenAppServer::Init();
  5    gExampleDeviceInfoProvider.SetStorageDelegate(&Server::GetInstance().GetPersistentStorage());
  6    chip::DeviceLayer::SetDeviceInfoProvider(&gExampleDeviceInfoProvider);
- 7#if CHIP_DEVICE_CONFIG_ENABLE_OTA_REQUESTOR
+ 7#if CHIP_DEVICE_CONFIG_ENABLE_OTA_REQUESTOR    
  8    OTAHelpers::Instance().InitOTARequestor();
- 9#endif
+ 9#endif    
 10    PlugMgr().StartUpInit();
 11}
 12
@@ -372,18 +377,16 @@ chipinterface.cpp[](#id8 "永久链接至代码")
 25        ChipLogProgress(DeviceLayer, "DeviceManagerInit() - OK\r\n");
 26        vTaskDelay(pdMS_TO_TICKS(50)); // Just server the application event handler
 27    ChipLogProgress(SoftwareUpdate, "Exited");
-
 ```
 
+<a id="id4"></a>
 
-## 编译[](#id4 "永久链接至标题")
+## 编译
 
 修改对应的配置文件 `projects/matter/config/bk7258/config` 中的配置 `CONFIG_MATTER_EXAMPLE="on-off-plug"`
 
 即可编译新建的Matter 应用
 
-
 ```
 make bk7258 PROJECT=matter
-
 ```

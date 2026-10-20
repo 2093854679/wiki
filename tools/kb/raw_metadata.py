@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import yaml
+
 
 CHIP_RE = re.compile(r"BK\d{4}[A-Z]?", re.IGNORECASE)
 
@@ -46,7 +48,25 @@ def infer_raw_metadata(raw_root: Path, file_path: Path) -> dict:
     rel = file_path.relative_to(raw_root).as_posix()
     parts = [p for p in rel.split("/") if p]
     root = parts[0] if parts else "Other"
-    chip = _chip_from_path(file_path)
+    meta = {}
+    heading = ""
+    if file_path.suffix.lower() == ".md":
+        try:
+            with file_path.open(encoding="utf-8-sig") as handle:
+                text = handle.read(65536)
+            if text.startswith("---\n"):
+                end = text.find("\n---\n", 4)
+                if 0 < end < 8192:
+                    value = yaml.safe_load(text[4:end])
+                    if isinstance(value, dict):
+                        meta = value
+                    text = text[end + 5:]
+            match = re.search(r"^# (.+)$", text, re.M)
+            if match:
+                heading = match.group(1).strip()
+        except (OSError, UnicodeError, yaml.YAMLError):
+            pass
+    chip = str(meta.get("chip") or _chip_from_path(file_path))
 
     if not chip:
         for part in parts:
@@ -54,8 +74,8 @@ def infer_raw_metadata(raw_root: Path, file_path: Path) -> dict:
                 chip = part.upper()
                 break
 
-    module = ""
-    if chip and chip in parts:
+    module = str(meta.get("module") or "")
+    if not module and chip and chip in parts:
         idx = parts.index(chip)
         tail = parts[idx + 1 :]
         if tail:
@@ -67,14 +87,19 @@ def infer_raw_metadata(raw_root: Path, file_path: Path) -> dict:
                 else:
                     module = tail[0]
 
+    for section in ("api-reference", "developer-guide", "examples", "projects", "get-started", "security", "os"):
+        if not meta.get("module") and section in parts:
+            tail = parts[parts.index(section) + 1:]
+            module = tail[0] if len(tail) > 1 else section
+            break
     if not module and len(parts) > 1:
-        module = parts[1]
+        module = parts[-2] if len(parts) > 2 else parts[1]
 
     doc_type = _doc_type_from_path(file_path)
-    title = file_path.stem.replace("-", " ").replace("_", " ").strip().title()
+    title = heading or file_path.stem.replace("-", " ").replace("_", " ").strip().title()
     if doc_type == "api" and "api" not in title.lower():
         title = f"{title} API"
-    aliases = {title}
+    aliases = {title, file_path.stem, file_path.stem.replace("_", " ")}
     if chip:
         aliases.update({chip, chip.lower()})
     if module:
@@ -100,10 +125,20 @@ def infer_raw_metadata(raw_root: Path, file_path: Path) -> dict:
     }
     keywords = {k for k in keywords if k}
 
+    processor = str(meta.get("processor") or ("AP" if "ap_doc" in parts else "CP" if "cp_doc" in parts else ""))
+    sdk_family = str(meta.get("sdk_family") or (parts[1] if root == "beken" and len(parts) > 1 else ""))
     return {
         "path": rel,
         "root": root,
         "chip": chip,
+        "chips": sorted(set(CHIP_RE.findall(chip.upper()))),
+        "sdk_family": sdk_family,
+        "sdk_version": str(meta.get("sdk_version") or ""),
+        "processor": processor,
+        "language": str(meta.get("language") or ""),
+        "source_url": str(meta.get("source_url") or ""),
+        "fetched_at": str(meta.get("fetched_at") or ""),
+        "mirror_status": str(meta.get("mirror_status") or ""),
         "module": module,
         "doc_type": doc_type,
         "title": title,

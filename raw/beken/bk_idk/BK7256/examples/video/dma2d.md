@@ -1,32 +1,47 @@
-# DMA2D[](#dma2d "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/video/dma2d.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="dma2d"></a>
 
+# DMA2D
 
-## 1、功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、功能概述
 
 > 本文档主要介绍了DMA2D的API使用，例程主要基于DOORBEEL工程以及lcd 808 demo.
 
+<a id="id2"></a>
 
-## 2、代码路径[](#id2 "永久链接至标题")
+## 2、代码路径
 
 > - DOORBEEL 主要涉及dma2d 融合和memory copy功能，参考代码: `/components/media/lcd/lcd_act.c` 和 `/middleware/driver/lcd/lcd_driver.c`
-> - lcd_8080_demo.c 主要涉及dma2d的填充，具体的示例代码详见: `\components\demos\media\lcd\lcd_8080`
+> - lcd\_8080\_demo.c 主要涉及dma2d的填充，具体的示例代码详见: `\components\demos\media\lcd\lcd_8080`
 > - dma2d的驱动接口介绍参考: `/api-reference/multi_media/bk_dma2d.html`
 
 demo运行依赖的宏配置:
 
 | Name | Description | File | value |
 | --- | --- | --- | --- |
-| CONFIG_DMA2D | 使能DMA2D功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
+| CONFIG\_DMA2D | 使能DMA2D功能 | `\middleware\soc\bk7256\bk7256.defconfig` | y |
 
+<a id="id3"></a>
 
-## 3、DMA2D内存拷贝[](#id3 "永久链接至标题")
+## 3、DMA2D内存拷贝
 
 > - DMA2D的内存拷贝即不执行像素转换，只执行内存拷贝的功能，用于图像的快速填充。
-> - 当只有拷贝功能的时候，输入颜色和输出颜色应选择一致，当支持像素转换的时候，二者可以不一样，支持的颜色模式在dma2d_types.h中定义。在融合以及像素转换的过程中用到的input_color_mode 和 out_color_mode_t 也是使用的这两个结构体作为参数。
+> - 当只有拷贝功能的时候，输入颜色和输出颜色应选择一致，当支持像素转换的时候，二者可以不一样，支持的颜色模式在dma2d\_types.h中定义。在融合以及像素转换的过程中用到的input\_color\_mode 和 out\_color\_mode\_t 也是使用的这两个结构体作为参数。
 
 DMA2D的输入颜色模式可以选择：
-
 
 ```
 /** DMA2D_Input_Color_Mode*/
@@ -43,11 +58,9 @@ typedef enum {
         DMA2D_INPUT_A8,
         DMA2D_INPUT_A4,
 } input_color_mode_t;
-
 ```
 
 输出颜色模式可以选择：
-
 
 ```
 /** DMA2D_Output_Color_Mode */
@@ -58,13 +71,11 @@ typedef enum {
         DMA2D_OUTPUT_ARGB1555,     /**< ARGB1555 DMA2D color mode */
         DMA2D_OUTPUT_ARGB4444,     /**< ARGB4444 DMA2D color mode */
 } out_color_mode_t;
-
 ```
 
 对于内存访问需要按word对齐的mem(比如psram), DMA2D的内存拷贝需要使用的数据格式为ARGB8888。
 
 dma2d memcpy例程如下
-
 
 ```
 void dma2d_memcpy_psram(void *Psrc, void *Pdst, uint32_t xsize, uint32_t ysize, uint32_t src_offline, uint32_t dest_offline)
@@ -90,39 +101,38 @@ void dma2d_memcpy_psram(void *Psrc, void *Pdst, uint32_t xsize, uint32_t ysize, 
         bk_dma2d_start_transfer(&dma2d_config, (uint32_t)Psrc, (uint32_t)Pdst, xsize/2, ysize);
         while (bk_dma2d_is_transfer_busy()) {}
 }
-
 ```
 
 参数配置示意图如下
 
-> 1) Psrc: 要拷贝的源数据的地址，拷贝数据的起始地址，可以是帧起始地址，也可以是一个偏移地址。
+> 1\) Psrc: 要拷贝的源数据的地址，拷贝数据的起始地址，可以是帧起始地址，也可以是一个偏移地址。
 > 如果是偏移地址需要设置行偏移。
 >
 > 2. Pdst: 拷贝到目标数据的地址，可以是数据的起始地址，也可以是一个偏移地址。
 > 3. xsize:拷贝的小图片的宽(xpixel)
 > 4. ysize:拷贝的小图片的高(ypixel)
-> 5. src_offline:如果Psrc是一个偏移地址，src_offline即决定了偏移量，以像素为单位。
-> 6. dest_offline:如果Pdst是一个偏移地址，dest_offline即决定了偏移量，以像素为单位。
+> 5. src\_offline:如果Psrc是一个偏移地址，src\_offline即决定了偏移量，以像素为单位。
+> 6. dest\_offline:如果Pdst是一个偏移地址，dest\_offline即决定了偏移量，以像素为单位。
 
-![../../_images/dma2d_config.png](../../_images/dma2d_config.png)
+<a id="id7"></a>
+![../../_images/dma2d_config.png](../../../../_assets/9c86366ffaf4e5deef84-dma2d_config.png)
 
-Figure 2. dma2d memcpy config[](#id7 "永久链接至图片")
+
+Figure 2\. dma2d memcpy config
 
 接口实现内其他参数解释：
 
-
 ```
 DMA2D_RB_REGULAR : 配置输入数据的红色和蓝色是否转换。
-
 ```
 
+<a id="id4"></a>
 
-## 3、DMA2D融合[](#id4 "永久链接至标题")
+## 3、DMA2D融合
 
 > DMA2D的图片融合是硬件实现，通过配置前景,背景以及输出的的图片格式,透明度,数据地址偏移实现图片的融合。
 >
 > dma2d 融合例程：
-
 
 ```
 dma2d_blend_t dma2d_config;
@@ -149,11 +159,9 @@ dma2d_config.ysize = lcd_blend->ysize;
 dma2d_config.fg_alpha_value = lcd_blend->fg_alpha_value;
 dma2d_config.bg_alpha_value = lcd_blend->bg_alpha_value;
 bk_dma2d_blend(&dma2d_config);
-
 ```
 
 配置参数详解：
-
 
 ```
 typedef struct
@@ -173,31 +181,28 @@ typedef struct
  uint8_t bg_alpha_value; //配置背景的透明度
  uint8_t red_bule_swap;  //配置前景图片输入是否红蓝反转，可选择DMA2D_RB_SWAP 或 DMA2D_RB_REGULAR
 }dma2d_blend_t;
-
 ```
 
 其中：
 
-fg_alpha_value 和 bg_alpha_value为不透明度，0为完全透明， 0xff为完全不透明。
-fg_alpha_value和 bg_alpha_value值是否有效以及如何取值 取决于前景或背景的alpha_mode。
-如果alpha_mode为：
-
+fg\_alpha\_value 和 bg\_alpha\_value为不透明度，0为完全透明， 0xff为完全不透明。
+fg\_alpha\_value和 bg\_alpha\_value值是否有效以及如何取值 取决于前景或背景的alpha\_mode。
+如果alpha\_mode为：
 
 ```
 1) DMA2D_NO_MODIF_ALPHA：即保持原图片的透明度，不管input_alpha 值设置为多少都不生效。
 2) DMA2D_REPLACE_ALPHA：替换原图的alpha(透明度)，图片的透明度替换成alpha_value的值。
 3) DMA2D_COMBINE_ALPHA：图片的透明度为(原有的透明度 * input_alpha)/0xFF.
 即如果源图片中某些像素的alpha为0(完全透明)，配置input_alpha后，该像素的alpha仍为0,常用于保持原图的透明效果。
-
 ```
 
+<a id="id5"></a>
 
-## 4、DMA2D 填充[](#id5 "永久链接至标题")
+## 4、DMA2D 填充
 
 DMA2D的填充。
 
 > DMA2D的单色填充可用于快速清屏或柱状图绘制。
-
 
 ```
 void dma2d_fill(uint32_t frameaddr, uint16_t x, uint16_t y, uint16_t width, uint16_t high, uint16_t color)
@@ -220,49 +225,38 @@ void dma2d_fill(uint32_t frameaddr, uint16_t x, uint16_t y, uint16_t width, uint
 #else
         bk_dma2d_isr_register(dma2d_isr);
 #endif
-
 */
 
         bk_dma2d_start_transfer(&dma2d_config, color, (uint32_t)pDiSt, width, high);
 
 /*      while (transferCompleteDetected == 0) {;}
         transferCompleteDetected = 0;
-
 */
         while (bk_dma2d_is_transfer_busy()) {
         }
 }
-
 ```
 
 例程详解：
 
-
 ```
-
 - frameaddr 帧起始地址
-
 - x demo中针对的是320X480的屏幕，x即从屏幕刷一帧的起始位置(0，0)开始算起的x坐标
-
 - y y即从屏幕刷一帧的起始位置(0，0)开始算起的y坐标
-
 - width 填充颜色的宽度
-
 - high 想要填充颜色的高度
-
 - color 想要填充颜色的像素
-
 - demo 中注释的部分为打开DMA2D的中断，可以传输完成中断，配置错误中断或传输错误中断。
-
 ```
 
-![fill specific color](../../_images/dma2d_fill_config.png)
+<a id="id8"></a>
+![fill specific color](../../../../_assets/c041261dd74a6139800f-dma2d_fill_config.png)
 
-Figure 3. dma2d color fill config[](#id8 "永久链接至图片")
+
+Figure 3\. dma2d color fill config
 
 注意：
-:   对于只能按Word操作的内存，如果想要填充RGB565的数据，颜色格式应该用ARGB8888代替,相应的填充数据的宽或高也应该设置为宽或高的一半即可。详细请参考lcd_8080_demo.c中用于清屏的接口，如下：
-
+:   对于只能按Word操作的内存，如果想要填充RGB565的数据，颜色格式应该用ARGB8888代替,相应的填充数据的宽或高也应该设置为宽或高的一半即可。详细请参考lcd\_8080\_demo.c中用于清屏的接口，如下：
 
 ```
 dma2d_blend_t dma2d_config;
@@ -289,15 +283,14 @@ dma2d_config.ysize = lcd_blend->ysize;
 dma2d_config.fg_alpha_value = lcd_blend->fg_alpha_value;
 dma2d_config.bg_alpha_value = lcd_blend->bg_alpha_value;
 bk_dma2d_blend(&dma2d_config);
-
 ```
 
+<a id="id6"></a>
 
-## 4、DMA2D 像素转换[](#id6 "永久链接至标题")
+## 4、DMA2D 像素转换
 
 > DMA2D的像素转换的一个简单例程（RGB565转ARGB8888）如下:
-> 转换的源数据pfg_addr和目标数据rgb566_to_argb8888都没有偏移，均为起始地址。
-
+> 转换的源数据pfg\_addr和目标数据rgb566\_to\_argb8888都没有偏移，均为起始地址。
 
 ```
 dma2d_pixel_convert_t pixel_convert;
@@ -313,5 +306,4 @@ pixel_convert.intput_offline = 0;
 pixel_convert.output_offline = 0;
 pixel_convert.output_red_blue_swap = DMA2D_RB_REGULAR;
 bk_dma2d_pixel_convert(&pixel_convert);
-
 ```

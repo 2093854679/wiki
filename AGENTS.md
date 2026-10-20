@@ -45,11 +45,29 @@ the wiki needs updating. You are the LLM compiler, so do the compilation directl
 
 ### Answering a question against the wiki
 
-Just answer the question! `wiki/index.md` will tell you what wiki articles are available.
+Start with local evidence retrieval. Run commands from the repository root;
+from `wiki/`, use `python ../kb.py` instead of `python -m tools.kb`.
+The wrapper `python <absolute-repository-path>/kb.py` works from any directory.
 
-1. Read `wiki/index.md` to find relevant wiki articles (summaries + concepts)
-2. If wiki coverage is insufficient, navigate via `wiki/categories/bk-doc.md` → chip hub → raw index → raw doc
-3. For BK chip documentation, follow: `categories/bk-doc.md` → choose chip → choose module → raw index.md → raw doc
+1. Run `python kb.py context "<question>" --json-output` for a bounded evidence pack.
+2. For BK questions, supply the known `--chip`, `--family`, `--version`, and
+   `--processor AP|CP` filters. `--chip` can repeat for comparisons. Inspect
+   `applied_filters` and each result's `matching_scopes`; never substitute another
+   chip, SDK version, or processor when evidence is missing.
+3. For exact functions, use `search "bk_uart_init" --chip BK7236 --kind api
+   --json-output`. Verify signatures, return values, and constraints with
+   `read "<workspace_path>" --start-line N --end-line M --json-output`.
+4. Cite the original file and line range; retain `source_url` for official links.
+   Overview questions can use summaries/concepts; API details require raw text.
+5. An empty result means insufficient evidence. Try a module name or Chinese /
+   English alias within the same scope. Do not answer from unrelated defaults.
+6. Search is local and needs no LLM key. `query` calls the configured external
+   LLM; prefer `context` when you are already the answering AI.
+
+Navigation fallback: `wiki/index.md` → `wiki/categories/beken-official.md` or
+`wiki/categories/bk-doc.md` → chip/module → raw. See `wiki/AI-SEARCH.md`.
+Default retrieval excludes historical-unverified mirrors and outputs; opt in
+with `--include-historical` or `--kind output` when explicitly relevant.
 
 ### Health check / Linting
 Run `python -m tools.kb lint --check consistency|gaps|suggestions` to find:

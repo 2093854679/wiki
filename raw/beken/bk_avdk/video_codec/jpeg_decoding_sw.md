@@ -1,8 +1,22 @@
-# JPEG软解码[](#jpeg "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/video_codec/jpeg_decoding_sw/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="jpeg"></a>
 
+# JPEG软解码
 
-## 1、JPEG软解码流程[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1、JPEG软解码流程
 
 JPEG软解码主要流程如下：
 
@@ -12,44 +26,50 @@ JPEG软解码主要流程如下：
 4. 将转换后的图像数据写入到输出图像中；
 5. 重复2-4，直至出现异常或解码结束；
 
-![jpeg_decode sw](_images/jpeg_decode_sw_1.png)
+<a id="id6"></a>
+![jpeg_decode sw](../../_assets/b42fe1ba05746885330d-jpeg_decode_sw_1.png)
 
-Figure 1. jpeg soft decode process[](#id6 "永久链接至图片")
 
+Figure 1\. jpeg soft decode process
 
-## 2、内存需求[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 2、内存需求
 
 JPEG软解码对线程依赖在1K以内，主要需要的buffer及用途如下：
 
 1. 一块10240的buffer，用于存储霍夫曼表以及中间数据处理；
 2. 一块0xB0大小的buffer，用于存储中间运行的指针和变量；
-3. 一块16*16*2大小的buffer，用于软解码后进行图像旋转；
+3. 一块16\*16\*2大小的buffer，用于软解码后进行图像旋转；
 
+<a id="id3"></a>
 
-## 3、JPEG软解码模块使用[](#id3 "永久链接至标题")
+## 3、JPEG软解码模块使用
 
-1. 调用 bk_jpeg_dec_sw_init ，初始化软解码模块；
-2. 调用 bk_jpeg_dec_sw_start ，对传入的图像进行解码；
-3. 调用 bk_jpeg_dec_sw_deinit ，将软解码内部buffer释放；
+1. 调用 bk\_jpeg\_dec\_sw\_init ，初始化软解码模块；
+2. 调用 bk\_jpeg\_dec\_sw\_start ，对传入的图像进行解码；
+3. 调用 bk\_jpeg\_dec\_sw\_deinit ，将软解码内部buffer释放；
 
-函数参数请查看 [API Reference :](../../api-reference/multi_media/bk_jpegdec_sw.md "../../api-reference/multi_media/bk_jpegdec_sw.md")
+函数参数请查看 [API Reference :](../api-reference/multi_media/bk_jpegdec_sw.md)
 
+<a id="id4"></a>
 
-## 4、一次性解码函数[](#id4 "永久链接至标题")
+## 4、一次性解码函数
 
-出于部分场景下需要，提供了一次性解码的接口 bk_jpeg_dec_sw_start_one_time，
+出于部分场景下需要，提供了一次性解码的接口 bk\_jpeg\_dec\_sw\_start\_one\_time，
 
-该接口使用前不需要调用 bk_jpeg_dec_sw_init ，buffer由外部传入；
+该接口使用前不需要调用 bk\_jpeg\_dec\_sw\_init ，buffer由外部传入；
 如果外部传入NULL，则由接口内部自动申请；解码完成后自动释放内部申请的buffer；
 
 备注
 
 该接口可以和软解码模块并行解码，解码速度并行时会降低；
 
+<a id="id5"></a>
 
-## 5、解码速度优化[](#id5 "永久链接至标题")
+## 5、解码速度优化
 
-在DTCM充足的情况下，可以在CP1和CP2上将 CONFIG_SOFTWARE_DECODE_SRAM_MAPPING 置为 y 来加快解码速度；
+在DTCM充足的情况下，可以在CP1和CP2上将 CONFIG\_SOFTWARE\_DECODE\_SRAM\_MAPPING 置为 y 来加快解码速度；
 该优化方式为将解码线程以及部分解码使用的buffer放到dtcm上运行，同时将原来解码一个block就存到psram上改为缓冲16行之后再一起存到psram上，减少实际运行中psram频繁地址切换时间；
 
 备注

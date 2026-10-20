@@ -1,14 +1,30 @@
-# SPI 使用指南[](#spi "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/peripheral/bk_spi.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="spi"></a>
 
+# SPI 使用指南
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 SPI (Serial Peripheral Interface, 串行外设接口) 是一种高速、全双工、同步的通信总线，被广泛应用在 ADC、Flash 等与 MCU 的通信过程中。
 
-![SPI Connection](../../_images/spi_connection.png)
+<a id="id4"></a>
+![SPI Connection](../../../../_assets/db045c872bd539ae968c-spi_connection.png)
 
-SPI Connection[](#id4 "永久链接至图片")
+
+SPI Connection
 
 上图为 SPI 硬件连接，其中：
 
@@ -19,8 +35,9 @@ SPI Connection[](#id4 "永久链接至图片")
 
 Beken 芯片通常具有 1 个 SPI 控制器，BK7236N 支持 2 个 SPI (SPI1、SPI2)。
 
+<a id="id2"></a>
 
-## SPI模式[](#id2 "永久链接至标题")
+## SPI模式
 
 SPI 有四种通讯模式，他们的主要依靠 SPI 时钟的极性和相位来区别。
 
@@ -32,20 +49,23 @@ SPI 有四种通讯模式，他们的主要依靠 SPI 时钟的极性和相位�
 | 3 | 1 | 1 | 高电平 | 第二个时钟沿 |
 
 我们常用的是模式0和模式3，因为它们都是在上升沿采样数据，不用去在乎时钟的初始电平是什么，只要在上升沿采集数据就行。
-Beken SPI 支持 SPI 的四种模式，时钟极性、相位可通过 bk_spi_set_mode() 设置。
+Beken SPI 支持 SPI 的四种模式，时钟极性、相位可通过 bk\_spi\_set\_mode() 设置。
+
+<a id="id3"></a>
+
+## SPI时序
+
+<a id="id5"></a>
+![SPI Timing](../../../../_assets/fd2429547ef2a3d79c47-spi_timing.png)
 
 
-## SPI时序[](#id3 "永久链接至标题")
+SPI Timing
 
-![SPI Timing](../../_images/spi_timing.png)
-
-SPI Timing[](#id5 "永久链接至图片")
-
-上图为 master 传输 0x56(0b0101 0110) 数据给 slave 时序(CPOL = 1, CPHA = 1，MSB first)
+上图为 master 传输 0x56(0b0101 0110\) 数据给 slave 时序(CPOL \= 1, CPHA \= 1，MSB first)
 
 > - CS 拉低，选中对应的 slave
 > - 在每个 SCK 时钟周期，MOSI 输出对应的电平，先输出数据的高 bit
 > - slave 会在每个时钟周期的上升沿读取 MOSI 上的电平
 
-Beken SPI 数据帧长度可设为 8 bit 或 16 bit，可通过 bk_spi_set_bit_width() 设置；
-SPI 可设置 MSB 先行或 LSB 先行，可通过 bk_spi_set_bit_order() 设置。
+Beken SPI 数据帧长度可设为 8 bit 或 16 bit，可通过 bk\_spi\_set\_bit\_width() 设置；
+SPI 可设置 MSB 先行或 LSB 先行，可通过 bk\_spi\_set\_bit\_order() 设置。

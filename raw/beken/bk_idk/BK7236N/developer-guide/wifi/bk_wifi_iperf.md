@@ -1,62 +1,66 @@
-# Wi-Fi iPerf示例说明[](#wi-fi-iperf "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/developer-guide/wifi/bk_wifi_iperf.html
+sdk_family: bk_idk
+chip: BK7236N
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="wi-fi-iperf"></a>
+
+# Wi-Fi iPerf示例说明
 
 本工程展示了使用iPerf测试Wi-Fi吞吐率的使用示例：
 
-
 - iPerf上下行吞吐率测试及参数配置
-
 - BEKEN iPerf使用介绍
-
 - 常见问题
 
+<a id="id1"></a>
 
-## 工程示例及配置说明[](#id1 "永久链接至标题")
+## 工程示例及配置说明
 
 iPerf的配置文件在 `components/demos/net/iperf/iperf.c` ,支持四种模式：
-TCP_SERVER、TCP_CLIENT、UDP_SERVER、UDP_CLIENT
+TCP\_SERVER、TCP\_CLIENT、UDP\_SERVER、UDP\_CLIENT
 
+- IPERF\_REPORT\_INTERVAL—————–吞吐测试上报间隔,一般设置为1
+- IPERF\_MAX\_TX\_RETRY——————–最大重传次数,默认值为10
+- THREAD\_PROIRITY———————–系统优先级,默认设置为4
 
-- IPERF_REPORT_INTERVAL—————–吞吐测试上报间隔,一般设置为1
+<a id="beken-iperf"></a>
 
-- IPERF_MAX_TX_RETRY——————–最大重传次数,默认值为10
+## BEKEN iPerf使用介绍
 
-- THREAD_PROIRITY———————–系统优先级,默认设置为4
+<a id="iperf-usage"></a>
 
-
-## BEKEN iPerf使用介绍[](#beken-iperf "永久链接至标题")
-
-
-### iPerf Usage[](#iperf-usage "永久链接至标题")
-
+### iPerf Usage
 
 ```
 Usage: iperf [-s|-c host] [options]
        iperf [-h|--stop]
 
 Client/Server:
-
 -p           server port to listen on/connect to
 
 Server specific:
-
 -s           run in server mode
 
 Client specific:
-
 -c <host>    run in client mode, connecting to <host>
 
 Miscellaneous:
-
 -u           udp support, and the default mode is tcp
-
 -h           print this message and quit
-
 --stop       stop iperf program
-
 ```
 
+<a id="iperf-cmd-example"></a>
 
-### iPerf Cmd Example[](#iperf-cmd-example "永久链接至标题")
+### iPerf Cmd Example
 
 |  |  |
 | --- | --- |
@@ -67,9 +71,9 @@ Miscellaneous:
 | TCP Server Mode | iperf -s |
 | UDP Server Mode | iperf -s -u |
 
+<a id="iperf-running-log"></a>
 
-### iPerf Running Log[](#iperf-running-log "永久链接至标题")
-
+### iPerf Running Log
 
 ```
 iperf -c 192.168.40.69              //TCP Client TX
@@ -94,36 +98,29 @@ iperf -s -u -i1                     //UDP Server RX
 create iperf_udp_s, tcb=30024cf0, stack=[30031ce0-30032ce0:4096], prio=5
 [0-1] sec bandwidth: 17463 Kbits/sec.
 [1-2] sec bandwidth: 18910 Kbits/sec.
-
 ```
 
+<a id="id2"></a>
 
-## 常见问题[](#id2 "永久链接至标题")
+## 常见问题
 
+<a id="iperf"></a>
 
-### iPerf工具介绍[](#iperf "永久链接至标题")
+### iPerf工具介绍
 
+- iPerf测试工具下载: [点击下载](https://iperf.fr/) 进行下载,使用说明可以参考 `iPerf user docs`
 
-- iPerf测试工具下载: [点击下载](https://iperf.fr/ "https://iperf.fr/") 进行下载,使用说明可以参考 `iPerf user docs`
-
-![../../_images/iperf.png](../../_images/iperf.png)
-
+![../../_images/iperf.png](../../../../_assets/cd133f2c05df82c21f80-iperf.png)
 
 - 推荐使用iPerf2.0.x版本
 
+<a id="id4"></a>
 
-### 影响iPerf测试吞吐率的因素[](#id4 "永久链接至标题")
-
+### 影响iPerf测试吞吐率的因素
 
 - DUT Wi-Fi是否进行RF参数校准
-
 - DUT天线是否进行调试,OTA测试、EVM测试结果是否正常
-
 - 测试环境干扰,尽量选择屏蔽箱或者屏蔽房内进行验证
-
 - 测试环境确认:DUT、AP的距离,使用外置天线还是内置天线等
-
 - SDK运行过程中是否有足够的内存
-
 - 特殊AP的兼容性问题
-

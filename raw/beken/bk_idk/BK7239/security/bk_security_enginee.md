@@ -1,8 +1,24 @@
-# 安全引擎[](#security-enginee "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/security/bk_security_enginee.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="security-enginee"></a>
 
+<a id="id1"></a>
 
-## 概述[](#id2 "永久链接至标题")
+# 安全引擎
+
+<a id="id2"></a>
+
+## 概述
 
 BK7239采用了 TE200（TrustEngine-200）作为硬件加速引擎，提供下述安全特性：
 
@@ -11,23 +27,25 @@ BK7239采用了 TE200（TrustEngine-200）作为硬件加速引擎，提供下�
 > - 减少安全方面的软件复杂性。TE200 实现了一些安全功能，如生命周期管理，对 OTP1 的访问控制，
 >   可以减少敏感信息泄漏给非安全主机的风险。
 
+<a id="te200"></a>
 
-## TE200 在系统中位置[](#te200 "永久链接至标题")
+## TE200 在系统中位置
 
 TE200 在系统中位置如下图所示，
 
-![8](../_images/security_te200.svg)
+![8](../../../_assets/48ea6fe871331f541bc0-security_te200.svg)
 
 在 BK7239 中，TE200 配置成安全主机与普通主机，其中：
 
-> - 安全主机 - 主要用于 BL1，BL2 中的安全启动，TFM-S 中安全据加/解密，签名/验签等。
-> - 普通主机 - 主要用于非安全世界，如 Wi-Fi，TCPIP 通信等应用中的加/解密，签名/验签等。
+> - 安全主机 \- 主要用于 BL1，BL2 中的安全启动，TFM-S 中安全据加/解密，签名/验签等。
+> - 普通主机 \- 主要用于非安全世界，如 Wi-Fi，TCPIP 通信等应用中的加/解密，签名/验签等。
 
 对于 OTP1 中与安全启动相关的配置信息也是经由 TE200 访问。对于 OTP1 的访问，TE200 实现
 了基于生命周期权限管理。
 
+<a id="id3"></a>
 
-## TE200 功能[](#id3 "永久链接至标题")
+## TE200 功能
 
 TE200 支持下述特性：
 

@@ -1,13 +1,32 @@
 ---
-aliases:
-- 'BK7258 › hw-reference'
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/hw-reference/index.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# 芯片参考手册[](#id1 "永久链接至标题")
 
+<a id="id1"></a>
 
+# 芯片参考手册
 
-- [BK7258 技术规格书](https://docs.bekencorp.com/spec/BK7258/BK7258%C2%A0Datasheet.pdf "https://docs.bekencorp.com/spec/BK7258/BK7258%C2%A0Datasheet.pdf")
+- [BK7258 技术规格书](../../_assets/59155c1eba7431a46445-BK7258-Datasheet.pdf)
+- [BK7258 QFN88硬件参考设计（包含硬件应用手册和EVB使用说明手册）](https://docs.bekencorp.com/HW/BK7258/HDK-BK7258_QFN88_9X9.zip)
+- [BK7258 购买链接](https://item.taobao.com/item.htm)
 
-- [BK7258 QFN88硬件参考设计（包含硬件应用手册和EVB使用说明手册）](https://docs.bekencorp.com/HW/BK7258/HDK-BK7258_QFN88_9X9.zip "https://docs.bekencorp.com/HW/BK7258/HDK-BK7258_QFN88_9X9.zip")
+## 模块导航
 
-- [BK7258 购买链接](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338 "https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-25005897050.4.ffd61d55Y0Kdbv&id=795814346530&skuId=5429467124246&addressId=18607518338")
+- [简介](introduction.md)
+- [快速入门](get-started.md)
+- [API 参考手册](api-reference.md)
+- [开发者指南](developer-guide.md)
+- [OS 相关参考](os.md)
+- [样例演示](examples.md)
+- [应用开发](application.md)
+- [开发与贡献代码流程](process.md)
+- [云平台](cloud.md)
+- [工程与示例](projects/projects.md)

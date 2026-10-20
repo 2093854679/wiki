@@ -8,6 +8,7 @@ from .query import cmd_query
 from .linter import cmd_lint
 from .indexer import cmd_index
 from .search_engine import cmd_search
+from .retrieval_engine import cmd_context, cmd_read
 from .server import cmd_serve
 from .renderer import cmd_render
 from .graph_health import cmd_graph_health
@@ -31,6 +32,8 @@ main.add_command(cmd_query, name="query")
 main.add_command(cmd_lint, name="lint")
 main.add_command(cmd_index, name="index")
 main.add_command(cmd_search, name="search")
+main.add_command(cmd_context, name="context")
+main.add_command(cmd_read, name="read")
 main.add_command(cmd_serve, name="serve")
 main.add_command(cmd_render, name="render")
 main.add_command(cmd_graph_health, name="graph-health")
@@ -55,7 +58,7 @@ def cmd_stats():
     for p in wiki.rglob("*.md"):
         rel = p.relative_to(wiki)
         rel_text = str(rel).replace("\\", "/")
-        if p.name in {"index.md", "WIKI.md"} or rel_text.startswith("categories/"):
+        if p.name in {"index.md", "WIKI.md", "AI-SEARCH.md"} or rel_text.startswith("categories/"):
             continue
         if rel_text == "summaries/index.md" or (rel_text.startswith("summaries/") and rel_text.endswith("/index.md")):
             continue

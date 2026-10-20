@@ -1,0 +1,597 @@
+[
+  {
+    "id": "bk_idk-BK7235",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7235",
+    "product": "BK7235",
+    "products": [
+      "BK7235"
+    ],
+    "version": "v1.5",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/",
+    "out_dir": "beken/bk_idk/BK7235",
+    "root_file": "beken/bk_idk/BK7235.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_idk-BK7236",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7236",
+    "product": "BK7236",
+    "products": [
+      "BK7236"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_idk/BK7236",
+    "root_file": "beken/bk_idk/BK7236.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_idk-BK7236N",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7236N",
+    "product": "BK7236N",
+    "products": [
+      "BK7236N"
+    ],
+    "version": "v2.2.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7236n/zh_CN/v2.2.1/",
+    "out_dir": "beken/bk_idk/BK7236N",
+    "root_file": "beken/bk_idk/BK7236N.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_idk-BK7256",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7256",
+    "product": "BK7256",
+    "products": [
+      "BK7256"
+    ],
+    "version": "v1.5",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/",
+    "out_dir": "beken/bk_idk/BK7256",
+    "root_file": "beken/bk_idk/BK7256.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_idk-BK7258",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_idk/BK7258",
+    "root_file": "beken/bk_idk/BK7258.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_idk-BK7239",
+    "family": "bk_idk",
+    "label": "BK_IDK",
+    "chip": "BK7239",
+    "product": "BK7239",
+    "products": [
+      "BK7239"
+    ],
+    "version": "v2.2.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/",
+    "out_dir": "beken/bk_idk/BK7239",
+    "root_file": "beken/bk_idk/BK7239.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_avdk-BK7258",
+    "family": "bk_avdk",
+    "label": "BK_AVDK",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_avdk",
+    "root_file": "beken/bk_avdk/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_avdk_smp-BK7258",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_avdk_smp/BK7258",
+    "root_file": "beken/bk_avdk_smp/BK7258/index.md",
+    "processor": "SMP"
+  },
+  {
+    "id": "bk_avdk_smp-BK7258-ap_doc",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_avdk_smp/BK7258/ap_doc",
+    "root_file": "beken/bk_avdk_smp/BK7258/ap_doc/index.md",
+    "processor": "AP"
+  },
+  {
+    "id": "bk_avdk_smp-BK7258-cp_doc",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_avdk_smp/BK7258/cp_doc",
+    "root_file": "beken/bk_avdk_smp/BK7258/cp_doc/index.md",
+    "processor": "CP"
+  },
+  {
+    "id": "bk_avdk_smp-BK7259",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/smp_doc/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_avdk_smp",
+    "root_file": "beken/bk_avdk_smp/index.md",
+    "processor": "SMP"
+  },
+  {
+    "id": "bk_avdk_smp-BK7259-ap_doc",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/ap_doc/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_avdk_smp/ap_doc",
+    "root_file": "beken/bk_avdk_smp/ap_doc/index.md",
+    "processor": "AP"
+  },
+  {
+    "id": "bk_avdk_smp-BK7259-cp_doc",
+    "family": "bk_avdk_smp",
+    "label": "BK_AVDK_SMP",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_avdk_smp/cp_doc/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_avdk_smp/cp_doc",
+    "root_file": "beken/bk_avdk_smp/cp_doc/index.md",
+    "processor": "CP"
+  },
+  {
+    "id": "bk_findmy-BK3633",
+    "family": "bk_findmy",
+    "label": "BK_FindMy",
+    "chip": "BK3633",
+    "product": "BK3633",
+    "products": [
+      "BK3633"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_findmy/bk3633/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_findmy/BK3633",
+    "root_file": "beken/bk_findmy/BK3633/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_aidk-BK7258",
+    "family": "bk_aidk",
+    "label": "BK_AIDK",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_aidk/bk7258/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_aidk/BK7258",
+    "root_file": "beken/bk_aidk/BK7258/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_ai_smp-BK7258",
+    "family": "bk_ai_smp",
+    "label": "BK_AI(SMP)",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_ai_smp/BK7258",
+    "root_file": "beken/bk_ai_smp/BK7258/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_ai_smp-BK7259",
+    "family": "bk_ai_smp",
+    "label": "BK_AI(SMP)",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_ai_smp/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_ai_smp/BK7259",
+    "root_file": "beken/bk_ai_smp/BK7259/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_mesh-BK7236",
+    "family": "bk_mesh",
+    "label": "BK_MESH",
+    "chip": "BK7236",
+    "product": "BK7236",
+    "products": [
+      "BK7236"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_mesh/bk7236/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_mesh/BK7236",
+    "root_file": "beken/bk_mesh/BK7236/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-iotapp",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "IoTApp",
+    "products": [
+      "IoTApp"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_toolkit/iotapp",
+    "root_file": "beken/bk_toolkit/iotapp/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-ide",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "IDE",
+    "products": [
+      "IDE"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_ide/ide/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_toolkit/ide",
+    "root_file": "beken/bk_toolkit/ide/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-meshapp",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "MeshApp",
+    "products": [
+      "MeshApp"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_mesh/app/zh_CN/latest/",
+    "out_dir": "beken/bk_toolkit/meshapp",
+    "root_file": "beken/bk_toolkit/meshapp/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-rf-test",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "RF Test",
+    "products": [
+      "RF Test"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/rftest/zh_CN/latest/",
+    "out_dir": "beken/bk_toolkit/rf-test",
+    "root_file": "beken/bk_toolkit/rf-test/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-uidesigner",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "UIDesigner",
+    "products": [
+      "UIDesigner"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/ui_designer/zh_CN/latest/",
+    "out_dir": "beken/bk_toolkit/uidesigner",
+    "root_file": "beken/bk_toolkit/uidesigner/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-audiodebugtool",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "AudioDebugTool",
+    "products": [
+      "AudioDebugTool"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/audio_debug_tool/zh_CN/latest/",
+    "out_dir": "beken/bk_toolkit/audiodebugtool",
+    "root_file": "beken/bk_toolkit/audiodebugtool/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-bkfil",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "BKFIL",
+    "products": [
+      "BKFIL"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/bkfil_v4/zh_CN/latest/",
+    "out_dir": "beken/bk_toolkit/bkfil",
+    "root_file": "beken/bk_toolkit/bkfil/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_toolkit-lvgluidesigner",
+    "family": "bk_toolkit",
+    "label": "BK_ToolKit",
+    "chip": "",
+    "product": "LvglUIDesigner",
+    "products": [
+      "LvglUIDesigner"
+    ],
+    "version": "not-declared",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_app/lvgl_ui_designer/zh-cn/",
+    "out_dir": "beken/bk_toolkit/lvgluidesigner",
+    "root_file": "beken/bk_toolkit/lvgluidesigner/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_audio-BK3298",
+    "family": "bk_audio",
+    "label": "BK_Audio",
+    "chip": "BK3298",
+    "product": "BK3298",
+    "products": [
+      "BK3298"
+    ],
+    "version": "latest",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_audio/bk3298/zh_CN/latest/",
+    "out_dir": "beken/bk_audio/BK3298",
+    "root_file": "beken/bk_audio/BK3298/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_matter-BK7235-BK7236-BK7256-BK7258",
+    "family": "bk_matter",
+    "label": "BK_Matter",
+    "chip": "BK7235,BK7236,BK7256,BK7258",
+    "product": "BK7235",
+    "products": [
+      "BK7235",
+      "BK7236",
+      "BK7256",
+      "BK7258"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_matter/matter/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_matter",
+    "root_file": "beken/bk_matter/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_dashboard-BK7258",
+    "family": "bk_dashboard",
+    "label": "BK_Dashboard",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_dashboard/BK7258",
+    "root_file": "beken/bk_dashboard/BK7258/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_dashboard-BK7259",
+    "family": "bk_dashboard",
+    "label": "BK_Dashboard",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_dashboard/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_dashboard/BK7259",
+    "root_file": "beken/bk_dashboard/BK7259/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_ipc-BK7259",
+    "family": "bk_ipc",
+    "label": "BK_IPC",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_ipc/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_ipc/BK7259",
+    "root_file": "beken/bk_ipc/BK7259/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_controller-BK7236",
+    "family": "bk_controller",
+    "label": "BK_Controller",
+    "chip": "BK7236",
+    "product": "BK7236",
+    "products": [
+      "BK7236"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7236/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_controller/BK7236",
+    "root_file": "beken/bk_controller/BK7236/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_controller-BK7239N",
+    "family": "bk_controller",
+    "label": "BK_Controller",
+    "chip": "BK7239N",
+    "product": "BK7239N",
+    "products": [
+      "BK7239N"
+    ],
+    "version": "v2.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_controller/bk7239n/zh_CN/v2.1.1/",
+    "out_dir": "beken/bk_controller/BK7239N",
+    "root_file": "beken/bk_controller/BK7239N/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_bluelink-BK7258",
+    "family": "bk_bluelink",
+    "label": "BK_Bluelink",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v2.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_bluelink/bk7258/zh_CN/v2.0.1/",
+    "out_dir": "beken/bk_bluelink/BK7258",
+    "root_file": "beken/bk_bluelink/BK7258/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_arduino-BK7239N",
+    "family": "bk_arduino",
+    "label": "BK_Arduino",
+    "chip": "BK7239N",
+    "product": "BK7239N",
+    "products": [
+      "BK7239N"
+    ],
+    "version": "not-declared",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_arduino/bk7239n/zh_CN/",
+    "out_dir": "beken/bk_arduino/BK7239N",
+    "root_file": "beken/bk_arduino/BK7239N/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_doorbell-BK7258",
+    "family": "bk_doorbell",
+    "label": "BK_Doorbell",
+    "chip": "BK7258",
+    "product": "BK7258",
+    "products": [
+      "BK7258"
+    ],
+    "version": "v3.1.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7258/zh_CN/v3.1.1/",
+    "out_dir": "beken/bk_doorbell/BK7258",
+    "root_file": "beken/bk_doorbell/BK7258/index.md",
+    "processor": ""
+  },
+  {
+    "id": "bk_doorbell-BK7259",
+    "family": "bk_doorbell",
+    "label": "BK_Doorbell",
+    "chip": "BK7259",
+    "product": "BK7259",
+    "products": [
+      "BK7259"
+    ],
+    "version": "v4.0.1",
+    "language": "zh_CN",
+    "url": "https://docs.bekencorp.com/arminodoc/bk_doorbell/bk7259/zh_CN/v4.0.1/",
+    "out_dir": "beken/bk_doorbell/BK7259",
+    "root_file": "beken/bk_doorbell/BK7259/index.md",
+    "processor": ""
+  }
+]

@@ -1,21 +1,37 @@
-# 低功耗蓝牙(BLE)[](#ble "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7235/zh_CN/v1.5/developer-guide/bluetooth/bk_ble.html
+sdk_family: bk_idk
+chip: BK7235
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="ble"></a>
 
+# 低功耗蓝牙(BLE)
 
-## 概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 概述
 
 蓝牙模块向用户提供扫描、连接、广播、传输数据等接口功能，用于短距通讯。
 蓝牙由一个或多个task执行体组成，依靠蓝牙中断驱动运行。目前栈大小为3K。
 蓝牙有多个event和callback，这些构成了用户调用的反馈。
 
+<a id="id2"></a>
 
-## 角色[](#id2 "永久链接至标题")
+## 角色
 
 一般来讲，主动连接的设备称之为central/master/client，被连接的设备称之为peripheral/slaver/server。
 一旦两端连接关系确定下来，则基本不会变化。
 
+<a id="api"></a>
 
-## API调用注意事项[](#api "永久链接至标题")
+## API调用注意事项
 
 大部分API具有callback参数，应当等待callback执行完成后再进行下一步。
 callback、event callback的处理不应有阻塞操作。
@@ -25,26 +41,23 @@ callback的调用栈不能太深。
 
 应极力避免蓝牙task被阻塞，否则会出现断连、扫不到、连不上等异常现象。
 
+<a id="id3"></a>
 
-## 常用使用场景[](#id3 "永久链接至标题")
+## 常用使用场景
 
+<a id="slaver-att"></a>
 
-### 作为slaver，创建ATT数据库供对端浏览[](#slaver-att "永久链接至标题")
+### 作为slaver，创建ATT数据库供对端浏览
 
 ble通过ATT数据库作为双端的操作实体，所有的读写通知等操作都是对ATT数据库进行的。
 为了建立一个符合标准的数据库，需要了解服务、特征、UUID的概念。
 
-
 - 记录：数据库的一条数据称之为记录，由handle，类型、值组成。
-
 - 服务：每个ATT数据库具有一个或多个服务，例如HID、HeartRate。
-
 - 特征：每个服务包含一个或多个特征，例如HID包括HID map、HID report，前者是按键映射表，后者是按键上报，具体操作是先读取HID map，再根据map解析HID report就能知道按键具体值。
-
-- UUID：以上几个均以记录的形式存在于ATT数据库中，为了知晓这些特殊记录，要用蓝牙标准规定的UUID值赋予记录的type。例如，DECL_PRIMARY_SERVICE_128(0x2800)表示这条记录为服务声明。
+- UUID：以上几个均以记录的形式存在于ATT数据库中，为了知晓这些特殊记录，要用蓝牙标准规定的UUID值赋予记录的type。例如，DECL\_PRIMARY\_SERVICE\_128(0x2800)表示这条记录为服务声明。
 
 以下为具体示例
-
 
 ```
     //服务声明
@@ -78,6 +91,7 @@ ble通过ATT数据库作为双端的操作实体，所有的读写通知等操�
        [TEST_IDX_CHAR_DESC] = {DESC_CLIENT_CHAR_CFG_128, BK_BLE_PERM_SET(RD, ENABLE) | BK_BLE_PERM_SET(WRITE_REQ, ENABLE), 0, 0},
     };
 
+
     struct bk_ble_db_cfg ble_db_cfg;
     const uint16_t service_uuid = 0xffff;
 
@@ -95,14 +109,12 @@ os_memcpy(&(ble_db_cfg.uuid[0]), &service_uuid, 2);
     bk_ble_set_notice_cb(ble_at_notice_cb);
     //创建数据库
     bk_ble_create_db(&ble_db_cfg);
-
 ```
 
-到此，我们得到一个0xfff的服务，该服务包含一个0x1234的特征，该特征可以通过读，或写TEST_IDX_CHAR_DESC
+到此，我们得到一个0xfff的服务，该服务包含一个0x1234的特征，该特征可以通过读，或写TEST\_IDX\_CHAR\_DESC
 来开启notify的行为。
 
-我们还需要在ble_at_notice_cb处理一些事件。
-
+我们还需要在ble\_at\_notice\_cb处理一些事件。
 
 ```
 void ble_at_notice_cb(ble_notice_t notice, void *param)
@@ -138,14 +150,13 @@ void ble_at_notice_cb(ble_notice_t notice, void *param)
         break;
         }
 }
-
 ```
 
+<a id="id4"></a>
 
-### 开启广播[](#id4 "永久链接至标题")
+### 开启广播
 
 设定好数据库后，需要开启广播以让对端扫描到我们。
-
 
 ```
 ble_adv_param_t adv_param;
@@ -184,6 +195,7 @@ bk_ble_set_adv_data(actv_idx, adv_data, sizeof(adv_data), ble_at_cmd_cb);
 const uint8_t scan_data[] = {0x02, 0x01, 0x06, 0x0A, 0x09, 0x37 0x32, 0x33, 0x31, 0x4e, 0x5f, 0x42, 0x4c, 0x45};
 bk_ble_set_scan_rsp_data(actv_idx, scan_data, sizeof(scan_data), ble_at_cmd_cb);
 
+
 //在ble_at_cmd_cb中，等待BLE_SET_RSP_DATA事件
 ...
 //
@@ -194,12 +206,11 @@ bk_ble_start_advertising(actv_idx, 0, ble_at_cmd_cb);
 //在ble_at_cmd_cb中，等待BLE_START_ADV事件
 ...
 //
-
 ```
 
+<a id="id5"></a>
 
-### 开启扫描[](#id5 "永久链接至标题")
-
+### 开启扫描
 
 ```
 ble_scan_param_t scan_param;
@@ -225,12 +236,11 @@ bk_ble_start_scaning(actv_idx, ble_at_cmd);
 //
 
 //在ble_notice_cb_t中处理BLE_5_REPORT_ADV ，为广播数据
-
 ```
 
+<a id="id6"></a>
 
-### 建立连接[](#id6 "永久链接至标题")
-
+### 建立连接
 
 ```
 ble_conn_param_t conn_param;
@@ -243,6 +253,7 @@ conn_param.init_phys = 1;// 1M
 //获取当前空闲的active index，用于建立连接
 con_idx = bk_ble_get_idle_conn_idx_handle();
 
+
 bk_ble_create_init(con_idx, &conn_param, ble_at_cmd);
 
 //在ble_at_cmd_cb中，等待BLE_INIT_CREATE
@@ -252,10 +263,10 @@ bk_ble_create_init(con_idx, &conn_param, ble_at_cmd);
 //设置对端地址类型，不匹配会导致连接不上
 bk_ble_init_set_connect_dev_addr(con_idx, bt_mac, 1);
 
+
 bk_ble_init_start_conn(con_idx, ble_at_cmd)
 
 //在ble_at_cmd_cb中，等待BLE_INIT_START_CONN
 ...
 //
-
 ```

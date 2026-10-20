@@ -1,48 +1,31 @@
-﻿# BK Bootloader & OTA 升级
+---
+type: summary
+source_root: beken
+sdk_family: bk_idk
+chip: BK7236
+sdk_version: v2.0.1
+processor: null
+---
 
-> **TLDR:** BK7236/7236N/7239 支持 A/B 分区无位置依赖 OTA 升级方案——双固件分区轮流升级、Hash 完整性校验、回滚保护、安全 OTA 签名验证；同时支持传统单分区 Bootloader 方案。
+# BK7236 Bootloader 与 OTA 方案概览
 
-> **Source:** [bootloader_ota/index.md](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/index.md)
+> **TLDR:** BK7236 文档分别介绍常规 OTA、A/B 位置无关升级和 TF-M 安全升级；执行区切换、首次启动确认、真实性及版本检查属于不同机制，需按所选方案实现。
+> **Source:** [Bootloader/OTA 总目录](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota.md)、[A/B 概述](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_ota_overview.md)、[A/B 升级原理](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_principle_introduction.md)、[安全升级](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/bk_security_ota.md)
 
-## 两种方案对比
+## 关键要点
 
-| | 传统 Bootloader | A/B 无位置依赖 OTA |
-|---|---|---|
-| 分区数 | 1 App | 2 App (A + B) |
-| 升级方式 | 覆盖当前固件 | 写到备用分区 |
-| 回滚 | 不支持 | 自动回滚 |
-| 适用 | BK7235 | BK7236/7236N/7239 |
-| Flash 占用 | 低 | 高 (双倍) |
+- **先选方案。** 总目录将 bootloader 和常规 OTA、A/B 位置无关 OTA、安全 OTA 单独列出；不能把安全升级打包规则直接套进常规 A/B 工程。[方案目录](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota.md)
+- **A/B 使用备用执行区。** 当前在 A 时下载到 B，当前在 B 时下载到 A，重启后由 bootloader 校验并配置 Flash 映射选择执行区。[A/B 概述](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_ab_position_independent_ota_overview.md)／[升级原理](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_principle_introduction.md)
+- **回退有明确条件。** A/B 原文说明 Hash 失败保持旧区，新区首次运行后若应用未确认该执行区，下次启动返回旧区；这不等于任何运行故障都能无条件自动回滚。[确认与回退](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/ab_position_independent_ota/bk_upgrade_principle_introduction.md)
+- **安全 OTA 的镜像布局不同。** 文档使用 TF-M FWU：BL2 采用 A/B，SPE+NSPE 合并为 ALL 镜像并走单地址搬运；因此不能概括为“所有固件都是双 App 分区”。[安全升级设计](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/bk_security_ota.md)
+- **完整性、真实性与防降级分别核验。** 安全升级说明包括下载 CRC32、FWU 检查、重启后的 BOOTROM/BL2 验证及版本检查；这些要求限定在该安全升级方案。[安全检查](../../../raw/beken/bk_idk/BK7236/developer-guide/bootloader_ota/bk_security_ota.md)
 
-## A/B OTA 核心流程
+## 适用范围
 
-```
-1. 下载新固件 → 写入 B 分区 (当前运行 A)
-2. Hash 校验 B 分区完整性
-3. 设置启动标志指向 B
-4. 重启 → Bootloader 加载 B 分区
-5. 如果 B 启动失败 → 自动回退到 A
-```
-
-## Bootloader 关键组件
-
-### L-Bootloader (Light Bootloader)
-- 精简启动管理，负责分区选择
-- 支持安全启动链验证
-- 通过 `bk_bootloader_imag_update` API 管理镜像更新
-
-### 镜像生成
-- 需生成含签名的固件包
-- 使用 BK_SignTool 签名
-- 支持 XIP 和 Overwrite 两种安全模式
-
-## 安全 OTA 注意事项
-- 固件包必须带有有效签名
-- 版本号防降级检查
-- OTA 分区也支持 AES 加密存储
+只覆盖 BK7236 IDK v2.0.1。分区、确认 API、升级包格式和安全开关必须跟随工程；不推定 BK7235、BK7236N、BK7239 或其它 SDK 文档族采用相同方案。
 
 ## Related
 
-- [[../concepts/bk-armino-framework|BK ARMINO 开发框架]]
-- [[bk-security-framework|BK 安全框架]]
-- [[../../categories/bk-doc|BK Docs 分类页面]]
+- [[bk-security-framework]]
+- [[bk-armino-framework]]
+- [[http-upload-task]]

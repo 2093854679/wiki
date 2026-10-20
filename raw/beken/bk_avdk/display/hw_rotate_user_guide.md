@@ -1,8 +1,22 @@
-# 硬件旋转[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/display/hw_rotate_user_guide/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
+# 硬件旋转
 
-## 1、功能概述[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 1、功能概述
 
 本文档主要介绍了硬件旋转的功能以及API使用。
 
@@ -23,22 +37,23 @@
 3. 设置的源/目标地址需要4字节对齐，因为YUV数据1个word的连续性
 4. 只支持旋转后输出为RGB565的数据；
 
+<a id="id3"></a>
 
-## 2、参考代码[](#id3 "永久链接至标题")
+## 2、参考代码
 
-> 参考工程为 [DOORBELL工程](../../projects_work/media/doorbell/index.md "../../projects_work/media/doorbell/index.md")
+> 参考工程为 [DOORBELL工程](https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects_work/media/doorbell/index.html)
 >
 > 硬件旋转的组件代码请参考 `components/multimedia/lcd/lcd_rotate.c` 和 `components/image_codec_unit/src/pipeline/yuv_rotate_pipeline.c`
 >
-> 硬件旋转驱动代码参考 [hw_rotate驱动代码](../../api-reference/multi_media/bk_hw_rotate.md "../../api-reference/multi_media/bk_hw_rotate.md")
+> 硬件旋转驱动代码参考 [hw\_rotate驱动代码](../api-reference/multi_media/bk_hw_rotate.md)
 
+<a id="api"></a>
 
-## 3、API使用说明[](#api "永久链接至标题")
+## 3、API使用说明
 
 硬件旋转的使用比较简单，只需要三步：
 
-1. 初始化硬件模块,用户可以选择使能中断的类型，工程中默认都打开，其中ROTATE_WARTERMARK_INT为旋转一半中断。
-
+1. 初始化硬件模块,用户可以选择使能中断的类型，工程中默认都打开，其中ROTATE\_WARTERMARK\_INT为旋转一半中断。
 
 ```
 bk_rott_driver_init();
@@ -46,11 +61,9 @@ bk_rott_int_enable(ROTATE_COMPLETE_INT | ROTATE_CFG_ERR_INT | ROTATE_WARTERMARK_
 bk_rott_isr_register(ROTATE_COMPLETE_INT, rotate_complete_cb);
 bk_rott_isr_register(ROTATE_WARTERMARK_INT, rotate_watermark_cb);
 bk_rott_isr_register(ROTATE_CFG_ERR_INT, rotate_cfg_err_cb);
-
 ```
 
 2. 配置旋转参数，并使能旋转：
-
 
 ```
 rott_config_t rott_cfg = {0};
@@ -87,27 +100,27 @@ rott_cfg.picture_xpixel = src->width;
 rott_cfg.picture_ypixel = src->height;
 rott_config(&rott_cfg);
 bk_rott_enable();
-
 ```
 
 3. 旋转完成后，进入旋转完成中断
 
+<a id="dma2d"></a>
 
-## 4、 旋转和DMA2D结合，实现按行旋转[](#dma2d "永久链接至标题")
+## 4、 旋转和DMA2D结合，实现按行旋转
 
 对于BK7258现有的工程，对图片解码有整帧和按行实现的两种方案，那么对于按行解码，就必须按行旋转，由于旋转模块的配置只有整帧旋转的功能，所以
 需要将一次按行解码的数据作为一整帧去旋转，此时，需要开辟一个内存暂存旋转之后的数据，然后通过DMA2D组合为一整帧图片，
 按行旋转的代码在 `components/image_codec_unit/src/pipeline/yuv_rotate_pipeline.c` 中,实现框图可以参考下图：
 
-![RealtimeVideo_app](_images/rotate_dma2d_by_line.jpg)
+<a id="id4"></a>
+![RealtimeVideo_app](../../_assets/8428c3295ace0b7bab4b-rotate_dma2d_by_line.jpg)
 
-Figure. 整帧图片按行旋转[](#id4 "永久链接至图片")
+
+Figure. 整帧图片按行旋转
 
 其中：
-
 
 ```
 rott_cfg.picture_xpixel = 864;
 rott_cfg.picture_ypixel = 16;
-
 ```

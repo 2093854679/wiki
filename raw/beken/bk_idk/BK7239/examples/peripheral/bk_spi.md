@@ -1,51 +1,67 @@
-# spi[](#spi "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7239/zh_CN/v2.2.1/examples/peripheral/bk_spi.html
+sdk_family: bk_idk
+chip: BK7239
+processor: ''
+sdk_version: v2.2.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="spi"></a>
 
+# spi
 
-## 1 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1 功能概述
 
 > bk7239n具有2路SPI控制器，对应三组SPI引脚。介绍SPI接口的cli命令使用。
 
+<a id="id2"></a>
 
-## 2 代码路径[](#id2 "永久链接至标题")
+## 2 代码路径
 
 > demo路径：`components\bk_cli\cli_spi.c`
 
+<a id="cli"></a>
 
-## 3 cli命令简介[](#cli "永久链接至标题")
+## 3 cli命令简介
 
 demo运行依赖的宏配置：
 
 > | NAME | Description | File | value |
 > | --- | --- | --- | --- |
-> | CONFIG_SPI_DMA | SPI support DMA | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_SPI_SLAVE | support SPI slave mode | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_SPI_MASTER | support SPI master mode | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_SPI_STATIS | support SPI statis func | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
-> | CONFIG_SPI_SUPPORT_TX_FIFO_WR_READY | support tx write ready | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_SPI\_DMA | SPI support DMA | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_SPI\_SLAVE | support SPI slave mode | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_SPI\_MASTER | support SPI master mode | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_SPI\_STATIS | support SPI statis func | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
+> | CONFIG\_SPI\_SUPPORT\_TX\_FIFO\_WR\_READY | support tx write ready | `middleware\soc\bk7239n\bk7239n.defconfig` | y |
 
 demo支持的命令如下表：
 
 > | Command | | Param | Description |
 > | --- | --- | --- | --- |
-> | spi_driver {init|deinit} | | {init|deinit}: | init/deinit the spi resoure common |
-> | spi {id} init [role] [bit_width]  [polarity] [phase] [wire_mode]  [baud_rate] [bit_order] [dma_mode] | | {id}:spi id,value range 0 ~ 1 | init spi and set working parameters |
+> | spi\_driver {init\|deinit} | | {init\|deinit}: | init/deinit the spi resoure common |
+> | spi {id} init \[role\] \[bit\_width\]  \[polarity\] \[phase\] \[wire\_mode\]  \[baud\_rate\] \[bit\_order\] \[dma\_mode\] | | {id}:spi id,value range 0 \~ 1 | init spi and set working parameters |
 > | {role}:master or slave |
-> | {bit_width}: support 8 or 16 bits |
+> | {bit\_width}: support 8 or 16 bits |
 > | {polarity}: CPOL support 0 or 1 |
 > | {phase}:CPHA support 0 or 1 |
-> | {wire_mode}: support 3 or 4 wire mode |
-> | {baud_rate}:spi baud rate |
-> | {bit_order}: support LSB or MSB |
-> | {dma_mode}: support DMA |
-> | spi_config  {id} | baud_rate {value} | {value}:support baud rate | set spi working parameters |
-> | mode {value} | {value}:spi spi mode 0~3 |
-> | bit_width {value} | {value}: support 8 or 16 bits |
-> | wire_mode {value} | {value}:support 3 or 4 wire mode |
-> | bit_order {value} | {value}:support LSB or MSB |
-> | spi {id} {read|write}  {length} | | {id}:spi id,value range 0 ~ 1 | read specified length of data through spi |
-> | {read|write}: read|write operation |
-> | {length}: length to be read|write |
+> | {wire\_mode}: support 3 or 4 wire mode |
+> | {baud\_rate}:spi baud rate |
+> | {bit\_order}: support LSB or MSB |
+> | {dma\_mode}: support DMA |
+> | spi\_config  {id} | baud\_rate {value} | {value}:support baud rate | set spi working parameters |
+> | mode {value} | {value}:spi spi mode 0\~3 |
+> | bit\_width {value} | {value}: support 8 or 16 bits |
+> | wire\_mode {value} | {value}:support 3 or 4 wire mode |
+> | bit\_order {value} | {value}:support LSB or MSB |
+> | spi {id} {read\|write}  {length} | | {id}:spi id,value range 0 \~ 1 | read specified length of data through spi |
+> | {read\|write}: read\|write operation |
+> | {length}: length to be read\|write |
 
 SPI 支持的波特率如下：
 
@@ -69,19 +85,22 @@ SPI模式和极性、相位的对应关系
 
 > | Command | CPOL | CPHA |
 > | --- | --- | --- |
-> | 0[00] | 0 | 0 |
-> | 0[01] | 0 | 1 |
-> | 0[10] | 1 | 0 |
-> | 0[11] | 1 | 1 |
+> | 0\[00\] | 0 | 0 |
+> | 0\[01\] | 0 | 1 |
+> | 0\[10\] | 1 | 0 |
+> | 0\[11\] | 1 | 1 |
 
+<a id="id3"></a>
 
-## 4 演示介绍[](#id3 "永久链接至标题")
+## 4 演示介绍
 
 > 1、bk7239n开发板在con4中将SPI引出，使用2块bk7239n开发板，按照下图进行连接
 
-![SPI](../../_images/SPI_connect.png)
+<a id="id4"></a>
+![SPI](../../../../_assets/8e9b535c42c066ce52a7-SPI_connect.png)
 
-Figure 1. 将2块开发板通过SPI对接[](#id4 "永久链接至图片")
+
+Figure 1\. 将2块开发板通过SPI对接
 
 对应的GPIO：
 

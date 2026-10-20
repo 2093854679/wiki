@@ -1,8 +1,22 @@
-# PWM (TBC)[](#pwm-tbc "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/zh_CN/v2.0.1/developer-guide/peripheral/bk_pwm.html
+sdk_family: bk_idk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="pwm-tbc"></a>
 
+# PWM (TBC)
 
-## PWM 介绍[](#pwm "永久链接至标题")
+<a id="pwm"></a>
+
+## PWM 介绍
 
 脉冲宽度调制（Pulse width modulation，简称 PWM）是一种用数字方式实现模拟电压控制的技术。它是通过对一系列脉冲的宽度进行调制，等效出所需要的波形（包含形状以及幅值），对模拟信号电平进行数字编码，也就是说通过调节占空比的变化来调节信号、能量等的变化，占空比就是指在一个周期内，信号处于高电平的时间占据整个信号周期的百分比，例如方波的占空比就是50%。
 
@@ -21,8 +35,9 @@ bk7258 共有两组 PWM 控制器，PWM0 与 PWM1，每个PWM控制器下有3个
 
 因此，每个 PWM 控制器有6个 channel，bk7258共支持12个 channel，对应软件中的 `PWM_ID_0` 到 `PWM_ID_11`。
 
+<a id="id1"></a>
 
-## 工作模式[](#id1 "永久链接至标题")
+## 工作模式
 
 定时器可以工作在3种模式下：
 
@@ -30,43 +45,46 @@ bk7258 共有两组 PWM 控制器，PWM0 与 PWM1，每个PWM控制器下有3个
 > 2. 互补输出模式
 > 3. 输入捕获模式
 
+<a id="id2"></a>
 
-## 功能框图[](#id2 "永久链接至标题")
+## 功能框图
 
-![PWM block diagram](../../_images/pwm_block_diagram.png)
+![PWM block diagram](../../../../_assets/c4df81d6e75309b1e7a4-pwm_block_diagram.png)
+<a id="id3"></a>
 
-
-### 时钟源[](#id3 "永久链接至标题")
+### 时钟源
 
 PWM 控制器 有两个时钟源可选：
 
-> - clk_32K
+> - clk\_32K
 > - XTAL
 
 可通过 `SYSTEM_REG0x8` 配置。
 
+<a id="psc"></a>
 
-### PSC[](#psc "永久链接至标题")
+### PSC
 
-预分频器，对输入时钟(clk_32K或XTAL)进行分频，输出CLK_CNT用来驱动计数器TIM计数。
+预分频器，对输入时钟(clk\_32K或XTAL)进行分频，输出CLK\_CNT用来驱动计数器TIM计数。
 
 PSC的设置可通过 `PWM_REG_0xE` 来配置，可实现1-256分频。
 
 例如：
 
-当我们时钟源选择XTAL=26MHz，配置PSC1=25时，计数器TIM1时钟则为1MHz，若计数器+1，则+1us。
+当我们时钟源选择XTAL\=26MHz，配置PSC1\=25时，计数器TIM1时钟则为1MHz，若计数器\+1，则\+1us。
 
+<a id="ccr"></a>
 
-### CCR[](#ccr "永久链接至标题")
+### CCR
 
-当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG_0x8寄存器中）会置位。
+当计数器CNT的值跟比较寄存器CCR的值相等时，输出参考信号OCxREF的信号的极性就会改变，并且会产生CCxI中断，相应的标志位CCxIF（REG\_0x8寄存器中）会置位。
 然后OCxREF再经过一系列的控制之后输出PWM信号。
 
 BK7258 每个TIM 对应3个 `CCR` ，即在一个周期内，信号的极性可以翻转3次，其中
 
-> - CCR1,CCR2,CCE3(REG_0x15-REG_0x17)对应TIM1
-> - CCR4,CCR5,CCE6(REG_0x18-REG_0x1a)对应TIM2
-> - CCR7,CCR8,CCE9(REG_0x1b-REG_0x1d)对应TIM3
+> - CCR1,CCR2,CCE3(REG\_0x15-REG\_0x17)对应TIM1
+> - CCR4,CCR5,CCE6(REG\_0x18-REG\_0x1a)对应TIM2
+> - CCR7,CCR8,CCE9(REG\_0x1b-REG\_0x1d)对应TIM3
 
 当用作PWM输出模式时，输出方波信号的占空比由CCR决定。
 
@@ -74,25 +92,29 @@ BK7258 每个TIM 对应3个 `CCR` ，即在一个周期内，信号的极性可�
 
 CCRx 需设置大于1的值。
 
+<a id="arr"></a>
 
-### ARR[](#arr "永久链接至标题")
+### ARR
 
-自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end_value。
+自动重载寄存器ARR用来存放与计数器CNT比较的值，可以理解为计数器计数的 end\_value。
 
 PWM输出方波信号的频率由ARR值决定。
 
+<a id="deadtime-generator"></a>
 
-### Deadtime Generator[](#deadtime-generator "永久链接至标题")
+### Deadtime Generator
 
 在生成的参考信号OCxREF的基础上，可以插入deadtime，用于生成两路互补的输出信号。
 
 死区时间的大小具体由 `REG_0x1E` 的 DTx 配置。
 
+<a id="id4"></a>
 
-## PWM 输出模式[](#id4 "永久链接至标题")
+## PWM 输出模式
 
+<a id="id5"></a>
 
-### 输出单路方波信号[](#id5 "永久链接至标题")
+### 输出单路方波信号
 
 每组 PWM 的 相邻通道只能任选1路独立输出((0,1)相邻、(2,3)相邻、(4,5)相邻)，同时输出会相互干扰
 
@@ -100,8 +122,9 @@ PWM输出方波信号的频率由ARR值决定。
 
 具体示例代码详见 `projects/example/peripherals/pwm/pwm_set_period_duty/main.c`
 
+<a id="id6"></a>
 
-### 输出互补带死区PWM[](#id6 "永久链接至标题")
+### 输出互补带死区PWM
 
 关于互补输出，可分为硬件实现的互补模式与软件互补模式：
 

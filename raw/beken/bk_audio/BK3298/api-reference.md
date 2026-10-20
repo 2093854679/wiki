@@ -1,0 +1,85 @@
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_audio/bk3298/zh_CN/latest/api-reference/index.html
+sdk_family: bk_audio
+chip: BK3298
+processor: ''
+sdk_version: latest
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
+
+<a id="api"></a>
+
+# API 参考
+
+- [概述](api-reference/api_overview.md)
+- [蓝牙应用层](api-reference/application.md)
+  - [BOOTROOM](api-reference/application/bootrom.md)
+  - [COMMON](api-reference/application/common.md)
+  - [TWS](api-reference/application/tws.md)
+- [蓝牙介面层](api-reference/btif.md)
+  - [A2DP\_IF](api-reference/btif/a2dp_if.md)
+  - [ADV\_IF](api-reference/btif/adv_if.md)
+  - [AVRCP\_IF](api-reference/btif/avrcp_if.md)
+  - [BTIF\_TYPE](api-reference/btif/btif_type.md)
+  - [CCP\_IF](api-reference/btif/ccp_if.md)
+  - [DIP\_IF](api-reference/btif/dip_if.md)
+  - [GATT\_IF](api-reference/btif/gatt_if.md)
+  - [HCI\_IF](api-reference/btif/hci_if.md)
+  - [HFP\_IF](api-reference/btif/hfp_if.md)
+  - [L2CAP\_IF](api-reference/btif/l2cap_if.md)
+  - [LESCAN\_IF](api-reference/btif/lescan_if.md)
+  - [MCP\_IF](api-reference/btif/mcp_if.md)
+  - [SPP\_IF](api-reference/btif/spp_if.md)
+- [蓝牙音频代理层](api-reference/bt_audio_proxy.md)
+  - [BT\_AUDIO\_A2DP\_CTRL](api-reference/bt_audio_proxy/bt_audio_a2dp_ctrl.md)
+  - [BT\_AUDIO\_AVRCP\_CTRL](api-reference/bt_audio_proxy/bt_audio_avrcp_ctrl.md)
+  - [BT\_AUDIO\_DSP\_CTRL](api-reference/bt_audio_proxy/bt_audio_dsp_ctrl.md)
+  - [BT\_AUDIO\_HFP\_CTRL](api-reference/bt_audio_proxy/bt_audio_hfp_ctrl.md)
+  - [BT\_AUDIO\_PROXY](api-reference/bt_audio_proxy/bt_audio_proxy.md)
+- [中间件层](api-reference/component.md)
+  - [BUTTON](api-reference/component/bk_button.md)
+  - [CHARGER](api-reference/component/bk_charger.md)
+  - [CPU\_FREQ](api-reference/component/cpu_freq.md)
+  - [DLP](api-reference/component/bk_dlp.md)
+  - [DMA2D](api-reference/component/bk_dma2d.md)
+  - [FLASH](api-reference/component/bk_flash.md)
+  - [I2C](api-reference/component/bk_i2c.md)
+  - [JPEG\_DEC\_HW](api-reference/component/bk_jpeg_dec_hw.md)
+  - [JPEG\_DEC\_SW](api-reference/component/bk_jpeg_dec_sw.md)
+  - [MBOX](api-reference/component/bk_mbox.md)
+  - [SADC](api-reference/component/bk_sadc.md)
+  - [SPI](api-reference/component/bk_spi.md)
+  - [TEMPERATURE](api-reference/component/bk_temperature.md)
+  - [TIMER](api-reference/component/bk_timer.md)
+  - [UART](api-reference/component/bk_uart.md)
+  - [SDCARD](api-reference/component/bk_sdcard.md)
+- [驱动层](api-reference/driver.md)
+  - [CLOCK](api-reference/driver/drv_clock.md)
+  - [PMU](api-reference/driver/drv_pmu.md)
+  - [BK24](api-reference/driver/drv_bk24.md)
+  - [DMA](api-reference/driver/drv_dma.md)
+  - [EFUSE](api-reference/driver/drv_efuse.md)
+  - [GPIO](api-reference/driver/drv_gpio.md)
+  - [UART](api-reference/driver/drv_uart.md)
+  - [DLP](api-reference/driver/drv_dlp.md)
+  - [PWM](api-reference/driver/drv_pwm.md)
+  - [FLASHC](api-reference/driver/drv_flashc.md)
+  - [SPI](api-reference/driver/drv_spi.md)
+  - [QSPI](api-reference/driver/drv_qspi.md)
+  - [I2C](api-reference/driver/drv_i2c.md)
+  - [I2S](api-reference/driver/drv_i2s.md)
+  - [TIMER](api-reference/driver/drv_timer.md)
+  - [WDT](api-reference/driver/drv_wdt.md)
+  - [SPDIF](api-reference/driver/drv_spdif.md)
+  - [SADC](api-reference/driver/drv_sadc.md)
+  - [SDIO](api-reference/driver/drv_sdio.md)
+  - [RTC](api-reference/driver/drv_rtc.md)
+  - [DMA2D](api-reference/driver/drv_dma2d.md)
+  - [SCALE](api-reference/driver/drv_scale.md)
+  - [ROTT](api-reference/driver/drv_rott.md)
+  - [JPEG\_DEC](api-reference/driver/drv_jpeg_dec.md)
+- [系统](api-reference/system.md)
+  - [操作系统](api-reference/system/os.md)

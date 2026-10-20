@@ -1,40 +1,60 @@
-# lvgl和camera图像切换显示工程[](#lvglcamera "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/lvgl/camera/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="lvglcamera"></a>
 
+# lvgl和camera图像切换显示工程
 
-## 1. 简介[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 简介
 
 本工程是基于lvgl实现的一个二维码生成应用ui，并支持动态切换显示camera图像视频流和lvgl ui。
 
+<a id="id2"></a>
 
-### 1.1 规格[](#id2 "永久链接至标题")
+### 1.1 规格
 
 > - 硬件配置：
->   :   - 核心板，**BK7258_QFN88_9X9_V3.2**
->       - 屏幕转接板，**BEKEN_LCD_V3**
+>   :   - 核心板，**BK7258\_QFN88\_9X9\_V3.2**
+>       - 屏幕转接板，**BEKEN\_LCD\_V3**
 >       - PSRAM 8M/16M
->       - 屏幕，**ST7701SN**，480 * 854 RGB LCD
+>       - 屏幕，**ST7701SN**，480 \* 854 RGB LCD
 
+<a id="id3"></a>
 
-### 1.2 路径[](#id3 "永久链接至标题")
+### 1.2 路径
 
 > 工程路径: `<bk_avdk源代码路径>/project/lvgl/camera`
 
+<a id="id4"></a>
 
-## 2. 框架图[](#id4 "永久链接至标题")
+## 2\. 框架图
 
+<a id="id5"></a>
 
-### 2.1 软件模块架构图[](#id5 "永久链接至标题")
+### 2.1 软件模块架构图
 
-软件模块架构图见：[图形用户界面](../../../gui/lvgl/index.md "../../../gui/lvgl/index.md") 中的lvgl framework图。
+软件模块架构图见：[图形用户界面](../../gui/lvgl.md) 中的lvgl framework图。
 
+<a id="id7"></a>
 
-### 2.2 代码模块关系图[](#id7 "永久链接至标题")
+### 2.2 代码模块关系图
 
-LVGL的接口都定义在 **lv_vendor.h** 和 **lvgl.h** 中。
+LVGL的接口都定义在 **lv\_vendor.h** 和 **lvgl.h** 中。
 
+<a id="id8"></a>
 
-## 3. 演示说明[](#id8 "永久链接至标题")
+## 3\. 演示说明
 
 > > 烧录上电后lvgl ui会自动启动运行，LCD默认会显示一个二维码静态页面，然后可按照以下方法进行切换测试：
 >
@@ -47,9 +67,9 @@ LVGL的接口都定义在 **lv_vendor.h** 和 **lvgl.h** 中。
 
 该工程可不使用手机IoT软件进行测试，直接输入 `media uvc open 864X480` 命令打开摄像头，接着再输入对应的切换命令。
 
+<a id="id9"></a>
 
-## 4. 代码讲解[](#id9 "永久链接至标题")
-
+## 4\. 代码讲解
 
 ```
 void lvcamera_main_init(void)
@@ -125,7 +145,6 @@ void lvcamera_close(void)
 
     lvcam_is_open = false;
 }
-
 ```
 
 备注

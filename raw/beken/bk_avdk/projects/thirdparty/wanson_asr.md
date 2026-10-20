@@ -1,17 +1,32 @@
-# 华镇语音识别工程[](#id1 "永久链接至标题")
+---
+type: official-document
+source_url: https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/zh_CN/v2.0.1/projects/thirdparty/wanson_asr/index.html
+sdk_family: bk_avdk
+chip: BK7258
+processor: ''
+sdk_version: v2.0.1
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
+---
 
+<a id="id1"></a>
 
+# 华镇语音识别工程
 
-## 1. 简介[](#id2 "永久链接至标题")
+<a id="id2"></a>
+
+## 1\. 简介
 
 本工程是本地语音识别的一个demo，基于第三方公司 `华镇` 提供的本地语音识别库，实现本地离线语音唤醒词和命令词识别功能。
 
+<a id="id3"></a>
 
-### 1.1 规格[](#id3 "永久链接至标题")
+### 1.1 规格
 
 > - 硬件配置：
->   :   - 核心板，**BK7258_QFN88_9X9_V3.2**
->       - 麦克小板，**BK_Module_Microphone_V1.1**
+>   :   - 核心板，**BK7258\_QFN88\_9X9\_V3.2**
+>       - 麦克小板，**BK\_Module\_Microphone\_V1.1**
 >       - PSRAM 8M/16M
 > - 支持的唤醒词
 >   :   - `小蜂管家`
@@ -24,15 +39,13 @@
 
 警告
 
-
 - 1、华镇语音识别库要求音频流格式为：单声道、16K采样率、16bit位宽。
-
 - 2、华镇语音识别库基于浮点运算。
-
 - 3、当修改唤醒词或命令词后，需要替换 `libasr.a` 库。
 
+<a id="id4"></a>
 
-### 1.2 路径[](#id4 "永久链接至标题")
+### 1.2 路径
 
 > 工程路径: `<bk_avdk源代码路径>/thirdparty/wanson_asr`
 >
@@ -44,49 +57,58 @@
 >
 > project编译指令: `make bk7258 PROJECT=thirdparty/wanson_asr`
 
+<a id="id5"></a>
 
-## 2. 框架图[](#id5 "永久链接至标题")
+## 2\. 框架图
 
+<a id="id6"></a>
 
-### 2.1 软件模块架构图[](#id6 "永久链接至标题")
+### 2.1 软件模块架构图
 
 > bk7258的CPU1拥有更高的主频和性能，可以确保运行语音识别算法的效率更高。
 > :   所以如下图所示，整个语音识别应用都运行在 `cpu1` 上。
 
-![module architecture Overview](../_images/wanson_asr_arch.png)
-
-Figure 1. software module architecture
-wanson_asr software module architecture[](#id18 "永久链接至图片")
-
-> - 方案中，我们采用pipeline方式来采集获取mic数据，然后送给wanson_asr算法进行实时语音识别。
+<a id="id18"></a>
+![module architecture Overview](../../../_assets/590f3b877fc3dc9f7c38-wanson_asr_arch.png)
 
 
-### 2.2 代码模块关系图[](#id7 "永久链接至标题")
+Figure 1\. software module architecture
+wanson\_asr software module architecture
 
-> 如下图所示，方案使用的onboard_mic_stream、raw_stream和audio_pipeline模块接口分别定义在 `onboard_mic_stream.h` ，`raw_stream.h` 和 `audio_pipeline.h` 中。
+> - 方案中，我们采用pipeline方式来采集获取mic数据，然后送给wanson\_asr算法进行实时语音识别。
 
-![relationship diagram Overview](../_images/wanson_asr_sw_relationship_diag.png)
+<a id="id7"></a>
 
-Figure 1. module relationship diagram[](#id19 "永久链接至图片")
+### 2.2 代码模块关系图
 
-wanson_asr module relationship diagram
+> 如下图所示，方案使用的onboard\_mic\_stream、raw\_stream和audio\_pipeline模块接口分别定义在 `onboard_mic_stream.h` ，`raw_stream.h` 和 `audio_pipeline.h` 中。
+
+<a id="id19"></a>
+![relationship diagram Overview](../../../_assets/98a15016c5f41dda6ad1-wanson_asr_sw_relationship_diag.png)
 
 
-## 3. 配置[](#id8 "永久链接至标题")
+Figure 1\. module relationship diagram
+
+wanson\_asr module relationship diagram
+
+<a id="id8"></a>
+
+## 3\. 配置
 
 > > 板载mic采样基于audio pipeline实现，因此需要在 `cpu1` 上打开以下配置:
 >
 > | Kconfig | CPU | Format | Value |
 > | --- | --- | --- | --- |
-> | CONFIG_FREERTOS_USE_QUEUE_SETS | CPU0 && CPU1 | bool | y |
-> | CONFIG_ASDF | CPU0 && CPU1 | bool | y |
-> | CONFIG_ASDF_WORK_CPU1 | CPU0 && CPU1 | bool | y |
-> | CONFIG_ASDF_ONBOARD_MIC_STREAM | CPU1 | bool | y |
-> | CONFIG_ASDF_RAW_STREAM | CPU1 | bool | y |
-> | CONFIG_WANSON_ASR | CPU1 | bool | y |
+> | CONFIG\_FREERTOS\_USE\_QUEUE\_SETS | CPU0 \&\& CPU1 | bool | y |
+> | CONFIG\_ASDF | CPU0 \&\& CPU1 | bool | y |
+> | CONFIG\_ASDF\_WORK\_CPU1 | CPU0 \&\& CPU1 | bool | y |
+> | CONFIG\_ASDF\_ONBOARD\_MIC\_STREAM | CPU1 | bool | y |
+> | CONFIG\_ASDF\_RAW\_STREAM | CPU1 | bool | y |
+> | CONFIG\_WANSON\_ASR | CPU1 | bool | y |
 
+<a id="id9"></a>
 
-## 4. 演示说明[](#id9 "永久链接至标题")
+## 4\. 演示说明
 
 > > 烧录固件后，设备上电就会运行实时语音识别功能，对着mic说唤醒词和命令词，识别成功会在uart中打印相应的log。
 > > 唤醒词和命令词对应的log打印如下：
@@ -100,19 +122,21 @@ wanson_asr module relationship diagram
 > | `离开模式` | `li kai mo shi` |
 > | `回家模式` | `hui jia mo shi` |
 
+<a id="id10"></a>
 
-## 5. 代码讲解[](#id10 "永久链接至标题")
+## 5\. 代码讲解
 
+<a id="mic"></a>
 
-### 5.1 mic采样[](#mic "永久链接至标题")
+### 5.1 mic采样
 
+<a id="id11"></a>
 
-#### 5.1.1 打开mic采样[](#id11 "永久链接至标题")
-
+#### 5.1.1 打开mic采样
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 static bk_err_t record_pipeline_open(void)
 {
@@ -138,16 +162,15 @@ static bk_err_t record_pipeline_open(void)
 
     ...
 }
-
 ```
 
+<a id="id12"></a>
 
-#### 5.1.2 关闭mic采样[](#id12 "永久链接至标题")
-
+#### 5.1.2 关闭mic采样
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 static bk_err_t record_pipeline_close(void)
 {
@@ -173,19 +196,19 @@ static bk_err_t record_pipeline_close(void)
 
     ...
 }
-
 ```
 
+<a id="wanson"></a>
 
-### 5.2 wanson语音识别[](#wanson "永久链接至标题")
+### 5.2 wanson语音识别
 
+<a id="id13"></a>
 
-#### 5.2.1 初始化语音识别[](#id13 "永久链接至标题")
-
+#### 5.2.1 初始化语音识别
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 bk_err_t wanson_asr_init(void)
 {
@@ -201,16 +224,15 @@ bk_err_t wanson_asr_init(void)
     ...
 
 }
-
 ```
 
+<a id="id14"></a>
 
-#### 5.2.2 退出语音识别[](#id14 "永久链接至标题")
-
+#### 5.2.2 退出语音识别
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 bk_err_t wanson_asr_deinit(void)
 {
@@ -226,16 +248,15 @@ bk_err_t wanson_asr_deinit(void)
     ...
 
 }
-
 ```
 
+<a id="id15"></a>
 
-#### 5.2.3 启动语音识别[](#id15 "永久链接至标题")
-
+#### 5.2.3 启动语音识别
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 bk_err_t wanson_asr_start(void)
 {
@@ -248,16 +269,15 @@ bk_err_t wanson_asr_start(void)
     ...
 
 }
-
 ```
 
+<a id="id16"></a>
 
-#### 5.2.4 停止语音识别[](#id16 "永久链接至标题")
-
+#### 5.2.4 停止语音识别
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 bk_err_t wanson_asr_stop(void)
 {
@@ -273,16 +293,15 @@ bk_err_t wanson_asr_stop(void)
     ...
 
 }
-
 ```
 
+<a id="task"></a>
 
-### 5.3 语音识别task识别流程[](#task "永久链接至标题")
-
+### 5.3 语音识别task识别流程
 
 ```
 //Path      ： projects/thirdparty/wanson_asr/main/wanson_asr.c
-//Loaction  :  CPU1
+//Location  :  CPU1
 
 static void wanson_asr_task_main(beken_thread_arg_t param_data)
 {
@@ -318,18 +337,18 @@ wanson_asr_exit:
 
     ...
 }
-
 ```
 
+<a id="id17"></a>
 
-## 6. 上海华镇电子科技有限公司[](#id17 "永久链接至标题")
+## 6\. 上海华镇电子科技有限公司
 
-> 官网：[http://www.wanson.cn/](http://www.wanson.cn/ "http://www.wanson.cn/")
+> 官网：<http://www.wanson.cn/>
 >
 > 总部地址：上海闵行区申旺路789号慧高光创园307-308室
-> | 深圳办地址：深圳市宝安区西乡汇一城壹中心1A栋东座2215-16
+> \| 深圳办地址：深圳市宝安区西乡汇一城壹中心1A栋东座2215-16
 >
 > 电话：021-61557858
 >
 > 手机：13524859176
-> | 13296017858
+> \| 13296017858

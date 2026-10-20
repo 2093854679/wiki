@@ -1,36 +1,49 @@
 ---
-aliases:
-- 'BK7256 › examples › cs2_p2p'
+type: official-document
+source_url: https://docs.bekencorp.com/armino/bk7256/zh_CN/v1.5/examples/cs2_p2p/index.html
+sdk_family: bk_idk
+chip: BK7256
+processor: ''
+sdk_version: v1.5
+language: zh_CN
+fetched_at: '2026-10-20T16:59:36.586772+00:00'
+mirror_status: current
 ---
-# CS2(尚云)P2P demo[](#cs2-p2p-demo "永久链接至标题")
 
+<a id="cs2-p2p-demo"></a>
 
+# CS2(尚云)P2P demo
 
-## 1. 功能概述[](#id1 "永久链接至标题")
+<a id="id1"></a>
+
+## 1\. 功能概述
 
 > 基于CS2(尚云)云服务平台，实现双板语音对传和图像单传。
 
+<a id="id2"></a>
 
-## 2. 代码路径[](#id2 "永久链接至标题")
+## 2\. 代码路径
 
 > - client demo: `components/demos/media/doorbell/src/doorbell_cs2_p2p_client.c`
 > - server demo: `components/demos/media/doorbell/src/doorbell_cs2_p2p_server.c`
 > - 中间组件: `components/demos/net/p2p/cs2`
 > - cs2 api及库: `components/bk_thirdparty/P2P/CS2`
 
+<a id="id3"></a>
 
-## 3. 编译命令[](#id3 "永久链接至标题")
+## 3\. 编译命令
 
 > - server: `make bk7256 PROJECT=thirdparty/p2p_server`
 > - client: `make bk7256 PROJECT=thirdparty/p2p_client`
 
+<a id="server"></a>
 
-## 4. server测试命令[](#server "永久链接至标题")
+## 4\. server测试命令
 
 > - 功能说明
 >   :   将当前设备作为CS2(深圳市尚云互联技术有限公司 www.cs2-network.cn)server端，接收client的摄像头、音频数据并播放和LCD显示，也会将本端的音频数据传给对端。
 > - 命令格式
->   :   doorbell cs2_p2p_server <camera resolution> <LCD resolution> <LCD name> <transfer type> <DID> <APILicense[:CRCKey]> <InitString>
+>   :   doorbell cs2\_p2p\_server \<camera resolution\> \<LCD resolution\> \<LCD name\> \<transfer type\> \<DID\> \<APILicense\[:CRCKey\]\> \<InitString\>
 >
 >       |  |  |
 >       | --- | --- |
@@ -39,7 +52,7 @@ aliases:
 >       | LCD name | LCD display name  “hx8282”, “md0430r”, “md0700r”, “nt35510”, “nt35512”, etc |
 >       | transfer type | 接收、传输数据类型 1:视频 2:音频 3:视音频 |
 >       | DID | 设备DID，需要向CS2申请 |
->       | APILicense[:CRCKey] | APILicense，需要向CS2申请 CRCKey，如果CS2有提供，则必须输入 |
+>       | APILicense\[:CRCKey\] | APILicense，需要向CS2申请 CRCKey，如果CS2有提供，则必须输入 |
 >       | InitString | InitString，CS2服务器地址，需要CS2提供 |
 > - 测试用例
 >   :   仅测试摄像头显示屏640X480 `doorbell cs2_p2p_server 0 0 st7282 1 XXXXXXX-123456-XXXXX APILicense:CRCKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
@@ -48,13 +61,14 @@ aliases:
 >
 >       测试摄像头显示屏640X480及音频，不带CRCKey `doorbell cs2_p2p_server 0 0 st7282 3 XXXXXXX-123456-XXXXX APILicense XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
+<a id="client"></a>
 
-## 5. client测试命令[](#client "永久链接至标题")
+## 5\. client测试命令
 
 > - 功能说明
 >   :   将当前设备作为CS2(深圳市尚云互联技术有限公司 www.cs2-network.cn)client端，接收server的音频数据并播放，也会将本端的视音频数据传给对端。
 > - 命令格式
->   :   doorbell cs2_p2p_client <camera type> <camera resolution> <LCD resolution> <LCD name> <transfer type> <DID> <APILicense[:CRCKey]> <InitString>
+>   :   doorbell cs2\_p2p\_client \<camera type\> \<camera resolution\> \<LCD resolution\> \<LCD name\> \<transfer type\> \<DID\> \<APILicense\[:CRCKey\]\> \<InitString\>
 >
 >       |  |  |
 >       | --- | --- |
@@ -64,7 +78,7 @@ aliases:
 >       | LCD name | LCD display name  “hx8282”, “md0430r”, “md0700r”, “nt35510”, “nt35512”, etc |
 >       | transfer type | 接收、传输数据类型 1:视频 2:音频 3:视音频 |
 >       | DID | 设备DID，需要向CS2申请 |
->       | APILicense[:CRCKey] | APILicense，需要向CS2申请 CRCKey，如果CS2有提供，则必须输入 |
+>       | APILicense\[:CRCKey\] | APILicense，需要向CS2申请 CRCKey，如果CS2有提供，则必须输入 |
 >       | InitString | InitString，CS2服务器地址，需要CS2提供 |
 > - 测试用例
 >   :   仅测试摄像头显示屏640X480 `doorbell cs2_p2p_client uvc 0 0 st7282 1 XXXXXXX-123456-XXXXX APILicense:CRCKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
@@ -73,25 +87,28 @@ aliases:
 >
 >       测试摄像头显示屏640X480及音频，不带CRCKey `doorbell uvc cs2_p2p_client 0 0 st7282 3 XXXXXXX-123456-XXXXX APILicense XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
+<a id="id4"></a>
 
-## 6. 注意[](#id4 "永久链接至标题")
+## 6\. 注意
 
 > server client目前为不同的库，不能同时开启。
 
+<a id="id"></a>
 
-## 7. 如何获得测试ID[](#id "永久链接至标题")
+## 7\. 如何获得测试ID
 
 > 需要向尚云互联申请
 
+<a id="id5"></a>
 
-## 8. 深圳市尚云互联技术有限公司[](#id5 "永久链接至标题")
+## 8\. 深圳市尚云互联技术有限公司
 
 > www.cs2-network.com
 >
 > 深圳市龙岗区坂田街道雪岗北路天安云谷3栋D座2002B
 >
-> +86 755 36600360
+> \+86 755 36600360
 >
-> +86 755 36600361
+> \+86 755 36600361
 >
-> [charlie@cs2-network.com](mailto:charlie%40cs2-network.com "mailto:charlie%40cs2-network.com")
+> [charlie@cs2-network.com](mailto:charlie%40cs2-network.com)
