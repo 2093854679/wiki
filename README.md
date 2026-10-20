@@ -42,6 +42,49 @@ tools/
   web2md/scripts/             网页抓取和清理脚本
 ```
 
+## 如何交给 AI 使用
+
+### 能读取文件、执行命令的 AI
+
+让 AI 打开仓库根目录，即包含 `AGENTS.md`、`kb.py`、`raw/` 和 `wiki/` 的目录。本机示例为 `D:/Desktop/obsidian`。
+将下面提示词中的 `<知识库根目录>` 替换为实际路径，再发给 AI：
+
+```text
+请将 <知识库根目录> 作为参考知识库，命令从仓库根目录执行。
+
+先阅读 AGENTS.md 和 wiki/AI-SEARCH.md，遵守其中的维护与检索规则。
+
+回答问题前：
+1. 使用 python kb.py context "问题" --json-output 检索资料。
+2. 已知芯片、SDK 家族、版本、AP/CP 时，加对应筛选。
+3. 涉及 API 参数和返回值，用 python kb.py read 核对匹配原文。
+4. 回答时注明来源文件和行号，保留可用的官网链接。
+5. 证据不足就明确说明，不换用其他芯片、版本或处理器的资料。
+
+我的问题是：[填写你的问题]
+```
+
+### 其他电脑或云端环境
+
+把仓库地址 `https://github.com/2093854679/wiki` 交给 AI，并要求它：
+
+1. 按[克隆完整知识库](#克隆完整知识库)中的步骤获取仓库，包含 SMP 子模块；运行环境需要主仓库及子仓库的访问权限。
+2. 从仓库根目录安装依赖：`python -m pip install -r requirements.txt`。
+3. 运行 `python kb.py index` 建立本地检索索引。
+4. 使用上面的提示词，并将知识库路径改为克隆后的实际目录。
+
+索引缓存不随 Git 提交，新环境需要重新建立。`search`、`context`、`read` 无需配置 LLM API 密钥。
+
+### 只能聊天的 AI
+
+先在本地从仓库根目录检索，例如：
+
+```powershell
+python kb.py context "BK7236 串口初始化" --chip BK7236 --json-output
+```
+
+将输出的 JSON 与问题一起交给 AI，要求它依据证据回答，并引用文件路径和行号。问题或目标芯片变化时，重新检索相应资料；API 细节需要时再用 `read` 补充原文。
+
 ## AI 检索方式
 
 从仓库根目录运行；在 `wiki/` 中把 `python kb.py` 换成 `python ../kb.py`。
